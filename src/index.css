@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .aspect-slide {
+        aspect-ratio: 16 / 9;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Protect KaTeX math from inheriting text-transform: uppercase */
+.katex {
+  text-transform: none !important;
+}
+
+/* LaTeX Table Dark Mode support */
+.latex-table {
+  @apply transition-colors duration-300;
+}
+
+.latex-td {
+  @apply transition-colors duration-300;
+}
+
+.dark .latex-table {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .latex-td {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* TikZ Dark Mode Inversion */
+/* Applying to the container DIV but specifically targeting SVGs */
+.tikz-dark-invert {
+  filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
+  transition: filter 0.3s ease;
+  background-color: transparent !important;
+}
+
+.tikz-dark-invert svg, .tikz-dark-invert iframe {
+  background-color: transparent !important;
+}
+
+/* Fallback for when SVG is directly in the container */
+.tikz-dark-invert {
+  transition: filter 0.3s ease;
+}
+
+/* Ensure display math is readable */
+.dark .katex-display {
+  color: #fff;
+}
+
+.dark .katex {
+  color: inherit;
+}
+
+/* Additional table fixes for dark mode */
+.dark td.latex-td {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent !important;
+}
+
+.dark table.latex-table {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent !important;
+}
+
+@media print {
+    body, html, #root {
+        height: auto !important;
+        overflow: visible !important;
+        background-color: white !important;
+    }
+
+    .print-view {
+        overflow: visible !important;
+    }
+
+    .print-page {
+        page-break-after: always;
+        break-after: page;
+        border: none !important;
+    }
+
+    /* Hide everything else */
+    #root > div:not(.print-view) {
+        display: none !important;
+    }
+
+    /* Annotation canvas fix for print */
+    .print-page canvas {
+        display: block !important;
+    }
+}
