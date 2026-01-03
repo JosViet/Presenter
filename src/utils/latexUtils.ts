@@ -237,3 +237,33 @@ export const parseSemantics = (text: string): (string | SemanticPart)[] => {
     }
     return parts;
 };
+
+export const cleanItemContent = (itemStr: string): string => {
+    let str = itemStr.trim();
+    if (str.startsWith('\\item')) {
+        str = str.substring(5).trim();
+    }
+
+    if (str.startsWith('[')) {
+        let depth = 1;
+        let i = 1;
+        while (i < str.length && depth > 0) {
+            // Simple skip for escaped characters
+            if (str[i] === '\\' && i + 1 < str.length) {
+                i += 2;
+                continue;
+            }
+
+            if (str[i] === '[') depth++;
+            else if (str[i] === ']') depth--;
+            i++;
+        }
+
+        // If balanced, strip the option
+        if (depth === 0) {
+            return str.substring(i).trim();
+        }
+    }
+
+    return str;
+};
