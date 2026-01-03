@@ -372,11 +372,9 @@ export const cleanTexTokens = (text: string) => {
 
     // Layout Commands
     clean = clean.replace(/\\allowdisplaybreaks/g, '');
-    clean = clean.replace(/\\hspace\{(.*?)\}/g, '<span style="display:inline-block; width:$1"></span>');
     clean = clean.replace(/\\quad/g, '\\hspace{2em}').replace(/\\qquad/g, '\\hspace{4em}');
 
     // NEW CUSTOM COMMANDS
-    clean = clean.replace(/\\indam\{(.*?)\}/g, '<b>$1</b>');
     clean = clean.replace(/\\iconMT/g, '✨'); // Replace icon with generic spark/icon
     clean = clean.replace(/\\dots/g, '…'); // Ellipsis
     clean = clean.replace(/\\noindent/g, ''); // Remove noindent
@@ -396,9 +394,6 @@ export const cleanTexTokens = (text: string) => {
     clean = processHoac(clean);
 
     // 4. Standard Cleanups
-    // clean = clean.replace(/\\(text|mbox|mathrm)\{([^\}]+)\}/g, ' \\text{$2} ');
-    clean = clean.replace(/\\text\{([^\}]+)\}/g, '$1');
-
     clean = unwrapCommand(clean, '\\centerline');
 
     // Remove \parbox[...]{...}{...} - usually used for spacing in tables
@@ -423,16 +418,17 @@ export const cleanTexTokens = (text: string) => {
     // cleanTexTokens is usually called on content *inside* the wrapper.
     // But if we have nested textrm or something, we handle it.
 
-    clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center flex flex-col items-center">').replace(/\\end\{center\}/g, '</div>');
-
     // Quotes
     clean = clean.replace(/\\lq\\lq/g, '“').replace(/\\rq\\rq/g, '”');
     clean = clean.replace(/\\lq/g, '“').replace(/\\rq/g, '”');
 
-    // Formatting
-    clean = clean.replace(/\\textbf\{(.*?)\}/g, '<b>$1</b>');
-    clean = clean.replace(/\\textit\{(.*?)\}/g, '<i>$1</i>');
-    clean = clean.replace(/\\underline\{(.*?)\}/g, '<u>$1</u>');
+    // Formatting - Removed unsafe regex replacements
+    // Left for LatexRenderer/KaTeX to handle
+
+    // Restore TikZ
+    tikzBlocks.forEach((block, idx) => {
+        clean = clean.replace(`__TIKZ_PLACEHOLDER_${idx}__`, block);
+    });
 
     // Restore TikZ
     tikzBlocks.forEach((block, idx) => {
