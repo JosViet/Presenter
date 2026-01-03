@@ -4,12 +4,46 @@ import katex from 'katex';
  * Render LaTeX math content to HTML using KaTeX
  * Handles inline ($...$), display ($$...$$ and \[...\]), and text content
  */
+// FontAwesome Macros
+const FA_MACROS: Record<string, string> = {
+    "\\faLeaf": "\\htmlClass{fas fa-leaf text-green-600}{}",
+    "\\faLemonO": "\\htmlClass{far fa-lemon text-yellow-500}{}",
+    "\\faPlane": "\\htmlClass{fas fa-plane text-blue-500}{}",
+    "\\faShip": "\\htmlClass{fas fa-ship text-blue-700}{}",
+    "\\faExclamationTriangle": "\\htmlClass{fas fa-exclamation-triangle text-amber-500}{}",
+    "\\faCar": "\\htmlClass{fas fa-car text-red-500}{}",
+    "\\faBus": "\\htmlClass{fas fa-bus text-yellow-600}{}",
+    "\\faHome": "\\htmlClass{fas fa-home text-indigo-600}{}",
+    "\\faInstitution": "\\htmlClass{fas fa-university text-gray-600}{}",
+    "\\faStreetView": "\\htmlClass{fas fa-street-view text-teal-600}{}",
+    "\\faCaretRight": "\\htmlClass{fas fa-caret-right text-gray-400}{}"
+};
+
+const replaceTextIcons = (text: string): string => {
+    let clean = text;
+    clean = clean.replace(/\\faLeaf/g, '<i class="fas fa-leaf text-green-600"></i>');
+    clean = clean.replace(/\\faLemonO/g, '<i class="far fa-lemon text-yellow-500"></i>');
+    clean = clean.replace(/\\faPlane/g, '<i class="fas fa-plane text-blue-500"></i>');
+    clean = clean.replace(/\\faShip/g, '<i class="fas fa-ship text-blue-700"></i>');
+    clean = clean.replace(/\\faExclamationTriangle/g, '<i class="fas fa-exclamation-triangle text-amber-500"></i>');
+    clean = clean.replace(/\\faCar/g, '<i class="fas fa-car text-red-500"></i>');
+    clean = clean.replace(/\\faBus/g, '<i class="fas fa-bus text-yellow-600"></i>');
+    clean = clean.replace(/\\faHome/g, '<i class="fas fa-home text-indigo-600"></i>');
+    clean = clean.replace(/\\faInstitution/g, '<i class="fas fa-university text-gray-600"></i>');
+    clean = clean.replace(/\\faStreetView/g, '<i class="fas fa-street-view text-teal-600"></i>');
+    clean = clean.replace(/\\faCaretRight/g, '<i class="fas fa-caret-right text-gray-400"></i>');
+    return clean;
+};
+
 export const renderMath = (text: string, macros: Record<string, string> = {}): string => {
+    // Merge FA macros
+    const combinedMacros = { ...FA_MACROS, ...macros };
+
     // Handle spacing commands
     let processedText = text
         .replace(/\\,/g, '\\hspace{0.17em}')  // thin space (3/18 em)
         .replace(/\\;/g, '\\hspace{0.28em}')  // medium space (5/18 em)
-        .replace(/\\!/g, '')                   // negative thin space (remove for simplicity)
+        .replace(/\\!/g, '')                   // negative thin space
         .replace(/\\quad/g, '\\hspace{1em}')
         .replace(/\\qquad/g, '\\hspace{2em}');
 
@@ -27,14 +61,22 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
     const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$(?:\\.|[^\$])+\$)/g;
 
     return processedText.split(regex).map((chunk) => {
-        if (chunk.startsWith('$$') || chunk.startsWith('\\[')) {
+        const isMath = chunk.startsWith('$') || chunk.startsWith('\\[');
+        if (isMath) {
+            const displayMode = chunk.startsWith('$$') || chunk.startsWith('\\[');
+            const math = displayMode
+                ? (chunk.startsWith('$$') ? chunk.slice(2, -2) : chunk.slice(2, -2)).trim()
+                : chunk.slice(1, -1).trim();
+
             try {
-                const math = (chunk.startsWith('$$') ? chunk.slice(2, -2) : chunk.slice(2, -2)).trim();
-                return `<div class="my-4 overflow-x-auto">${katex.renderToString(math, { displayMode: true, throwOnError: false, macros })}</div>`;
-            } catch (e) { return chunk; }
-        } else if (chunk.startsWith('$')) {
-            try {
-                return katex.renderToString(chunk.slice(1, -1), { displayMode: false, throwOnError: false, macros });
+                const html = katex.renderToString(math, {
+                    displayMode,
+                    throwOnError: false,
+                    macros: combinedMacros,
+                    trust: true, // Enable HTML in macros
+                    strict: false
+                });
+                return displayMode ? `<div class="my-4 overflow-x-auto">${html}</div>` : html;
             } catch (e) { return chunk; }
         } else {
             let clean = chunk;
@@ -42,18 +84,7 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\newline/g, '<br/>');
             clean = clean.replace(/\\hspace\{(.*?)\}/g, '<span style="display:inline-block; width:$1"></span>');
 
-            // FontAwesome Icons
-            clean = clean.replace(/\\faLeaf/g, '<i class="fas fa-leaf text-green-600"></i>');
-            clean = clean.replace(/\\faLemonO/g, '<i class="far fa-lemon text-yellow-500"></i>');
-            clean = clean.replace(/\\faPlane/g, '<i class="fas fa-plane text-blue-500"></i>');
-            clean = clean.replace(/\\faShip/g, '<i class="fas fa-ship text-blue-700"></i>');
-            clean = clean.replace(/\\faExclamationTriangle/g, '<i class="fas fa-exclamation-triangle text-amber-500"></i>');
-            clean = clean.replace(/\\faCar/g, '<i class="fas fa-car text-red-500"></i>');
-            clean = clean.replace(/\\faBus/g, '<i class="fas fa-bus text-yellow-600"></i>');
-            clean = clean.replace(/\\faHome/g, '<i class="fas fa-home text-indigo-600"></i>');
-            clean = clean.replace(/\\faInstitution/g, '<i class="fas fa-university text-gray-600"></i>');
-            clean = clean.replace(/\\faStreetView/g, '<i class="fas fa-street-view text-teal-600"></i>');
-            clean = clean.replace(/\\faCaretRight/g, '<i class="fas fa-caret-right text-gray-400"></i>');
+            clean = replaceTextIcons(clean);
 
             clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center">');
             clean = clean.replace(/\\end\{center\}/g, '</div>');
