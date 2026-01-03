@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { parseTexFile } from '../services/parser_presenter';
 import { QuestionNode } from '../shared/types';
 import { sounds } from '../utils/sound';
@@ -73,20 +73,53 @@ export function useSlides() {
                     loadTexFile(ref, true);
                 });
 
-                if (!silent) {
-                    setCurrentIdx(0);
-                    setShowResult(false);
-                    setShowSolution(false);
-                    setUserSelections({});
+                if (!silent || (ref.path && localStorage.getItem('presenter_tex_path') === ref.path)) {
+                    // Restore saved index if reloading same file (even if silent)
+                    const savedIdx = parseInt(localStorage.getItem('presenter_slide_idx') || '0');
+                    const savedFile = localStorage.getItem('presenter_tex_path');
+                    const currentPath = ref.path || ref.name;
+
+                    if (savedFile === currentPath) {
+                        setCurrentIdx(savedIdx);
+                    } else if (!silent) {
+                        setCurrentIdx(0);
+                    }
+
+                    if (!silent) {
+                        setShowResult(false);
+                        setShowSolution(false);
+                        setUserSelections({});
+                    }
                 }
             } else if (!silent) {
                 alert('Không tìm thấy câu hỏi nào trong file này!');
             }
         } catch (error) {
             console.error("Error loading TeX file:", error);
+            // Don't alert if silent (auto-load)
             if (!silent) alert('Lỗi khi đọc file TeX!');
         }
-    }, []);
+    }, [questions]);
+
+    // Persistence Effect
+    useEffect(() => {
+        if (texPath) {
+            localStorage.setItem('presenter_tex_path', texPath);
+            localStorage.setItem('presenter_slide_idx', currentIdx.toString());
+        }
+    }, [texPath, currentIdx]);
+
+    // Auto-load last file on mount (if available)
+    useEffect(() => {
+        const lastFile = localStorage.getItem('presenter_tex_path');
+        if (lastFile && !fileRef && questions.length === 0) {
+            // Attempt auto-reload silent
+            // We assume FileSystemService can handle string path (Electron mode)
+            // For Web mode, this might fail or we need to persist file handle (indexedDB)
+            // But user context implies Electron/Local.
+            loadTexFile(lastFile, true);
+        }
+    }, []); // Run once on mount
 
     const handleOpenFile = useCallback(async () => {
         sounds.playClick();

@@ -1,9 +1,65 @@
 import katex from 'katex';
+import { extractBracedContent } from './latex-helpers-v2';
 
 /**
  * Render LaTeX math content to HTML using KaTeX
  * Handles inline ($...$), display ($$...$$ and \[...\]), and text content
  */
+
+const replaceCommandSafe = (text: string, cmd: string, tag: string) => {
+    let res = "";
+    let cursor = 0;
+    while (cursor < text.length) {
+        const idx = text.indexOf(cmd, cursor);
+        if (idx === -1) {
+            res += text.substring(cursor);
+            break;
+        }
+
+        // Validate command boundary (e.g. \textbf vs \textbfABC)
+        const afterCmd = idx + cmd.length;
+        // If char after cmd is a letter, it's not this command (unless cmd ends with non-letter, which it doesn't here)
+        if (afterCmd < text.length && /[a-zA-Z]/.test(text[afterCmd])) {
+            res += text.substring(cursor, afterCmd);
+            cursor = afterCmd;
+            continue;
+        }
+
+        // Skip spaces to find {
+        let braceStart = afterCmd;
+        while (braceStart < text.length && /\s/.test(text[braceStart])) braceStart++;
+
+        if (braceStart >= text.length || text[braceStart] !== '{') {
+            // Not a valid command extraction
+            res += text.substring(cursor, afterCmd);
+            cursor = afterCmd;
+            continue;
+        }
+
+        res += text.substring(cursor, idx);
+        const extracted = extractBracedContent(text, braceStart);
+
+        if (extracted) {
+            res += `<${tag}>${extracted.content}</${tag}>`;
+            cursor = extracted.endIndex + 1;
+        } else {
+            // Brace mismatch?
+            res += text.substring(idx, afterCmd);
+            cursor = afterCmd;
+        }
+    }
+    return res;
+};
+
+const replaceSafeFormatting = (text: string): string => {
+    let clean = text;
+    clean = replaceCommandSafe(clean, '\\textbf', 'b');
+    clean = replaceCommandSafe(clean, '\\textit', 'i');
+    clean = replaceCommandSafe(clean, '\\underline', 'u');
+    clean = replaceCommandSafe(clean, '\\indam', 'b'); // Support \indam legacy
+    return clean;
+};
+
 // FontAwesome Macros
 const FA_MACROS: Record<string, string> = {
     "\\faLeaf": "\\htmlClass{fas fa-leaf text-green-600}{}",
@@ -85,6 +141,7 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\hspace\{(.*?)\}/g, '<span style="display:inline-block; width:$1"></span>');
 
             clean = replaceTextIcons(clean);
+            clean = replaceSafeFormatting(clean);
 
             clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center">');
             clean = clean.replace(/\\end\{center\}/g, '</div>');
