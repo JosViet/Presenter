@@ -193,6 +193,12 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center">');
             clean = clean.replace(/\\end\{center\}/g, '</div>');
 
+            clean = clean.replace(/\\begin\{flushright\}/g, '<div class="text-right">');
+            clean = clean.replace(/\\end\{flushright\}/g, '</div>');
+
+            clean = clean.replace(/\\begin\{flushleft\}/g, '<div class="text-left">');
+            clean = clean.replace(/\\end\{flushleft\}/g, '</div>');
+
             // Handle \setcounter{enumi}{N} for proper numbering
             clean = clean.replace(/\\setcounter\{enumi\}\{(\d+)\}/g, '<!--ENUMI_START:$1-->');
 
