@@ -64,7 +64,7 @@ function App() {
   // === SWIPE GESTURES (Tablet UX) ===
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
-  const minSwipeDistance = 50;
+  const minSwipeDistance = 150; // Increased from 50 for larger tablets
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchEndX.current = null;

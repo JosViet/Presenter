@@ -58,6 +58,20 @@ const removeVietnameseTones = (str: string) => {
     return str;
 }
 
+const COMMON_DEFINITIONS = `
+\\def\\faLeaf{🍃}
+\\def\\faLemonO{🍋}
+\\def\\faPlane{✈}
+\\def\\faShip{🚢}
+\\def\\faExclamationTriangle{⚠️}
+\\def\\faCar{🚗}
+\\def\\faBus{🚌}
+\\def\\faHome{🏠}
+\\def\\faInstitution{🏛}
+\\def\\faStreetView{🚶}
+\\def\\faCaretRight{▶}
+`;
+
 export const TikZEmbed: React.FC<TikZEmbedProps> = ({ code, className, onRender }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [renderedSvg, setRenderedSvg] = useState<string | null>(null);
@@ -131,6 +145,7 @@ export const TikZEmbed: React.FC<TikZEmbedProps> = ({ code, className, onRender 
 </head>
 <body>
     <script type="text/tikz">
+        ${COMMON_DEFINITIONS}
         ${sanitizedCode}
     </script>
     <script>

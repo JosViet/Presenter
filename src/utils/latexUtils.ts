@@ -41,6 +41,20 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\\\/g, '<br/>');
             clean = clean.replace(/\\newline/g, '<br/>');
             clean = clean.replace(/\\hspace\{(.*?)\}/g, '<span style="display:inline-block; width:$1"></span>');
+
+            // FontAwesome Icons
+            clean = clean.replace(/\\faLeaf/g, '<i class="fas fa-leaf text-green-600"></i>');
+            clean = clean.replace(/\\faLemonO/g, '<i class="far fa-lemon text-yellow-500"></i>');
+            clean = clean.replace(/\\faPlane/g, '<i class="fas fa-plane text-blue-500"></i>');
+            clean = clean.replace(/\\faShip/g, '<i class="fas fa-ship text-blue-700"></i>');
+            clean = clean.replace(/\\faExclamationTriangle/g, '<i class="fas fa-exclamation-triangle text-amber-500"></i>');
+            clean = clean.replace(/\\faCar/g, '<i class="fas fa-car text-red-500"></i>');
+            clean = clean.replace(/\\faBus/g, '<i class="fas fa-bus text-yellow-600"></i>');
+            clean = clean.replace(/\\faHome/g, '<i class="fas fa-home text-indigo-600"></i>');
+            clean = clean.replace(/\\faInstitution/g, '<i class="fas fa-university text-gray-600"></i>');
+            clean = clean.replace(/\\faStreetView/g, '<i class="fas fa-street-view text-teal-600"></i>');
+            clean = clean.replace(/\\faCaretRight/g, '<i class="fas fa-caret-right text-gray-400"></i>');
+
             clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center">');
             clean = clean.replace(/\\end\{center\}/g, '</div>');
 
