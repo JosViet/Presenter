@@ -2,7 +2,7 @@ import { QuestionNode, QuestionMetadata } from '../shared/types';
 import { KNOWLEDGE_MAP, ID_COMPONENTS } from './configService';
 
 // Regex constants - Extended for Theory
-const BLOCK_PATTERN = /\\begin\{(ex|bt|vd|dang|boxdn|note|nx|luuy|tomtat)\}([\s\S]*?)\\end\{\1\}/g;
+const BLOCK_PATTERN = /\\begin\{(ex|bt|vd|dang|boxdn|note|nx|luuy|tomtat|khung4|dn|dl|tcolorbox)\}([\s\S]*?)\\end\{\1\}/g;
 const ID_FORMAT_REGEX = /^([6789012])([DHC])([0-9]+)([NHVC])([0-9]+)-([0-9]+)$/;
 const COMMENT_ID_REGEX = /%\[(.*?)\]/g;
 
@@ -333,6 +333,66 @@ export const processLuuy = (text: string): string => {
     });
 };
 
+export const processKhung4 = (text: string): string => {
+    // Transform \begin{khung4}{Title} ... \end{khung4} -> Styled HTML Box
+    const regex = /\\begin\{khung4\}\{(.*?)\}([\s\S]*?)\\end\{khung4\}/g;
+    return text.replace(regex, (_, title, content) => {
+        // If title is empty, maybe use a default or hide it
+        const titleHtml = title ? `<div class="font-bold text-blue-700 mb-1 border-b border-blue-200 pb-1">${title}</div>` : '';
+        return `<div class="my-3 p-4 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
+            ${titleHtml}
+            <div class="text-gray-800">${content}</div>
+        </div>`;
+    });
+};
+
+export const processDnDl = (text: string): string => {
+    // Transform \begin{dn} ... \end{dn} -> Definition Box
+    let clean = text;
+    clean = clean.replace(/\\begin\{dn\}([\s\S]*?)\\end\{dn\}/g, (_, content) => {
+        return `<div class="my-3 p-4 bg-green-50 border-l-4 border-green-500 rounded-r-lg shadow-sm">
+            <div class="font-bold text-green-700 mb-1">Định Nghĩa</div>
+            <div class="text-gray-800 italic">${content}</div>
+        </div>`;
+    });
+
+    // Transform \begin{dl} ... \end{dl} -> Theorem Box
+    clean = clean.replace(/\\begin\{dl\}([\s\S]*?)\\end\{dl\}/g, (_, content) => {
+        return `<div class="my-3 p-4 bg-purple-50 border-l-4 border-purple-500 rounded-r-lg shadow-sm">
+            <div class="font-bold text-purple-700 mb-1">Định Lý</div>
+            <div class="text-gray-800 italic">${content}</div>
+        </div>`;
+    });
+
+    return clean;
+};
+
+export const processTcolorbox = (text: string): string => {
+    // Transform simple tcolorbox. Ignore options for now or simple parse.
+    // \begin{tcolorbox}[...] ... \end{tcolorbox}
+    // We'll match broadly.
+    // NOTE: This might be fragile if nested braces in options.
+
+    // We use a simpler strategy: find \begin{tcolorbox}, find matching end.
+    // But since we are likely inside a block already split by regex, we can try regex first
+    // assuming valid nesting structure provided by cleanTexTokens loop.
+
+    const regex = /\\begin\{tcolorbox\}(\[.*?\])?([\s\S]*?)\\end\{tcolorbox\}/g;
+    return text.replace(regex, (_, _opt, content) => {
+        return `<div class="my-3 p-4 bg-gray-50 border border-gray-300 rounded-lg shadow-sm">
+            <div class="text-gray-800">${content}</div>
+        </div>`;
+    });
+};
+
+export const processMinipage = (text: string): string => {
+    // \begin{minipage}{width} ... \end{minipage}
+    // Convert to inline-block div
+    let clean = text.replace(/\\begin\{minipage\}(\[.*?\])?\{(.*?)\}/g, '<div style="display:inline-block; vertical-align:top; width:$2; padding: 0 0.5rem;">');
+    clean = clean.replace(/\\end\{minipage\}/g, '</div>');
+    return clean;
+};
+
 // ... existing helpers ...
 
 const formatMathNumbers = (text: string): string => {
@@ -405,6 +465,11 @@ export const cleanTexTokens = (text: string) => {
     clean = processItemChoice(clean);
     clean = processListEX(clean); // NEW: Transform listEX to multicols+enumerate
     clean = processLuuy(clean); // NEW: Styled Note Box
+    clean = processKhung4(clean); // NEW: Styled Khung4
+    clean = processDnDl(clean); // NEW: Definition / Theorem
+    clean = processTcolorbox(clean); // NEW: Generic box
+    clean = processMinipage(clean); // NEW: Columns
+
     // clean = processLists(clean); // Handled in LatexRenderer (enumerate, itemize)
     // clean = processLists(clean); // Handled in LatexRenderer (enumerate, itemize)
     // clean = processMulticols(clean); // Handled in LatexRenderer
@@ -447,9 +512,12 @@ export const cleanTexTokens = (text: string) => {
 const getQuestionType = (block: string, envType: string): string => {
     // Theory Types
     if (envType === 'boxdn') return 'ly_thuyet_dinh_nghia';
+    if (envType === 'dn') return 'ly_thuyet_dinh_nghia';
+    if (envType === 'dl') return 'ly_thuyet_dinh_li';
     if (envType === 'note') return 'ly_thuyet_luu_y';
     if (envType === 'nx') return 'ly_thuyet_nhan_xet';
-    if (envType === 'nx') return 'ly_thuyet_nhan_xet';
+    if (envType === 'khung4') return 'ly_thuyet_tong_quat';
+    if (envType === 'tcolorbox') return 'ly_thuyet_tong_quat';
     if (envType === 'dang') return 'dang_toan';
     if (envType === 'tomtat') return 'ly_thuyet_tom_tat';
     if (envType === 'luuy') return 'ly_thuyet_luu_y';
