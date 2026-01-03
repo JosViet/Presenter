@@ -81,7 +81,7 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\end\{enumerate\}/g, '</ol>');
             clean = clean.replace(/\\begin\{itemize\}/g, '<ul class="list-disc ml-6 space-y-2">');
             clean = clean.replace(/\\end\{itemize\}/g, '</ul>');
-            clean = clean.replace(/\\item/g, '<li>');
+            clean = clean.replace(/\\item(\s*\[[^\]]*\])?/g, '<li>');
             clean = clean.replace(/\\ldots/g, '...');
 
             return clean;

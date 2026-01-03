@@ -137,7 +137,7 @@ export const LatexRenderer: React.FC<LatexRendererProps> = ({
                     return (
                         <ol key={pIdx} className="ml-6 space-y-2 list-custom" style={{ listStyleType: listStyle }} start={startVal}>
                             {items.map((item: string, idx: number) => {
-                                const content = item.replace(/^\s*\\item\s*/, '');
+                                const content = item.replace(/^\s*\\item(\s*\[[^\]]*\])?\s*/, '');
                                 return (
                                     <li key={idx} className="pl-1" style={{ breakInside: 'avoid' }}>
                                         <LatexRenderer content={content} cachedImages={cachedImages} theme={theme} onInteract={onInteract} basePath={basePath} macros={macros} onZoom={onZoom} fileRef={fileRef} />
@@ -151,7 +151,7 @@ export const LatexRenderer: React.FC<LatexRendererProps> = ({
                     return (
                         <ul key={pIdx} className="ml-6 space-y-2 list-disc" >
                             {items.map((item: string, idx: number) => {
-                                const content = item.replace(/^\s*\\item\s*/, '');
+                                const content = item.replace(/^\s*\\item(\s*\[[^\]]*\])?\s*/, '');
                                 return (
                                     <li key={idx} className="pl-1" style={{ breakInside: 'avoid' }}>
                                         <LatexRenderer content={content} cachedImages={cachedImages} theme={theme} onInteract={onInteract} basePath={basePath} macros={macros} fileRef={fileRef} />
