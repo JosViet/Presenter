@@ -6,58 +6,98 @@ import { extractBracedContent } from './latex-helpers-v2';
  * Handles inline ($...$), display ($$...$$ and \[...\]), and text content
  */
 
-const replaceCommandSafe = (text: string, cmd: string, tag: string) => {
+const preprocessTextFormatting = (text: string): string => {
+    // Commands to replace with HTML tags
+    const TEXT_COMMANDS: Record<string, string> = {
+        '\\textit': 'i',
+        '\\textbf': 'b',
+        '\\underline': 'u',
+        '\\indam': 'b'
+    };
+
     let res = "";
-    let cursor = 0;
-    while (cursor < text.length) {
-        const idx = text.indexOf(cmd, cursor);
-        if (idx === -1) {
-            res += text.substring(cursor);
-            break;
+    let i = 0;
+
+    // Use a simple state machine to skip math blocks
+    while (i < text.length) {
+        // 1. SKIP MATH BLOCKS (preserve them for KaTeX)
+
+        // Display Math $$...$$
+        if (text.startsWith('$$', i)) {
+            const end = text.indexOf('$$', i + 2);
+            if (end !== -1) {
+                res += text.substring(i, end + 2);
+                i = end + 2;
+                continue;
+            }
         }
 
-        // Validate command boundary (e.g. \textbf vs \textbfABC)
-        const afterCmd = idx + cmd.length;
-        // If char after cmd is a letter, it's not this command (unless cmd ends with non-letter, which it doesn't here)
-        if (afterCmd < text.length && /[a-zA-Z]/.test(text[afterCmd])) {
-            res += text.substring(cursor, afterCmd);
-            cursor = afterCmd;
-            continue;
+        // Display Math \[...\]
+        if (text.startsWith('\\[', i)) {
+            const end = text.indexOf('\\]', i + 2);
+            if (end !== -1) {
+                res += text.substring(i, end + 2);
+                i = end + 2;
+                continue;
+            }
         }
 
-        // Skip spaces to find {
-        let braceStart = afterCmd;
-        while (braceStart < text.length && /\s/.test(text[braceStart])) braceStart++;
-
-        if (braceStart >= text.length || text[braceStart] !== '{') {
-            // Not a valid command extraction
-            res += text.substring(cursor, afterCmd);
-            cursor = afterCmd;
-            continue;
+        // Inline Math $...$
+        if (text[i] === '$') {
+            let end = i + 1;
+            while (end < text.length) {
+                // Determine if $ is escaped (preceded by odd number of backslashes)
+                if (text[end] === '$') {
+                    let backslashCount = 0;
+                    let j = end - 1;
+                    while (j >= i && text[j] === '\\') { backslashCount++; j--; }
+                    if (backslashCount % 2 === 0) break; // Not escaped
+                }
+                end++;
+            }
+            if (end < text.length) {
+                res += text.substring(i, end + 1);
+                i = end + 1;
+                continue;
+            }
         }
 
-        res += text.substring(cursor, idx);
-        const extracted = extractBracedContent(text, braceStart);
-
-        if (extracted) {
-            res += `<${tag}>${extracted.content}</${tag}>`;
-            cursor = extracted.endIndex + 1;
-        } else {
-            // Brace mismatch?
-            res += text.substring(idx, afterCmd);
-            cursor = afterCmd;
+        // 2. PROCESS TEXT COMMANDS
+        let matchedCmd = null;
+        for (const cmd in TEXT_COMMANDS) {
+            if (text.startsWith(cmd, i)) {
+                // Validate boundary (e.g. \textit vs \textitABC)
+                const charAfter = text[i + cmd.length];
+                if (!charAfter || !/[a-zA-Z]/.test(charAfter)) {
+                    matchedCmd = cmd;
+                    break;
+                }
+            }
         }
+
+        if (matchedCmd) {
+            // Check for brace
+            let bracePos = i + matchedCmd.length;
+            while (bracePos < text.length && /\s/.test(text[bracePos])) bracePos++;
+
+            if (text[bracePos] === '{') {
+                const extracted = extractBracedContent(text, bracePos);
+                if (extracted) {
+                    const tag = TEXT_COMMANDS[matchedCmd];
+                    // RECURSIVE: Process content inside the braces
+                    const innerProcessed = preprocessTextFormatting(extracted.content);
+                    res += `<${tag}>${innerProcessed}</${tag}>`;
+                    i = extracted.endIndex + 1;
+                    continue;
+                }
+            }
+        }
+
+        // 3. DEFAULT
+        res += text[i];
+        i++;
     }
     return res;
-};
-
-const replaceSafeFormatting = (text: string): string => {
-    let clean = text;
-    clean = replaceCommandSafe(clean, '\\textbf', 'b');
-    clean = replaceCommandSafe(clean, '\\textit', 'i');
-    clean = replaceCommandSafe(clean, '\\underline', 'u');
-    clean = replaceCommandSafe(clean, '\\indam', 'b'); // Support \indam legacy
-    return clean;
 };
 
 // FontAwesome Macros
@@ -92,11 +132,18 @@ const replaceTextIcons = (text: string): string => {
 };
 
 export const renderMath = (text: string, macros: Record<string, string> = {}): string => {
-    // Merge FA macros
+    if (!text) return '';
+
+    // Combine default macros with user macros
     const combinedMacros = { ...FA_MACROS, ...macros };
 
-    // Handle spacing commands
-    let processedText = text
+    let processedText = text;
+
+    // 0. Pre-process Text Formatting (OUTSIDE Math)
+    processedText = preprocessTextFormatting(processedText);
+
+    // 1. Fix line breaks and spacing
+    processedText = processedText
         .replace(/\\,/g, '\\hspace{0.17em}')  // thin space (3/18 em)
         .replace(/\\;/g, '\\hspace{0.28em}')  // medium space (5/18 em)
         .replace(/\\!/g, '')                   // negative thin space
@@ -141,7 +188,7 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
             clean = clean.replace(/\\hspace\{(.*?)\}/g, '<span style="display:inline-block; width:$1"></span>');
 
             clean = replaceTextIcons(clean);
-            clean = replaceSafeFormatting(clean);
+            // replaceSafeFormatting removed (handled top-level)
 
             clean = clean.replace(/\\begin\{center\}/g, '<div class="text-center">');
             clean = clean.replace(/\\end\{center\}/g, '</div>');
