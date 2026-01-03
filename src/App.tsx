@@ -61,6 +61,34 @@ function App() {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // === SWIPE GESTURES (Tablet UX) ===
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isSwipeLeft = distance > minSwipeDistance;
+    const isSwipeRight = distance < -minSwipeDistance;
+
+    if (isSwipeLeft) {
+      if (!isDrawing && !isLaserEnabled && !showOverview) nextSlide();
+    }
+    if (isSwipeRight) {
+      if (!isDrawing && !isLaserEnabled && !showOverview) prevSlide();
+    }
+  };
+
   const [showRemoteModal, setShowRemoteModal] = useState(false);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showClassManager, setShowClassManager] = useState(false);
@@ -363,7 +391,12 @@ function App() {
   const q = questions[currentIdx];
 
   return (
-    <div className={clsx("relative w-full h-full overflow-hidden", themeStyle.bg, theme === 'dark' && "dark")}>
+    <div
+      className={clsx("relative w-full h-full overflow-hidden", themeStyle.bg, theme === 'dark' && "dark")}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <div
         className={clsx("w-full h-full flex flex-col shadow-2xl relative transition-colors duration-300", themeStyle.bg)}
       >
