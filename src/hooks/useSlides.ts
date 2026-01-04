@@ -96,6 +96,19 @@ export function useSlides() {
             }
         } catch (error) {
             console.error("Error loading TeX file:", error);
+
+            // Handle Stale Web Handle (Browser Refresh)
+            if (error instanceof Error && error.message.includes('Invalid web handle')) {
+                console.warn("Stale file handle detected. Clearing session.");
+                setFileRef(null);
+                setTexPath('');
+                setQuestions([]);
+                localStorage.removeItem('presenter_tex_path');
+                localStorage.removeItem('presenter_slide_idx');
+                if (!silent) alert("Phiên làm việc đã hết hạn hoặc file không còn truy cập được. Vui lòng mở lại file.");
+                return;
+            }
+
             // Don't alert if silent (auto-load)
             if (!silent) alert('Lỗi khi đọc file TeX!');
         }

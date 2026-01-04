@@ -43,13 +43,21 @@ export const TikZPreloader: React.FC<TikZPreloaderProps> = ({ questions, onProgr
             });
         });
 
-        // Filter out already cached items
+        // Match libraries from LatexRenderer to ensure cache key consistency
+        const libraries = '\\usetikzlibrary{arrows,calc,intersections,shapes.geometric,patterns,positioning,angles,quotes,3d}';
         const missing: string[] = [];
+
         uniqueBlocks.forEach(block => {
-            const sanitized = removeVietnameseTones(block);
+            // Prepend libraries to match what LatexRenderer sends to TikZEmbed
+            const enrichedBlock = `${libraries}\n${block}`;
+
+            const sanitized = removeVietnameseTones(enrichedBlock);
             const key = CACHE_PREFIX + hashCode(sanitized);
+
+            // Check based on the ENRICHED key
             if (!localStorage.getItem(key)) {
-                missing.push(block);
+                // Queue the ENRICHED block so TikZEmbed renders and saves with the CORRECT key
+                missing.push(enrichedBlock);
             }
         });
 
