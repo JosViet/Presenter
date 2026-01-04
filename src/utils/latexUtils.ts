@@ -152,7 +152,9 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
         .replace(/\\;/g, '\\hspace{0.28em}')  // medium space (5/18 em)
         .replace(/\\!/g, '')                   // negative thin space
         .replace(/\\quad/g, '\\hspace{1em}')
-        .replace(/\\qquad/g, '\\hspace{2em}');
+        .replace(/\\quad/g, '\\hspace{1em}')
+        .replace(/\\qquad/g, '\\hspace{2em}')
+        .replace(/\\par/g, ''); // Ignore \par
 
     // Improved eqnarray conversion
     const fixEqnArray = (match: string) => {
