@@ -1,5 +1,5 @@
 import React from 'react';
-import { TikZEmbed } from './TikZEmbed';
+import { TikZEmbed, TIKZ_LIBRARIES } from './TikZEmbed';
 import { ResolvedMedia } from './ResolvedMedia';
 import { FileReference } from '../services/FileSystem/IFileSystem';
 import clsx from 'clsx';
@@ -76,8 +76,9 @@ export const LatexRenderer: React.FC<LatexRendererProps> = ({
 
                                     // DEBUGGING CACHE MISS
 
-                                    const libraries = '\\usetikzlibrary{arrows,calc,intersections,shapes.geometric,patterns,positioning,angles,quotes,3d}';
-                                    const enrichedPart = `${libraries}\n${sub}`;
+                                    // DEBUGGING CACHE MISS
+
+                                    const enrichedPart = `${TIKZ_LIBRARIES}\n${sub}`;
 
                                     return (
                                         <div

@@ -707,7 +707,7 @@ export const parseTexFile = (content: string): {
 
             const extracted = extractBracedContent(qContent, openBraceIdx);
             if (extracted) {
-                extractedShortAns = cleanTexTokens(extracted.content.trim());
+                extractedShortAns = cleanTexTokens(extracted.content.trim()).replace(/\{,\}/g, ',');
                 // Remove the ENTIRE \shortans command from qContent
                 qContent = qContent.substring(0, startIdx) + qContent.substring(extracted.endIndex + 1);
             }
