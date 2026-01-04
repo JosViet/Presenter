@@ -10,7 +10,7 @@ interface TikZEmbedProps {
 // Cache helpers
 const CACHE_PREFIX = 'tikz_cache:';
 
-export const TIKZ_LIBRARIES = '\\usetikzlibrary{arrows,calc,intersections,shapes.geometric,patterns,positioning,angles,quotes,3d}';
+export const TIKZ_LIBRARIES = '\\usetikzlibrary{arrows,calc,intersections,shapes.geometric,patterns,positioning,angles,quotes,3d,matrix,trees,decorations.pathreplacing,decorations.markings,shapes.misc}';
 
 export const removeVietnameseTones = (str: string) => {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -74,6 +74,23 @@ const COMMON_DEFINITIONS = `
 \\def\\faInstitution{🏛}
 \\def\\faStreetView{🚶}
 \\def\\faCaretRight{▶}
+% Minimal tkz-tab shim
+\\def\\tkzTabInit[#1]#2#3{
+  \\node [draw, align=left] (tkzTabInit) at (0,0) {
+    \\textbf{Variation Table (Approx)} \\\\
+    Rows: #2 \\\\
+    Cols: #3
+  };
+  \\coordinate (lastNode) at (tkzTabInit.south);
+}
+\\def\\tkzTabLine#1{
+  \\node [draw, align=left, anchor=north] (tkzTabLine) at (lastNode) {Line: #1};
+  \\coordinate (lastNode) at (tkzTabLine.south);
+}
+\\def\\tkzTabVar#1{
+  \\node [draw, align=left, anchor=north] (tkzTabVar) at (lastNode) {Var: #1};
+  \\coordinate (lastNode) at (tkzTabVar.south);
+}
 `;
 
 export const TikZEmbed: React.FC<TikZEmbedProps> = ({ code, className, onRender }) => {
