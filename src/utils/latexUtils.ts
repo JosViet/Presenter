@@ -15,6 +15,10 @@ const preprocessTextFormatting = (text: string): string => {
         '\\indam': 'b'
     };
 
+    // Pre-process legacy formatting {\bf text} -> \textbf{text}
+    text = text.replace(/\{\\bf\s+([^}]+)\}/g, "\\textbf{$1}");
+    text = text.replace(/\{\\it\s+([^}]+)\}/g, "\\textit{$1}"); // NEW: Support {\it ...}
+
     let res = "";
     let i = 0;
 

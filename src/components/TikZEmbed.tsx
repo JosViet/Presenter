@@ -74,37 +74,43 @@ const COMMON_DEFINITIONS = `
 
 export const TikZEmbed: React.FC<TikZEmbedProps> = ({ code, className, onRender }) => {
     const [isVisible, setIsVisible] = useState(false);
-    const [renderedSvg, setRenderedSvg] = useState<string | null>(null);
+
+    const sanitizedCode = removeVietnameseTones(code);
+    const cacheKey = hashCode(sanitizedCode);
+
+    // Synchronous cache check for initial state
+    const cachedInitial = getFromCache(cacheKey);
+
+    const [renderedSvg, setRenderedSvg] = useState<string | null>(cachedInitial);
     const containerRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(150);
     const instanceId = useRef(Math.random().toString(36).substr(2, 9)).current;
     const [error, setError] = useState<string | null>(null);
     const timeoutRef = useRef<any>(null);
 
-    const sanitizedCode = removeVietnameseTones(code);
-    const cacheKey = hashCode(sanitizedCode);
-
-    // Check cache on mount
+    // Initial Cache Effect (Safety check and notification)
     useEffect(() => {
-        const cached = getFromCache(cacheKey);
-        if (cached) {
-            console.log('[TikZ Cache] HIT:', cacheKey);
-            setRenderedSvg(cached);
-            if (onRender) onRender(cached);
+        if (renderedSvg) {
+            console.log('[TikZ Cache] HIT (Sync):', cacheKey);
+            if (onRender) onRender(renderedSvg);
         } else {
             console.log('[TikZ Cache] MISS:', cacheKey);
             setIsVisible(true);
         }
-    }, [cacheKey]);
+    }, [cacheKey]); // Only re-run if key changes
 
-    // Reset when code changes
+    // Reset loop if code changes significantly (handled by key change essentially)
     useEffect(() => {
         const cached = getFromCache(cacheKey);
-        if (!cached) {
+        if (cached) {
+            setRenderedSvg(cached);
+            setIsVisible(false);
+        } else {
             setRenderedSvg(null);
+            setIsVisible(true);
             setError(null);
         }
-    }, [sanitizedCode, cacheKey]);
+    }, [cacheKey]); // Deduped logic
 
     useEffect(() => {
         if (isVisible && !renderedSvg && !error) {
