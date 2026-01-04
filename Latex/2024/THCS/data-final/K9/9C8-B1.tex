@@ -1,0 +1,764 @@
+\section{PHÉP THỬ NGẪU NHIÊN VÀ KHÔNG GIAN MẪU}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+	\begin{itemize}
+		\item {\bf Phép thử ngẫu nhiên (phép thử)} là một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời, mà kết quả chưa biết trước nhưng có thể liệt kê được tất cả các kết quả có thể xảy ra.  
+		\item {\bf Không gian mẫu} của phép thử là tập hợp tất cả các kết quả có thể xảy ra của phép thử. Kí hiệu là $\Omega$.
+		\item Khi thực hiện phép thử, một biến cố có thể xảy ra hoặc không xảy ra. Mỗi kết quả có thể của phép thử làm cho biến cố xảy ra được gọi là một \textbf{kết quả thuận lợi} cho biến cố đó.
+	\end{itemize}
+\end{tomtat}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Xét các hoạt động sau, hoạt động nào là một \textit{phép thử ngẫu nhiên}? Giải thích.
+	\begin{enumerate}
+		\item Tung một đồng xu và quan sát mặt xuất hiện.
+		\item Giải phương trình $x^2 - 2x + 1 = 0$.
+		\item Lấy ngẫu nhiên một lá bài từ bộ bài $52$ lá.
+		\item Dự đoán ngày mai trời có mưa hay không.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Hoạt động $(1)$ là phép thử ngẫu nhiên vì trước khi tung đồng xu, ta không biết được mặt nào xuất hiện nhưng có thể liệt kê hai kết quả hoặc là mặt sấp, hoặc là mặt ngửa.
+			\item Hoạt động $(2)$ không phải phép thử ngẫu nhiên vì kết quả đã xác định duy nhất $x=1$.
+			\item Hoạt động $(3)$ là phép thử ngẫu nhiên vì không biết trước lá bài nào sẽ được rút, nhưng có thể liệt kê toàn bộ $52$ kết quả.
+			\item Hoạt động $(4)$ cũng được xem là phép thử ngẫu nhiên, vì chưa biết trước kết quả, nhưng có thể liệt kê hai khả năng xảy ra là có mưa hoặc không mưa.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6N1-1]
+	Bạn Nam tung một đồng xu cân đối và gieo một con xúc xắc. Quan sát mặt đồng xu và số chấm của xúc xắc.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là tung một đồng xu và gieo một con xúc xắc.\\
+			Kết quả của phép thử là cặp $(a;b)$, trong đó $a\in\{S;N\}$ (S: sấp, N: ngửa) và $b\in\{1;2;3;4;5;6\}$.
+			\item Lập bảng (cột: xúc xắc; hàng: đồng xu)
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Đồng xu}{Xúc xắc}&$1$&$2$&$3$&$4$&$5$&$6$\\ \hline
+					$S$&$(S;1)$&$(S;2)$&$(S;3)$&$(S;4)$&$(S;5)$&$(S;6)$\\ \hline
+					$N$&$(N;1)$&$(N;2)$&$(N;3)$&$(N;4)$&$(N;5)$&$(N;6)$\\ \hline
+				\end{tabular}
+			\end{center}
+			Mỗi ô là một kết quả có thể, không gian mẫu là tập hợp $12$ ô của bảng trên.\\
+			Do đó, không gian mẫu của phép thử là 
+			$$\Omega=\{(S;1);(S;2);(S;3);(S;4);(S;5); (S;6);(N;1);(N;2);(N;3);(N;4);(N;5);(N;6)\}.$$
+			Vậy số phần tử của không gian mẫu là $n(\Omega)=2\cdot 6=12$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6N1-1]
+	\immini{
+		Một tấm bìa cứng hình tròn được chia làm ba hình quạt bằng nhau, đánh số $1$; $2$; $3$ và được gắn vào trục quay có mũi tên cố định ở tâm (tham khảo hình vẽ bên). Bạn Hiền quay tấm bìa liên tiếp hai lần và quan sát xem mũi tên chỉ vào hình quạt nào khi tấm bìa dừng lại.
+		\begin{enumerate}
+			\item Phép thử và kết quả của phép thử là gì?
+			\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+			\item Liệt kê các kết quả thuận lợi cho mỗi biến cố sau\\
+			$A$: \lq\lq Lần quay thứ nhất là số $2$\rq\rq;\\
+			$B$: \lq\lq Tổng hai số ở hai lần quay là số lẻ\rq\rq.
+		\end{enumerate}
+	}{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\def\r{2} \def\gocxp{0}
+			\coordinate (A) at (0:\r);
+			\foreach \ts/\col in {33.3/gray, 33.3/blue, 33.4/yellow}{
+				\pgfmathsetmacro \gockt{\gocxp + \ts*360/100}
+				\draw[gray!50,fill=\col] (0:0)--(A) arc (\gocxp:\gockt:\r) coordinate (A)--cycle;
+				\global\let\gocxp=\gockt
+			}
+			\draw[line width=2pt,->] (0:0)--(-90:\r/2);
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0:0)+(55:\r/2)$) {\large $1$};
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0:0)+(170:\r/2)$) {\large $2$};
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0:0)+(-55:\r/2)$) {\large $3$};
+			\fill (0,0) circle(2pt); 
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là bạn Hiền quay tấm bìa liên tiếp hai lần.\\
+			Kết quả của phép thử là một cặp số $(a;b)$, trong đó $a$ và $b$ tương ứng là số gắn trên tấm bìa theo thứ tự ở $2$ lần quay.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$\\ 
+					\hline
+					$1$&$(1;1)$&$(1;2)$&$(1;3)$\\ \hline
+					$2$&$(2;1)$&$(2;2)$&$(2;3)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$(3;3)$\\ \hline
+				\end{tabular}
+			\end{center}
+			Mỗi ô là một kết quả có thể, không gian mẫu là tập hợp $9$ ô của bảng trên.\\
+			Do đó, không gian mẫu của phép thử là 
+			$$\Omega = \{(1;1);(1;2);(1;3);(2;1);(2;2);(2;3);(3;1);(3;2);(3;3)\}.$$
+			Vậy không gian mẫu có $9$ phần tử.
+			\item Các kết quả thuận lợi cho biến cố $A$ là
+			$$(2;1);(2;2);(2;3).$$
+			Các kết quả thuận lợi cho biến cố $B$ là
+			$$(1;2);(2;1);(2;3);(3;2).$$
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6N1-2]
+	Một hộp có chứa $5$ tấm thẻ cùng loại được đánh số lần lượt từ $1$ đến $5$. Lấy ra ngẫu nhiên cùng một lúc $2$ tấm thẻ từ hộp.
+	\begin{enumerate}
+		\item Hãy liệt kê các phần tử của không gian mẫu của phép thử.
+		\item Liệt kê các kết quả thuận lợi cho mỗi biến cố sau\\
+		$A$: \lq\lq Trong $2$ thẻ lấy ra có đúng $1$ thẻ ghi số lẻ\rq\rq; \\
+		$B$: \lq\lq Trong $2$ thẻ lấy ra có ít nhất $1$ thẻ ghi số chẵn\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item  Kí hiệu $\{x;y\}$ là kết quả lấy được hai thẻ, trong đó một thẻ đánh số $x$ và một thẻ đánh số $y$.
+			Các phần tử của không gian mẫu của phép thử là
+			$$\{1;2\};\{1;3\};\{1;4\};\{1;5\};\{2;3\};\{2;4\};\{2;5\};\{3;4\};\{3;5\};\{4;5\}.$$
+			\item Các kết quả thuận lợi cho biến cố $A$ là
+			$$\{1;2\};\{1;4\};\{2;3\};\{2;5\};\{3;4\};\{4;5\}.$$
+			Các kết quả thuận lợi cho biến cố $B$ là
+			$$\{1;2\};\{1;4\};\{2;3\};\{2;4\};\{2;5\};\{3;4\};\{4;5\}.$$
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[6D6H1-1]
+	Trong các hoạt động sau, hoạt động nào là \textit{phép thử ngẫu nhiên}? Giải thích.
+	\begin{enumerate}
+		\item Gieo một con xúc xắc cân đối và quan sát số chấm xuất hiện.
+		\item Tính giá trị biểu thức $1\,025^2 - 25^2$.
+		\item Chọn ngẫu nhiên một học sinh trong lớp để trả lời câu hỏi.
+		\item Kiểm tra tính đúng sai của đẳng thức $2+2=4$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Hoạt động $(1)$ là phép thử ngẫu nhiên vì kết quả chưa biết trước nhưng có thể liệt kê tất cả trường hợp có thể xảy ra.
+			\item Hoạt động $(2)$ không phải phép thử ngẫu nhiên vì kết quả đã xác định duy nhất 
+			$$1\,025^2 - 25^2 = (1\,025+25)(1\,025-25)=1\,050\,000.$$
+			\item Hoạt động $(3)$ là phép thử ngẫu nhiên vì không biết trước bạn nào được chọn nhưng ta có thể liệt kê tất cả các trường hợp xảy ra là tập hợp toàn bộ học sinh trong lớp.
+			\item Hoạt động $(4)$ không phải phép thử ngẫu nhiên vì kết quả đã biết chắc chắn rằng đẳng thức $2+2=4$ luôn đúng.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Một hộp kín đựng $4$ quả bóng có cùng khối lượng và kích thước, được đánh số $1$; $2$; $3$; $4$. Lấy ngẫu nhiên lần lượt hai quả bóng từ hộp, quả bóng được lấy ra lần đầu không trả lại vào hộp. Quan sát hai số ghi trên hai quả bóng được lấy ra.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là lấy ngẫu nhiên lần lượt hai quả bóng từ hộp, quả bóng được lấy ra lần đầu không trả lại vào hộp. \\
+			Kết quả của phép thử là một cặp số $(a;b)$, trong đó $a$ và $b$ tương ứng là số ghi trên quả bóng được lấy ra ở lần thứ nhất và lần thứ hai. Vì quả bóng được lấy ra lần đầu không trả lại vào hộp nên $a \neq b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$\\ 
+					\hline
+					$1$&${\cancel{(1;1)}}$&$(1;2)$&$(1;3)$&$(1;4)$\\ \hline
+					$2$&$(2;1)$&${\cancel{(2;2)}}$&$(2;3)$&$(2;4)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&${\cancel{(3;3)}}$&$(3;4)$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&${\cancel{(4;4)}}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Chú ý rằng $a \neq b$ nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $4$ ô là $(1;1)$, $(2;2)$, $(3;3)$, $(4;4)$.\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega = \{(1;2);(1;3);(1;4);(2;1);(2;3);(2;4);(3;1);(3;2);(3;4);(4;1);(4;2);(4;3)\}.$$
+			Vậy không gian mẫu có $12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Một cửa hàng muốn tặng hai phần quà cho hai trong bốn khách hàng có lượng mua nhiều nhất trong tháng bằng cách rút thăm ngẫu nhiên. Việc rút thăm được tiến hành như sau: Nhân viên rút ngẫu nhiên một lá phiếu trong hộp. Lá phiếu rút ra không trả lại vào hộp. Sau đó, nhân viên tiếp tục rút ngẫu nhiên một lá phiếu từ ba lá phiếu còn lại. Hai khách hàng có tên trong hai lá phiếu được rút ra là hai khách hàng được tặng quà.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		Kí hiệu bốn khách hàng có lượng mua nhiều nhất lần lượt là $A$, $B$, $C$ và $D$. Khi đó
+		\begin{enumerate}
+			\item Phép thử là rút thăm ngẫu nhiên lần lượt hai lá phiếu để tặng quà cho hai trong bốn khách hàng. \\
+			Kết quả của phép thử là hai khách hàng $(\text{KH}_1;\text{KH}_2)$, trong đó $\text{KH}_1$ và $\text{KH}_2$ tương ứng là tên khách hàng ghi trên lá phiếu được lấy ra ở lần thứ nhất và lần thứ hai.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$A$&$B$&$C$&$D$\\ 
+					\hline
+					$A$&${\cancel{(A;A)}}$&$(A;B)$&$(A;C)$&$(A;D)$\\ \hline
+					$B$&$(B;A)$&${\cancel{(B;B)}}$&$(B;C)$&$(B;D)$\\ \hline
+					$C$&$(C;A)$&$(C;B)$&${\cancel{(C;C)}}$&$(C;D)$\\ \hline
+					$D$&$(D;A)$&$(D;B)$&$(D;C)$&${\cancel{(D;D)}}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Chú ý rằng lá phiếu ghi tên khách hàng thứ nhất đã rút ra thì không trả lại vào hộp nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $4$ ô là $(A;A)$, $(B;B)$, $(C;C)$, $(D;D)$. \\
+			Do đó, không gian mẫu của phép thử là
+			\begin{eqnarray*}
+				\Omega &=& \{(A;B);(A;C);(A;D);(B;A);(B;C);(B;D);\\
+				&& (C;A);(C;B);(C;D);(D;A);(D;B);(D;C)\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6N1-1]
+	Bạn Lan gieo một con xúc xắc và bạn Hòa gieo một đồng xu. Quan sát số chấm xuất hiện trên con xúc xắc và mặt xuất hiện của đồng xu.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là bạn Lan gieo một con xúc xắc và bạn Hòa gieo một đồng xu. \\
+			Kết quả của phép thử là số chấm xuất hiện trên con xúc xắc và mặt xuất hiện của đồng xu (mặt sấp hoặc mặt ngửa).
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Đồng xu}{Xúc xắc}&$1$&$2$&$3$&$4$&$5$&$6$\\ 
+					\hline
+					Mặt sấp $(S)$&$(1;S)$&$(2;S)$&$(3;S)$&$(4;S)$&$(5;S)$&$(6;S)$\\ \hline
+					Mặt ngửa $(N)$&$(1;N)$&$(2;N)$&$(3;N)$&$(4;N)$&$(5;N)$&$(6;N)$\\ \hline
+				\end{tabular}
+			\end{center}
+			Mỗi ô là một kết quả có thể, không gian mẫu là tập hợp $12$ ô của bảng trên.\\
+			Do đó, không gian mẫu của phép thử là 
+			$$\Omega = \{(1;S);(2;S);(3;S);(4;S);(5;S);(6;S);(1;N);(2;N);(3;N);(4;N);(5;N);(6;N)\}.$$
+			Vậy không gian mẫu có $12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	Bạn Minh tung một đồng xu liên tiếp $2$ lần và bạn Lan gieo một con xúc xắc. Quan sát mặt xuất hiện của hai đồng xu và số chấm trên xúc xắc.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là bạn Minh tung đồng xu liên tiếp $2$ lần và bạn Lan gieo một con xúc xắc.\\
+			Kết quả của phép thử là mặt xuất hiện trong $2$ lần tung của đồng xu (mặt sấp ($S$), mặt ngửa ($N$)) và số chấm trên con xúc xắc (từ $1$ đến $6$).
+			\item Tung đồng xu liên tiếp $2$ lần sẽ có $4$ khả năng là $(S;S)$, $(S;N)$, $(N;S)$, $(N;N)$.\\
+			Gieo xúc xắc sẽ có $6$ khả năng là $1$, $2$, $3$, $4$, $5$, $6$.\\
+			Ta lập bảng (cột biểu diễn số chấm xúc xắc, hàng biểu diễn kết quả $2$ lần tung của đồng xu) để liệt kê các kết quả của phép thử như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Đồng xu}{Xúc xắc}&$1$&$2$&$3$&$4$&$5$&$6$\\ \hline
+					$(S;S)$&$(S;S;1)$&$(S;S;2)$&$(S;S;3)$&$(S;S;4)$&$(S;S;5)$&$(S;S;6)$\\ \hline
+					$(S;N)$&$(S;N;1)$&$(S;N;2)$&$(S;N;3)$&$(S;N;4)$&$(S;N;5)$&$(S;N;6)$\\ \hline
+					$(N;S)$&$(N;S;1)$&$(N;S;2)$&$(N;S;3)$&$(N;S;4)$&$(N;S;5)$&$(N;S;6)$\\ \hline
+					$(N;N)$&$(N;N;1)$&$(N;N;2)$&$(N;N;3)$&$(N;N;4)$&$(N;N;5)$&$(N;N;6)$\\ \hline
+				\end{tabular}
+			\end{center}
+			Mỗi ô trong bảng là một kết quả có thể xảy ra. Do đó, không gian mẫu là
+			\begin{eqnarray*}
+				\Omega&=&\{(S;S;1); (S;S;2); (S;S;3); (S;S;4); (S;S;5); (S;S;6); (S;N;1); (S;N;2);\\
+				&& (S;N;3); (S;N;4); (S;N;5); (S;N;6);  (N;S;1); (N;S;2); (N;S;3); (N;S;4);\\
+				&& (N;S;5); (N;S;6); (N;N;1); (N;N;2); (N;N;3); (N;N;4); (N;N;5); (N;N;6)\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $4\cdot 6 = 24$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Một lọ hoa có $3$ bông hoa gồm $1$ bông đỏ, $1$ bông vàng và $1$ bông xanh. Chọn ngẫu nhiên liên tiếp $2$ bông từ lọ hoa và quan sát cặp màu theo thứ tự đã chọn.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn $2$ bông hoa khác nhau theo thứ tự từ lọ hoa có $3$ bông, gồm $1$ bông đỏ, $1$ bông vàng và $1$ bông xanh.\\
+			Kết quả là cặp màu $(a,b)$ với $a$, $b$ là $1$ trong các màu đỏ, vàng, xanh và không trùng nhau.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&Đỏ (Đ)&Vàng (V)&Xanh (X)\\ \hline
+					Đỏ (Đ)&$\cancel{(\text{Đ};\text{Đ})}$&$(\text{Đ};\text{V})$&$(\text{Đ};\text{X})$\\ \hline
+					Vàng (V)&$(\text{V};\text{Đ})$&$\cancel{(\text{V};\text{V})}$&$(\text{V};\text{X})$\\ \hline
+					Xanh (X)&$(\text{X};\text{Đ})$&$(\text{X};\text{V})$&$\cancel{(\text{X};\text{X})}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $2$ bông khác màu nhau nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $3$ ô là (Đ;Đ), (V;V) và (X;X).\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega = \{(\text{Đ};\text{V}); (\text{Đ};\text{X}); (\text{V};\text{Đ}); (\text{V};\text{X}); (\text{X};\text{Đ}); (\text{X};\text{V})\}.$$
+			Vậy không gian mẫu có $9-3=6$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Một hộp có $4$ viên kẹo, mỗi viên có màu khác nhau là đỏ, vàng, xanh và hồng. Bạn Lan lấy ngẫu nhiên liên tiếp $2$ viên (viên đầu không bỏ lại). Ghi nhận kết quả là màu của $2$ viên kẹo theo thứ tự đã chọn.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng và cho biết số phần tử.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn $2$ viên kẹo khác nhau theo thứ tự.\\
+			Kết quả là cặp màu $(M_1;M_2)$, với $M_1$ và $M_2$ là $2$ màu khác nhau từ các màu đỏ, vàng, xanh và hồng.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\renewcommand{\arraystretch}{1.15}
+				\begin{tabular}{|l|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&Đỏ (Đ)&Vàng (V)&Xanh (X)&Hồng (H)\\ \hline
+					Đỏ (Đ)&$\cancel{(\text{Đ};\text{Đ})}$&$(\text{Đ};\text{V})$&$(\text{Đ};\text{X})$&$(\text{Đ};\text{H})$\\ \hline
+					Vàng (V)&$(\text{V};\text{Đ})$&$\cancel{(\text{V};\text{V})}$&$(\text{V};\text{X})$&$(\text{V};\text{H})$\\ \hline
+					Xanh (X)&$(\text{X};\text{Đ})$&$(\text{X};\text{V})$&$\cancel{(\text{X};\text{X})}$&$(\text{X};\text{H})$\\ \hline
+					Hồng (H)&$(\text{H};\text{Đ})$&$(\text{H};\text{V})$&$(\text{H};\text{X})$&$\cancel{(\text{H};\text{H})}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $2$ viên kẹo khác màu nhau nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $4$ ô là (Đ;Đ) (V;V) (X;X) và (H;H).\\
+			Do đó, không gian mẫu của phép thử là
+			\begin{eqnarray*}
+				\Omega &=&\{(\text{Đ};\text{V}); (\text{Đ};\text{X}); (\text{Đ};\text{H}); (\text{V};\text{Đ}); (\text{V};\text{X}); (\text{V};\text{H});\\
+				&& (\text{X};\text{Đ}); (\text{X};\text{V}); (\text{X};\text{H}); (\text{H};\text{Đ}); (\text{H};\text{V}); (\text{H};\text{X})\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $16-4=12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Có $4$ tấm thẻ được đánh số $1$, $2$, $3$, $4$ trong một chiếc hộp. Chọn ngẫu nhiên liên tiếp $2$ thẻ (thẻ thứ nhất không bỏ vào lại hộp) và quan sát số được ghi trên $2$ tấm thẻ được chọn.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn liên tiếp $2$ thẻ (thẻ được chọn không bỏ vào lại) và quan sát các số ghi trên $2$ thẻ được chọn.\\
+			Kết quả là cặp số $(a,b)$ với $a$, $b\in\{1,2,3,4\}$ và $a\neq b$. 
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}\hline
+					\diagbox{Thẻ $1$}{Thẻ $2$}&$1$&$2$&$3$&$4$\\ \hline
+					$1$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$\\ \hline
+					$2$&$(2;1)$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$\cancel{(3;3)}$&$(3;4)$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&$\cancel{(4;4)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a \neq b$ nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $4$ ô là $(1;1)$, $(2;2)$, $(3;3)$ và $(4;4)$.\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega = \{(1;2); (1;3); (1;4); (2;1); (2;3); (2;4); (3;1); (3;2); (3;4); (4;1); (4;2); (4;3)\}.$$
+			Vậy không gian mẫu có $16-4=12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Trong lớp có $4$ học sinh cùng số thứ tự tương ứng là An ($1$), Bình ($2$), Chi ($3$), Dũng ($4$). Chọn ngẫu nhiên liên tiếp $2$ bạn lên bảng. Quan sát cặp số $(a;b)$ là số thứ tự của hai bạn được chọn.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn liên tiếp $2$ bạn trong danh sách $4$ bạn.\\
+			Kết quả là cặp số $(a;b)$, với $a,b\in\{1;2;3;4\}$ và $a\neq b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau:
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&An $(1)$&Bình $(2)$&Chi $(3)$&Dũng $(4)$\\ \hline
+					An $(1)$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$\\ \hline
+					Bình $(2)$&$(2;1)$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$\\ \hline
+					Chi $(3)$&$(3;1)$&$(3;2)$&$\cancel{(3;3)}$&$(3;4)$\\ \hline
+					Dũng $(4)$&$(4;1)$&$(4;2)$&$(4;3)$&$\cancel{(4;4)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a \neq b$ nên loại các cặp số trùng nhau là $(1;1)$, $(2;2)$, $(3;3)$ và $(4;4)$.\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega = \{(1; 2); (1; 3); (1; 4); (2; 1); (2; 3); (2; 4); (3; 1); (3; 2); (3; 4); (4; 1); (4; 2); (4; 3)\}.$$
+			Vậy không gian mẫu có $16-4=12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Một dãy ghế trong rạp có $5$ ghế được đánh số $1$, $2$, $3$, $4$, $5$. Hai bạn cùng lớp vào rạp và ngồi xuống, mỗi người ngồi $1$ ghế khác nhau. Ghi nhận cặp số ghế $(a;b)$ theo thứ tự người thứ nhất và người thứ hai.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng và tính số phần tử.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn $2$ ghế phân biệt cho $2$ bạn theo thứ tự từ $5$ ghế được đánh số $1$, $2$, $3$, $4$ và $5$.\\
+			Kết quả là cặp số $(a;b)$ với $a,b\in\{1;2;3;4;5\}$ và $a\neq b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}\hline
+					\diagbox{Người 1}{Người 2}&$1$&$2$&$3$&$4$&$5$\\ \hline
+					$1$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$&$(1;5)$\\ \hline
+					$2$&$(2;1)$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$&$(2;5)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$\cancel{(3;3)}$&$(3;4)$&$(3;5)$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&$\cancel{(4;4)}$&$(4;5)$\\ \hline
+					$5$&$(5;1)$&$(5;2)$&$(5;3)$&$(5;4)$&$\cancel{(5;5)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a \neq b$ nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $5$ ô là $(1;1)$, $(2;2)$, $(3;3)$, $(4;4)$ và $(5;5)$.\\
+			Do đó, không gian mẫu của phép thử là
+			\begin{eqnarray*}
+				\Omega &=& \{(1;2); (1;3); (1;4); (1;5); (2;1); (2;3); (2;4); (2;5); (3;1); (3;2);\\
+				&& (3;4); (3;5); (4;1); (4;2); (4;3); (4;5); (5;1); (5;2); (5;3); (5;4)\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $25-5=20$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6H1-1]
+	Bạn Hòa gieo một con xúc xắc hai lần liên tiếp và kết quả ở lần thứ hai chỉ được chấp nhận nếu có số chấm khác số chấm ở lần thứ nhất. Quan sát cặp số chấm $(a;b)$ theo thứ tự hai lần gieo.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là gieo hai lần liên tiếp một con xúc xắc, trong đó yêu cầu kết quả ở hai lần gieo là khác nhau.\\
+			Kết quả là cặp số $(a;b)$ với $a$, $b\in\{1;2;3;4;5;6\}$ và $a\neq b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$&$5$&$6$\\ \hline
+					$1$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$&$(1;5)$&$(1;6)$\\ \hline
+					$2$&$(2;1)$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$&$(2;5)$&$(2;6)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$\cancel{(3;3)}$&$(3;4)$&$(3;5)$&$(3;6)$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&$\cancel{(4;4)}$&$(4;5)$&$(4;6)$\\ \hline
+					$5$&$(5;1)$&$(5;2)$&$(5;3)$&$(5;4)$&$\cancel{(5;5)}$&$(5;6)$\\ \hline
+					$6$&$(6;1)$&$(6;2)$&$(6;3)$&$(6;4)$&$(6;5)$&$\cancel{(6;6)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a \neq b$ nên cặp có hai phần tử trùng nhau thì không được tính, tức là trong bảng ra phải xoá $6$ ô là $(1;1)$, $(2;2)$, $(3;3)$, $(4;4)$, $(5;5)$ và $(6;6)$.\\
+			Do đó, không gian mẫu của phép thử là
+			\begin{eqnarray*}
+				\Omega &=& \{(1;2); (1;3); (1;4); (1;5); (1;6); (2;1); (2;3); (2;4); (2;5); (2;6);\\
+				&& (3;1); (3;2); (3;4); (3;5); (3;6); (4;1); (4;2); (4;3); (4;5); (4;6)\\
+				&& (5;1); (5;2); (5;3); (5;4); (5;6); (6;1); (6;2); (6;3); (6;4); (6;5)\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $36-6=30$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	Một hộp kín đựng $6$ quả bóng đánh số $1$, $2$, $3$, $4$, $5$, $6$. Lấy ngẫu nhiên liên tiếp hai quả bóng và chỉ ghi nhận kết quả khi số ở lần rút thứ hai lớn hơn số ở lần rút thứ nhất. 
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là rút liên tiếp hai quả bóng và chỉ ghi nhận kết quả khi số ở lần rút thứ hai lớn hơn số ở lần rút thứ nhất. \\
+			Kết quả là cặp số $(a;b)$, với $a$, $b\in\{1;2;3;4;5;6\}$ thỏa mãn $a<b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$&$5$&$6$\\ \hline
+					$1$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$&$(1;5)$&$(1;6)$\\ \hline
+					$2$&$\cancel{(2;1)}$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$&$(2;5)$&$(2;6)$\\ \hline
+					$3$&$\cancel{(3;1)}$&$\cancel{(3;2)}$&$\cancel{(3;3)}$&$(3;4)$&$(3;5)$&$(3;6)$\\ \hline
+					$4$&$\cancel{(4;1)}$&$\cancel{(4;2)}$&$\cancel{(4;3)}$&$\cancel{(4;4)}$&$(4;5)$&$(4;6)$\\ \hline
+					$5$&$\cancel{(5;1)}$&$\cancel{(5;2)}$&$\cancel{(5;3)}$&$\cancel{(5;4)}$&$\cancel{(5;5)}$&$(5;6)$\\ \hline
+					$6$&$\cancel{(6;1)}$&$\cancel{(6;2)}$&$\cancel{(6;3)}$&$\cancel{(6;4)}$&$\cancel{(6;5)}$&$\cancel{(6;6)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a<b$ nên các ô trên đường chéo và nửa tam giác dưới (bên dưới đường chéo chính) không được chấp nhận, chỉ giữ các ô tam giác trên (bên trên đường chéo chính).\\
+			Do đó, không gian mẫu của phép thử là
+			\begin{eqnarray*}
+				\Omega &=& \{(1;2); (1;3); (1;4); (1;5); (1;6); (2;3); (2;4); (2;5);\\
+				& &(2;6); (3;4); (3;5); (3;6); (4;5); (4;6); (5;6)\}.
+			\end{eqnarray*}
+			Vậy không gian mẫu có $15$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	Trong lớp có $5$ học sinh được đánh số thứ tự lần lượt là $1$, $2$, $3$, $4$, $5$. Chọn liên tiếp $2$ bạn và chỉ ghi nhận kết quả khi số thứ tự của bạn thứ hai nhỏ hơn số thứ tự của bạn thứ nhất.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu của phép thử. Không gian mẫu có bao nhiêu phần tử?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn $2$ bạn phân biệt, chỉ ghi nhận kết quả khi số thứ tự của bạn thứ hai nhỏ hơn số thứ tự của bạn thứ nhất.\\
+			Kết quả là cặp số $(a;b)$ với $a, b\in\{1;2;3;4;5\}$ và $a>b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$&$5$\\ \hline
+					$1$&$\cancel{(1;1)}$&$\cancel{(1;2)}$&$\cancel{(1;3)}$&$\cancel{(1;4)}$&$\cancel{(1;5)}$\\ \hline
+					$2$&$(2;1)$&$\cancel{(2;2)}$&$\cancel{(2;3)}$&$\cancel{(2;4)}$&$\cancel{(2;5)}$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$\cancel{(3;3)}$&$\cancel{(3;4)}$&$\cancel{(3;5)}$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&$\cancel{(4;4)}$&$\cancel{(4;5)}$\\ \hline
+					$5$&$(5;1)$&$(5;2)$&$(5;3)$&$(5;4)$&$\cancel{(5;5)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a>b$ nên các ô trên đường chéo và nửa tam giác trên (bên trên đường chéo chính) không được chấp nhận, chỉ giữ các ô tam giác dưới (bên dưới đường chéo chính).\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega=\{(2;1); (3;1); (3;2); (4;1); (4;2); (4;3); (5;1); (5;2); (5;3); (5;4)\}.$$
+			Vậy không gian mẫu có $10$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	Bạn Huy được phân công chọn ngẫu nhiên $2$ buổi sáng trong tuần từ thứ Hai đến thứ Sáu để trực sao đỏ. Ghi nhận là hai buổi sáng theo thứ tự sắp xếp từ thứ Hai đến thứ Sáu.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng và tính số phần tử.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là chọn $2$ buổi sáng khác nhau trong tuần theo thứ tự từ thứ Hai đến thứ Sáu.\\
+			Kết quả là cặp số $(a;b)$ với $a$, $b\in \{2;3;4;5;6\}$ và $a<b$.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng như sau
+			\begin{center}
+				% \renewcommand{\arraystretch}{1.15}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					\diagbox{Buổi $1$}{Buổi $2$}&Thứ $2$&Thứ $3$&Thứ $4$&Thứ $5$&Thứ $6$\\
+					\hline
+					Thứ $2$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$&$(2;5)$&$(2;6)$\\
+					\hline
+					Thứ $3$&$\cancel{(3;2)}$&$\cancel{(3;3)}$&$(3;4)$&$(3;5)$&$(3;6)$\\ \hline
+					Thứ $4$&$\cancel{(4;2)}$&$\cancel{(4;3)}$&$\cancel{(4;4)}$&$(4;5)$&$(4;6)$\\ \hline
+					Thứ $5$&$\cancel{(5;2)}$&$\cancel{(5;3)}$&$\cancel{(5;4)}$&$\cancel{(5;5)}$&$(5;6)$\\ \hline
+					Thứ $6$&$\cancel{(6;2)}$&$\cancel{(6;3)}$&$\cancel{(6;4)}$&$\cancel{(6;5)}$&$\cancel{(6;6)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a<b$ nên các ô trên đường chéo và nửa tam giác dưới (bên dưới đường chéo chính) không được chấp nhận, chỉ giữ các ô tam giác trên (bên trên đường chéo chính).\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega=\{(2;3); (2;4); (2;5); (2;6); (3;4); (3;5); (3;6); (4;5);(4;6); (5;6)\}.$$
+			Vậy không gian mẫu có $10$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	\immini{Một tấm bìa cứng hình tròn được chia làm $4$ phần bằng nhau và đánh số $1$, $2$, $3$, $4$. Bạn Hòa quay tấm bìa liên tiếp $2$ lần và quan sát cặp số $(a;b)$ chỉ bởi mũi tên khi tấm bìa dừng lại.
+		\begin{enumerate}
+			\item Phép thử và kết quả của phép thử là gì?
+			\item Mô tả không gian mẫu bằng bảng và cho biết số phần tử.
+			\item Nếu chỉ ghi nhận kết quả khi kết quả lần $2$ lớn hơn lần $1$ thì không gian mẫu có bao nhiêu phần tử?
+		\end{enumerate}
+	}{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\def\r{2} \def\gocxp{0}
+			\coordinate (A) at (0:\r);
+			\foreach \ts/\col in {25/red!30, 25/blue!30, 25/green!30, 25/yellow!30}{
+				\pgfmathsetmacro \gockt{\gocxp + \ts*360/100}
+				\draw[gray!50,fill=\col] (0,0)--(A) arc (\gocxp:\gockt:\r) coordinate (A)--cycle;
+				\global\let\gocxp=\gockt
+			}
+			\draw[line width=2pt,->] (0,0)--(-90:\r/2);
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0,0)+(45:\r*0.6)$) {\large 1};
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0,0)+(135:\r*0.6)$) {\large 2};
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0,0)+(225:\r*0.6)$) {\large 3};
+			\node[circle,inner sep=0.5pt, fill=white] at ($(0,0)+(315:\r*0.6)$) {\large 4};
+			\fill (0,0) circle(2pt);
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là bạn Hòa quay tấm bìa liên tiếp hai lần.\\
+			Kết quả của phép thử là một cặp số $(a;b)$, trong đó $a$ và $b$ tương ứng là số gắn trên tấm bìa.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng sau:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$\\ \hline
+					$1$&$(1;1)$&$(1;2)$&$(1;3)$&$(1;4)$\\ \hline
+					$2$&$(2;1)$&$(2;2)$&$(2;3)$&$(2;4)$\\ \hline
+					$3$&$(3;1)$&$(3;2)$&$(3;3)$&$(3;4)$\\ \hline
+					$4$&$(4;1)$&$(4;2)$&$(4;3)$&$(4;4)$\\ \hline
+				\end{tabular}
+			\end{center}
+			Mỗi ô là một kết quả có thể, không gian mẫu là tập hợp $16$ ô của bảng trên.\\
+			Do đó, không gian mẫu của phép thử là 
+			\begin{align*}
+				\Omega = \{&(1;1); (1;2); (1;3); (1;4); (2;1); (2;2); (2;3); (2;4);\\
+				&(3;1); (3;2); (3;3); (3;4); (4;1); (4;2); (4;3); (4;4)\}.
+			\end{align*}
+			Vậy không gian mẫu có $16$ phần tử.
+			\item Nếu chỉ ghi nhận khi kết quả lần $2$ lớn hơn lần $1$ thì $b>a$. Do đó, các ô trên đường chéo và nửa tam giác dưới (bên dưới đường chéo chính) không được chấp nhận chỉ giữ các ô tam giác trên (bên trên đường chéo chính).\\
+			Do đó, các kết quả của phép thử được liệt kê ở bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$\\ \hline
+					$1$&$\cancel{(1;1)}$&$(1;2)$&$(1;3)$&$(1;4)$\\ \hline
+					$2$&$\cancel{(2;1)}$&$\cancel{(2;2)}$&$(2;3)$&$(2;4)$\\ \hline
+					$3$&$\cancel{(3;1)}$&$\cancel{(3;2)}$&$\cancel{(3;3)}$&$(3;4)$\\ \hline
+					$4$&$\cancel{(4;1)}$&$\cancel{(4;2)}$&$\cancel{(4;3)}$&$\cancel{(4;4)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Suy ra không gian mẫu của phép thử là
+			$$\Omega=\{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}.$$
+			Vậy không gian mẫu có $6$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D6V1-1]
+	Một hộp có $6$ tấm thẻ được ghi các số từ $1$ đến $6$. Minh rút ngẫu nhiên liên tiếp $2$ thẻ (thẻ đầu không bỏ lại). Kết quả hai lần rút được chấp nhận nếu $2$ số ghi trên thẻ có tổng là số chẵn.
+	\begin{enumerate}
+		\item Phép thử và kết quả của phép thử là gì?
+		\item Mô tả không gian mẫu bằng bảng và cho biết số phần tử.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Phép thử là bạn Minh rút liên tiếp $2$ thẻ (thẻ rút ra không bỏ lại vào hộp) và kết quả được chấp nhận khi $2$ số ghi trên thẻ có tổng là số chẵn.\\
+			Kết quả là cặp số $(a;b)$ với $a$, $b\in \{1;2;3;4;5;6\}$ thỏa mãn $a\neq b$ và $a+b$ là số chẵn.
+			\item Ta liệt kê được tất cả các kết quả có thể của phép thử bằng cách lập bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+					\diagbox{Lần $1$}{Lần $2$}&$1$&$2$&$3$&$4$&$5$&$6$\\ \hline
+					$1$&$\cancel{(1;1)}$&$\cancel{(1;2)}$&$(1;3)$&$\cancel{(1;4)}$&$(1;5)$&$\cancel{(1;6)}$\\ \hline
+					$2$&$\cancel{(2;1)}$&$\cancel{(2;2)}$&$\cancel{(2;3)}$&$(2;4)$&$\cancel{(2;5)}$&$(2;6)$\\ \hline
+					$3$&$(3;1)$&$\cancel{(3;2)}$&$\cancel{(3;3)}$&$\cancel{(3;4)}$&$(3;5)$&$\cancel{(3;6)}$\\ \hline
+					$4$&$\cancel{(4;1)}$&$(4;2)$&$\cancel{(4;3)}$&$\cancel{(4;4)}$&$\cancel{(4;5)}$&$(4;6)$\\ \hline
+					$5$&$(5;1)$&$\cancel{(5;2)}$&$(5;3)$&$\cancel{(5;4)}$&$\cancel{(5;5)}$&$\cancel{(5;6)}$\\ \hline
+					$6$&$\cancel{(6;1)}$&$(6;2)$&$\cancel{(6;3)}$&$(6;4)$&$\cancel{(6;5)}$&$\cancel{(6;6)}$\\ \hline
+				\end{tabular}
+			\end{center}
+			Vì $a \neq b$ và $a+b$ là một số chẵn nên ta chỉ giữ lại các ô không nằm trên đường chéo chính và có cặp số cùng tính chất chẵn hoặc lẻ.\\
+			Do đó, không gian mẫu của phép thử là
+			$$\Omega=\{(1;3); (1;5); (2;4); (2;6); (3;1); (3;5); (4;2); (4;6); (5;1); (5;3); (6;2); (6;4)\}.$$
+			Vậy không gian mẫu của phép thử có $12$ phần tử.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6H1-2]
+	Một hộp có $4$ quả bóng được đánh số lần lượt từ $1$ đến $4$. Bạn Trọng và bạn Thuỷ lần lượt lấy ra ngẫu nhiên $1$ quả bóng từ hộp.
+	\begin{enumerate}
+		\item Xác định không gian mẫu của phép thử.
+		\item Xác định các kết quả thuận lợi cho mỗi biến cố sau
+		\begin{itemize}
+			\item $A$: \lq\lq Số ghi trên quả bóng của bạn Trọng lớn hơn số ghi trên quả bóng của bạn Thuỷ\rq\rq;
+			\item $B$: \lq\lq Tổng các số ghi trên $2$ quả bóng lấy ra lớn hơn $7$\rq\rq.	
+		\end{itemize}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Kí hiệu $(i;j)$ là quả bóng của bạn Trọng và bạn Thuỷ lần lượt lấy ra. Khi đó không gian mẫu là\\ 
+			$\Omega = \{(1;2);(1;3);(1;4);(2;1);(2;3);(2;4);(3;1);(3;2);(3;4);(4;1);(4;2);(4;3))\}$.
+			\item Xác định các kết quả thuận lợi cho mỗi biến cố.
+			\begin{itemize}
+				\item Các kết quả thuận lợi cho mỗi biến cố $A$ là	$$(2;1);(3;1);(3;2);(4;1);(4;2);(4;3)).$$
+				\item Các kết quả thuận lợi cho mỗi biến cố $B$ là $\varnothing$.	
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6H1-2]
+	Ba khách hàng $M$, $N$, $P$ đến quầy thu ngân cùng một lúc. Nhân viên thu ngân sẽ lần lượt chọn ngẫu nhiên từng người để thanh toán.
+	\begin{enumerate}
+		\item Xác định không gian mẫu của phép thử.
+		\item Xác định các kết quả thuận lợi cho mỗi biến cố sau
+		\begin{itemize}
+			\item $A\colon$ \lq\lq $M$ được thanh toán cuối cùng\rq\rq;
+			\item $B\colon$ \lq\lq $N$ được thanh toán trước $P$ \rq\rq;
+			\item $C\colon$ \lq\lq $M$ được thanh toán \rq\rq.
+		\end{itemize}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Không gian mẫu của phép thử là
+			$\Omega=\{MNP;MPN;NMP;NPM;PMN;PNM\}$.
+			\item Xác định các kết quả thuận lợi cho mỗi biến cố.
+			\begin{itemize}
+				\item Các kết quả thuận lợi cho mỗi biến cố $A$ là	$NPM$; $PNM$.
+				\item Các kết quả thuận lợi cho mỗi biến cố $B$ là $MNP$; $NMP$; $NPM$.
+				\item Các kết quả thuận lợi cho mỗi biến cố $C$ là $MNP$; $MPN$; $NMP$; $NPM$; $PMN$; $PNM$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6H1-2]
+	Bạn An viết ngẫu nhiên một số tự nhiên có $2$ chữ số.
+	\begin{enumerate}
+		\item Xác định không gian mẫu của phép thử.
+		\item Hãy xác định các kết quả thuận lợi cho mỗi biến cố sau
+		\begin{itemize}
+			\item $A\colon$ \lq\lq Số được viết là số tròn chục\rq\rq;
+			\item $B\colon$ \lq\lq Số được viết là số chính phương\rq\rq.
+		\end{itemize}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Không gian mẫu của phép thử là $\Omega = \{ab\mid 1\le a \le 9; 0\le b \le 9\}$.
+			\item Xác định các kết quả thuận lợi cho mỗi biến cố.
+			\begin{itemize}
+				\item Kết quả thuận lợi cho biến cố $A$ là $$10;20;30;40;50;60;70;80;90.$$
+				\item Kết quả thuận lợi cho biến cố $B$ là $$16;25;36;49;64;81.$$
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6H1-2]
+	Trên giá có $1$ quyển sách Ngữ văn, $1$ quyển sách Mĩ thuật và $1$ quyển sách Công nghệ. Bạn Hà và bạn Thuý lần lượt lấy ra ngẫu nhiên $1$ quyển sách từ giá.
+	\begin{enumerate}
+		\item Xác định không gian mẫu của phép thử.
+		\item Xác định các kết quả thuận lợi cho mỗi biến cố sau
+		\begin{itemize}
+			\item $A\colon$ \lq\lq Có $1$ quyển sách Ngữ văn trong $2$ quyển sách được lấy ra\rq\rq;
+			\item $B\colon$ \lq\lq Cả $2$ quyển sách được lấy ra đều là sách Mĩ thuật\rq\rq;
+			\item $C\colon$ \lq\lq Không có quyến sách Công nghệ nào trong $2$ quyển sách được lấy ra\rq\rq.	
+		\end{itemize}
+	\end{enumerate}
+	\loigiai{
+		Kí hiệu $(i;j)$ là kết quả lấy ra hai quyển sách với $i$ là sách bạn Hà lấy ra, $j$ là sách bạn Thuý lấy ra. 
+		\begin{enumerate}
+			\item Không gian mẫu của phép thử là 
+			\begin{eqnarray*}
+				\Omega&=&\{\text{(Ngữ Văn, Mĩ Thuật)};\text{(Ngữ Văn, Công nghệ)}; \text{(Mĩ Thuật, Công nghệ)}; \\
+				&& \text{(Mĩ Thuật, Ngữ Văn)};\text{(Công nghệ, Ngữ Văn)}; \text{(Công nghệ, Mĩ thuật)}\}.
+			\end{eqnarray*}
+			\item Xác định các kết quả thuận lợi cho mỗi biến cố.
+			\begin{itemize}
+				\item Kết quả thuận lợi cho biến cố $A$ là 
+				$$\text{(Ngữ Văn, Mĩ Thuật)};\text{(Ngữ Văn, Công nghệ)}; \text{(Mĩ Thuật, Ngữ Văn)};\text{(Công nghệ, Ngữ Văn)}.$$
+				\item Kết quả thuận lợi cho biến cố $B$ là $\varnothing$.
+				\item Kết quả thuận lợi cho biến cố $C$ là $\text{(Ngữ Văn, Mĩ Thuật)}; \text{(Mĩ Thuật, Ngữ Văn)}$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[SGK CTST Toan 9]%[9D6H1-2]
+	Bạn Việt giải một đề thi gồm có $3$ bài được đánh số $1$; $2$; $3$. Việt chọn lần lượt các bài để giải theo một thứ tự ngẫu nhiên.
+	\begin{enumerate}
+		\item Xác định không gian mẫu của phép thử.
+		\item Xác định các kết quả thuận lợi cho mỗi biến cố sau:
+		\begin{itemize}
+			\item $A\colon$ \lq\lq Việt giải bài $2$ đầu tiên\rq\rq;
+			\item $B\colon$ \lq\lq Việt giải bài $1$ trước bài $3$\rq\rq.	
+		\end{itemize}
+	\end{enumerate}
+	\loigiai{ 
+		Gọi $(i;j;k)$ lần lượt là thứ tự đề thi mà bạn Việt giải.
+		\begin{enumerate}
+			\item Không gian mẫu của phép thử là $\Omega = \{(1;2;3);(1;3;2);(2;1;3);(2;3;1);(3;1;2);(3;2;1)\}$.
+			\item Xác định các kết quả thuận lợi cho mỗi biến cố.
+			\begin{itemize}
+				\item Kết quả thuận lợi cho biến cố $A$ là $(2;1;3)$; $(2;3;1)$.
+				\item Kết quả thuận lợi cho biến cố $B$ là $(1;2;3)$; $(1;3;2)$; $(2;1;3)$.
+			\end{itemize}
+		\end{enumerate}
+		
+	}
+\end{bt}
+
+

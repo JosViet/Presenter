@@ -1,0 +1,1759 @@
+\newpage
+\section{MÔ TẢ VÀ BIỂU DIỄN DỮ LIỆU TRÊN CÁC BẢNG VÀ BIỂU ĐỒ}
+\Opensolutionfile {ans}[ans/ans-6TKXS2-CT]
+\subsection{Lý thuyết}
+
+Dựa vào các thông tin đã biết và sử dụng mối liên hệ toán học giữa các số liệu, ta có thể phát hiện ra được số liệu không chính xác trong một số trường hợp.
+
+\subsection{Phân loại và phương pháp giải toán}
+\begin{dang}{Bảng số liệu}
+	
+\end{dang}
+
+\begin{vd}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong $6$ tháng đầu năm, số sản phẩm bán ra mỗi tháng của một cửa hàng đều tăng khoảng $20\%$ so với tháng trước đó. Biết rằng, trong bảng dưới đây, số sản phẩm bán ra của một tháng bị nhập sai. Hãy tìm các tháng bị nhập sai.
+	\begin{center}
+		\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}
+			\hline Tháng & $1$ & $2$& $3$ & $4$ & $5$ & $6$\\
+			\hline Số sản phẩm bán ra & $145$& $175$& $211$ &$256$ & $340$ & $371$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\loigiai{
+		Tỉ lệ phần trăm tăng thêm của số sản phẩm bán ra mỗi tháng được tính ở bảng dưới đây:
+		\begin{center}
+			\begin{tabular}{|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}
+				\hline Tháng & $2$& $3$ & $4$ & $5$ & $6$\\
+				\hline Tỉ lệ phần trăm tăng thêm so với tháng trước & $20{,}7\%$& $20{,}6\%$ &$21{,}3\%$ & $32{,}8\%$ & $9{,}1\%$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Ta thấy tỉ lệ tăng của tháng $5$ và tháng $6$ đều khác xa $20\%$.\\
+		Do đó trong bảng số liệu đã cho, số sản phẩm của tháng $5$ là không chính xác.
+	}
+\end{vd}
+
+\begin{vd}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một đội $20$ thợ thủ công được chia đều vào $5$ tổ. Trong một ngày, mỗi người thợ làm được $4$ hoặc $5$ sản phẩm. Cuối ngày, đội trưởng thống kê lại số sản phẩm mà mỗi tổ làm được ở bảng sau:
+	\begin{center}
+		\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}
+			\hline Tổ & $1$& $2$ & $3$ & $4$ & $5$\\
+			\hline Số sản phẩm & $17$ & $19$ & $19$ & $21$ & $20$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Đội trưởng đã thống kê đúng chưa? Tại sao?
+	\loigiai{
+		Mỗi tổ có $20\colon 5=4$ người.\\
+		Trong một ngày, mỗi người thợ làm được $4$ hoặc $5$ sản phẩm nên mỗi tổ làm được từ $16$ đến $20$ sản phẩm.\\
+		Do đó, bảng trên ghi Tổ $4$ làm được $21$ sản phẩm là không chính xác.\\
+		Vậy đội trưởng thống kê chưa đúng.
+	}
+\end{vd}
+\begin{dang}{Biểu đồ}
+	
+\end{dang}
+
+\begin{vd}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	\immini{
+		Lượng điện sinh hoạt trong tháng $1/2021$ của các hộ gia đình thuôc Khu A ($60$ hộ), Khu B ($100$ hộ) và Khu C ($120$ hộ) được biểu diễn ở biểu đồ bên. Hãy cho biết các phát biểu sau là đúng hay sai:
+		\begin{enumEX}{1}
+			\item Mỗi khu đều tiêu thụ trên $6\,000$ kWh.
+			\item Trung bình mỗi hộ ở Khu C sử dụng số điện gấp hai lần mỗi hộ ở Khu A.
+		\end{enumEX}
+	}{\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (7.2,7.2);
+			\foreach \i in {0,2000,...,14000}
+			\draw (0,1*\i/2000)node[left]{\bf\footnotesize $\i$} (-0.1,1*\i/2000)--(0.1,1*\i/2000);
+			\draw (0,-0.1)--(0,0.1);
+			\draw (1.5,0)node[below]{\bf\footnotesize Khu A};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,3.2);
+			\draw (3.5,0)node[below]{\bf\footnotesize Khu B};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,5.2);
+			\draw (5.5,0)node[below]{\bf\footnotesize Khu C};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,6.4);
+			\draw[<->,>=latex] (0,7)|-(7,0);
+			\draw (4,8)node[above]{Lượng điện sinh hoạt của các khu vực};
+			\draw (4,7)node[above]{trong tháng $1/2021$ (đơn vị $\rm kWh$)};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Ta thấy mỗi khu đều tiêu thụ trên $6\,000$ kWh nên khẳng định ở câu a) là đúng.\\
+		Mặc dù lượng điện tiêu thụ ở Khu C gần gấp hai lần lượng điện tiêu thụ ở Khu A nhưng số hộ ở Khu C lại gấp hai lần số hộ Khu $\mathrm{A}$. Do đó khẳng định ở câu b) là sai.
+	}
+\end{vd}
+
+%%==========Ví dụ 4
+\begin{vd}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bình vẽ biểu đồ biểu thị tỉ lệ số lượng mỗi loại gia cầm trong một trang trại theo bảng thống kê dưới đây:
+	\begin{center}
+		\begin{minipage}{0.4\textwidth}
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|}
+					\hline
+					Loại gia cầm	& Số con \\
+					\hline
+					Gà	& 120 \\
+					\hline
+					Ngan	& 40 \\
+					\hline
+					Ngỗng & 40 \\
+					\hline
+					Vịt & 10 \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{minipage}\quad
+		\begin{minipage}{0.4\textwidth}
+			\definecolor{mau1}{RGB}{220,57,18}
+			\definecolor{mau2}{RGB}{255,153,0}
+			\definecolor{mau3}{RGB}{102,140,217}
+			\definecolor{mau4}{RGB}{16,150,24}
+			\definecolor{mau5}{RGB}{153,0,153}
+			\makeatletter
+			\tikzstyle{chart}=[%
+			legend
+			label/.style={font={\scriptsize},anchor=west,align=left},
+			legend box/.style={rectangle, draw, minimum size=5pt},
+			axis/.style={black,semithick,->},
+			axis label/.style={anchor=east,font={\tiny}},
+			]
+			\tikzstyle{bar chart}=[
+			chart,
+			bar width/.code={
+				\pgfmathparse{##1/2}
+				\global\let\bar@w\pgfmathresult
+			},
+			bar/.style={very thick, draw=white},
+			bar label/.style={font={\bf\small},anchor=north},
+			bar value/.style={font={\footnotesize}},
+			bar width=.75,
+			]
+			\tikzstyle{pie chart}=[%
+			chart,
+			slice/.style={line cap=round, line join=round, very thick,draw=white},
+			pie title/.style={font={\bf}},
+			slice type/.style 2 args={
+				##1/.style={fill=##2},
+				values of ##1/.style={}
+			}
+			]
+			\pgfdeclarelayer{background}
+			\pgfdeclarelayer{foreground}
+			\pgfsetlayers{background,main,foreground}
+			\newcommand{\pie}[3][]{
+				\begin{scope}[#1]
+					\pgfmathsetmacro{\curA}{90}
+					\pgfmathsetmacro{\r}{1}
+					\def\c{(0,0)}
+					\node[pie title] at (90:1.3) {#2};
+					\foreach \v/\s in{#3}{
+						\pgfmathsetmacro{\deltaA}{\v/100*360}
+						\pgfmathsetmacro{\nextA}{\curA + \deltaA}
+						\pgfmathsetmacro{\midA}{(\curA+\nextA)/2}
+						\path[slice,\s]
+						\c
+						-- +(\curA:\r) arc (\curA:\nextA:\r) -- cycle;
+						\pgfmathsetmacro{\d}{max((\deltaA * -(.5/50) + 1) , .5)}
+						\begin{pgfonlayer}{foreground}
+							\path \c -- node[pos=\d,pie values,values of \s]{$\v\%$} +(\midA:\r);
+						\end{pgfonlayer}
+						\global\let\curA\nextA
+					}
+				\end{scope}
+			}
+			\newcommand{\legend}[2][]{%
+				\begin{scope}[#1]
+					\path
+					\foreach \n/\s in {#2}
+					{++(0,-10pt) node[\s,legend box] {} +(5pt,0) node[legend label] {\n}};
+				\end{scope}
+			}
+			\begin{tikzpicture}[pie chart,slice type={Ga}{mau3},slice type={vit}{mau1},slice type={ngan}{mau2},slice type={ngong}{mau5},slice type={pig}{mau4},pie values/.style={font={\small}},scale=2]
+				\pie{Tỉ lệ mỗi loại gia cầm trong trang trại}{57.2/Ga,4.8/vit,19/ngan,19/ngong}
+				\legend[shift={(-1.5cm,-1cm)}]{{Gà}/Ga}
+				\legend[shift={(-.5cm,-1cm)}]{{Vịt}/ngong}
+				\legend[shift={(0.5cm,-1cm)}]{{Ngỗng}/vit}
+				\legend[shift={(1.5cm,-1cm)}]{{Ngan}/ngan}
+			\end{tikzpicture}
+		\end{minipage}
+	\end{center}
+	Bạn hãy cho biết biểu đồ Bình vẽ đã chính xác chưa. Nếu chưa thì cần điều chỉnh lại như thế nào cho đúng?
+	\loigiai{
+		Theo bảng thống kê thì số ngan và ngỗng bằng nhau nên trên biểu đồ quạt, hình quạt biểu diễn tỉ lệ ngan và ngỗng phải bằng nhau. Do đó biểu đồ Bình vẽ chưa chính xác.\\
+		Ở phần chú giải, Bình đổi chỗ "Vịt" và "Ngỗng" thì sẽ được biểu đồ chính xác.
+	}
+\end{vd}
+
+\begin{vd}%[0D6V2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ dưới đây biểu thị diện tích lúa cả năm của hai tỉnh An Giang và Kiên Giang từ năm $2010$ đến năm $2019$ (đơn vị: nghìn hecta):
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=18cm, height=9cm,
+				xmin=2009, xmax=2020,
+				ymin=549.9, ymax=900,
+				xtick={2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019}, 
+				ytick={550,600,650,700,750,800,850},
+				ylabel={\textbf{Nghìn hecta}},
+				xlabel style={anchor=north},
+				ylabel style={anchor=south},
+				tick label style={font=\small},
+				label style={font=\bfseries\small},
+				ymajorgrids=true,
+				xmajorgrids=false,
+				grid style={dashed, gray!30},
+				legend style={at={(0.5,-0.25)}, anchor=north, legend columns=-1},
+				axis lines=middle,
+				axis line style={-{Stealth[length=3mm]}, thick},
+				enlargelimits=false,
+				scaled ticks=false, 
+				xticklabel style={
+					/pgf/number format/precision=0, 
+					/pgf/number format/fixed,
+					/pgf/number format/set thousands separator={}, 
+				},
+				minor x tick num=0, after end axis/.code={
+					\node[anchor=north west, font=\bfseries\small] at (axis cs:2019.5,545) {Năm};
+				}
+				]
+				\addplot[black, mark=*, thick] coordinates {
+					(2010,585)(2011,605)(2012,620)(2013,635)(2014,620)
+					(2015,640)(2016,665)(2017,640)(2018,620)(2019,625)
+				};
+				\addplot[gray, mark=square*, thick] coordinates {
+					(2010,645)(2011,685)(2012,715)(2013,765)(2014,750)
+					(2015,760)(2016,755)(2017,720)(2018,710)(2019,705)
+				};
+				\legend{An Giang, Kiên Giang}
+			\end{axis}
+			\node at (8,7.2) {\parbox{10cm}{\centering\Large\textbf{Diện tích lúa cả năm của hai tỉnh\\An Giang và Kiên Giang}}};
+		\end{tikzpicture}	
+	\end{center}
+	\choiceTF
+	{Ở năm $2010$, diện tích lúa của tỉnh Kiên Giang cao hơn hai lần diện tích lúa của tỉnh An Giang}
+	{Từ năm $2016$, diện tích lúa của tỉnh An Giang đạt trên $650$ nghìn hecta}
+	{\True Diện tích lúa của cả hai tỉnh An Giang và Hậu Giang đều giảm vào năm $2014$ sau đó tăng trở lại vào năm $2015$}
+	{Những năm diện tích lúa của tỉnh An Giang tăng thì diện tích lúa của tỉnh Kiên Giang cũng tăng}
+	\loigiai{
+	\begin{itemchoice}
+			\itemch Phát biểu a) là \textbf{sai}.
+			\itemch Phát biểu b) là \textbf{sai} vì từ năm $2017$ đến $2019$, diện tích lúa của An Giang nhỏ hơn $650$ nghìn hecta.
+			\itemch Phát biểu c) là đúng.
+			\itemch Phát biểu d) là \textbf{sai} vì trong năm $2016$, diện tích lúa của An Giang tăng trong khi diện tích lúa của Kiên Giang lại giảm.
+	\end{itemchoice}}
+\end{vd}
+\subsection{Bài tập rèn luyện}
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-0D6-Bai2]
+\setcounter{ex}{0}
+\begin{ex}%[0D6N2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Cho biểu đồ thể hiện mật độ dân số thế giới và các châu lục năm $2005$ (đơn vị: người/km$^2$) như sau:
+	\begin{center}
+		\begin{tikzpicture}[thick,line join=round, line cap=round,ybar,>=stealth,x=1mm,y=1mm]
+			\def\rong{5mm}
+			\def\kcach{15}
+			\def\cdai{108}
+			\def\ccao{70}
+			\def\bdau{10}
+			\foreach \x/\xtext in {10/Châu Đại Dương,25/Châu Mỹ,40/Châu Phi,55/Châu Âu,70/Châu Á,85/Thế giới}{
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\draw(\x,0) node[below] {\tiny\color{black} \xtext};
+			}
+			\foreach \i/\j in {10/20,20/40,30/60,40/80,50/100,60/120}{
+				\draw[thin,gray] (0,\i) -- (\cdai,\i);
+				\draw (0,\i)node[left]{\j};
+			}
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(10,1.95)};
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(25,10.55)};
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(40,14.95)};
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(55,15.85)};
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(70,61.65)};
+			\draw[pattern=north east lines,pattern color=black,bar width=\rong]plot coordinates{(85,23.9)};
+			\draw(10,1.95) node[above]{3,9};
+			\draw(25,10.55) node[above]{21,1};
+			\draw(40,14.95) node[above]{29,9};
+			\draw(55,15.85) node[above]{31,7};
+			\draw(70,61.65) node[above]{123,3};
+			\draw(85,23.9) node[above]{47,8};
+			\draw[->](-5,0)--(\cdai,0)node[below]{\tiny\color{black} };
+			\draw[->](0,-4)--(0,\ccao)node[above]{\color{black}\tiny\color{black} };
+			\node[below left](0,0){$O$};
+			\draw (current bounding box.south) node[anchor=north] {\bf Mật độ dân số thế giới và các châu lục năm 2005};
+		\end{tikzpicture}
+	\end{center}
+	Nhận xét nào sau đây không đúng?
+	\choice
+	{Châu Phi, Châu Mỹ, Châu Đại Dương có mật độ dân số thấp hơn mật độ dân số trung bình của thế giới}
+	{Châu Á có mật độ dân số cao hơn so với mật độ dân số trung bình của thế giới}
+	{\True Châu Mỹ có mật độ dân số thấp nhất thế giới}
+	{Châu Á có mật độ dân số cao nhất thế giới}
+	\loigiai{
+	Dựa vào biểu đồ, Châu Đại Dương có mật độ dân số thấp nhất thế giới với $3{,}9$ người/km$^2$.
+	}
+\end{ex}
+
+\begin{ex}%[0D6N2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Số dân thành thị và nông thôn nước ta (đơn vị: triệu người) giai đoạn 2005 – 2016 được biểu diễn ở biểu đồ sau:
+	\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (20.2,9.2);
+			\draw (0,0)node[left]{\bf\footnotesize$20$} (0,1)node[left]{\bf\footnotesize$25$} (0,2)node[left]{\bf\footnotesize$30$} (0,3)node[left]{\bf\footnotesize$35$}(0,4)node[left]{\bf\footnotesize$40$}(0,5)node[left]{\bf\footnotesize$45$}(0,6)node[left]{\bf\footnotesize$50$} (0,7)node[left]{\bf\footnotesize$55$} (0,8)node[left]{\bf\footnotesize$60$} (0,9)node[left]{\bf\footnotesize$65$};
+			\draw (2,0)node[below]{\bf\footnotesize Năm 2005};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,0.48);
+			\path[pattern=north east lines,draw=black] (2.2,0)rectangle(3.2,8.02);
+			\draw (6,0)node[below]{\bf\footnotesize Năm 2010};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,1.3);
+			\path[pattern=north east lines,draw=black] (6.2,0)rectangle(7.2,8.08);
+			\draw (10,0)node[below]{\bf\footnotesize Năm 2012};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,1.66);
+			\path[pattern=north east lines,draw=black] (10.2,0)rectangle(11.2,8.1);
+			\draw (14,0)node[below]{\bf\footnotesize Năm 2015};
+			\path[fill=blue,draw=white] (13,0)rectangle(14,2.22);
+			\path[pattern=north east lines,draw=black] (14.2,0)rectangle(15.2,8.12);
+			\draw (18,0)node[below]{\bf\footnotesize Năm 2016};
+			\path[fill=blue,draw=white] (17,0)rectangle(18,2.38);
+			\path[pattern=north east lines,draw=black] (18.2,0)rectangle(19.2,8.16);
+			\draw[<->,>=latex] (0,10)|-(20,0);
+			\draw (10,10.75)node[above]{\bf Số dân thành thị và nông thôn nước ta};
+			\draw[fill=blue,draw=white](2,-1.5)rectangle(2.3,-1.2)node[right]{Số dân thành thị};
+			\draw[pattern=north east lines,draw=black](8,-1.5)rectangle(8.3,-1.2)node[right]{Số dân nông thôn};
+			\foreach \i/\j/\k in {1.5/0.48/22{,}4,
+				2.7/8.05/60{,}1,
+				5.5/1.3/26{,}5,
+				6.7/8.08/60{,}4,
+				9.5/1.66/28{,}3,
+				10.7/8.1/60{,}5,
+				13.5/2.22/31{,}1,
+				14.7/8.12/60{,}6,
+				17.5/2.38/31{,}9,
+				18.7/8.16/60{,}8
+			}
+			{\path (\i,\j) node[above]{\k};
+			}
+		\end{tikzpicture}
+	\end{center}
+	Căn cứ vào biểu đồ, hãy chọn phát biểu đúng trong các phát biểu sau đây về tình hình dân số nước ta giai đoạn $2005 – 2016$.
+	\choice
+	{Số dân thành thị tăng, số dân nông thôn giảm}
+	{\True Số dân thành thị tăng, số dân nông thôn tăng}
+	{Số dân thành thị giảm, số dân nông thôn giảm}
+	{Số dân thành thị giảm, số dân nông thôn tăng}
+	\loigiai{
+	Dựa vào biểu đồ, số dân thành thị tăng, số dân nông thôn tăng giai đoạn $2005 – 2016$.
+	}
+\end{ex}
+\begin{ex}%[0D6N2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Điểm trung bình học kỳ I một số môn học của bạn Hoa được biểu diễn qua biểu đồ dưới đây:
+	\begin{center}
+		\begin{tikzpicture}[thick,line join=round, line cap=round,ybar,>=stealth,x=1mm,y=1mm]
+			\color{black}
+			\def\rong{5mm}
+			\def\kcach{10}
+			\def\cdai{76}
+			\def\ccao{60}
+			\def\bdau{8}
+			
+			\foreach \x/\xtext in {8/Toán,18/Ngữ văn,28/Tiếng anh,38/Vật lí,48/Hóa học,58/Sinh học}{
+				\draw[thin,shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt);
+				\draw(\x,0) node[below] {\tiny\color{black} \xtext};
+			}
+			\foreach \i/\j in {5/1,10/2,15/3,20/4,25/5,30/6,35/7,40/8,45/9,50/10}{
+				\draw[thin,gray] (0,\i) -- (\cdai,\i);
+				\draw (0,\i) node[left]{$\j$};
+			}
+			
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(8,45.5)};
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(18,38)};
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(28,43.5)};
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(38,44.5)};
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(48,46)};
+			\draw[pattern=north east lines,pattern color=gray,bar width=\rong]plot coordinates{(58,48.5)};
+			\draw(8,45.5) node[above]{\color{black}$9,1$};
+			\draw(18,38) node[above]{\color{black}$7,6$};
+			\draw(28,43.5) node[above]{\color{black}$8,7$};
+			\draw(38,44.5) node[above]{\color{black}$8,9$};
+			\draw(48,46) node[above]{\color{black}$9,2$};
+			\draw(58,48.5) node[above]{\color{black}$9,7$};
+			\draw[->](-5,0)--(\cdai,0)node[below]{\tiny\color{black} };
+			\draw[->](0,-4)--(0,\ccao)node[above]{\color{black}\tiny\color{black} };
+			\node[below left](0,0){$O$};
+			\draw (current bounding box.south) node[anchor=north] {\color{black}Điểm trung bình học kì I một số môn học của bạn Hoa};
+		\end{tikzpicture}
+	\end{center}
+	Chọn phát biểu \textbf{sai}?
+	\choice
+	{Điểm trung bình môn Sinh học của bạn Hoa cao nhất}
+	{Điểm trung bình môn Ngữ văn của bạn Hoa thấp nhất}
+	{\True Điểm trung bình môn Vật lí của bạn Hoa cao hơn điểm trung bình môn Hóa học}
+	{Điểm trung bình môn Toán của bạn Hoa cao hơn điểm trung bình môn Tiếng Anh}
+	\loigiai{
+		Bạn Hoa có điểm trung bình môn Vật lí là $8{,}9$ và điểm trung bình môn Hóa học là $9{,}2$.\\
+		Vậy điểm trung bình môn Vật lí của bạn Hoa thấp hơn điểm trung bình môn Hóa học.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong năm tháng đầu năm ngoái, số sản phẩm bán ra mỗi tháng của một cửa hàng đều tăng khoảng $10\%$ so với tháng trước đó. Tìm tháng mà số sản phẩm bán ra tháng đó bị nhập sai trong bảng dưới đây?
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Tháng & 1 & 2 & 3 & 4 & 5 \\
+			\hline
+			Số sản phẩm bán ra & 123 & 135 & 148 & 163 & 204 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\choice
+	{Tháng $2$}
+	{Tháng $3$}
+	{Tháng $4$}
+	{\True Tháng $5$}
+	\loigiai{
+		Tỉ lệ phần trăm tăng thêm của tháng $2$ so với tháng $1$ là $\dfrac{135-123}{123} \cdot 100\%=9{,}8\%$.\\
+		Tính tương tự, tỉ lệ phần trăm tăng thêm của số sản phẩm bán ra mỗi tháng được tính ở bảng dưới đây:
+		\begin{center}
+			\begin{tabular}{|p{4cm}|c|c|c|c|}
+				\hline Tháng & 2 & 3 & 4 & 5 \\
+				\hline Tỉ lệ phần trăm tăng thêm so với tháng trước & $9{,}8\%$ & $9{,}6\%$ &$10{,}1\%$ & $25{,}2\%$  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Ta thấy tỉ lệ tăng của tháng $5$ so với tháng $4$ khác xa $10\%$.\\
+		Do đó trong bảng số liệu đã cho, số sản phẩm của tháng $5$ là không chính xác.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ sau đây thể hiện cơ cấu lao động phân theo khu vực kinh tế của Ấn Độ, Brazil và Anh năm $2013$ (đơn vị $\%$):
+	\begin{center}
+		\begin{minipage}{0.25\textwidth}
+			\begin{tikzpicture}[line join=round,thick,scale=0.7]
+				\color{black}
+				\draw[fill=white,pattern color=gray] (0,0)--(90:3) arc (90:193.32:3)--cycle ($(0,0)+(141.66:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $28.7\%$};
+				\draw[pattern=dots,pattern color=black] (0,0)--(193.32:3) arc (193.32:271.08:3)--cycle ($(0,0)+(232.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $21.6\%$};
+				\draw[pattern=north east lines,pattern color=gray] (0,0)--(271.08:3) arc (271.08:450:3)--cycle ($(0,0)+(360.54:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $49.7\%$};
+				\draw(0,0) circle (3cm);
+				\draw (current bounding box.south) node[anchor=north]{Ấn Độ};
+			\end{tikzpicture}
+			\end{minipage}\quad
+			\begin{minipage}{0.25\textwidth}
+			\begin{tikzpicture}[line join=round,thick,,scale=0.7]
+				\color{black}
+				\draw[fill=white,pattern color=gray] (0,0)--(90:3) arc (90:316.44:3)--cycle ($(0,0)+(203.22:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $62.9\%$};
+				\draw[pattern=dots,pattern color=black] (0,0)--(316.44:3) arc (316.44:397.8:3)--cycle ($(0,0)+(357.12:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $22.6\%$};
+				\draw[pattern=north east lines,pattern color=gray] (0,0)--(397.8:3) arc (397.8:450:3)--cycle ($(0,0)+(423.9:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $14.5\%$};
+				\draw(0,0) circle (3cm);
+				\draw (current bounding box.south) node[anchor=north]{Brazil};
+			\end{tikzpicture}
+				\end{minipage}
+				\quad
+				\begin{minipage}{0.35\textwidth}
+				\begin{tikzpicture}[line join=round,thick,scale=0.7]
+					\begin{scope}
+					\draw[fill=white,pattern color=gray] (0,0)--(90:3) arc (90:375.48:3)--cycle ($(0,0)+(232.74:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $79.3\%$};
+					
+					\draw[pattern=dots,pattern color=black] (0,0)--(375.48:3) arc (375.48:446.76:3)--cycle ($(0,0)+(411.12:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $19.8\%$};
+					
+					\draw[pattern=north east lines,pattern color=gray] (0,0)--(446.76:3) arc (446.76:450:3)--cycle ($(0,0)+(448.38:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $0.9\%$};
+				
+					\draw(0,0) circle (3cm);
+					\draw (current bounding box.south) node[anchor=north]{Anh};
+					\end{scope}
+					\draw[pattern=dots,pattern color=black](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Khu vực 2};
+					\draw[fill=white,pattern color=gray](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Khu vực 3};
+					\draw[pattern=north east lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Khu vực 1};
+				\end{tikzpicture}
+					\end{minipage}
+				\end{center}
+	Dựa vào biểu đồ, chọn phát biểu đúng trong các phát biểu sau?
+	\choice
+	{Ở Ấn Độ, gần $50\%$ lao động làm việc ở Khu vực 2}
+	{Ở Anh, gần $80\%$ lao động làm việc ở Khu vực 1}
+	{Ở Brazil, tỉ lệ lao động ở Khu vực 2 thấp hơn ở Ấn Độ nhưng cao hơn ở Anh}
+	{\True Ở Anh, tỉ lệ lao động ở Khu vực 3 cao hơn Ấn Độ và Brazil}
+	\loigiai{
+	Tỉ lệ lao động ở Khu vực 3 ở Anh, Ấn Độ và Brazil lần lượt là $79{,}3\%$, $28{,}7\%$ và $62{,}9\%$.\\
+	Ở Anh, tỉ lệ lao động ở Khu vực 3 cao hơn Ấn Độ và Brazil.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Mỗi học sinh lớp 10B đóng góp $2$ kg giấy vụn để thực hiện \lq\lq Kế hoạch nhỏ\rq\rq \, của trường. Lớp trưởng thống kê lại số kg giấy vụn mà mỗi tổ trong lớp đóng góp ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Tổ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+			\hline
+			Số kí giấy vụn & $20$ & $18$ & $19$ & $16$ & $14$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy tìm tổ có số kí giấy vụn đã đóng góp bị nhập sai trong bảng trên.
+	\choice
+	{Tổ $1$}
+	{\True Tổ $3$}
+	{Tổ $4$}
+	{Tổ $5$}
+	\loigiai{
+		Số bạn trong mỗi tổ là số tự nhiên.\\		
+		Nếu lấy số bạn trong một tổ nhân với $2$ kg giấy vụn, ta sẽ được tổng số kg giấy vụn tổ đó đã đóng góp.\\	
+		Số bạn tổ 1 là $20 : 2 = 10$ (bạn).\\
+		Số bạn tổ 2 là $18 : 2 = 9$ (bạn).\\
+		Số bạn tổ 3 là $19 : 2 = 9,5$ (bạn).\\
+		Số bạn tổ 4 là $16 : 2 = 8$ (bạn).\\
+		Số bạn tổ 5 là $14 : 2 = 7$ (bạn).\\
+		Ta thấy số $9,5$ không thuộc tập hợp số tự nhiên.\\		
+		Do đó lớp trưởng thống kê số giấy vụn của tổ $3$ không chính xác.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-1]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Cho bảng số liệu về dân số thế giới từ năm $1804$ đến năm $1987$:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Năm & $1804$ & $1927$ & $1959$ & $1974$ & $1987$ \\
+			\hline
+			Số dân (tỉ người) & $1$ & $2$ & $3$ & $4$ & $5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Dựa vào bảng số liệu trên, cho biết giai đoạn nào mất nhiều thời gian nhất để dân số thế giới tăng thêm $1$ tỉ người?
+	\choice
+	{\True Giai đoạn $1804$ – $1927$}
+	{Giai đoạn $1927$ – $1959$}
+	{Giai đoạn $1959$ – $1974$}
+	{Giai đoạn $1974$ – $1987$}
+	\loigiai{
+	Quan sát bảng số liệu, ta thấy trong mỗi giai đoạn ở các phương án, dân số thế giới đều tăng thêm $1$ tỉ người so với giai đoạn trước đó.\\
+	Ta xét đến khoảng thời gian trong mỗi giai đoạn ở các đáp án:
+	\begin{itemize}
+		\item $1927 – 1804 = 123$ (năm).\\
+		Như vậy ở giai đoạn $1804$ – $1927$, ta thấy mất $123$ năm để dân số thế giới tăng thêm $1$ tỉ người.
+		\item $1959 – 1927 = 32$ (năm).\\	
+		Như vậy ở giai đoạn $1927$ – $1959$, ta thấy mất $32$ năm để dân số thế giới tăng thêm $1$ tỉ người.
+		\item $1974 – 1959 = 15$ (năm).\\
+		Như vậy ở giai đoạn $1959$ – $1974$, ta thấy mất $15$ năm để dân số thế giới tăng thêm $1$ tỉ người.
+		\item $1987 – 1974 = 13$ (năm).\\
+		Như vậy ở giai đoạn $1974$ – $1987$, ta thấy mất $13$ năm để dân số thế giới tăng thêm $1$ tỉ người.
+	\end{itemize}
+	So sánh số năm ta có $123 > 32 > 15 > 13$.\\
+	Do đó giai đoạn $1804$ – $1927$ mất nhiều thời gian nhất ($123$ năm) để dân số thế giới tăng thêm $1$ tỉ người.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một nhóm $20$ học sinh được chia đều vào $4$ tổ. Trong một ngày, mỗi bạn trồng được $5$ hoặc $6$ cây. Cuối ngày, tổ trưởng thống kê lại số cây mà mỗi tổ đã trồng được ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Tổ & 1 & 2 & 3 & 4  \\
+			\hline
+			Số cây đã trồng & 31 & 27 & 29 & 25 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy tìm tổ có số cây trồng được bị thống kê sai trong bảng trên?
+	\choice
+	{\True Tổ $1$}
+	{Tổ $3$}
+	{Tổ $4$}
+	{Tổ $2$}
+	\loigiai{
+		Mỗi tổ gồm $20 : 4 = 5$ (học sinh).\\
+		Trong một ngày, mỗi bạn trồng được $5$ đến $6$ cây nên mỗi tổ trồng được từ $5 \cdot 5=25$ đến $6\cdot 5 = 30$ cây.\\
+		Do đó, bảng trên ghi tổ $1$ trồng được $31$ cây là không chính xác.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một cửa hàng bán quần áo thời trang đang mở một chương trình khuyến mãi trong vòng $4$ ngày, biết rằng số sản phẩm bán được mỗi ngày đều tăng khoảng $30\%$ so với ngày trước đó. Nhân viên bán hàng đã thống kê số sản phẩm bán được mỗi ngày như bảng dưới đây:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Ngày & 1 & 2 & 3 & 4  \\
+			\hline
+			Số sản phẩm bán được & 50 & 66 & 93 & 115 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Chọn phát biểu đúng?
+	\choice
+	{Nhân viên đã thống kê sai ngày thứ hai}
+	{\True Nhân viên đã thống kê sai ngày thứ ba}
+	{Nhân viên đã thống kê sai ngày thứ tư}
+	{Nhân viên đã thống kê chính xác}
+	\loigiai{
+	Ta có bảng sau:
+	\begin{center}
+		\begin{tabular}{|p{5cm}|c|c|c|}
+			\hline
+			Ngày & 2 & 3 & 4\\
+			\hline
+			Tỉ lệ phần trăm tăng thêm so với ngày trước đó & $32\%$ & $40,9\%$ & $23,7\%$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Ta thấy tỉ lệ tăng của ngày $3$ là $40,9\%$ khác xa $30\%$.\\
+	Do đó trong bảng số liệu đã cho, số sản phẩm bán được ngày $3$ không chính xác.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	An vẽ biểu đồ thể hiện tỉ lệ số lượng mỗi loại cây ăn quả trong một nông trại theo bảng thống kê dưới đây
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Loại cây ăn quả & Cây cam & Cây xoài & Cây mận & Cây táo & Cây chanh  \\
+			\hline
+			Số cây & 50 & 30 & 25 & 30 & 20 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Biểu đồ An vẽ như sau
+	\begin{center}
+	\begin{tikzpicture}[line join=round,thick]
+		\color{black}
+		\draw[pattern=bricks,pattern color=gray] (0,0)--(90:3) arc (90:136.476:3)--cycle ($(0,0)+(113.238:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $12,91\%$};
+		\draw[pattern=bricks,pattern color=gray](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} Cây chanh};
+		\draw[pattern=grid,pattern color=gray] (0,0)--(136.476:3) arc (136.476:206.136:3)--cycle ($(0,0)+(171.306:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $19,35\%$};
+		\draw[pattern=grid,pattern color=gray](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Cây mận};
+		\draw[pattern=checkerboard,pattern color=gray] (0,0)--(206.136:3) arc (206.136:264.204:3)--cycle ($(0,0)+(235.17:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $16,13\%$};
+		\draw[pattern=checkerboard,pattern color=gray](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Cây táo};
+		\draw[pattern=north east lines,pattern color=gray] (0,0)--(264.204:3) arc (264.204:333.864:3)--cycle ($(0,0)+(299.034:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $19,35\%$};
+		\draw[pattern=north east lines,pattern color=gray](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Cây xoài};
+		\draw[pattern=dots,pattern color=black] (0,0)--(333.864:3) arc (333.864:450:3)--cycle ($(0,0)+(391.932:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $32,26\%$};
+		\draw[pattern=dots,pattern color=black](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Cây cam};
+		\draw(0,0) circle (3cm);
+		\draw (current bounding box.south) node[anchor=north] {\bf  Tỉ lệ mỗi loại cây ăn quả trong nông trại};
+	\end{tikzpicture}
+	\end{center}
+	Hãy cho biết biểu đồ An vẽ cần điều chỉnh như thế nào cho đúng?
+	\choice
+	{Cần đổi chỗ “Cây táo” và “Cây mận” ở phần chú thích}
+	{Cần đổi chỗ “Cây xoài” và “Cây táo” ở phần chú thích}
+	{Cần đổi chỗ “Cây chanh” và “Cây mận” ở phần chú thích}
+	{Cần đổi chỗ “Cây chanh” và “Cây táo” ở phần chú thích}
+	\loigiai{
+	Theo bảng thống kê thì số lượng cây táo nhiều hơn số lượng cây mận và số cây táo bằng số cây xoài.\\
+	Nên trên biểu đồ hình quạt, hình quạt biểu diễn tỉ lệ cây táo phải nhiều hơn tỉ lệ cây mận và tỉ lệ cây táo bằng tỉ lệ cây xoài.\\
+	Do đó biểu đồ An vẽ chưa chính xác.\\
+	Ở phần chú thích, An nên đổi chỗ “Cây táo” và “Cây mận” thì sẽ được biểu đồ chính xác.
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một đội gồm 30 thợ hồ được chia đều làm 5 tổ. Trong một ngày, mỗi thợ hồ quét sơn được từ 36 đến 40 m$^2$. Cuối ngày, đội trưởng thống kê lại số mét vuông tường mà mỗi tổ đã quét sơn như bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Tổ & $1$ & $2$ & $3$ & $4$ & $5$  \\
+			\hline
+			Số m$^2$ đã quét sơn & $220$ & $242$ & $240$ & $225$ & $234$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hỏi đội trưởng đã thống kê sai ở tổ nào?
+	\choice
+	{Tổ $1$}
+	{\True Tổ $2$}
+	{Tổ $4$}
+	{Tổ $5$}
+	\loigiai{
+	Mỗi tổ gồm $30 : 5 = 6$ (thợ hồ).\\
+	Trong một ngày, mỗi thợ hồ quét sơn được $36$ đến $40$ m$^2$ nên mỗi tổ quét sơn được từ $6 \cdot 36 = 216$ (m$^2$) đến $6 \cdot 40 = 240$ (m$^2$).\\
+	Do đó, bảng trên ghi tổ $2$ quét sơn được $242$ m$^2$ là không chính xác.	
+	}
+\end{ex}
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Lớp trưởng lớp 10A thống kê số học sinh và số cây trồng được theo từng tổ trong buổi ngoại khóa như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Tổ & 1 & 2 & 3 & 4   \\
+			\hline
+			Số học sinh & 11 & 10 & 12 & 10  \\
+			\hline
+			Số cây & 30 & 30 & 38 & 29  \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Bạn lớp trưởng cho biết số cây mỗi bạn trong lớp trồng được đều không vượt quá $3$ cây. Biết rằng bảng trên có một tổ bị thống kê sai. Tổ mà bạn lớp trưởng đã thống kê sai là
+	\choice
+	{Tổ $1$}
+	{Tổ $2$}
+	{\True Tổ $3$}
+	{Tổ $4$}
+	\loigiai{
+		Do số cây mỗi bạn trong lớp trồng được đều không vượt quá $3$ cây nên ta có bảng sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				Tổ & $1$ & $2$ & $3$ & $4$   \\
+				\hline
+				Số học sinh & $11$ & $10$ & $12$ & $10$  \\
+				\hline
+				Số cây tối đa trồng được & $33$ & $30$ & $36$ & $30$  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Trong bảng trên, tổ $3$ trồng $38$ cây vượt quá số cây tối đa có thể trồng nên tổ bạn lớp trưởng thống kê sai là tổ $3$.
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Kim ngạch xuất khẩu hàng hóa của Việt Nam trong các năm từ $2016$ đến $2020$ được cho dưới bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Năm & 2016 & 2017 & 2018 & 2019 & 2020  \\
+			\hline
+			Số tiền & $176{,}6$ & $214{,}0$ & $243{,}5$ & $282{,}7$ & $264{,}2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Bạn Nam biểu thị bảng số liệu trên bằng biểu đồ hình cột sau:
+	\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (12.2,7.2);
+			\draw (0,0)node[left]{\bf\footnotesize$0$} (0,1)node[left]{\bf\footnotesize$50$} (0,2)node[left]{\bf\footnotesize$100$} (0,3)node[left]{\bf\footnotesize$150$}(0,4)node[left]{\bf\footnotesize$200$}(0,5)node[left]{\bf\footnotesize$250$}(0,6)node[left]{\bf\footnotesize$300$};
+			\draw (1.5,0)node[below]{\bf\footnotesize 2016};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,3.532);
+			\draw (1.5,3.532) node[above]{$176{,}6$};
+			\draw (3.5,0)node[below]{\bf\footnotesize 2017};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,4.28);
+			\draw (3.5,4.28) node[above]{$214$};
+			\draw (5.5,0)node[below]{\bf\footnotesize 2018};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,4.87);
+			\draw (5.5,4.87) node[above]{$243{,}5$};
+			\draw (7.5,0)node[below]{\bf\footnotesize 2019};
+			\path[fill=blue,draw=white] (7,0)rectangle(8,5.248);
+			\draw (7.5,5.248) node[above]{$264{,}2$};
+			\draw (9.5,0)node[below]{\bf\footnotesize 2020};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,5.654);
+			\draw (9.5,5.654) node[above]{$282{,}7$};
+			\draw[<->,>=latex] (0,7)node[above]{Số tiền (tỉ đô la Mỹ)}|-(12,0) node[below]{Năm};
+		\end{tikzpicture}
+	\end{center}
+	Nam cần điều chỉnh như nào để biểu đồ đúng với bảng số liệu trên?
+	\choice
+	{Đổi vị trí cột năm $2016$ và năm $2017$}
+	{Đổi vị trí cột năm $2018$ và năm $2019$}
+	{Đổi vị trí cột năm $2017$ và năm $2018$}
+	{\True Đổi vị trí cột năm $2019$ và năm $2020$}
+	\loigiai{
+	Ta cần đổi vị trí cột năm $2019$ và năm $2020$ vì hai số liệu này đang bị chéo cho nhau.
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-1]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Cho bảng số liệu về cơ cấu lao động theo khu vực kinh tế của một số nước năm 2000 (đơn vị: $\%$):
+	\begin{center}
+		\begin{tabular}{|l||*{3}{c|}}\hline
+			\backslashbox{Tên nước}{Khu vực}
+			&\makebox[5em]{Khu vực I}&\makebox[5em]{Khu vực II}&\makebox[5em]{Khu vực III}
+			\\\hline\hline
+			Hoa Kỳ & $2,7$ & $24,0$ & $73,3$ \\\hline
+			Indonexia & $45,3$ & $13,5$ & $42,1$ \\\hline
+			Việt Nam & $63,0$ & $12,0$ & $25,0$ \\\hline
+		\end{tabular}
+	\end{center}
+	Dựa vào bảng số liệu trên, hãy cho biết nhận xét nào không đúng khi so sánh cơ cấu lao động phân theo khu vực kinh tế của Hoa Kỳ, Indonexia, Việt Nam năm $2000$?
+	\choice
+	{Lao động Khu vực I của Hoa Kỳ thấp nhất, Việt Nam cao nhất}
+	{Lao động Khu vực II của Hoa Kỳ cao nhất, Việt Nam thấp nhất}
+	{\True Lao động Khu vực I của Việt Nam thấp hơn của Hoa Kỳ}
+	{Lao động Khu vực III của Hoa Kỳ cao nhất, Việt Nam thấp nhất}
+	\loigiai{
+	\begin{itemize}
+		\item Vì $2,7 < 45,3 < 63,0$ nên lao động khu vực I của Hoa Kỳ thấp nhất, Việt Nam cao nhất.
+		\item Vì $24,0 > 13,5 > 12,0$ nên lao động khu vực II của Hoa Kỳ cao nhất, Việt Nam thấp nhất.
+		\item Vì $63,0 > 2,7$ nên lao động khu vực I của Việt Nam cao hơn của Hoa Kỳ.
+		\item Vì $73,3 > 42,1 > 25,0$ nên lao động khu vực III của Hoa Kỳ lớn nhất, Việt Nam thấp nhất.
+	\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Lượng điện sinh hoạt trong tháng $1/2021$ của các hộ gia đình thuộc khu A, khu B, khu C được biểu thị ở biểu đồ bên. Trong các khẳng định sau, khẳng định nào \textbf{sai}?
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (8,7.2);
+			\draw 
+			(0,0)node[left]{\bf\footnotesize$0$}
+			(0,1)node[left]{\bf\footnotesize$2\,000$} (0,2)node[left]{\bf\footnotesize$4\,000$} (0,3)node[left]{\bf\footnotesize$6\,000$} (0,4)node[left]{\bf\footnotesize$8\,000$}
+			(0,5)node[left]{\bf\footnotesize$10\,000$}
+			(0,6)node[left]{\bf\footnotesize$12\,000$}
+			(0,7)node[left]{\bf\footnotesize$14\,000$};
+			\draw (1.5,0)node[below]{\bf\footnotesize A};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,3.1);
+			\draw (3.5,0)node[below]{\bf\footnotesize B};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,5.2);
+			\draw (5.5,0)node[below]{\bf\footnotesize C};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,6.6);
+			\draw[<->,>=latex] (0,7)|-(8,0);
+			\draw (current bounding box.south) node[anchor=north] {\color{black}  \textbf{Lượng điện tiêu thụ trung bình}};
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{\True Lượng điện sinh hoạt trung bình ở các khu là như nhau}
+	{Lượng điện sinh hoạt trung bình ở khu A ít nhất}
+	{Lượng điện sinh hoạt trung bình ở khu C nhiều nhất}
+	{Lượng điện sinh hoạt trung	bình ở khu C gần gấp đôi lượng điện khu A}
+	\loigiai{
+	Dựa vào biểu đồ, ta thấy
+	\begin{itemize}
+		\item Lượng điện sinh hoạt trung bình ở các khu là khác nhau.
+		\item Lượng điện sinh hoạt trung bình ở khu A ít nhất.
+		\item Lượng điện sinh hoạt trung bình ở khu C nhiều nhất.
+		\item Lượng điện sinh hoạt trung bình ở khu C xấp xỉ gấp đôi lượng điện khu A.
+	\end{itemize}
+	}
+\end{ex}
+\begin{ex}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong $6$ tháng đầu năm, số sản phẩm bán ra mỗi tháng của một cửa hàng đều tăng khoảng $20\%$ so với tháng trước đó. Biết rằng, trong biểu đồ dưới đây, số sản phẩm bán ra của một tháng bị nhập sai. Hãy tìm tháng đó.
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (13,5.2);
+			\draw (0,0)node[left]{\bf\footnotesize$0$}
+			(0,1) node[left]{\bf\footnotesize$100$} (0,2)node[left]{\bf\footnotesize$200$} (0,3)node[left]{\bf\footnotesize$300$} (0,4)node[left]{\bf\footnotesize$400$}
+			(0,5)node[left]{\bf\footnotesize$500$};
+			\draw (1.5,0)node[below]{\bf\footnotesize 1};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,1.45);
+			\draw (1.5,1.45) node[above]{145};
+			\draw (3.5,0)node[below]{\bf\footnotesize 2};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,1.75);
+			\draw (3.5,1.75) node[above]{175};
+			\draw (5.5,0)node[below]{\bf\footnotesize 3};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,2.11);
+			\draw (5.5,2.11) node[above]{211};
+			\draw (7.5,0)node[below]{\bf\footnotesize 4};
+			\path[fill=blue,draw=white] (7,0)rectangle(8,2.56);
+			\draw (7.5,2.56) node[above]{256};
+			\draw (9.5,0)node[below]{\bf\footnotesize 5};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,4.3);
+			\draw (9.5,4.3) node[above]{430};
+			\draw (11.5,0)node[below]{\bf\footnotesize 6};
+			\path[fill=blue,draw=white] (11,0)rectangle(12,3.71);
+			\draw (11.5,3.71) node[above]{371};
+			\draw[<->,>=latex] (0,5)node[above right]{Số sản phẩm bán ra}|-(14,0) node[below]{Tháng};
+			\draw (current bounding box.south) node[anchor=north] {\color{black}  \textbf{Sản phẩm bán ra của mỗi tháng}};
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$6$}
+	{\True $5$}
+	{$4$}
+	{$3$}
+	\loigiai{
+	Số sản phẩm bán ra của cửa hàng ở tháng $5$ tăng $\dfrac{430-256}{256} \cdot 100\% \approx 68\%$ nên tháng nhập sai là tháng $5$. 
+	}
+\end{ex}
+\begin{ex}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một đội $20$ thợ thủ công được chia đều vào $5$ tổ. Trong mỗi ngày, mỗi người thợ làm được $4$ hoặc $5$ sản phẩm. Sản phẩm mỗi tổ trong một ngày được thể hiện bằng biểu đồ dưới đây. Một tổ đã thống kê chưa đúng. Hỏi tổ đó là tổ nào?
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (11,5.2);
+			\draw 
+			(0,0)node[left]{\bf\footnotesize$0$}
+			(0,1)node[left]{\bf\footnotesize$5$} (0,2)node[left]{\bf\footnotesize$10$} (0,3)node[left]{\bf\footnotesize$15$} (0,4)node[left]{\bf\footnotesize$20$}
+			(0,5)node[left]{\bf\footnotesize$25$};
+			\draw (1.5,0)node[below]{\bf\footnotesize 1};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,3.4);
+			\draw (1.5,3.4) node[above]{17};
+			\draw (3.5,0)node[below]{\bf\footnotesize 2};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,3.8);
+			\draw (3.5,3.8) node[above]{19};
+			\draw (5.5,0)node[below]{\bf\footnotesize 3};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,3.8);
+			\draw (5.5,3.8) node[above]{19};
+			\draw (7.5,0)node[below]{\bf\footnotesize 4};
+			\path[fill=blue,draw=white] (7,0)rectangle(8,4.2);
+			\draw (7.5,4.2) node[above]{21};
+			\draw (9.5,0)node[below]{\bf\footnotesize 5};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,4);
+			\draw (9.5,4) node[above]{20};
+			\draw[<->,>=latex] (0,5)node[above right]{Số sản phẩm bán ra}|-(11,0) node[below right]{Tháng};
+			\draw (current bounding box.south) node[anchor=north] {\color{black}  \textbf{Số sản phẩm mỗi tổ}};
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$6$}
+	{$5$}
+	{\True $4$}
+	{$3$}
+	\loigiai{
+	$20$ thợ thủ công được chia đều vào $5$ tổ nên mỗi tổ có $4$ thợ.\\
+	Mặt khác, mỗi người thợ làm được $4$ hoặc $5$ sản phẩm nên số sản phẩm của mỗi tổ từ $16$ đến $20$ sản phẩm.\\
+	Vậy tổ thống kê chưa đúng là tổ $4$ vì tổ này có $21$ sản phẩm.
+	}	
+\end{ex}
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ sau cho biết việc chi tiêu hàng tháng của một gia đình. Quan sát biểu đồ, hãy cho biết số tiền dành cho việc học hành chiếm bao nhiêu phần trăm?
+	\begin{center}
+		\begin{tikzpicture}[line join=round,thick]
+			\color{black}
+			\draw[fill=white,pattern color=black] (0,0) --(90:3) arc (90:133.2:3)--cycle;
+			
+			\draw[fill=white,pattern color=black](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} Tiết kiệm};
+			\draw[pattern=grid,pattern color=gray] (0,0)--(133.2:3) arc (133.2:198:3)--cycle ($(0,0)+(165.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $18\%$};
+			\draw[pattern=grid,pattern color=gray](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Đi lại};
+			\draw[pattern=bricks,pattern color=gray] (0,0)--(198:3) arc (198:252:3)--cycle ($(0,0)+(225:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $15\%$};
+			\draw[pattern=bricks,pattern color=gray](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Mua sắm};
+			\draw[pattern=dots,pattern color=black] (0,0)--(252:3) arc (252:360:3)--cycle ($(0,0)+(306:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $30\%$};
+			\draw[pattern=dots,pattern color=black](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Ăn uống};
+			\draw[pattern=north east lines,pattern color=gray] (0,0) coordinate (O)--(360:3) coordinate (A) arc (360:450:3) coordinate (B)--cycle ;
+		
+			\draw pic[draw,angle radius=3mm]{right angle=B--O--A};
+			\draw[pattern=north east lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Học hành};
+			\draw(0,0) circle (3cm);
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$20\%$}
+	{\True $25\%$}
+	{$30\%$}
+	{$15\%$}
+	\loigiai{
+	Dựa vào biểu đồ, số tiền dành cho việc học hành chiếm $25\%$.	
+	}	
+\end{ex}
+\begin{ex}%[0D6V2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Phương vẽ biểu đồ biểu thị tỉ lệ số lượng mỗi loại bếp mà gia đình các bạn trong lớp sử dụng thường xuyên để đun nấu. Biết lớp Phương có $55$ bạn. Biết rằng tỉ lệ dùng bếp củi và bếp than là $6:5$. Hỏi có bao nhiêu gia đình dùng bếp củi?
+	\begin{center}
+		\begin{tikzpicture}[line join=round,thick]
+			\color{black}
+			\draw[fill=white,pattern color=white] (0,0)--(90:3) arc (90:122.4:3)--cycle ($(0,0)+(106.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $9\%$};
+			\draw[fill=white,pattern color=white](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} Loại khác};
+			\draw[pattern=checkerboard,pattern color=gray] (0,0)--(122.4:3) arc (122.4:252:3)--cycle ($(0,0)+(187.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $36\%$};
+			\draw[pattern=checkerboard,pattern color=gray](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Bếp ga};
+			\draw[pattern=dots,pattern color=black] (0,0)--(252:3) arc (252:331.2:3)--cycle ($(0,0)+(291.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $22\%$};
+			\draw[pattern=dots,pattern color=black](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Bếp điện};
+			\draw[pattern=grid,pattern color=gray] (0,0)--(331.2:3) arc (331.2:385.2:3)--cycle ;
+			\draw[pattern=grid,pattern color=gray](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Bếp than};
+			\draw[pattern=north west lines,pattern color=gray] (0,0)--(385.2:3) arc (385.2:450:3)--cycle ;
+			\draw[pattern=north west lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Bếp củi};
+			\draw(0,0) circle (3cm);
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{\True $8$}
+	{$10$}
+	{$12$}
+	{$9$}
+	\loigiai{
+	Tổng phần trăm tỉ lệ gia đình các bạn trong lớp sử dụng bếp củi và bếp than là $100\%-(9\%+22\%+36\%)=33\%$.\\
+	Tổng tỉ lệ dùng bếp củi và bếp than là $6+5=13$.\\
+	Phần trăm gia đình dùng bếp củi là $33\% \cdot \dfrac{6}{13} \approx 15{,}23\%$.\\
+	Số gia đình dùng bếp củi là $15{,}23\% \cdot 55=8{,}3 \approx 8$ (gia đình).	
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bảng số liệu sau đây biểu thị số lượng đàn bò và đàn lợn trên thế giới giai đoạn $1980 – 2014$ (đơn vị: triệu con).
+	\begin{center}
+		\begin{tabular}{|l||*{5}{c|}}\hline
+			\backslashbox{Vật nuôi}{Năm}
+			&\makebox[3em]{1980}&\makebox[3em]{1990}&\makebox[3em]{2000}
+			&\makebox[3em]{2010}&\makebox[3em]{2014}\\\hline\hline
+			Bò & $1\,218{,}1$ & $1\,296{,}8$ & $1\,302{,}9$ & $1\,453{,}4$ & $1\,482{,}1$ \\\hline
+			Lợn & $778{,}8$ & $848{,}7$ & $856{,}2$ & $975{,}0$
+			& $986{,}6$\\\hline
+		\end{tabular}
+	\end{center}
+	Để biểu diễn số lượng đàn bò và đàn lợn trên thế giới qua các năm, biểu đồ nào thích hợp nhất?
+	\choice
+	{Biểu đồ cột đơn}
+	{\True Biểu đồ cột kép}
+	{Biểu đồ hình quạt}
+	{Biểu đồ tranh}
+	\loigiai{
+	Quan sát bảng dữ liệu, ta thấy có hai loại vật nuôi là bò và lợn nên biểu đồ cột đơn và biểu đồ hình quạt không phù hợp vì biểu đồ cột đơn và biểu đồ hình quạt đơn được sử dụng để biểu thị dữ liệu có một đối tượng.\\
+	Biểu đồ cột ghép được sử dụng khi dữ liệu biểu thị hai đối tượng. Do đó trong trường hợp này, biểu đồ cột kép là phù hợp.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-DS-0D6-Bai2]
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ dưới đây biểu diễn số áo phông và áo sơ mi một cửa hàng bán được theo bốn mùa trong năm. 
+	\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (17.2,8.2);
+			\draw (0,0)node[left]{\bf\footnotesize$200$} (0,1)node[left]{\bf\footnotesize$250$} (0,2)node[left]{\bf\footnotesize$300$} (0,3)node[left]{\bf\footnotesize$350$}
+			(0,4)node[left]{\bf\footnotesize$400$}
+			(0,5)node[left]{\bf\footnotesize$450$}
+			(0,6)node[left]{\bf\footnotesize$500$} (0,7)node[left]{\bf\footnotesize$550$} (0,8)node[left]{\bf\footnotesize$600$} 
+			;
+			\draw (2,0)node[below]{\bf\footnotesize Xuân};
+			\path[pattern=dots,draw=black] (1,0)rectangle(2,5);
+			\path[pattern=north east lines,draw=black] (2.2,0)rectangle(3.2,2);
+			\draw (6,0)node[below]{\bf\footnotesize Hạ};
+			\path[pattern=dots,draw=black] (5,0)rectangle(6,3);
+			\path[pattern=north east lines,draw=black] (6.2,0)rectangle(7.2,7);
+			\draw (10,0)node[below]{\bf\footnotesize Thu};
+			\path[pattern=dots,draw=black] (9,0)rectangle(10,2);
+			\path[pattern=north east lines,draw=black] (10.2,0)rectangle(11.2,3);
+			\draw (14,0)node[below]{\bf\footnotesize Đông};
+			\path[pattern=dots,draw=black] (13,0)rectangle(14,4);
+			\path[pattern=north east lines,draw=black] (14.2,0)rectangle(15.2,1);
+			
+			\draw[<->,>=latex] (0,8)|-(17,0);
+			\draw (current bounding box.north)node[anchor=south]{\bf Số lượng áp phông và áo sơ mi bán được trong năm};
+			\draw[pattern=dots,draw=black](2,-1.5)rectangle(2.3,-1.2)node[right]{Số dân thành thị};
+			\draw[pattern=north east lines,draw=black](8,-1.5)rectangle(8.3,-1.2)node[right]{Số dân nông thôn};
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{Vào mùa hạ, số lượng áo phông bán được gấp $3$ lần số lượng áo sơ mi}
+	{\True Vào mùa xuân, số áo sơ mi bán được nhiều gấp $1{,}5$ lần số áo phông}
+	{\True Trong cả năm, tổng số áo sơ mi bán được nhiều hơn tổng số áo phông bán được}
+	{Trong năm, tổng số áo sơ mi và áo phông bán được vào mùa thu thấp hơn các mùa khác}
+	\loigiai{
+	\begin{itemchoice}
+		\itemch Vào mùa hạ, số lượng áo phông bán được $550$ áo.\\
+		Số lượng áo sơ mi bán được $350$ áo.\\
+		Do đó số lượng áo phông không gấp $3$ lần số lượng áo sơ mi. 	
+		\itemch Vào mùa xuân, số áo sơ mi bán được $450$ áo và số áo phông bán được $300$ áo nên số áo sơ mi bán được nhiều gấp $1,5$ lần số áo phông.
+		\itemch Trong cả năm, tổng số áo sơ mi bán được là $450+350+300+400=1\,500$ áo.\\
+		Tổng số áo phông bán được là $300+550+350+250=1\,450$ áo.\\
+		Do đó tổng số áo sơ mi bán được nhiều hơn tổng số phông.
+		\itemch Tổng số áo sơ mi và áo phông bán được vào mùa thu là $300+350=650$ áo.\\
+		Mà tổng số áo sơ mi và áo phông bán được vào mùa đông là $250+400=650$ áo.\\
+		Vậy tổng số áo sơ mi và áo phông bán được vào mùa thu không thấp hơn tổng số áo sơ mi và áo phông bán được vào mùa đông.
+	\end{itemchoice}
+	}	
+\end{ex}
+
+\begin{ex}%[0D6V2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ dưới đây biểu diễn lợi nhuận mà $4$ chi nhánh A, B, C, D của một doanh nghiệp thu được trong năm $2020$ và $2021$.
+		\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (17.2,6.2);
+			\draw (0,0)node[left]{\bf\footnotesize$0$} (0,1)node[left]{\bf\footnotesize$100$} (0,2)node[left]{\bf\footnotesize$200$} (0,3)node[left]{\bf\footnotesize$300$}
+			(0,4)node[left]{\bf\footnotesize$400$}
+			(0,5)node[left]{\bf\footnotesize$500$}
+			(0,6)node[left]{\bf\footnotesize$600$} 
+			;
+			\draw (2,0)node[below]{\bf\footnotesize A};
+			\path[pattern=dots,draw=black] (1,0)rectangle(2,2.4)++(-0.5,0) node[above]{$240$};
+			\path[pattern=north east lines,draw=black] (2.2,0)rectangle(3.2,2.88)++(-0.5,0) node[above]{$288$};
+			\draw (6,0)node[below]{\bf\footnotesize B};
+			\path[pattern=dots,draw=black] (5,0)rectangle(6,4.5)++(-0.5,0) node[above]{$450$};
+			\path[pattern=north east lines,draw=black] (6.2,0)rectangle(7.2,5.4)++(-0.5,0) node[above]{$540$};
+			\draw (10,0)node[below]{\bf\footnotesize C};
+			\path[pattern=dots,draw=black] (9,0)rectangle(10,3.2)++(-0.5,0) node[above]{$320$};
+			\path[pattern=north east lines,draw=black] (10.2,0)rectangle(11.2,3.25)++(-0.5,0) node[above]{$325$};
+			\draw (14,0)node[below]{\bf\footnotesize D};
+			\path[pattern=dots,draw=black] (13,0)rectangle(14,2.56)++(-0.5,0) node[above]{$256$};
+			\path[pattern=north east lines,draw=black] (14.2,0)rectangle(15.2,3.58)++(-0.5,0) node[above]{$358$};
+			
+			\draw[<->,>=latex] (0,6)|-(17,0);
+			\draw (current bounding box.north)node[anchor=south]{\bf Lợi nhuận của các cửa hàng trong năm 2020 và 2021};
+			\draw[pattern=dots,draw=black](2,-1.5)rectangle(2.3,-1.2)node[right]{Năm 2020};
+			\draw[pattern=north east lines,draw=black](8,-1.5)rectangle(8.3,-1.2)node[right]{Năm 2021};
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{Lợi nhuận thu được của chi nhánh C trong năm $2020$ bằng năm $2021$}
+	{\True Lợi nhuận thu được của các chi nhánh trong năm 2021 đều cao hơn năm $2020$}
+	{So với năm $2020$, lợi nhuận của các chi nhánh thu được trong năm $2021$ đều tăng trên $10\%$}
+	{Chi nhánh B có tỉ lệ lợi nhuận tăng cao nhất}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Lợi nhuận thu được của chi nhánh C trong năm $2020$ thấp hơn lợi nhuận thu được của chi nhánh C trong năm $2021$ là $325-320=5$ tỉ VNĐ.
+			\itemch Lợi nhuận thu được của chi nhánh A, B, C, D trong năm $2020$ lần lượt là $240$ (tỉ VNĐ), $450$ (tỉ VNĐ), $320$ (tỉ VNĐ), $256$ (tỉ VNĐ).\\
+			Lợi nhuận thu được của chi nhánh A, B, C, D trong năm $2021$ lần lượt là $288$ (tỉ VNĐ), $540$ (tỉ VNĐ), $325$ (tỉ VNĐ), $358$ (tỉ VNĐ) nên lợi nhuận thu được của các chi nhánh trong năm $2021$ đều cao hơn năm $2020$.
+			\itemch Chi nhánh C có tỉ lệ lợi nhuận tăng $\dfrac{325-320}{320} \approx 1{,}56\% < 10\%$.
+			\itemch Chi nhánh B có tỉ lệ lợi nhuận tăng $\dfrac{540-450}{450}=20\%$.\\
+			Chi nhánh D có tỉ lệ lợi nhuận tăng $\dfrac{358-256}{256} \approx 39{,}8\%$.\\
+			Do đó chi nhánh B có tỉ lệ lợi nhuận tăng thấp hơn tỉ lệ lợi nhuận tăng  của chi nhánh D.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ sau biểu thị tỉ lệ số lượng các loại bếp mà gia đình $200$ bạn lớp $10$ ở một trường THPT sử dụng thường xuyên để đun nấu.
+	\begin{center}
+		\begin{tikzpicture}[line join=round,thick]
+			\color{black}
+			\draw[fill=white,pattern color=white] (0,0)--(90:3) arc (90:122.4:3)--cycle ($(0,0)+(106.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{white} $9\%$};
+			\draw[fill=white,pattern color=white](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} Loại khác};
+			\draw[pattern=checkerboard,pattern color=gray] (0,0)--(122.4:3) arc (122.4:252:3)--cycle ($(0,0)+(187.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $36\%$};
+			\draw[pattern=checkerboard,pattern color=gray](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Bếp ga};
+			\draw[pattern=dots,pattern color=black] (0,0)--(252:3) arc (252:331.2:3)--cycle ($(0,0)+(291.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $22\%$};
+			\draw[pattern=dots,pattern color=black](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Bếp than};
+			\draw[pattern=grid,pattern color=gray] (0,0)--(331.2:3) arc (331.2:385.2:3)--cycle ($(0,0)+(358.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $15\%$};
+			\draw[pattern=grid,pattern color=gray](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Bếp điện};
+			\draw[pattern=north west lines,pattern color=gray] (0,0)--(385.2:3) arc (385.2:450:3)--cycle ($(0,0)+(417.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $18\%$};
+			\draw[pattern=north west lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Bếp củi};
+			\draw(0,0) circle (3cm);
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{\True Tỉ lệ số gia đình sử dụng các loại bếp khác là $9\%$}
+	{Số gia đình sử đụng bếp ga gấp ba lần số gia đình sử dụng bếp củi}
+	{Tổng số gia đình sử dụng bếp củi và bếp điện là $40$ gia đình}
+	{Số gia đình sử dụng bếp ga nhiều hơn số gia đình sử dụng bếp củi là $18$ gia đình}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Tỉ lệ số gia đình sử dụng các loại bếp khác là $100\%-\left(18\%+15\%+22\%+36\% \right)=9\%$.
+			\itemch Tỉ lệ số gia đình sử dụng bếp ga là $36\%$.\\
+			Tỉ lệ số gia đình sử dụng bếp củi là $18\%$.\\
+			Vậy số gia đình sử đụng bếp ga gấp hai lần số gia đình sử dụng bếp củi.
+			\itemch Tỉ lệ số gia đình sử dụng bếp củi và bếp điện là $18\%+15\%=33\%$.\\
+			Vậy tổng số gia đình sử dụng bếp củi và bếp điện là $200 \cdot 33\%=66$ gia đình.
+			\itemch Số gia đình sử dụng bếp ga là $200 \cdot 36\%=72$ (gia đình).\\
+			Số gia đình sử dụng bếp củi là $200 \cdot 18\%=36$ (gia đình).\\
+			Vậy số gia đình sử dụng bếp ga nhiều hơn số gia đình sử dụng bếp củi là $72-36=36$ gia đình.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong vườn nhà bác Lan có tổng cộng $200$ cây. Biểu đồ sau biểu thị tỉ lệ số lượng các loại cây ăn quả có trong vườn nhà bác Lan.
+	\begin{center}
+		\begin{tikzpicture}[line join=round,thick]
+			\color{black}
+			\draw[fill=white] (0,0)--(90:3) arc (90:216:3)--cycle ($(0,0)+(153:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{white} $35\%$};
+			\draw[fill=white](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Các loại cây ăn quả khác};
+			\draw[pattern=grid,pattern color=gray] (0,0)--(216:3) arc (216:288:3)--cycle ($(0,0)+(252:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $20\%$};
+			\draw[pattern=grid,pattern color=gray](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Nhãn};
+			\draw[pattern=dots,pattern color=black] (0,0)--(288:3) arc (288:351:3)--cycle ($(0,0)+(319.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $17.5\%$};
+			\draw[pattern=dots,pattern color=black](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Xoài};
+			\draw[pattern=north east lines,pattern color=gray] (0,0)--(351:3) arc (351:450:3)--cycle ($(0,0)+(400.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $27.5\%$};
+			\draw[pattern=north east lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Vải thiều};
+			\draw(0,0) circle (3cm);
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{\True Tỉ lệ các loại cây ăn quả khác là $35\%$}
+	{Số cây xoài và cây nhãn bằng nhau}
+	{\True Trong vườn nhà bác Lan có $35$ cây xoài}
+	{\True Số cây vải thiều nhiều hơn số cây nhãn là $15$ cây}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Tỉ lệ các loại cây ăn quả khác là $100\%-\left(27{,}5\%+17{,}5\%+20\% \right)=35\%$.
+			\itemch Tỉ lệ cây xoài là $17{,}5\%$. Tỉ lệ cây nhãn là $20\%$.\\
+			Vậy số cây xoài và cây nhãn không bằng nhau. 
+			\itemch Tổng số cây xoài là $200 \cdot 17{,}5\%=35$ (cây).
+			\itemch Số cây vải thiều là $200 \cdot 27{,}5\%=55$ (cây).\\
+			Số cây nhãn là $200 \cdot 20\%=40$ (cây).\\
+			Vậy số cây vải thiều nhiều hơn số cây nhãn là $55-40=15$ cây.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ dưới đây biểu thị xuất khẩu gạo của các nước từ năm $2009$ đến năm $2018$ (đơn vị: nghìn tấn).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,xscale=0.5,yscale=.5]
+			\def\c{14};
+			\def\a{20};
+			\draw[<->] (0,{\c})node[above left]{Triệu tấn}--(0,0)node[below left]{$0$}--(\a,0) node[below right]{Năm};
+			%	\draw[line width=1pt,dashed] (0,8)--(19,8) (0,9)--(5,9) (0,7)--(17,7) (0,6)--(11,6);
+			\draw[line width=1pt,orange] (1,2)--(3,2.1)--(5,5.1)--(7,10.2)--(9,10.5)--(11,11.5)--(13,11)--(15,10)--(17,10)--(19,10) (20,10)--(21,10)node[right]{Ấn Độ};
+			\draw[line width=1pt,red,dashed] (1,8.6)--(3,9)--(5,10.6)--(7,7)--(9,6.8)--(11,11)--(13,9.9)--(15,10)--(17,10)--(19,10) (20,8)--(21,8)node[right]{Thái Lan};
+			\draw[line width=1pt,green] (1,5.9)--(3,6.8)--(5,7)--(7,7.8)--(9,6.8)--(11,6.2)--(13,6.5)--(15,5)--(17,5.5)--(19,6) (20,6)--(21,6)node[right]{Việt Nam};
+			\draw[line width=1pt,violet,dashed] (1,3.15)--(3,4.05)--(5,3.25)--(7,3.25)--(9,4.1)--(11,3.9)--(13,4)--(15,4.2)--(17,3.9)--(19,4) (20,4)--(21,4)node[right]{Pakistan};
+			\draw[line width=1pt,black] (1,3.1)--(3,4)--(5,3.2)--(7,3.2)--(9,3.1)--(11,2.9)--(13,3.2)--(15,3.4)--(17,3.5)--(19,3.4) (20,2)--(21,2)node[right]{Mỹ};
+			\draw (0,2)node[left]{2}--(19,2)
+			(0,4)node[left]{4}--(19,4)
+			(0,6)node[left]{6}--(19,6)
+			(0,8)node[left]{8}--(19,8)
+			(0,10)node[left]{10}--(19,10)
+			(0,12)node[left]{12}--(19,12)
+			;
+			\foreach \x/\y in {1/0,3/0,5/0,7/0,9/0,11/0,13/0,15/0,17/0,19/0}
+			{
+				%	\draw[line width=1pt,dashed] (\x,0)--(\x,\y) node[above]{$\y$} (0,\y)node[left]{$\y$};
+				\fill[black] (\x,\y) circle (1.2pt);}
+			\draw	(1,0)node[below]{$2009$} 	(3,0)node[below]{$2010$} (5,0)node[below]{$2011$} 
+			(7,0)node[below]{$2012$} (9,0)node[below]{$2013$} 
+			(11,0)node[below]{$2014$} (13,0)node[below]{$2015$} (15,0)node[below]{$2016$} (17,0)node[below]{$2017$} (19,0)node[below]{$2018$};
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{\True Năm $2016$, khối lượng xuất khẩu gạo của Thái Lan cao hơn $1{,}5$ lần khối lượng xuất khẩu của Việt Nam}
+	{\True Từ năm $2011$, khối lượng xuất khẩu gạo của Ấn Độ đạt trên $5$ triệu tấn gạo}
+	{\True Khối lượng xuất khẩu gạo của Mỹ và Pakistan đã giảm trong năm $2013$, sau đó tăng trở lại vào năm $2014$}
+	{Từ năm $2011$ đến năm $2014$ thì khối lượng xuất khẩu gạo của Ấn Độ và Thái Lan cùng tăng}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Năm $2016$ khối lượng xuất khẩu gạo của Thái Lan là gần $10$ triệu tấn, còn khối lượng xuất khẩu gạo của Việt Nam đạt hơn $5$ triệu tấn.
+			\itemch Dựa vào biểu đồ khối lượng xuất khẩu của Ấn Độ từ năm $2011$ là trên $5$ triệu tấn và tiếp tục tăng trong các năm sau.
+			\itemch Dựa vào biểu đồ khối lượng xuất khẩu gạo của Mỹ và Pakistan có giảm vào năm $2013$ và tăng trở lại vào năm $2014$.
+			\itemch Từ năm $2011$ đến năm $2014$ thì Thái Lan đã có khoảng thời gian bị giảm khối lượng xuất khẩu gạo cụ thể từ năm $2011$ đến hết $6$ tháng đầu năm $2013$ khối lượng xuất khẩu giảm, phải từ $6$ tháng cuối năm $2013$ đến năm $2014$ thì tăng trưởng mạnh trở lại. Từ năm $2011$ đến năm $2014$ khối lượng xuất khẩu gạo của Ấn Độ tăng trưởng đều và ổn định, đến $6$ tháng cuối năm có sự giảm nhẹ về khối lượng xuất khẩu.
+		\end{itemchoice}
+	}
+\end{ex}
+
+
+\Closesolutionfile{ans}
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-0D6-Bai2]
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong $6$ tháng đầu năm, số sản phẩm bán ra mỗi tháng của một cửa hàng đều tăng khoảng $25\%$ so với tháng trước đó. Biết rằng, trong bảng dưới đây, số sản phẩm bán ra của một tháng bị nhập sai. Hãy tìm tháng đó?
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		Tháng & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\
+		\hline
+		Số sản phẩm bán ra & $145$ & $180$ & $225$ & $279$ & $390$ & $435$ \\
+		\hline
+	\end{tabular}
+\end{center}
+\shortans[oly]{5}
+\loigiai{
+Tỉ lệ phần trăm tăng thêm của số sản phẩm bán ra mỗi tháng được tính ở bảng dưới đây
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Tháng &  $2$ & $3$ & $4$ & $5$ & $6$ \\
+		\hline
+		Tỉ lệ phần trăm tăng thêm  & $24{,}1\%$ & $25\%$ & $24\%$ & $39{,}8\%$ & $11{,}5\%$ \\
+		so với tháng trước  &  &  &  &  &  \\
+		\hline
+	\end{tabular}
+\end{center}
+Tỉ lệ tăng của tháng $5$ và tháng $6$ đều rất khác so với $25\%$, do đó số liệu trong tháng $5$ là không chính xác.
+}
+\end{ex}
+
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bảng sau thống kê số lớp và số học sinh theo từng khối ở một trường Trung học phổ thông.
+\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Khối & 10 & 11 & 12 \\
+		\hline
+		Số lớp & 14 & 13 & 15 \\
+		\hline
+		Số học sinh & 555 & 519 & 615 \\
+		\hline
+	\end{tabular}
+\end{center}
+	Hiệu trưởng trường đó cho biết sĩ số mỗi lớp trong trường đều không vượt quá $40$ học sinh. Biết rằng trong bảng trên có một khối lớp bị thống kê sai, hãy tìm khối lớp đó?
+	\shortans[oly]{12}
+	\loigiai{
+		Theo bảng thống kê đã cho, sĩ số tối đa của mỗi lớp theo từng khối cho ở bảng sau:
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+			\hline
+			Khối & $10$ & $11$ & $12$ \\
+			\hline
+			Sĩ số tối đa mỗi khối & $560$ & $520$ & $600$ \\
+			\hline
+		\end{tabular}
+		\end{center}
+		Theo thông tin hiệu trưởng cung cấp thì thông tin Khối $12$ đã bị thống kê sai vì Hiệu trưởng trường đó cho biết sĩ số mỗi lớp trong trường đều không vượt quá $40$ học sinh nhưng khi thống kê thì sĩ số khối $12$ vượt quá số học sinh tối đa ($600$ học sinh). 
+	}
+\end{ex}
+
+\begin{ex}%[0D6V2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Trong giờ học Toán lớp 7, giáo viên giao nhiệm vụ cho mỗi nhóm đo các góc của một tam giác. Kết quả được ghi lại trong bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Nhóm & 1 & 2 & 3 & 4 \\
+			\hline
+			Góc thứ nhất & $35^{\circ}$ & $61^{\circ}$ & $33^{\circ}$ & $100^{\circ}$ \\
+			\hline
+			Góc thứ hai & $77^{\circ}$ & $74^{\circ}$ & $102^{\circ}$ & $37^{\circ}$ \\
+			\hline
+			Góc thứ ba & $68^{\circ}$ & $45^{\circ}$ & $47^{\circ}$ & $43^{\circ}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Trong bảng trên có nhóm ghi kết quả sai. Hãy tìm nhóm nào sai? 
+	\shortans[oly]{5}
+	\loigiai{
+	Do tổng ba góc trong một tam giác bằng $180^{\circ}$ nên ta lập bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Nhóm & 1 & 2 & 3 & 4 \\
+			\hline
+			Góc thứ nhất & $35^{\circ}$ & $61^{\circ}$ & $33^{\circ}$ & $100^{\circ}$ \\
+			\hline
+			Góc thứ hai & $77^{\circ}$ & $74^{\circ}$ & $102^{\circ}$ & $37^{\circ}$ \\
+			\hline
+			Góc thứ ba & $68^{\circ}$ & $45^{\circ}$ & $47^{\circ}$ & $43^{\circ}$ \\
+			\hline
+			Tổng ba góc & $180^{\circ}$ & $180^{\circ}$ & $182^{\circ}$ & $180^{\circ}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vậy nhóm 3 đo sai vì tổng số đo của ba góc khác $180^{\circ}$.
+	}
+\end{ex}
+
+
+\begin{ex}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Một tổ công nhân may gồm $5$ người. Trong một ngày, mỗi người có thể may được từ $7$ đến $10$ sản phẩm. Cuối mỗi ngày, tổ trưởng thống kê lại số sản phẩm của cả tổ trong bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Ngày & thứ nhất & thứ hai & thứ ba & thứ tư & thứ năm \\
+		\hline
+		Số sản phẩm & $40$ & $42$ & $36$ & $49$ & $60$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tổ trưởng đã thống kê chưa đúng ngày thứ mấy?
+	\shortans[oly]{5}
+	\loigiai{
+	Do mỗi người có thể may được từ $7$ đến $10$ sản phẩm nên tổ may có thể may được từ $35$ đến $50$ sản phẩm.\\
+	Vậy tổ trưởng đã thống kê chưa đúng do ngày thứ năm được ghi nhận là $60$ sản phẩm. 
+	}
+\end{ex}
+
+\begin{ex}%[0D6V2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Lớp 10A có $40$ học sinh. Trong tiết học môn Toán, giáo viên khảo sát môn thể thao yêu thích nhất của từng học sinh (mỗi học sinh chỉ chọn một môn duy nhất), kết quả được ghi lại trong bảng sau:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Môn thể thao & Bóng đá & Bóng rổ & Bóng chuyền & Cầu lông \\
+		\hline
+		Số học sinh chọn & $19$ & $5$ & $7$ & $9$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Bạn Huy vẽ biểu đồ quạt để biểu diễn bảng số liệu trên, như sau:
+	\begin{center}
+	\begin{tikzpicture}[line join=round,thick]
+		\color{black}
+		\draw[pattern=grid,pattern color=black] (0,0)--(90:3) arc (90:171:3)--cycle ($(0,0)+(130.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $22.5\%$};
+		\draw[pattern=grid,pattern color=black](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Cầu lông};
+		\draw[pattern=dots,pattern color=black] (0,0)--(171:3) arc (171:234:3)--cycle ($(0,0)+(202.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $17.5\%$};
+		\draw[pattern=dots,pattern color=black](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Bóng chuyền};
+		\draw[fill=darkgray,pattern color=black] (0,0)--(234:3) arc (234:279:3)--cycle ($(0,0)+(256.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $12.5\%$};
+		\draw[fill=darkgray,pattern color=black](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Bóng đá};
+		\draw[fill=lightgray,pattern color=black] (0,0)--(279:3) arc (279:450:3)--cycle ($(0,0)+(364.5:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $47.5\%$};
+		\draw[fill=lightgray,pattern color=black](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Bóng rổ};
+		\draw(0,0) circle (3cm);
+		\draw (current bounding box.south) node[anchor=north] {\color{black}  \textbf{Tỉ lệ môn thể thao yêu thích của học sinh lớp 10A}};
+	\end{tikzpicture}
+	\end{center}
+	Bạn Huy đã vẽ biểu đồ đúng cho bao nhiêu môn thể thao?
+	\shortans[oly]{2}
+	\loigiai{
+	Bạn Huy vẽ chưa đúng do số học sinh chọn bóng rổ ít nhất, bóng đá nhiều nhất nhưng trên biểu đồ thì biểu diễn ngược lại.\\
+	Phải đổi chú thích của \lq\lq bóng đá\rq\rq \, và \lq\lq bóng rổ\rq\rq \, cho nhau để biểu đồ đó đúng.\\
+	Vậy bạn Huy chỉ vẽ biểu đồ đúng cho 2 môn cầu lông và bóng chuyền.
+	}  
+\end{ex}
+
+\Closesolutionfile{ans}
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+\begin{bt}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ dưới đây biểu diễn lợi nhuận mà $4$ chi nhánh A, B, C, D của một doanh nghiệp thu được trong năm $2020$ và $2021$.
+	\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (17.2,6.2);
+			\draw (0,0)node[left]{\bf\footnotesize$0$} (0,1)node[left]{\bf\footnotesize$100$} (0,2)node[left]{\bf\footnotesize$200$} (0,3)node[left]{\bf\footnotesize$300$}
+			(0,4)node[left]{\bf\footnotesize$400$}
+			(0,5)node[left]{\bf\footnotesize$500$}
+			(0,6)node[left]{\bf\footnotesize$600$} 
+			;
+			\draw (2,0)node[below]{\bf\footnotesize A};
+			\path[pattern=dots,draw=black] (1,0)rectangle(2,2.4)++(-0.5,0) node[above]{$240$};
+			\path[pattern=north east lines,draw=black] (2.2,0)rectangle(3.2,2.88)++(-0.5,0) node[above]{$288$};
+			\draw (6,0)node[below]{\bf\footnotesize B};
+			\path[pattern=dots,draw=black] (5,0)rectangle(6,4.5)++(-0.5,0) node[above]{$450$};
+			\path[pattern=north east lines,draw=black] (6.2,0)rectangle(7.2,5.4)++(-0.5,0) node[above]{$540$};
+			\draw (10,0)node[below]{\bf\footnotesize C};
+			\path[pattern=dots,draw=black] (9,0)rectangle(10,3.2)++(-0.5,0) node[above]{$320$};
+			\path[pattern=north east lines,draw=black] (10.2,0)rectangle(11.2,3.25)++(-0.5,0) node[above]{$325$};
+			\draw (14,0)node[below]{\bf\footnotesize D};
+			\path[pattern=dots,draw=black] (13,0)rectangle(14,2.56)++(-0.5,0) node[above]{$256$};
+			\path[pattern=north east lines,draw=black] (14.2,0)rectangle(15.2,3.58)++(-0.5,0) node[above]{$358$};
+			
+			\draw[<->,>=latex] (0,6)|-(17,0);
+			\draw (current bounding box.north)node[anchor=south]{\bf Lợi nhuận của các cửa hàng trong năm 2020 và 2021};
+			\draw[pattern=dots,draw=black](2,-1.5)rectangle(2.3,-1.2)node[right]{Năm 2020};
+			\draw[pattern=north east lines,draw=black](8,-1.5)rectangle(8.3,-1.2)node[right]{Năm 2021};
+		\end{tikzpicture}
+	\end{center}
+	\noindent Hãy kiểm tra xem các phát biểu sau là đúng hay sai:
+	\begin{listEX}[1]
+		\item Lợi nhuận thu được của các chi nhánh trong năm 2021 đều cao hơn 2020.
+		\item So với năm 2020, lợi nhuận của các chi nhánh thu được trong năm 2021 đều tăng trên $10\%$
+		\item Chi nhánh B có tỉ lệ lợi nhuận tăng cao nhất.
+	\end{listEX}
+	\loigiai{\begin{itemize}
+			\item[-] Phát biểu a) là đúng.
+			\item[-] Chi nhánh C có tỉ lệ lợi nhuận tăng $\dfrac{325-320}{320} \approx 1,56\%<10\%$ nên phát biểu b) là \textbf{sai}.
+			\item[-] Chi nhánh $B$ có tỉ lệ lợi nhuận tăng $\dfrac{540-450}{450}=20\%$.\\
+			Chi nhánh $D$ có tỉ lệ lợi nhuận tăng $\dfrac{358-256}{256}=39,8\%$.\\
+			Do đó phát biểu c) là \textbf{sai}.
+	\end{itemize}}
+\end{bt}
+
+\begin{bt}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bảng sau thống kê số lớp và số học sinh theo từng khối ở một trường Trung học phổ thông.
+	\begin{center}
+		\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
+			\hline Khối & 10& 11& 12\\
+			\hline Số lớp & 9& 8& 8\\
+			\hline Số học sinh & 396& 370& 345\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hiệu trưởng trường đó cho biết sĩ số mỗi lớp trong trường đều không vượt quá 45 học sinh. Biết rằng trong bảng trên có một khối lớp bị thống kê sai, hãy tìm khối lớp đó.
+	\loigiai{
+		Theo bảng thống kê đã cho, sĩ số trung bình của mỗi lớp theo từng khối cho ở bảng sau:
+		\begin{center}
+			\begin{tabular}{|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|}
+				\hline Khối & 10& 11& 12\\
+				\hline Sĩ số trung bình mỗi lớp & 44 & $46{,}25$ & $43{,}125$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Theo thông tin hiệu trưởng cung cấp thì thông tin Khối 11 đã bị thống kê sai.
+	}
+\end{bt}
+
+\begin{bt}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	\immini{Số lượng trường Trung học phổ thông (THPT) của các tỉnh Gia Lai, Đắk Lắk và Lâm Đồng trong hai năm 2008 và 2018 được cho ở biểu đồ bên. Hãy cho biết các phát biểu sau là đúng hay sai:
+		\begin{enumEX}[a)]{1}
+			\item Số lượng trường THPT của các tỉnh năm 2018 đều tăng so với năm $2008$. 
+			\item Ở Gia Lai, số trường THPT năm $2018$ tăng gần gấp đôi so với năm $2008$. 
+		\end{enumEX}
+	}{
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (12.2,7.2);
+			\draw (0,0)node[left]{\bf\footnotesize$25$} (0,1)node[left]{\bf\footnotesize$30$} (0,2)node[left]{\bf\footnotesize$35$} (0,3)node[left]{\bf\footnotesize$40$}(0,4)node[left]{\bf\footnotesize$45$}(0,5)node[left]{\bf\footnotesize$50$}(0,6)node[left]{\bf\footnotesize$55$};
+			\draw (2,0)node[below]{\bf\footnotesize Gia Lai};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,1.4);
+			\path[draw=black,pattern=north east lines] (2.2,0)rectangle(3.2,3.2);
+			\draw (6,0)node[below]{\bf\footnotesize Đắk lắk};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,4.2);
+			\path[draw=black,pattern=north east lines] (6.2,0)rectangle(7.2,5.5);
+			\draw (10,0)node[below]{\bf\footnotesize Lâm Đồng};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,1.7);
+			\path[draw=black,pattern=north east lines] (10.2,0)rectangle(11.2,4.2);
+			\draw[<->,>=latex] (0,7)|-(12,0);
+			\draw (6,7)node[above]{Số lượng trường trung học phổ thông};
+			\draw[fill=blue,draw=white](2,-1.5)rectangle(2.3,-1.2)node[right]{Năm 2008};
+			\draw[fill=orange,draw=white](6,-1.5)rectangle(6.3,-1.2)node[right]{Năm 2018};
+			\draw (9,-2)node[below]{(Nguồn: Tổng cục Thống kê)};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumEX}[a)]{1}
+			\item Dựa vào biểu đồ đã cho, ta thấy số lượng trường THPT của các tỉnh năm 2018 đều tăng so với năm $2008$. Do đó phát biểu a) là đúng.
+			\item Phát biểu b) sai. Vì ở tỉnh Gia Lai, số trường năm 2018 là khoảng 42 trường, số trường năm 2008 là khoảng 34 trường.
+		\end{enumEX}
+	}
+\end{bt}
+
+\begin{bt}%[0D6H2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Biểu đồ bên thể hiện giá trị sản phẩm (đơn vị: triệu đồng) trung bình thu được trên một hecta đất trồng trọt và mặt nước nuôi trồng thuỷ sản trên cả nước từ năm 2014 đến năm 2018.
+	\begin{center}
+		\begin{tikzpicture}[scale=.75]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (20.2,9.2);
+			\draw (0,0)node[left]{\bf\footnotesize$50$} (0,1)node[left]{\bf\footnotesize$70$} (0,2)node[left]{\bf\footnotesize$90$} (0,3)node[left]{\bf\footnotesize$110$}(0,4)node[left]{\bf\footnotesize$130$}(0,5)node[left]{\bf\footnotesize$150$}(0,6)node[left]{\bf\footnotesize$170$} (0,7)node[left]{\bf\footnotesize$190$} (0,8)node[left]{\bf\footnotesize$210$} (0,9)node[left]{\bf\footnotesize$230$};
+			\draw (2,0)node[below]{\bf\footnotesize Năm 2014};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,1.5);
+			\path[fill=orange,draw=white] (2.2,0)rectangle(3.2,6.3);
+			\draw (6,0)node[below]{\bf\footnotesize Năm 2015};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,1.6);
+			\path[fill=orange,draw=white] (6.2,0)rectangle(7.2,6.3);
+			\draw (10,0)node[below]{\bf\footnotesize Năm 2016};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,1.7);
+			\path[fill=orange,draw=white] (10.2,0)rectangle(11.2,6.8);
+			\draw (14,0)node[below]{\bf\footnotesize Năm 2017};
+			\path[fill=blue,draw=white] (13,0)rectangle(14,1.9);
+			\path[fill=orange,draw=white] (14.2,0)rectangle(15.2,7.9);
+			\draw (18,0)node[below]{\bf\footnotesize Năm 2018};
+			\path[fill=blue,draw=white] (17,0)rectangle(18,2.1);
+			\path[fill=orange,draw=white] (18.2,0)rectangle(19.2,8.6);
+			\draw[<->,>=latex] (0,10)|-(20,0);
+			\draw (10,10.75)node[above]{Giá trị sản phẩm thu được trên 1 hecta đất};
+			\draw (10,10)node[above]{trồng trọt và mặt nước nuôi trồng thủy sản};
+			\draw[fill=blue,draw=white](2,-1.5)rectangle(2.3,-1.2)node[right]{Đất trồng trọt};
+			\draw[fill=orange,draw=white](8,-1.5)rectangle(8.3,-1.2)node[right]{Mặt nước nuôi trồng thủy sản};
+			\draw (16,-2)node[below]{(Nguồn: Tổng cục Thống kê)};
+		\end{tikzpicture}
+	\end{center}
+	Hãy cho biết các phát biểu sau là đúng hay sai:
+	\begin{enumEX}[a)]{1}
+		\item Giá trị sản phẩm trung bình thu được trên một hecta mặt nước nuôi trồng thủy sản cao hơn trên một hecta đất trồng trọt.
+		\item Giá trị sản phẩm thu được trên cả đất trồng trọt và mặt nước nuôi trồng thuỷ sản đều có xu hướng tăng từ năm 2014 đến năm 2018.
+		\item Giá trị sản phẩm trung bình thu được trên một hecta mặt nước nuôi trồng thuỷ sản cao gấp khoảng 3 lần trên một hecta đất trồng trọt.
+	\end{enumEX}
+	\loigiai{
+		Phát biểu a) và b) đều đúng.\\
+		Phát biểu c) là sai vì trong năm 2017, giá trị sản phẩm trung bình trên một hecta mặt nước nuôi trồng thủy sản và đất trồng trọt lần lượt là khoảng 210 và 90, tức là giá trị sản phẩm trung bình trên một hecta mặt nước nuôi trồng thủy sản gấp chưa đến $2{,}5$ lần trên một hecta đất trồng trọt.
+	}
+\end{bt}
+
+\begin{bt}%[0D6H2-3]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Tâm ghi lại số liệu từ trang web của Tổng cục Thống kê bảng nhiệt độ không khí trung bình các tháng trong năm 2020 tại một trạm quan trắc đặt ở thành phố Vinh.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			Tháng & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+			\hline
+			Nhiệt độ & 20,9 & 20,7 & 23,7 & 29,5 & 32,2 & 4,5 & 29,6 & 28,9 & 23,8 & 23,8 & 23,1 & 18,4 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Bạn Tâm đã ghi nhầm nhiệt độ của một tháng trong bảng trên. Theo em bạn Tâm đã ghi nhầm số liệu của tháng mấy? Tại sao?
+	\loigiai{
+		Tâm ghi nhầm nhiệt độ của tháng 7. Do tháng 7 là vào mùa hè nên nhiệt độ trung bình trong tháng đó ở thành phố Vinh phải cao hơn $4,5^{\circ}C$.}
+\end{bt}
+
+\begin{bt}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bạn Tâm ghi lại số liệu từ trang Web của Tổng cục Thống kê bảng nhiệt độ không khí trung bình các tháng trong năm 2020 tại một trạm quan đặt ở thành phố Vinh. Bạn đã vẽ biểu đồ hình cột bảng số liệu đó. Theo em bạn Tâm đã ghi nhầm ở tháng mấy? Tại sao?
+	\begin{center}
+		\begin{tikzpicture}[scale=.6]
+			\draw[color=gray,dash pattern=on 1pt off 1pt,xstep=1.0cm,ystep=1.0cm] (0,0) grid (25,7.2);
+			\draw (0,0)node[left]{\bf\footnotesize$0$} (0,1)node[left]{\bf\footnotesize$5$} (0,2)node[left]{\bf\footnotesize$10$} (0,3)node[left]{\bf\footnotesize$15$}(0,4)node[left]{\bf\footnotesize$20$}(0,5)node[left]{\bf\footnotesize$25$}(0,6)node[left]{\bf\footnotesize$30$};
+			\draw (1.5,0)node[below]{\bf\footnotesize 1};
+			\path[fill=blue,draw=white] (1,0)rectangle(2,4.18);
+			\draw (1.5,4.18) node[above]{$20{,}9$};
+			\draw (3.5,0)node[below]{\bf\footnotesize 2};
+			\path[fill=blue,draw=white] (3,0)rectangle(4,4.14);
+			\draw (3.5,4.14) node[above]{$20{,}7$};
+			\draw (5.5,0)node[below]{\bf\footnotesize 3};
+			\path[fill=blue,draw=white] (5,0)rectangle(6,4.74);
+			\draw (5.5,4.74) node[above]{$23{,}7$};
+			\draw (7.5,0)node[below]{\bf\footnotesize 4};
+			\path[fill=blue,draw=white] (7,0)rectangle(8,4.6);
+			\draw (7.5,4.6) node[above]{$23$};
+			\draw (9.5,0)node[below]{\bf\footnotesize 5};
+			\path[fill=blue,draw=white] (9,0)rectangle(10,5.9);
+			\draw (9.5,5.9) node[above]{$29{,}5$};
+			\draw (11.5,0)node[below]{\bf\footnotesize 6};
+			\path[fill=blue,draw=white] (11,0)rectangle(12,6.44);
+			\draw (11.5,6.44) node[above]{$32{,}2$};
+			\draw (13.5,0)node[below]{\bf\footnotesize 7};
+			\path[fill=blue,draw=white] (13,0)rectangle(14,0.9);
+			\draw (13.5,0.9) node[above]{$4{,}5$};
+			\draw (15.5,0)node[below]{\bf\footnotesize 8};
+			\path[fill=blue,draw=white] (15,0)rectangle(16,5.92);
+			\draw (15.5,5.92) node[above]{$29{,}6$};
+			\draw (17.5,0)node[below]{\bf\footnotesize 9};
+			\path[fill=blue,draw=white] (17,0)rectangle(18,5.98);
+			\draw (17.5,5.98) node[above]{$29{,}9$};
+			\draw (19.5,0)node[below]{\bf\footnotesize 10};
+			\path[fill=blue,draw=white] (19,0)rectangle(20,4.76);
+			\draw (19.5,4.75) node[above]{$23{,}8$};
+			\draw (21.5,0)node[below]{\bf\footnotesize 11};
+			\path[fill=blue,draw=white] (21,0)rectangle(22,4.62);
+			\draw (21.5,4.62) node[above]{$23{,}1$};
+			\draw (23.5,0)node[below]{\bf\footnotesize 12};
+			\path[fill=blue,draw=white] (23,0)rectangle(24,3.68);
+			\draw (23.5,3.68) node[above]{$18{,}4$};
+			
+			\draw[<->,>=latex] (0,7)node[above right]{Nhiệt độ}|-(25,0) node[below right]{Tháng};
+			\draw (current bounding box.south) node[anchor=north] {\color{black}  \textbf{Nhiệt độ trung bình các tháng năm 2020 ở thành phố Vinh}};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Dựa vào bảng số liệu, ta dễ dàng nhận ra rằng bạn Tâm đã ghi nhầm nhiệt độ của tháng $7$. Lý do vì tháng$ 7$ là vào mùa hè nên nhiệt độ trung bình trong tháng đó ở thành phố Vinh phải cao hơn $4,5 ^\circ C$.
+	}
+\end{bt}
+
+\begin{bt}%[0D6H2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Phương vẽ biểu đồ biểu thị tỉ lệ số lượng mỗi loại bếp mà gia đình các bạn trong lớp sử dụng thường xuyên để đun nấu theo bảng thống kê dưới đây.
+	\begin{center}
+		\begin{minipage}{0.25\textwidth}
+			\begin{tabular}{|l|c|}
+				\hline
+				Loại bếp & Số gia đình \\
+				\hline
+				Bếp củi & 10 \\
+				\hline
+				Bếp điện & 12 \\
+				\hline
+				Bếp than & 8 \\
+				\hline
+				Bếp ga & 20 \\
+				\hline
+				Loại khác & 5 \\
+				\hline
+			\end{tabular}
+		\end{minipage}
+		\begin{minipage}{0.4\textwidth}
+			\begin{tikzpicture}[line join=round,thick]
+				\color{black}
+				\draw[fill=white,pattern color=white] (0,0)--(90:3) arc (90:122.4:3)--cycle ($(0,0)+(106.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $9\%$};
+				\draw[fill=white,pattern color=white](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} Loại khác};
+				\draw[pattern=checkerboard,pattern color=gray] (0,0)--(122.4:3) arc (122.4:252:3)--cycle ($(0,0)+(187.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $36\%$};
+				\draw[pattern=checkerboard,pattern color=gray](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} Bếp ga};
+				\draw[pattern=dots,pattern color=black] (0,0)--(252:3) arc (252:331.2:3)--cycle ($(0,0)+(291.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $22\%$};
+				\draw[pattern=dots,pattern color=black](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} Bếp than};
+				\draw[pattern=grid,pattern color=gray] (0,0)--(331.2:3) arc (331.2:385.2:3)--cycle ($(0,0)+(358.2:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $15\%$};
+				\draw[pattern=grid,pattern color=gray](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} Bếp điện};
+				\draw[pattern=north west lines,pattern color=gray] (0,0)--(385.2:3) arc (385.2:450:3)--cycle ($(0,0)+(417.6:1.9)$) node[fill=white,inner sep=0pt,circle]{\color{black} $18\%$};
+				\draw[pattern=north west lines,pattern color=gray](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} Bếp củi};
+				\draw(0,0) circle (3cm);
+			\end{tikzpicture}
+		\end{minipage}
+	\end{center}
+	Hãy cho biết Phương vẽ biểu đồ chính xác chưa. Nếu chưa thì cần điều chỉnh lại như thế nào cho đúng?
+	\loigiai{
+		Phương nhầm giữa số gia đình dùng bếp điện và bếp than.}
+\end{bt}
+\begin{bt}%[0D6V2-2]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]%[0D6B2-1]	
+	Biểu đồ dưới đây biểu diễn lợi nhuận của các ngân hàng trong $6$ tháng đầu năm $2021$ và $2022$.\\
+	\begin{center}
+		\textbf{TOP 10 NGÂN HÀNG LỢI NHUẬN CAO NHẤT\\ 6 THÁNG ĐẦU NĂM 2022}
+	\end{center}
+	\begin{center}
+		\begin{tikzpicture}[xscale=1,yscale=.05]
+			\def\a{3mm}
+			\begin{scope}[gray!50]
+				\foreach \j in {0,20,...,180}
+				\draw (0,\j) node[left,black,scale=1]{\j}--(9.5,\j); 
+				\draw[xshift=2mm] (0,0)--(0,180);
+				\foreach \i in {0,1,...,9}
+				\draw (\i+.5,0)--+(0,-10mm);
+			\end{scope}	
+			\foreach \i/\j/\k/\text in 
+			{1/173/135/Vietcombank, 
+				2/153/90/VPBank,
+				3/141/115/Techcombank,
+				4/119.2/79.86/MB,
+				5/59/30.95/SHB,
+				6/50/40/VIB,
+				7/37.88/30.07/TPBank,
+				8/35.88/20/LienVietPostBank,
+				9/33.36/31/MSB,
+				10/28.06/15.57/MSeaBank
+			}{
+				\fill[blue] (\i,0) rectangle +(-\a,\j);
+				\fill[red] (\i,0) rectangle +(\a,\k);
+				\draw (\i,0) node[below=22mm,rotate=90,align=left]{\bf \text};
+			}
+			\node[fill=blue,inner sep=\a] (A) at 
+			([xshift=1cm,yshift=5cm]current bounding box.east){};
+			\node[fill=red,inner sep=\a,below of=A] (C) {};
+			\draw (A.center) node[left=3mm]{2022};
+			\draw (C.center) node[left=3mm]{2021};
+			\node[above,scale=1.2] at (current bounding box.north)
+			{\bf Đơn vị trăm tỉ đồng}; 
+		\end{tikzpicture}
+	\end{center}
+	Số liệu tương ứng của từng ngân hàng trong bảng sau, đơn vị là tỉ đồng.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			& \textbf{VCB} & \textbf{VPB}& \textbf{TCB} & \textbf{MB} & \textbf{SHB} & \textbf{VIB} & \textbf{TPBank} & \textbf{LVPB} & \textbf{MSB} & \textbf{SeaBank} \\
+			\hline
+			$\textbf{2022}$	& 17300 & 15300 & 14100 & 11920 & 5900 & 5000 & 3788 & 3588 & 3336 & 2806 \\
+			\hline
+			$\textbf{2021}$	& 13500 & 9000 & 11500 & 7986 & 3095 & 4000 & 3007 & 2000 & 3100 & 1557 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy kiểm tra xem các phát biểu sau đây đúng hay sai?
+	\begin{enumerate}
+		\item Lợi nhuận của các ngân hàng trong $6$ tháng đầu của năm $2022$ cao hơn năm $2021$.
+		\item So với năm $2021$, lợi nhuận của các ngân hàng trong $6$ tháng đầu năm năm $2022$ đều tăng trưởng $15\%$.
+		\item Ngân hàng VCB có tỉ lệ lợi nhuận cao nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \textbf{Đúng}, vì dựa vào biểu đồ biểu diễn lợi nhuận của các ngân hàng trong $6$ tháng đầu năm $2022$ cao hơn năm $2021$.
+			\item \textbf{Sai}, vì ngân hàng MSB mức tăng trong $6$ tháng đầu năm $2022$ so với $2021$ chỉ là $7{,}6\%$.
+			\item \textbf{Sai}, vì tỉ lệ lợi nhuận của VCB năm $2022$ so với năm $2021$ là $1{,}28$ lần, tỉ lệ lợi nhuận của VPBank năm $2022$ so với năm $2021$ là $1{,}7$ lần, nên ngân hàng có tỉ lệ lợi nhuận tăng cao nhất là VPBank.
+		\end{enumerate}
+	}
+\end{bt}
+%%==========Câu 2
+
+\begin{bt}%[0D6V2-4]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Bạn Chi vẽ biểu đồ quạt biểu thị tỉ lệ chiều cao của $36$ học sinh nam của một trường THPT theo bảng thống kê sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Nhóm}	& \textbf{Khoảng} & \textbf{Số học sinh} \\
+			\hline
+			$1$	& $[159{,}5;162{,}5)$ & $6$ \\
+			\hline
+			$2$	& $[162{,}5;165{,}5)$ & $12$ \\
+			\hline
+			$3$	& $[165{,}5;168{,}5)$ & $10$ \\
+			\hline
+			$4$	& $[168{,}5;171{,}5)$ & $5$ \\
+			\hline
+			$5$	& $[171{,}5;174{,}5)$ & $3$ \\
+			\hline
+			& & $36$ \\
+			\hline
+		\end{tabular}\\
+		\textit{Biểu đồ thống kê chiều cao của học sinh THPT}
+	\end{center}
+	\begin{center}
+		\begin{tikzpicture}[line join=round,thick]
+			\color{black}
+			\draw[pattern=horizontal lines,pattern color=red] (0,0)--(0:3) arc (0:29.88:3)--cycle ($(0,0)+(14.94:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $8.3\%$};
+			\draw[pattern=horizontal lines,pattern color=red](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} 172-174};
+			\draw[pattern=vertical lines,pattern color=green] (0,0)--(29.88:3) arc (29.88:68.04:3)--cycle ($(0,0)+(48.96:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $10.6\%$};
+			\draw[pattern=vertical lines,pattern color=green](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} 160-162};
+			\draw[pattern=north east lines,pattern color=blue] (0,0)--(68.04:3) arc (68.04:187.92:3)--cycle ($(0,0)+(127.98:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $33.3\%$};
+			\draw[pattern=north east lines,pattern color=blue](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} 163-165};
+			\draw[pattern=north west lines,pattern color=cyan] (0,0)--(187.92:3) arc (187.92:288:3)--cycle ($(0,0)+(237.96:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $27.8\%$};
+			\draw[pattern=north west lines,pattern color=cyan](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} 166-168};
+			\draw[pattern=grid,pattern color=magenta] (0,0)--(288:3) arc (288:360:3)--cycle ($(0,0)+(324:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $20\%$};
+			\draw[pattern=grid,pattern color=magenta](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} 169-171};
+			\draw(0,0) circle (3cm);
+		\end{tikzpicture}
+	\end{center}
+	Hãy cho biết bạn Chi vẽ biểu đồ chính xác chưa? Nếu chưa thì cần điều chỉnh lại như thế nào cho đúng?
+	\loigiai{
+		Bạn Chi vẽ biểu đồ chưa chính xác (chia tỉ lệ phần trăm sai ở nhóm $1$ và $4$).\\
+		Biểu đồ đúng như sau
+		\begin{center}
+			\begin{tikzpicture}[line join=round,thick]
+				\color{black}
+				\draw[pattern=horizontal lines,pattern color=red] (0,0)--(0:3) arc (0:29.88:3)--cycle ($(0,0)+(14.94:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $8.3\%$};
+				\draw[pattern=horizontal lines,pattern color=red](3.5,-2.5) rectangle (4,-2) node[below=0.25cm,right]{\color{black} 172-174};
+				\draw[pattern=vertical lines,pattern color=green] (0,0)--(29.88:3) arc (29.88:90:3)--cycle ($(0,0)+(59.94:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $16.7\%$};
+				\draw[pattern=vertical lines,pattern color=green](3.5,1.5) rectangle (4,2) node[below=0.25cm,right]{\color{black} 160-162};
+				\draw[pattern=north east lines,pattern color=blue] (0,0)--(90:3) arc (90:209.88:3)--cycle ($(0,0)+(149.94:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $33.3\%$};
+				\draw[pattern=north east lines,pattern color=blue](3.5,0.5) rectangle (4,1) node[below=0.25cm,right]{\color{black} 163-165};
+				\draw[pattern=north west lines,pattern color=cyan] (0,0)--(209.88:3) arc (209.88:309.6:3)--cycle ($(0,0)+(259.74:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $27.8\%$};
+				\draw[pattern=north west lines,pattern color=cyan](3.5,-0.5) rectangle (4,0) node[below=0.25cm,right]{\color{black} 166-168};
+				\draw[pattern=grid,pattern color=magenta] (0,0)--(309.6:3) arc (309.6:360:3)--cycle ($(0,0)+(334.8:1.7)$) node[fill=white,inner sep=0pt,circle]{\color{black} $13.8\%$};
+				\draw[pattern=grid,pattern color=magenta](3.5,-1.5) rectangle (4,-1) node[below=0.25cm,right]{\color{black} 169-171};
+				\draw(0,0) circle (3cm);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[0D6V2-1]%[Dự án đề cương 3 Khối NH 24-25-Đợt 3-Thy Nguyen Vo Diem]
+	Cho biểu đồ cơ cấu các loại đất Việt Nam năm $2000$
+	\begin{center}
+		\begin{tabular}{| c | c |}
+			\hline
+			\textbf{Loại} & \textbf{Tỉ lệ}\\
+			\hline
+			Đất nông nghiệp & $28{,}4\%$\\
+			\hline
+			Đất lâm nghiệp & $35{,}2\%$\\
+			\hline
+			Đất chuyên dùng và đất thổ cư &$6{,}0\%$\\
+			\hline
+			Đất chưa sử dụng & $30{,}4\%$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Theo nghiên cứu thì diện tích đất nông nghiệp và đất lâm nghiệp khoảng $21{,}4$ triệu ha. Hãy tính diện tích đất chuyên dùng và đất thổ cư và đất chưa sử dụng.
+	\loigiai{
+		Ta có tổng diện tích đất tự nhiên là $\dfrac{21{,}4\times 100}{28{,}4+35{,}2}\approx 33{,}6$ (triệu ha).\\
+		Diện tích đất chuyên dùng và đất thổ cư là $6\%\times 33{,}6\approx$ 2 (triệu ha).\\
+		Diện tích đất chưa sử dụng là $30{,}4\%\times 33{,}6\approx 10{,}2$ (triệu ha).
+	}
+\end{bt}

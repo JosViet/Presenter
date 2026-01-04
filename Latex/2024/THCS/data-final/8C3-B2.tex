@@ -1,0 +1,958 @@
+\section{TỨ GIÁC}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+\begin{itemize}
+	\item Tứ giác $ABCD$ là hình gồm $4$ đoạn thẳng $AB$, $BC$, $CD$ và $DA$ trong đó bất kì hai đoạn thẳng nào cũng không cùng nằm trên một đường thẳng.\\
+	Chẳng hạn,
+	\begin{center}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (B) at (1,1);
+			\coordinate (C) at (3,0);
+			\coordinate (A) at (0,0);
+			\coordinate (D) at (1,-1);
+			\draw (A)--(B)--(C)--(D)--(A);
+			\foreach \x/\g in {A/180,B/90,C/0,D/-90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (1,-1.7)node[below]{a)};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (1,-1);
+			\coordinate (C) at (-1.5,0);
+			\coordinate (D) at (-2,-1.5);
+			\draw (A)--(B)--(C)--(D)--(A);
+			\foreach \x/\g in {A/90,B/-90,C/90,D/-90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (-1,-2)node[below]{b)};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (-1,-1.5);
+			\coordinate (C) at (0,-1.5);
+			\coordinate (D) at (1.5,-1.5);
+			\draw (A)--(B)--(C)--(D)--(A);
+			\foreach \x/\g in {A/90,B/-90,C/-90,D/-90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (0,-2)node[below]{c)};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (1,-1.5);
+			\coordinate (C) at (0,-1);
+			\coordinate (D) at (-1.5,-1.5);
+			\draw (A)--(B)--(C)--(D)--(A);
+			\foreach \x/\g in {A/90,B/-90,C/-90,D/-90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (0,-2)node[below]{d)};
+		\end{tikzpicture}
+	\end{center}
+	Trong hình trên, hình a), b), d) là các tứ giác.
+	\item \textbf{\textit{Tứ giác lồi}} là tứ giác luôn nằm trong cùng một phần mặt phẳng được phân chia bởi đường thẳng chứa bất kì cạnh nào của tứ giác.
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\tikzset{declare function={a=2;b=1.6;c=2.4;d=2.1;goc1=-10;goc2=-130;goc3=160;}}
+			\draw 
+			(0,0)coordinate (A)--++(goc1:a)coordinate (D)--++(goc2:d)coordinate (C)--++(goc3:c)coordinate (B)--cycle		
+			;
+			\foreach \p/\pp in {A/D,D/A,A/B,B/A,D/C,C/D,B/C,C/B}{
+				\draw[dashed] (\p)--($(\pp)!1.5!(\p)$);
+			}
+			\foreach \point/\goc in {A/90,D/-90,B/-90,C/-90}{
+				\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=.8]{$\point$};
+			}
+		\end{tikzpicture}
+	\end{center}
+\end{itemize} 
+\begin{luuy}
+	Trong chương trình, khi nói đến tứ giác mà không chú thích gì thêm thì hiểu đó là tứ giác lồi.
+\end{luuy}
+\begin{itemize}
+\item Trong một tứ giác:
+\begin{itemize}
+	\item Hai cạnh kề nhau là hai cạnh có chung một đỉnh.
+	\item Hai cạnh kề nhau tạo thành một góc của tứ giác.
+	\item Hai cạnh đối nhau là hai cạnh không có chung đỉnh nào.
+	\item Hai đỉnh đối nhau là hai đỉnh không cùng nằm trên một cạnh.
+	\item Đường chéo là đoạn thẳng nối hai đỉnh đối nhau.	
+\end{itemize}	
+Chẳng hạn, tứ giác $ABCD$ có 
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.8]
+		\tikzset{declare function={a=2;b=1.6;c=2.4;d=2.1;goc1=-10;goc2=-130;goc3=160;}}
+		\draw 
+		(0,0)coordinate (A)--++(goc1:a)coordinate (D)--++(goc2:d)coordinate (C)--++(goc3:c)coordinate (B)--cycle		
+		;
+		\foreach \point/\goc in {A/90,D/10,B/190,C/-90}{
+			\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=1]{$\point$};
+		}
+	\end{tikzpicture}
+\end{center}
+\begin{itemize}
+	\item Hai cạnh kề nhau là hai cạnh có chung một đỉnh: $AB$ và $BC$; $BC$ và $CD$; $CD$ và $AD$; $AD$ và $AB$.
+	\item Hai cạnh kề nhau tạo thành một góc của tứ giác: $\widehat{DAB}, \widehat{ABC}, \widehat{BCD}, \widehat{CDA}$.
+	\item Các cặp góc đối nhau: $\widehat{DAB}$ và $\widehat{BCD}, \widehat{ABC}$ và $\widehat{CDA}$.
+	\item Hai cạnh đối nhau là hai cạnh không có điểm chung: $AB$ và $CD$; $BC$ và $AD$.
+	\item Hai đỉnh đối nhau là hai đỉnh không nằm trên cùng một cạnh: $A$ và $C$; $B$ và $D$.
+	\item Đường chéo là đoạn thẳng nối hai đỉnh đối nhau: $AC; BD$.
+\end{itemize}
+\item Tổng số đo các góc của một tứ giác bằng $360^{\circ}$.
+\begin{center}
+	$ABCD$ là tứ giác, suy ra $ \widehat{A}+\widehat{B}+\widehat{C}+\widehat{D}=360^{\circ}$. 
+\end{center}						
+\end{itemize}
+\end{tomtat}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-1]
+	Tìm tứ giác lồi trong các hình sau
+	\begin{center}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (B) at (1.5,-1);
+			\coordinate (C) at (-0.5,-2);
+			\coordinate (A) at (0,0);
+			\coordinate (D) at (-1.5,-1);
+			\draw[green] (A)--(B)--(C)--(D)--(A);
+			\foreach \x/\g in {A/90,B/0,C/-90,D/180}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (0.5,-3)node[below]{a)};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+			\coordinate (H) at (0,-1.5);
+			\coordinate (G) at (3,0.5);
+			\coordinate (F) at (0.5,-0.5);
+			\coordinate (E) at (-1,0);
+			\draw[blue] (H)--(G)--(F)--(E)--(H);
+			\foreach \x/\g in {H/-90,G/0,F/90,E/90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+			\draw (1,-3)node[below]{b)};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Kẻ các đường thẳng chứa các cạnh của tứ giác như trong hình bên dưới, ta thấy $ABCD$ là tứ giác lồi còn $EFGH$ không phải tứ giác lồi.	
+		\begin{center}
+			\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+				\coordinate (B) at (1.5,-1);
+				\coordinate (C) at (-0.5,-2);
+				\coordinate (A) at (0,0);
+				\coordinate (D) at (-1.5,-1);
+				\draw[green] (A)--(B)--(C)--(D)--(A);
+				\draw[dashed,red] ($(A)!-0.5!(B)$)--($(B)!-0.5!(A)$) ($(B)!-0.5!(C)$)--($(C)!-0.5!(B)$)
+				($(C)!-0.5!(D)$)--($(D)!-0.5!(C)$)
+				($(A)!-0.5!(D)$)--($(D)!-0.5!(A)$);
+				\foreach \x/\g in {A/90,B/0,C/-90,D/180}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+				\draw (0.5,-3)node[below]{a)};
+			\end{tikzpicture}
+			\begin{tikzpicture}[scale=1, >=stealth, font=\footnotesize, line join=round, line cap=round]
+				\coordinate (H) at (0,-1.5);
+				\coordinate (G) at (3,0.5);
+				\coordinate (F) at (0.5,-0.5);
+				\coordinate (E) at (-1,0);
+				\draw[blue] (H)--(G)--(F)--(E)--(H);
+				\draw[dashed,red] ($(E)!-0.5!(F)$)--($(F)!-0.9!(E)$); 
+				\foreach \x/\g in {H/-90,G/0,F/90,E/90}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+				\draw (1,-3)node[below]{b)};
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-1]
+	Xác định các yếu tố của tứ giác (đỉnh, cặp góc đối, hai cạnh đối nhau, hai đỉnh đối nhau, đường chéo) của tứ giác sau
+	\begin{center}
+		\begin{tikzpicture}[scale=1.5, >=stealth, font=\footnotesize, line join=round, line cap=round]
+		\coordinate (Q) at (1.5,-1);
+		\coordinate (P) at (0.5,-2);
+		\coordinate (M) at (0,0);
+		\coordinate (N) at (-1.5,-0.5);
+		\draw (M)--(N)--(P)--(Q)--(M);
+		\foreach \x/\g in {M/90,N/180,P/-90,Q/0}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+	\end{tikzpicture}
+	\end{center}
+\loigiai{
+	Tứ giác $MNPQ$ có
+	\begin{itemize}
+		\item Đỉnh là $M$, $N$, $P$, $Q$.
+		\item Cặp góc đối nhau là $\widehat{M}$ và  $\widehat{P}$; $\widehat{N}$ và $\widehat{Q}$.
+		\item Hai cạnh đối nhau là cạnh $MN$ và cạnh $PQ$; cạnh $NP$ và cạnh $MQ$.
+		\item Hai đỉnh đối nhau là đỉnh $M$ và đỉnh $P$; đỉnh $N$ và đỉnh $Q$.
+		\item Hai đường chéo là $MP$ và $NQ$.
+	\end{itemize}	
+}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-2]
+	Tìm số đo $x$ ở mỗi tứ giác sau
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			
+			\path (0,0) coordinate (M)  
+			($(M)+(0:2)$)coordinate (Q)
+			($(Q)+(-100:3.5)$)coordinate (x) 
+			($(M)+(-120:1.3)$)coordinate (N)
+			($(N)+(-50:3.5)$)coordinate (y) 
+			;	
+			\path (intersection of  Q--x and N--y) coordinate (P);
+			;	
+			\foreach \d/\g in {M/90,N/180,Q/45,P/-90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (M)--(N)--(P)--(Q)--cycle ;
+			\draw (0,-3)node[below]{a)};
+			\path pic["\scriptsize$120^\circ$", angle eccentricity=2,,angle radius=6pt]{angle= N--M--Q};
+			\path pic["\scriptsize$80^\circ$", angle eccentricity=2,angle radius=6pt]{angle= M--Q--P};
+			\path pic["\scriptsize$110^\circ$", angle eccentricity=2,angle radius=8pt]{angle= P--N--M};
+			\path pic["\scriptsize$x$", angle eccentricity=2,angle radius=8pt]{angle= Q--P--N};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			
+			\path (0,0) coordinate (E)  
+			($(E)+(0:3.5)$)coordinate (F) ($(F)+(-90:2)$)coordinate (G)
+			($(E)+(-90:2)$)coordinate (H)
+			;	
+			\foreach \d/\g in {E/90,H/180,F/45,G/-90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (E)--(H)--(G)--(F)--cycle ;
+			\draw (2,-3)node[below]{b)}
+			(G)node[above left]{$x$};
+			\foreach \i/\j/\k in {H/E/F}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+			\foreach \i/\j/\k in {E/F/G}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+			\foreach \i/\j/\k in {G/H/E}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			\path (0,-3) coordinate (A)  
+			($(A)+(0:3.5)$)coordinate (D) ($(D)+(90:2)$)coordinate (x)
+			($(A)+(65:3)$)coordinate (B)
+			($(B)+(-25:2)$)coordinate (y) 
+			;	
+			\path (intersection of  B--y and x--D) coordinate (C);
+			\foreach \d/\g in {A/180,B/90,D/-90,C/90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\draw (2,-3)node[below]{c)}
+			(A)node[above right]{$65^\circ$}
+			(C)node[below left]{$x$};
+			\foreach \i/\j/\k in {A/B/C}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+			\foreach \i/\j/\k in {A/D/C}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+		\end{tikzpicture}
+	\end{center}
+	
+	\loigiai{
+		Do tổng số đo bốn góc của một tứ giác bằng $360^\circ$ nên ta có:
+		\begin{enumerate}
+			\item Trong tứ giác $MNPQ$: $x=360^\circ-(120^\circ+110^\circ+80^\circ)$, suy ra $x=50^\circ$.
+			\item Trong tứ giác $EFGH$: $x=360^\circ-(90^\circ+90^\circ+90^\circ)$, suy ra $x=90^\circ$.
+			\item Trong tứ giác $ABCD$: $x=360^\circ-(90^\circ+65^\circ+90^\circ)$, suy ra $x=115^\circ$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5H2-2]
+	Cho tứ giác $ABCD$ có $\widehat{A}=115^{\circ}$, $ \widehat{D}=65^{\circ}$ và góc ngoài tại đỉnh $B$ bằng $70^{\circ}$. Tính số đo góc $\widehat{C}$ của tứ giác. 
+	\loigiai
+	{
+		Ta có 
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\widehat{A}+\widehat{B}+\widehat{C}+\widehat{D}&=&360^{\circ}\,\text{(tổng bốn góc một tứ giác)}\\
+			115^{\circ}+40^{\circ}+\widehat{C}+65^{\circ}&=&360^{\circ}\\
+			\widehat{C}&=&360^{\circ}-115^{\circ}-40^{\circ}-65^{\circ}\\
+			\widehat{C}&=&140^{\circ}.
+		\end{eqnarray*}
+		Vậy $\widehat{C}=140^{\circ}$.
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-1]
+	Tìm tứ giác lồi trong các hình sau
+	\begin{center}
+		\begin{tabular}{cc}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\tikzset{declare function={a=2;goc1=-30;goc2=110;goc3=60;goc4=100;}}
+				\path 
+				(0,0)coordinate (A)+(goc1:a)coordinate (B)
+				($(A)!{sin(goc2)*1.6}!{goc2}:(B)$)coordinate (D)
+				($(D)!{sin(goc3)*.2}!{goc3}:(A)$)coordinate (x)
+				($(B)!{sin(goc4)*1}!-{goc4}:(A)$)coordinate (y)
+				(intersection of D--x and B--y)coordinate (C)
+				;
+				\foreach \pointo/\pointt in {A/B,A/D,D/C,C/B}{
+					\draw[fill=black](\pointo)--(\pointt);
+				}
+				\foreach \point/\goc in {A/180,D/90,B/-90,C/0}{
+					\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=.8]{$\point$};
+				}
+			\end{tikzpicture}&
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\tikzset{declare function={a=2;goc1=10;goc2=120;goc3=40;goc4=20;}}
+				\path 
+				(0,0)coordinate (M)+(goc1:a)coordinate (N)
+				($(N)!{sin(goc2)*2.2}!-{goc2}:(M)$)coordinate (P)
+				($(P)!{sin(goc3)*.2}!{goc3}:(N)$)coordinate (x)
+				($(M)!{sin(goc4)*1}!-{goc4}:(N)$)coordinate (y)
+				(intersection of P--x and M--y)coordinate (Q)
+				;
+				\foreach \pointo/\pointt in {M/N,N/P,P/Q,Q/M}{
+					\draw[fill=black](\pointo)--(\pointt);
+				}
+				\foreach \point/\goc in {M/180,N/120,P/90,Q/-90}{
+					\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=.8]{$\point$};
+				}
+			\end{tikzpicture}\\
+			a) & b) \\
+		\end{tabular}
+	\end{center}	
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{cc}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+					\tikzset{declare function={a=2;goc1=-30;goc2=110;goc3=60;goc4=100;}}
+					\path 
+					(0,0)coordinate (A)+(goc1:a)coordinate (B)
+					($(A)!{sin(goc2)*1.6}!{goc2}:(B)$)coordinate (D)
+					($(D)!{sin(goc3)*.2}!{goc3}:(A)$)coordinate (x)
+					($(B)!{sin(goc4)*1}!-{goc4}:(A)$)coordinate (y)
+					(intersection of D--x and B--y)coordinate (C)
+					;
+					\foreach \p/\pp in {A/B,B/C,C/D,D/A}{
+						\draw[dashed]($(\pp)!1.5!(\p)$)--(\p)--($(\p)!1.5!(\pp)$);	
+					} 
+					
+					\foreach \pointo/\pointt in {A/B,A/D,D/C,C/B}{
+						\draw[fill=black](\pointo)--(\pointt);
+					}
+					\foreach \point/\goc in {A/180,D/90,B/-90,C/0}{
+						\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=.8]{$\point$};
+					}
+				\end{tikzpicture}&
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+					\tikzset{declare function={a=2;goc1=10;goc2=120;goc3=40;goc4=20;}}
+					\path 
+					(0,0)coordinate (M)+(goc1:a)coordinate (N)
+					($(N)!{sin(goc2)*2.2}!-{goc2}:(M)$)coordinate (P)
+					($(P)!{sin(goc3)*.2}!{goc3}:(N)$)coordinate (x)
+					($(M)!{sin(goc4)*1}!-{goc4}:(N)$)coordinate (y)
+					(intersection of P--x and M--y)coordinate (Q)
+					;
+					\path[draw,dashed]
+					(M)--($(M)!2.5!(N)$)
+					;
+					\foreach \pointo/\pointt in {M/N,N/P,P/Q,Q/M}{
+						\draw[fill=black](\pointo)--(\pointt);
+					}
+					\foreach \point/\goc in {M/180,N/120,P/90,Q/-90}{
+						\draw[fill=black](\point)circle(.8pt)+(\goc:2mm)node[scale=.8]{$\point$};
+					}
+				\end{tikzpicture}\\
+				a) & b) \\
+			\end{tabular}
+		\end{center}
+		\begin{itemize}
+			\item  Tứ giác $ABCD$ luôn nằm trong cùng một phần mặt phẳng được phân chia bởi đường thẳng chứa bất kì cạnh nào của tứ giác nên $ABCD$ là tứ giác lồi. 
+			\item  Đường thẳng đi qua cạnh $NQ$ của tứ giác $MNPQ$ chia tứ giác thành hai phần nên $MNPQ$ không phải là tứ giác lồi.		
+		\end{itemize}		
+	}
+\end{bt}
+
+\immini{
+	\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-1]
+		Vẽ tứ giác $MNPQ$ và tìm
+		\begin{itemize}
+			\item Hai đỉnh đối nhau;
+			\item Hai đường chéo;
+			\item Hai cạnh đối nhau.
+		\end{itemize}
+		\loigiai{
+			\begin{itemize}
+				\item Hai đỉnh đối nhau là đỉnh $M$ và đỉnh $P$; đỉnh $N$ và đỉnh $Q$.
+				\item Hai đường chéo là $MP$ và $NQ$.
+				\item Hai cạnh đối nhau là cạnh $MN$ và cạnh $PQ$; cạnh $NP$ và cạnh $MQ$
+			\end{itemize}	
+		}
+	\end{bt}
+}{
+	\begin{tikzpicture}[scale=1.5, >=stealth, font=\footnotesize, line join=round, line cap=round]
+		\coordinate (Q) at (1.5,-1);
+		\coordinate (P) at (0.5,-2);
+		\coordinate (M) at (0,0);
+		\coordinate (N) at (-1.5,-0.5);
+		\draw (M)--(N)--(P)--(Q)--(M);
+		\foreach \x/\g in {M/90,N/180,P/-90,Q/0}\fill(\x) circle (1pt) +(\g:3mm) node {$\x$};
+	\end{tikzpicture}
+}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5H2-1]
+	\immini{
+		Trên bản đồ, tứ giác $BDNQ$ với các đỉnh là các thành phố Buôn Ma Thuột, Đạt Lạt, Nha Trang, Quy Nhơn.
+		\begin{enumerate}
+			\item Tìm các cạnh kề và cạnh đối của cạnh $BD$.
+			\item Tìm các đường chéo của tứ giác.
+		\end{enumerate}
+	}{
+		\includegraphics[width=0.3\linewidth]{images/8C3-B2-1};
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét tứ giác $BDNQ$ ta có
+			\begin{itemize}
+				\item Cạnh kề với cạnh $BD$ là $BQ$, $DN$;
+				\item Cạnh đối với cạnh $BD$ là $QN$.
+			\end{itemize}
+			\item Đường chéo của tứ giác $BDNQ$ là $DQ$ và $BN$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-2]
+	Tìm $x$ trong mỗi tứ giác sau:
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			\path (0,0) coordinate (Q)  
+			($(Q)+(10:3)$)coordinate (R)
+			($(R)+(50:3.5)$)coordinate (x) 
+			($(Q)+(80:3)$)coordinate (P)
+			($(P)+(-20:3.5)$)coordinate (y) 
+			;	
+			\path (intersection of  R--x and P--y) coordinate (S);
+			;	
+			\foreach \d/\g in {Q/180,P/180,R/0,S/90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (P)--(S)--(R)--(Q)--cycle ;
+			\draw (1,-1)node[below]{a)}
+			(R)node[above left]{$2x$}
+			(Q)node[above right]{$x$};
+			\path pic["\scriptsize$70^\circ$", angle eccentricity=2,,angle radius=8pt]{angle= P--S--R};
+			\path pic["\scriptsize$80^\circ$", angle eccentricity=2,angle radius=8pt]{angle= Q--P--S};
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			\path (0,0) coordinate (C)  
+			($(C)+(-10:3)$)coordinate (B)
+			($(B)+(75:3.5)$)coordinate (x) 
+			($(C)+(90:2)$)coordinate (D)
+			($(D)+(0:3.5)$)coordinate (y) 
+			;	
+			\path (intersection of  B--x and D--y) coordinate (A);
+			;	
+			\foreach \d/\g in {C/-90,D/180,B/-45,A/90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (C)--(D)--(A)--(B)--cycle ;
+			\draw (1.5,-1)node[below]{b)}
+			(A)node[below left]{$x$}
+			(C)node[above right]{$100^\circ$}
+			(B)node[above left]{$95^\circ$};
+			\foreach \i/\j/\k in {A/D/C}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+		\end{tikzpicture}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			\path (0,0) coordinate (H)  
+			($(H)+(0:3)$)coordinate (G)
+			($(G)+(90:3.5)$)coordinate (x) 
+			($(H)+(81:2)$)coordinate (E)
+			($(E)+(0:3.5)$)coordinate (y) 
+			;	
+			\path (intersection of  G--x and E--y) coordinate (F);
+			;	
+			\foreach \d/\g in {H/180,E/180,G/45,F/60}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (H)--(E)--(F)--(G)--cycle ;
+			\draw (1.5,-1)node[below]{c)}
+			(E)node[below right]{$99^\circ$}
+			(H)node[above right]{$x$};
+			\foreach \i/\j/\k in {E/F/G}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+			\foreach \i/\j/\k in {F/G/H}{
+				\draw[black] ($(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)-(\j)+(\j)!6pt!(\i)$)--($(\j)!6pt!(\k)$);}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Do tổng số đo bốn góc của một tứ giác bằng $360^\circ$ nên ta có
+		\begin{enumerate}
+			\item Trong tứ giác $MNPQ$: $x+2x+80^\circ+70^\circ=360^\circ$, suy ra $3x+150=360^\circ$. Vậy $x=70^\circ$.
+			\item Trong tứ giác $EFGH$: $x+100^\circ+95^\circ+90^\circ=360^\circ$, suy ra $x=75^\circ$. Vậy $x=75^\circ$.
+			\item Trong tứ giác $ABCD$: $x+99^\circ+90^\circ+90^\circ=360^\circ$, suy ra $x=81^\circ$. Vậy $x=81^\circ$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5N2-2]
+	Cho tứ giác $A B C D$ có các góc $\widehat{A}=30^{\circ}, \widehat{B}=120^{\circ}, \widehat{C}=80^{\circ}$. Tính số đo góc $\widehat{D}$.
+	\loigiai{
+		Ta có 
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\widehat{A}+\widehat{B}+\widehat{C}+\widehat{D}&=&360^{\circ}\,\text{(tổng bốn góc một tứ giác)}\\
+			30^{\circ}+120^{\circ}+80^{\circ}+\widehat{D}&=&360^{\circ}\\
+			\widehat{D}&=&360^{\circ}-30^{\circ}-120^{\circ}-80^{\circ}\\
+			\widehat{D}&=&130^{\circ}.
+		\end{eqnarray*}
+		Vậy $\widehat{D}=130^{\circ}$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5V2-2]
+	Tính góc chưa biết của tứ giác trong hình bên dưới.
+	Biết rằng $\widehat{H}=\widehat{E}+10^\circ$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1,line cap=round,line join=round,font=\footnotesize,>=stealth]
+			\path (0,0) coordinate (G)++(0:5) coordinate (F)
+			++(120:2) coordinate (E)
+			(50:.1) coordinate (g)
+			($(E)!.1mm!-120:(F)$) coordinate (e)
+			(intersection of E--e and G--g) coordinate (H)
+			;
+			%			\foreach \a/\b/\c in {R/V/U}{
+				%				\draw pic[draw,angle radius=2mm]{right angle=\a--\b--\c};
+				%			}
+			\draw (E)--(F)--(G)--(H)--cycle;
+			\foreach \a/\b/\c in {G/15/$50^\circ$,F/150/$60^\circ$}{
+				\fill (\a)node[scale=.8,shift={(\b:.6)}]{\c};
+			}
+			\foreach \a/\b in {H/-70,E/-130}{
+				\fill (\a)node[scale=.8,shift={(\b:.4)}]{?};
+			}
+			\foreach \a/\b in {E/40,F/-40,G/200,H/120}{
+				\fill[black] (\a) circle (.8pt)
+				($(\a)+(\b:2mm)$)node[scale=.8]{$\a$};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Ta có $\widehat{H}+\widehat{E}=360-\widehat{G}-\widehat{F}=250^\circ$. \\
+		Mà $\widehat{H}=\widehat{E}+10^\circ$ nên ta có $2\widehat{E}+10^\circ=250^\circ$.\\
+		 Suy ra $\widehat{E}=120^\circ$; $\widehat{H}=130^\circ$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5H2-2]
+	Tính các số đo $x$, $y$, $z$ ở các hình sau.
+	\begin{enumEX}{3}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (D)
+			($(D)+(.7,0)$) node[above]{$50^\circ$}
+			($(D)+(4,0)$) coordinate (C)
+			($(C)+(-.5,0)$) node[above]{$80^\circ$}
+			($(D)!.85!50:(C)$) coordinate (A)
+			($(A)+(.3,0.1)$) node[]{$x$}
+			($(C)!1!-80:(D)$) coordinate (b)
+			($(A)!1!120:(D)$) coordinate (d)
+			(intersection of C--b and A--d) coordinate (B)
+			($(B)+(-.35,0)$) node[below]{$120^\circ$}
+			;
+			\draw[shorten <= 0cm,shorten >= -0.5cm] (D)--(A);
+			\draw
+			(D)--(C)--(B)--(A)
+			;
+			\foreach \x/\g in {D/180,C/0,A/180,B/0} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (K)
+			($(K)+(.35,0)$) node[above]{$y$}
+			($(K)+(3,0)$) coordinate (I)
+			($(I)+(0,2)$) coordinate (h1)
+			($(K)!1!65:(I)$) coordinate (G)
+			($(G)!1!90:(K)$) coordinate (h2)
+			(intersection of G--h2 and I--h1) coordinate (H)
+			($(H)+(.15,.35)$) node[left=.05pt]{$65^\circ$}
+			;
+			\draw[shorten <= 0cm,shorten >= -0.75cm] (I)--(H);
+			\draw
+			(I)--(K)--(G)--(H)
+			pic[draw,angle radius=.25cm]{right angle=H--I--K}
+			pic[draw,angle radius=.25cm]{right angle=K--G--H}
+			;
+			\foreach \x/\g in {K/180,I/0,G/90,H/0} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (Q)
+			($(Q)+(.25,.25)$) node{$z$}
+			($(Q)+(0,3)$) coordinate (M)
+			($(M)+(1,0)$) coordinate (N)
+			($(N)+(.5,-.2)$) node{$60^\circ$}
+			($(Q)+(3,-.5)$) coordinate (P)
+			($(P)+(-.3,-.2)$) node{$130^\circ$}
+			;
+			\draw[shorten <= 0cm,shorten >= -0.8cm] (M)--(N);
+			\draw[shorten <= 0cm,shorten >= -0.75cm] (N)--(P);
+			\draw
+			(P)--(Q)--(M)
+			pic[draw,angle radius=.25cm]{right angle=Q--M--N}
+			;
+			\foreach \x/\g in {Q/180,P/0,M/90,N/90} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Trong tứ giác $ABCD$ có $\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D}=360^{\circ}$.\\
+			Do đó $120^{\circ} + 50^{\circ} + 80^{\circ} + \widehat{A}=360^{\circ}$ hay $250^{\circ} + \widehat{A}=360^{\circ}$.\\
+			 Suy ra $\widehat{A}=110^{\circ}$.\\
+			Vậy $x=180^\circ-110^\circ=70^\circ$.
+			\item Ta có $\widehat{GHI}=180^\circ-65^\circ=115^\circ$.\\
+			Trong tứ giác $GHIK$ có $\widehat{G} + \widehat{H} + \widehat{I} + \widehat{K}=360^{\circ}$.\\
+			Do đó $90^{\circ} + 115^{\circ} + 90^{\circ} + \widehat{K}=360^{\circ}$ hay $295^{\circ} + y=360^{\circ}$.\\
+			 Vậy $y=65^{\circ}$.
+			\item Ta có $\widehat{QPN}=180^\circ-130^\circ=50^\circ$.\\
+			Ta có $\widehat{PNM}=180^\circ-60^\circ=120^\circ$.\\
+			Trong tứ giác $MNPQ$ có $\widehat{M} + \widehat{N} + \widehat{P} + \widehat{Q}=360^{\circ}$.\\
+			Do đó $90^{\circ} + 120^{\circ} + 50^{\circ} + \widehat{Q}=360^{\circ}$ hay $260^{\circ} + z=360^{\circ}$.\\
+			 Vậy $z=100^{\circ}$.
+		\end{enumerate}
+	}
+\end{bt}
+%--------------------------------------
+% Ví dụ 3
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5H2-2]
+	\immini{
+		Tìm số đo $x$ trong hình bên.	
+	}{
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\tikzset{declare function={a=3;goc1=-90;goc2=90;goc3=-40;goc4=120;}}
+			\path 
+			(0,0)coordinate (A)+(goc1:a)coordinate (D) ($(D)!{sin(goc2)*1.5}!-goc2:(A)$)coordinate (C)
+			($(C)!{sin(goc3)*1}!{goc3}:(D)$)coordinate (b)
+			($(A)!{sin(goc4)*.4}!{goc4}:(D)$)coordinate (bb)
+			(intersection of A--bb and C--b)coordinate (B)node[right=2mm,scale=.8]{$70^\circ$}
+			($(A)!2.2!(B)$)coordinate (x)
+			;
+			\path[line join=miter,line cap=butt] 
+			pic[draw,angle radius=2mm]{right angle=A--D--C}
+			;
+			\foreach \pointo/\pointt in {A/D,D/C,C/B,B/A,B/x}{
+				\draw[fill=black](\pointo)--(\pointt);
+			}	
+			\foreach \point/\goc in {A/180,B/120,C/-90,D/-90}{
+				\draw[fill=black](\point)circle(.6pt)+(\goc:2mm)node[scale=.8]{$\point$};
+			}
+			\foreach \point/\goc/\name in {A/-25/3x,C/160/x}{
+				\draw[fill=black](\point)+(\goc:3 mm)node[scale=.8]{$\name$};
+			}
+		\end{tikzpicture}	
+	}	
+	\loigiai{
+		Góc ngoài tại đỉnh $B$ có số đo bằng $70^{\circ}$ nên góc trong tại đỉnh $B$ có số đo bằng $110^{\circ}$.\\
+		 Xét tứ giác $ABCD$, ta có
+		$$
+		\begin{aligned}
+			&\widehat{A}+\widehat{B}+\widehat{C}+\widehat{D}=360^{\circ} \\
+			&3 x+110^{\circ}+x+90^{\circ}=360^{\circ} \\
+			&4 x  =160^{\circ} \\
+			&x =40^{\circ} .
+		\end{aligned}
+		$$
+		Vậy $x=40^{\circ}$.	
+	}
+\end{bt}
+%--------------------------------------
+% Ví dụ 4
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5H2-2]
+	Cho tứ giác $ABCD$ có $\widehat{A}=30^{\circ}, \widehat{B}=90^{\circ}, \widehat{D}=100^{\circ}$. Tính số đo góc $C$ và góc ngoài tại đỉnh $C$ của tứ giác đó.
+	\loigiai{
+		\immini{
+			Xét tứ giác $ABCD$ ta có
+			\[\begin{aligned}
+				&\widehat{A}+\widehat{B}+\widehat{C}+\widehat{D}=360^{\circ}\\
+				&30^{\circ}+90^{\circ}+\widehat{C}+100^{\circ}=360^{\circ}\\
+				&\widehat{C}=360^{\circ}-30^{\circ}-90^{\circ}-100^{\circ}\\
+				&\widehat{C}=140^{\circ}.
+			\end{aligned}\]
+		}{
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\tikzset{declare function={a=4;goc1=0;goc2=100;goc3=-140;goc4=30;}}
+				\path 
+				(0,0)coordinate (A)node[shift={(10:6mm)},scale=.8]{$30^\circ$}+(goc1:a)coordinate (D)node[shift={(150:3mm)},scale=.8]{$100^\circ$}
+				($(D)!{sin(goc2)*.3}!-goc2:(A)$)coordinate (C)
+				($(C)!{sin(goc3)*1}!{goc3}:(D)$)coordinate (b)
+				($(A)!{sin(goc4)*.4}!{goc4}:(D)$)coordinate (bb)
+				(intersection of A--bb and C--b)coordinate (B)
+				($(D)!2.2!(C)$)coordinate (x)
+				;
+				\path[line join=miter,line cap=butt] 
+				pic[draw,angle radius=2mm]{right angle=A--B--C}
+				;
+				\foreach \pointo/\pointt in {A/D,D/C,C/B,B/A,D/x}{
+					\draw[fill=black](\pointo)--(\pointt);
+				}	
+				\foreach \point/\goc in {A/180,B/120,C/0,D/-90}{
+					\draw[fill=black](\point)circle(.6pt)+(\goc:2mm)node[scale=.8]{$\point$};
+				}
+			\end{tikzpicture}
+		}	
+		Số đo góc ngoài tại đỉnh $C$ của tứ giác $ABCD$ là $180^{\circ}-140^{\circ}=40^{\circ}$.			
+	}
+\end{vd}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5V2-2]
+	Cho tứ giác $ABCD$ có $\widehat{B}+\widehat{C}=200^{\circ}$, $ \widehat{B}+\widehat{D}=180^{\circ}$, $ \widehat{C}+\widehat{D}=120^{\circ}$. Tính số đo các góc của tứ giác. 
+	\loigiai{
+		Ta có 
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\widehat{B}+\widehat{C}+\widehat{B}+\widehat{D}-\widehat{C}-\widehat{D}&=&200^{\circ}+180^{\circ}-120^{\circ}\\
+			2\widehat{B}&=&260\\
+			\widehat{B}&=&260:2=130^{\circ}.
+		\end{eqnarray*}
+		\noindent Khi đó 
+		\begin{itemize}
+			\item $\widehat{C}=200^{\circ}-130^{\circ}=70^{\circ}$.
+			\item $\widehat{D}=180^{\circ}-130^{\circ}=50^{\circ}$.
+			\item $\widehat{A}=360^{\circ}-\widehat{B}-\widehat{C}-\widehat{D}=360^{\circ}-130^{\circ}-70^{\circ}-50^{\circ}=110^{\circ}$.
+		\end{itemize}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5C2-2]
+	\hfill
+	\begin{enumerate}
+		\item Cho tứ giác $ABCD$ có $AB\parallel CD$, $\widehat{B}=135^\circ$, $\widehat{D}=70^\circ$, $\widehat{ACB}=25^\circ$ (hình $a$). Tính số đo góc $DAC$.
+		\item Cho tứ giác $GHIK$ có $\widehat{KGH}=\widehat{K}=90^\circ$, $\widehat{I}=65^\circ$. Trên $HI$ lấy điểm $E$ sao cho $\widehat{EGH}=25^\circ$ (hình $b$). Tính số đo góc $GEI$.
+		\item Cho tứ giác $MNPQ$ có $PM$ là tia phân giác của góc $NPQ$, $\widehat{QMN}=110^\circ$, $\widehat{N}=120^\circ$, $\widehat{Q}=60^\circ$ (hình $c$). Tính số đo các góc $NPM$, $MPQ$, $QMP$.
+	\end{enumerate}
+	\begin{enumEX}{3}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (D)
+			($(D)+(.45,.25)$) node{$70^\circ$}
+			($(D)!.5!70:(C)$) coordinate (A)
+			%($(A)+(-.4,-.25)$) node{$1$}
+			($(D)+(4,0)$) coordinate (C)
+			($(C)+(-.85,.75)$) node{$25^\circ$}
+			($(C)!1!-25:(A)$) coordinate (b)
+			($(A)+(2,0)$) coordinate (b1)
+			(intersection of A--b1 and C--b) coordinate (B)
+			($(B)+(-.25,-.25)$) node{$135^\circ$}
+			
+			;
+			\draw (A)--(B)--(C)--(D)--cycle
+			(A)--(C)
+			;
+			\foreach \x/\g in {A/180,B/0,D/-90,C/-90} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (K)
+			($(K)+(0,3)$) coordinate (G)
+			($(G)+(.8,-.15)$) node{$25^\circ$}
+			($(K)+(3,0)$) coordinate (I)
+			($(I)+(-.5,.25)$) node{$65^\circ$}
+			($(G)+(1.5,0)$) coordinate (H)
+			($(G)!1!-25:(H)$) coordinate (e)
+			(intersection of G--e and H--I) coordinate (E)
+			;
+			\draw
+			(K)--(G)--(H)--(I)--cycle (G)--(E)
+			pic[draw,angle radius=.25cm]{right angle=I--K--G}
+			pic[draw,angle radius=.25cm]{right angle=K--G--H}
+			;
+			\foreach \x/\g in {K/180,I/0,H/0,G/180,E/0} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+		\item 
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path
+			(0,0) coordinate (Q)
+			($(Q)+(.5,.25)$) node{$60^\circ$}
+			($(Q)+(4,0)$) coordinate (P)
+			($(P)!.9!-35:(Q)$) coordinate (M)
+			($(M)+(.25,-.35)$) node[rotate=50]{$110^\circ$}
+			($(M)!1!110:(Q)$) coordinate (n)
+			($(P)!1!-70:(Q)$) coordinate (n1)
+			(intersection of M--n and P--n1) coordinate (N)
+			($(N)+(-.35,-.2)$) node{$120^\circ$}
+			;
+			\draw
+			(M)--(N)--(P)--(Q)--cycle (M)--(P)
+			pic[draw,angle radius=.5 cm]{angle=M--P--Q}
+			pic[draw,angle radius=.75 cm]{angle=N--P--M}
+			;
+			\foreach \x/\g in {Q/180,M/180,P/0,N/0} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Trong $\triangle ABC$ có $\widehat{BAC}+\widehat{ABC}+\widehat{ACB}=180^\circ$.\\
+			Do đó $\widehat{BAC}+135^\circ+25^\circ=180^\circ$. Vậy $\widehat{BAC}=20^\circ$.\\
+			Vì $AB\parallel DC$ nên $\widehat{BAC}=\widehat{ACD}=20^\circ$ (so le trong).\\
+			Trong $\triangle ADC$ có $\widehat{ADC}+\widehat{DAC}+\widehat{ACD}=180^\circ$.\\
+			Do đó $70^\circ+\widehat{DAC}+20^\circ=180^\circ$.\\
+			 Vậy $\widehat{DAC}=90^\circ$.
+			\item Trong tứ giác $GHIK$ có $\widehat{G} + \widehat{H} + \widehat{I} + \widehat{K}=360^{\circ}$.\\
+			Do đó $90^{\circ} + 65^{\circ} + 90^{\circ} + \widehat{H}=360^{\circ}$ hay $245^{\circ} + \widehat{H}=360^{\circ}$.\\
+			 Vậy $\widehat{H}=115^\circ$.\\
+			Trong $\triangle GHE$ có $\widehat{HGE}+\widehat{GHE}+\widehat{HEG}=180^\circ$.\\
+			Do đó $25^\circ+115^\circ+\widehat{HEG}=180^\circ$.\\
+			 Vậy $\widehat{HEG}=40^\circ$.\\
+			Ta có $\widehat{GEI}=180^\circ-\widehat{HEG}=180^\circ-40^\circ=140^\circ$.
+			\item Trong tứ giác $MNPQ$ có $\widehat{M} + \widehat{N} + \widehat{P} + \widehat{Q}=360^{\circ}$.\\
+			Do đó $110^{\circ} + 120^{\circ} + 60^{\circ} + \widehat{P}=360^{\circ}$ hay $290^{\circ} + \widehat{P}=360^{\circ}$.\\
+			 Vậy $\widehat{P}=70^\circ$.\\
+			Vì $PM$ là tia phân giác của góc $NPQ$ suy ra $\widehat{NPM}=\widehat{MPQ}=\widehat{NPQ}:2=70^\circ:2=35^\circ$.\\
+			Trong $\triangle MPQ$ có $\widehat{QMP} + \widehat{MPQ} + \widehat{PQM}=180^{\circ}$.\\
+			Do đó $60^{\circ} + 35^{\circ} + \widehat{PMQ}=180^{\circ}$ hay $95^{\circ} + \widehat{PMQ}=180^{\circ}$. \\
+			Vậy $\widehat{PMQ}=85^\circ$.
+		\end{enumerate}
+	}
+\end{bt}
+
+ \begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5V2-3]
+ 	\immini{
+ 		Ta gọi tứ giác $ABCD$ có $AB=AD$, $CB=CD$ là hình \lq\lq cái diều\rq\rq.
+ 		\begin{enumerate}
+ 			\item Chứng minh rằng $AC$ là đường trung trực của $BD$.
+ 			\item Cho biết $\widehat{B}=95^\circ$, $\widehat{C}=35^\circ$. Tính $\widehat{A}$ và $\widehat{D}$.
+ 		\end{enumerate}
+ 	}{
+ 		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+ 			cap=round, >=stealth]
+ 			\def\a{6}
+ 			\path (-6.5,-1) coordinate (C)  
+ 			($(C)+(35:3)$)coordinate (B)
+ 			($(B)+(-30:1.5)$)coordinate (x) 
+ 			($(C)+(0:3)$)coordinate (D)
+ 			($(D)+(67.5:1.5)$)coordinate (y) 
+ 			;	
+ 			\path (intersection of  B--x and D--y) coordinate (A);
+ 			;	
+ 			\foreach \d/\g in {C/90,D/0,B/180,A/90}	
+ 			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+ 			\draw (C)--(D)--(A)--(B)--cycle ;
+ 			%\draw (-3,-2)node[below]{Hình 13}
+ 			;
+ 			\path (B)--(C) node[midway,sloped]{$||$};
+ 			\path (D)--(C) node[midway,sloped]{$||$};
+ 			\path (B)--(A) node[midway,sloped]{$|$};
+ 			\path (D)--(A) node[midway,sloped]{$|$};
+ 			%\pgftext{\includegraphics[width=150pt]{images/tha-dieu-700.jpg}} at (0,0);
+ 		\end{tikzpicture}
+ 	}
+ 	\loigiai{
+ 		\begin{enumerate}
+ 			\item Xét $\triangle ABC$ và $\triangle ADC$ ta có
+ 			\begin{itemize}
+ 				\item $AB=AD$
+ 				\item $BC=BD$
+ 				\item $AC$ cạnh chung
+ 			\end{itemize}
+ 			Suy ra $\triangle ABC =\triangle ADC$ (c.c.c).\\
+ 			Do đó $\widehat{BAC}=\widehat{DAC}$ nên $AC$ là tia phân giác của $\widehat{BAD}$.\\
+ 			Xét $\triangle ABD$ cân tại $A$, có $AC$ là tia phân giác nên cũng là đường trung trực.\\
+ 			Vậy $AC$ là đường trung trực của $BD$.
+ 			\item Vì $\triangle ABC =\triangle ADC$ nên $\widehat{B}=\widehat{D}$.\\
+ 			Xét tứ giác $ABCD$ ta có
+ 			\allowdisplaybreaks
+ 			\begin{eqnarray*}
+ 				\widehat{B}+\widehat{D}+60^\circ+130^\circ&=&360^\circ\\
+ 				2\widehat{B}+190^\circ&=&360^\circ\\
+ 				\widehat{B}&=&85^\circ.
+ 			\end{eqnarray*}
+ 			Suy ra $\widehat{B}=\widehat{D}=85^\circ$.
+ 		\end{enumerate}
+ 	}
+ \end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5V2-3]
+	\immini
+	{
+		Thả diều là một trò chơi dân gian của nhiều trẻ em ở Việt Nam cũng như nhiều nước trên thế giới. Một tứ giác $ABCD$ với $AB=AD$, $BC=CD$ gọi là hình \lq\lq Chiếc diều\rq\rq\ (hình bên).
+		\begin{enumerate}
+			\item So sánh $\widehat{B}$ và $\widehat{D}$.
+			\item Tìm mối liên hệ giữa hai đường chéo $AC$ và $BD$.
+		\end{enumerate}
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1,|| mark/.style={postaction=decorate,decoration={markings,
+					mark=at position #1 with {\draw[line cap=round,mark segment] (-1pt,-2pt) -- (-1pt,2pt);
+						\draw[line cap=round,mark segment] (1pt,-2pt) -- (1pt,2pt);
+			}}},mark segment/.style={thick}, | mark/.style={postaction=decorate,decoration={markings,
+					mark=at position #1 with {\draw[line cap=round,mark segment] (-1pt,-2pt) -- (-1pt,2pt);
+			}}},mark segment/.style={thick}]
+			\path
+			(0,0) coordinate (A)
+			($(A)+(1,1.5)$) coordinate (B)
+			($(A)+(1,-1.5)$) coordinate (D)
+			($(A)+(4,0)$) coordinate (C)
+			;
+			\draw
+			(A)--(B)--(C)--(D)--cycle (A)--(C) (B)--(D)
+			;
+			\path[|| mark=0.5] (D) -- (A);
+			\path[|| mark=0.5] (A) -- (B);
+			\path[| mark=0.5] (D) -- (C);
+			\path[| mark=0.5] (C) -- (B);
+			\foreach \x/\g in {A/180,B/90,C/0,D/-90} \fill (\x) circle (1.5pt) ($(\x)+(\g:3mm)$) node{$\x$};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\begin{enumerate}
+			\item Xét $\triangle ABC$ và $\triangle ADC$ có\\
+			$\heva{& AB=AD \mbox{ (gt)} \\ & CB=CD \mbox{ (gt)} \\& AC \mbox{ chung}}$\\
+			Do đó $\triangle ABC=\triangle ADC$ (c.c.c)\\
+			Suy ra $\widehat{ABC}=\widehat{ADC}$ (hai góc tương ứng).
+			\item Ta có $\heva{& AB=AD \mbox{ (gt)} \\ & CB=CD \mbox{ (gt)}}$, suy ra $AC$ là đường trung trực của $BD$.\\
+			Do đó $AC\perp BD$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Đặng Thị Thu Thảo]%[8H5V2-2]
+	\immini{
+		Phần thân của cái diều được vẽ lại như hình bên. Tìm số đo các góc chưa biết trong hình.
+	}{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line 
+			cap=round, >=stealth]
+			\def\a{6}
+			\path (5,2) coordinate (C)  
+			($(C)+(-155:2)$)coordinate (B)
+			($(B)+(-60:3.5)$)coordinate (x) 
+			($(C)+(-25:2)$)coordinate (D)
+			($(D)+(-120:3.5)$)coordinate (y) 
+			;	
+			\path (intersection of  B--x and D--y) coordinate (A);
+			;	
+			\foreach \d/\g in {C/90,D/0,B/180,A/-90}	
+			\path[draw,fill=black] (\d) circle(1pt) + (\g:9pt) node {$\d$};
+			\draw (C)--(D)--(A)--(B)--cycle ;
+			%\draw (5,-3)node[below]{b)}
+			;
+			\path pic["\scriptsize$130^\circ$", angle eccentricity=2,draw,angle radius=8pt]{angle= B--C--D};
+			\path pic["\scriptsize$60^\circ$", angle eccentricity=2,draw,angle radius=8pt, double]{angle= D--A--B};
+			\path (B)--(C) node[midway,sloped]{$|$};
+			\path (D)--(C) node[midway,sloped]{$|$};
+			\path (B)--(A) node[midway,sloped]{$||$};
+			\path (D)--(A) node[midway,sloped]{$||$};
+			%\pgftext{\includegraphics[width=150pt]{images/cai-dieu-hinh-thoi.jpg}} at (0,0);
+			%\draw (0,-3)node[below]{a)}
+			%;
+			%\draw (2.5,-3.5)node[below]{Hình 10}
+			%;
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Xét $\triangle ABC$ và $\triangle ADC$ ta có
+		\begin{itemize}
+			\item $BC=DC$
+			\item $AB=AD$
+			\item $AC$ là cạnh chung
+		\end{itemize}
+		Suy ra $\triangle ABC =\triangle ADC$ (c.c.c).\\
+		Do đó $\widehat{B}=\widehat{D}$.\\
+		Xét tứ giác $ABCD$ ta có
+		\[\widehat{B}+\widehat{D}+60^\circ+130^\circ=360^\circ \Rightarrow 2\widehat{B}+190^\circ=360^\circ\]
+		Suy ra $\widehat{B}=\widehat{D}=85^\circ$.
+	}
+\end{bt}

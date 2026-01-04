@@ -1,0 +1,916 @@
+\newpage
+\section{HOÁN VỊ, CHỈNH HỢP, TỔ HỢP}
+\subsection{LÝ THUYẾT CẦN NHỚ}
+\subsubsection{Hoán vị}
+\begin{boxdn}
+\begin{itemize}
+\item Cho tập hợp $A$ có $n$ phần tử ($n\ge 1$).\\
+Mỗi cách sắp xếp $n$ phần từ của $A$ là một \textbf{\textit{hoán vị}} các phần tử đó (gọi tắt là hoán vị của $A$ hay của $n$ phần tử).
+\item Kí hiệu $\mathrm{P}_n$ là số hoán vị của $n$ phần tử.
+\item Số hoán vị của $n$ phần tử bằng $\mathrm{P}_n=n\left(n-1\right)\left(n-2\right)\ldots2\cdot1.$
+\end{itemize}
+\end{boxdn}
+\begin{note}
+\begin{itemize}
+\item Ta đưa vào kí hiệu: $n!=n\left(n-1\right)\left(n-2\right)\ldots2\cdot1.$ và đọc là $n$ \textbf{\textit{giai thừa}} hoặc \textbf{\textit{giai thừa của}} $n$.\\ Khi đó: $\mathrm{P}_n=n!$.
+\item Quy ước: $0!=1$.
+\end{itemize}
+\end{note}
+\subsubsection{Chỉnh hợp}
+\begin{boxdn}
+\begin{itemize}
+\item Cho tập hợp $A$ có $n$ phần tử ($n\ge 1$) và số nguyên $k$ với $1\le k\le n$.\\ Mỗi cách lấy $k$ phần tử của $A$ và sắp xếp chúng theo một thứ tự gọi là \textbf{\textit{chỉnh hợp}} chập $k$ của $n$ phần tử đó.
+\item Kí hiệu $\mathrm{A}_n^k$ là số chỉnh hợp chập $k$ của $n$ phần tử.
+\item Số chỉnh hợp chập $k$ của $n$ phần tử ($1\le k\le n$) bằng $$\mathrm{A}_n^k=n\left(n-1\right)\left(n-2\right)\ldots\left(n-k+1\right)=\dfrac{n!}{\left(n-k\right)!}$$
+\end{itemize}
+\end{boxdn}
+\begin{nx}
+Mỗi hoán vị của $n$ phần tử cũng chính là chỉnh hợp chập $n$ của $n$ phần tử đó. Ta có: $\mathrm{P}_n=\mathrm{A}_n^n,~n\ge 1$.
+\end{nx}
+
+\subsubsection{Tổ hợp}
+\begin{boxdn}
+\begin{itemize}
+\item Cho tập hợp $A$ có $n$ phần tử ($n\ge 1$).\\ Mỗi tập con gồm $k$ phần tử ($1\le k\le n$) của $A$ được gọi là một tổ hợp chập $k$ của $n$ phần tử.
+\item Kí hiệu: $\mathrm{C}_n^k=\dfrac{n!}{k! \cdot \left(n-k\right)!}$.
+\item Quy ước: $\mathrm{C}_n^0=1$
+\end{itemize}
+\end{boxdn}
+\begin{nx}~
+\begin{itemize}
+\item $\mathrm{C}_n^k=\mathrm{C}_n^{n-k}~\left(0\le k\le n\right)$.
+\item $\mathrm{C}_{n-1}^{k-1}+\mathrm{C}_{n-1}^k=\mathrm{C}_n^k$.
+\item $\mathrm{A}_n^k=k!\mathrm{C}_n^k$.
+\end{itemize}
+\end{nx}
+%-------------------------------------------------------------------------------------------------------------
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+\begin{dang}{TÍNH SỐ CÁC HOÁN VỊ, CHỈNH HỢP, TỔ HỢP BẰNG MÁY TÍNH CẦM TAY}
+Với một số máy tính cầm tay, ta có thể tính toán nhanh số các hoán vị, chỉnh hợp và tổ hợp.
+\begin{enumerate}
+\item Để tính $P_{n}$, ta ấn liên tiếp các phím
+$$n\quad \text{SHIFT}\quad x^{-1}=\ldots$$
+\item Để tính $\mathrm{A} _{n}^{k}$, ta ấn liên tiếp các phím
+$$n\quad \text{SHIFT}\,\,\,\,\, \times \,\,\,\,\,(\text{nPr})\quad k\quad=\ldots$$
+\item Để tính $\mathrm{C} _{n}^{k}$, ta ấn liên tiếp các phím
+$$n\quad \text{SHIFT}\,\,\,\,\,\div \,\,\,\,\,(\text{nCr})\quad k\quad=\ldots$$
+\end{enumerate}
+\end{dang}
+\begin{vd}
+Sử dụng máy tính cầm tay, tính giá trị các biểu thức sau
+\begin{listEX}[4]
+\item $\mathrm{P}_6$;
+\item $\mathrm{A}_{9}^{4} $;
+\item $\mathrm{C}_{10}^{6}+\mathrm{C}_{10}^{7}+\mathrm{C}_{11}^{8}$;
+\item $\mathrm{C}_{5}^{1} \mathrm{C}_{20}^{2}+\mathrm{C}_{5}^{2} \mathrm{C}_{20}^{1}$.
+\end{listEX}
+\loigiai{
+\begin{enumerate}
+\item Để tính $\mathrm{P}_6$ , ta ấn liên tiếp các phím $$6\quad \text{SHIFT} \quad x^{-1}=720.$$
+\item Để tính $\mathrm{A}_{9}^{4} $, ta ấn liên tiếp các phím
+$$9\quad \text{SHIFT} \quad \times \quad (\text{nPr})\quad 4\quad=3\,024.$$
+\item Để tính $\mathrm{C}_{10}^{6}+\mathrm{C}_{10}^{7}+\mathrm{C}_{11}^{8}$, ta ấn liên tiếp các phím
+$$10\quad \text{SHIFT} \quad\div \quad (\text{nCr}) \quad 6\quad+\quad 10\quad \text{SHIFT} \quad \div \quad(\text{nCr})\quad 7\quad +\quad 11\quad \text{SHIFT} \quad\div \quad(\text{nCr})\quad 8=495.$$
+\item Để tính $\mathrm{C}_{5}^{1} \mathrm{C}_{20}^{2}+\mathrm{C}_{5}^{2} \mathrm{C}_{20}^{1}$, ta ấn liên tiếp các phím
+$$5\quad \text{SHIFT} \quad\div \quad(\text{nCr})\quad 1\quad\times\quad 20\quad \text{SHIFT} \quad\div\quad(\text{nCr})\quad 2$$$$+\quad 5\quad \text{SHIFT} \quad\div \quad(\text{nCr})\quad 2\quad \times \quad 20\quad \text{SHIFT}\quad\div \quad(\text{nCr})\quad 1=1\,150.$$
+\end{enumerate}
+}
+\end{vd}
+
+\begin{dang}{TÌM SỐ HOÁN VỊ}
+\begin{itemize}
+\item[1.] Hoán vị các chữ số trong số tự nhiên.
+\item[2.] Hoán vị đồ vật.
+\begin{itemize}
+\item Tập hợp $A$ là tập con có $n$ phần tử của tập hợp $\left\{ 0,1,\ldots,8,9 \right\}$ với $1\le n\le 10$.
+\item Khi đó số cách thành lập số tự nhiên $A$ có $n$ chữ số được lấy từ $A$ là số hoán vị của $n$ phần tử này, tức là có $\mathrm{P}_n=n!$ số.
+\end{itemize}
+\item[3.] Hoán vị vòng quanh.
+\begin{itemize}
+\item Có $n$ phần tử được sắp xếp trên một vòng tròn $n$ vị trí. Số cách xếp sẽ là hoán vị của $n-1$ phần tử $(n-1)!$.
+\item Thật vậy mỗi cách xếp không thay đổi khi các phần tử lần lượt dời chỗ qua bên phải (hoặc trái) một vị trí.\\
+Như vậy có $n$ vị trí trên vòng tròn, nên có $\dfrac{n!}{n}=(n-1)!$ cách xếp.
+\end{itemize}
+\item[4.] Hoán vị lặp.
+\begin{itemize}
+\item Cho $k$ phần tử khác nhau $a_1$, $a_2$, $\ldots,a_k$. Một cách sắp xếp $n$ phần tử trong đó gồm $n_1$ phần tử $a_1$, $n_2$ phần tử $a_2$, $\cdots$, $n_k$ phần tử $a_k$ $(n_1+n_2+\cdots+n_k=n)$ theo một thứ tự nào đó được gọi là hoán vị lặp cấp $n$ và kiểu $(n_1,n_2,\ldots,n_k)$ của $k$ phần tử.
+\item Số các hoán vị lặp dạng như trên là $\mathrm{P}_n(n_1,n_2,\ldots,n_k)=\dfrac{n!}{n_1!n_2!\ldots!n_k!}$.
+\end{itemize}
+\end{itemize}
+\end{dang}
+\begin{vd}%[0D8H2-3]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Cho tập hợp $S=\left\{ 1;2;3;4 \right\}$. Có bao nhiêu số tự nhiên có $4$ chữ số phân biệt lấy từ tập $A$?
+\loigiai
+{
+Gọi $x=\overline{a_1a_2a_3a_4}$ là số cần tìm, $a_i\in S$, $\forall i=\overline{1,4}$.\\
+Mỗi hoán vị của $4$ phần tử tập hợp $A$ ta được $1$ số tự nhiên có $4$ chữ số cần tìm, ví dụ như $x=3\, 214$.\\
+Do vậy ta được $\mathrm{P}_4=4!=24$ số.
+}
+\end{vd}
+
+\begin{vd}%[0D8H2-3]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Từ các chữ số $0$; $1$; $2$; $3$; $4$ có thể lập được bao nhiêu số gồm $7$ chữ số, trong đó chữ số $2$ có mặt $3$ lần, các chữ số còn lại có mặt đúng một lần.
+\loigiai
+{
+Xếp các chữ số $0$; $1$; $2$; $2$; $2$; $3$; $4$ thành một hàng có $\dfrac{7!}{3!}$ cách xếp.\\
+Xếp các chữ số $0$; $1$; $2$; $2$; $2$; $3$; $4$ thành một hàng sao cho chữ số $0$ đứng đầu có $\dfrac{6!}{3!}$ cách xếp.\\
+Vậy có $\dfrac{7!}{3!}-\dfrac{6!}{3!}=1\, 440$ số thỏa mãn yêu cầu.
+}
+\end{vd}
+
+\begin{vd}%[0D8V2-7]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Một chồng sách gồm $4$ quyển sách Toán khác nhau, $3$ quyển sách Vật Lý khác nhau, $5$ quyển sách Hóa Học khác nhau. Hỏi có bao nhiêu cách xếp các quyển sách trên thành một hàng ngang sao cho
+\begin{listEX}
+\item Các quyển sách cùng môn thì đứng cạnh nhau.
+\item Các quyển sách toán đứng gần nhau.
+\end{listEX}
+\loigiai
+{
+\begin{listEX}
+\item Các quyển sách cùng môn thì đứng cạnh nhau.\\
+Xếp $4$ quyển sách toán thành một nhóm đứng gần nhau có $\mathrm{P}_4=4!=24$ cách xếp. \\
+Xếp $3$ quyển sách Vật Lí thành một nhóm gần nhau có $\mathrm{P}_3=3!=6$ cách xếp.\\
+Xếp $5$ quyển sách Hóa Học thành một nhóm gần nhau có $\mathrm{P}_5=5!=120$ cách xếp.\\
+Xếp $3$ nhóm sách trên lên giá sách có $\mathrm{P}_3=3!=6$ cách xếp.\\
+Vậy có $24\cdot 6\cdot 120\cdot 6=103\, 680$ cách xếp các cuốn sách cùng môn thì đứng cạnh nhau.
+\item Các quyển sách toán đứng gần nhau.\\
+Xếp $4$ quyển sách Toán thành một nhóm đứng gần nhau có $\mathrm{P}_4=4!=24$ cách xếp.\\
+Coi nhóm sách Toán là một quyển sách lớn, xếp quyển sách lớn đó và 8 quyển sách còn lại có $\mathrm{P}_9=9!$ cách xếp.\\
+Vậy có $24\cdot 9!=8\, 709\, 120$ cách xếp các cuốn sách Toán đứng gần nhau.
+\end{listEX}
+}
+\end{vd}
+\begin{dang}{TÌM SỐ CHỈNH HỢP}
+\begin{itemize}
+\item[1.] Khi giải bài toán chọn trên một tập hợp $X$ có $n$ phần tử, ta sẽ dùng chỉnh hợp nếu có $2$ dấu hiệu sau:
+\begin{itemize}
+\item Chỉ chọn $k$ phần tử trong $n$ phần tử của $X$ ($1\le k\le n$).
+\item Có kể đến thứ tự sắp xếp các phần tử đã chọn.
+\end{itemize}
+\item[2.]Tìm số chỉnh hợp trong bài toán đếm số. 
+\begin{itemize}
+\item Gọi số cần tìm là $x=\overline{a_1a_2\ldots a_n}$.
+\item Liệt kê các số $x$ thỏa mãn điều kiện đề bài. Dựa vào tính chất bài toán xem có chia trường hợp hay không?
+\item Thứ tự đếm và sử dụng quy tắc cộng, nhân (nếu có).
+\end{itemize}
+\end{itemize}
+\end{dang}
+\begin{vd}%[0D8N2-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Phần thi chung kết nội dung chạy cự li $1500 \mathrm{~m}$ của môt giải đấu có $10$ vân động viên tham gia. Có bao nhiêu khả năng về kết quả $3$ vận động viên đoạt huy chương vàng, bạc và đồng sau khi phần thi kết thúc? Biết rằng không có hai vận động viên nào về đích cùng lúc.
+\loigiai{Mỗi kết quả về $3$ vận động viên đoạt huy chưong vàng, bạc và đồng của nội dung thi đấu là một chỉnh hợp chập $3$ của $10$ vận động viên.\\ 
+Số khả năng về kết quả $3$ vận động viên đoạt huy chương vàng, bạc và đồng sau khi phần thi kết thúc là
+\[\mathrm{A}_{10}^3=720.\]}
+\end{vd} 
+
+\begin{vd}%[0D8H2-3]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Từ bảy chữ số $1 ;$ $2 ;$ $ 3 ;$ $ 4 ;$ $ 5 ;$ $ 6 ;$ $ 7$, lập các số có ba chữ số khác nhau.
+\begin{enumerate}
+\item Có thể lập được bao nhiêu số như vậy?
+\item Trong các số đó có bao nhiêu số lẻ?
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Ta thực hiện qua $3$ bước:
+\begin{itemize}
+\item Chọn $1$ số trong $7$ chữ số xếp vào vị trí thứ nhất, có $7$ cách chọn; 
+\item Chọn $1$ số trong $6$ chữ số còn lại  xếp vào vị trí thứ hai, có $6$ cách chọn; 
+\item Chọn $1$ số trong $5$ chữ số còn lại  xếp vào vị trí thứ ba, có $5$ cách chọn.
+\end{itemize} 
+Vậy có $7\cdot 6\cdot 5=210\text{ (số)}. $
+\item Số lẻ là số có chữ số tận cùng là lẻ, để lập được số thỏa yêu cầu bài toán, ta thực hiện qua $3$ bước:
+\begin{itemize}
+\item Chọn $1$ số lẻ trong $4$ chữ số lẻ xếp vào vị trí thứ ba, có $4$ cách chọn; 
+\item Chọn $1$ số trong $6$ chữ số còn lại  xếp vào vị trí thứ nhất, có $6$ cách chọn; 
+\item Chọn $1$ số trong $5$ chữ số còn lại  xếp vào vị trí thứ hai, có $5$ cách chọn.
+\end{itemize} 
+Vậy có $4\cdot 6\cdot 5=120\text{ (số lẻ)}. $
+\end{enumerate}}
+\end{vd} 
+
+\begin{vd}%[0D8V2-3]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+\begin{listEX}
+\item Từ các chữ số $1$; $2$; $3$; $4$; $5$; $6$; $7$; $8$; $9$ có thể lập được bao nhiêu số tự nhiên gồm $4$ chữ số khác nhau?
+\item Tính tổng của tất cả các số tìm được ở câu trên.
+\end{listEX}
+\loigiai
+{
+\begin{listEX}
+\item Mỗi số tự nhiên có bốn chữ số khác nhau được lập bằng cách lấy bốn chữ số khác nhau từ chín chữ số đã cho và xếp chúng theo một thứ tự nhất định.\\
+Mỗi số như vậy được coi là một chỉnh hợp chập $4$ của $9$.\\
+Vậy số các số đó là $\mathrm{A}_9^4=3\, 024$.
+\item Ta chia $S$ số ở câu $a)$ thành $\dfrac{S}{2}$ cặp số có dạng $(\overline{x_1x_2x_3 x_4};\overline{y_1 y_2 y_3 y_4})$ trong đó $x_i+y_i=10$.\\
+Tổng mỗi cặp như vậy đều bằng $11\, 110$.\\
+Vậy tổng của tất cả các số đó bằng $T=\dfrac{1}{2}\cdot \mathrm{A}_9^4\cdot 11\, 110=16\, 798\, 320$.
+\end{listEX}
+}
+\end{vd}
+
+\begin{dang}{TÌM SỐ TỔ HỢP}
+Khi giải bài toán chọn trên một tập hợp $X$ có $n$ phần tử, ta sẽ dùng tổ hợp nếu có $2$ dấu hiệu sau:
+\begin{itemize}
+\item Chỉ chọn $k$ phần tử trong $n$ phần tử của $X$ ($1\le k\le n$).
+\item Không phụ thuộc vào thứ tự sắp xếp các phần tử đã chọn.
+\end{itemize}
+\end{dang}
+\begin{vd}%[0D8N2-4]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Từ một đội tuyển bóng đá gồm $20$ cầu thủ người ta cần chọn $3$ cầu thủ dự lễ bốc thăm chia bảng thi đấu. Hỏi có bao nhiêu cách chọn?
+\loigiai
+{
+Mỗi cách cử ra $3$ cầu thủ dự lễ bốc thăm chia bảng thi đấu là một tổ hợp chập $3$ của $20$ phần tử.\\
+Do đó số cách cử là $\mathrm{C}_{20}^3=1\, 140$ cách.
+}
+\end{vd}
+
+\begin{vd}%[0D8H2-6]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+\immini{Cho $6$ điểm cùng nằm trên một đường tròn như hình bên.
+\begin{enumerate}
+\item Có bao nhiêu đoạn thẳng có điểm đầu mút thuộc các điểm đã cho?
+\item Có bao nhiêu tam giác có đỉnh thuộc các điểm đã cho?
+\end{enumerate}}{\begin{tikzpicture}[scale=.5, font=\footnotesize, line join=round, line cap=round, >=stealth]
+\draw (0,0) circle (3);
+\coordinate[label=above left:$A$] (A) at (-1,2.8284271247);
+\coordinate [label=left:$B$](B) at ($(0,0)!1!60:(A)$);
+\coordinate [label=below left:$C$](C) at ($(0,0)!1!100:(A)$);
+\coordinate [label=below left:$D$](D) at ($(0,0)!1!140:(A)$);
+\coordinate [label=below right:$E$](E) at ($(0,0)!1!210:(A)$);
+\coordinate [label=above right:$F$](F) at ($(0,0)!1!290:(A)$);
+\foreach \diem in {A,B,C,D,E,F}	\fill (\diem)circle(1.5pt);
+\end{tikzpicture}}
+\loigiai{
+\begin{enumerate}
+\item Cứ lấy hai điểm bất kỳ trong $6$ điểm đã cho, ta được một đoạn thẳng cần tìm, vậy mỗi đoạn thẳng có điểm đầu mút thuộc các điểm đã cho là một tổ hợp chập $2$ của $6$, số đoạn thẳng là
+$$\mathrm{C} _{6}^{2}=15 \text{~(đoạn thẳng)}.$$
+\item Cứ lấy ba điểm bất kỳ trong $6$ điểm đã cho, ta được một tam giác, vậy số tam giác là 
+$$\mathrm{C} _{6}^{3}=20 \text{~(tam giác)}.$$
+\end{enumerate}}
+\end{vd}
+
+\begin{vd}%[0D8V2-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+Từ $5$ bông hồng vàng, $3$ bông hồng trắng, $4$ bông hồng đỏ (các bông hồng xem như đôi một khác nhau). Người ta muốn chọn ra một bó hoa hồng gồm $7$ bông. Có bao nhiêu cách chọn thỏa mãn.
+\begin{listEX}
+\item $1$ bó hoa trong đó có đúng một bông hồng đỏ.
+\item $1$ bó hoa trong đó có ít nhất $3$ bông hồng vàng và ít nhất $3$ bông hồng đỏ.
+\end{listEX}
+\loigiai
+{
+\begin{listEX}
+\item $1$ bó hoa trong đó có đúng một bông hồng đỏ.\\
+Chọn $1$ bó hoa gồm $7$ bông, trong đó có đúng $1$ bông hồng đỏ, $6$ bông hồng còn lại chọn trong $8$ bông (gồm vàng và trắng). \\
+Số cách chọn là $\mathrm{C}_4^1\cdot \mathrm{C}_8^6=112$ cách.
+\item $1$ bó hoa trong đó có ít nhất $3$ bông hồng vàng và ít nhất $3$ bông hồng đỏ.
+\begin{itemize}
+\item Trường hợp 1: Chọn $3$ bông vàng, $3$ bông đỏ và 1 bông trắng, có $\mathrm{C}_5^3.\mathrm{C}_4^3\cdot\mathrm{C}_3^{1}$ cách.
+\item Trường hợp 2: Chọn $4$ bông vàng và $3$ bông đỏ, có $\mathrm{C}_5^4\cdot\mathrm{C}_4^3$ cách.
+\item Trường hợp 3: Chọn $3$ bông vàng và $4$ bông đỏ, có $\mathrm{C}_5^3\cdot\mathrm{C}_4^4$ cách.
+\end{itemize}
+Theo quy tắc cộng có $\mathrm{C}_5^3\cdot \mathrm{C}_4^3\cdot \mathrm{C}_3^{1}+\mathrm{C}_5^4\cdot \mathrm{C}_4^3+\mathrm{C}_5^3\cdot\mathrm{C}_4^4=150$.
+\end{listEX}
+}
+\end{vd}
+
+%-----------------------------------------------------------------------------
+\subsection{Bài tập rèn luyện}
+\ind{PHẦN I.} \inden{Câu trắc nghiệm nhiều phương án lựa chọn. Mỗi câu hỏi học sinh chỉ chọn một phương án.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0D8-Bai2-TN]%--Đặt tên 0D8-Bai2-Dang1-TN
+\begin{ex}%[0D8N2-6]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu vectơ khác vectơ không được tạo từ $40$ điểm phân biệt trong mặt phẳng?
+\choice
+{$41!$}
+{$39!$}
+{$\mathrm{C}_{40}^{2}$}
+{\True $\mathrm{A}_{40}^{2}$}
+\loigiai{
+Có $\mathrm{A}_{40}^{2}$ vectơ khác vectơ không được tạo từ $40$ điểm phân biệt trong mặt phẳng. 
+}\end{ex}
+
+\begin{ex}%[0D8N2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu cách chọn $2$ học sinh từ $35$ học sinh để giữ các chức vụ lớp trưởng, lớp phó học tập của lớp?
+\choice
+{\True $1\,190$}
+{$595$}
+{$37$}
+{$70$}
+\loigiai{
+Mỗi cách chọn là một chỉnh hợp chập $2$ của $35$.
+Số cách chọn là $\mathrm{A}^{2}_{35}=1\,190$.		
+}\end{ex}
+
+\begin{ex}%[0D8N2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Từ các chữ  số $\{1, 2, 3, 4, 5, 6, 7, 8, 9\}$ có thể lập được bao nhiêu số tự nhiên gồm $5$ chữ số khác nhau?
+\choice
+{\True $15\,120$}
+{$14$}
+{$126$}
+{$45$}
+\loigiai{
+Gọi $\overline{a_1a_2a_3a_4a_5}$ là số cần lập.\\
+Mỗi cách chọn một bộ ${a_1,a_2,a_3,a_4,a_5}$ là một chỉnh hợp chập $5$ của $9$ phần tử.\\
+Số cách lập là $\mathrm{A}^{5}_{9} =15\,120$.
+}\end{ex}
+
+\begin{ex}%[0D8N2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu số tự nhiên có $4$ chữ số khác nhau được lập từ $4$ chữ số $1;2;3;4$?
+\choice
+{$1!$}
+{$7!$}
+{\True $4!$}
+{$5!$}
+\loigiai{
+Có $4!$ số tự nhiên có $4$ chữ số khác nhau được lập từ $4$ chữ số $1;2;3;4$. 
+}\end{ex}
+\begin{ex}%[0D8H2-6]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Cho hai đường thẳng $(d)$ và $(d')$ song song với nhau, trên đường thẳng $(d)$ có $13$ điểm phân biệt, trên đường thẳng $(d')$ có $17$ điểm phân biệt. Hỏi có thể tạo ra bao nhiêu tam giác có đỉnh là các điểm thuộc $(d)$ và $(d')$?
+\choice
+{\True $3\,094$}
+{$3\,097$}
+{$3\,092$}
+{$3\,091$}
+\loigiai{
+\begin{itemize}
+\item TH1: 	Lấy $2$ điểm thuộc $(d)$ và $1$ điểm thuộc $(d')$ taọ được $\mathrm{C}_{13}^{2} \mathrm{C}_{17}^{1}$ tam giác.
+\item TH2: 	Lấy $2$ điểm thuộc $(d')$ và $1$ điểm thuộc $(d)$ taọ được $\mathrm{C}_{17}^{2} \mathrm{C}_{13}^{1}$ tam giác.
+\end{itemize}
+Vậy số tam giác được tạo ra là $\mathrm{C}_{13}^{2} \mathrm{C}_{17}^{1} +\mathrm{C}_{17}^{2} \mathrm{C}_{13}^{1}= 3\,094$ tam giác.
+}\end{ex}
+\begin{ex}%[0D8H2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu cách xếp $5$ học sinh trong đó có bạn bạn Thảo và bạn Mai vào một hàng dọc sao cho bạn Thảo và bạn Mai không đứng cạnh nhau?
+\choice
+{\True $72$}
+{$256$}
+{$255$}
+{$240$}
+\loigiai{
+Xếp $5$ bạn tùy ý có $5!=120$ cách.\\
+Xếp bạn Thảo và bạn Mai cạnh nhau có $2\cdot 4=8$ cách.\\
+Xếp $3$ bạn còn lại có $3!=6$ cách.\\
+Số cách xếp $5$ học sinh trong đó có bạn bạn Thảo và bạn Mai cạnh nhau là $8\cdot 6=48$.\\
+Số cách xếp bạn Thảo và bạn Mai không đứng cạnh nhau là $120-48=72$. 
+}\end{ex}
+
+\begin{ex}%[0D8H2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu cách xếp $12$ học sinh trong đó có bạn bạn Phương và bạn Mai vào một hàng ngang sao cho bạn Phương và bạn Mai đứng ở hai đầu?
+\choice
+{$87\,178\,291\,200$}
+{\True $7\,257\,600$}
+{$66$}
+{$479\,001\,600$}
+\loigiai{
+Xếp bạn Phương và bạn Mai vào hai đầu có $2$ cách.\\
+Xếp $10$ bạn còn lại có $10!=3\,628\,800$ cách.\\
+Số cách xếp thỏa mãn yêu cầu là $2\cdot 10!=7\,257\,600$. 
+}\end{ex}
+
+\begin{ex}%[0D8N2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu cách xếp $3$ bạn vào một hàng ngang?
+\choice
+{$10$}
+{$9$}
+{$3$}
+{\True $6$}
+\loigiai{
+Mỗi cách xếp là một hoán vị của $3$ phần tử.\\
+Số cách xếp là $3!=6$.		
+}\end{ex}
+
+\begin{ex}%[0D8N2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu cách chọn $5$ đoàn viên từ $21$ đoàn viên để trực cổng trường vào $5$ ngày khác nhau?
+\choice
+{$525$}
+{$20\,349$}
+{\True $2\,441\,880$}
+{$2\,205$}
+\loigiai{		
+Mỗi cách chọn là một chỉnh hợp chập $5$ của $21$.
+Số cách chọn là $\mathrm{A}^{5}_{21}=2\,441\,880$.		
+}\end{ex}
+
+\begin{ex}%[0D8N2-6]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề cuối học kỳ 2 Toán 10 năm 2024 – 2025 trường THPT Trưng Vương – TP HCM]
+Cho $20$ điểm phân biệt cho trước và không có $3$ điểm bất kì nào thẳng hàng. Hỏi có thể lập được bao nhiêu tam giác nhận có $3$ đỉnh là $3$ điểm trong $20$ điểm trên?
+\choice
+{\True $1\,140$}
+{$6\,840$}
+{$8\,000$}
+{$60$}
+\loigiai{
+Mỗi đoạn thẳng là một tổ hợp chập $3$ của $20$ phần tử.\\
+Số đoạn thẳng là số tổ hợp chập $3$ của $20$ phần tử bằng $\mathrm{C}^3_{20}=1\,140$.
+}\end{ex}
+
+\begin{ex}%[0D8N2-1]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[0-HK2-CT-3-TanTuc-HCM-2324]
+Với $n$ là số nguyên dương bất kì, $n\ge 5$, công thức nào dưới đây đúng?
+\choice
+{$\mathrm{C}_n^5=\dfrac{n!}{(n-5)!}$}
+{\True $\mathrm{C}_n^5=\dfrac{n!}{5!(n-5)!}$}
+{$\mathrm{C}_n^5=\dfrac{5!\cdot n!}{(n-5)!}$}
+{$\mathrm{C}_n^5=\dfrac{(n-5)!}{n!}$}
+\loigiai{
+Với $n$ là số nguyên dương bất kì, $n\ge 5$, ta có $\mathrm{C}_n^5=\dfrac{n!}{5!(n-5)!}$.
+}
+\end{ex}
+
+\begin{ex}%[0D8H2-5]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Một hộp có $8$  viên bi đen; $6$  viên bi đỏ và $7$  viên bi xám. Có bao nhiêu cách để chọn được $4$  viên bi đủ ba màu?
+\choice
+{$3\,025$}
+{\True $3\,024$}
+{$3\,023$}
+{$3\,026$}
+\loigiai{
+\begin{itemize}
+\item 	Số cách chọn $1$  viên bi đen, $1$  viên bi đỏ, $2$  viên bi xám  là $\mathrm{C}_8^1\mathrm{C}_6^1\mathrm{C}_7^2=1\,008$.
+\item Số cách chọn $1$  viên bi đen, $2$  viên bi đỏ, $1$  viên bi xám là $\mathrm{C}_8^1\mathrm{C}_6^2\mathrm{C}_7^1=840$.
+\item  
+Số cách chọn $2$  viên bi đen, $1$  viên bi đỏ, $1$  viên bi xám là $\mathrm{C}_8^2\mathrm{C}_6^1\mathrm{C}_7^1=1\,176$.
+\end{itemize}
+Vậy số cách chọn $4$  viên bi đủ ba màu là $1\,008+840+1\,176=3\,024$.
+}\end{ex}
+
+\begin{ex}%[0D8H2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Một đội có $12$ bạn nam và $14$ bạn nữ. Có bao nhiêu cách để chọn được $6$ bạn trong đó có $2$ nam và $4$ nữ?
+\choice
+{$66\,064$}
+{$66\,069$}
+{$66\,067$}
+{\True $66\,066$}
+\loigiai{
+Số cách chọn $2$ nam là $\mathrm{C}_{12}^2$.\\
+Số cách chọn $4$ nữ là $\mathrm{C}_{14}^4$.\\
+Vậy số cách chọn $2$ nam và $4$ nữ là $\mathrm{C}_{12}^2\cdot\mathrm{C}_{14}^4= 66\,066$. 
+}\end{ex}
+
+\begin{ex}%[0D8H2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có bao nhiêu số tự nhiên có $9$ chữ số khác nhau được lập từ $9$ chữ số $0; 1;\ldots; 8$?
+\choice
+{$9!$}
+{$9!-7!$}
+{$8!$}
+{\True $9!-8!$}
+\loigiai{
+Có $9!$ số có $9$ chữ số khác nhau được lập từ $9$ chữ số trên tính cả chữ số $0$ đứng đầu.\\
+Xét các số có  $9$ chữ số khác nhau được lập từ $9$ chữ số trên với chữ số $0$ đứng đầu thì có $8!$.\\
+Vậy có $9!-8!$  số tự nhiên có $9$ chữ số khác nhau được lập từ $9$ chữ số $0;1;\ldots;8$.
+}\end{ex}
+
+\begin{ex}%[0D8H2-6]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Trong mặt phẳng có bao nhiêu hình chữ nhật được tạo thành từ $7$ đường thẳng đôi một song song và $2$ đường thẳng vuông góc với $7$ đường thẳng song song đó.
+\choice
+{$330$}
+{$7\,920$}
+{$418$}
+{\True $126$}
+\loigiai{	
+Mỗi hình chữ nhật là một cách chọn $2$ đường từ $7$ đường song song và $2$ đường từ $2$ đường vuông góc.\\
+Số cách chọn $2$ đường từ $7$ đường là $\mathrm{C}^2_7=21$.\\
+Số cách chọn $2$ đường từ $2$ đường là $\mathrm{C}^2_4=6$.\\
+Số hình chữ nhật là $21\cdot 6=126$.	
+}\end{ex}
+
+\begin{ex}%[0D8H2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề cuối học kỳ 2 Toán 10 năm 2024 – 2025 trường THPT Trưng Vương – TP HCM]
+Có $3$ cặp vợ chồng mua $6$ vé xem phim với các chỗ ngồi liên tiếp nhau trên cùng một hàng. Hỏi có bao nhiêu cách xếp chỗ ngồi sao cho mỗi cặp vợ chồng đều ngồi cạnh nhau?
+\choice
+{\True$48$}
+{$24$}
+{$120$}
+{$36$}
+\loigiai{
+Có $3!\cdot 2!\cdot 2!\cdot 2!=48$ cách xếp chỗ ngồi sao cho mỗi cặp vợ chồng đều ngồi cạnh nhau.
+}
+\end{ex}
+
+\begin{ex}%[0D8H1-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề thi HK2 BinhChanh-HCM-2324]
+Cho tập $X=\left\{ 0;1;2;3;4;5 \right\}$. Hỏi từ tập $X$ có thể thành lập được bao nhiêu số chia hết cho $5$ và có hai chữ số khác nhau?
+\choice
+{$10$}
+{\True $9$}
+{$25$}
+{$20$}
+\loigiai{Gọi số thỏa mãn yêu cầu có dạng $\overline{ab}$, với $a$, $b\in X$ và $a\ne b$.\\
+Số cần tìm chia hết cho $5$ nên $b=0$ hoặc $ b=5 $.
+\begin{itemize}
+\item {\it Trường hợp 1:} Xét $b=0$. \\
+Khi đó, chọn $a\in X\setminus\{0\}$ có $5$ cách chọn $a$.\\ 
+Suy ra trường hợp này có $1\cdot5=5$ số.
+\item {\it Trường hợp 2:} Xét $b=5$. \\
+Chọn $a\in X \setminus\{0; b\} $ có $4$ cách chọn $a$.\\
+Suy ra trường hợp này có $1\cdot 4=4$ số.
+\end{itemize}
+Vậy có $5+4=9$ số thỏa mãn bài toán.
+}
+\end{ex}
+
+\begin{ex}%[0D8H2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề thi HK2 TanTuc-HCM-2324]
+Có bao nhiêu số tự nhiên có $5$ chữ số trong đó các chữ số cách đều chữ số đứng giữa thì giống nhau?
+\choice
+{\True $900$}
+{$9\,000$}
+{$90\,000$}
+{$27\,216$}
+\loigiai{
+Gọi số tự nhiên có $5$ chữ số trong đó các chữ số cách đều chữ số đứng giữa thì giống nhau có dạng $n=\overline{abcba}$. 
+\begin{itemize}
+\item Chọn $a$ có $9$ cách chọn $(a \ne 0)$;
+\item Chọn $b$ có $10$ cách chọn;
+\item Chọn $c$ có $10$ cách chọn.
+\end{itemize}
+Theo quy tắc nhân, có $9 \cdot 10 \cdot 10 = 900$ số thỏa yêu cầu bài toán.
+}
+\end{ex}
+\begin{ex}%[0D8H2-6]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề thi HK2 THPT-DiAn-BinhDuong-2324]
+Cho hai đường thẳng song song $d_1$ và $d_2$. Trên $d_1$ lấy $17$ điểm phân biệt, trên $d_2$ lấy $20$ điểm phân biệt. Tính số tam giác mà có các đỉnh được chọn từ $37$ điểm này.
+\choice
+{$5\,690$}
+{$5\,960$}
+{\True $5\,950$}
+{$5\,590$}
+\loigiai{
+Số cách chọn $3$ điểm bất kì từ $37$ điểm là $\mathrm{C}_{37}^3=7\,770$ cách.\\
+Trong đó, số cách chọn ra $3$ điểm thẳng hàng là $\mathrm{C}_{17}^3+\mathrm{C}_{20}^3=1\,820$ cách.\\
+Do đó số cách chọn $3$ điểm tạo thành tam giác là $7\,770-1\,820=5\,950$.
+} 
+\end{ex}
+\begin{ex}%[0D8H2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề thi HK2 Nguyễn Khuyến-Bình Dương-2324]
+Có bao nhiêu số tự nhiên có $4$ chữ số khác nhau trong đó chữ số hàng đơn vị bằng $0$?
+\choice
+{$84$}
+{$720$}
+{\True $504$}
+{$729$}
+\loigiai{Đặt $X=\{0;1;2;3;4;5;6;7;8;9\}$.\\
+Gọi số cần lập có dạng $\overline{abcd}$.\\
+Theo giải thiết $d=0$ nên $d$ có $1$ cách chọn.\\
+Chọn $a$, $b$, $c$ từ $X\setminus\{0\}$ có $ \mathrm{A}_{9}^{3} =504$ cách.\\
+Vậy có $1\cdot504=504$ số tự nhiên có $4$ chữ số khác nhau thỏa yêu cầu bài toán.
+}
+\end{ex}
+\Closesolutionfile{ans}
+
+\ind{PHẦN II.} \inden{Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, học sinh chọn đúng hoặc sai.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0D8-Bai2-DS]
+\begin{ex}%[0D8H2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Một đội có $8$ bạn nam và $6$ bạn nữ trong đó có bạn nam tên Tân và bạn nữ tên Hương.
+\choiceTF
+{\True Số cách chọn ra $2$ bạn trong đội trong đó có cả Hương và Tân là $66$}
+{Số cách chọn ra $1$ bạn nam và $3$ bạn nữ trong đó không có Hương là $83$}
+{\True  Số cách chọn ra $2$ bạn trong đó có bạn Tân mà không có bạn Hương là $220$}
+{\True Số cách chọn ra $1$ bạn nam và $3$ bạn nữ trong đó Tân và Hương không đồng thời cùng có mặt là $150$}
+\loigiai{
+\begin{itemchoice}
+\itemch {\bf Đúng}.\\ 
+Số cách chọn ra $2$ bạn trong đó có cả Hương và Tân là $\mathrm{C}^{2}_{12}=66$.
+\itemch	{\bf Sai}. \\
+Số cách chọn ra $1$ bạn nam và $3$ bạn nữ trong đó không có Hương là $\mathrm{C}^{1}_{8}\cdot \mathrm{C}^{2}_{5}=80$.
+\itemch {\bf Đúng}.\\
+Số cách chọn ra $2$ bạn trong đó có bạn Tân mà không có bạn Hương là $\mathrm{C}^{3}_{12}=220$.
+\itemch {\bf Đúng}.\\
+Số cách chọn ra $1$ bạn nam và $3$ bạn nữ trong đó Tân và Hương không đồng thời cùng có mặt là 
+$$\mathrm{C}^{0}_{7}\cdot \mathrm{C}^{3}_{5}+\mathrm{C}^{1}_{7}\cdot \mathrm{C}^{2}_{5}+\mathrm{C}^{1}_{7}\cdot \mathrm{C}^{3}_{5}=150.$$
+\end{itemchoice}	
+
+}\end{ex}
+
+\begin{ex}%[0D8H2-3]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Cho các chữ số $4; 8; 7; 6; 3; 2; 5$.
+\choiceTF
+{Lập được ${\mathrm{A}^{4}_{7}}$ số tự nhiên có $4$ chữ số}
+{\True Lập được ${\mathrm{A}^{4}_{7}}$ số tự nhiên có $4$ chữ số đôi một khác nhau}
+{\True  Lập được ${120}$ số tự nhiên có $3$ chữ số khác nhau và là số chẵn}
+{Lập được $841$ số tự nhiên có $4$ chữ số khác nhau và lớn hơn $1\,475$}
+\loigiai{
+\begin{itemchoice}
+\itemch {\bf Sai}. \\Lập được $7^4$ số tự nhiên có $4$ chữ số.
+\itemch	{\bf Đúng}. \\Lập được ${\mathrm{A}^{4}_{7}}$ số tự nhiên có $4$ chữ số đôi một khác nhau.
+\itemch {\bf Đúng}. \\Lập được $4\cdot \mathrm{A}^{2}_{6}=120 $ số tự nhiên có $3$ chữ số khác nhau và là số chẵn.
+\itemch {\bf Sai}. \\Vì các chữ số trên tất cả đều lớn hơn $1$ nên từ các số đó luôn lập được số có $4$ chữ số khác nhau đều lơn hơn $2\,000$. \\Do đó ta lập được $\mathrm{A}^{4}_{6}=840$ số tự nhiên có $4$ chữ số khác nhau và lớn hơn $1\,475$.
+\end{itemchoice}	
+}\end{ex}
+
+\begin{ex}%[0D8H2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Một nhóm có $7$ bạn nam và $11$ bạn nữ trong đó có bạn nam tên Thành, bạn nữ tên Hà.
+\choiceTF
+{\True Có $\mathrm{C}^{2}_{11}$ cách chọn ra $2$ bạn nữ từ nhóm bạn trên}
+{Có $\mathrm{A}^{2}_{11} \cdot \mathrm{A}^{2}_{7}$ cách chọn ra $2$ bạn nữ và $2$ bạn nam từ nhóm bạn trên}
+{Có $\mathrm{C}^{3}_{18}$ cách chọn ra một bạn giữ vị trí trưởng nhóm, một bạn giữ vị trí phó nhóm, một bạn uỷ viên}
+{\True Có $96$ cách chọn ra một bạn giữ vị trí trưởng nhóm, một bạn giữ vị trí phó nhóm, một bạn uỷ viên trong đó Hà và Thành đều giữ các chức vụ}
+\loigiai{ 
+\begin{itemchoice}
+\itemch {\bf Đúng}. \\
+Có $\mathrm{C}^{2}_{11}$ cách chọn ra $2$ bạn nữ từ nhóm bạn trên.
+\itemch {\bf Sai}. \\
+Có $\mathrm{C}^{2}_{11} \cdot C^{2}_{7}$ cách chọn ra $2$ bạn nữ và $2$ bạn nam từ nhóm bạn trên.
+\itemch {\bf Sai}. \\
+Có $\mathrm{A}^{3}_{18}$ cách chọn ra một bạn giữ vị trí trưởng nhóm, một bạn giữ vị trí phó nhóm, một bạn uỷ viên  
+\itemch {\bf Đúng}. \\ Để có ba bạn giữ các chức vụ trên trong đó có Hà và Thành thì ta sẽ chọn thêm $1!$ trong $16$ bạn còn lại trừ Hà và Thành rồi sau đó xếp chức vụ cho  $3$ bạn.\\
+Suy ra,	có $3!\cdot \mathrm{C}^1_{16}=96$ cách chọn ra một bạn giữ vị trí trưởng nhóm, một bạn giữ vị trí phó nhóm, một bạn uỷ viên trong đó Hà và Thành đều giữ các chức vụ.
+\end{itemchoice}
+}\end{ex}
+
+\begin{ex}%[0D8V2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề giữa học kỳ 2 Toán 10 năm 2024 – 2025 trường THPT C Hải Hậu – Nam Định]
+Xếp năm bạn Bình, An, Lộc, Thịnh, Vượng vào một ghế dài năm chỗ. Xét tính đúng sai của các khẳng định sau:
+\choiceTF
+{\True Có $120$ cách xếp tùy ý}
+{\True Có $48$ cách xếp Bình và An ngồi cạnh nhau}
+{ Có $6$ cách xếp Bình và An ngồi ở hai đầu bàn}
+{ \True Có $36$ cách xếp Bình và An ngồi cách nhau đúng một bạn}
+\loigiai{
+\begin{itemchoice}
+
+\itemch	{\bf Đúng}. \\Có ${\mathrm{P}_{4}=4!=120}$ cách xếp tùy ý.
+\itemch {\bf Đúng}. \\Có $2\cdot 4!=48$ cách xếp để Bình và An ngồi cạnh nhau.
+\itemch {\bf Sai} . \\Có $2\cdot 3!=12$ cách xếp Bình và An ngồi ở hai đầu bàn.
+\itemch {\bf Đúng}. \\ Ta sẽ xếp từng bước như sau:
+Bước 1: Xếp An và Bình: Có $2!=2$ cách.\\
+Bước 2: Xếp $1$ bạn khác vào khoảng giữa An và Bình có $3$ cách.\\
+Bước 3:  Xếp hai bạn còn lại vào khoảng trống phía hai đầu của An, và Bình
+có $2!+2!+2!=6$ cách.\\
+Vậy có $2\cdot 3\cdot 6=36$ cách xếp Bình và An ngồi cách nhau đúng một bạn.
+\end{itemchoice}	}
+\end{ex}
+
+\begin{ex}%[0D8V2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề thi HK2 trường DoanThiDiem-HaNoi-2324]
+Một đồn cảnh sát gồm $9$ người trong đó có hai trung tá Việt và Minh.
+\choiceTF
+{Có $504$ cách chọn $3$ đồng chí bất kì đi thực hiện nhiệm vụ}
+{Có $20$ cách chọn $5$ đồng chí đi thực hiện nhiệm vụ mà luôn có hai trung tá Việt và Minh}
+{\True Có $21$ cách chọn $5$ đồng chí đi thực hiện nhiệm vụ mà không có hai trung tá Việt và Minh}
+{\True Trong một nhiệm vụ cần huy động $3$ đồng chí thực hiện ở địa điểm A, $2$ đồng chí thực hiện ở địa điểm B, $4$ đồng chí còn lại ở lại trực đồn. Có $910$ cách chọn để hai đồng chí Việt và Minh không ở cùng khu vực}
+\loigiai{
+\begin{itemchoice}
+\itemch {\bf Sai}. \\ Mỗi cách chọn ra $3$ đồng chí bất kỳ đi thực hiện nhiệm vụ từ $9$ đồng chí cho ta một tổ hợp chập $3$ của $9$. Số cách chọn là $\mathrm{C}_9^3=84$.
+\itemch {\bf Sai}. \\ Mỗi cách chọn ra thêm $3$ đồng chí bất kỳ cùng với hai trung tá Việt, Minh đi thực hiện nhiệm vụ từ $7$ đồng chí (không kể hai đồng chí Việt, Minh) cho ta một tổ hợp chập $3$ của $7$. Số cách chọn là $\mathrm{C}_7^3=35$.
+\itemch {\bf Đúng}. \\ Mỗi cách chọn ra $5$ đồng chí bất kỳ đi thực hiện nhiệm vụ từ $7$ đồng chí (không kể hai đồng chí Việt, Minh) cho ta một tổ hợp chập $5$ của $7$. Số cách chọn là $\mathrm{C}_7^5=21$.
+\itemch {\bf Đúng}. \\ Ta sẽ đếm số cách huy động $3$ đồng chí thực hiện ở địa điểm A, $2$ đồng chí thực hiện ở địa điểm B, $4$ đồng chí còn lại ở lại trực đồn (gọi là địa điểm C) sao cho hai đồng chí Việt và Minh không ở cùng một khu vực.
+\begin{itemize}
+\item Phương án 1. Việt thực hiện ở địa điểm A, Minh thực hiện ở địa điểm B.
+\begin{itemize}
+\item Địa điểm A cần huy động thêm $2$ đồng chí từ $7$ đồng chí (không kể hai đồng chí Việt và Minh), có $\mathrm{C}_7^2$ cách. Sau khi huy động, ta còn lại $5$ đồng chí cho địa điểm B và C.
+\item Địa điểm B cần huy động thêm $1$ đồng chí từ $5$ đồng chí, có $\mathrm{C}_5^1$ cách. Sau khi huy động, ta còn lại $4$ đồng chí được huy động tới địa điểm C.
+\end{itemize}
+Theo quy tắc nhân, có $\mathrm{C}_7^2\cdot \mathrm{C}_5^1=105$ cách huy động đối với phương án 1.
+\item Phương án 2. Việt thực hiện ở địa điểm B, Minh thực hiện ở địa điểm A.
+Tương tự như phương án 1, ta có ngay $105$ cách.
+\item Phương án 3. Việt thực hiện ở địa điểm A, Minh thực hiện ở địa điểm C.
+\begin{itemize}
+\item Địa điểm A cần huy động $2$ đồng chí từ $7$ đồng chí (không kể hai đồng chí Việt và Minh), có $\mathrm{C}_7^2$ cách. Sau khi huy động, ta còn lại $5$ đồng chí (không kể hai đồng chí Việt và Minh) cho địa điểm B và C.
+\item Địa điểm B cần huy động $2$ đồng chí từ $5$ đồng chí, có $\mathrm{C}_5^2$ cách. Sau khi huy động, ta còn lại $3$ đồng chí cùng với đồng chí Minh thực hiện ở địa điểm C.
+\end{itemize}
+Vậy có $\mathrm{C}_7^2 \cdot \mathrm{C}_5^2=210$ cách huy động đối với phương án 3.
+\item Phương án 4. Việt thực hiện ở địa điểm C, Minh thực hiện ở địa điểm A.
+Tương tự như phương án 3, ta có ngay $210$ cách.
+\item Phương án 5. Việt thực hiện ở địa điểm B, Minh thực hiện ở địa điểm C.\begin{itemize}
+\item Địa điểm A cần huy động $3$ đồng chí từ $7$ đồng chí (không kể hai đồng chí Việt và Minh), có $\mathrm{C}_7^3$ cách. Sau khi huy động, ta còn lại $4$ đồng chí cho địa điểm B và C.
+\item Địa điểm B cần huy động thêm $1$ đồng chí từ $4$ đồng chí, có $\mathrm{C}_4^1$ cách. Sau khi huy động, ta còn lại $3$ đồng chí, cùng với đồng chí Minh được huy động tới địa điểm C.
+\end{itemize}
+Theo quy tắc nhân, có $\mathrm{C}_7^3\cdot \mathrm{C}_4^1=140$ cách huy động đối với phương án 5.
+\item Phương án 6. Việt thực hiện ở địa điểm C, Minh thực hiện ở địa điểm B.
+Tương tự như phương án 5, ta có ngay $140$ cách.
+\end{itemize}
+Vậy số cách huy động để hai đồng chí Việt và Minh không ở cùng một khu vực là \[2\cdot 105+2\cdot 210+2\cdot 140=910.\]
+\end{itemchoice}}
+\end{ex}
+\Closesolutionfile{ans}
+
+
+\ind{PHẦN III.} \inden{Trả lời ngắn.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0D8-Bai2-TLN]%--Đặt tên 0D8-Bai2-DS
+\begin{ex}%[0D8V2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+Có $7$ bạn nữ và $3$ bạn nam. Số cách xếp các bạn thành một hàng ngang sao cho các bạn nữ luôn đứng cạnh nhau là $m$. Tính tổng các chữ số của $m$.
+\shortans{18}
+\loigiai{
+Coi các bạn nữ là $1$ kết hợp với  $3$ bạn nam có $4!$ cách xếp .\\
+Xếp riêng nhóm các bạn nữ có $7!$ cách.\\
+Theo quy tắc nhân có $7! \cdot 4!= 120\,960$ cách xếp.\\ 
+Tổng các chữ số của $m$ là $18$.
+}\end{ex}
+\begin{ex}%[0D8V2-7]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề cuối học kỳ 2 Toán 10 năm 2024 – 2025 trường THPT Trưng Vương – TP HCM]
+Một nhóm hành khách, gồm $4$ nam và $3$ nữ, lên một chiếc xe buýt. Trên xe có $8$ ghế trống, trong đó có $5$ ghế cạnh cửa sổ. Hỏi có bao nhiêu cách xếp chỗ ngồi cho nhóm hành khách này sao cho các hành khách nữ đều được ngồi cạnh cửa sổ?
+\shortans{7200}
+\loigiai{Trước tiên ta sẽ xếp $3$ hành khách nữ ngồi vào $3$ trong $5$ vị trí cạnh cửa sổ tức là có $\mathrm{A}_3^5$ cách xếp.\\
+Sau đó xếp $4$ hành khách nam vào $5$ vị trí còn lại có $\mathrm{A}_4^5$.\\
+Vậy có $\mathrm{A}_3^5\cdot \mathrm{A}_4^5=7\,200$ cách xếp thỏa mãn.
+}
+\end{ex}
+
+
+\begin{ex}%[0D8V2-5]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề giữa HK2 Toán 10 năm 2024 – 2025 trường THPT chuyên Vị Thanh – Hậu Giang]
+Trong một lô $100$ sản phẩm, có $97$ chính phẩm (sản phẩm đạt tiêu chuẩn) và $3$ thứ phẩm (sản phẩm không đạt tiêu chuẩn). Từ $100$ sản phẩm này, có bao nhiêu cách lấy ra $3$ sản phẩm mà trong đó có ít nhất một thứ phẩm?
+\shortans{14260}	\loigiai{
+Trong $3$ sản phẩm lấy ra có ít nhất $1$ thứ phẩm trong $3$ trường hợp sau đây.
+\begin{itemize}
+\item 	Truờng hợp 1: Có đúng $1$ thứ phẩm.\\
+Trường hợp này có $\mathrm{C}_{97}^2 \mathrm{C}_3^1=13\,968$ cách lấy.
+\item 	Trường hợp 2: Có đúng $2$ thứ phẩm.\\
+Trường hợp này có $\mathrm{C}_{97}^1 \mathrm{C}_3^2=291$ cách lấy.
+\item 	Trường hợp 3: Có đúng $3$ thứ phẩm.\\
+Trường hợp này có $\mathrm{C}_3^3=1$ cách lấy.	
+\end{itemize}
+Áp dụng quy tắc cộng, số cách lấy $3$ sản phẩm có ít nhất $1$ thứ phẩm là $13\,968+291+1=14\,260$ (cách).\\
+Cách khác: Có thể giải bài toán bằng cách tìm phần bù. Số cách lấy $3$ sản phẩm đều là chính phẩm là $\mathrm{C}_{97}^3$.\\
+Từ đó, số cách lấy $3$ sản phẩm trong đó có ít nhất một thứ phẩm là $\mathrm{C}_{100}^3-\mathrm{C}_{97}^3=161\,700-147\,440=14\,260$ (cách).
+}
+\end{ex}
+
+\begin{ex}%[0D8V2-2]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[Đề cuối học kỳ 2 Toán 10 năm 2024 – 2025 trường THPT Hồ Nghinh – Quảng Nam]
+Trong một giải cờ vua gồm nam và nữ vận động viên. Mỗi vận động viên phải chơi hai ván với mỗi động viên còn lại. Cho biết có $2$ vận động viên nữ và cho biết số ván các vận động viên chơi nam chơi với nhau hơn số ván họ chơi với hai vận động viên nữ là $84$. Hỏi số ván tất cả các vận động viên đã chơi?
+\shortans{182}
+\loigiai{
+Gọi số vận động viên nam là $n$. Điều kiện: $n>2$, $n \in \mathbb{N}$.\\
+Số ván các vận động viên nam chơi với nhau là $2 \cdot \mathrm{C}_n^2=n(n-1)$.\\
+Số ván các vận động viên nam chơi với các vận động viên nữ là $2\cdot 2\cdot n=4n$.\\
+Vậy ta có $n(n-1)-4 n=84 \Leftrightarrow n^2-5 n-84=0 \Rightarrow n=12$.\\
+Vậy số ván các vận động viên chơi là $2\mathrm{C}_{14}^2=182$.}
+\end{ex}
+\begin{ex}%[0D8V2-4]%[Dự án đề cương 3 Khối NH24-25-Dot 1- Ngô Tất Thành]
+[De thi HK2 trường Viet Nam-BaLan-HaNoi-2324]
+Một trung tâm y tế có $3$ bác sĩ chuyên khoa ngoại, $5$ bác sĩ chuyên khoa nội và $8$ y tá. Trung tâm có bao nhiêu cách cử một đoàn công tác gồm $7$ người trong đó có $1$ bác sĩ chuyên khoa ngoại làm trưởng đoàn, $1$ bác sĩ chuyên khoa nội làm phó đoàn và ít nhất $4$ y tá?
+\shortans{7140} 
+\loigiai{Do đoàn công tác có $7$ người, trong đó có $1$ trưởng đoàn, $1$ phó đoàn và ít nhất $4$ y tá, nên có các khả năng lập đoàn công tác như sau
+\begin{itemize}
+\item \textit{Lập đoàn công tác có $5$ y tá}.\\
++ Số cách chọn $1$ bác sỹ chuyên khoa Ngoại làm trưởng đoàn là $\mathrm{C}_3^1=3$, với mỗi cách đó\\
++ có $\mathrm{C}_5^1=5$ cách chọn $1$ bác sỹ chuyên khoa Nội làm phó đoàn, với mỗi cách đó\\
++ có $\mathrm{C}_8^5=56$ cách chọn $5$ y tá tham gia đoàn.\\
+Vậy có $3\cdot 5\cdot 56=840$ cách cử đoàn gồm $1$ bác sỹ Ngoại, $1$ bác sỹ Nội và $5$ y tá.\hfill$(1)$
+\item \textit{Lập đoàn công tác có $4$ y tá}.\\ Khi đó, do đoàn có $7$ người, nên hoặc có $2$ bác sỹ Ngoại, hoặc có $2$ bác sỹ Nội.\\
++ Với đoàn có $2$ bác sỹ Ngoại ($1$ người làm trưởng đoàn), $1$ bác sỹ Nội và $4$ y tá.\\
+Có $\mathrm{C}_3^1=3$ cách chọn $1$ bác sỹ Ngoại làm trưởng đoàn, với mỗi cách đó có $\mathrm{C}_2^1=2$ cách chọn thêm $1$ bác sỹ Ngoại nữa, với mỗi cách đó có  $\mathrm{C}_5^1=5$ cách chọn $1$ bác sỹ chuyên khoa Nội làm phó đoàn, với mỗi cách đó có  $\mathrm{C}_8^4=70$ cách chọn $4$ y tá tham gia đoàn.\\
+Vậy, trường hợp này có $3\cdot 2\cdot 5\cdot 70=2\,100$ cách lập đoàn.\hfill$(2)$
+\item Với đoàn có $1$ bác sỹ Ngoại, $2$ bác sỹ Nội ($1$ người làm phó đoàn), $4$ y tá.\\
+Có $\mathrm{C}_3^1=3$ cách chọn $1$ bác sỹ Ngoại làm trưởng đoàn, với mỗi cách đó có $\mathrm{C}_5^1=5$ cách chọn $1$ bác sỹ chuyên khoa Nội làm phó đoàn, với mỗi cách đó có $\mathrm{C}_4^1=4$ cách chọn thêm $1$ bác sỹ Nội nữa, với mỗi cách đó có $\mathrm{C}_8^4=70$ cách chọn $4$ y tá tham gia đoàn.\\
+Vậy, trường hợp này có $3\cdot 5\cdot 4\cdot 70=4\,200$ cách lập đoàn.\hfill$(3)$		
+\end{itemize}
+Từ $(1)$, $(2)$, $(3)$ suy ra số cách lập đoàn công tác thỏa mãn yêu cầu bằng $840+2\,100+4\,200=7\,140$ cách.
+}
+\end{ex}
+\Closesolutionfile{ans}
+\ind{PHẦN IV.} \inden{Tự Luận.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0D8-Bai2-TL]%--Đặt tên 0D8-Bai2-DS
+
+\begin{ex}%[0D8N2-4]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Trong giờ học thể dục, thầy giáo yêu cầu cả lớp chia thành các nhóm tự luyện tập. Nhóm bạn An có bao nhiêu cách xếp thành một hàng dọc? Biết nhóm của An có $6$ người.
+\loigiai{
+Mỗi cách xếp thứ tự vị trí cho $6$ bạn là một hoán vị của $6$ phần tử.\\
+Vậy số cách xếp nhóm bạn An thành một hàng dọc là: $\mathrm{P}_6 = 6! = 720$.
+}
+\end{ex}
+
+\begin{ex}%[0D8N1-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Từ các chữ số $1$, $2$, $3$, $4$, $5$, $6$, $7$, ta lập được bao nhiêu số tự nhiên có $7$ chữ số đôi một khác nhau?
+\loigiai{
+Mỗi số tự nhiên lập được là một hoán vị của $7$ chữ số đã cho.\\ Số các số tự nhiên có thể lập được là: $\mathrm{P}_7 = 7! = 5\,040$.
+}
+\end{ex}
+
+\begin{ex}%[0D8H1-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Từ các chữ số $0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, ta lập được bao nhiêu số tự nhiên có $8$ chữ số đôi một khác nhau?
+\loigiai{
+Xét số tự nhiên có dạng $\overline{a_1a_2a_3a_4a_5a_6a_7a_8}$.\\
+\begin{itemize}
+\item Trường hợp $1$: $a_1$ có thể bằng $0$ hoặc khác $0$.\\
+Với $a_1$ có thể bằng $0$ hoặc khác $0$, mỗi số có dạng trên là một hoán vị của $8$ chữ số đã cho. \\
+Do đó, số các số có thể lập được trong trường hợp $1$ là: $\mathrm{P}_8 = 8! = 40\,320$.
+\item Trường hợp $2$: $a_1 = 0$.\\
+Vì $a_1 = 0$ cố định nên $7$ chữ số sau $a_1$ đều khác $0$ và chỉ có $7$ chữ số đó thay đổi. \\
+Suy ra, mỗi số có dạng $\overline{0a_2a_3a_4a_5a_6a_7a_8}$ là một hoán vị của $7$ chữ số khác $0$ đã cho. \\
+Do đó, số các số có thể lập được trong trường hợp $2$ là: $\mathrm{P}_7 = 7! = 5\,040$.
+\end{itemize}
+Vậy số các số tự nhiên có $8$ chữ số đôi một khác nhau có thể lập được là
+$40\,320 - 5\,040 = 35\,280$.
+}
+\end{ex}
+
+\begin{ex}%[0D8H2-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Bạn Nam có $4$ quyển sách Toán, $6$ quyển sách Tiếng Anh (các quyển sách là khác nhau). Hỏi có bao nhiêu cách xếp các quyển sách thành hàng ngang sao cho:
+\begin{enumerate}
+\item Các quyển sách cùng môn thì xếp cạnh nhau (không có quyển sách Toán nào nằm giữa hai quyển sách Tiếng Anh và ngược lại)?
+\item Các quyển sách Toán thì xếp cạnh nhau?
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Xếp $4$ quyển sách Toán cạnh nhau thành một nhóm có $\mathrm{P}_4 = 4! = 24$ (cách).\\
+Xếp $6$ quyển sách Tiếng Anh cạnh nhau thành một nhóm có $\mathrm{P}_6 = 6! = 720$ (cách).\\
+Có $\mathrm{P}_2 = 2! = 2$ cách xếp hai nhóm trên.\\
+Vậy số cách xếp các quyển sách sao cho các quyển sách cùng môn thì xếp cạnh nhau là
+$24 \cdot 720 \cdot 2 = 34\,560$.
+\item Xếp $4$ quyển sách Toán cạnh nhau thành một nhóm có $\mathrm{P}_4 = 4! = 24$ (cách).\\
+Coi nhóm sách Toán là một quyển sách, gọi là $A$, xếp quyển sách A và $6$ quyển sách Tiếng Anh có $\mathrm{P}_7 = 7! = 5\,040$ (cách).\\
+Vậy số cách xếp các quyển sách sao cho các quyển sách Toán thì xếp cạnh nhau là $24 \cdot 5\,040 = 120\,960$.
+\end{enumerate}	
+}
+\end{ex}
+
+\begin{ex}%[0D8H2-3]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Bạn Dũng mới mua điện thoại và muốn lập mật khẩu có $6$ chữ số đôi một khác nhau. Hỏi bạn Dũng có bao nhiêu cách để lập một mật khẩu?
+\loigiai{
+Mỗi mật khẩu có thể lập được là một cách chọn $6$ chữ số từ $10$ chữ số và sắp xếp thứ tự của chúng, tức là một chỉnh hợp chập $6$ của $10$ phần tử.\\
+Vậy bạn Dũng có $\mathrm{A}_{10}^6 = 151\,200$ (cách lập mật khẩu).
+}
+\end{ex}
+
+\begin{ex}%[Ngô Tất Thành]%[0D8N2-3]
+Từ các chữ số $1$, $2$, $3$, $4$, $5$, $6$, $7$, ta lập được bao nhiêu số tự nhiên có $5$ chữ số đôi một khác nhau?
+\loigiai{
+Mỗi số tự nhiên lập được là một chỉnh hợp chập $5$ của $7$ chữ số đã cho. \\
+Số các số tự nhiên có thể lập được là: $\mathrm{A}_7^5 = 2\,520$.
+}
+\end{ex}
+
+\begin{ex}%[0D8V2-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành] 
+Trong một buổi kỉ niệm ngày thành lập trường, bí thư Đoàn trường cần chọn $4$ tiết mục từ $6$ tiết mục hát và $4$ tiết mục từ $5$ tiết mục múa rồi xếp thứ tự biểu diễn. Hỏi có bao nhiêu cách chọn và xếp thứ tự sao cho các tiết mục hát và múa xen kẽ nhau?
+\loigiai{
+Giả sử các tiết mục được biểu diễn đánh số thứ tự từ $1$ đến $8$. Vì số lượng tiết mục hát và múa bằng nhau nên có hai trường hợp:
+\begin{itemize}
+\item \textit{Trường hợp 1: Tiết mục hát diễn ra đầu tiên}\\
+Khi đó, các tiết mục hát có số thứ tự là số lẻ, còn các tiết mục múa có số thứ tự là số chẵn. \\
+Như vậy, thứ tự của các tiết mục múa và hát được cố định, chỉ thay đổi thứ tự giữa các tiết mục múa, hoặc giữa các tiết mục hát.\\
+Chọn 4 tiết mục hát từ 6 tiết mục hát và xếp thứ tự có $\mathrm{A}_6^4 = 360$ (cách).\\
+Chọn 4 tiết mục múa từ 5 tiết mục múa và xếp thứ tự có $\mathrm{A}_5^4 = 120$ (cách).\\
+Khi đó, số cách chọn và xếp thứ tự các tiết mục văn nghệ trong trường hợp tiết mục hát diễn ra đầu tiên là $360 \cdot 120 = 43\ 200$.\\
+\item \textit{Trường hợp 2: Tiết mục múa diễn ra đầu tiên}\\
+Tương tự, số cách chọn và xếp thứ tự các tiết mục văn nghệ trong trường hợp tiết mục múa diễn ra đầu tiên là $120 \cdot 360 = 43\ 200$.\\
+Vậy số cách chọn và xếp thứ tự các tiết mục văn nghệ sao cho các tiết mục hát và múa xen kẽ nhau là $43\ 200 + 43\ 200 = 86\ 400$.\\
+\end{itemize}
+}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+[HK2-Năm học 2024-2025-Trường THPT Nguyễn Trãi] 
+Gọi $A$ là tập hợp các số tự nhiên gồm $5$ chữ số khác nhau mà mỗi chữ số đều lớn hơn $4$.
+\begin{enumerate}
+\item Hãy xác định số phần tử của tập $A$.
+\item Có bao nhiêu số có ba chữ số lẻ đứng kề nhau trong tập $A$?
+\end{enumerate}
+\loigiai{
+\begin{enumerate}
+\item Mỗi phần tử của $A$ là hoán vị của $5$ số $5$, $6$, $7$, $8$, $9$ nên có $5!=120$ phần tử.
+\item Gọi số cần lập có dạng $\overline{abcde}$.\\
+Số có ba chữ số lẻ đứng kề nhau trong tập $A$ được lập bằng cách
+\begin{itemize}
+\item Ba số lẻ đứng kề nhau có $3$ vị trí là $abc$ hoặc $bcd$ hoặc $cde$.
+\item Sắp xếp $3$ số lẻ có $3!$ cách.
+\item Sắp xếp $2$ số chẵn có $2!$ cách.
+\end{itemize}
+Do đó ta có $n(B)=3\cdot 3!\cdot 2!=36$.
+\end{enumerate}
+}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+[HK2 - Năm học 2024-2025 - THPT Trưng Vương]
+Gọi $S$ là tập hợp các số tự nhiên có $3$ chữ số. Lấy ngẫu nhiên $1$ số từ tập hợp $S$. Có bao nhiêu cách chọn được số có chữ số hàng trăm lớn hơn chữ số hàng chục, chữ số hàng chục lớn hơn chữ số hàng đơn vị?
+\loigiai{
+Giả sử số tự nhiên có $3$ chữ số thoả mãn yêu cầu bài toán có dạng $\overline{abc}$.\\
+Theo bài ra ta có $a>b>c$, suy ra $a$, $b$, $c$ là bộ $3$ số khác nhau được lấy từ các chữ số $\{0;1;2;\ldots;9\}$.\\
+Để chọn được $a>b>c$ thoả mãn bài toán ta chỉ cần lấy $3$ số khác nhau được lấy từ các chữ số $\{0;1;2;\ldots;9\}$ và sắp chúng theo thứ tự từ giảm dần (chỉ có duy nhất một cách), số các chữ số thoả mãn là $\mathrm{C}_{10}^3=120$.
+}
+\end{ex}
+
+\begin{ex}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25-Dot 1-Ngô Tất Thành]
+[HK2-NH 24-25-Trường THPT Ngô Gia Tự]
+Đề thi cuối học kì II môn toán của một trường THPT A, có $3$ phần.
+\begin{itemize}
+\item Phần I gồm $12$ câu trắc nghiệm $4$ phương án lựa chọn có tổng điểm bằng $3$.
+\item Phần II gồm $3$ câu trắc nghiệm đúng sai, mỗi câu có $4$ ý a, b, c, d; thí sinh cần xác định được tính đúng- sai của mỗi ý đó
+\begin{itemize}
+\item Xác định được đúng $1$ ý thì được $0{,}1$ điểm.
+\item Xác định được đúng $2$ ý thì được $0{,}25$ điểm.
+\item Xác định được đúng $3$ ý thì được $0{,}5$ điểm.
+\item Xác định được đúng $4$ ý thì được $1$ điểm.
+\end{itemize}
+\item Phần III là phần tự luận, có tổng điểm bằng $4$.
+\end{itemize}
+Vì không học bài nên bạn H không làm được phần tự luận và bạn ấy chỉ có thể đánh hú họa vào các câu trắc nghiệm. Có bao nhiêu cách làm để bạn H đạt $2{,}75$ điểm phần I và $2{,}5$ điểm phần II?
+\loigiai
+{
+Để bạn H được $2{,}75$ điểm phần I và $2{,}5$ điểm phần II, ta có
+\begin{itemize}
+\item Để được $2{,}75$ điểm phần I thì bạn H phải làm đúng $11$ câu và sai $1$ câu
+\begin{itemize}
+\item Chọn $11$ câu và làm đúng có $\mathrm{C}_{12}^{11} \cdot 1=12$ cách
+\item Chọn $1$ câu còn lại và làm sai, có $1\cdot 3=3$ cách.
+\end{itemize}
+Suy ra số cách làm để được $2{,}75$ điểm phần I là $12\cdot 3=36$.
+\item Để được $2{,}5$ điểm phần II thì bạn H làm sai một ý.\\
+Chọn $1$ ý trong $12$ ý để làm sai có $12$ cách.\\
+Suy ra số cách làm để được $2{,}5$ điểm phần II là $12$ cách.
+\end{itemize}
+Vậy số cách làm để bạn H được $2{,}75$ điểm phần I và $2{,}5$ điểm phần II là $36\cdot 12 = 432$.
+}
+\end{ex}
+
+\Closesolutionfile{ans}

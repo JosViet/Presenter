@@ -1,0 +1,674 @@
+\newpage
+\def\thoigian{90}%--Thời gian
+\de{Đề số 3}{Chương II. Vectơ và hệ tọa độ trong không gian}
+
+\begin{center}
+	\textbf{PHẦN 1 - Câu trắc nghiệm nhiều phương án lựa chọn.}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-ABCD]
+%Câu 1
+\begin{ex}%[2H2N1-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini[thm]{Cho hình hộp $ABCD.A'B'C'D'$. Khẳng định nào sau đây là đúng?
+	\choice
+	{$\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AD}=\overrightarrow{AC'}$}
+	{\True $\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{AC'}$}
+	{$\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{AC}$}
+	{$\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{0}$}
+}{
+	\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=1.2]
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (-120:1);
+		\coordinate (D) at (0:2);
+		\coordinate (C) at ($(B)+(D)-(A)$);
+		\coordinate (A') at (110:1.5);
+		\coordinate (B') at ($(A')+(-120:1)$);
+		\coordinate (D') at ($(A')+(0:2)$);
+		\coordinate (C') at ($(B')+(D')-(A')$);
+		\foreach \i/\j in {A/B,A/D,A/A'}{\draw[dashed] (\i)--(\j);}
+		\foreach \i/\j in {B/C,C/D,B/B',C/C',D/D',A'/B',B'/C',C'/D',D'/A'}{\draw (\i)--(\j);}
+		\foreach \i/\g in {A/180,B/-90,C/-90,D/0,A'/90,B'/180,C'/0,D'/90}{\draw[fill=black](\i) circle (1.0pt) ($(\i)+(\g:3mm)$) node{$\i$};}
+	\end{tikzpicture}
+}
+\loigiai{
+	Theo quy tắc hình hộp ta có $\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{AC'}$.
+}
+\end{ex}
+%Câu 2
+\begin{ex}%[2H2N1-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini[thm]{Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $2$. Độ dài của véctơ $\overrightarrow{u}=\overrightarrow{A'C'}-\overrightarrow{A'A}$ bằng
+	\choice
+	{$\sqrt{3}$}
+	{$2\sqrt{2}$}
+	{$2\sqrt{6}$}
+	{\True $2\sqrt{3}$}}{\begin{tikzpicture}[scale=0.6, font=\footnotesize,line join=round, line cap=round, >=stealth]
+		\path 
+		(0,0) coordinate (A)
+		++(-130:3) coordinate (B)
+		++(0:4) coordinate (C)
+		($(A)+(C)-(B)$) coordinate (D)
+		($(A)!1/2!(C)$) coordinate (O)
+		;
+		\foreach \i in {A,B,C,D}{
+			\coordinate (\i') at ($(\i)+(0,4)$);
+		}
+		\draw (A')--(B')--(C')--(D')--cycle;
+		\draw (B)--(B') (C)--(C') (D)--(D')  (B)--(C)--(D);
+		\draw[dashed,thin](B)--(A)--(A') (A)--(D);
+		\foreach \i/\g in {A'/90,B'/90,C'/90,D'/90,A/-90,B/-90,C/-90,D/-90}
+		\fill[black] (\i) circle(1pt)+(\g:5mm)node[scale=1]{$\i$};
+\end{tikzpicture}}
+\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6, font=\footnotesize,line join=round, line cap=round, >=stealth]
+			\path 
+			(0,0) coordinate (A)
+			++(-130:3) coordinate (B)
+			++(0:4) coordinate (C)
+			($(A)+(C)-(B)$) coordinate (D)
+			($(A)!1/2!(C)$) coordinate (O)
+			;
+			\foreach \i in {A,B,C,D}{
+				\coordinate (\i') at ($(\i)+(0,4)$);
+			}
+			\draw (A')--(B')--(C')--(D')--cycle;
+			\draw (B)--(B') (C)--(C') (D)--(D')  (B)--(C)--(D) (A')--(C');
+			\draw[dashed,thin](B)--(A)--(A') (A)--(D) (A)--(C');
+			\foreach \i/\g in {A'/90,B'/90,C'/90,D'/90,A/-90,B/-90,C/-90,D/-90}
+			\fill[black] (\i) circle(1pt)+(\g:5mm)node[scale=1]{$\i$};
+		\end{tikzpicture}
+	\end{center}
+	Vì $A'C'$ là đường chéo của hình vuông $A'B'C'D'$ có cạnh bằng $2$ nên $A'C'=2\sqrt{2}$.\\
+	Ta có $\left|\overrightarrow{u}\right|=\left|\overrightarrow{A'C'}-\overrightarrow{A'A}\right|=\left|\overrightarrow{AC'} \right|=AC'=\sqrt{AA'^2+A'C'^2}=\sqrt{2^2+\left(2\sqrt{2}\right)^2}=2\sqrt{3}$.}
+\end{ex}
+%Câu 3
+\begin{ex}%[2H2H1-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian, cho hai vectơ $\overrightarrow{a}, \overrightarrow{b}$ thỏa mãn $\left|\overrightarrow{a}\right|=4$, $\left|\overrightarrow{b}\right|=5$ và $\overrightarrow{a} \cdot \overrightarrow{b}=6$. Gọi $\alpha$ là góc giữa hai vectơ $2\overrightarrow{a}$ và $\overrightarrow{b}$. Khẳng định nào dưới đây đúng?
+	\choice
+	{$\cos \alpha=-\dfrac{3}{5}$}
+	{$\cos \alpha=\dfrac{3}{20}$}
+	{$\cos \alpha=\dfrac{3}{5}$}
+	{\True $\cos \alpha=\dfrac{3}{10}$}
+\loigiai{
+	Ta có 
+	\allowdisplaybreaks
+	\begin{eqnarray*}
+		\cos\alpha&=&\cos  \left(2\overrightarrow{a},\overrightarrow{b}\right)
+		\\
+		&=&\dfrac{2\overrightarrow{a}\cdot\overrightarrow{b}}{\left|2\overrightarrow{a}\right|\cdot\left|\overrightarrow{b}\right|}
+		\\
+		&=&\dfrac{2\cdot 6}{2\cdot 4\cdot 5}
+		\\
+		&=&\dfrac{3}{10}.
+	\end{eqnarray*}	
+}
+\end{ex}
+%Câu 4
+\begin{ex}%[2H2H1-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini[thm]{Cho hình lập phương $A B C D \cdot A' B' C' D'$ có cạnh $a$. Tích vô hướng $\overrightarrow{A' C} \cdot \overrightarrow{B D}$ bằng
+	\choice
+	{$6a^2$}
+	{$\sqrt{6}a^2$}
+	{\True $0$}
+	{$\sqrt{3}a^2$}}{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth,scale=0.7]
+		\def\a{3}
+		\def\b{2}
+		\def\h{3}
+		\path 	(0:0) coordinate (A)
+		++(0:\a) coordinate (D)
+		++(-130:\b) coordinate (C)
+		($(A)+(C)-(D)$) coordinate (B)
+		($(A)+(90:\h)$) coordinate (A')
+		($(B)+(90:\h)$) coordinate (B')
+		($(C)+(90:\h)$) coordinate (C')
+		($(D)+(90:\h)$) coordinate (D');
+		\draw[dashed,thick] 	(B)--(A)--(D)	(A)--(A');
+		\draw[thick] 	(C)--(C') 	(D)--(D') 	(B)--(B')	(C)--(C')
+		(B)--(C)--(D) 
+		(A')--(B')--(C')--(D')--cycle;
+		\foreach \x/\g in {A/180,B/180,C/0,D/0,A'/180,B'/180,C'/0,D'/0}
+		\fill[black] 	(\x) circle (1pt)
+		($(\g:4mm)+(\x)$) node {$\x$};	
+\end{tikzpicture}}
+\loigiai{
+		\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth,scale=0.7]
+			\def\a{3}
+			\def\b{2}
+			\def\h{3}
+			\path 	(0:0) coordinate (A)
+			++(0:\a) coordinate (D)
+			++(-130:\b) coordinate (C)
+			($(A)+(C)-(D)$) coordinate (B)
+			($(A)+(90:\h)$) coordinate (A')
+			($(B)+(90:\h)$) coordinate (B')
+			($(C)+(90:\h)$) coordinate (C')
+			($(D)+(90:\h)$) coordinate (D');
+			\draw[dashed,thick] 	(B)--(A)--(D)	(A)--(A') (A)--(C) (B)--(D);
+			\draw[thick] 	(C)--(C') 	(D)--(D') 	(B)--(B')	(C)--(C')
+			(B)--(C)--(D) 
+			(A')--(B')--(C')--(D')--cycle;
+			\foreach \x/\g in {A/180,B/180,C/0,D/0,A'/180,B'/180,C'/0,D'/0}
+			\fill[black] 	(\x) circle (1pt)
+			($(\g:4mm)+(\x)$) node {$\x$};	
+		\end{tikzpicture}
+	\end{center}
+	Vì $ABCD$ là hình vuông nên $AC \perp BD$ hay $\overrightarrow{AC} \cdot \overrightarrow{BD}=0$.\\
+	Vì $A'A \perp (ABCD)$ nên $A'A \perp BD$ hay $\overrightarrow{A'A} \cdot \overrightarrow{BD}=0$.\\
+	Ta có 
+	\[\overrightarrow{A' C} \cdot \overrightarrow{B D}=\left(\overrightarrow{A'A}+\overrightarrow{AC} \right)\cdot \overrightarrow{BD}=\overrightarrow{A'A}\cdot \overrightarrow{BD}+\overrightarrow{AC} \cdot \overrightarrow{BD}=0.  \]
+	
+}
+\end{ex}
+%Câu 5
+\begin{ex}%[2H2N2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxyz$, cho vectơ $\overrightarrow{a}$ thỏa mãn $\overrightarrow{a}=2\overrightarrow{i}+\overrightarrow{k}-3\overrightarrow{j}$. Tọa độ của vectơ $\overrightarrow{a}$ là
+\choice
+{$(2;1;-3)$}
+{\True $(2;-3;1)$}
+{$(1;2;-3)$}
+{$(1;-3;-2)$}
+\loigiai{Ta có $\overrightarrow{a}=2\overrightarrow{i}+\overrightarrow{k}-3\overrightarrow{j}=2\overrightarrow{i}-3\overrightarrow{j}+\overrightarrow{k}\Rightarrow \overrightarrow{a}=(2;-3;1)$.}
+\end{ex}
+%Câu 6
+\begin{ex}%[2H2H2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+Trong không gian $Oxyz$, cho hai điểm $A(1;2;-4)$ và $\overrightarrow{AB}=(-4;0;6)$. Tọa độ của điểm $B$ là
+\choice
+{$(-1;6;-6)$}
+{$(5;2;-10)$}
+{\True $(-3;2;2)$}
+{$(0;4;-5)$}
+\loigiai{ Gọi $B(x_B; y_B; z_B)$. Khi đó $\overrightarrow{AB}=(x_B-1; y_B-2; z_B+4)$.\\
+Mà $\overrightarrow{AB}= (-4;0;6)$ nên
+$\heva{&x_B-1=-4\\&y_B-2=0\\&z_B+4=6}\Leftrightarrow\heva{&x_B=-3\\&y_B=2\\&z_B=2.}$\\
+Vậy $B(-3;2;2)$.
+}
+\end{ex}
+%Câu 7
+\begin{ex}%[2H2N2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+Trong không gian $Oxyz$, hình chiếu vuông góc của điểm $A(-5;2;8)$ trên trục $Oy$ là
+\choice
+{$(-5;0;0)$}
+{\True $(0;2;0)$}
+{$(-5;0;8)$}
+{$(0;0;8)$}
+\loigiai{ Hình chiếu vuông góc của điểm $A(-5;2;8)$ trên trục $Oy$ là $(0;2;0)$.
+}
+\end{ex}
+%Câu 8
+\begin{ex}%[2H5H2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxyz$, cho hai điểm $A\left(1;-1;2\right)$ và $B\left(2;0;-1\right)$. Tọa độ của điểm $C$ để tứ giác $OABC$ là hình bình hành là
+	\choice
+	{\True $(1; 1; -3)$}
+	{$(1; 1; 3)$}
+	{$(-1; -1; 3)$}
+	{$(1; -1; 3)$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth,scale=0.7]
+				\def\a{4.5}
+				\def\b{3}
+				\path 	(0:0) coordinate (O)
+				++(0:\a) coordinate (A)
+				(O)++(-130:\b) coordinate (C)
+				($(C)+(A)-(O)$) coordinate (B)
+				;
+				\draw[thick] 	(O)--(A)--(B)--(C)--(O);
+				\foreach \x/\g in {A/0,B/0,C/180,O/180}
+				\fill[black] 	(\x) circle (1pt)
+				($(\g:4mm)+(\x)$) node {$\x$};	
+			\end{tikzpicture}
+		\end{center}
+		Gọi $C(x;y;z)$. 
+		\\
+		Ta có $\overrightarrow{OC}=(x;y;z)$ và $\overrightarrow{AB}=(1;1;-3)$. \\
+		Do $OABC$ là hình bình hành nên $\overrightarrow{OC}=\overrightarrow{AB}$ khi đó $x=1, y=1$ và $z=-3$.\\
+		 Vậy $C(1; 1; -3)$.
+	}
+\end{ex}
+%Câu 9
+\begin{ex}%[2H2N2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxyz$, cho $A\left(-2;3;-4\right)$ và $B\left(4;-3;3\right)$. Khoảng cách giữa $A$ và $B$ bằng
+\choice
+{\True $11$}
+{$8$}
+{$7$}
+{$9$}
+\loigiai{
+	Ta có $AB = \left|\overrightarrow{AB}\right| = \sqrt{(4+2)^2 + (-3-3)^2 + (3+4)^2} = 11$.
+}
+\end{ex}
+%Câu 10
+\begin{ex}%[2H2N2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+Trong không gian $Oxyz$, cho hai điểm $A\left(3;-2;3\right)$ và $B\left(-1;2;5\right)$. Tọa độ trung điểm $I$ của đoạn thẳng $AB$ là
+\choice
+{$\left(-2;2;1\right)$}
+{\True $\left(1;0;4\right)$}
+{$\left(2,0,8\right)$}
+{$\left(2;-2;-1\right)$}
+\loigiai{
+	Toạ độ trung điểm $I$ của $AB$ là
+	$I\left(\dfrac{x_A + x_B}{2}; \dfrac{y_A + y_B}{2} ; \dfrac{z_A + z_B}{2}\right)$ hay $I\left(1;0;4\right)$.
+}
+\end{ex}
+%Câu 11
+\begin{ex}%[2H2H2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+Trong không gian $Oxyz$, cho điểm $M\left(-2;3;4\right)$. Khoảng cách từ điểm $M$ đến trục $Ox$ là
+\choice
+{$2$}
+{$3$}
+{$4$}
+{\True $5$}
+\loigiai{
+	Hình chiếu vuông góc của $M\left(-2;3;4\right)$ trên trục $Ox$ là $N\left(-2;0;0\right)$.\\
+	Khoảng cách từ điểm $M$ đến trục $Ox$ là độ dài đoạn
+	$$MN = \left|\overrightarrow{MN}\right| =  \sqrt{(-2+2)^2 + (0-3)^2 + (0-4)^2} = 5.$$
+	}
+\end{ex}
+%Câu 12
+\begin{ex}%[2H2H2-4]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $O xyz$, cho $A\left (3 ; 2 ; 1\right )$, $B\left (-1 ; 3 ; 2\right )$, $C\left (2 ; 4 ;-3\right )$. Tích vô hướng $\overrightarrow{A B} \cdot \overrightarrow{A C}$ bằng
+\choice
+{\True $2$}
+{$-2$}
+{$6$}
+{$-6$}
+\loigiai{
+	Ta có $\overrightarrow{AB} = \left (-4;1;1 \right )$, $\overrightarrow{AC} = \left (-1;2;-4\right )$. \\
+	Suy ra $\overrightarrow{AB} \cdot \overrightarrow{AC} = 4+2-4 = 2$.
+}
+\end{ex}
+\Closesolutionfile{ans}
+%\indapan{6}{ans-ABCD}
+%\cauds
+\begin{center}
+	\textbf{PHẦN 2 - Câu trắc nghiệm đúng sai. Trong mỗi ý a, b, c, d ở mỗi câu, thí sinh chọn đúng hoặc sai}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-DS]
+%Câu 1
+\begin{ex}%[2H2H2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini{
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh $2$, $SA$ vuông góc với đáy và $SA=5$. \\
+	Chọn hệ trục $Oxyz$ sao cho gốc $O$ trùng với $A$; các điểm $B$, $D$, $S$ lần lượt thuộc các tia $Ox$, $Oy$, $Oz$ (tham khảo hình minh họa bên).
+	\choiceTF
+	{$\overrightarrow{AD}=2\overrightarrow{i}$}
+	{\True $\overrightarrow{SA}=-5\overrightarrow{k}$}
+	{\True $C(2; 2; 0)$}
+	{$\overrightarrow{SC}=2\overrightarrow{i}+2\overrightarrow{j}+5\overrightarrow{k}$}
+}
+{
+	\begin{tikzpicture}[scale=0.85, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\def\a{4}
+		\path 
+		(0:0) coordinate (B)
+		(0:3) coordinate (C)
+		($(C)+(45:\a/2)$) coordinate (D)
+		($(B)+(45:\a/2)$) coordinate (A)
+		($(B)+(70:\a)$) coordinate (S)
+		;
+		\draw[dashed] 	(A)--(S);
+		\draw[dashed] 	(A)--(B);
+		\draw[dashed] 	(A)--(D);
+		\draw (S)--(B)--(C)--(D)--(S)--(C)	
+		pic[draw,angle radius=1.5mm]{right angle=D--A--S}
+		pic[draw,angle radius=1.5mm]{right angle=B--A--D}
+		pic[draw,angle radius=1.5mm]{right angle=S--A--B}
+		;	
+		\draw[->] (S)--++(0,1) node[above]{$z$};
+		\draw[->] (D)--++(1,0) node[right]{$y$};
+		\draw[->] (B)--($(A)!1.4!(B)$) node[left]{$x$};
+		\foreach \x/\g in {A/180,B/160,C/-70,D/60,S/30}
+		\draw[fill=black] 	(\x) circle (.5pt)
+		($(\g:.4)+(\x)$) node {$\x$};	
+	\end{tikzpicture}
+}
+\loigiai{Với hệ trục $Oxyz$ như hình vẽ, ta có $A(0;0;0)$, $B(2;0;0)$, $D(0;2;0)$, $S(0;0;5)$. 
+	\begin{itemchoice}
+		\itemch 
+		Ta có $\overrightarrow{AD}=(0;2;0)$ nên $\overrightarrow{AD}=2\overrightarrow{j}$.
+		\itemch 
+		Ta có $\overrightarrow{SA}=(0;0;-5)$ nên $\overrightarrow{SA}=-5\overrightarrow{k}$.
+		\itemch 
+		Do tứ giác $ABCD$ là hình bình hành nên $\overrightarrow{BC}=\overrightarrow{AD}$, suy ra $C(2;2;0)$.
+		\itemch 
+		Ta có $\overrightarrow{SC}=(2;2;-5)$ nên $\overrightarrow{SC}=2\overrightarrow{i}+2\overrightarrow{j}-5\overrightarrow{k}$.
+	\end{itemchoice}
+}
+\end{ex}
+%Câu 2
+\begin{ex}%[2H2V2-6]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trên sân thể dục, thầy giáo dựng hai chiếc cột $AB$, $CD$ vuông góc với mặt sân, chiều cao của mỗi cột lần lượt là $3$ m; $2$ m và căng sợi dây $BD$. Xét hệ trục tọa độ $Oxyz$ sao cho mặt phẳng $(Oxy)$ trùng với mặt sân, trục $Oz$ hướng thẳng đứng lên trời.
+\begin{center}
+	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1,declare function={a=5.5;b=2.5;goc=70;}]
+		\path (0,0) coordinate (E)
+		(a,0) coordinate (F)
+		(goc:b) coordinate (H)
+		($(F)-(E)+(H)$) coordinate (G)
+		(40:2.5) coordinate (A)
+		(10:5) coordinate (C)
+		(10:2.8) coordinate (M)
+		($(A)+(0,3)$) coordinate (B)
+		($(C)+(0,2)$) coordinate (D)
+		;
+		\fill[green!20] (E)--(F)--(G)--(H)--cycle;
+		\draw[double] (E)--(F)--(G)--(H)--cycle;
+		\draw[thick] (A)--(B) (C)--(D);
+		\draw (B)--(M)--(D)--cycle
+		(A)node[left]{$A(8;5;0)$} (C)node[below]{$C(3;2;0)$}
+		;
+		\fill (A) circle (1.5pt) (C) circle (1.5pt);
+		\foreach \x/\gm in {M/-90,B/90,D/90} \fill (\x) circle (1pt) ($(\x)+(\gm:3.5mm)$)node{$\x$};
+	\end{tikzpicture}	
+\end{center}
+\choiceTF
+{\True Tọa độ hai đầu cột là $B(8;5;3)$, $D(3;2;2)$}
+{\True Sợi dây $BD$ có chiều dài là $\sqrt{35}$ m}
+{\True Diện tích hình thang $ABCD$ bằng $ \dfrac{5\sqrt{34}}{2}\ \mathrm{~m}^2$}
+{Một học sinh đang ở vị trí $M\left(\dfrac{11}{2};\dfrac{7}{2};0\right)$ thì tổng khoảng cách từ điểm $M$ đến hai đầu cột là ngắn nhất}
+\loigiai{
+	\begin{itemchoice}
+		\itemch \textbf{Đúng}. Chiều cao cột $AB=3$ m nên tọa độ điểm $B(8;5;3)$, chiều cao cột $CD=2$ m nên tọa độ điểm $D(3;2;2)$. 
+		\itemch \textbf{Đúng}. Ta có $\overrightarrow{BD}=(-5;-3;-1)\Rightarrow BD=\sqrt{(-5)^2+(-3)^2+(-1)^2}=\sqrt{35}$ m. 
+		\itemch \textbf{Đúng}. Ta có $AB=3$ m, $CD=2$ m, $\overrightarrow{AC}=(-5;-3;0)\Rightarrow AC=\sqrt{(-5)^2+(-3)^2}=\sqrt{34}$ m.\\
+		Vậy diện tích hình thang $ABCD$ là $$S_{ABCD}=\dfrac{(AB+CD)\cdot AC}{2}=\dfrac{(3+2)\cdot\sqrt{34}}{2}=\dfrac{5}{2}\sqrt{34} \; (\text{m}^2).$$
+		\itemch \textbf{Sai}.
+		{
+		\begin{center}
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1,declare function={a=5.5;b=2.5;goc=70;}]
+				\path (0,0) coordinate (E)
+				(a,0) coordinate (F)
+				(goc:b) coordinate (H)
+				($(F)-(E)+(H)$) coordinate (G)
+				(40:2.5) coordinate (A)
+				(10:5) coordinate (C)
+				(10:2.8) coordinate (M)
+				($(A)+(0,3)$) coordinate (B)
+				($(C)+(0,2)$) coordinate (D)
+				($(C)+(0,-2)$) coordinate (D')
+				(intersection of B--D' and M--D) coordinate (M')
+				(intersection of E--F and M'--D') coordinate (M'')
+				(intersection of E--F and C--D') coordinate (D'')
+				;
+				%			\fill[green!20] (E)--(F)--(G)--(H)--cycle;
+				\draw[double] (E)--(F)--(G)--(H)--cycle;
+				\draw[thick] (A)--(B) (C)--(D)node[pos=0.5,rotate=-20]{$/$};
+				\draw (B)--(D)--cycle
+				(A) (C)
+				(B)--(M') (M'')--(D') (D'')--(D')node[pos=0.3,rotate=-20]{$/$}
+				;
+				\draw[dashed] (M')node[shift={(-120:4mm)}]{$M$}--(M'')
+				(C)--(D'')
+				;
+				\fill (A) circle (1.5pt) (C) circle (1.5pt)
+				(M') circle (1.5pt)
+				;
+				\foreach \x/\gm in {B/90,D/90,D'/-90,A/180,C/20} \fill (\x) circle (1pt) ($(\x)+(\gm:3.5mm)$)node{$\x$};
+			\end{tikzpicture}	
+		\end{center}	
+		}
+		Ta xét $M\in (Oxy)$.\\
+		Vì $z_B>0$, $z_D>0$ nên $B$ và $D$ nằm về cùng một phía so với mặt phẳng $(Oxy)$.\\
+		Gọi $D'(3;2;-2)$ là điểm đối xứng của $D$ qua $(Oxy)$. Suy ra $MD=MD'$\\
+		Ta có $MB+MD=MB+MD'\geqslant BD'$,\\
+		Dấu \lq\lq$=$\rq\rq\ xảy ra khi và chỉ khi $M$, $B$, $D'$ thẳng hàng.\\
+		Gọi $M\left(x_M;y_M;0\right)\in (Oxy)$\\
+		$\Rightarrow\overrightarrow{BM}=(x_M-8;y_M-5;-3)$, $\overrightarrow{D'B}=\left(5;3;5\right)$.	\\
+		Vì $M$, $B$, $D'$ thẳng hàng nên $\overrightarrow{BM}$ và $\overrightarrow{D'B}$ cùng phương suy ra \[\dfrac{x_M-8}{5}=\dfrac{y_M-5}{3}=\dfrac{-3}{5}\Rightarrow\heva{& x_M=5 \\ & y_M=\dfrac{16}{5}}\Rightarrow M\left(5;\dfrac{16}{5};0\right).\]
+	\end{itemchoice}
+}
+\end{ex}
+\Closesolutionfile{ans}
+\begin{center}
+	\textbf{PHẦN 3 - Câu trắc nghiệm trả lời ngắn}
+\end{center}
+\setcounter{ex}{0}
+%Câu 1
+\begin{ex}%[2H2H2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxyz$, cho hai vectơ $\overrightarrow{a}=(-4 ; 2 ; 5)$ và $\overrightarrow{b}=(3 m+2 ; 2 ; 6-n)$. Biết rằng hai vectơ $\overrightarrow{a}, \overrightarrow{b}$ bằng nhau. Tính giá trị biểu thức $Q=6 m+2 n$.
+\shortans{$ -10$}
+\loigiai
+{
+Vì $\overrightarrow{a}=\overrightarrow{b}$ nên $\heva{& 3m+2=-4 \\ &6-n=5 }\Leftrightarrow \heva{& m=-2 \\ &n=1. }$\\
+	Vậy $Q=-10$.
+}
+\end{ex}
+%Câu 2
+\begin{ex}%[2H2V2-3]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini[thm]
+{
+	Ở một sân bay, vị trí của máy bay được xác định bởi điểm $M$ trong không gian $Oxyz$ như hình vẽ. Gọi $H$ là hình chiếu của $M$ lên mặt phẳng $(Oxy)$. Biết $OM=79$, $(\overrightarrow{OH}, \overrightarrow{OM})=50^{\circ}$ và $(\overrightarrow{i},\overrightarrow{OH})=68^{\circ}$. Nếu $M(a;b;c)$ thì tổng $a+b+c$ có phần nguyên bằng bao nhiêu?
+	\shortans{$136$}	
+}
+{
+	\begin{tikzpicture}[scale=0.9, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\path 
+		(0,0) coordinate (O)++(0:4) coordinate (B)
+		(O)++(90:2) coordinate (C)
+		(O)++(-140:2) coordinate (A)		
+		($(A)+(B)-(O)$) coordinate (H)
+		($(H)+(C)-(O)$) coordinate (M)
+		($(O)!1.3!(A)$) coordinate (x) node[below]{$x$}
+		($(O)!1.2!(B)$) coordinate (y) node[below]{$y$}
+		($(O)!1.3!(C)$) coordinate (z) node[right]{$z$}
+		($(O)!0.3!(A)$) coordinate (i) node[below,scale =0.7]{$\overrightarrow{i}$}
+		($(O)!0.3!(B)$) coordinate (j) node[below,scale =0.7]{$\overrightarrow{j}$}
+		($(O)!0.3!(C)$) coordinate (k) node[right,scale =0.7]{$\overrightarrow{k}$}
+		;
+		\draw (O)--(A) (O)--(B) (O)--(C) (O)--(M);
+		\draw[dashed] (C)--(M)--(H)--(O) (A)--(H)--(B)
+		;
+		\pic[draw,thin,angle radius=2mm] {right angle = M--C--O}
+		pic[draw,thin,angle radius=2mm] {right angle = H--B--O}
+		pic[draw,thin,angle radius=2mm] {right angle = H--A--O}
+		;
+		\draw[->] (A)--(x); 
+		\draw[->] (B)--(y);
+		\draw[->] (C)--(z);
+		\draw[->,red] (O)--(i); 
+		\draw[->,red] (O)--(j);
+		\draw[->,red] (O)--(k);
+		\foreach \x/\g in {A/130,H/-90,B/80,C/170,O/-90,M/45}
+		\fill (\x) circle (1pt)
+		+(\g:3mm) node[scale = 0.8]{$\x$};
+	\end{tikzpicture}	
+}
+\loigiai{
+	Tam giác $OMH$ vuông tại $H$, $OM = 79$; $\widehat{MOH} = 50^\circ$ nên ta có 
+	$$OH = OM\cdot \cos 50^\circ=70 \cdot\cos 50^\circ ; \; OC = MH = OM \cdot \sin 50^\circ=70 \cdot \sin 50^\circ.$$
+	Tam giác $OAH$ vuông tại $A$, $\widehat{AOH} = 68^\circ$ nên ta có 
+	$$OA = OH\cdot \cos 68^\circ=70 \cdot\cos 50^\circ\cdot\cos 68^\circ.$$
+	$$OB = AH = OH\cdot \sin 68^\circ=70 \cdot\cos 50^\circ\cdot\sin 68^\circ.$$
+	Ta có
+	\begin{eqnarray*}
+		\overrightarrow{OM} & = & \overrightarrow{OC} + \overrightarrow{OH} \\
+		& = & \overrightarrow{OC} + \overrightarrow{OA}+\overrightarrow{OB} \\
+		& = & \left| OA\right|\overrightarrow{i}+\left| OB\right|\overrightarrow{j}+\left| OC\right|\overrightarrow{k}.
+	\end{eqnarray*}
+	Suy ra
+	\begin{align*}
+	a+b+c&=\left| OC\right|+\left| OA\right|+\left| OB\right|\\
+	&=70 \cdot \sin 50^\circ+ 70 \cdot\cos 50^\circ\cdot\cos 68^\circ+70 \cdot\cos 50^\circ\cdot\sin 68^\circ\\
+	&\approx 136.
+	\end{align*}
+}
+\end{ex}
+%Câu 3...........................
+\begin{ex}%[2H2H2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxyz$, cho tam giác $ABC$ biết $A(3;1;5)$, $B(-1;-5;2)$ và $C(0;1;0)$. Gọi $M$ là điểm trên đoạn $BC$ sao cho $MC=2MB$. Tính độ dài đoạn thẳng $AM$ (kết quả làm tròn đến hàng phần mười).
+\shortans{$6{,}5$}
+\loigiai{
+	\immini{Gọi $M(a;b;c)$ là điểm nằm trên $BC$ thỏa $MC=2MB$.\\
+		Theo hình vẽ, ta thấy  $\overrightarrow{MC}=-2\overrightarrow{MB}$.
+		\[\heva{&0-a=-2\cdot (-1-a)\\&1-b=-2\cdot (-5-b)\\&0-c=-2\cdot (2-c)}\Leftrightarrow \heva{&a=-\dfrac{2}{3}\\&b=-3\\&c=\dfrac{4}{3}.}\]
+		Suy ra, tọa độ điểm $M\left(-\dfrac{2}{3};-3;\dfrac{4}{3}\right)$.
+	}{\begin{tikzpicture}[scale=.8]
+			\coordinate (A) at (0,3);
+			\coordinate (B) at (-2,0);
+			\coordinate (C) at (3,0);
+			\draw(A)--(B)--(C)--cycle;
+			%6) ĐIỂM M THUỘC ĐƯỜNG AB TỈ SỐ BẰNG 3
+			\coordinate (M) at ($(B)!1/3!(C)$);
+			\draw(A)--(M);
+			\foreach \i/\g in {A/90,B/-90,C/-90,M/-90}{\draw[fill=black](\i) circle (1pt) ($(\i)+(\g:3mm)$) node[scale=1]{$\i$};}
+	\end{tikzpicture}
+}
+\noindent Độ dài đoạn $AM=\sqrt{\left(-\dfrac{2}{3}-3\right)^2+(-3-1)^2+\left(\dfrac{4}{3}-5\right)^2}\approx 6{,}5$.	
+}
+\end{ex}
+%Câu 4
+\begin{ex}%[2H2V2-6]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini[thm]
+{
+	Ông Năm muốn xây một cái bể chứa nước mưa, không có nắp dạng hình hộp chữ nhật $ABCD.A'B'C'D'$ với đáy là hình vuông có thể tích là $32\mathrm{~m}^3$. Bể được gắn vào hệ trục tọa độ $Oxyz$ (\textit{được mô hình hóa như hình vẽ bên}) với điểm $A$ trùng gốc tọa độ $O$ và điểm $D'(a;b;c)$. Với chi phí xây dựng là $600\ 000$ đồng$/\mathrm{m}^2$, hãy tính giá trị biểu thức $\mathscr{D}=a+b+c$ để bể được xây dựng với chi phí tiết kiệm nhất.
+	\shortans{$6$}	
+}
+{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth,declare function={ab=1.5;ad=4;cao=2.2;gocB=35;}]
+		\path (0,0) coordinate (B)
+		(ad,0) coordinate (C)
+		(gocB:ab) coordinate (A)
+		($(C)-(B)+(A)$) coordinate (D)
+		($(A)+(90:cao)$) coordinate (A')
+		($(B)+(90:cao)$) coordinate (B')
+		($(C)+(90:cao)$) coordinate (C')
+		($(D)+(90:cao)$) coordinate (D')
+		($(A)!1.45!(B)$) coordinate (x)
+		($(A)!1.3!(D)$) coordinate (y)
+		($(A)!1.4!(A')$) coordinate (z)
+		;
+		\draw[dashed] (A')--(A)--(B) (A)--(D)
+		;
+		\draw (A')--(B')--(C')--(D')--cycle 
+		(D)--(D')--(C')--(C) (C')--(B')--(B) (D)--(C)--(B)
+		;
+		\draw[->] (D)--(y)node[shift={(90:3.5mm)}]{$y$};
+		\draw[->] (A')--(z)node[shift={(180:3.5mm)}]{$z$};
+		\draw[->] (B)--(x)node[shift={(130:3.5mm)}]{$x$};
+		\fill (D')node[shift={(90:3.5mm)}]{$D'(a;b;c)$} circle (1.5pt);
+		\foreach \x/\gm in {A'/50,B'/90,C'/90,A/160,B/-90,D/40,C/-90} \fill (\x) circle (1.5pt) ($(\x)+(\gm:3.5mm)$)node{$\x$};
+	\end{tikzpicture}		
+}
+\loigiai{Gắn hệ trục như hình vẽ nên $A\equiv O(0;0;0)$.\\
+	Vì $D'\in (yOz)\Rightarrow a=0\Rightarrow D'(0;b;c)$.\\
+	Vì đáy $ABCD$ là hình vuông nên $AB=AD=b$. Thể tích khối hộp là $32$ nên ta có \[V_{ABCD.A'B'C'D'}=AB\cdot AD\cdot AA'=b\cdot b\cdot c=b^2\cdot c\]
+	Suy ra $b^2c=32\Rightarrow c=\dfrac{32}{b^2}$.\\
+	Diện tích toàn phần là \allowdisplaybreaks
+	\begin{eqnarray*}
+		S_{\text{tp bể}}&=&b^2+4bc\\
+		&=&b^2+4b\cdot\dfrac{32}{b^2}\\
+		&=&b^2+\dfrac{64}{b}+\dfrac{64}{b}\\
+		&\geqslant&3\sqrt[3]{b^2\cdot\dfrac{64}{b}\cdot\dfrac{64}{b}}\\
+		&=&48.
+	\end{eqnarray*}
+	Chi phí ít nhất khi $S_{\text{tp bể}}$ min $\Leftrightarrow b^2=\dfrac{64}{b}\Leftrightarrow b=4\Rightarrow c=2$.\\
+	Vậy $a+b+c=6$.
+}
+\end{ex}	
+\Closesolutionfile{ansKQ}
+\begin{center}
+	\textbf{PHẦN 4 - Tự luận.}
+\end{center}
+\setcounter{ex}{0}
+%Câu 1
+\begin{ex}%[2H2V1-4]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Cho ba lực $\overrightarrow{F_1}=\overrightarrow{MA}$, $\overrightarrow{F_2}=\overrightarrow{MB}$, $\overrightarrow{F_3}=\overrightarrow{MC}$ cùng tác động vào một xe hàng tại điểm $M$ và xe hàng đứng yên. Cho biết cường độ hai lực $\overrightarrow{F}_1$, $\overrightarrow{F}_2$ đều bằng $25N$ và góc $\widehat{AMB}=60^{\circ}$ (tham khảo hình bên dưới). Tính cường độ lực $\overrightarrow{F}_3$.
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+		\filldraw[fill=orange!60, rounded corners] (0,1)--(0,0)--(3,0)--(3,1)--cycle (-0.1,1)--(3.1,1)--(3.1,1.2)--(-0.1,1.2)--cycle;
+		\foreach \x/\y in {2.5/-0.2,0.5/-0.2}{
+			\begin{scope}[shift={(\x,\y)}]
+				% Banh xe
+				\path
+				(0,0) coordinate (O)
+				($(O) + (0:0.3)$) coordinate (A)
+				($(O) + (60:0.3)$) coordinate (B)
+				($(O) + (120:0.3)$) coordinate (C)
+				($(O) + (180:0.3)$) coordinate (A')
+				($(O) + (240:0.3)$) coordinate (B')
+				($(O) + (300:0.3)$) coordinate (C')
+				;
+				\filldraw[fill = white, draw = orange!40!brown,line width=0.5mm] (O) circle (0.3);
+				\draw[draw = orange!40!brown,line width=0.5mm] (A)--(A') (B)--(B') (C)--(C');
+		\end{scope}}
+		\path
+		(-3,0.5) coordinate (C)
+		(6,0.5) coordinate (D)
+		(4,2) coordinate (A)
+		(4,-1.0) coordinate (B);
+		\coordinate (M) at ($(C)!0.5!(D)$);
+		\draw[->] (M)--(C);
+		\draw[->] (M)--(A);
+		\draw[->] (M)--(B);
+		\foreach \x/\g in{C/90,M/90,A/90,B/-90}
+		\fill[black](\x)circle(1pt) ($(\x)+(\g:3mm)$)node{$\x$};
+		\pic["$60^\circ$"{shift={(1pt,3pt)}},draw,angle radius=4mm,angle eccentricity=1.79] {angle = B--M--A};
+	\end{tikzpicture}
+\end{center}
+\loigiai{
+	Vì ba lực $\overrightarrow{F_1}=\overrightarrow{MA}$, $\overrightarrow{F_2}=\overrightarrow{MB}$, $\overrightarrow{F_3}=\overrightarrow{MC}$ cùng tác động vào một xe hàng tại điểm $M$ và xe hàng đứng yên nên $\left|\overrightarrow{F}_3\right|=\left|\overrightarrow{F}_1+\overrightarrow{F}_2\right|$.\\
+	Ta có $\left|\overrightarrow{F}_1+\overrightarrow{F}_2\right|^2=\left|\overrightarrow{F}_1\right|^2+\left|\overrightarrow{F}_2\right|^2+2\overrightarrow{F}_1\cdot \overrightarrow{F}_2=25^2+25^2+2\cdot 25\cdot 25\cdot \cos 60^\circ=1875$.\\
+	Vậy $\left|\overrightarrow{F}_1+\overrightarrow{F}_2\right|=\sqrt{1875}=25\sqrt{3}$N.
+}
+\end{ex}
+%Câu 2
+\begin{ex}%[2H2V2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	\immini
+{
+	Cho hình chóp $S\cdot ABCD$ có đáy $ABCD$ là hình chữ nhật với $AB=3$, $AD=4$, $SA=5$ và $SA\perp(ABCD)$. Xét hệ tọa độ $Oxyz$ với $O$ trùng với $A$ và các tia $Ox$, $Oy$, $Oz$ lần lượt trùng với các tia $AB$, $AD$, $AS$. Biết tọa độ véctơ $\overrightarrow{AM}=\left(2;\dfrac{a}{3}; \dfrac{b}{3}\right)$, với $M$ là điểm thuộc $SC$ sao cho $\overrightarrow{SM}=2\overrightarrow{MC}$. Tính giá trị của $3a+b-3$.
+}
+{
+	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.8,declare function={ab=2.5;ad=4.5;gs=90;sa=3;gocA=-130;}]
+		\path 
+		(0,0) coordinate (A)
+		(ad,0) coordinate (D)
+		(gocA:ab) coordinate (B)
+		($(D)-(A)+(B)$) coordinate (C)
+		(gs:sa) coordinate (S)
+		($(S)!2/3!(C)$) coordinate (M)
+		($(A)!1.2!(B)$) coordinate (x)
+		($(A)!1.2!(D)$) coordinate (y)
+		($(A)!1.2!(S)$) coordinate (z)
+		;
+		\draw (S)--(B)--(C)--(D)--(S)--(C);
+		\draw[dashed] (S)--(A)--(D) (B)--(A);
+		\draw[->,>=stealth,dashed] (A)--(M);
+		\draw[->,>=stealth] 
+		(B)--(x)node[shift={(-20:3.5mm)}]{$x$};
+		\draw[->,>=stealth] (D)--(y)node[shift={(90:3.5mm)}]{$y$};
+		\draw[->,>=stealth] (S)--(z)node[shift={(0:3.5mm)}]{$z$}
+		;
+		\foreach \x/\gm in {A/150,B/180,C/-20,D/60,S/180,M/-90} \fill (\x) circle (1pt) ($(\x)+(\gm:3.5mm)$)node{$\x$};
+		\foreach \x/\y/\z in {B/A/D/,S/A/D,A/D/C,A/B/C,D/C/B} \draw pic[draw,angle radius=2.5mm]{right angle=\x--\y--\z};
+	\end{tikzpicture}	
+}
+\loigiai{
+	Ta có tọa độ $A(0;0;0)$, $B(3;0;0)$, $C(3;4;0)$, $D(0;4;0)$, $S(0;0;5)$.\\
+	Gọi $M(x_M;y_M;z_M)\Rightarrow\overrightarrow{SC}=\left(3;4;-5\right)$, $\overrightarrow{SM}=\left(x_M;y_M;z_M-5\right)$.\\
+	Vì $\overrightarrow{SM}=2\overrightarrow{MC}\Rightarrow\overrightarrow{SM}=\dfrac{2}{3}\overrightarrow{SC}\Leftrightarrow\heva{& x_M=\dfrac{2}{3}\cdot 3 \\ & y_M=\dfrac{2}{3}\cdot 4 \\ & z_M-5=\dfrac{2}{3}\cdot(-5)}\Leftrightarrow\heva{& x_M=2 \\ & y_M=\dfrac{8}{3} \\ & z_M=\dfrac{5}{3}}\Rightarrow M\left(2;\dfrac{8}{3};\dfrac{5}{3}\right)$.\\
+	Vậy $\overrightarrow{AM}=\left(2;\dfrac{8}{3};\dfrac{5}{3}\right)=\left(2;\dfrac{a}{3};\dfrac{b}{3}\right)\Rightarrow\heva{& a=8 \\ & b=5.}$\\
+	Vậy $3a+b-3=3\cdot 8+5-3=26$.
+}
+\end{ex}
+%Câu 3
+\begin{ex}%[2H2V2-2]%[Dự án D - đợt 3 NH 24-25 - Xuan Vy Pham]
+	Trong không gian $Oxy$z, cho bốn điểm $A\left(-6;4;-1\right)$, $B\left(1;1;2\right)$, $C\left(-3;2;4\right)$ và $D\left(-1;-1;0\right)$. Biết tọa độ điểm $M\left(a;b;c\right)$ thì biểu thức $MA^2+MB^2+MC^2+2MD^2$ đạt giá trị nhỏ nhất. Tính giá trị của biểu thức $100a+10b+c$.
+\loigiai{
+	Xét điểm $I\left(a;b;c\right)$ thỏa mãn $\overrightarrow{IA}+\overrightarrow{IB}+\overrightarrow{IC}+2\overrightarrow{ID}=\overrightarrow{0}$.\\
+	Ta có $\heva{&-6-a+1-a-3-a-1-a=0\\
+		&4-b+1-b+2-b-1-b=0\\
+		&-1-c+2-c+4-c-c=0
+	}$
+	$\Rightarrow \heva{&a=-\dfrac{9}{4}\\
+		&b=\dfrac{3}{2}\\
+		&c=\dfrac{5}{4}.
+	}$\\
+	Vậy $I\left(-\dfrac{9}{4};\dfrac{3}{2};\dfrac{5}{4}\right)$.\\
+	Ta có:
+	$MA^2+MB^2+MC^2+MD^2=\left(\overrightarrow{MI}+\overrightarrow{IA} \right)^2+\left(\overrightarrow{MI}+\overrightarrow{IB} \right)^2+\left(\overrightarrow{MI}+\overrightarrow{IC} \right)^2+2\left(\overrightarrow{MI}+\overrightarrow{ID}\right)^2$.\\
+	Suy ra $MA^2+MB^2+MC^2+MD^2=5\overrightarrow{MI}^2+\overrightarrow{IA}^2+\overrightarrow{IB}^2+\overrightarrow{IC}^2+2\overrightarrow{ID}^2$.\\
+	Biểu thức trên đạt GTNN khi $M\equiv I\Rightarrow M\left( -\dfrac{9}{4};\dfrac{3}{2};\dfrac{5}{4} \right)$.\\
+	Vậy $100a+10b+c=100\cdot\left(-\dfrac{9}{4}\right)+10\cdot\dfrac{3}{2}+\dfrac{5}{4}=-\dfrac{835}{4}$.
+}
+\end{ex}

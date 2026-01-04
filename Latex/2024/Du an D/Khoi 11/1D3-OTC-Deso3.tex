@@ -1,0 +1,384 @@
+\newpage
+\def\thoigian{90}%--Thời gian
+\de{Đề số 3}{Chương III. Giới hạn. Hàm số liên tục}
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE1]
+\begin{ex}%[1D3N1-1]%[Lê Phúc]%[Dự án D đợt 4]
+	Trong các mệnh đề dưới đây, mệnh đề nào \textbf{sai}?
+	\choice
+	{Nếu $\lim\limits_{n \to+\infty}u_n=+\infty$ và $\lim \limits_{n \to+\infty}v_n=a>0$ thì $\lim \limits_{n \to+\infty}\left(u_nv_n\right)=+\infty$}
+	{Nếu $\lim\limits_{n \to+\infty}u_n=a \neq 0$ và $\lim \limits_{n \to+\infty}v_n=\pm \infty$ thì $\lim\limits_{n \to+\infty} \dfrac{u_n}{v_n}=0$ }
+	{\True Nếu $\lim\limits_{n \to+\infty}u_n=a > 0$ và  $\lim\limits_{n \to+\infty}v_n=0$ thì $\lim\limits_{n \to+\infty} \dfrac{u_n}{v_n}=+\infty$}
+	{Nếu $\lim\limits_{n \to+\infty}u_n=a < 0$, $\lim v_n=0$ và $v_n>0$ với mọi $n$ thì $\lim\limits_{n \to+\infty}\dfrac{u_n}{v_n}=-\infty$}
+	\loigiai
+	{
+		Nếu $\lim u_n=a > 0$ và  $\lim v_n=0$ thì $\lim \dfrac{u_n}{v_n}=+\infty$ hoặc $\lim \dfrac{u_n}{v_n}=-\infty$ tùy thuộc vào dấu của $v_n$.
+	}
+\end{ex}
+\begin{ex}%[1D3N1-1]%[Lê Phúc]%[Dự án D đợt 4]
+	Phát biểu nào sau đây là \textbf{sai}?
+	\choice
+	{$\lim\limits_{n \to+\infty}u_n=c$ ($u_n=c$ là hằng số)}
+	{\True $\lim\limits_{n \to+\infty}q^n=0$ ($|q|>1$)}
+	{$\lim\limits_{n \to+\infty}\dfrac{1}{n}=0$}
+	{$\lim\limits_{n \to+\infty}\dfrac{1}{n^k}=0$ ($k \in \mathbb{N^*}$)}
+	\loigiai{
+		Theo định nghĩa giới hạn hữu hạn của dãy số thì $\lim \limits_{n \to+\infty}q^n=0$ ($|q|<1$)
+	}
+\end{ex}
+\begin{ex}%[1D3N1-2]%[Lê Phúc]%[Dự án D đợt 4]
+	$\lim\limits_{n \to+\infty}\dfrac{7n^2-2n^3+1}{3n^3+2n^2+1}$ bằng
+	\choice
+	{$\dfrac{7}{3}$}
+	{\True $-\dfrac{2}{3}$}
+	{$0$}
+	{$1$}
+	\loigiai{
+		Ta có $\lim\limits_{n \to+\infty}\dfrac{7n^2-2n^3+1}{3n^3+2n^2+1}=\lim\limits_{n \to+\infty}\dfrac{\dfrac{7}{n}-2+\dfrac{1}{n^3}}{3+\dfrac{2}{n}+\dfrac{1}{n^3}}=-\dfrac{2}{3}$.
+	}
+\end{ex}
+\begin{ex}%[1D3H2-3]%[Lê Phúc]%[Dự án D đợt 4]
+	$\lim\limits_{n \to +\infty}\dfrac{100^{n+1} + 3\cdot99^n}{10^{2n} - 2\cdot98^{n+1}}$ là
+	\choice
+	{$+\infty$}
+	{\True $100$}
+	{$\dfrac{1}{100}$}
+	{$0$}
+	\loigiai{
+	Ta có	$\lim\limits_{n \to +\infty}\dfrac{100^{n+1} + 3\cdot99^n}{10^{2n} - 2\cdot98^{n+1}} = \lim\limits_{n \to +\infty} \dfrac{100 + 3\left(\dfrac{99}{100}\right)^n}{1 - 2\left(\dfrac{98}{100}\right)^{n}\cdot 98} = 100$.
+	}
+\end{ex}
+% GH hàm số
+\begin{ex}%[1D3N2-2]%[Lê Phúc]%[Dự án D đợt 4]
+	Giới hạn $L=\lim\limits_{x\to 3} \dfrac{x-3}{x+3}$ bằng
+	\choice
+	{$L=-\infty$}
+	{\True $L=0$}
+	{$L=+\infty$}
+	{$L=1$}
+	\loigiai{
+		Ta có $L=\lim\limits_{x\to 3} \dfrac{x-3}{x+3}=\dfrac{3-3}{3+3}=0$.
+	}
+\end{ex}
+\begin{ex}%[1D3H2-4]%[Lê Phúc]%[Dự án D đợt 4]
+	Tính giới hạn $\lim\limits_{x\to-\infty} \left(2x^3-x^2+1\right)$.
+	\choice
+	{$+\infty$}
+	{\True $-\infty$}
+	{$2$}
+	{$0$}
+	\loigiai{
+		Ta có $\lim\limits_{x\to-\infty} \left(2x^3-x^2+1\right)=\lim\limits_{x\to-\infty} \left[x^3 \left(2-\dfrac{1}{x^2}+\dfrac{1}{x^3} \right)\right]=-\infty$.\\
+	Vì $\heva{&\lim\limits_{x\to-\infty} x^3=-\infty\\&\lim\limits_{x\to-\infty}\left(2-\dfrac{1}{x^2}+\dfrac{1}{x^3} \right)=2>0.}$
+	}
+\end{ex}
+\begin{ex}%[1D3H2-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Tính $\lim\limits_{x\to 5} \dfrac{x^2-12x+35}{25-5x}$.
+	\choice
+	{$-\dfrac{2}{5}$}
+	{$+\infty$}
+	{\True $\dfrac{2}{5}$}
+	{$-\infty$}
+	\loigiai{
+		Ta có $\lim\limits_{x\to 5} \dfrac{x^2-12x+35}{25-5x}=\lim\limits_{x\to 5} \dfrac{\left(x-7\right)\left(x-5\right)}{-5\left(x-5\right)}=\lim\limits_{x\to 5} \dfrac{x-7}{-5}=\dfrac{2}{5}$.
+	}
+\end{ex}
+\begin{ex}%[1D3H2-7]%[Lê Phúc]%[Dự án D đợt 4]
+	Giới hạn $\lim\limits_{x\to \left(-1\right)^{+}} \dfrac{\sqrt{3x^2+1}-x}{x-1}$ bằng
+	\choice
+	{$\dfrac{1}{2}$}
+	{$-\dfrac{1}{2}$}
+	{$\dfrac{3}{2}$}
+	{\True $-\dfrac{3}{2}$}
+	\loigiai{
+		Ta có $\lim\limits_{x\to (-1)^{+}} \dfrac{\sqrt{3x^2+1}-x}{x-1}=\dfrac{\sqrt{4}+1}{-1-1}=-\dfrac{3}{2}$.
+	}
+\end{ex}
+	\begin{ex}%[1D3H3-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Hàm số nào sau đây gián đoạn tại $x=2$?
+	\choice[2]
+	{\True $y=\dfrac{3x-4}{x-2}$}
+	{$y=\sin x$}
+	{$y=x^4-2x^2+1$}
+	{$y=\tan x$}
+	\loigiai{
+		Ta có $y=\dfrac{3x-4}{x-2}$ có tập xác định $\mathscr{D}=\mathbb{R} \setminus\{2\}$, do đó gián đoạn tại $x=2$.
+	}
+\end{ex}
+	\begin{ex}%[1D3H3-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Tìm m để hàm số $f(x)=\heva{&\dfrac{x^2-4}{x+2} &\text{khi } x \neq-2\\ & m &\text{khi } x=-2}$ liên tục tại $x=-2$.
+	\choice
+	{\True $m=-4$}
+	{$m=2$}
+	{$m=4$}
+	{$m=0$}
+	\loigiai{
+		Hàm số liên tục tại $x=-2$ khi và chỉ khi $$\lim\limits_{x \to-2}\left(\dfrac{x^2-4}{x+2}\right)=f(2)\Leftrightarrow\lim\limits_{x \to-2} (x-2)=m\Leftrightarrow m=-4.$$
+	}
+\end{ex}
+\begin{ex}%[1D3H3-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Cho hàm số $f(x)=\heva{&\dfrac{1-\cos x}{x^2} &\text{khi } x \neq 0\\ &1 &\text{khi } x=0}$.
+	Khẳng định nào đúng trong các khẳng định sau?
+	\choice
+	{$f(x)$ có đạo hàm tại $x=0$}
+	{$f\left(\sqrt{2}\right) < 0$}
+	{$f(x)$ liên tục tại $x=0$}
+	{\True $f(x)$ gián đoạn tại $x=0$}
+	\loigiai{
+		Hàm số xác định trên $\mathbb{R}$.\\
+		Ta có $f(0)=1$ và $\lim\limits_{x \to 0} f(x)=\lim\limits_{x \to 0} \dfrac{1-\cos x}{x^2}=\lim\limits_{x \to 0} \dfrac{2\sin ^2\dfrac{x}{2}}{4\cdot\left(\dfrac{x}{2}\right)^2}=\dfrac{1}{2}$.\\
+		Vì $f(0) \neq \lim\limits_{x \to 0} f(x)$ nên $f(x)$ gián đoạn tại $x=0$.\\
+		Do đó $f(x)$ không có đạo hàm tại $x=0$.\\
+		Với $\forall x \neq 0$; $f(x)=\dfrac{1-\cos x}{x^2} \geq 0$ nên $f\left(\sqrt{2}\right)>0$.
+	}
+\end{ex}
+\begin{ex}%[1D3N3-2]%[Lê Phúc]%[Dự án D đợt 4]
+	Hàm số $f(x)$ có đồ thị như hình bên dưới không liên tục tại điểm có hoành độ là bao nhiêu?
+	\begin{center}
+		\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round, line cap=round,>=stealth]
+			\draw[->] (-2.1,0)--(5.1,0) node[below left] {$x$};
+			\draw[->] (0,-1.1)--(0,5.1) node[below left] {$y$};
+			\draw (0,0) node [below left] {$O$};
+			\foreach \x/\nx in {1/1,2/2}
+			\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\nx$};
+			\foreach \y/\ny in {1/1,3/3}
+			\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\ny$};
+			\draw[dashed,thin](1,0)--(1,3)--(0,3);
+			\draw[dashed,thin](2,0)--(2,1)--(0,1);
+			\begin{scope}
+				\clip (-2,-1) rectangle (5,5);
+				\draw[thick,samples=200,domain=1:-2,smooth,variable=\x] plot (\x,{2*(\x)^2+1});
+				\draw[thick,samples=200,domain=5:1,smooth,variable=\x] plot (\x,{(\x)-1});
+			\end{scope}
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$x=0$}
+	{\True $x=1$}
+	{$x=2$}
+	{$x=3$}
+	\loigiai{
+		Dựa vào đồ thị, ta thấy $\heva{&\lim\limits_{x\to 1^{+}}f(x)=0\\&\lim\limits_{x\to 1^{-}}f(x)=3}$ nên hàm số $f(x)$ gián đoạn tại $x=1$.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+
+\Opensolutionfile{ans}[ans/answer-DS-ONTAPCHUONG-DE1]
+\begin{ex}%[1D3H2-5]%[Lê Phúc]%[Dự án D đợt 4]
+	Cho $L=\lim\limits_{x \to-\infty}\left(\sqrt{x^2+a x+5}+x\right)$. Khi đó
+	\choiceTF
+	{\True $L=5$ khi $a=-10$}
+	{$L> 0$ khi $a > 0$}
+	{\True $L< 0$ khi $a > 0$}
+	{\True $L=-1$ thì $a$ là một nghiệm của phương trình $x^2-3x+2=0$}
+	\loigiai{
+		\allowdisplaybreaks
+		\begin{align*}
+			L&=\lim\limits_{x \to-\infty}\left(\sqrt{x^2+a x+5}+x\right)
+			\\
+			&=\lim\limits_{x \to-\infty} \dfrac{a x+5}{\sqrt{x^2+a x+5}-x}
+			\\
+			&=\lim\limits_{x \to-\infty} \dfrac{x\left(a+\dfrac{5}{x}\right)}{|x|\sqrt{1+\dfrac{a}{x}+\dfrac{5}{x^2}-x}}
+			\\
+			&=\lim\limits_{x \to-\infty} \dfrac{a+\dfrac{5}{x}}{-\sqrt{1+\dfrac{a}{x}+\dfrac{5}{x^2}}-1}=-\dfrac{a}{2}.
+		\end{align*}
+		\begin{itemchoice}
+			\itemch Ta có $L=5\Leftrightarrow-\dfrac{a}{2}=5\Leftrightarrow a=-10$.
+			\itemch Ta có $L> 0\Leftrightarrow-\dfrac{a}{2} > 0\Leftrightarrow a < 0$.
+			\itemch Ta có $L< 0\Leftrightarrow-\dfrac{a}{2} < 0\Leftrightarrow a > 0$.
+			\itemch Ta có $L=-1\Leftrightarrow-\dfrac{a}{2}=-1\Leftrightarrow a=2$.\\
+			$x^2-3x+2=0\Leftrightarrow\hoac{&x=2\\&x=1.}$
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[1D3V3-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Cho hàm số $y=f(x)=\heva{&\dfrac{\left|2x^2-7x+6\right|}{x-2} & \text{khi}\ x<2 \\& a+\dfrac{1-x}{2+x} & \text{khi}\ x \ge 2}$. Khi đó
+	\choiceTF
+	{Khi $a=3$ thì $\lim\limits_{x\to 2^+} f(x)=\dfrac{11}{2}$}
+	{\True $\lim\limits_{x\to 2^-} f(x)=-1$}
+	{Để hàm số liên tục tại $x_0=2$ thì $a=-\dfrac{1}{2}$}
+	{Biết $a$ là giá trị để hàm số $f(x)$ liên tục tại $x_0=2$, thì bất phương trình $-x^2+ax+\dfrac{7}{4}>0$ có $1$ nghiệm nguyên }
+	\loigiai{
+		\begin{itemchoice}
+			\itemch
+			Với $a=3$ thì $\lim\limits_{x\to 2^+} f(x)=\lim\limits_{x\to 2^+}\left(3+\dfrac{1-x}{2+x}\right)=3-\dfrac{1}{4}=\dfrac{11}{4}$.
+			\itemch
+			Tại $x_0=2$, ta có
+			\begin{itemize}
+				\item $f(2)=a-\dfrac{1}{4}$.
+				\item 
+				\begin{eqnarray*}
+					\lim\limits_{x\to 2^-} f(x)&=&\lim\limits_{x\to 2^-} \dfrac{\left|2x^2-7x+6\right|}{x-2}=\lim\limits_{x\to 2^-} \dfrac{|(x-2)(2x-3)|}{x-2}\\
+					&=&\lim\limits_{x\to 2^-} \dfrac{-(x-2)(2x-3)}{x-2}=-\lim\limits_{x\to 2^-}(2x-3)=-1.
+				\end{eqnarray*}
+			\end{itemize}
+			\itemch
+			Ta có $\lim\limits_{x\to 2^+} f(x)=\lim\limits_{x\to 2^+}\left(a+\dfrac{1-x}{2+x}\right)=a-\dfrac{1}{4}$.\\
+			Để hàm số liên tục tại $x_0=2$ thì $$f(2)=\lim\limits_{x\to 2^+} f(x)=\lim\limits_{x\to 2^-} f(x) \Leftrightarrow a-\dfrac{1}{4}=-1 \Leftrightarrow a=-\dfrac{3}{4}.$$
+			\itemch
+			Với $a=-\dfrac{3}{4}$, xét bất phương trình $-x^2-\dfrac{3}{4} x+\dfrac{7}{4}>0 \Leftrightarrow-\dfrac{7}{4}<x<1$.\\
+			Mà $x \in \mathbb{Z}$ nên $x \in\{-1 ; 0\}$.\\
+			Vậy bất phương trình đã cho có $2$ nghiệm nguyên.
+		\end{itemchoice}
+		
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/answer.tex}
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-ONTAPCHUONG-DE1]
+\begin{ex}%[1D3H1-4]%[Lê Phúc]%[Dự án D đợt 4]
+	Giới hạn $\lim\limits_{n \to +\infty}\dfrac{2n^2-3\sqrt{n}+1}{3n\sqrt{n}+2n}=\lim\limits_{n \to +\infty}\dfrac{a\sqrt{n}-\dfrac{3}{n}+\dfrac{1}{n\sqrt{n}}}{b+\dfrac{2}{\sqrt{n}}}$ với $a;b$ là các số tự nhiên. Tính $P=a+b^2$.
+	\shortans[oly]{$11$}
+	\loigiai{
+		Ta có
+		$$\lim\limits_{n \to +\infty}\dfrac{2n^2-3\sqrt{n}+1}{3n\sqrt{n}+2n}=\lim\limits_{n \to +\infty}\dfrac{n\sqrt{n}\left(2\sqrt{n}-\dfrac{3}{n}+\dfrac{1}{n\sqrt{n}}\right)}{n\sqrt{n}\left(3+\dfrac{2}{\sqrt{n}}\right)}=\lim\limits_{n \to +\infty}\dfrac{2\sqrt{n}-\dfrac{3}{n}+\dfrac{1}{n\sqrt{n}}}{3+\dfrac{2}{\sqrt{n}}}.$$
+		Suy ra $\heva{&a=2\\
+			&b=3.}$\\
+		Vậy $P=a+b^2=11$.
+	}
+\end{ex}
+\begin{ex}%[1D3H2-7]%[Dự án TLDT - 11]%[Võ Thanh Hiệp]
+	Hàm Heaviside có dạng $H(t)=\heva{&0 \text{ khi }t<0& \\&1 \text{ khi }t\ge 0&}$ thường được dùng để mô tả việc chuyển trạng thái tắt/mở của dòng điện tại thời điểm $t=0$. Tính $\lim\limits_{t\to 0^-}H(t)+\lim\limits_{t\to 0^+}H(t)$.
+	
+	\shortans{1}
+	\loigiai{
+		Xét dãy số $\left(t_n\right)$ bất kì sao cho $t_n<0$ và $t_n\to 0$, ta có $H\left( t_n \right)=0$.\\
+		Khi đó $\lim\limits_{t\to 0^-}H(x)=\lim\limits_{n\to +\infty} H\left(t_n \right)=0$.\\
+		Xét dãy số $\left(t_n \right)$ bất kì sao cho $t_n>0$ và $t_n\to 0$, ta có $H\left( t_n\right)=1$.\\
+		Khi đó $\lim\limits_{t\to 0^+}H(t)=\lim\limits_{n\to +\infty} H\left( t_n \right)=1$.
+	}
+\end{ex}
+\begin{ex}%[1D3V2-3]%[Lê Phúc]%[Dự án D đợt 4]
+	Trong hệ trục toạ độ $Oxy$, lấy điểm $A$ thuộc tia $Ox$ và điểm $B(0;2)$ thuộc tia $Oy$. Giả sử hoành độ điểm $A$ là $a>0$. Độ dài đường cao $OH$ của tam giác $OAB$ được tính theo công thức $\dfrac{2a}{\sqrt{4+a^2}}$. Khi điểm $A$ dịch chuyển ra vô cực theo chiều dương trục $Ox$ thì độ dài $AH$ thay đổi về gần giá trị bao nhiêu?
+	\begin{center}
+		\begin{tikzpicture}[scale=1,>=stealth, font=\footnotesize, line join=round, line cap=round]
+			\path
+			(0:0) coordinate (O)
+			++(0:4) coordinate (A)
+			(O)++(90:2.5) coordinate (B)
+			($(A)!(O)!(B)$) coordinate (H)
+			;
+			\draw[->] (O)--(B)node[left]{$2$}--++(90:1)node[left]{$y$};
+			\draw[->] (O)--(A)node[below]{$a$}--++(0:1)node[below]{$x$};
+			\draw (A)--(B)--(O)--(H);
+			\foreach \i/\j in{A/45,B/30,H/45,O/-150}{\fill [black](\i) circle (1pt) ($(\i)+(\j:3mm)$) node {\i};}
+			\pic [draw,angle radius=2mm] {right angle=A--H--O};
+		\end{tikzpicture}
+	\end{center}
+	
+	\shortans{2}
+	\loigiai{
+		Đặt $h(a)=OH=\dfrac{2a}{\sqrt{4+a^2}}$.\\
+		Khi điểm $A$ dịch chuyển ra vô cực theo tia $Ox$ thì $a\to +\infty$.\\
+		Ta có
+		$\lim\limits_{a\to +\infty }h(a)
+		=\lim\limits_{a\to +\infty }\dfrac{2a}{\sqrt{4+a^2}}
+		=\lim\limits_{a\to +\infty }\dfrac{2a}{a\sqrt{\dfrac{4}{a^2}+1}}
+		=\lim\limits_{a\to +\infty }\dfrac{2}{\sqrt{\dfrac{4}{a^2}+1}}
+		=\dfrac{2}{\sqrt{1}}=2$.\\
+		Vậy khi điểm $A$ dần về vô cực thì độ dài $OH$ dần về $2$.
+		
+	}
+	
+\end{ex}
+\begin{ex}%[1D3V3-6]%[Lê Phúc]%[Dự án D đợt 4]
+	Một chất điểm chuyển động với tốc độ được cho bởi hàm số\\ $v(t)=\heva{&m+5&\text{khi}&\,\,0\le t\le 5\\&t^2-5t+10&\text{khi}&\,\,t>5}$, 
+	trong đó $v(t)$ được tính theo đơn vị $\mathrm{m/s}$ và $t$ được tính theo giây ($m$ là tham số). Tìm giá trị của tham số $m$ để hàm số $v(t)$ liên tục tại $t=5$.
+	\shortans[]{$5$}
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}$.\\
+		Ta có $\heva{&v(5)=\lim\limits_{x\to 5^{-}}v(t)=m+5\\&\lim\limits_{x\to 5^{+}}v(t)=\lim\limits_{x\to 5^{+}}(t^2-5t+10)=10.}$\\
+		Để hàm số $v(t)$ liên tục tại $t=5\Leftrightarrow v(5)=\lim\limits_{t\to 5}v(t)\Leftrightarrow m+5=10\Leftrightarrow m=5$.	
+	}
+\end{ex}
+\textbf{PHẦN 4. TỰ LUẬN}
+\setcounter{ex}{0}
+%Câu 1...........................
+\begin{ex}%[1D3H1-2]%[Lê Phúc]%[Dự án D đợt 4]
+	Tìm giới hạn  $\lim\limits_{n \to +\infty}\dfrac{1+2+\cdots+n}{n^2+3n}$.
+	\loigiai{
+	Ta có $1+2+\cdots+n$ là tổng của $n$ số hạng đầu của một cấp số cộng có số hạng đầu $u_1=1$ và công sai $d=1$.\\
+	Do đó $1+2+\cdots+n=\dfrac{(1+n)n}{2}$.\\
+	Vậy 
+	\begin{eqnarray*}
+		\lim\limits_{n \to +\infty}\dfrac{1+2+\cdots+n}{n^2+3n}&=&\lim\limits_{n \to +\infty}\dfrac{n(n+1)}{2\left(n^2+3n\right)}\\
+		&=&\lim\limits_{n \to +\infty}\dfrac{n^2\left(1+\dfrac{1}{n}\right)}{2n^2\left(1+\dfrac{3}{n}\right)}\\
+		&=&\lim\limits_{n \to +\infty}\dfrac{1+\dfrac{1}{n}}{2\left(1+\dfrac{3}{n}\right)}\\
+		&=&\dfrac{1}{2}.
+	\end{eqnarray*}
+	}
+\end{ex}
+%Câu 2...........................
+\begin{ex}%[1D3V2-5]%[Lê Phúc]%[Dự án D đợt 4]
+	Cho $f(x)$ là đa thức thỏa mãn $\lim\limits_{x \to 2} \dfrac{f(x)-20}{x-2}=10$. Tính $T=\lim\limits_{x \to 2} \dfrac{\sqrt[3]{6f(x)+5}-5}{x^2+x-6}$.
+	\loigiai{
+	\begin{itemize}
+		\item 	\textbf{Cách 1:}
+			Chọn $f(x)=10x$, ta có $\lim\limits_{x \to 2} \dfrac{f(x)-20}{x-2}=\lim\limits_{x \to 2} \dfrac{10x-20}{x-2}=\lim\limits_{x \to 2} \dfrac{10(x-2)}{x-2}=10$.\\
+		Lúc đó
+		\begin{eqnarray*}
+			T&=\lim\limits_{x \to 2} \dfrac{\sqrt[3]{6f(x)+5}-5}{x^2+x-6}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{\sqrt[3]{60x+5}-5}{x^2+x-6}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{\sqrt[3]{60x+5}-5}{(x-2)(x+3)}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{60x+5-5^3}{(x-2)(x+3)\left(\sqrt[3]{60x+5}^2+5\sqrt[3]{60x+5}+25\right)}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{60(x-2)}{(x-2)(x+3)\left(\sqrt[3]{60x+5}^2+5\sqrt[3]{60x+5}+25\right)}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{60}{(x+3)\left(\sqrt[3]{60x+5}^2+5\sqrt[3]{60x+5}+25\right)}=\dfrac{4}{25}.
+		\end{eqnarray*}
+		\item \textbf{Cách 2:}\\
+			Theo giả thiết có $\lim\limits_{x \to 2}\left(f(x)-20\right)=0$ hay $\lim\limits_{x \to 2} f(x)=20$. $(*)$\\
+		Khi đó
+		\begin{eqnarray*}
+			T&=&\lim\limits_{x \to 2} \dfrac{\sqrt[3]{6f(x)+5}-5}{x^2+x-6}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{6f(x)+5-125}{\left(x^2+x-6\right)\left[\left(\sqrt[3]{6f(x)+5}\right)^2+5\left(\sqrt[3]{6f(x)+5}\right)+25\right]}
+			\\
+			&=&\lim\limits_{x \to 2} \dfrac{6[f(x)-20]}{(x-2)(x+3)\left[\left(\sqrt[3]{6f(x)+5}\right)^2+5\left(\sqrt[3]{6f(x)+5}\right)+25\right]}
+			\\
+			&=&\dfrac{10\cdot 6}{5\cdot 75}=\dfrac{4}{25}.
+		\end{eqnarray*}
+	\end{itemize}
+	}
+\end{ex}
+%Câu 3...........................
+\begin{ex}%[1D3B3-3]%[Lê Phúc]%[Dự án D đợt 4]
+ Nếu hàm số $f\left( x \right)=\heva{& x^2+ax+b &\quad& \text{khi}~x<-5 \\ & x+17 &\quad& \text{khi}~-5\le x\le 10 \\ & ax+b+10 &\quad& \text{khi}~x>10}$ liên tục trên $\mathbb{R}$ thì $a+b$ bằng
+	\loigiai{
+	\begin{itemize}
+		\item Với $x<-5$ ta có $f\left( x \right)=x^2+ax+b$, là hàm đa thức nên liên tục trên $\left( -\infty ;-5 \right)$.
+		\item Với $-5<x<10$ ta có $f\left( x \right)=x+7$, là hàm đa thức nên liên tục trên $\left( -5;10 \right)$.
+		\item Với $x>10$ ta có $f\left( x \right)=ax+b+10$, là hàm đa thức nên liên tục trên $\left( 10;+\infty \right)$.
+	\end{itemize}
+	Để hàm số liên tục trên $\mathbb{R}$ thì hàm số phải liên tục tại $x=-5$ và $x=10$.\\
+	Ta có
+	\begin{itemize}
+		\item $f\left( -5 \right)=12$; $f\left( 10 \right)=17$.
+		\item $\lim\limits_{x\to -5^-}\,f\left( x \right)=\lim\limits_{x\to -5^-}\,\left( x^2+ax+b \right)=-5a+b+25$.
+		\item $\lim\limits_{x\to -5^+}\,f\left( x \right)=\lim\limits_{x\to -5^+}\,\left( x+17 \right)=12$.
+		\item $\lim\limits_{x\to 10^-}\,f\left( x \right)=\lim\limits_{x\to 10^-}\,\left( x+17 \right)=27$.
+		\item $\lim\limits_{x\to 10^+}\,f\left( x \right)=\lim\limits_{x\to 10^+}\,\left( ax+b+10 \right)=10a+b+10$.
+	\end{itemize}
+	Hàm số liên tục tại $x=-5$ và $x=10$ khi
+	$$\heva{& 5a+b+25=12 \\ & 10a+b+10=27} \Leftrightarrow \heva{& -5a+b=-13 \\ & 10a+b=17} \Leftrightarrow \heva{& a=2 \\ & b=-3} \Rightarrow a+b=-1.$$
+	}
+\end{ex}

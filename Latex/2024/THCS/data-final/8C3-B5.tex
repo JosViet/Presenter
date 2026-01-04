@@ -1,0 +1,1047 @@
+\section{HÌNH CHỮ NHẬT - HÌNH VUÔNG} % Tên bài
+\subsection{Hình chữ nhật}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+	\begin{dn}
+	\immini{Hình chữ nhật là tứ giác có bốn góc vuông.}
+	{	\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+			\path (0,0) coordinate (D) (4,0) coordinate (C) (0,2) coordinate(A) (4,2) coordinate(B);
+			\draw (A)--(B)--(C)--(D)--cycle;
+			\foreach\i/\j in{D/-90,A/90,B/90,C/-90}\fill[black](\i)circle(1.5pt)node[shift=(\j:2.5mm)]{$\i$};
+			\pic[draw, angle radius=8pt]{right angle=D--A--B};
+			\pic[draw, angle radius=8pt]{right angle=A--B--C};
+			\pic[draw, angle radius=8pt]{right angle=B--C--D};
+			\pic[draw, angle radius=8pt]{right angle=A--D--C};
+	\end{tikzpicture}}
+	\end{dn}
+	\begin{tc}
+			\immini
+		{
+			Hình chữ nhật có đầy đủ tính chất của hình bình hành và hình thang cân, ngoài ra còn có tính chất riêng là hai đường chéo bằng nhau.
+		}
+		{
+			\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=1]
+				\path (0,0) coordinate (D) (4,0) coordinate (C) (0,2) coordinate(A) (4,2) coordinate(B) (intersection of A--C and B--D)coordinate (O);
+				\draw (A)--(B)--(C)--(D)--cycle (A)--(C) (B)--(D);
+				\foreach\i/\j in{D/-90,A/90,B/90,C/-90,O/-90}\fill[black](\i)circle(1.5pt)node[shift=(\j:3.2mm)]{$\i$};
+				\pic[draw, angle radius=8pt]{right angle=D--A--B};
+				\pic[draw, angle radius=8pt]{right angle=A--B--C};
+				\pic[draw, angle radius=8pt]{right angle=B--C--D};
+				\pic[draw, angle radius=8pt]{right angle=A--D--C};
+				\path (A)--(O)node[sloped, midway]{\tiny |};
+				\path (C)--(O)node[sloped, midway]{\tiny |};
+				\path (B)--(O)node[sloped, midway]{\tiny |};
+				\path (D)--(O)node[sloped, midway]{\tiny |};
+		\end{tikzpicture}}
+	\end{tc}
+	\begin{dl}
+		\begin{itemize}
+			\item Tứ giác có bốn góc vuông là hình chữ nhật.
+			\item  Hình bình hành có một góc vuông là hình chữ nhật.
+			\item   Hình bình hành có hai đường chéo bằng nhau là hình chữ nhật.
+		\end{itemize}
+	\end{dl}
+	
+	
+	\begin{nx}
+		\begin{itemize}
+			\item Trong tam giác vuông, đường trung tuyến ứng với cạnh huyền bằng một nửa cạnh huyền.
+			\item Nếu tam giác có một đường trung tuyến bằng nửa cạnh tương ứng thì tam giác đó là tam giác vuông.
+		\end{itemize}
+	\end{nx}
+\end{tomtat}
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	Tìm $x$ ở hình vẽ bên dưới
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,line width=0.6pt,font=\footnotesize,scale=0.6]
+			\coordinate[label=below left:$B$](B) at (0,0);
+			\coordinate[label=below right:$C$](C) at (10,0);
+			\coordinate[label=above left:$A$](A) at (2,4);
+			\coordinate[label=below:$M$] (M) at ($(B)!0.5!(C)$);
+			\coordinate[label=left:$3$ cm] (E) at ($(A)!0.5!(B)$);
+			\coordinate[label=above right:$4$ cm] (F) at ($(A)!0.5!(C)$);
+			%	\coordinate[label=below:$\text{Hình 14}$] (H) at (5,-0.5);
+			\coordinate[label=left:$x$] (G) at ($(A)!0.5!(M)$);
+			\draw (A)--(B)--(C)--cycle;
+			\draw(A)--(M);
+			\path (B)--(M)node[midway]{$|$} (C)--(M)node[midway]{$|$};
+			\draw pic[draw,angle radius=3mm] {right angle = B--A--C};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{Áp dụng định lý Pythagore cho tam giác $ABC$ vuông tại $A$, ta có
+		\begin{eqnarray*}
+			BC^2&=&AB^2+AC^2\\
+			BC&=&\sqrt{AB^2+AC^2}\\
+			BC&=&\sqrt{3^2+4^2}\\
+			BC&=&5 \text{ cm}.
+		\end{eqnarray*}
+		Trong tam giác $ABC$ vuông tại $A$, $AM$ là đường trung tuyến, do đó
+		\[AM=\dfrac{BC}{2}=\dfrac{5}{2} \text{ cm}.\]
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-1]
+	Cho tứ giác $MNPQ$ có ba góc $\widehat{M}$, $\widehat{N}$, $\widehat{P}$ vuông. Chứng minh rằng $MNPQ$ là hình chữ nhật.
+	\loigiai{
+		Trong tứ giác $MNPQ$, ta có $\widehat{M}+\widehat{N}+\widehat{P}+\widehat{Q}=360^\circ$.\\
+		Do $\widehat{M}=\widehat{N}=\widehat{P}=90^\circ$, suy ra $\widehat{Q}=90^\circ$.\\
+		Tứ giác $MNPQ$ có bốn góc vuông nên là hình chữ nhật.
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	\immini
+	{Cho tam giác $ABC$ vuông tại $A$, $O$ là trung điểm của $BC$. Lấy điểm $D$ đối xứng với $A$ qua $O$. Chứng minh rằng tứ giác $ABDC$ là hình chữ nhật.			
+	}{\begin{tikzpicture}[line join= round, cap = round, thick, font = \small, scale = .7]
+			\tikzset{
+				markx/.pic={\draw (45:.1)--(-135:.1) (-45:.1)--(135:.1);},
+				markl/.pic={\draw (90:.1)--(-90:.1);},
+				markll/.pic={
+					\draw[shift={(180:.02)}] (90:.1)--(-90:.1);
+					\draw[shift={(0:.02)}] (90:.1)--(-90:.1);
+				},
+				marklll/.pic={
+					\draw[shift={(180:.03)}] (90:.1)--(-90:.1);
+					\draw (90:.1)--(-90:.1);
+					\draw[shift={(0:.03)}] (90:.1)--(-90:.1);
+				}
+			}
+			
+			\path 
+			(0:0) coordinate (C)
+			+(0:5) coordinate (D)
+			+(90:3) coordinate (A)
+			($(A)+(D)-(C)$) coordinate (B)
+			($(B)!.5!(C)$) coordinate (O);
+			\draw 
+			(A)--(B)--(D)--(C)--cycle
+			(B)--(C)
+			(A)--(D)
+			;
+			\path (A)--(O) pic[pos = .5, sloped]{markl}
+			(D)--(O) pic[pos = .5, sloped]{markl}
+			(O)--(B) pic[pos = .5, sloped]{markll}
+			(O)--(C) pic[pos = .5, sloped]{markll};
+			
+			\foreach \x/\g in {C/-90,D/-90,A/90,B/90,O/-90}
+			\fill (\x) circle (1pt)
+			+(\g:3mm) node{$\x$};
+	\end{tikzpicture}}
+	\loigiai{Ta có $D$ đối xứng với $A$ qua $O$, suy ra $OA=OD$, mà $OB=OC$.\\
+	Suy ra tứ giác $ABDC$ có hai đường chéo cắt nhau tại trung điểm của mỗi đường nên là hình bình hành.\\
+		Ta có $AB\parallel CD$ và $\widehat{BAC}=90^\circ$, suy ra $\widehat{ACD}=90^\circ$.\\
+		Do $ABDC$ là hình bình hành nên $\widehat{BDC}=\widehat{BAC}=90^\circ$ và $\widehat{ABD}=\widehat{ACD}=90^\circ$.\\
+		Suy ra $ABDC$ là hình chữ nhật. }
+\end{vd}
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	\immini
+	{Cho tam giác $ABC$ có điểm $O$ thuộc $BC$ sao cho $OA=OB=OC$. Lấy điểm $D$ đối xứng với $A$ qua $O$. Chứng minh rằng tứ giác $ABDC$ là hình chữ nhật.}{
+		\begin{tikzpicture}[line join= round, cap = round, thick, font = \small, scale = 0.7]
+			\tikzset{
+				markx/.pic={\draw (45:.1)--(-135:.1) (-45:.1)--(135:.1);},
+				markl/.pic={\draw (90:.1)--(-90:.1);},
+				markll/.pic={
+					\draw[shift={(180:.02)}] (90:.1)--(-90:.1);
+					\draw[shift={(0:.02)}] (90:.1)--(-90:.1);
+				},
+				marklll/.pic={
+					\draw[shift={(180:.03)}] (90:.1)--(-90:.1);
+					\draw (90:.1)--(-90:.1);
+					\draw[shift={(0:.03)}] (90:.1)--(-90:.1);
+				}
+			}
+			
+			\path 
+			(0:0) coordinate (C)
+			+(0:5) coordinate (D)
+			+(90:3) coordinate (A)
+			($(A)+(D)-(C)$) coordinate (B)
+			($(B)!.5!(C)$) coordinate (O);
+			\draw 
+			(A)--(B)--(D)--(C)--cycle
+			(B)--(C)
+			(A)--(D)
+			;
+			\path 
+			(A)--(O) pic[pos = .5, sloped]{markl}
+			(D)--(O) pic[pos = .5, sloped]{markl}
+			(O)--(B) pic[pos = .5, sloped]{markl}
+			(O)--(C) pic[pos = .5, sloped]{markl};
+			\draw pic[draw, angle radius = 12pt, "1", angle eccentricity = 1.5]{ angle = O--A--B};
+			\draw pic[draw, angle radius = 12pt, "1", angle eccentricity = 1.5]{ angle = A--B--O};
+			\draw pic[draw, angle radius = 15pt, "2", angle eccentricity = 1.5]{ angle = C--A--O};
+			\draw pic[draw, angle radius = 12pt, "1", angle eccentricity = 1.5]{ angle = O--C--A};
+			
+			\foreach \x/\g in {C/-90,D/-90,A/90,B/90,O/-90}
+			\fill (\x) circle (1pt)
+			+(\g:3mm) node{$\x$};
+	\end{tikzpicture}}
+	\loigiai{
+		Ta có $OA=OB=OC$, suy ra hai tam giác $OAB$ và $OAC$ cân tại $O$.\\
+		Ta có $\widehat{A}_1=\widehat{B}_1$; $\widehat{A}_2=\widehat{C}_1$ và $\widehat{A}_1+\widehat{A}_2+\widehat{B}_1+\widehat{C}_1=180^\circ$ (tổng ba góc trong $\triangle ABC$).\\
+		Suy ra $\widehat{A}_1+\widehat{A}_2=\widehat{B}_1+\widehat{C}_1=90^\circ$, suy ra $\widehat{BAC}=\widehat{A}_1+\widehat{A}_2=90^\circ$. \quad $(1)$\\
+		Lại có $D$ đối xứng với $A$ qua $O$ nên $OD=OA$, kết hợp với $OB=OA$\\
+		Suy ra $ABDC$ là hình bình hành.\quad $(2)$.\\
+		Từ $(1)$ và $(2)$ suy ra $ABDC$ là hình chữ nhật.}
+\end{vd}
+
+\subsubsection{Bài tập}
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	Tìm $x$ ở hình vẽ bên dưới
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,line width=0.6pt,font=\footnotesize,scale=1]
+			\coordinate[label=below left:$B$](B) at (0,0);
+			\coordinate[label=below right:$C$](C) at (10,0);
+			\coordinate[label=above left:$A$](A) at (2,4);
+			\coordinate[label=below:$M$] (M) at ($(B)!0.5!(C)$);
+			\coordinate[label=left:$6 \text{ cm}$] (E) at ($(A)!0.5!(B)$);
+			\coordinate[label=above right:$8 \text{ cm}$] (F) at ($(A)!0.5!(C)$);
+			%	\coordinate[label=below:$\text{Hình 14}$] (H) at (5,-0.5);
+			\coordinate[label=left:$x$] (G) at ($(A)!0.5!(M)$);
+			\draw (A)--(B)--(C)--cycle;
+			\draw(A)--(M);
+			\path (B)--(M)node[midway]{$|$} (C)--(M)node[midway]{$|$};
+			\draw pic[draw,angle radius=3mm] {right angle = B--A--C};
+			\foreach \x in {A,B,C,M}
+			\fill (\x) circle (1.5pt);
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{Áp dụng định lý Pythagore cho tam giác vuông $ABC$, ta có
+		$$BC=\sqrt{AB^2+AC^2}=\sqrt{6^2+8^2}=10\text{ cm}.$$
+		Trong tam giác $ABC$ vuông tại $A$, $AM$ là đường trung tuyến, do đó
+		$$AM=\dfrac{BC}{2}=5 \text{ cm}.$$
+			}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	Cho tam giác $ABC$ vuông tại $A$ ($AB<AC$). Gọi $D$ là trung điểm của $BC$. Vẽ $DE\parallel AB$, vẽ $DF\parallel AC$ $(E\in AC, F\in AB)$. Chứng minh rằng tứ giác $AEDF$ là hình chữ nhật;
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,line width=0.5pt,font=\footnotesize,scale=1]
+				\coordinate[label=below left:$B$](B) at (0,0);
+				\coordinate[label=below right:$C$](C) at (10,0);
+				\coordinate[label=above left:$A$](A) at (2,4);
+				\coordinate[label=below :$D$] (D) at ($(B)!0.5!(C)$);
+				\coordinate (M) at ($(A)+(D)-(B)$);
+				\coordinate (N) at ($(A)+(D)-(C)$);
+				\coordinate[label=above:$E$] (E) at (intersection cs:first line={(A)--(C)}, second line={(D)--(M)});
+				\coordinate[label=left:$F$] (F) at (intersection cs:first line={(A)--(B)}, second line={(D)--(N)});
+				\draw (A)--(B)--(C)--(A)--(D) (F)--(D)--(E)--(F);
+				\draw pic[draw,angle radius=3mm] {right angle = B--A--C};
+				\path (D)--(B) node[midway]{$|$} (D)--(C) node[midway]{$|$};
+				\foreach \x in {A,B,C,D,E,F}
+				\fill (\x) circle (1.5pt);
+			\end{tikzpicture}
+		\end{center}
+		Ta có $DE\parallel AF$ và $ DF\parallel AE$, suy ra tứ giác $AEDF$ là hình bình hành.\\
+		Mặt khác, tứ giác $AEDF$ có $\widehat{FAE}=90^\circ$, suy ra tứ giác $AEDF$ là hình chữ nhật.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	Cho tam giác $ABC$ có đường cao $AH$. Gọi $I$ là trung điểm của $AC$, trên tia $HI$ lấy điểm $K$ sao cho $I$ là trung điểm của $HK$. Chứng minh tứ giác $AHCK$ là hình chữ nhật.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,line width=0.5pt,font=\footnotesize,scale=1]
+				\coordinate[label=below left:$B$](B) at (0,0);
+				\coordinate[label=below right:$C$](C) at (8,0);
+				\coordinate[label=above left:$A$](A) at (3,4);
+				\coordinate[label=above :$I$] (I) at ($(A)!0.5!(C)$);
+				\coordinate[label=below :$H$] (H) at ($(B)!(A)!(C)$);
+				\coordinate[label=right:$K$] (K) at ($(A)+(C)-(H)$);
+				\draw (A)--(B)--(C)--(A)--(H) (H)--(K)--(A) (C)--(K);
+				\draw pic[draw,angle radius=3mm] {right angle = A--H--C};
+				\path	(A)--(I)node[rotate=-30,midway]{$\textsf{X}$}
+				(C)--(I)node[rotate=-30,midway]{$\textsf{X}$};
+				\path (H)--(I) node[midway]{$|$} (I)--(K) node[midway]{$|$};
+				\foreach \x in {A,B,C,H,K,I}
+				\fill (\x) circle (1.5pt);
+			\end{tikzpicture}
+		\end{center}
+		Ta có $I$ là trung điểm của $HK$, do đó $HI=IK$.\\
+		Lại có $AI=IC$, suy ra tứ giác $AHCE$ là hình bình hành. Mặt khác $\widehat{AHC}=90^\circ$.\\
+		Suy ra tứ giác $AHCK$ là hình chữ nhật.	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]
+	Cho tam giác $ABC$ có đường cao $AH$. Gọi $I$ là trung điểm của $AC$, $E$ là điểm đối xứng với $H$ qua $I$. Gọi $M$, $N$ lần lượt là trung điểm của $HC$, $CE$. Các đường thẳng $AM$, $AN$ cắt $HE$ tại $G$ và $K$.
+	\begin{enumerate}
+		\item Chứng minh tứ giác $AHCE$ là hình chữ nhật.
+		\item Chứng minh $HG=GK=KE$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,line width=0.5pt,font=\footnotesize,scale=1]
+				\coordinate[label=below left:$B$](B) at (0,0);
+				\coordinate[label=below right:$C$](C) at (8,0);
+				\coordinate[label=above left:$A$](A) at (3,4);
+				\coordinate[label=above :$I$] (I) at ($(A)!0.5!(C)$);
+				\coordinate[label=below :$H$] (H) at ($(B)!(A)!(C)$);
+				\coordinate[label=right:$E$] (E) at ($(A)+(C)-(H)$);
+				\coordinate[label=below :$M$] (M) at ($(H)!0.5!(C)$);
+				\coordinate[label=right :$N$] (N) at ($(E)!0.5!(C)$);
+				\coordinate[label=right:$G$] (G) at (intersection cs:first line={(A)--(M)}, second line={(H)--(E)});
+				\coordinate[label=above:$K$] (K) at (intersection cs:first line={(A)--(N)}, second line={(H)--(E)});
+				\draw (A)--(B)--(C)--(A)--(H) (H)--(E)--(A) (C)--(E) (A)--(M) (A)--(N);
+				\draw pic[draw,angle radius=3mm] {right angle = A--H--C};
+				\path (M)--(H) node[midway]{$|$} (M)--(C) node[midway]{$|$}
+				(N)--(E) node[rotate=70,midway]{$||$} 
+				(N)--(C) node[rotate=70,midway]{$||$}
+				(A)--(I)node[rotate=-30,midway]{$\textsf{X}$}
+				(C)--(I)node[rotate=-30,midway]{$\textsf{X}$};
+				\foreach \x in {A,B,C,H,K,G,I,E,M,N}
+				\fill (\x) circle (1.5pt);
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item	Ta có $E$ là điểm đối xứng của $H$ qua $I$, do đó $HI=IE$.\\
+			Lại có $AI=IC$, suy ra tứ giác $AHCE$ là hình bình hành. \\
+			Mặt khác $\widehat{AHC}=90^\circ$.\\
+			Suy ra tứ giác $AHCE$ là hình chữ nhật.	
+			\item Xét tam giác $AHC$, ta có $HI$ và $AM$ là hai đường trung tuyến.\\ Do đó, $G$ là trọng tâm của tam giác $AHC$.\\
+			Suy ra $\heva{&IG=\dfrac{1}{3}IH\\&IG=\dfrac{1}{2}HG.}$\\
+			Xét tam giác $AEC$, ta có $AN$ và $EI$ là hai đường trung tuyến. \\Do đó, $K$ là trọng tâm của tam giác $AEC$.\\
+			Suy ra $\heva{&IK=\dfrac{1}{3}IE\\&IK=\dfrac{1}{2}KE.}$\\
+			Lại có $IH=IE$ suy ra $IG=IK$. \\
+			Do đó, $HG=KE=GI+IK$.\\
+			Vậy $HG=GK=KE$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-1]%[8H2C4-1]
+	Cho tam giác $ABC$ cân tại $A$. Gọi $H$, $D$ lần lượt là trung điểm của các cạnh $BC$ và $AB$.
+	\begin{enumerate}
+		\item Chứng minh rằng tứ giác $ADHC$ là hình thang.
+		\item Gọi $E$ là điểm đối xứng với $H$ qua $D$. Chứng minh rằng tứ giác $AHBE$ là hình chữ nhật.
+		\item Tia $CD$ cắt $AH$ tại $M$ và cắt $BE$ tại $N$. Chứng minh rằng tứ giác $AMBN$ là hình bình hành.
+	\end{enumerate}	
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\path 
+				(2,4) coordinate (A)
+				(0,0) coordinate (B)
+				(4,0) coordinate (C)
+				(2,0) coordinate (H)
+				(1,2) coordinate (D)
+				(0,4) coordinate (E)
+				(2,1.33) coordinate (M)
+				(0,2.67) coordinate (N)
+				;
+				\draw (A)--(B)--(C)--cycle (E)--(H)--(A)--(E)--(B)  (C)--(N) (B)--(M) (A)--(N);
+				
+				\foreach \p/\r in {A/90,B/180,C/0,H/-90,D/90,E/90,M/45,N/180}
+				\fill (\p) circle (1.5pt) node[shift={(\r:3mm)}]{$\p$};
+				% Style for one tick mark
+				\tikzset{
+					single tick/.style={
+						decoration={markings,
+							mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}},
+						postaction={decorate}
+					}
+				}
+				
+				% Style for two tick marks
+				\tikzset{
+					double tick/.style={
+						decoration={markings,
+							mark=at position 0.45 with {\draw (0,-0.2) -- (0,0.2);},
+							mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}},
+						postaction={decorate}
+					}
+				}
+				
+				% Style for three tick marks
+				\tikzset{
+					triple tick/.style={
+						decoration={markings,
+							mark=at position 0.45 with {\draw (0,-0.2) -- (0,0.2);},
+							mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);},
+							mark=at position 0.55 with {\draw (0,-0.2) -- (0,0.2);}},
+						postaction={decorate}
+					}
+				}
+				
+				% Draw segments with marks
+				\draw[double tick, color=black] (C) -- (H);
+				\draw[double tick, color=black] (H) -- (B);
+				\draw[single tick, color=black] (A) -- (D); 
+				\draw[single tick, color=black] (D) -- (B);
+				\draw[triple tick, color=black] (E) -- (D); 
+				\draw[triple tick, color=black] (D) -- (H);
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\heva{&H \text{ là trung điểm } BC\\&D \text{ là trung điểm } AB} \Rightarrow DH$ là đường trung bình của $\triangle ABC$.\\
+			$\Rightarrow DH \parallel AC \Rightarrow ADHC$ là hình thang.
+			\item Ta có $\heva{&DA=DB\\&DE=DH} \Rightarrow AHBE$ là hình bình hành.\\
+			Trong $\triangle ABC$ cân tại $A$ có $AH$ là đường trung tuyến nên $AH$ cũng là đường cao.\\ Suy ra $\widehat{AHB}=90^\circ$.\\
+			Khi đó hình bình hành $AHBE$ có $\widehat{AHB} = 90^\circ$ nên $AHBE$ là hình chữ nhật.
+			\item Do $AHBE$ là hình chữ nhật nên $AH \parallel EB$. \\
+			$\Rightarrow \widehat{MAD}=\widehat{NBD}$ (hai góc so le trong).\\
+			Xét $\triangle ADM$ và $\triangle BDN$ có
+			\begin{itemize}
+			\item $\widehat{MAD}=\widehat{NDB}$
+			\item $DA=DB$
+			\item $\widehat{ADM}=\widehat{NDB}$ (đối đỉnh)
+			\end{itemize}
+			$\Rightarrow \triangle ADM=\triangle BDN $ (g.c.g).\\
+			$\Rightarrow AM=BN$ (hai cạnh tương ứng).\\
+			Ta có $\heva{&AM \parallel BN\\&AM=BN} \Rightarrow AMBN$ là hình bình hành.
+		\end{enumerate}	
+	}
+\end{bt}
+
+
+
+
+\subsection{Hình vuông}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+	\begin{dn}
+		\immini{Hình vuông là tứ giác có bốn góc vuông và bốn cạnh bằng nhau.}{
+				\begin{tikzpicture}[>=stealth, scale=0.7]
+					% Define points
+					\coordinate (A) at (0,0);
+					\coordinate (B) at (3,0);
+					\coordinate (C) at (3,3);
+					\coordinate (D) at (0,3);
+					
+					% Style for one small tick mark
+					\tikzset{
+						single tick/.style={
+							decoration={markings,
+								mark=at position 0.5 with {\draw (0,-0.1) -- (0,0.1);}}, % Smaller tick (0.2 units total length)
+							postaction={decorate}
+						}
+					}
+					
+					% Draw segments with one small tick mark
+					\draw[single tick, color=black] (A) -- (B);
+					\draw[single tick, color=black] (B) -- (C);
+					\draw[single tick, color=black] (C) -- (D);
+					\draw[single tick, color=black] (D) -- (A);
+					
+					% Label points
+					\node[left] at (D) {D};
+					\node[left] at (A) {A};
+					\node[right] at (C) {C};
+					\node[right] at (B) {B};
+					
+					% Draw points
+					\fill[black] (A) circle (2pt);
+					\fill[black] (B) circle (2pt);
+					\fill[black] (C) circle (2pt);
+					\fill[black] (D) circle (2pt);
+					
+					% Mark right angles (smaller size)
+					\pic[draw, angle radius=3mm, angle eccentricity=0] {right angle=D--A--B};
+					\pic[draw, angle radius=3mm, angle eccentricity=0] {right angle=A--B--C};
+					\pic[draw, angle radius=3mm, angle eccentricity=0] {right angle=B--C--D};
+					\pic[draw, angle radius=3mm, angle eccentricity=0] {right angle=C--D--A};
+					\end{tikzpicture}}
+	\end{dn}
+	
+	\begin{tc}
+		Hình vuông có đầy đủ tính chất của hình chữ nhật và hình thoi.
+	\end{tc}
+	
+	\begin{dl}
+		\begin{itemize}
+			\item Hình chữ nhật có hai cạnh kề bằng nhau là hình vuông.
+			\item Hình chữ nhật có hai đường chéo vuông góc với nhau là hình vuông.
+			\item Hình chữ nhật có một đường chéo là đường phân giác của một góc là hình vuông.
+			\item Hình thoi có một góc vuông là hình vuông.
+			\item Hình thoi có hai đường chéo bằng nhau là hình vuông.
+		\end{itemize}
+	\end{dl}
+	
+	
+\end{tomtat}
+\subsubsection{Ví dụ}
+
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2N5-2]
+	Cho tam giác $ABC$ vuông tại $A$ có đường phân giác $AD$. Qua $D$ kẻ đường thẳng vuông góc với $AB$ tại $E$. Qua $D$ kẻ đường thẳng vuông góc với $AC$ tại $F$. Chứng minh tứ giác $AEDF$ là hình vuông.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,scale=1,declare function={r=5;a=75;}]
+				\path 
+				(-r,0) coordinate (B)
+				(110:r) coordinate (A)
+				(r,0) coordinate (C);
+				\path[name path=t1] (A)--(B)--(C)--cycle;
+				\path[name path=c1] (A) circle(2);
+				\path[name intersections={of=c1 and t1,by={a,b}}];
+				\path 
+				($(a)!.5!(b)$) coordinate (d)
+				(intersection of A--d and B--C) coordinate (D)
+				($(A)!(D)!(B)$) coordinate (E)
+				($(A)!(D)!(C)$) coordinate (F);
+				\draw[thick] 
+				(D)--(A)--(B)--(C)--(A)
+				(E)--(D)--(F);
+%				\path[fill=teal!60,opacity=.5] (A)--(E)--(D)--(F)--cycle;
+				\foreach \a/\b/\c in {B/A/C,B/E/D,D/F/C}
+				{\draw pic[draw=black,angle radius=10]{right angle=\a--\b--\c};}
+				\draw pic["$1$",draw,angle eccentricity=1.3,angle radius=20]{angle=B--A--D};
+				\draw pic["$2$",draw,angle eccentricity=1.3,angle radius=25]{angle=D--A--C};
+				\foreach \x/\g in {A/90,B/-135,C/-45,D/-90,E/135,F/45}
+				{\draw[fill=black] (\x) circle(1.5pt)+(\g:.4) node{$\x$};}
+			\end{tikzpicture}
+		\end{center}
+		Xét tứ giác $AEDF$ có $\widehat{E}=\widehat{A}=\widehat{F}=90^\circ$. Suy ra $AEDF$ là hình chữ nhật.\\
+		Mà $AD$ là tia phân giác của $\widehat{FAE}$, nên $AEDF$ là hình vuông.
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-2]
+	Cho hình vuông $ABCD$. Trên các cạnh $AB$, $BC$, $CD$, $DA$ lần lượt lấy các điểm $E$, $F$, $G$, $H$ sao cho $AE=BF=CG=DH$. Chứng minh tứ giác $EFGH$ là hình vuông.
+	\loigiai{
+		\immini{
+			Ta thấy $AB=AE+EB$, $BC=BF+FC$, $CD=CG+GD$, $DA=DH+HA$. Mà
+			\[
+			\begin{aligned}
+				&AB=BC=CD=DA;\\
+				&AE=BF=CG=DH.
+			\end{aligned}
+			\]
+			suy ra $EB=FC=GD=HA$. Khi đó
+			\[
+			\triangle AEH=\triangle BFE=\triangle CGF=\triangle DHG \quad \text{(c-g-c)}
+			\]
+			Suy ra $EH=FE=FG=GH$ suy ra $EFGH$ là hình thoi.\\
+			Lại có $\widehat{AEH}=\widehat{BFE}$. Mà $\widehat{BFE}+\widehat{BEF}=90^\circ$, nên $\widehat{AEH}+\widehat{BEF}=90^\circ$. Do đó, $\widehat{FEH}=90^\circ$.\\
+			Vậy tứ giác $EFGH$ là hình vuông.
+		}{
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,scale=1,declare function={r=6;a=75;}]
+				\path 
+				(0,0) coordinate (D)
+				(0,r) coordinate (A)
+				(r,0) coordinate (C)
+				(r,r) coordinate (B)
+				($(A)!.3!(B)$) coordinate (E)
+				($(B)!.3!(C)$) coordinate (F)
+				($(C)!.3!(D)$) coordinate (G)
+				($(D)!.3!(A)$) coordinate (H);
+				\draw[thick] 
+				(A) edge node[midway,sloped,rotate=45,anchor=center]{$-$} (E)
+				(B) edge node[midway,sloped,rotate=45,anchor=center]{$-$} (F)
+				(C) edge node[midway,sloped,rotate=45,anchor=center]{$-$} (G)
+				(D) edge node[midway,sloped,rotate=45,anchor=center]{$-$} (H)
+				(E)--(F)--(G)--(H)--(E)--(B)
+				(F)--(C)
+				(G)--(D)
+				(H)--(A);
+%				\path[fill=teal!60,opacity=.5] (E)--(F)--(G)--(H)--cycle;
+				\foreach \a/\b/\c in {D/A/B,A/B/C,B/C/D,C/D/A}
+				{\draw pic[draw=black,angle radius=10]{right angle=\a--\b--\c};}
+				\foreach \x/\g in {A/135,B/45,C/-45,D/-135,E/90,F/0,G/-90,H/180}
+				{\draw[fill=black] (\x) circle(1.5pt)+(\g:.4) node{$\x$};}
+			\end{tikzpicture}
+	}}
+\end{vd}
+
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-2]
+	Cho hình chữ nhật $ABCD$ ($AD<AB<2AD$). Vẽ các tam giác vuông cân $ABI$, $CDK$ $\left(\widehat{I}=\widehat{K}=90^\circ\right)$, $I$ và $K$ nằm trong $ABCD$. Gọi $E$ là giao điểm của $A$ và $DK$; $F$ là giao điểm của $BI$ và $CK$. Chứng minh rằng
+	\begin{enumerate}
+		\item $EF$ song song với $CD$.
+		\item $EKFI$ là hình vuông.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			\immini
+			{Tam giác $CDK$ vuông cân tại $K$ nên
+				$$
+				\widehat{KDC}=\widehat{KCD}=\frac{180^\circ-90^\circ}{2}=45^\circ.
+				$$
+				Mà $\widehat{KDC}+\widehat{EDA}=90^\circ$, suy ra $\widehat{EDA}=45^\circ$;\\ Ta $\widehat{KCD}+\widehat{FCB}=90^\circ$ suy ra $\widehat{FCB}=45^\circ$.\\
+				Ta có $\triangle AIB$ vuông cân tại $I$ nên
+					$$
+				\widehat{IAB}=\widehat{IBA}=\frac{180^\circ-90^\circ}{2}=45^\circ.\\
+				$$
+				Suy ra
+				$
+				\widehat{EAD}=90^\circ-\widehat{IAB}=45^\circ$ và
+				$\widehat{FBC}=90^\circ-\widehat{IBA}=45^\circ.$
+				
+			}
+			{
+				\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.85]
+					\def\x{3}
+					\path (0,0) coordinate (D) (6,0)coordinate(C) (0,4)coordinate(A) (6,4)coordinate(B) ($(D)!.5!(C)+(90:\x)$)coordinate (K) ($(A)!.5!(B)+(-90:\x)$)coordinate (I) (intersection of D--K and A--I) coordinate (E) (intersection of C--K and B--I) coordinate (F);
+					\draw (A)--(B)--(C)--(D)--cycle (A)--(I)--(B) (D)--(K)--(C) (E)--(F); 
+					\foreach\i/\j in{A/90,B/90,D/-90,C/-90,K/90,I/-90,E/180,F/0}
+					\fill[black](\i)circle(1.5pt)node[shift=(\j:2.5mm)]{$\i$};
+					\pic[draw, angle radius=8pt]{right angle=A--I--B};
+					\pic[draw, angle radius=8pt]{right angle=D--K--C};
+				\end{tikzpicture}
+			}
+			Xét $\triangle EAD$ và $\triangle FBC$ có $\heva{& \widehat{ EAD}=\widehat{FBC}=45^\circ \\ & AD=BC \,(ABCD \,\text {là hình chữ nhật);}\\&\widehat{EDA}=\widehat{FCB}=45^\circ.}$\\
+			Suy ra $\triangle EAD=\triangle FBC$ (g $-$ c $-$ g). \\
+			Suy ra $DE=CF$.\quad $(1)$.\\
+			Mặt khác, $\triangle CDK$ cân tại $K$ nên $KD=KC$.\quad $(2)$.\\
+			Từ ($1$) và ($2$) suy ra $KD-DE=KC-CF$ hay $KE=KF$.\\
+			Ta có $\triangle KEF$ vuông tại $K$ và có $KE = KF$ nên $\widehat{KEF}=45^\circ$.\\
+			Ta lại có $\widehat{KDC}=45^\circ$. \\
+			Suy ra $EF\parallel CD$ (hai góc đồng vị bằng nhau).
+			\item $\triangle EAD$ có $\widehat{EDA}=\widehat{EAD}=45^\circ$ nên $\widehat{AED}=90^\circ$. \\
+			Suy ra $\widehat{KEI}=\widehat{AED}=90^\circ$ (hai góc đối đỉnh).\\
+			Tứ giác $EKFI$ có $\widehat{KEI}=\widehat{EKF}=\widehat{EIF}=90^\circ$ nên $EKFI$ là hình chữ nhật.\\
+			Ta lại có $KE = KF$ (theo câu $a$), suy ra $EKFI$ là hình vuông.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-2]
+	Cho hình thoi $ABCD$ có hai hai đường chéo $AC$ và $BD$ cắt nhau tại $O$. Các tia phân giác của bốn góc ở đỉnh $O$ cắt các cạnh $AB$, $BC$, $CD$, $DA$ lần lượt tại $E$, $F$, $G$, $H$. Chứng minh tứ giác $EFGH$ là hình vuông.
+	\loigiai{
+		\begin{center}\begin{tikzpicture}[join = round, cap = round, thick, font = \small, scale = 1.4]
+				\path 
+				(0:0) coordinate (O)
+				+(0:3) coordinate (C)
+				+(90:2) coordinate (B)
+				+(-90:2) coordinate (D)
+				(O)+(0:-3) coordinate (A)
+				;
+				\coordinate[] (X) at ($(O)!1!45:(C)$); 
+				\coordinate[] (Y) at ($(O)!1!-45:(C)$); 
+				\coordinate[] (M) at ($(O)!1!-45:(A)$); 
+				\coordinate[] (N) at ($(O)!1!-45:(D)$); 
+				\path[name path=lineAB] (A) -- (B); % Đường thẳng qua A và B
+				\path[name path=lineMY] (M) -- (Y); % Đường thẳng qua M và Y
+				\path[name intersections={of=lineAB and lineMY, by=E}];
+% Tìm giao điểm của (C,D) và (M,Y), gán vào G
+\path[name path=lineCD] (C) -- (D);
+\path[name path=lineMY] (M) -- (Y);
+\path[name intersections={of=lineCD and lineMY, by=G}];
+
+% Tìm giao điểm của (B,C) và (X,N), gán vào F
+\path[name path=lineBC] (B) -- (C);
+\path[name path=lineXN] (X) -- (N);
+\path[name intersections={of=lineBC and lineXN, by=F}];
+
+% Tìm giao điểm của (A,D) và (X,N), gán vào H
+\path[name path=lineAD] (A) -- (D);
+\path[name intersections={of=lineAD and lineXN, by=H}];
+
+				\draw 
+				(A)--(B)--(C)--(D)--cycle
+				(B)--(D) (A)--(C) (E)--(F)--(G)--(H)--(E) (O)--(E) (O)--(F) (O)--(G) (O)--(H)
+				;
+				\foreach \x/\g in {O/20,D/-90,C/0,A/180,B/90,E/90,F/90,H/-90,G/-90}
+				\fill (\x) circle (1.5pt)
+				+(\g:3mm) node{$\x$};
+		\end{tikzpicture}\end{center}
+		Do $ABCD$ là hình thoi nên $AC\perp BD$, $AC$ là tia phân giác của $\widehat{BAD}$.\\
+		Suy ra \\
+		$\widehat{AOB}=\widehat{AOD}=90^\circ$; $\widehat{OAE}=\widehat{OAH}$. \\
+		Vì $OE$, $OH$ lần lượt là tia phân giác của $\widehat{AOB},\widehat{AOD}$ nên $\widehat{AOE}=\widehat{AOH}=45^\circ$.\\
+		Ta có $\widehat{HOE}=\widehat{AOE}+\widehat{AOH}=45^\circ+45^\circ=90^\circ$.\\
+		Vì $OE$, $OF$ lần lượt là tia phân giác của $\widehat{AOB},\widehat{BOC}$ nên $\widehat{BOE}=\widehat{BOF}=45^\circ$.\\
+		Ta có $\widehat{EOF}=\widehat{BOE}+\widehat{BOF}=45^\circ+45^\circ=90^\circ$.\\
+		Suy ra $\widehat{HOF}=\widehat{HOE}+\widehat{EOF}=90^\circ+90^\circ=180^\circ$, do đó ba điểm $H$, $O$, $F$ thẳng hàng.\\
+		Vì $OF$, $OG$ lần lượt là tia phân giác của $\widehat{BOC},\widehat{COD}$ nên $\widehat{FOC}=\widehat{COG}=45^\circ$.\\
+		Ta có $\widehat{FOG}=\widehat{FOC}+\widehat{COG}=45^\circ+45^\circ=90^\circ$.\\
+		Suy ra $\widehat{EOG}=\widehat{EOF}+\widehat{FOG}=90^\circ+90^\circ=180^\circ$, do đó ba điểm $E$, $O$, $G$ thẳng hàng.\\
+		Suy ra $EG\perp FH$.\\
+		Xét $\triangle OAE$ và $ \triangle OAH$ ta có
+		\begin{itemize}
+			\item $\widehat{OAE}=\widehat{OAH}$
+			\item $OA$ là cạnh chung
+			\item $\widehat{AOE}=\widehat{AOH}$
+		\end{itemize}
+		Suy ra $\triangle OAE=\triangle OAH$ (g.c.g)\\ 
+		Suy ra $OE=OH$ (cạnh tương ứng).\\
+		Xét $\triangle OBE$ và $ \triangle OBF$ ta có
+		\begin{itemize}
+			\item $\widehat{OBE}=\widehat{OBF}$
+			\item $OB$ là cạnh chung
+			\item $\widehat{BOE}=\widehat{BOF}$
+		\end{itemize}
+		Suy ra $\triangle OBE=\triangle OBF$ (g.c.g)\\ Suy ra $OE=OF$ (cạnh tương ứng).\\	
+		Xét $\triangle OCF$ và $ \triangle OCG$ ta có
+		\begin{itemize}
+			\item $\widehat{OCF}=\widehat{OCG}$
+			\item $OC$ là cạnh chung
+			\item $\widehat{COF}=\widehat{COG}$
+		\end{itemize}
+		Suy ra $\triangle OCF=\triangle OCG$ (g.c.g)\\Suy ra $OF=OG$ (cạnh tương ứng).\\
+		Xét $\triangle ODG$ và $ \triangle ODH$ ta có
+		\begin{itemize}
+			\item $\widehat{ODG}=\widehat{ODH}$
+			\item $OD$ là cạnh chung
+			\item $\widehat{DOG}=\widehat{DOH}$
+		\end{itemize}
+		Suy ra $\triangle ODG=\triangle ODH$ (g.c.g)\\ Suy ra $OG=OH$ (cạnh tương ứng).\\	
+		Suy ra $OE=OF=OG=OH$. \\
+		Vì vậy $OE+OG=OF+OH$ hay $EG=FH$.\\
+		Tứ giác $EFGH$ có hai đường chéo $EG$, $HF$ cắt nhau tại trung điểm $O$ của mỗi đường nên $EFGH$ là hình bình hành.\\
+		Hình bình hành $EFGH$ có $EG=HF$ nên $EFGH$ là hình chữ nhật.\\
+		Hình chữ nhật $EFGH$ có $EG\perp FH$ nên $EFGH$ là hình vuông.
+	}
+\end{vd}
+\subsubsection{Bài tập vận dụng}
+
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2N5-2]
+	Cho hình bình hành $ABCD$. Gọi $DE$, $BK$ lần lượt là đường phân giác của hai góc $\widehat{ADB}$, $\widehat{DBC}$ ($E\in AB$, $K\in CD$).
+	\begin{enumerate}
+		\item Chứng minh $DE\parallel BK$.
+		\item Giả sử $DE\perp AB$. Chứng minh $DA=DB$.
+		\item Trong trường hợp $DE\perp AB$, tìm số đo của $\widehat{ADB}$ để tứ giác $DEBK$ là hình vuông.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[font=\footnotesize,line join=round,line cap=round,>=stealth]
+				\draw (0,0) coordinate(D)--(0:4) coordinate(C)--++(120:3) coordinate(B)--++(180:4) coordinate(A)--(D);	
+				\path ($(A)!(D)!(B)$) coordinate(E) ($(C)!(B)!(D)$) coordinate(K);
+				\draw (E)--(D) (B)--(K) (B)--(D);	
+				\foreach \y/\g in {A/90,B/90,C/-90,D/-90,E/90,K/-90}
+				{\fill (\y) circle(1pt)+(\g:.25) node{$\y$};}
+				\draw pic[draw,angle eccentricity=1.3,angle radius=20]{angle=E--D--A};
+				\draw pic[draw,angle eccentricity=1.3,angle radius=25]{angle=B--D--E};
+				\pic [draw, angle radius=10pt] {angle=K--B--C};
+				\pic [draw, angle radius=8pt] {angle=K--B--C};
+				\pic [draw, angle radius=10pt] {angle=D--B--K};
+				\pic [draw, angle radius=12pt] {angle=D--B--K};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Vì $ABCD$ là hình bình hành nên $AD\parallel BC$. Suy ra $\widehat{ADB}=\widehat{DBC}$ (hai góc so le trong).\\
+			 Do đó $\dfrac{\widehat{ADB}}{2}=\dfrac{\widehat{DBC}}{2}$. Suy ra $\widehat{EDB}=\widehat{KBD}$ (do $DE$, $BK$ là đường phân giác của $\widehat{ADB}$ và $\widehat{DBC}$).\\
+			  Mà hai góc này ở vị trí so le trong nên $DE\parallel BK$.
+			\item Xét $\triangle DAB$ có $DE$ vừa là đường cao vừa là đường phân giác.\\
+			 Suy ra $\triangle DAB$ cân tại $D$. Khi đó, $DA=DB$.
+			\item Xét tứ giác $DEBK$ có $DE\parallel BK$, $BE\parallel DK$.\\
+			 Suy ra $DEBK$ là hình bình hành.\\
+			  Mà $\widehat{E}=90^\circ$ nên $DEBK$ là hình chữ nhật.\\
+			   Để tứ giác $DEBK$ là hình vuông thì $DE=EB$.\\
+			   Mà $\triangle DAB$ cân tại $D$ nên $DE$ vừa là đường cao vừa là trung tuyến của $\triangle DAB$.\\
+			   Suy ra $DE=EB=\dfrac{AB}{2}$ nên $\triangle DAB$ vuông tại $D$ hay $\widehat{ADB}=90^\circ$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-2]
+	Cho hình vuông $ABCD$. Lấy điểm $E$ thuộc $CD$, $F$ thuộc tia đối của tia $BC$ sao cho $BF=DE$.
+	\begin{enumerate}
+		\item Chứng minh $\triangle AEF$  vuông cân.
+		\item Gọi $I$ là trung điểm $EF$. Chứng minh ba điểm $B$, $I$, $D$ thẳng hàng.
+		\item Lấy điểm $K$ sao cho $I$ là trung điểm của đoạn thẳng $AK$. Chứng minh $AEKF$ là hình vuông.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Xét $\triangle ABF$ và $\triangle$ $ADE$ có\\
+				$\heva{& AD=AB \text{ ( $ABCD$ là hình vuông)}\\& \widehat{ABF}=\widehat{ADE}=90^\circ \\& DE=BF \text{  (gt).}}$\\
+				Suy ra $\triangle ABF=\triangle ADE$ (c.g.c)\\
+				$\Rightarrow AE=AF$ và $\widehat{BAF}=\widehat{DAE}$.\\
+				Ta có $\widehat{BAF}+\widehat{BAE}=\widehat{DAE}+\widehat{BAE}=90^\circ$.\\
+				Suy ra $\triangle AEF$ vuông cân tại $A$.
+				\item 
+				Xét $\triangle AEF$ vuông có $AI$ là trung tuyến nên $IA=IE=IF$.\\
+				Lại có $\triangle CEF$ vuông tại $C$ có $CI$ là trung tuyến.\\
+				Suy ra $IC=IE$ hay $IC=IA\\ \Rightarrow I$ thuộc trung trực của AC.\\
+				Mà $BD$ lại là trung trực $AC$ ($ABCD$ là hình vuông).\\
+				Vậy $B$ $D$, $I$ thẳng hàng.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=1.2,line join=round, line cap=round,font=\footnotesize,>=stealth]
+				\def\a{4} %cạnh
+				\def\b{1.8}
+				\path (0:0) coordinate (D)
+				++(0:\a) coordinate (C)
+				++(90:\a) coordinate (B)
+				++(180:\a) coordinate (A)
+				(D)++(0:\b) coordinate (E)
+				(B)++(90:\b) coordinate (F)
+				($(E)!0.5!(F)$) coordinate (I)
+				($(A)!2!(I)$) coordinate (K);
+				\draw (D)--(C)--(B)--(A)--(D) (A)--(E)--(K)--(F)--(A) (F)--(E) (A)--(K) (F)--(B) (I)--(C)--(A);
+				\draw [dashed] (D) -- (B);
+				\foreach \x/ \goc in {A/180,D/-90,C/-90,E/-90,K/-90,I/-90,F/90,B/0} 
+				\fill (\x) circle (1pt)
+				($(\x)+(\goc:3mm)$) node {$\x$};
+				\draw [decoration={markings, mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}}, postaction={decorate}] (D) -- (E);
+				\draw [decoration={markings, mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}}, postaction={decorate}] (B) -- (F);
+				\draw [decoration={markings,
+					mark=at position 0.45 with {\draw (0,-0.2) -- (0,0.2);},
+					mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}},
+				postaction={decorate}] (I) -- (F);
+				\draw [decoration={markings,
+					mark=at position 0.55 with {\draw (0,-0.2) -- (0,0.2);},
+					mark=at position 0.5 with {\draw (0,-0.2) -- (0,0.2);}},
+				postaction={decorate}] (I) -- (E);
+			\end{tikzpicture}
+		}	
+		\begin{enumerate}
+			\item[c)]  Tứ giác $AEKF$ có $I$ là trung điểm của $AK$ và $EF$ nên là hình bình hành.\\
+			Mà $AE=AF$ và $\widehat{EAF}=90^\circ$ ($\triangle AEF$ vuông cân).\\
+			Suy ra $AEKF$ là hình vuông.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-2]
+	Cho hình vuông $ABCD$. Trên các cạnh $AD$, $DC$ lần lượt lấy các điểm $E$, $F$ sao cho $AE=DF$. Chứng minh
+	\begin{enumerate}
+		\item Các tam giác $ADF$ và $BAE$ bằng nhau.
+		\item $BE$ vuông góc với $AF$.
+	\end{enumerate}
+	\loigiai{
+		\immini{\begin{enumerate}
+				\item Xét $\triangle ADF$ và $\triangle BAE$ có
+				\begin{itemize}
+					\item $DF=AE$ (gt);
+					\item $\widehat{ADF}=\widehat{BAE}=90^\circ$;
+					\item $AD=AB$ ($ABCD$ là hình vuông).
+				\end{itemize}
+				Vậy $\triangle ADF=\triangle BAE$ (c.g.c).
+				\item Gọi $I$ là giao điểm của $BE$ và $AF$.\\
+				 Ta có $\widehat{AEI}=\widehat{DFA}$ (do $\triangle ADF=\triangle BAE$).\\ Do đó $\widehat{EAI}+\widehat{AEI}=\widehat{EAI}+\widehat{DFA}=90^\circ$.\\ Suy ra $BE$ vuông góc với $AF$.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[>=stealth,scale=1,line join=round,line cap=round]
+				\def \h{4}
+				\path (0,0) coordinate (D)
+				(\h,\h) coordinate (B)
+				(0,\h) coordinate (A)
+				(\h,0) coordinate (C)
+				($(A)!2/3!(D)$) coordinate (E)
+				($(D)!2/3!(C)$) coordinate (F)
+				(intersection of A--F and B--E) coordinate (I);
+				\draw (D) rectangle (B) (B)--(E) (A)--(F);
+				\foreach \x/\goc in {A/90,B/90,C/-90,D/-90,E/180,I/90,F/-90}
+				{\fill[black] (\x) circle(1pt) ($(\x)+(\goc:3mm)$) node{$\x$};}
+			\end{tikzpicture}
+	}}
+\end{bt}
+
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-2]
+	Cho hình vuông $ABCD$. Trên tia đối của tia $BA$ lấy điểm $E$, trên tia đối của tia $CB$ lấy điểm $F$ sao cho $AE=CF$.
+	\begin{enumerate}
+		\item Chứng minh tam giác $EDF$ vuông cân.
+		\item Gọi $I$ là trung điểm của $EF$. Chứng minh $BI=DI$.
+		\item Chứng minh ba điểm $A$, $C$, $I$ thẳng hàng.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,scale=1,line join=round,line cap=round]
+				\def \h{4}
+				\path (0,0) coordinate (D)
+				(\h,\h) coordinate (B)
+				(0,\h) coordinate (A)
+				(\h,0) coordinate (C)
+				($(A)!3/2!(B)$) coordinate (E)
+				($(C)!-3/2!(B)$) coordinate (F)
+				($(E)!1/2!(F)$) coordinate (I);
+				\draw (D) rectangle (B) (B)--(E) (C)--(F) (E)--(D)--(F)--(E) (B)--(I)--(D);
+				\draw[dashed] (A)--(C)--(I);
+				\foreach \x/\goc in {A/90,B/90,C/30,D/-120,E/90,F/-90,I/-30}
+				{\fill[black] (\x) circle(1pt) ($(\x)+(\goc:3mm)$) node{$\x$};}
+				\path (I)--(F) node[midway,sloped,scale=0.5]{$|$};
+				\path (E)--(I) node[midway,sloped,scale=0.5]{$|$};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\triangle AED=\triangle CFD$ (c.g.c) do $\heva{&AE=CF\\&\widehat{EAD}=\widehat{FCD}\\&AD=CD}$.\\
+			Suy ra $DE=DF$. \quad $(1)$\\
+			Ta có $\widehat{ADE}=\widehat{CDF}\Rightarrow\widehat{EDF}=\widehat{EDC}+\widehat{CDF}=\widehat{EDC}+\widehat{ADE}=90^\circ$. \quad $(2)$\\
+			Từ $(1)$ và $(2)$, ta có $\triangle EDF$ vuông cân.
+			\item $\triangle EDF$ có $DI$ là đường trung tuyến nên $DI=\dfrac{1}{2}EF$. $\triangle EBF$ có $BI$ là đường trung tuyến nên $BI=\dfrac{1}{2}EF$. Từ đó, $DI=BI$.
+			\item Ta có $ID=IB$, $CD=CB$, $AD=AB$ nên $I$, $C$, $D$ cùng thuộc đường trung trực của $BD$. \\
+			Vậy $A$, $C$, $I$ thẳng hàng.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-2]
+	Cho đoạn thẳng $AB$ và điểm $M$ thuộc đoạn thẳng $AB$. Về cùng một phía của đoạn thẳng $AB$, vẽ các hình vuông $AMCD$ và $BMEF$.
+	\begin{enumerate}
+		\item Chứng minh $AE$ vuông góc với $BC$.
+		\item Gọi $H$ là giao điểm của $AE$ và $BC$. Chứng minh ba điểm $D$, $H$, $F$ thẳng hàng.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item
+				Ta có $\heva{&\widehat{DMA}=\widehat{ABF}=45^\circ\, (\text{hình vuông})  \\& \text{mà hai góc ở vị trí đồng vị}}$\\
+				$\Rightarrow DM\parallel BE$.\\
+				Lại có $AC\perp DM$ nên $AC\perp BE$.\\
+				Xét $\triangle AEB$ có $EM$ và $AC$ là hai đường cao cắt nhau tại $C$.\\
+				Suy ra $C$ là trực tâm của $\triangle ABE$ nên $AE\perp BC$.
+			\end{enumerate}
+		}{
+			\begin{tikzpicture}[scale=1.2,line join=round, line cap=round,font=\footnotesize,>=stealth]
+				\def\a{2} %cạnh
+				\path (0:0) coordinate (A)
+				++(0:\a) coordinate (M)
+				++(90:\a) coordinate (C)
+				++(180:\a) coordinate (D);
+				\def\a{3} %cạnh
+				\path (M)
+				++(0:\a) coordinate (B)
+				++(90:\a) coordinate (F)
+				++(180:\a) coordinate (E);
+				\coordinate (O) at (intersection of A--C and D--M);
+				\coordinate (O') at (intersection of E--B and F--M);
+				\coordinate (H) at (intersection of B--C and A--E);
+				\draw (A)--(M)--(C)--(D)--cycle (A)--(C)--(B) (M)--(D) (A)--(E)--(B) (C)--(H)--(O') (O)--(H)--(M);
+				\draw[dashed] (D)--(F);
+				\draw (M)--(B)--(F)--(E)--cycle;
+				\foreach \x/ \goc in {A/-90,M/-90,B/-90,E/90,F/90,D/90,C/0,H/135,O/-90,O'/90} 
+				\fill (\x) circle (1pt)
+				($(\x)+(\goc:3mm)$) node {$\x$};
+			\end{tikzpicture}
+		}
+		\begin{enumerate}
+			\setcounter{enumi}{1}
+			\item Gọi $O$ là giao điểm của $AC$ và $MD$, $O'$ là giao điểm của $EB$ và $MF$.\\
+			Suy ra $O$ là trung điểm của $AC$ và $MD$, $O'$ là trung điểm của $EB$ và $MF$.\\
+			Xét $\triangle AHC$ vuông tại $H$ có
+			$HO$ là trung tuyến ứng cạnh huyền.\\
+			Suy ra $HO=\dfrac{1}{2}AC$ hay $HO=\dfrac{1}{2}MD$.\\
+			Vậy $DHM$ vuông tại $H$ hay $MH\perp DH$.\\
+			Chứng minh tương tự ta có $\triangle MHF$ vuông tại $H$ hay $MH\perp FH$.\\
+			Vậy $D$, $H$, $F$ thẳng hàng.
+		\end{enumerate}
+	}
+\end{bt}
+
+
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2N5-3]
+	Một người thợ dùng gạch hoa hình vuông để lát nền một căn phòng. Biết viên gạch có cạnh $4$ dm. Để lát theo chiều dài căn phòng người thợ cần $10$ viên gạch, còn chiều rộng thì cần $5$ viên. Hỏi căn phòng đó có diện tích là bao nhiêu mét vuông? Biết diện tích các mạch vữa không đáng kể.
+	\loigiai{
+		Số viên gạch cần dùng để lát nền căn phòng là $5\cdot10=50$ (viên gạch).\\
+		Diện tích một viên gạnh là $4^2=16$ (dm$^2$).\\
+		Diện tích căn phòng là $50\cdot 16=800$ (dm$^2$).	
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2H5-3]
+	Một mảnh vườn hình vuông, ở trong người ta đào một cái ao cũng hình vuông cạnh nhỏ hơn cạnh vườn là $20$ m. Tính diện tích cái ao, biết phần diện tích thừa là $600$ m$^2$.
+	\loigiai{
+		Gọi cạnh của cái ao là $x$ (đơn vị: m, điều kiện: $x>0$).\\
+		Khi đó cạnh của mảnh vườn là $x+20$ (m).\\
+		Suy ra
+		\begin{itemize}
+			\item Diện tích cái ao là $x^2$ (m$^2$).
+			\item Diện tích mảnh vườn là $(x+20)^2$ (m$^2$).
+		\end{itemize}
+		Do diện tích phần đất thừa là $600$ m$^2$ nên ta có
+		\begin{eqnarray*}
+			&&(x+20)^2-x^2=600\\
+			&&40x+400=600\\
+			&&40x=200\\
+			&&x=5.
+		\end{eqnarray*}
+		Do đó diện tích cái ao là $5^2=25$ (m$^2$).
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-3]
+	\immini{
+		Một mặt của bánh chưng có dạng hình vuông $ABCD$ được cắt theo bốn đường thẳng $AC$, $BD$, $MP$, $NQ$, trong đó $M$, $N$, $P$, $Q$ lần lượt là trung điểm các cạnh $AB$, $BC$, $CD$, $AD$. Vì sao bốn đường cắt này đồng quy?}
+	{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\path (0,0) coordinate (A)--+(3,0) coordinate (B)
+			($ (B)!1!90:(A)$) coordinate (C)
+			($(A)!1!-90:(B)$) coordinate (D)
+			($(A)!.5!(B)$)  coordinate (M)
+			($(A)!.5!(D)$)  coordinate (Q)
+			($(C)!.5!(B)$)  coordinate (N)
+			($(C)!.5!(D)$)  coordinate (P)
+			;
+			%			\fill[gray!10] let \p1=($  (O) -  (A) $) in  (O)  circle ({veclen(\x1,\y1)});
+			\fill[gray!30] (A)--(B)--(C)--(D);
+			\begin{scope}[overlay]
+				\path ($ (A)!0.5!(B) $) coordinate (Nt)
+				($ (Nt)!1!90:(A) $) coordinate (Xt)
+				($ (B)!0.5!(C) $) coordinate (Mt)
+				($ (Mt)!1!90:(B) $) coordinate (Yt)
+				(intersection of Nt--Xt and Mt--Yt) coordinate (O);
+			\end{scope}
+			\draw let \p1=($  (O) -  (A) $) in  (O)  circle ({veclen(\x1,\y1)});
+			\draw (B)--(C)--(D)--(A)--cycle (B)--(D) (A)--(C) (M)--(P) (N)--(Q);
+			\foreach \t/\g in {A/180,B/0,C/0,D/180,M/90,N/0,P/-90,Q/180}{
+				\draw[fill=black] (\t) circle (1pt) node[shift={(\g:7pt)},font=\scriptsize]{$ \t $};
+			}		
+			%			\node[below] at (current bounding box.south){Hình $3.81$};  
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Vì $ABCD$ là hình vuông nên $AC$ và $BD$ cắt nhau tại trung điểm $O$ của mỗi đường.\\
+		$\triangle ABC$ có $MO$ là đường trung bình suy ra $MO\parallel BC$.\\
+		$\triangle BCD$ có $PO$ là đường trung bình suy ra $PO\parallel BC$.\\
+		Suy ra $M$, $O$, $P$ thẳng hàng hay $MP$ qua $O$.\\
+		Tương tự $NQ$ qua $O$.\\
+		Vậy bốn dường thẳng $AC$, $BD$, $MP$, $NQ$ đồng quy tại $O$.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-8-Đề Cương Toán 8]%[Dat Tien Pham]%[8H2V5-3]
+	\immini{Một khu đất Hình chữ nhật $ABCD$ được chia thành bốn hình chữ nhật nhỏ như hình bên. Biết diện tích ba hình chữ nhật nhỏ lần lượt là $10$cm$^2$, $15$cm$^2$, $6 $cm$^2$. Tính diện tích $x~\left(\mathrm{cm}^2\right)$ của hình chữ nhật nhỏ còn lại.}
+	{\begin{tikzpicture}[scale=1,line width=0.55pt, font={\fontsize{12pt}{0pt}}, line join=round, line cap=round, >=stealth]
+			%% Khai bao diem		
+			\path
+			(0,0) coordinate (D)
+			(3,0) coordinate (F)
+			(3+1.75,0) coordinate (C)
+			(0,2) coordinate (G)
+			(3,2) coordinate (H)
+			(3+1.75,2) coordinate (K)
+			(0,3.5) coordinate (A)
+			(3,3.5) coordinate (E)
+			(3+1.75,3.5) coordinate (B)
+			;
+			
+			\draw (D)--(C)--(K)--(G)--(D) (G)--(A)--(B)--(C) (E)--(F);
+			\draw ($(A)!1/2!(H)$) node {$10$};
+			\draw ($(G)!1/2!(F)$) node {$15$};
+			\draw ($(E)!1/2!(K)$) node {$6$};
+			\draw ($(H)!1/2!(C)$) node {$x$};
+			
+			%% vẽ điểm
+			\foreach \x/\g in {A/90,E/90,B/90,K/0,C/-90,F/-90,D/-90,G/180,H/-135}
+			\draw[fill=black] (\x) circle (.036)+(\g:.35)
+			node{$\x$};	
+			
+	\end{tikzpicture}} 
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1,line width=0.55pt, font={\fontsize{12pt}{0pt}}, line join=round, line cap=round, >=stealth]
+				%% Khai bao diem		
+				\path
+				(0,0) coordinate (D)
+				(3,0) coordinate (F)
+				(3+1.75,0) coordinate (C)
+				(0,2) coordinate (G)
+				(3,2) coordinate (H)
+				(3+1.75,2) coordinate (K)
+				(0,3.5) coordinate (A)
+				(3,3.5) coordinate (E)
+				(3+1.75,3.5) coordinate (B)
+				;
+				
+				\draw (D)--(C)--(K)--(G)--(D) (G)--(A)--(B)--(C) (E)--(F);
+				\draw ($(A)!1/2!(H)$) node {$10$};
+				\draw ($(G)!1/2!(F)$) node {$15$};
+				\draw ($(E)!1/2!(K)$) node {$6$};
+				\draw ($(H)!1/2!(C)$) node {$x$};
+				\draw ($(A)!1/2!(E)$) node[above] {$a$};
+				\draw ($(E)!1/2!(B)$) node[above] {$b$};
+				\draw ($(A)!1/2!(G)$) node[left] {$c$};
+				\draw ($(G)!1/2!(D)$) node[left] {$d$};
+				
+				%% vẽ điểm
+				\foreach \x/\g in {A/90,E/90,B/90,K/0,C/-90,F/-90,D/-90,G/180,H/-135}
+				\draw[fill=black] (\x) circle (.036)+(\g:.35)
+				node{$\x$};	
+				
+			\end{tikzpicture}	
+		\end{center}
+		Đặt $AE=a$; $EB=b$; $AG=c$; $GD=d$.\\
+		Ta có $ac=10$; $bc=6$; $ad=15$\\
+		Suy ra $(ac)^2bd=900$ suy ra $bd=9$.\\
+		Vậy diện tích hình chữ nhật còn lại là $9$ (cm$^2$).}
+\end{bt}
+
+

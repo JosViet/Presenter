@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { X, Smartphone, Wifi, StopCircle, RefreshCw, Lock } from 'lucide-react';
+import { X, Smartphone, Wifi, StopCircle, RefreshCw, Lock, AlertTriangle } from 'lucide-react';
 import QRCode from 'qrcode';
+import { useRemoteControl } from '../contexts/RemoteControlContext';
 
 interface RemoteControlModalProps {
     isOpen: boolean;
@@ -8,43 +9,53 @@ interface RemoteControlModalProps {
 }
 
 export const RemoteControlModal: React.FC<RemoteControlModalProps> = ({ isOpen, onClose }) => {
-    const [serverInfo, setServerInfo] = useState<{ ip: string, port: number, url: string, pin: string } | null>(null);
+    // New Hook Use
+    const { startHost, stopHost, session, status } = useRemoteControl();
+
+    // UI Local State
     const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    // Initial Start
     useEffect(() => {
-        if (isOpen && !serverInfo) {
-            startServer();
+        if (isOpen && !session && status.state === 'DISCONNECTED') {
+            handleStart();
         }
     }, [isOpen]);
 
-    const startServer = async () => {
+    // QR Generation when session changes
+    useEffect(() => {
+        if (session) {
+            QRCode.toDataURL(session.url, { width: 300, margin: 2, color: { dark: '#4F46E5', light: '#FFFFFF' } })
+                .then(setQrDataUrl)
+                .catch(err => console.error('QR Error', err));
+        } else {
+            setQrDataUrl(null);
+        }
+    }, [session]);
+
+    const handleStart = async () => {
         setIsLoading(true);
         setError(null);
         try {
-            const info = await window.electronAPI.startRemoteServer();
-            setServerInfo(info);
-            const qr = await QRCode.toDataURL(info.url, { width: 300, margin: 2, color: { dark: '#4F46E5', light: '#FFFFFF' } });
-            setQrDataUrl(qr);
+            await startHost();
         } catch (err: any) {
-            setError(err.message || 'Failed to start server');
+            setError(err.message || 'Failed to start remote service');
         } finally {
             setIsLoading(false);
         }
     };
 
-    const stopServer = async () => {
-        try {
-            await window.electronAPI.stopRemoteServer();
-            setServerInfo(null);
-            setQrDataUrl(null);
-        } catch (err) {
-            console.error(err);
-        }
+    const handleStop = () => {
+        stopHost();
     };
 
     if (!isOpen) return null;
+
+    if (!isOpen) return null;
+
+    const deviceName = status.state === 'CONNECTED' && status.deviceName;
 
     return (
         <div className="absolute inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center animate-in fade-in duration-200">
@@ -55,13 +66,13 @@ export const RemoteControlModal: React.FC<RemoteControlModalProps> = ({ isOpen, 
                         <Smartphone size={28} />
                         <div>
                             <h2 className="text-xl font-bold">Điều khiển từ xa</h2>
-                            <p className="text-indigo-200 text-xs">Quét mã để kết nối</p>
+                            <p className="text-indigo-200 text-xs">Beta Version (Interaction Proxy)</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        {serverInfo && (
+                        {session && (
                             <button
-                                onClick={stopServer}
+                                onClick={handleStop}
                                 className="p-2 hover:bg-white/10 rounded-full text-red-200 hover:text-red-100 transition-colors"
                                 title="Tắt Server"
                             >
@@ -76,73 +87,107 @@ export const RemoteControlModal: React.FC<RemoteControlModalProps> = ({ isOpen, 
 
                 {/* Content */}
                 <div className="p-8 flex flex-col items-center text-center">
-                    {isLoading ? (
+                    {/* Status: Loading */}
+                    {isLoading && (
                         <div className="py-12 flex flex-col items-center gap-4 text-indigo-600">
                             <RefreshCw className="animate-spin" size={40} />
-                            <p>Đang khởi động máy chủ...</p>
+                            <p>Đang tạo phòng kết nối...</p>
                         </div>
-                    ) : error ? (
-                        <div className="py-8 text-red-600">
-                            <p className="font-bold mb-2">Lỗi khởi động:</p>
-                            <p className="text-sm">{error}</p>
+                    )}
+
+                    {/* Status: Error */}
+                    {!isLoading && error && (
+                        <div className="py-8 text-center">
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
+                                <AlertTriangle className="text-red-600" size={32} />
+                            </div>
+                            <p className="font-bold text-red-600 mb-2">Không thể tạo phòng</p>
+                            <p className="text-sm text-gray-500 mb-6">{error}</p>
                             <button
-                                onClick={startServer}
-                                className="mt-4 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 font-medium"
+                                onClick={handleStart}
+                                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium"
                             >
                                 Thử lại
                             </button>
                         </div>
-                    ) : serverInfo ? (
+                    )}
+
+
+                    {/* Status: Active Session (Ready or Connected) */}
+                    {!isLoading && !error && session && (
                         <>
-                            <div className="bg-white p-2 rounded-xl border border-gray-200 shadow-inner mb-4">
+                            {/* Connected Banner */}
+                            {deviceName && (
+                                <div className="w-full bg-green-100 border border-green-200 text-green-700 p-3 rounded-xl mb-6 animate-in slide-in-from-top-4">
+                                    <div className="flex items-center justify-center gap-2 font-bold">
+                                        <Smartphone size={18} />
+                                        <span>Đã kết nối</span>
+                                    </div>
+                                    <p className="text-xs opacity-80 mt-1">Thiết bị: {deviceName}</p>
+                                </div>
+                            )}
+
+                            {/* QR Code */}
+                            <div className="bg-white p-2 rounded-xl border border-gray-200 shadow-inner mb-6 relative">
                                 {qrDataUrl ? (
-                                    <img src={qrDataUrl} alt="QR Code" className="w-52 h-52 object-contain" />
+                                    <img
+                                        src={qrDataUrl}
+                                        alt="QR Code"
+                                        className={`w-52 h-52 object-contain transition-opacity duration-300 ${deviceName ? 'opacity-25 blur-sm' : 'opacity-100'}`}
+                                    />
                                 ) : (
                                     <div className="w-52 h-52 bg-gray-100 animate-pulse rounded-lg" />
+                                )}
+
+                                {/* Overlay when connected */}
+                                {deviceName && (
+                                    <div className="absolute inset-0 flex items-center justify-center flex-col text-indigo-900">
+                                        <Lock size={32} className="mb-2 text-indigo-600" />
+                                        <span className="font-bold text-sm">Session Locked</span>
+                                    </div>
                                 )}
                             </div>
 
                             {/* PIN Display */}
-                            <div className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-4 mb-4 text-white">
+                            <div className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-4 mb-4 text-white hover:scale-[1.02] transition-transform">
                                 <div className="flex items-center justify-center gap-2 mb-2">
                                     <Lock size={18} />
-                                    <span className="text-sm font-medium">Mã PIN kết nối</span>
+                                    <span className="text-sm font-medium">Mã PIN bảo mật</span>
                                 </div>
                                 <div className="flex justify-center gap-2">
-                                    {(serverInfo.pin || '0000').split('').map((digit, i) => (
-                                        <span key={i} className="w-12 h-14 flex items-center justify-center bg-white/20 rounded-lg text-2xl font-bold border-2 border-white/30">
+                                    {(session.pin).split('').map((digit, i) => (
+                                        <span key={i} className="w-12 h-14 flex items-center justify-center bg-white/20 rounded-lg text-2xl font-bold border-2 border-white/30 backdrop-blur-sm">
                                             {digit}
                                         </span>
                                     ))}
                                 </div>
-                                <p className="text-indigo-200 text-xs mt-2">Nhập mã này trên điện thoại</p>
+                                <p className="text-indigo-200 text-xs mt-2">Nhập mã này trên điện thoại để xác thực</p>
                             </div>
 
-                            <div className="w-full bg-indigo-50 border border-indigo-100 rounded-lg p-3 mb-4">
-                                <div className="flex items-center justify-center gap-2 text-indigo-800 font-bold mb-1">
-                                    <Wifi size={16} />
-                                    <span className="text-sm">Chung mạng Wifi</span>
-                                </div>
-                                <p className="text-indigo-600/80 text-xs">
-                                    Điện thoại và Máy tính phải kết nối cùng 1 mạng.
-                                </p>
+                            {/* Network Warning for PeerJS */}
+                            <div className="w-full text-xs text-gray-500 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                <p>⚠️ <b>Lưu ý mạng:</b> Nếu điện thoại không thể vào đường dẫn, hãy tắt Wifi và dùng 4G để thử lại (WebRTC có thể bị chặn bởi tường lửa trường học).</p>
                             </div>
 
-                            <div className="text-left w-full space-y-1">
-                                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Địa chỉ thủ công:</p>
-                                <div className="flex items-center gap-2 bg-gray-100 p-2 rounded-lg font-mono text-sm text-gray-700 select-all">
-                                    {serverInfo.url}
-                                </div>
+                            {/* Manual URL */}
+                            <div className="mt-4 text-[10px] text-gray-400 font-mono break-all">
+                                {session.url}
                             </div>
                         </>
-                    ) : (
+                    )}
+
+                    {/* Status: Disconnected (Start Button) */}
+                    {!isLoading && !error && !session && (
                         <div className="py-8 text-gray-500">
-                            <p>Server đã tắt.</p>
+                            <div className="mb-6 opacity-50">
+                                <Wifi size={64} className="mx-auto text-gray-300" />
+                            </div>
+                            <p>Server đang tắt</p>
                             <button
-                                onClick={startServer}
-                                className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-bold shadow-lg shadow-indigo-200"
+                                onClick={handleStart}
+                                className="mt-6 px-8 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 font-bold shadow-lg shadow-indigo-200 transition-all hover:translate-y-[-2px]"
                             >
-                                Bật lại Remote
+                                Bật Remote
                             </button>
                         </div>
                     )}

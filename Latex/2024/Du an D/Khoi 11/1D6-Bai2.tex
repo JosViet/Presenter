@@ -1,0 +1,970 @@
+\newpage
+\section{PHÉP TÍNH LÔGARIT}
+\subsection{LÝ THUYẾT CẦN NHỚ}
+	\subsubsection{Khái niệm lôgarit}
+	\begin{boxdn}
+		Cho $a$ là một số thực dương khác 1 và $M$ là một số thực dương. Số thực $\alpha$ để $a^\alpha=M$ được gọi là lôgarit cơ số $a$ của $M$ và kí hiệu là $\log _a M$.
+		$$
+		\alpha=\log _a M \Leftrightarrow a^\alpha=M .
+		$$
+	\end{boxdn}
+	\begin{note}
+		Không có lôgarit của số âm và số $0 $. Cơ số của lôgarit phải dương và khác $1 $. 
+	\end{note}
+	\begin{tc}
+		Với $0<a \ne 1$, $M>0$ và $\alpha$ là số thực tùy ý, ta có:
+		\begin{center}
+			\renewcommand{\arraystretch}{1.8}
+			\begin{tabular}{m{4cm}m{3cm}}
+				$\log _a 1=0$;	&
+				$\log _a a=1$;\\	
+				$a^{\log _a M}=M; $	&
+				$\log _a a^\alpha=\alpha.$\\	
+			\end{tabular}
+		\end{center}
+	\end{tc}
+	%===================================================================
+	\subsubsection{Tính chất của lôgarit}
+	\paragraph{Quy tắc tính lôgarit}
+	\begin{boxdn}
+		Giả sử $a$ là số thực dương khác $1$, $M$ và $N$ là các số thực dương, $\alpha$ là số thực tùy ý. Khi đó:
+		$$
+		\begin{aligned}
+			& \log _a(M N)=\log _a M+\log _a N. \\
+			& \log _a\left(\dfrac{M}{N}\right)=\log _a M-\log _a N .\\
+			& \log _a M^\alpha=\alpha \log _a M.
+		\end{aligned}
+		$$
+	\end{boxdn}
+	\paragraph{Đổi cơ số của lôgarit}
+	\begin{boxdn}
+		Với các cơ số lôgarit $a$ và $b$ bất kì $(0<a \neq 1$, $0<b \neq 1)$ và $M$ là số thực dương tuỳ ý, ta luôn có:
+		$$
+		\log _a M=\dfrac{\log _b M}{\log _b a}.
+		$$
+	\end{boxdn}
+\begin{luuy}
+	Đặc biệt ta có 
+	\begin{enumEX}{2}
+		\item $\log_ab=\dfrac{1}{\log_ba}\, \, \left(b\ne 1\right)$;
+		\item $\log_{a^m}b=\dfrac{1}{m}\log_ab\,\, \left(m\ne 0\right)$.
+	\end{enumEX}
+\end{luuy}
+	\subsubsection{Lôgarit thập phân và lôgarit tự nhiên}
+	\paragraph{Lôgarit thập phân}
+	\begin{boxdn}
+		Lôgarit cơ số 10 của một số dương $M$ gọi là lôgarit thập phân của $M$, kí hiệu là $\log M$ hoặc $\lg M$ (đọc là lốc của $M$).
+	\end{boxdn}
+	\paragraph{Số $\mathrm{e}$ và lôgarit tự nhiên}
+	{\bf Bài toán lãi kép liên tục và số $\mathrm{e}$}
+	\begin{boxdn}
+		$$
+		\mathrm{e}=\lim _{x \rightarrow+\infty}\left(1+\dfrac{1}{x}\right)^x \approx 2{,}7183 .
+		$$
+	\end{boxdn}
+	\begin{boxdl}
+		\begin{itemize}
+			\item {\bf Công thức lãi kép theo $N$ kì hạn} \\
+			Nếu đem gửi ngân hàng một số vốn ban đầu là $P$ theo thể thức lãi kép với lãi suất hằng năm không đổi là $r$ và chia mỗi năm thành $m$ kì tính lãi thì sau $t$ năm (tức là sau $t m=N$ kì hạn) số tiền thu được (cả vốn lẫn lãi) là
+			$$
+			A_m=P\left(1+\dfrac{r}{m}\right)^{N} .
+			$$
+			\item {\bf Công thức lãi kép liên tục}\\
+			Với số vốn ban đầu là $P$, theo thể thức lãi kép liên tục, lãi suất hằng năm không đổi là $r$ thì sau $t$ năm, số tiền thu được cả vốn lẫn lãi sẽ là
+			$$
+			A=P \mathrm{e}^{t r}.
+			$$
+		\end{itemize}
+	\end{boxdl}
+	{\bf Lôgarit tự nhiên}
+	\begin{boxdn}
+		Lôgarit cơ số e của một số dương $M$ gọi là lôgarit tự nhiên của $M$, kí hiệu là $\ln M$ (đọc là lôgarit Nêpe của $M$).
+	\end{boxdn}
+
+%-------------------------------------------------------------------------------------------------------------
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+
+\begin{dang}{Tính toán biểu thức chứa lôgarit}
+Áp dụng các tính chất, công thức để biến đổi
+\begin{enumerate}
+	\item Tính chất
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\log_a a=1$, $\log_a1=0$.
+			\item $a^{\log_ab}=b$. $\log_a\left(a^\alpha\right)=\alpha$.
+			\columnbreak
+			\item $\log_a\left(b\cdot c\right)=\log_ab+\log_ac$.
+			\item $\log_a\dfrac{b}{c}=\log_ab-\log_ac$.
+		\end{itemize}
+	\end{multicols}
+	Đặc biệt: với $a$, $b>0$, $a\neq 1$ thì $\log_a \dfrac{1}{b}=-\log_ab$.
+	\item Công thức \lq\lq bay\rq\rq
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\log_ab^\alpha=\alpha\log_ab$
+			\item $\log_{a^\alpha}b=\dfrac{1}{\alpha}\log_ab$
+		\end{itemize}
+	\end{multicols}
+	Đặc biệt: $\log_a\sqrt[n]{b}=\dfrac{1}{n}\log_ab$
+	\item Đổi cơ số 
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\log_ab=\dfrac{\log_cb}{\log_ca}$
+			\item $\log_ab=\log_ac\cdot \log_cb$
+		\end{itemize}
+	\end{multicols}
+\end{enumerate}
+\end{dang}
+\begin{vd}%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Tính giá trị của các biểu thức sau:
+	\begin{enumEX}[a)]{2}
+		\item $\log _{3} \dfrac{9}{10}+\log _{3} 30$;
+		\item $\log _{5} 75-\log _{5} 3$;
+		\item $\log _{3} \dfrac{5}{9}-2 \log _{3} \sqrt{5}$;
+		\item $4 \log _{12} 2+2 \log _{12} 3$;
+		\item $2 \log _{5} 2-\log _{5} 4 \sqrt{10}+\log _{5} \sqrt{2}$;
+		\item $\log _{3} \sqrt{3}-\log _{3} \sqrt[3]{9}+2 \log _{3} \sqrt[4]{27}$.
+	\end{enumEX} 
+	\loigiai{
+		\begin{enumEX}[\hspace*{.5cm}a)]{1}
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}
+				\log _{3} \dfrac{9}{10}+\log _{3} 30&=&\log _{3} 9-\log _{3} 10+\log _{3} 3\cdot 10\\&=&\log _{3} 3^2-\log _{3} 10+\log _{3} 3+\log _{3} 10
+				\\&=&2\log _{3} 3+\log _{3} 3=3\log _{3} 3=3\cdot 1=3.
+			\end{eqnarray*}
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}\log _{5} 75-\log _{5} 3&=&\log _{5} 3\cdot 25-\log _{5} 3\\
+				&=&\log _{5} 3+\log _{5} 25-\log _{5} 3=\log _{5} 5^2=2\log _{5} 5=2.
+			\end{eqnarray*}
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}
+				\log _{3} \dfrac{5}{9}-2 \log _{3} \sqrt{5}&=&\log _{3} 5-\log _{3} 9-2 \log _{3} 5^{\tfrac{1}{2}}\\
+				&=&\log _{3} 5-\log _{3} 3^2-2\cdot \dfrac{1}{2} \log _{3} 5\\
+				&=&-2\log _{3} 3=-2
+				.
+			\end{eqnarray*}
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}
+				A=4 \log _{12} 2+2 \log _{12} 3&=&4 \dfrac{1}{\log _2 12}+2 \dfrac{1}{\log _3 12}\\
+				&=& \dfrac{4}{\log _2 3\cdot 4}+ \dfrac{2}{\log _3 3\cdot 4}\\
+				&=& \dfrac{4}{\log _2 3+\log _2 2^2}+ \dfrac{2}{\log _3 3+\log _3 2^2}\\
+				&=& \dfrac{4}{\log _2 3+2}+ \dfrac{2}{1+2\log _3 2}.
+			\end{eqnarray*}
+			Đặt $t=\log _2 3\Rightarrow \log _3 2=\dfrac{1}{t}$. Khi đó
+			\begin{eqnarray*}
+				A&=& \dfrac{4}{t+2}+ \dfrac{2}{1+2\cdot  \dfrac{1}{t}}=\dfrac{4}{t+2}+ \dfrac{2t}{t+2}\\&=&\dfrac{4+2t}{t+2}=\dfrac{2(2+t)}{t+2}=2.
+			\end{eqnarray*}
+			
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}
+				2 \log _{5} 2-\log _{5} 4 \sqrt{10}+\log _{5} \sqrt{2}&=&2 \log _{5} 2-\left(\log _{5} 4 +\log _{5} 10^{\tfrac{1}{2}}\right)+\log _{5} 2^{\tfrac{1}{2}}\\
+				&=&2 \log _{5} 2-\left(\log _{5} 2^2 +\dfrac{1}{2}\log _{5} 2\cdot 5\right)+\dfrac{1}{2}\log _{5} 2\\
+				&=&2 \log _{5} 2-2\log _{5} 2 -\dfrac{1}{2}\left(\log _{5} 2+\log _{5} 5\right)+\dfrac{1}{2}\log _{5} 2\\
+				&=&-\dfrac{1}{2}\log _{5} 2-\dfrac{1}{2}\cdot 1+\dfrac{1}{2}\log _{5} 2=-\dfrac{1}{2}.
+			\end{eqnarray*}
+			\item Ta có \allowdisplaybreaks
+			\begin{eqnarray*}
+				\log _{3} \sqrt{3}-\log _{3} \sqrt[3]{9}+2 \log _{3} \sqrt[4]{27}&=&\log _{3} 3^{\tfrac{1}{2}}-\log _{3} 9^{\tfrac{1}{3}}+2 \log _{3} 27^{\tfrac{1}{4}}\\&=&\dfrac{1}{2}\log _{3} 3-\dfrac{1}{3}\log _{3} 3^2+2\cdot \dfrac{1}{4} \log _{3} 3^3\\
+				&=&\dfrac{1}{2}\cdot 1-\dfrac{1}{3}\cdot  2\log _{3} 3+ \dfrac{1}{2}\cdot 3 \log _{3} 3\\
+				&=&\dfrac{1}{2}-\dfrac{2}{3}+ \dfrac{3}{2}=\dfrac{4}{3}
+				.
+			\end{eqnarray*}
+	\end{enumEX} }
+\end{vd}
+
+\begin{vd}%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_a b=4$. Tính giá trị của các biểu thức sau.
+	\begin{enumEX}[a)]{2}
+		\item $\log_a\left(a^{\frac{1}{2}} b^5\right)$.
+		\item $\log_a\left(\dfrac{a \sqrt{b}}{b \sqrt[3]{a}}\right)$.
+		\item $\log_{a^3 b^2}\left(a^2 b^3\right)$.
+		\item $\log_{a \sqrt[3]{b}}\left(\sqrt[4]{a \sqrt{b}}\right)$.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item $\log_a\left(a^{\frac{1}{2}} b^5\right)=\log_a a^{\tfrac{1}{2}}+\log_a b^5=\dfrac{1}{2}+5\log_a b=\dfrac{1}{2}+5\cdot 4=\dfrac{41}{2}$.
+			\item $\log_a\left(\dfrac{a \sqrt{b}}{b \sqrt[3]{a}}\right)=\log_a \left(a^{\tfrac{2}{3}}b^{-\tfrac{1}{2}}\right)=\log_a a^{\tfrac{2}{3}}\cdot \log_a b^{-\tfrac{1}{2}}=\dfrac{2}{3}-\dfrac{1}{2}\log_a b=\dfrac{2}{3}-\dfrac{1}{2}\cdot 4=-\dfrac{4}{3}$.
+			\item $\log_{a^3 b^2}\left(a^2 b^3\right)=\dfrac{\log_a (a^2b^3)}{\log_a (a^3b^2)}=\dfrac{2+3\log_a b}{3+2\log_a b}=\dfrac{2+3\cdot 4}{3+2\cdot 4}=\dfrac{14}{11}$.
+			\item $\log_{a \sqrt[3]{b}}\left(\sqrt[4]{a \sqrt{b}}\right)=\dfrac{\log_a \sqrt[4]{a \sqrt{b}}}{\log_a a\sqrt[3]{b}}=\dfrac{\log_a \left(a^{\tfrac{1}{4}}\cdot b^{\tfrac{1}{8}}\right)}{\log_a a+\log_a b^{\tfrac{1}{3}}}=\dfrac{\dfrac{1}{4}+\dfrac{1}{8}\cdot 4}{1+\dfrac{1}{3}\cdot 4}=\dfrac{9}{28}$.
+		\end{enumerate}	
+	}	
+\end{vd}
+\begin{vd}%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_2x = \dfrac{1}{2}$. Tính giá trị của biểu thức $P = \dfrac{\log_2{(4x)} + \log_2 \dfrac{x}{2}}{x^2 - \log_{\sqrt{2}}x}$.
+	\loigiai
+	{
+		Ta có $\log_2x = \dfrac{1}{2} \Leftrightarrow x = \sqrt{2} \Rightarrow x^2 = 2$. \\ Khi đó
+		$P=\dfrac{\log_2(4x)+\log_2\dfrac{x}{2}}{x^2-\log_{\sqrt{2}}x}=\dfrac{\log_2\left(2x^2\right)}{x^2-2\log_2x}=\dfrac{1+2\log_2x}{x^2-2\log_2x}=\dfrac{1+2\cdot \dfrac{1}{2}}{2-2\cdot \dfrac{1}{2}}=2.$
+	}
+\end{vd}
+
+
+
+\begin{dang}{Phân tích một logarit theo hai logarit cho trước}
+Ta thực hiện theo các bước sau:
+\begin{itemize}
+	\item Bước 1. Biến đổi các biểu thức logarit phụ thuộc vào tham số $a$ và $b$.
+	\item Bước 2. Đặt các biểu thức logarit của các số nguyên tố là các ẩn $x$, $y$, $z$.\\
+	Từ đó ta thu được phương trình hoặc hệ phương trình với các ẩn $x$, $y$, $z$.\\ Ta tìm các ẩn này theo $a$, $b$.
+	\item Bước 3. Giải hệ tìm được $x$, $y$, $z$, $\ldots$ theo $a$, $b$.\\ Từ đó tính được biểu thức theo các tham số $a$, $b$.
+\end{itemize}
+Các công thức nền tảng là $\log_ab=\dfrac{\log_cb}{\log_ca}$ và $\dfrac{1}{\log_ab}=\log b_a$.
+\end{dang}
+
+\begin{vd}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a=\log_25$, $b=\log_29$. Tính $\log_2\dfrac{40}{3}$ theo $a$ và $b$.
+	\loigiai{
+		Ta có $P=\log_2\dfrac{40}{3}=\log_240-\log_23=\log_2(2^3\cdot 5)-\dfrac{1}{2}\log_29=3+\log_25-\dfrac{1}{2}\log_29=3+a-\dfrac{1}{2}b$.
+	}
+\end{vd}
+
+\begin{vd}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_32=a$, $\log_35=b$. Tính $\log_620$ theo $a$ và $b$.
+	\loigiai{
+		Ta có
+		\begin{eqnarray*}
+			\log_620&=&\dfrac{\log_320}{\log_36}=\dfrac{\log_3(2^2\cdot 5)}{\log_3(2\cdot 3)}=\dfrac{\log_32^2+\log_35}{\log_32+\log_33}\\
+			&=&\dfrac{2\log_32+\log_35}{\log_32+\log_33}=\dfrac{2a+b}{a+1}.
+		\end{eqnarray*}
+	}
+\end{vd}
+\begin{vd}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Đặt $a=\log_23$ và $b=\log_53$. Hãy biểu diễn $\log_6{45}$ theo $a$ và $b$.
+	\loigiai{
+		Ta có $\log_6{45}=\dfrac{\log_3{\left(5\cdot 3^2\right)}}{\log_3\left(2\cdot3\right)}=\dfrac{\log_35+2}{\log_32+1}=\dfrac{\dfrac{1}{b}+2}{\dfrac{1}{a}+1}=\dfrac{a+2ab}{ab+b}$.}
+\end{vd}
+\begin{vd}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_2 6=a$; $\log_2 7=b$. Hãy biểu diễn $\log_{18}{42}$ theo $a$ và $b$.
+	\loigiai{ 
+		Ta có $\log_{18}{42}=\dfrac{\log_2{42}}{\log_2{18}}=\dfrac{\log_2\left(6\cdot 7\right)}{\log_2\left(\dfrac{36}{2}\right)}=\dfrac{\log_26+\log_27}{\log_26^2-\log_22}=\dfrac{a+b}{2a-1}$.
+	}
+\end{vd}
+\begin{vd}%[1D6V2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a=\log_5{18}$ và $b=\log_5{60}$. Tính $\log_32$ theo $a$ và $b$.
+	\loigiai{Đầu tiên ta có hệ $\heva{&a=\log_5{18}=\log_52+2\log_53\\&b=\log_5{60}=2\log_52+\log_53+1.}$ \\
+		Đặt $x=\log_52$ và $y=\log_53$ từ đó ta có hệ phương trình bậc nhất hai ẩn 
+		\begin{eqnarray*}
+			&& \heva{&x+2y=a\\&2x+y=b-1}\\
+			&\Leftrightarrow& \heva{&x=\log_52=\dfrac{-a+2b-2}{3}\\&y=\log_53=\dfrac{2a-b+1}{3}.}
+		\end{eqnarray*}
+		Vậy $\log_32=\dfrac{\log_52}{\log_5 3}=\dfrac{-a+2b-2}{2a-b+1}$.
+	}
+\end{vd}
+
+\begin{dang}{Vận dụng, thực tiễn}
+	Áp dụng định nghĩa và các tính chất của lôgarit để áp dụng vào các bài toán thực tế.
+\end{dang}
+
+\begin{vd}%[1D6H2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Trong hóa học, độ pH của một dung dịch được tính theo công thức $\text{pH}=-\log[\text{H}^+] $, trong đó $ [\text{H}^+] $ là nồng độ  H$^+ $ (ion hydro) tính bằng mol/L. Các dung dịch có  pH  bé hơn $ 7 $ thì có tính acid, có pH  lớn hơn $ 7 $ thì có tính kiềm, có  pH  bằng $ 7 $ thì trung tính.
+	\begin{listEX}[1]
+		\item[a)] Tính độ  pH  của dung dịch có nồng độ H$^+ $ là $ 0{,}0001 $ mol/L. Dung dịch này có tính acid, hay kiềm hay trung tính?
+		\item[b)] Dung dịch $ A $ có nồng độ  H$^+ $ gấp đôi nồng độ  H$^+ $ của dung dịch $ B $.\\
+		Độ pH  của dung dịch nào lớn hơn và lớn hơn bao nhiêu? Làm tròn kết quả đến hàng phần nghìn.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item[a)] $ \text{pH}=-\log 0{,}0001=-\log 10^{-4} =4\log 10=4$.\\
+			Do $ 4<7 $ nên dung dịch có tính acid.
+			\item[b)] Kí hiệu pH$_A $,  pH$_B $ lần lượt là độ  pH  của hai dung dịch $ A $ và $ B $; $ [\text{H}^+]_A $, $ [\text{H}^+]_B $ lần lượt là nồng độ của hai dung dịch $ A $ và $ B $. Ta có
+			$$\text{pH}_A=-\log[\text{H}^+]_A=-\log\left(2[\text{H}^+]_B\right)=-\log 2-\log[\text{H}^+]_B=-\log 2+\text{pH}_B.$$ 
+			Suy ra $ \text{pH}_B-\text{pH}_A=\log 2\approx 0{,}301 $.\\
+			Vậy dung dịch $ B $ có độ  pH  lớn hơn và lớn hơn khoảng $ 0{,}301 $.
+		\end{listEX}
+	}
+\end{vd}
+
+\begin{vd}%[1D6H2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Để đặc trưng cho độ to nhỏ của âm, người ta đưa ra khái niệm mức cường độ của âm. Một đơn vị thường dùng để đo mức cường độ của âm là đềxinben (viết tắt là dB). Khi đó mức cường độ $L$ của âm được tính theo công thức: $L(I)=10 \log \left(\dfrac{I}{I_0}\right) $ trong đó, $I$ là cường độ của âm tại thời điểm đang xét, $I_0$ cường độ âm ở ngưỡng nghe $I_0=10^{-12}$ w/m$^2$. Một cuộc trò chuyện bình thường trong lớp học có mức cường độ âm trung bình là $68 \mathrm{dB}$. Hãy tính cường độ âm tương ứng ra đơn vị w/m$^2$.
+	\loigiai{
+		Theo giả thiết ta có $L(db)=68db$, $I_0=10^{-12}$ w/m$^2$.\\
+		Áp dụng công thức ta có: $L(db)=10 \log \dfrac{I}{I_0} \Leftrightarrow 68=10 \log \dfrac{I}{I_0} \Leftrightarrow \log \dfrac{I}{I_0}=6{,}8 \Leftrightarrow \dfrac{I}{I_0}=10^{6{,}8}$
+		$$
+		\Leftrightarrow \dfrac{I}{I_0}=6{,}3 \cdot 10^6 \Rightarrow I \approx 6{,}3 \cdot 10^6 \cdot 10^{-12} \approx 6{,}3 \cdot 10^{-6} \mathrm{w}/\mathrm{m}^2.
+		$$}
+\end{vd}
+
+\begin{vd}%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Độ lớn $ M $ của một trận động đất theo thang Richter được tính theo công thức\\ $ M=\log \dfrac{A}{A_0} $, trong đó $ A $ là biên độ lớn nhất ghi được bởi máy đo địa chấn, $ A_0 $ là biên độ tiêu chuẩn được sử dụng để hiệu chỉnh độ lệch gây ra bởi khoảng cách của máy đo địa chấn so với tâm chấn ($\mathrm{A}_0=1$ $\mu$ m).
+	\begin{listEX}[1]
+		\item[a)] Tính độ lớn của trận động đất có biên độ $A$ bằng
+		\begin{listEX}[2]
+			\item[i)] $ 10^{5{,}1}A_0 $;
+			\item[ii)] $ 65~000 A_0$.  
+		\end{listEX}
+		\item[b)] Một trận động đất tại địa điểm $ N $ có biên độ lớn nhất gấp ba lần biên độ lớn nhất của trận động đất tại địa điểm $ P $. So sánh độ lớn của hai trận động đất.
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item[a)] Độ lớn của trận động đất có biên độ $ A $ là
+			\begin{listEX}[1]
+				\item[i)] $ 10^{5{,}1}A_0 \Rightarrow M=\log \dfrac{10^{5{,}1}A_0}{A_0}=5{,}1$;
+				\item[ii)] $ 65~000 A_0\Rightarrow M=\log \dfrac{65~000 A_0}{A_0} =\log (65\cdot 10^3)\approx 4{,}81 $.  
+			\end{listEX}
+			\item[b)] Gọi $ M_N $ và $ M_P $ lần lượt là độ lớn của các trận động đất tại địa điểm $ N $ và $ P $.\\
+			Gọi $ A $ là biên độ lớn nhất ghi được bởi máy đo địa chấn tại địa điểm  $ P $. Ta có
+			$$M_P=\log \dfrac{A}{A_0};\quad M_N=\log \dfrac{3A}{A_0}=\log 3+\log \dfrac{A}{A_0}.$$
+			Do $ \log 3\approx 0{,}3>0 $ nên $ M_N>M_P $.
+		\end{listEX}
+	}
+\end{vd}
+\begin{vd}%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Biết rằng khi độ cao tăng lên thì áp xuất không khí sẽ giảm và công thức tính áp suất dựa trên độ cao là $a=15\,500\cdot\left(5-\log p\right)$, trong đó $a$ là độ cao so với mực nước biển (tính bằng mét) và $p$ là áp suất không khí (tính bằng pascal). Tính áp suất không khí ở đỉnh Everest có độ cao $8\,850$ m so với mực nước biển.
+	\loigiai{ Theo công thức $a=15\,500\cdot\left(5-\log p\right)$.\\
+		$\Rightarrow 8\,850=15\,500\cdot\left(15-\log p\right)=\dfrac{177}{310}\Leftrightarrow\log p=\dfrac{1\,373}{310}\Leftrightarrow p\approx26\,855{,}4$.\\
+		Vậy áp suất không khí ở đỉnh Everest gần bằng $26\,855{,}4$ pascal.}
+\end{vd}
+
+%-----------------------------------------------------------------------------
+\subsection{Bài tập rèn luyện}
+\ind{PHẦN I.} \inden{Câu trắc nghiệm nhiều phương án lựa chọn. Mỗi câu hỏi học sinh chỉ chọn một phương án.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-TN]%--Đặt tên 2D1-Bai1-Dang1-TN
+\begin{ex}[Trích đề thi HK2 năm 2024-2025, trường TH-THCS-THPT Lê Thánh Tông, TPHCM]%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_ab=2$ và $\log_ac=3$. Tính $P=\log_a(b^2c^3)$.
+	\choice
+	{$P=31$}
+	{\True $P=13$}
+	{$P=30$}
+	{$P=108$}
+	\loigiai{
+		Ta có $P=\log_a\left(b^2c^3\right) = 2\log_ab+3\log_ac=13$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi Học Kỳ II SGD Bắc Ninh năm học 2024-2025]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Với $a\ne 0$ là số thực tùy ý, $\log_9a^2$ bằng 
+	\choice
+	{$2\log_3a^2$}
+	{\True $\log_3|a|$}
+	{$\log_3a$}
+	{$2\log_9a$}
+	\loigiai 
+	{
+		Ta có
+		$\log_9 a^2 = \dfrac{\log a^2}{\log 9} = \dfrac{2\log |a|}{\log 3^2} = \dfrac{2\log |a|}{2\log 3} = \dfrac{\log |a|}{\log 3} = \log_3 |a|.$
+	}
+\end{ex}
+\begin{ex}[Trích đề thi HK2 Sở GDĐT Nam Định, 2024-2025]%[1D6N2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Nếu $\log _5 a=2$ thì $\log _5 a^3$ bằng
+	\choice
+	{\True $6$}
+	{$9$}
+	{$8$}
+	{$\dfrac{2}{3}$}
+	\loigiai{
+		Ta có $\log _5 a^3=3\log _5 a=3 \cdot 2=6$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi giữa học kỳ II THPT Nguyễn Du, năm học 2024-2025]%[1D6H2-3]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Với $a$, $b$, $c$ là các số thực dương và khác $1$, thu gọn biểu thức $B = \log_a b - \log_a \dfrac{b}{c} + \log_a \dfrac{a^3}{c}$ được
+	\choice
+	{\True $3$}
+	{$-3$}
+	{$\log_a b$}
+	{$\log_a c$}
+	\loigiai{
+		Ta có $B = \log_a b - \log_a \dfrac{b}{c} + \log_a \dfrac{a^3}{c}=\log_a b -\log_ab +\log_a c + \log_a a^3 - \log_a c =\log_a a^3 =3$.
+	}
+\end{ex}
+\begin{ex}[Trích Đề GHK2 Toán 11 THPT Nguyễn Bỉnh Khiêm, năm học 2023-2024]%[1D6N2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Với $a$ là số thực dương tùy ý. Khẳng định nào sau đây là đúng?
+	\choice
+	{\True $\log_2{a^3}=3\log_2{a}$}
+	{$\log_2{a^3}=3+\log_2{a}$}
+	{$\log_2{a^3}=\dfrac{1}{3}\log_2{a}$}
+	{$\log_2{a^3}=\dfrac{1}{3}+\log_2{a}$}
+	\loigiai
+	{Với $a>0$, ta có $\log_2{a^3}=3\log_2{a}$.}
+\end{ex}
+\begin{ex}[Trích đề thi học kỳ 2 THPT Chuyên Trần Đại Nghĩa, năm học 2024-2025]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Với $a$, $b$ là các số thực dương, $a\ne 1$. Giá trị của $a^{\log_ab^3}$ bằng
+	\choice
+	{\True $b^3$}
+	{$b^{\tfrac{1}{3}}$}
+	{$\dfrac{1}{3}b$}
+	{$3b$}
+	\loigiai{
+		Ta có $a^{\log_ab^3}=a^{3\log_ab}=b^3$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi HK2 lớp 11 THPT Lý Thái Tổ - Bắc Ninh Năm học 24-25]%[1D6N2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Với $a$ là số thực dương tùy ý, $\log_2(16a) - \log_2(2a)$ bằng
+	\choice
+	{\True $3$}
+	{$4$}
+	{$\log_2(4a)$}
+	{$\log_2(8a)$}
+	\loigiai{
+		Ta có $\log_2(16a) - \log_2(2a) = \log_2\left(\dfrac{16a}{2a}\right)= \log_2\left(\dfrac{16}{2}\right)= \log_2 8= 3$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi HK2 THPT Nguyễn Gia Thiều, năm học 2024-2025]%[1D6H2-3]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $x$, $y$ là các số thực lớn hơn $1$ thỏa mãn $x^2+9y^2=6xy$. Tính $M=\dfrac{1+\log _{12} x+\log _{12} y}{2\log _{12}(x+3y)}$.
+	\choice
+	{\True $M=1$}
+	{$M=\dfrac{1}{2}$}
+	{$M=\dfrac{1}{4}$}
+	{$M=\dfrac{1}{3}$}
+	\loigiai{
+		Ta có $x^2+9y^2=6xy$, khi đó $(x+3y)^2=12xy$.\\
+		Suy ra $\log _{12}(x+3y)^2=\log _{12}(12xy)$.\\
+		Ta có $M=\dfrac{1+\log _{12} x+\log _{12} y}{2\log _{12}(x+3y)}=\dfrac{\log _{12}(12xy)}{\log _{12}(x+3y)^2}=1$.
+	}
+\end{ex}
+\begin{ex}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log 2 = a$. Biểu diễn $\log 400\,000$ theo $a$, ta được
+	\choice
+	{$10a$}
+	{$4 - 15a$}
+	{$2a- 5$}
+	{\True $2a + 5$}
+	\loigiai{
+		Ta có $\log 400\,000 = \log (4\cdot 100\,000) = \log 4 + \log 100\,000 = 2\log 2 + 5 = 2a + 5$. 
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra GHK2 - THPT Nguyễn Thượng Hiền - TP.HCM, Năm học 2023-2024]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Đặt $a=\log_3 4$. Khi đó $\log_{16} 81$ bằng
+	\choice
+	{$\dfrac{a}{2}$}
+	{$\dfrac{2a}{3}$}
+	{\True $\dfrac{2}{a}$}
+	{$\dfrac{3}{2a}$}
+	\loigiai{
+		Ta có $\log_{16} 81=\log_{4^2}\left(3^4\right)=\dfrac{4}{2}\log_4 3=2\cdot \dfrac{1}{\log_3 4}=2\cdot \dfrac{1}{a}=\dfrac{2}{a}$.
+	}
+\end{ex}
+\begin{ex}[Trích đề giữa học kỳ 2 THPT Nguyễn Thượng Hiền TPHCM, năm học 2023-2024]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho hai số thực $a$, $b$ dương thỏa mãn $\log_2a^3+\log_2b=7$. Khi đó
+	\choice
+	{$a^3+b=49$}
+	{$a^3+b=128$}
+	{\True $a^3b=128$}
+	{$a^3b=49$}
+	\loigiai{Ta có $\log_2a^3+\log_2b=7\Leftrightarrow\log_2\left(a^3b\right)=7\Leftrightarrow a^3b=2^7=128$.}
+\end{ex}
+\begin{ex}[Trích Đề giữa kỳ 2 THCS-THPT NGUYỄN KHUYẾN-BÌNH DƯƠNG, năm học 2023-2024]%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Số $p=2^{756\,839}-1$ là một số nguyên tố. Hỏi nếu viết trong hệ thập phân, số đó có bao nhiêu chữ số?
+	\choice
+	{$227\,831$ }
+	{$227\,834$}
+	{\True $22\,7832 $}
+	{$227\,835 $}
+	\loigiai{Nếu $x=10^n$ thì $\log x=n$. Còn với số $x \geq 1$ tuỳ ý, viết $x$ trong hệ thập phân thì số các chữ số đứng trước dấu phẩy thập phân của $x$ là $n+1$, trong đó $n$ là phần nguyên của $\log x$, $n=[\log x]$.\\
+		Thật vậy, vì $10^n$ là số tự nhiên bé nhất có $n+1$ chữ số nên số các chữ số đứng trước dấu phảy của $x$ bằng $n+1$ khi và chỉ khi $10^n \leq x<10^{n+1}$, tức là $n \leq \log x<n+1$; điều này chứng tỏ $n=[\log x]$.\\
+		Từ kết quả trên ta có số chữ số của số $2^{756\,839}$ khi viết trong hệ thập phân là
+		$$
+		\left[\log \left(2^{756\,839}\right)\right]+1=[756\,839 \cdot \log 2]+1=227\,832.
+		$$
+		Do số $2^{756\,839}$ không có chữ số tận cùng là $0$ nên số $2^{756\,839}-1$ cũng có $227\,832$ chữ số.\\ Vậy số $p$ có $227\,832$ chữ số.}
+\end{ex}
+\begin{ex}%[Đề GHK2 Toán 11 THPT Nguyễn Bỉnh Khiêm]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Đặt $a=\log_2{3}$, $b=\log_5{3}$. Biết rằng $\log_6{45}=\dfrac{a(m+nb)}{b(a+p)}$ thì $m+n+p$ bằng
+	\choice
+	{$6$}
+	{$3$}
+	{\True $4$}
+	{$-3$}
+	\loigiai
+	{Ta có $a=\log_2{3}$, $b=\log_5{3}$ nên $\log_3{2}=\dfrac{1}{a}$, $\log_3{5}=\dfrac{1}{b}$. Suy ra
+		$$\log_6{45}= \dfrac{\log_3{45}}{\log_3{6}} = \dfrac{\log_3{3^2}+\log_3{5}}{\log_3{3} +\log_3{2}} = \dfrac{2+\dfrac{1}{b}}{1+\dfrac{1}{a}} = \dfrac{a(2b+1)}{b(a+1)}.$$
+		Vậy $m=1$, $n=2$, $p=1$ và $m+n+p=4$.}
+\end{ex}
+\begin{ex}%[1D6N2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $x > 0$. Mệnh đề nào sau đây là {\bf{sai}}?
+	\choice
+	{\True $x^{\ln x}=x$}
+	{$\ln 1=0$}
+	{$\ln \mathrm{e}=1$}
+	{$\ln  \mathrm{e}^x=x$}
+	\loigiai{
+		Ta có
+		\begin{itemize}
+			\item $\ln 1=0$.
+			\item $\ln  \mathrm{e}=1$.
+			\item $\ln  \mathrm{e}^x=x$
+		\end{itemize}
+		Vậy \lq\lq 	$x^{\ln x}=x$\rq\rq\, là sai.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi GHK2 THPT Quảng Xương 4, năm 2023 - 2024]%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_ab=2$ với $a$, $b$ là các số thực dương và $a$ khác $1$. Tính giá trị biểu thức\\ $T=\log_{a^2}b^6+\log_a\sqrt{b}$.
+	\choice
+	{\True $T=7$}
+	{$T=6$}
+	{$T=5$}
+	{$T=8$}
+	\loigiai{Ta có $T=\log_{a^2}b^6+\log_a\sqrt{b}=\dfrac{6}{2}\log_ab+\dfrac{1}{2}\log_ab=3\cdot 2+\dfrac{1}{2}\cdot 2=7$.
+	}
+\end{ex}
+\begin{ex}%[1D6V2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $x$, $y$ là hai số thực dương, $x\ne 1$ thỏa mãn $\log_{\sqrt{x}}y=\dfrac{2y}{5}$, $\log_{25} x=\dfrac{5}{2y}$. Tính giá trị của $P=y^2-2x^2$.
+	\choice
+	{\True $P=-25$}
+	{$P=25$}
+	{$P=1$}
+	{$P=0$}
+	\loigiai{
+		Ta có $\log_{\sqrt{x}} y=\dfrac{2y}{5}\Leftrightarrow 2\log_x y=\dfrac{2y}{5}\Leftrightarrow \log_x y=\dfrac{y}{5}$.\\
+		Mặt khác $\log_{25}x= \dfrac{5}{2y}\Leftrightarrow \dfrac{1}{2}\log_5 x=\dfrac{5}{2y}\Leftrightarrow \log_5 x=\dfrac{5}{y}$.\\
+		Suy ra $\log_5 x\cdot\log_x y=1\Leftrightarrow \log_5 y=1\Leftrightarrow \log_5y=1\Leftrightarrow y=5$.\\
+		Khi đó $\log_{5}x=\dfrac{y}{5}=1\Rightarrow x=5\Rightarrow P=5^2-2\cdot 5^2=-25$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi GHK2 THPT Thạch Thành Thanh Hóa, năm học 2023-2024]%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho các số thực $a$, $b$ thỏa mãn $a>b>1$ và $\dfrac{1}{\log_ba}+\dfrac{1}{\log_ab}=\sqrt{2\,022}$. Giá trị của biểu thức\\ $P=\dfrac{1}{\log_{ab}b}-\dfrac{1}{\log_{ab}a}$ bằng
+	\choice
+	{$\sqrt{2\,022}$}
+	{\True $\sqrt{2\,018}$}
+	{$\sqrt{2\,020}$}
+	{$\sqrt{2\,016}$}
+	\loigiai{
+		Ta có $\dfrac{1}{\log_ba}+\dfrac{1}{\log_ab}=\sqrt{2\,022}\Leftrightarrow \log_ab+\log_ba=\sqrt{2\,022}$.\\
+		Khi đó 
+		\begin{eqnarray*}
+			P&=&\dfrac{1}{\log_{ab}b}-\dfrac{1}{\log_{ab}a}\\
+			&=&\log_b (ab)-\log_a (ab)\\
+			&=&\log_b b+\log_ba-\log_a a-\log_ab\\
+			&=&\log_ba-\log_ab.
+		\end{eqnarray*}
+		Mà
+		\begin{eqnarray*}
+			& &(\log_ab+\log_ba)^2=\log^2_ab+\log^2_ba+2\log_ab \cdot \log_ba\\
+			&\Leftrightarrow& 2\,022=\log^2_ab+\log^2_ba+2\\
+			&\Leftrightarrow& \log^2_ab+\log^2_ba=2\,020.
+		\end{eqnarray*}
+		Mặt khác $P^2=(\log_ba-\log_ab)^2=\log^2_ab+\log^2_ba-2=2\,020-2=2\,018$.\\
+		Vậy $P=\sqrt{2\,018}$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi GHK2 THPT Thạch Thành Thanh Hóa, năm học 2023-2024]%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a$, $b$, $c$ là các số thực dương khác $0$ thỏa mãn $6^a=9^b=24^c$. Giá trị $T=\dfrac{a}{b}+\dfrac{a}{c}$ bằng
+	\choice
+	{$2$}
+	{$\dfrac{11}{12}$}
+	{$\dfrac{10}{3}$}
+	{\True $3$}
+	\loigiai{
+		Đặt $6^a=9^b=24^c=t$ $(0<t\ne 1)$\\
+		$\Rightarrow \heva{&6^a=t\\&9^b=t\\&24^c=t}\Rightarrow \heva{&a=\log_6 t\\&b=\log_9t \\&c=\log_{24}t.}$\\
+		Khi đó
+		\begin{eqnarray*}
+			T&=& \dfrac{a}{b}+\dfrac{a}{c}=\dfrac{\log_6 t}{\log_9t}+\dfrac{\log_6t}{\log_{24}t}\\
+			&=& \dfrac{\log_t9}{\log_t6}+\dfrac{\log_t 24}{\log_t 6}\\
+			&=& \dfrac{\log_t (9\cdot 24)}{\log_t6}\\
+			&=& \dfrac{\log_t 6^3}{\log_t 6}=3.
+		\end{eqnarray*}
+	}
+\end{ex}
+
+\begin{ex}[Trích đề thi GHK2 - THPT Nguyễn Thượng Hiền - TP.HCM, năm học 2023-2024]%[1D6V2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho hàm số $f(x)=a\sin x+bx^5+2\,023$ và $f\left(\log\left(\log_3 10\right)\right)=2\,024$. Khi đó $f\left(\log (\log 3)\right)$ bằng
+	\choice
+	{$2\,024$}
+	{\True $2\,022$}
+	{$2\,023$}
+	{$2\,021$}
+	\loigiai{
+		Với $f(x)=a\sin x+bx^5+2\,023$, ta có 
+		\allowdisplaybreaks
+		$\begin{aligned}[t]
+			f(-x)
+			&=a\sin(-x)+b(-x)^5+2\,023\\
+			&=-a\sin x-bx^5-2\,023+4\,046\\
+			&=-f(x)+4\,046.
+		\end{aligned}$\\
+		Từ đó 
+		\allowdisplaybreaks
+		$\begin{aligned}[t]
+			f\left(\log (\log 3)\right)=f\left(\log \left(\dfrac{1}{\log_3 10}\right)\right)
+			&=f\left(-\log\left(\log_3 10\right)\right)\\
+			&=-f\left(\log\left(\log_3 10\right)\right)+4\,046=-2\,024+4\,046=2\,022.
+		\end{aligned}$
+	}
+\end{ex}
+\begin{ex}[Trích đề thi GHK2 THPT Phan Đình Phùng - Hà Nội, năm học 2024-2025]%[1D6V2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho các số thực $a$, $b$ lớn hơn $1$ và thỏa mãn 
+	\[
+	8 \log _2^2 a+\left(\log _a b-1\right) \log _a b+2 \log _2 \dfrac{b^3}{a}=0.
+	\]
+	Tính giá trị biểu thức $P=4 \log _2 a+\log _a(ab)$.
+	\choice
+	{$P=5$}
+	{\True $P=2$}
+	{$P=1+2 \log _2 3$}
+	{$P=3$}
+	\loigiai{Đặt $\heva{&x=\log_2a\\&y=\log_2b.} $\\
+		Vì $\heva{&a>1\\&b>1} $ nên $\heva{&x>0\\&y>0.}$\\
+		Từ giả thiết ta có 
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			& & 8 \log _2^2a+\left(\log _a b-1\right) \log _a b+2 \log _2 \frac{b^3}{a}=0 \\
+			&\Leftrightarrow & 8 \log _2^2 a+\left(\dfrac{\log _2 b}{\log _2 a}-1\right) \dfrac{\log _2 b}{\log _2 a}+6 \log _2 b-2 \log _2 a=0 \\
+			&\Leftrightarrow & 8x^2+\left(\dfrac{y}{x}-1\right) \dfrac{y}{x}+6 y-2 x=0 \\
+			&\Leftrightarrow & 8 x^2+\dfrac{y^2}{x^2}-\dfrac{y}{x}+6 y-2 x=0\\
+			%			&\Leftrightarrow & 8 x^2-2 x+\dfrac{y^2}{x^2}-\dfrac{y}{x}+6 y=0 \\
+			&\Leftrightarrow & \dfrac{1}{x^2} \cdot y^2+\left(-\dfrac{1}{x}+6\right) y+8 x^2-2 x=0.
+		\end{eqnarray*}
+		Ta có $\Delta=\left(-\dfrac{1}{x}+6\right)^2-4\left(\dfrac{1}{x^2}\right)\left(8 x^2-2 x\right)=\dfrac{1}{x^2}-\dfrac{4}{x}+4 $.\\
+		Suy ra 
+		\begin{itemize}
+			\item $y_1=\dfrac{\dfrac{1}{x}-6-\left(\dfrac{1}{x}-2\right)}{2 \cdot \dfrac{1}{x^2}}=\dfrac{-4}{2 \cdot \dfrac{1}{x^2}}=-2 x^2<0$ (loại).
+			\item $y_2=\dfrac{\dfrac{1}{x}-6+\left(\dfrac{1}{x}-2\right)}{2 \cdot \dfrac{1}{x^2}}=\dfrac{\dfrac{2}{x}-8}{2 \cdot \dfrac{1}{x^2}}=\dfrac{\dfrac{1}{x}-4}{\dfrac{1}{x^2}}=x-4x^2>0$ (vì $x>0$).
+		\end{itemize}
+		Thay $y=x-4x^2$ vào $P$ ta được
+		\[P =4 \log _2 a+\log _a(a b)
+		=4 \cdot x+1+\dfrac{y}{x}=4 x+1+\dfrac{x-4 x^2}{x}
+		=4 x+1+1-4 x=2.\]
+	}
+\end{ex}
+\Closesolutionfile{ans}
+
+\ind{PHẦN II.} \inden{Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, học sinh chọn đúng hoặc sai.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-DS]%--Đặt tên 2D1-Bai1-DS
+\begin{ex}[Trích đề thi GK2 năm học 2024-2025, THPT Trần Phú]%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+Xét tính đúng sai của các khẳng định sau.
+	\choiceTF
+	{\True Cho $b>0$, $a>0$, $a\ne1$ thỏa mãn $\log_ab=2$ thì $\log_a(a^2b)=4$}
+	{Cho các số thực dương $x$ và $y$ thì $\log_2\left(\dfrac{x}{y}\right)=\dfrac{\log_2x}{\log_2y}$}
+	{\True Cho $a>0$, $a\ne1$ thì giá trị của $\log_{\sqrt{a}}a=2$}
+	{Cho $b>0$, $a>0$, $a\ne1$ thỏa $\log_a(a^2b)=4$ thì ta được $\log_{a^2}\left(a^{-2\,024}b^{2\,025}\right)=\dfrac{2\,025}{4}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch {\bf Đúng}. Ta có $\log_a(a^2b)=\log_aa^2+\log_ab=2+2=4$.
+			\itemch {\bf Sai}. Theo quy tắc tính lôgarit thì với $a$ là số thực dương khác $1$ và $x$ và $y$ là các số thực dương, ta có $$\log_2\left(\dfrac{x}{y}\right)=\log_2x-\log_2y.$$
+			\itemch {\bf Đúng}. $\log_{\sqrt{a}}a=\log_{a^{\frac{1}{2}}}a=2$.
+			\itemch {\bf Sai}. Từ $\log_a(a^2b)=4\Rightarrow\log_ab=2$.\\
+			Khi đó $\log_{a^2}\left(a^{-2\,024}b^{2\,025}\right)=\log_{a^2}a^{-2\,024}+\log_{a^2}b^{2\,025}=\dfrac{-2\,024}{2}+\dfrac{2\,025}{2}\cdot2=1\,013$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}[Trích đề thi giữa học kỳ II THPT Chuyên Vị Thanh - Tỉnh Hậu Giang, năm học 2023-2024]%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $\log_{a}b=5$, $\log_{a}c=9$ ($b,c>0$, $0< a\neq 1$).
+	\choiceTF
+	{$\log_{a} bc=-4$}
+	{$\log_{b} c=\dfrac{5}{9}$}
+	{$\log_{a} \dfrac{b}{c^2}=23$}
+	{\True $\log_{a^3}\dfrac{\sqrt{b}}{c^2}=-\dfrac{31}{6}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai.} Vì  $\log_{a} bc=\log_{a} b+\log_{a} c=5+9=14$.
+			\itemch \textbf{Sai.} Vì $\log_{b} c=\dfrac{\log_{a} c}{\log_{a}b}=\dfrac{9}{5}$.
+			\itemch \textbf{Sai.} Ta có $\log_{a} \dfrac{b}{c^2}=\log_{a}b-\log_{a}c^2=\log_{a}b-2\log_{a}c=5-2\cdot 9=-13$.
+			\itemch \textbf{Đúng.} Ta có
+			\begin{eqnarray*} \log_{a^3}\dfrac{\sqrt{b}}{c^2}&=&\dfrac{1}{3}\log_{a}\dfrac{\sqrt{b}}{c^2}\\
+				&=&\dfrac{1}{3}\left(\log_{a}\sqrt{b}-\log_{a}c^2\right)\\
+				&=&\dfrac{1}{3}\left(\dfrac{1}{2}\log_{a}b-2\log_{a}c\right)\\
+				&=&\dfrac{1}{3}\left(\dfrac{1}{2}\cdot 5-2\cdot 9\right)\\
+				&=&-\dfrac{31}{6}
+			\end{eqnarray*}
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}[Đề ôn tập giữa học kì 2 -THPT Ngọc Lạc - Thanh Hoá, 2023-2024]%[1D6V2-3]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $x$, $y$ là $2$ số dương; $m$, $n$ là hai số thực tùy ý
+	\choiceTF
+	{\True $(x^m)^n=(x^n)^m$}
+	{\True $x^{2m}=(x^m)^2$}
+	{$\log_5 25x=5+\log_5 x$}
+	{$\log _{\sqrt{3}} x+\log _{\frac{1}{3}}\left(3x^3 y\right)+\log_9(3y^3)=1$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.\\
+			Ta có $(x^m)^n=x^{mn}=(x^n)^m$.
+			\itemch \textbf{Đúng}.\\
+			Ta có $x^{2m}=(x^m)^2$.
+			\itemch \textbf{Sai}.\\
+			Ta có $\log_5 25x=\log_{5}5^2+\log_5 x=2+\log_5 x$.
+			\itemch \textbf{Sai}.\\
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				\log _{\sqrt{3}} x+\log _{\frac{1}{3}}\left(3x^3 y\right)+\log_9(3y^3)&=&\log _{3^{\frac{1}{2}}} x+\log _{3^{-1}}\left(3x^3 y\right)+\log_{3^2}(3y^3)\\
+				&=&2\cdot \log _{3} x-1\cdot\log_{3}\left(3x^3 y\right)+\dfrac{1}{2}\cdot \log_{3}(3y^3)\\
+				&=&2\log _{3} x-\left(1+3\log_{3}x+\log_{3}y\right)+\dfrac{1}{2}\cdot \left(1+3\log_{3}y\right)\\
+				&=&-\log _{3} x+\dfrac{1}{2}\log_{3}y-\dfrac{1}{2}.
+			\end{eqnarray*}
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a$, $b$, $c>1$ và $m$, $n\in \mathbb{R}$.
+	\choiceTF
+	{\True $\log_a \sqrt{a\sqrt{a}}=\dfrac{3}{4}$}
+	{$\log_a b^2\cdot \log _{\sqrt{b}} c\cdot \log _{c^2} a^3=\dfrac{1}{6}$}
+	{\True Cho $\log 3=m$, $\log 7=n$. Khi đó $\log_3 70=\dfrac{n+1}{m}$}
+	{Cho $\log_5 2=m$, $\log_5 3=n$. Khi đó $\log _{250} 30=\left(m+n+1\right)\left(3+m\right)$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.\\
+			Ta có 
+			$\log_a \sqrt{a\sqrt{a}}=\log_a \sqrt{a^{\tfrac{3}{2}}}=\log_a a^{\tfrac{3}{4}}=\dfrac{3}{4}$.
+			\itemch \textbf{Sai}.\\
+			Ta có 
+			$\log_a b^2\cdot \log _{\sqrt{b}} c\cdot \log _{c^2} a^3=2\cdot \log_a b\cdot 2\cdot \log_b c\cdot \dfrac{3}{2}\cdot \log_c a=6$.
+			\itemch \textbf{Đúng}.\\
+			Cho $\log 3=m$, $\log 7=n$.\\
+			Ta có $\log_3 70=\dfrac{\log 70}{\log 3}=\dfrac{\log 7+1}{\log 3}=\dfrac{n+1}{m}$.
+			\itemch \textbf{Sai}.\\
+			Cho $\log_5 2=m$, $\log_5 3=n$.\\
+			Khi đó 
+			$\log _{250} 30=\dfrac{\log_5 \left(3\cdot 2\cdot 5\right)}{\log_5 \left(5^3\cdot 2\right)}=\dfrac{m+n+1}{3+m}$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[1D6H2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Công thức $\log x=11{,}8+1{,}5M$ cho biết mối liên hệ giữa năng lượng $x$ tạo ra (tính theo erg, $1$ erg tương đương $10^{-7}$ jun) với độ lớn $M$ theo thang Richter của một trận động đất.
+	\choiceTF
+	{Trận động đất có độ lớn $2$ độ Richter tạo ra năng lượng khoảng $6{,}3\cdot 10^{34}$ erg}
+	{\True Trận động đất có độ lớn $3$ độ Richter tạo ra năng lượng khoảng $2\cdot 10^9$ jun}
+	{Trận động đất có độ lớn $5$ độ Richter tạo ra năng lượng gấp $100$ lần so với trận động đất có độ lớn $3$ độ Richter}
+	{\True Người ta ước lượng rằng một trận động đất có độ lớn khoảng từ $4$ đến $6$ độ Richter. Năng lượng do trận động đất đó tạo ra nằm trong khoảng $10^{17{,}8} \le x\le 10^{20{,}8}$ erg}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai}.\\
+			Ta có $\log x=11{,}8+1{,}5M$.\\
+			Với $M=2$ ta được $\log x=14{,}8\Leftrightarrow x\approx 6{,}3\cdot 10^{14}$ erg.
+			\itemch \textbf{Đúng}.\\
+			Với $M=3$ ta được $\log x=16{,}3\Leftrightarrow x\approx 2\cdot 10^{16}$ erg $=2\cdot 10^9$ jun.
+			\itemch \textbf{Sai}.\\
+			Gọi $x_1$, $x_2$ (erg) lần lượt là năng lượng tạo ra của hai trận động đất có độ lớn lần lượt là $M_1=5$, $M_2=3$ (độ Richter).\\
+			Ta có 
+			$\heva{&\log x_1=11{,}8+1{,}5M_1\\& \log x_2=11{,}8+1{,}5M_2.}$\\
+			$\Rightarrow \log x_1-\log x_2=1{,}5\left(M_1-M_2 \right)\Rightarrow \log\dfrac{x_1}{x_2}=3\Rightarrow \dfrac{x_1}{x_2}=10^3=1\,000$.
+			\itemch \textbf{Đúng}.\\
+			Ta được
+			\begin{align*}
+				&11{,}8+1{,}5\cdot 4\le \log x\le 11{,}8+1{,}5\cdot 6\\
+				\Rightarrow& 17{,}8\le \log x\le 20{,}8\\
+				\Rightarrow& 10^{17{,}8} \le x\le 10^{20{,}8}\,(\text{erg}).
+			\end{align*}
+		\end{itemchoice}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+
+
+\ind{PHẦN III.} \inden{Câu trắc nghiệm trả lời ngắn.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-DS]%--Đặt tên 2D1-Bai1-DS
+
+\begin{ex}[Trích đề thi HK2 lớp 11 THPT Lý Thái Tổ - Bắc Ninh năm học 2024-2025]%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a, b$ là hai số dương khác $1$ thỏa mãn $\log_a (ab) = \sqrt{5}$ và $a^2b \ne 1$. Biết rằng $\log_{a^2b} b = m + n\sqrt{5}$ với $m, n \in \mathbb{Q}$. Tính giá trị của $m+8n$.
+	\shortans[oly]{-2{,}5}
+	\loigiai{
+		Ta có $\log_a (ab) = \sqrt{5} \Leftrightarrow ab=a^{\sqrt{5}} \Leftrightarrow b=a^{\sqrt{5}-1}$.\\
+		Ta có $\log_{a^2b} b =\dfrac{1}{\log_b a^2b}=\dfrac{1}{2\log_b a+1}=\dfrac{1}{2\log_{a^{\sqrt{5}-1}} a+1}=\dfrac{1}{\dfrac{2}{\sqrt{5}-1}\log_a a+1}=\dfrac{3}{2}-\dfrac{\sqrt{5}}{2} $.\\
+		Do đó, $m=\dfrac{3}{2}$, $n=-\dfrac{1}{2}$.\\ Vậy $m+8n=-\dfrac{5}{2}$.
+	}
+\end{ex}
+
+\begin{ex}[Trích đề thi học kỳ II Trường THPT chuyên Lương Thế Vinh Đồng Nai, năm học 2024-2025]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a$ và $b$ là những hằng số dương, $a$ khác $1$. Một đường tròn có bán kính là $\ln \left(a^2\right)$ và chu vi là $\ln \left(b^4\right)$. Tính giá trị của $\log _a b$ (làm tròn kết quả đến hàng phần trăm).
+	\shortans[oly]{3{,}14}
+	\loigiai
+	{
+		Ta có chu vi đường tròn
+		\begin{eqnarray*}
+			& &	C=2\pi r
+			\Leftrightarrow \ln(b^4)=2\pi \ln (a^2)\\
+			&\Leftrightarrow &\dfrac{\ln(b^4)}{\ln(a^2)}=2\pi
+			 \Leftrightarrow \log_{a^2}{b^4}=2\pi\\
+			&\Leftrightarrow& 2 \log_a b=2\pi
+			\Leftrightarrow \log_a b=\pi \approx 3{,}14.
+		\end{eqnarray*}
+	}
+\end{ex}
+
+\begin{ex}%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Đặt $\log_32=a$, $\log_37=b$. Biểu thị $\log_{12}21$ theo $a$ và $b$, ta được $\log_{12}21=\dfrac{m+b}{1+na}$ với $m$, $n$ là số tự nhiên. Tính $m+n$.
+	\shortans[oly]{3}
+	\loigiai
+	{
+		Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\log_{12}21&=&\dfrac{\log_321}{\log_312}\\
+			&=&\dfrac{\log_3(3\cdot 7)}{\log_3(3\cdot 4)}\\
+			&=&\dfrac{\log_33+\log_37}{\log_33+\log_34}\\
+			&=&\dfrac{1+\log_37}{1+2\log_32}\\
+			&=&\dfrac{1+b}{1+2a}.
+		\end{eqnarray*}
+		Do đó, $m=1$ và $n=2$.\\
+		Vậy $m+n=3$.
+	}
+\end{ex}
+\begin{ex}%[GHK2 THPT Trần Cao Vân- Khánh Hòa]%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Nếu khối lượng carbon-14 trong cơ thể sinh vật lúc chết là $M_0$ (g) thì khối lượng carbon-14 còn lại (tính theo gam) sau $t$ năm được tính theo công thức
+	\[M(t)=M_0\left(\dfrac{1}{2}\right)^{\tfrac{t}{T}},
+	\]
+	trong đó $T=5\,730$ (năm) là chu kì bán rã của carbon-14. Nghiên cứu hóa thạch của một sinh vật, người ta xác định được khối lượng carbon-14 hiện có trong hóa thạch là $5\cdot 10^{-3}$ (g).
+	Nhờ biết tỉ lệ khối lượng carbon-14 so với carbon-12 trong cơ thể sinh vật sống, người ta xác định được khối lượng carbon-14 trong cơ thể sinh vật lúc chết là $M_0=1{,}2\cdot 10^{-2}$ (g). Hỏi sinh vật này sống cách đây bao nhiêu năm (làm tròn kết quả đến hàng đơn vị) ?
+	\par
+	\shortans[oly]{7237}
+	\loigiai{
+		Từ giả thiết của bài toán ta có phương trình ẩn $t$ như sau
+		\[M(t)=M_0\left(\dfrac{1}{2}\right)^{\tfrac{t}{5\,730}}
+		\Leftrightarrow \left(\dfrac{1}{2}\right)^{\tfrac{t}{5\,730}}=\dfrac{M(t)}{M_0}
+		\Leftrightarrow \dfrac{t}{5\,730}=\log_{\tfrac{1}{2}}{\dfrac{M(t)}{M_0}}.
+		\]
+		Suy ra
+		\[t=5\,730\cdot \log_{\tfrac{1}{2}}{\dfrac{M(t)}{M_0}}.
+		\]
+		Thay các giá trị đã biết $M_0$ và $M(t)$ vào ta được
+		\[t=5\,730\cdot \log_{\tfrac{1}{2}}{\dfrac{5\cdot 10^{-3}}{1{,}2\cdot 10^{-2}}}\approx 7\,237\ (\text{năm}).
+		\]
+		Vậy sinh vật đó sống cách đây $7\,237$ năm.
+	}
+\end{ex}
+\begin{ex}%[1D6V2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a$, $b$ là các số thực dương khác $1$ và thoả mãn $a b \neq 1$. Biết rằng \[\log _a \frac{3}{b}=\left(\log _a b+\log _b a+2\right)\left(\log _a b-\log _{a b} b\right) \log _b a-1.\] 
+	Tìm $b$ (làm tròn kết quả đến hàng phần chục trăm).
+	\shortans[oly]{1{,}73}
+	\loigiai
+	{
+		Ta có
+		$$
+		\begin{aligned}
+			P
+			&=\left(\log _a b+\log _b a+2\right)\left(\log _a b-\log _{a b} b\right) \log _b a-1 \\
+			&=\left(\log _a b+\frac{1}{\log _a b}+2\right)\left(\log _a b-\frac{\log _a b}{\log _a(a b)}\right) \log _b a-1 \\
+			&=\frac{\log _a^2 b+2 \log _a b+1}{\log _a b}\left(\log _a b-\frac{\log _a b}{1+\log _a b}\right) \log _b a-1 \\
+			&=\frac{\left(\log _a b+1\right)^2}{\log _a b}\cdot\frac{\log _a^2 b}{1+\log _a b}\cdot \log _b a-1=\left(\log _a b+1\right) \log _a b\cdot \log _b a-1=\log _a b.
+		\end{aligned}
+		$$
+		Khi đó $\log _a \dfrac{3}{b}=P \Leftrightarrow \log _a \dfrac{3}{b}=\log _a b \Leftrightarrow \dfrac{3}{b}=b \Leftrightarrow b^2=3 \Leftrightarrow b=\sqrt{3} \approx 1{,}73$.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+
+
+\ind{PHẦN IV.} \inden{Tự luận.}\\
+\setcounter{ex}{0}
+\begin{ex}%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $a$ và $b$ là hai số thực dương thỏa mãn $\sqrt{a}b^3=27$. Tính giá trị của $\log_3a+6\log_3b$.
+	\loigiai{
+		Lấy $\log_3$  hai vế  ta được
+		\allowdisplaybreaks
+		\begin{eqnarray*}&&\log_3{\sqrt{a}b^3}=\log_3 27\\
+			&\Leftrightarrow & \log_3 \sqrt{a}+\log_3 b^3=3\\
+			&\Leftrightarrow &\dfrac{1}{2}\log_3a+3\log_3b=3\\
+			&\Leftrightarrow &\log_3a+6\log_3b=6
+	\end{eqnarray*}}
+\end{ex}
+
+\begin{ex}%[1D6H2-1]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Thực hiện theo các yêu cầu sau.
+	\begin{enumEX}[a)]{1}
+		\item Cho $1\neq a$, $b>0$ thỏa mãn $\log_ab=3$. Tính $T=\log_{\tfrac{\sqrt b}a}\dfrac{\sqrt[3]b}{\sqrt a}$.
+		\item Cho $\log_ab=2$; $\log_ac=3$. Tính giá trị của biểu thức $P=\log_a\left(a{b^3}{c^5}\right)$.
+		\item Cho $\log_a{x}=2, \log_b{x}=3$ với $a$, $b$ là các số thực lớn hơn $1$. Tính $P=\log_{\frac{a}{b^2}}x$.
+		\item Cho $\log_a c=3$, $\log_b c=4$ với $a$, $b$, $c$ là các số thực lớn hơn $1$. Tính $P=\log_{ab}c$.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Ta có
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				\log_{\tfrac{\sqrt b}a}\dfrac{\sqrt[3]b}{\sqrt a}&=&\log_{\tfrac{\sqrt b}a}b^{\frac{1}{3}}-\log_{\tfrac{\sqrt b}a}a^{\frac{1}{2}}\\
+				&=&\dfrac{1}{3.\log_b\dfrac{\sqrt{b}}{a}}-\dfrac{1}{2.\log_a\dfrac{\sqrt b}{a}}\\
+				&=&\dfrac{1}{3\left(\log_bb^{\frac{1}{2}}-\log_ba\right)}-\dfrac{1}{2\left(\log_ab^{\frac{1}{2}}-1\right)}\\
+				&=&\dfrac{1}{3\left(\dfrac{1}{2}-\log_ba\right)}-\dfrac{1}{2\left(\dfrac{1}{2}\log_ab-1\right)}\\
+				&=&\dfrac{1}{3\left(\dfrac{1}{2}-\dfrac{1}{3}\right)}-\dfrac{1}{2\left(\dfrac{3}{2}-1\right)}=1.
+			\end{eqnarray*}
+			\item Ta có $P=\log_a\left(a{b^3}{c^5}\right)=\log_aa+\log_a{b^3}+\log_a{c^5}=1+3\log_ab+5\log_ac=1+3\cdot2+5\cdot 3=22$.
+			\item Ta có $\heva{& \log_a x =2 \\ & \log_b x =3} \Leftrightarrow \heva{& x=a^2 \\ & x = b^3} \Rightarrow a^2=b^3 \Leftrightarrow a = b^{\frac{3}{2}}$.\\
+			Do đó, $P=\log_{\frac{a}{b^2}}x=\log_{b^{-\frac{1}{2}}}x=-2 \log_b x = -2 \times 3=-6$.
+			\item Ta có $P=\log_{ab}c=\dfrac{\log_c c}{\log_c{ab}}=\dfrac{1}{\log_c a+\log_c b}=\dfrac{1}{\dfrac{1}{\log_a c}+\dfrac{1}{\log_b c}}=\dfrac{1}{\dfrac{1}{3}+\dfrac{1}{4}}=\dfrac{12}{7}$.
+	\end{enumerate}}
+\end{ex}
+\begin{ex}[Trích đề GHKII THPT Hoà Hội - Bà Rịa Vũng Tàu - năm học 2024-2025]%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Biết $\log_ab=-1$, $\log_ac=-10$. Tính giá trị biểu thức $P = \log_a \left(\dfrac{1}{b^4c^8}\right) - 19$.
+	\loigiai{
+		Điều kiện $a,b,c>0$, $a\ne 1$.
+		Ta có
+		\begin{eqnarray*}
+			P &=& \log_a \left( \dfrac{1}{b^4 c^8} \right) - 19=-\log_a (b^4c^8) -19 = -\log_a b^4 - \log_a c^8 -19\\
+			& = & -4\log_a b -8\log_a c - 19 = -4.(-1) - 8 (-10) - 19 = 65.
+		\end{eqnarray*}	 			
+	}
+\end{ex}
+\begin{ex}%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Đặt $\log _2 3=a$, $ \log _3 15= b$. Biểu thị $\log _{30} 18$ theo $a$ và $b$.
+	\loigiai{Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}\log _3 15= b&\Leftrightarrow& \log _3 3\cdot 5= b\Leftrightarrow \log _3 3+ \log _3 5= b\\&\Leftrightarrow& 1+ \log _3 5= b\Leftrightarrow \log _3 5= b-1.\end{eqnarray*} 
+		Khi đó \allowdisplaybreaks
+		\begin{eqnarray*}
+			\log _{30} 18&=&\dfrac{\log _2 18}{\log _2 30}=\dfrac{\log _2(2\cdot 3^2)}{\log _2 (2\cdot 3\cdot 5)}=\dfrac{\log _2 2+\log _2 3^2}{\log _2 2+\log _2 3+\log _2 5}\\&=&
+			\dfrac{1+2\log _2 3}{1+a+\log _2 5}=
+			\dfrac{1+2a}{1+a+\log_23\cdot \log_35}=
+			\dfrac{1+2a}{1+a+a(b-1)}\\&=&
+			\dfrac{1+2a}{ab+1}.
+		\end{eqnarray*}
+}\end{ex}
+\begin{ex}%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cường độ một trận động đất $M$ được cho bởi công thức $M=\log A-\log A_0$, với $A$ là biên độ rung chấn tối đa và $A_0$ là một biên độ chuẩn (hằng số). Đầu thế kỷ $20$, một trận động đất ở San Francisco có cường độ $8,3$ độ Richter. Trong cùng năm đó, trận động đất khác ở gần đó đo được $7{,}1$ độ Richter. Hỏi trận động đất ở San Francisco có biên độ gấp bao nhiêu trận động đất này?
+	\loigiai{Xét trận động đất ở San Francisco, ta có \[8{,}3=\log A-\log A_0\Leftrightarrow 8{,}3=\log\dfrac{A}{A_0}\Leftrightarrow \dfrac{A}{A_0}=10^{8{,}3}\Leftrightarrow A=A_0\cdot 10^{8{,}3}.\]
+		Xét trận động đất khác gần đó, ta có \[7{,}1=\log A-\log A_0\Leftrightarrow 7{,}1=\log\dfrac{A}{A_0}\Leftrightarrow \dfrac{A}{A_0}=10^{7{,}1}\Leftrightarrow A=A_0\cdot 10^{7{,}1}.\]
+		Từ đó  ta tính tỉ lệ $\dfrac{A_0\cdot 10^{8{,}3}}{A_0\cdot 10^{7{,}1}}=10^{1{,}2}\approx 15{,}9$.\\
+		Vậy trận động đất ở San Francisco có biên độ gấp gần $15{,}9$ lần so với trận động đất khác gần đó.}
+\end{ex}
+\begin{ex}%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Nếu $D_0$ là chênh lệch nhiệt độ ban đầu giữa một vật $M$ và các vật xung quanh, và nếu các vật 
+	xung quanh có nhiệt độ $T_S$, thì nhiệt độ của vật $M$ tại thời điểm $t$ được xác định bởi hàm số: $T(t)=T_S+D_0\cdot \mathrm{e}^{-kt}$, trong đó $k$ là hằng số dương phụ thuộc vào vật $M$.\\
+	Một con gà tây nướng được lấy từ lò nướng khi nhiệt độ của nó đã đạt đến $195^\circ F$ và được đặt trên một bàn trong một căn phòng có nhiệt độ là $65^\circ F$.  Nếu nhiệt độ của gà tây là $150^\circ F$ sau nửa giờ thì nhiệt độ của nó sau $60$ phút là bao nhiêu độ $F$?
+	\loigiai{ Ta có $T_S=65$, $D_0=195-65=130$.\\
+		Nhiệt độ của gà tây là $150^\circ F$ sau $t=0,5$ giờ nên
+		\[150=65+130\cdot \mathrm{e}^{-k\cdot 0,5}\Leftrightarrow \mathrm{e}^{-k\cdot 0,5}=\dfrac{17}{26}\Leftrightarrow k=-2\ln \dfrac{17}{26}. \]
+		Do đó $T(t)=65+130 \cdot \mathrm{e}^{2t\ln \frac{17}{26}}=65+130\cdot \left(\dfrac{17}{26}\right)^{2t}$. \\
+		Nhiệt độ của gà tây sau $60 \ \text{phút}=1\ \text{giờ}$ là 
+		\[T(1)=65+130\cdot \left(\dfrac{17}{26}\right)^{2\cdot 1}\approx 121^\circ F.\]	
+	}
+\end{ex}
+\begin{ex}%[1D6V2-5]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Trong Vật lí, mức cường độ âm (tính bằng deciben, kí hiệu là $dB$) được tính bởi công thức $L=10\log\dfrac{I}{I_0}$, trong đó $I$ là cường độ âm tính theo W/m$^2$ và $I_0=10^{-12}$ W/m$^2$ là cường độ âm chuẩn, tức là cường độ âm thấp nhất mà tai người có thể nghe được.
+	\begin{enumerate}
+		\item  Tính mức cường độ âm của một cuộc trò chuyện bình thường có cường độ âm là $10^{-7}$ W/m$^2$.
+		\item  Khi cường độ âm tăng lên $1\,000$ lần thì mức cường độ âm (đại lượng đặc trưng cho độ to nhỏ của âm) thay đổi thế nào?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Mức cường độ âm của một cuộc trò chuyện bình thường có cường độ âm là $10^{-7}$ W/m$^2$ là
+			$$L=10\log\dfrac{10^{-7}}{10^{-12}}=50\left(\text{dB}\right).$$
+			\item Ta có $$10\log\dfrac{1000I}{I_0}=10\cdot \left(\log 1000+\log\dfrac{I}{I_0}\right)=30+10\log\dfrac{I}{I_0}.$$
+			Vậy khi cường độ âm tăng lên $1\,000$ lần thì mức cường độ âm tăng lên $30$ dB.
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1D6H2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	[Trích đề thi giữa học kỳ II THPT Phan Đình Phùng - Hà Nội, năm học 2024-2025]
+	Đặt $x=\log_7 2$, hãy biểu diễn $T=\log_{28}49$ theo $x$.
+	\loigiai{
+		Ta có $T=\dfrac{\log_7 49}{\log_7 28}=\dfrac{2}{2\log_7 2 + 1}=\dfrac{2}{2x+1}$.\\
+		Vậy $T=\dfrac{2}{2x+1}$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi giữa học kỳ II THPT An Lương Đông - Huế, năm học 2023-2024]%[1D6V2-2]%[Dự án D đề cương 3 khối đợt 1]%[BCTuan]
+	Cho $3$ số thực dương $a$; $b$; $c$ theo thứ tự lập thành cấp số nhân thỏa $a+b+c=27$. Tính giá trị của $A=\log_3 \left(\dfrac{1}{ab+bc+ca}\right)^3+\log_3 (abc)$.
+	\loigiai{
+		Ta có $a+b+c=27\Leftrightarrow a+a\cdot q+a\cdot q^2=27$.\\
+		Do $a$, $b$ là số thực dương nên $q>0$.
+		Mặt khác
+		\begin{eqnarray*}
+			A&=&\log_3 \left(\dfrac{1}{ab+bc+ca}\right)^3+\log_3 (abc)\\
+			&=&3\left[\log_3 1-\log_3 (ab+bc+ca)\right]+\log_3 (abc)\\
+			&=& -3\log_3(a\cdot a\cdot q+a\cdot q\cdot a\cdot q^2+a\cdot q^2\cdot a)+\log_3 (a\cdot a\cdot q\cdot a\cdot q^2)\\
+			&=&-3\log_3\left[aq(a+aq+aq^2)\right]+\log_3 \left(aq\right)^3\\
+			&=&-3\left[\log_3 (aq)+\log_3(27)\right]+3\log_3(aq)\\
+			&=&-3\log_3 (27)=-9.
+		\end{eqnarray*}
+	}
+\end{ex}
+\begin{ex}%[1D6V2-5]
+	Người ta sử dụng công thức $S=A\cdot \mathrm{e}^{n\cdot r}$ để dự báo dân số của một quốc gia, trong đó $A$ là số dân của năm lấy làm mốc tính, $S$ là số dân sau $n$ năm và $r$ là tỉ lệ gia tăng dân số hàng năm. Biết rằng năm $2001$, dân số của Việt Nam là $78\,685\,800$ người. Giả sử tỉ lệ tăng dân số hàng năm không đổi là $1,2\%$, hỏi dân số nước ta đạt $110$ triệu người vào năm nào?
+	\loigiai{Theo công thức tăng trưởng mũ $S=A\cdot\mathrm{e}^{n\cdot r}$.\\
+		$\Rightarrow 110\,000\,000=78\,685\,800\cdot\mathrm{e}^{1,2\%\cdot n}\Leftrightarrow n=\dfrac{1}{1,2\%}\ln\dfrac{110\,000\,000}{78\,685\,800}\approx27,91$.\\
+		Suy ra sau $28$ năm thì dân số Việt Nam đạt $110$ triệu người.\\
+		Vậy dân số Việt Nam đạt được $110$ triệu người vào năm $2029$.}
+\end{ex}

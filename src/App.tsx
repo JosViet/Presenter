@@ -5,6 +5,7 @@ import { LatexRenderer } from './components/LatexRenderer';
 import { AnnotationLayer } from './components/AnnotationLayer';
 import { RemoteControlModal } from './components/RemoteControlModal';
 import { TikZPreloader } from './components/TikZPreloader';
+import { RemoteControlProvider, useRemoteControl } from './contexts/RemoteControlContext';
 import { LaserPointer } from './components/LaserPointer';
 import { ClassroomTimer } from './components/ClassroomTimer';
 import { ZoomOverlay } from './components/ZoomOverlay';
@@ -19,6 +20,8 @@ import clsx from 'clsx';
 import { sounds } from './utils/sound';
 import { LatexSettingsModal } from './components/LatexSettingsModalNew';
 import { LatexConfigService } from './services/LatexConfig';
+import { RemoteController } from './pages/RemoteController';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   // === HOOKS ===
@@ -173,7 +176,30 @@ function App() {
     return 'essay';
   };
 
-  // Sync State to Remote Server
+  // === REMOTE CONTROL (Web P2P) ===
+  const { lastCommand } = useRemoteControl();
+
+  useEffect(() => {
+    if (!lastCommand) return;
+    const { payload } = lastCommand;
+
+    // Interaction Mirror Logic
+    if (payload.type === 'GESTURE') {
+      if (payload.kind === 'SWIPE') {
+        if (payload.direction === 'LEFT') nextSlide();
+        if (payload.direction === 'RIGHT') prevSlide();
+        if (payload.direction === 'UP') {
+          // Example: Toggle Laser or Menu
+          setIsLaserEnabled(prev => !prev);
+        }
+      }
+      if (payload.kind === 'TAP') {
+        // Future: map tap to click
+      }
+    }
+  }, [lastCommand]);
+
+  // Sync State to Remote Server and Electron
   useEffect(() => {
     const q = questions[currentIdx];
     if (!q) return;
@@ -1176,4 +1202,21 @@ function App() {
   );
 }
 
-export default App;
+
+// ... (existing imports)
+
+function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <RemoteControlProvider>
+        <Routes>
+          <Route path="/remote" element={<RemoteController />} />
+          <Route path="/" element={<App />} />
+        </Routes>
+      </RemoteControlProvider>
+    </BrowserRouter>
+  );
+}
+
+// Rename existing App export to internal usage or distinct component, but best strategy is to export AppWrapper as default
+export default AppWrapper;

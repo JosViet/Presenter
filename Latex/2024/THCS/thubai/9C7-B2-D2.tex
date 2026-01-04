@@ -1,0 +1,808 @@
+\setcounter{section}{1}
+\section{BẢNG TẦN SỐ TƯƠNG ĐỐI VÀ BIỂU ĐỒ TẦN SỐ TƯƠNG ĐỐI (P2)} % Tên bài
+\setcounter{subsection}{1}
+\subsection{Biểu đồ tần số tương đối}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+	\begin{itemize}
+		\item Biểu đồ biểu diễn tần số tương đối của các giá trị trong mẫu dữ liệu gọi là \textit{biểu đồ tần số tương đối}.
+		\item Biểu đồ tần số tương đối thường có dạng hình quạt tròn hoặc dạng cột.
+		\item Trong biểu đồ hình quat tròn, hình quạt tròn biểu thị tần số tương đối $a\%$ có số đo cung tương ứng là $a\% \cdot 360^\circ=3{,}6 \cdot a^\circ$.
+		\item Trong biểu đồ cột, độ cao của mỗi cột tương ứng với tần số tương đối của từng giá trị.
+	\end{itemize}
+\end{tomtat}
+\subsubsection{Ví dụ}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5N2-2]
+	Bảng tần số tương đối sau cho biết tỉ lệ học sinh đánh giá độ khó của đề thi học kì môn Toán theo các mức độ.
+	\begin{center}
+		\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+			\hline Đánh giá &\centering\arraybackslash Rất khó &\centering\arraybackslash Khó &\centering\arraybackslash Trung bình &\centering\arraybackslash Dễ \\
+			\hline Tỉ lệ &\centering\arraybackslash $10\%$ &\centering\arraybackslash $25\%$ &\centering\arraybackslash $45\%$ &\centering\arraybackslash $20\%$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ biểu đồ hình quạt tròn biểu diễn bảng tần số tương đối này.
+	\loigiai{
+%		Xác định số đo cung tương ứng của các hình quạt biểu diễn các tần số tương đối cho mỗi độ khó\\
+%		Rất khó: $360^\circ\cdot 10\%=36^\circ$;\\
+%		Khó: $360^\circ\cdot 25\%=90^\circ$;\\
+%		Trung bình: $360^\circ\cdot 45\%=162^\circ$;\\
+%		Dễ: $360^\circ\cdot 20\%=72^\circ$.
+		Số đo cung tròn tương ứng với các hình quạt tròn biểu diễn tần số tương đối của mỗi độ khó như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline Độ khó & Rất khó & Khó & Trung bình & Dễ \\
+				\hline Số đo cung & $36^{\circ}$ & $90^{\circ}$ & $162^{\circ}$ & $72^{\circ}$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Ta vẽ được biểu đồ hình quạt tròn như sau
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.7, local bounding box=BieuDo]
+%					\draw (-4,-3.5) rectangle (10.5,5);
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1.5)$);
+					\foreach \phantram/\gocdau/\do/\noidung/\mau [count=\n] in {{10}/90/36/{Rất khó}/green,{25}/54/90/{Khó}/cyan,{45}/-36/162/{Trung bình}/red,{20}/-198/72/{Dễ}/teal}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[rectangle, fill=white, inner sep=0pt, rounded corners=2pt]{\phantram\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {{Rất khó}/green,{Khó}/cyan,{Trung bình}/red,{Dễ}/teal}
+							{
+								\draw[fill=\mau!10] (0,-\n) rectangle (0.5,-\n-0.5);
+								\draw (0.55,-\n-0.25)node[right]{\noidung};
+					}}};
+					\draw (3.3,4.2) node{\bfseries Tỉ lệ học sinh đánh giá độ khó};
+					\draw (3.3,3.5) node{\bfseries của đề thi học kì môn Toán};
+				\end{tikzpicture}
+			\end{center}
+		}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Bạn Minh thống kê lại số sách mà mỗi bạn trong lớp đã đọc sau tuần lễ đọc sách và ghi lại trong bảng dưới đây
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Số sách & $0$ & $1$ & $2$ & $3$ & $4$ \\
+			\hline Số học sinh & $2$ & $8$ & $16$ & $4$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối biểu diễn số liệu trên.
+		\item Vẽ biểu đồ tần số tương đối dạng hình quạt tròn biểu diễn số liệu trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tổng số học sinh là $2+8+16+4+2=32$ (học sinh).
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Số sách & $0$ & $1$ & $2$ & $3$ & $4$ \\
+					\hline Tần số tương đối & $6{,}25\%$ & $25\%$ & $50 \%$ & $12{,}5\%$ & $6{,}25\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Số đo cung tròn tương ứng với các hình quạt tròn biểu diễn tần số tương đối của các giá trị như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Số sách & $0$ & $1$ & $2$ & $3$ & $4$\\
+					\hline Số đo cung & $22{,}5^{\circ}$ & $90^{\circ}$ & $180^{\circ}$ & $45^{\circ}$ & $22{,}5^{\circ}$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Ta vẽ được biểu đồ hình quạt tròn như sau
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.75]
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1.5)$);
+					\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/22.5/6{,}25/green/80,67.5/90/25/cyan/0,-22.5/180/50/red/0,-202.5/45/12{,}5/teal/0,-247.5/22.5/6{,}25/violet/100}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt, rotate=\quay]{\noidung\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {{0 ($6{,}25}/green,{1 ($25}/cyan,{2 ($50}/red,{3 ($12{,}5}/teal,{4 ($6{,}25}/violet}
+							{
+								\draw[fill=\mau!10] (0,-0.8*\n) rectangle (0.5,-0.8*\n-0.4);
+								\draw (0.55,-0.8*\n-0.2)node[right]{\noidung\%$)};
+					}}};
+					\draw (2.3,4.2) node[text width=8cm]{\begin{center}
+							\bfseries Tần số tương đối của số học sinh theo số lượng sách đã đọc
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5N2-2]
+	Đầu năm $2022$, một công ty vận tải khảo sát ngẫu nhiên một số khách hàng về mức độ hài lòng khi sử dụng dịch vụ của công ty. Trong năm $2022$, công ty đã tiến hành một số cải tiến và đến cuối năm $2022$, công ty lại tiến hành khảo sát. Dữ liệu về tỉ lệ phản hồi theo các mức độ của khách hàng trong hai đợt khảo sát được thống kê lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline \diagbox{Đợt khảo sát}{Mức độ hài lòng} & Không hài lòng & Hài lòng & Rất hài lòng\\
+			\hline Đầu năm $2022$ & $24\%$ & $60\%$ & $16\%$ \\
+			\hline Cuối năm $2022$ & $12\%$ & $56\%$ & $32\%$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ biểu đồ cột biểu diễn bảng tần số tương đối này.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[
+				declare function={
+					x=1.0; %tỉ lệ co trục x
+					y=9.0; %tỉ lệ co trục y
+					kcy=0.5; %Khoảng cách từ trục y đến cột 1
+					kc=1.5; %Khoảng cách giữa 2 cột
+				},
+				xscale = 1/x, yscale = 1/y,
+				font = \footnotesize
+				,scale=0.6]
+				\foreach \x/\y/\z[count = \i from 0] in {Không hài lòng/24/12,Hài lòng/60/56,Rất hài lòng/16/32}{
+					\pgfmathsetmacro{\j}{(kc+2)*\i+kcy+1}
+					\draw[pattern = north east lines] (\j-1,0) rectangle (\j,\y);
+					\path (\j-.5,\y) node[above]{$\y$};
+					\draw[pattern = dots] (\j,0) rectangle (\j+1,\z);
+					\path (\j+.5,\z) node[above]{$\z$};
+					\path (\j,-.6*y) node[rotate = 0]{\x};
+					\global\let\n=\j
+				}
+				%Vẽ hệ trục
+				\draw[->] (0,0)--(\n+x+2,0);
+				\draw[->] (0,0) -- (0,60+y);
+				\foreach \y in {0,10,20,30,...,65}{
+					\draw (.05*x,\y)--(-.05*x,\y) node[left]{$\y$};
+				}
+				%Chú thích
+				\draw[pattern = north east lines] (\n+x,60) rectangle ++(.5*x,.5*y)++(0,-.25*y) node[right]{Đầu năm 2022};
+				\draw[pattern = dots] (\n+x,60-.7*y) rectangle ++(.5*x,.5*y)++(0,-.25*y) node[right]{Cuối năm 2022};
+				%Tên biểu đồ, tên trục ngang, tên trục đứng
+				\path
+				(current bounding box.north) node[above, text width=8cm, align=center]{\bf Tần số tương đối của số khách hàng phân theo mức độ hài lòng}
+				(current bounding box.south) node[below]{\normalsize Mức độ hài lòng}
+				(current bounding box.west) node[above, rotate = 90]{\normalsize Tần số tương đối (\%)}
+				;
+				%Khung viền
+%				\draw[very thick] (current bounding box.south west) rectangle (current bounding box.north east);
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Một cửa hàng thống kê lại số điện thoại di động bán được trong tháng 04/2022 và tháng 04/2023 ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline {Thương hiệu} & A &B & C & D & Các thương hiệu khác\\
+			\hline Tháng 04/2022 &$54$ & $48$ & $32$ & $96$&$20$\\
+			\hline Tháng 04/2023 &$60$ & $56$ & $60$ & $120$&$24$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy lựa chọn và vẽ biểu đồ phù hợp để thấy được xu thế thay đổi lựa chọn thương hiệu điện thoại giữa hai đợt thống kê.
+		\item Hãy cho biết trong các thương hiệu điện thoại A, B, C, D thương hiệu nào tăng trưởng cao nhất, thương hiệu nào tăng trưởng thấp nhất.
+	\end{enumerate}
+	\loigiai{
+		%%%==========================%%%
+		\begin{enumerate}
+			\item Để so sánh xu thế thay đổi lựa chọn thương hiệu điện thoại của khách hàng trong hai đợt khảo sát, ta sẽ sử dụng biểu đồ cột kép mô tả tần số tương đối của các mức độ hài lòng sau hai cuộc khảo sát.\\
+			Trước tiên, ta lập bảng tần số tương đối.\\
+			Tổng số khách hàng tháng 4/2022 là $54+48+32+96+20=250$ (người).\\
+			Tổng số khách hàng tháng 4/2023 là $60+56+60+120+24=320$ (người).
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline {Thương hiệu} & A &B & C & D & Các thương hiệu khác\\
+					\hline Tháng 04/2022 &$21{,}6\%$ & $19{,}2\%$ & $12{,}8\%$ & $38{,}4\%$&$8\%$\\
+					\hline Tháng 04/2023 &$18{,}8\%$ & $17{,}4\%$ & $18{,}8\%$ & $37{,}5\%$&$7{,}5\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\begin{center}
+				\begin{tikzpicture}[
+					declare function={
+						x=1.0; %Co trục x
+						y=6.0; %Co trục y
+						kcy=0.5; %Khoảng cách từ trục y đến cột 1
+						kc=1.0; %Khoảng cách giữa 2 cột
+					},
+					xscale = 1/x, yscale = 1/y,
+					,scale=0.6
+					]
+					\tikzset{every node/.style={scale=0.7}}%
+					\foreach \x/\y/\z/\a/\b[count = \i from 0] in {A/21.6/18.8/21{,}6/18{,}8,B/19.2/17.4/19{,}2/17{,}4,C/12.8/18.8/12{,}8/18{,}8,D/38.4/37.5/38{,}4/37{,}5,Các thương hiệu khác/8/7.5/8/7{,}5}{
+						\pgfmathsetmacro{\j}{(kc+2)*\i+kcy+1}
+						\draw[pattern = north east lines] (\j-1,0) rectangle (\j,\y);
+						\path (\j-.5,\y) node[above]{$\a$};
+						\draw[pattern = dots] (\j,0) rectangle (\j+1,\z);
+						\path (\j+.5,\z) node[above]{$\small\b$};
+						\path (\j,-.6*y) node{\x};
+						\global\let\n=\j
+					}
+					%Vẽ hệ trục
+					\draw[->] (0,0)--(\n+x+3,0);
+					\draw[->] (0,0) -- (0,50+y);
+					\foreach \y in {0,10,20,30,...,50}{
+						\draw (.05*x,\y)--(-.05*x,\y) node[left]{$\y$};
+					}
+					%Chú thích
+					\draw[pattern = north east lines] (\n+x,45) rectangle ++(.5*x,.5*y)++(0,-.25*y) node[right]{Tháng 4/2022};
+					\draw[pattern = dots] (\n+x,60-.7*y) rectangle ++(.5*x,.5*y)++(0,-.25*y) node[right]{Tháng 04/2023};
+					%Tên biểu đồ, tên trục ngang, tên trục đứng
+					\path
+					(current bounding box.north) node[above, text width=12cm]{\begin{center}
+							\bf\large Tần số tương đối của số khách hàng phân theo lựa chọn thương hiệu điện thoại
+					\end{center}}
+					(current bounding box.south) node[below]{\normalsize Thương hiệu}
+					(current bounding box.west) node[above, rotate = 90]{\normalsize Tần số tương đối (\%)}
+					;
+				\end{tikzpicture}
+			\end{center}
+			\item Theo trong các thương hiệu điện thoại A, B, C, D thì thương hiệu C tăng trưởng cao nhất, từ $12{,}8\%$ lên $18{,}8\%$; thương hiệu A tăng trưởng thấp nhất.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5V2-2]
+	Một doanh nghiệp thu thập mức độ yêu thích của người tiêu dùng về một loại sản phẩm theo các mức: $1$, $2$, $3$, $4$, $5$. Mẫu số liệu thống kê phản ánh ý kiến của $50$ người tiêu dùng như sau
+	\begin{center}
+		\begin{tabular}{|ccccccccccccccccc|}
+			\hline $4$ &$4$ &$1$ &$4$ &$5$ &$2$ &$2$ &$5$ &$5$ &$5$ &$2$ &$4$ &$3$ &$4$ &$4$ &$4$ &$5$ \\
+			$3$ &$3$ &$4$ &$4$ &$4$ &$5$ &$1$ &$5$ &$4$ &$4$ &$4$ &$2$ &$4$ &$4$ &$2$ &$5$ &$5$ \\
+			$1$ &$1$ &$1$ &$4$ &$4$ &$4$ &$3$ &$2$ &$4$ &$3$ &$3$ &$3$ &$4$ &$4$ &$4$ &$5$ &\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối của mẫu số liệu thống kê đó.
+		\item Vẽ biểu đồ tần số tương đối ở dạng biểu đồ cột của mẫu số liệu thống kê đó.
+		\item Vẽ biểu đồ tần số tương đối ở dạng biểu đồ hình quạt tròn của mẫu số liệu thống kê đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số của mẫu dữ liệu thống kê
+			\begin{center}
+				\begin{tabular}
+					{|c|c|c|c|c|c|}
+					\hline Mức độ yêu thích $(x)$ & $1$ & $2$ & $3$ & $4$ & $5$\\
+					\hline Số người phản ánh & $5$ & $6$ & $7$ & $22$ & $10$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Bảng tần số tương đối của mẫu dữ liệu thống kê trên là
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.5cm}|}
+					\hline Mức độ yêu thích $(x)$	&$1$	&$2$	&$3$	&$4$	&$5$	&Cộng\\
+					\hline Tần số tương đối $(\%)$ &$10\%$ &$12\%$ &$14\%$ &$44\%$ &$20\%$ &$100\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Biểu đồ tần số tương đối (dạng biểu đồ cột)
+			\begin{center}
+				\begin{tikzpicture}[scale=.8]
+					\tikzset{every node/.style={scale=0.8}}%
+					\draw [thick, ->] (0,0) -- (8,0) node[below]{Mức độ yêu thích};
+					\draw [thick, ->] (0,0) -- (0,7) node[left]{Tần số tương đối $(\%)$};
+					\foreach \y in {0,5,...,45} \draw (-.05,\y/7)--(.05,\y/7) node[left,xshift=-1mm]{$\y$};
+					\foreach \x in {1,...,5} \draw (\x,0) node[below]{$\x$};
+					\foreach \a/\b in {1/10, 2/12, 3/14, 4/44, 5/20} \draw [fill=cyan] (\a-.2,0) rectangle (\a+.2,\b/7) node[above, xshift=-2mm]{$\b$};
+					\draw (2.3,8.2) node[text width=12cm]{\begin{center}
+							\bfseries Tần số tương đối về mực độ yêu thích của khách hàng về một loại sản phẩm
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+			\item Biểu đồ tần số tương đối (dạng biểu đồ hình quạt tròn)
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.72]
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1.5)$);
+					\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/36/10/green/80,54/43.2/12/cyan/0,10.8/50.4/14/red/0,-39.6/158.4/44/teal/0,-198/72/20/violet/100}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt]{\noidung\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {1/green,2/cyan,3/red,4/teal,5/violet}
+							{
+								\draw[fill=\mau!10] (0,-0.8*\n) rectangle (0.5,-0.8*\n-0.4);
+								\draw (0.55,-0.8*\n-0.2)node[right]{Mức $\noidung$};
+					}}};
+					\draw (2.3,4.2) node[text width=10cm]{\begin{center}
+							\bfseries Tần số tương đối về mực độ yêu thích của khách hàng về một loại sản phẩm
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5N2-2]
+	Bảng sau thống kê số lượt nháy chuột vào quảng cáo ở một trang web vào tháng $12/2022$.
+	\begin{center}
+		\begin{tabular}
+			{|c|c|c|c|c|c|c|}
+			\hline Số lượt nháy chuột & $0$ & $1$ & $2$ & $3$ & $4$ & $5$\\
+			\hline Số người dùng & $25$ & $56$ & $12$ & $9$ & $5$ & $3$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối cho mẫu số liệu trên.
+		\item Vẽ biểu đồ tần số tương đối dạng hình quạt tròn biểu diễn mẫu số liệu trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tổng số người dùng là $25+56+12+9+5+3 = 110$ (người).\\
+			Ta có bảng tần số tương đối
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Số lần nháy chuột & $0$ & $1$ & $2$ & $3$ & $4$ &$5$\\
+					\hline Tần số tương đối & $22{,}72 \%$ & $50{,}9 \%$ & $10{,}9 \%$ & $8{,}18 \%$ & $4{,}54 \%$& $2{,}76 \%$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Số đo cung tròn tương ứng với các hình quạt tròn biểu diễn tần số tương đối của các giá trị như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Số lần nháy chuột & $0$ & $1$ & $2$ & $3$ & $4$ &$5$\\
+					\hline Số đo cung & $81{,}792^{\circ}$ & $183{,}24^{\circ}$ & $39{,}24^{\circ}$ & $29{,}448^{\circ}$ & $16{,}344^{\circ}$& $9{,}936^{\circ}$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Ta vẽ được biểu đồ hình quạt như sau
+			\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+				\coordinate (O) at (0,0);
+				\coordinate (O') at ($(O)+(0:3+1.5)$);
+				\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/81.792/22{,}72/green/0,8.208/183.24/50{,}9/cyan/0,-175.032/39.24/10{,}9/red/-15,-214.272/29.268/8{,}13/teal/-50,-243.54/16.344/4{,}54/violet/-70,-259.884/9.936/2{,}76/black/-80}{
+					\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+					\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt, rotate=\quay]{\noidung\%};
+				}
+				\draw (O')node[right]{
+					\tikz{
+						\foreach \noidung/\mau [count=\n] in {{0 ($22{,}72\%$)}/green,{1 ($50{,}9\%$)}/cyan,{2 ($10{,}9\%$)}/red,{3 ($8{,}13\%$)}/teal,{4 ($4{,}54\%$)}/violet,{5 ($2{,}76\%$)}/black}
+						{
+							\draw[fill=\mau!10] (0,-0.7*\n) rectangle (0.5,-0.7*\n-0.4);
+							\draw (0.55,-0.7*\n-0.2)node[right]{\noidung};
+				}}};
+				\draw (2.3,4.2) node[text width=8cm]{\begin{center}
+						\bfseries Tần số tương đối của số lượng nháy chuột vào quảng cáo ở một trang web
+				\end{center}};
+			\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Bảng thống kê sau cho biết tỉ lệ tăng trưởng GDP năm 2022 theo khu vực kinh tế.
+	\begin{center}
+		\begin{tabular}{|p{3.2cm}|p{5cm}|p{3cm}|p{1.5cm}|}
+			\hline
+			Khu vực kinh tế &\centering\arraybackslash Nông nghiệp, lâm nghiệp và thủy sản &\centering\arraybackslash Công nghiệp và xây dựng &\centering\arraybackslash Dịch vụ \\
+			\hline Mức tăng trưởng &\centering\arraybackslash $3{,}36\%$ &\centering\arraybackslash $7{,}78\%$ &\centering\arraybackslash $9{,}99\%$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{flushright}
+		(Theo {\it Tổng cục Thống kê})
+	\end{flushright}
+	\begin{enumerate}
+		\item Bảng thống kê trên có là bảng tần số tương đối hay không?
+		\item Lựa chọn loại biểu đồ thích hợp và biểu diễn bảng thống kê trên bằng loại biểu đồ đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê trên không phải là bảng tần số tương đối vì $f_1+f_2+f_3\ne 100\%$.
+			\item Ta có thể sử dụng biểu đồ cột để biểu diễn bảng thống kê trên như sau
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,scale=1,font=\scriptsize,yscale=0.7]
+					\def\hoanh{10};
+					\def\tung{6};
+					\def\mau{red};
+					\draw[->] (0,0)--(\hoanh,0) node[below]{Khu vực};
+					\draw[->] (0,0) node[left]{$O$}--(0,\tung) node[above]{Mức tăng trưởng (\%)};
+					\foreach \x/\y in{2/1.68}{
+						\fill[pattern = north east lines,pattern color=blue,draw] (\x-0.25,0) rectangle (\x+0.25,\y);
+						\draw[dashed] (\x,\y)--(0,\y);}
+					\foreach \x/\y in{5/3.89}{
+						\fill[pattern = north west lines,pattern color=violet,draw] (\x-0.25,0) rectangle (\x+0.25,\y);
+						\draw[dashed] (\x,\y)--(0,\y);}
+					\foreach \x/\y in{8/4.995}{
+						\draw (\x-0.25,0) rectangle (\x+0.25,\y);
+						\draw[dashed] (\x,\y)--(0,\y);}
+					\draw (2,-.5) node{Nông nghiệp, lâm nghiệp}
+					(2,-1.2) node{và thủy sản}
+					(5,-.5) node{Công nghiệp}
+					(5,-1.2) node{và xây dựng}
+					(8,-.5) node{Dịch vụ}
+					(2,1.68) node[above]{$3{,}36$}
+					(5,3.89) node[above]{$7{,}78$}
+					(8,4.995) node[above]{$9{,}99$}
+					;
+					\foreach \y in {2,4,...,10}{
+						\fill (0,\y/2) circle (1pt)node[left]{$\y$};
+					}
+					\fill[pattern = north east lines,pattern color=blue,draw] (11,5) rectangle +(45:0.5) +(0.25,0.3)node[midway, right=2mm]{Nông nghiệp, lâm nghiệp};
+					\draw (12.25,4.4) node{và thủy sản};
+					\fill[pattern = north west lines,pattern color=violet,draw] (11,3.2) rectangle +(45:0.5) +(0.25,0.3) node[midway, right=2mm]{Công nghiệp và xây dựng};
+					\draw (11,1.6) rectangle +(45:0.5) +(0.25,0.3)node[midway, right=2mm]{Dịch vụ};
+					\path (current bounding box.north) node[above=2mm]{\bf\large Tỉ lệ tăng trưởng GDP năm 2022 theo khu vực kinh tế};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Người ta thường đặt tương ứng các mức độ hài lòng của khách hàng với điểm số đánh giá như sau
+	\begin{center}
+		\scalebox{0.96}{\begin{tabular}
+				{|c|c|c|c|c|c|}
+				\hline Điểm & $1$ & $2$ & $3$ & $4$ & $5$\\
+				\hline Mức độ hài lòng & Rất không hài lòng & Không hài lòng & Chấp nhận được & Hài lòng & Rất hài lòng \\
+				\hline
+		\end{tabular}}
+	\end{center}
+	Chỉ số mức độ hài lòng CSAT (Customer Satisfaction Score) là một chỉ số đo lường sự hài lòng của khách hàng về một dịch vụ nào đó. Chỉ số này được tính theo công thức
+	\[\text{CSAT}=\dfrac{\text{Số đánh giá hài lòng và rất hài lòng}}{\text{Tổng số đánh giá}}\cdot 100\%\]
+	\begin{enumerate}
+		\item Bảng sau cung cấp điểm đánh giá của người dùng dành cho cửa hàng A.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Điểm & $1$ & $2$ & $3$ & $4$ & $5$ \\
+				\hline Số người dùng & $2$ & $4$ & $2$ & $9$ & $25$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Hãy tính chỉ số CSAT của cửa hàng A.\\
+		\item Bảng sau cung cấp điểm đánh giá của người dùng dành cho cửa hàng B.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Điểm & $1$ & $2$ & $3$ & $4$ & $5$ \\
+				\hline Số người dùng & $32$ & $12$ & $10$ & $15$ & $139$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Hãy lựa chọn và vẽ biểu đồ phù hợp để so sánh mức độ hài lòng của người dùng dành cho cửa hàng A và cửa hàng B. Có thể nói cửa hàng B được yêu thích hơn do có số lượt đánh giá 4 điểm trở lên nhiều hơn so với cửa hàng A hay không?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chỉ số mức độ hài lòng CSAT của khách hàng đối với cửa hàng A là\\
+			$CSAT=\dfrac{4\cdot 9 +5\cdot 25}{1\cdot 2 + 2\cdot 4 + 3\cdot 2 + 4\cdot 9 + 5\cdot 25}\cdot 100\%=\dfrac{161}{177}\cdot 100\% \approx 91\%$.\\
+			\item 
+			Để so sánh mức độ hài lòng của người dùng dành cho cửa hàng A và cửa hàng B, ta sẽ sử dụng biểu đồ cột kép mô tả tần số tương đối của các mức độ hài lòng. Trước tiên ta lập bảng tần số tương đối.\\
+			Tổng số người dùng dành cho cửa hàng A là $2 +4 +2+9+25= 42$ (người).\\
+			Tổng số người dùng dành cho cửa hàng B là $32+12+10+15+139=208$ (người).
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Điểm & $1$ & $2$ & $3$ & $4$ & $5$ \\
+					\hline Cửa hàng A & $4{,}{8}{\%}$ & $9{,}{5}{\%}$ & $4{,}{8}{\%}$ & $21{,}{4}{\%}$ & $59{,}{5}{\%}$ \\
+					\hline Cửa hàng B & $15{,}{4}{\%}$ & $5{,}{8}{\%}$ & $4{,}{8}{\%}$ & $7{,}{2}{\%}$ & $66{,}{8}{\%}$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Số lượt đánh giá $4$ điểm trở lên dành cho cửa hàng A chiếm tỉ lệ $80{,}{9}{\%}$.\\
+			Số lượt đánh giá $4$ điểm trở lên dành cho cửa hàng B chiếm tỉ lệ $74{\%}$.\\
+			Số lượt đánh giá $4$ điểm trở lên dành cho cửa hàng B chiếm tỉ lệ nhỏ hơn cửa hàng A.\\
+			Do đó không thể nói cửa hàng B được yêu thích hơn cửa hàng A.
+			\begin{center}
+				\begin{tikzpicture}[
+					declare function={
+						x=1.0; %tỉ lệ co trục x
+						y=6.0; %tỉ lệ co trục y
+						kcy=0.5; %Khoảng cách từ trục y đến cột 1
+						kc=1.0; %Khoảng cách giữa 2 cột
+					},
+					xscale = 1/x, yscale = 1/y,
+					font = \footnotesize,scale=0.6
+					]
+					\foreach \x/\y/\z/\a/\b[count = \i from 0] in {Điểm 1/4.8/15.4/4{,}8/15{,}4,Điểm 2/9.5/5.8/9{,}5/5{,}8,Điểm 3/4.8/4.8/4{,}8/4{,}8,Điểm 4/21.4/7.2/21{,}4/7{,}2,Điểm 5/59.5/66.8/59{,}5/66{,}8}{
+						\pgfmathsetmacro{\j}{(kc+2)*\i+kcy+1}
+						\draw[pattern = north east lines] (\j-1,0) rectangle (\j,\y);
+						\path (\j-.5,\y) node[above]{$\a$};
+						\draw[pattern = north west lines] (\j,0) rectangle (\j+1,\z);
+						\path (\j+.5,\z) node[above]{$\b$};
+						\path (\j,-.6*y) node[rotate = 0]{\x};
+						\global\let\n=\j
+					}
+					\draw[->] (0,0)--(\n+x+2,0);
+					\draw[->] (0,0) -- (0,70+y);
+					\foreach \y in {0,10,20,30,...,70}{
+						\draw (.05*x,\y)--(-.05*x,\y) node[left]{$\y$};
+					}
+					\path
+					(current bounding box.north) node[above,text width=10cm]{\begin{center}
+							\bf\large Tần số tương đối của số người dùng phân theo điểm đánh giá
+					\end{center}}
+					(current bounding box.south) node[below]{\normalsize Điểm đánh giá}
+					(current bounding box.west) node[above, rotate = 90]{\normalsize Tần số tương đối (\%)}
+					;
+					\node[minimum size = 0.5cm, draw,pattern = north east lines] at (15.5,50){};
+					\node[right=6pt] at (15.5,50){Cửa hàng A};
+					\node[minimum size = 0.5cm, draw,pattern = north west lines] at (15.5,43){};
+					\node[right=6pt] at (15.5,43){Cửa hàng B};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Quay $150$ lần một tấm bìa hình tròn được chia thành bốn hình quạt với các màu xanh, đỏ, tím, vàng. Quan sát mũi tên chỉ vào hình quạt màu gì và ghi lại, thu được kết quả sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline Màu & Xanh & Đỏ & Tím & Vàng \\
+			\hline Số lần & $60$ & $30$ & $40$ & $20$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối cho dữ liệu trên.
+		\item Ước lượng các xác suất mũi tên chỉ vào hình quạt màu xanh, màu vàng.
+		\item Vẽ biểu đồ hình quạt tròn biểu diễn bảng tần số tương đối thu được ở câu \circl{1}.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Số lần xuất hiện màu Xanh, Đỏ, Tím, Vàng tương ứng là $m_1=60$, $m_2=30$, $m_3=40$, $m_4=20$.\\
+			Ta có bảng tần số tương đối như sau
+			\begin{center}
+				\begin{tabular}{|p{3.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+					\hline Màu &\centering\arraybackslash Xanh &\centering\arraybackslash Đỏ &\centering\arraybackslash Tím &\centering\arraybackslash Vàng\\
+					\hline Tần số tương đối &\centering\arraybackslash $40\%$ &\centering\arraybackslash $20\%$ &\centering\arraybackslash $26{,}7\%$ &\centering\arraybackslash $13{,}3\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Vì tần số tương đối của màu xanh và màu vàng lần lượt là khoảng $40\%$ và $13{,}3\%$ nên ước lượng xác suất mũi tên chỉ vào hình quạt màu xanh và màu vàng lần lượt là khoảng $40\%$ và $13{,}3\%$.
+			\item Ta có biểu đồ hình quạt tròn biểu diễn bảng tần số tương đối thu được ở câu \circl{1} như sau
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1, local bounding box=BieuDo]
+%					\draw (-4,-3.5) rectangle (9,4.2);
+					\coordinate (O) at (0,0);
+					\coordinate (O1) at ($(O)+(90:3 cm)$);
+					\coordinate (O2) at ($(O)+(0:3+1.5)$);
+					\foreach \phantram/\gocdau/\do/\noidung/\mau [count=\n] in {{40}/90/144/{Xanh}/blue,{20}/-54/72/{Đỏ}/red,{26,7}/-126/96/{Tím}/violet,{13,3}/-222/48/{Vàng}/yellow}{
+						\draw[fill = \mau!50,line width=1.5pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[inner sep=0pt]{\phantram\%};
+					}
+					\draw (O2)node[right]{
+						\tikz{
+							\foreach \noidung/\mau/\kieu [count=\n] in {{Xanh}/blue/north east lines,{Đỏ}/red/horizontal lines,{Tím}/violet/dots,{Vàng}/yellow/crosshatch}
+							{
+								\draw[fill = \mau!50] (0,-\n) rectangle (0.5,-\n-0.5);
+								\draw (0.55,-\n-0.25)node[right]{\noidung};
+					}}};
+					\draw (2.5,3.5) node{\bfseries Tỉ lệ mũi tên chỉ vào các màu trên tấm bìa hình tròn khi quay};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Theo Tổng cục Thống kê, vào năm 2021 trong số $50{,}5$ triệu lao động Việt Nam từ $15$ tuổi trở lên có $13{,}9$ triệu lao động đang làm việc trong lĩnh vực nông nghiệp, lâm nghiệp và thuỷ sản; $16{,}9$ triệu lao động đang làm việc trong lĩnh vực công nghiệp và xây dựng; $19{,}7$ triệu lao động đang làm việc trong lĩnh vực dịch vụ.
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối cho dữ liệu trên.
+		\item Vẽ biểu đồ hình quạt tròn biểu diễn bảng tần số tương đối thu được ở câu \circl{1}.
+		\item Tính tỉ lệ lao động không làm việc trong lĩnh vực nông nghiệp, lâm nghiệp và thuỷ sản.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Số lao động trong các lĩnh vực Nông nghiệp, lâm nghiệp và thủy sản; Công nghiệp và xây dựng; Dịch vụ tương ứng là $m_1=13{,}9$, $m_2=16{,}9$, $m_3=19{,}7$.\\
+			Ta có bảng tần số tương đối như sau
+			\begin{center}
+				\begin{tabular}{|p{3.2cm}|p{5cm}|p{3cm}|p{1.5cm}|}
+					\hline Lĩnh vực &\centering\arraybackslash Nông nghiệp, lâm nghiệp và thủy sản &\centering\arraybackslash Công nghiệp và xây dựng &\centering\arraybackslash Dịch vụ \\
+					\hline Tần số tương đối &\centering\arraybackslash $27{,}5\%$ &\centering\arraybackslash $33{,}5\%$ &\centering\arraybackslash $39\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Ta có biểu đồ hình quạt tròn biểu diễn bảng tần số tương đối thu được ở câu \circl{1} như sau
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8, local bounding box=BieuDo]
+					\coordinate (O) at (0,0);
+					\coordinate (O1) at ($(O)+(90:3 cm)$);
+					\coordinate (O2) at ($(O)+(0:3+1)$);
+					\foreach \phantram/\gocdau/\do/\noidung/\mau [count=\n] in {{27,5}/90/99/{Nông nghiệp, lâm nghiệp và thủy sản}/teal,{33,5}/-9/120.5/{Công nghiệp và xây dựng}/cyan,{39}/-129.5/140.5/{Dịch vụ}/red}{
+						\draw[fill = \mau!10,line width=1.5pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[inner sep=0pt]{\phantram\%};
+					}
+					\draw (O2)node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {{Nông nghiệp, lâm nghiệp và thủy sản}/teal,{Công nghiệp và xây dựng}/cyan,{Dịch vụ}/red}
+							{
+								\draw[fill = \mau!10] (0,-\n) rectangle (0.5,-\n-0.5);
+								\draw (0.55,-\n-0.25)node[right]{\noidung};
+					}}};
+					\draw (3.7,3.7) node{\bfseries Tỉ lệ lao động từ $15$ tuổi trở lên trong các lĩnh vực của Việt Nam năm 2021};
+				\end{tikzpicture}
+			\end{center}
+			\item Tỉ lệ lao động không làm việc trong lĩnh vực nông nghiệp, lâm nghiệp và thủy sản là \[33{,}5+39=72{,}5\%.\]
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Gieo một con xúc xắc $32$ lần liên tiếp, ghi lại số chấm trên mặt xuất hiện của xúc xắc, ta được mẫu số liệu thống kê như sau
+	\begin{center}
+		\begin{tabular}{|cccccccccccccccc|}
+			\hline	
+			$1$ &$6$ &$4$ &$4$ &$6$ &$6$ &$5$ &$5$ &$4$ &$2$ &$2$ &$3$ &$1$ &$1$ &$4$ &$4$ \\
+			$5$ &$1$ &$2$ &$3$ &$3$ &$2$ &$4$ &$4$ &$5$ &$2$ &$3$ &$4$ &$2$ &$6$ &$4$ &$4$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối của mẫu số liệu thống kê đó.
+		\item Vẽ biểu đồ tần số tương đối ở dạng biểu đồ cột và biểu đồ hình quạt tròn của mẫu số liệu thống kê đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số tương đối của mẫu số liệu thống kê đó là
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1.5cm}|}
+					\hline  Số chấm $(x)$ &$1$ &$2$ &$3$ &$4$	&$5$	&$5$	&Cộng \\
+					\hline Tần số tương đối $(\%)$ &$12{,}5\%$ &$25\%$ &$12{,}5\%$ &$25\%$ &$12{,}5\%$	&$12{,}5\%$ &$100\%$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Biểu đồ tần số tương đối của mẫu số liệu thống kê đó là
+			\begin{center}
+				\begin{tikzpicture}[scale=.7]
+					\draw (2,7) node{\textbf{Biểu đồ cột}};
+					\tikzset{every node/.style={scale=0.8}}%
+					\draw [thick, ->] (0,0) -- (7.5,0) node[below]{Số chấm};
+					\draw [thick, ->] (0,0) -- (0,6) node[left]{Tần số tương đối $(\%)$};
+					\foreach \y in {0,5,...,25} \draw (-.05,\y/5)--(.05,\y/5) node[left,xshift=-1mm]{$\y$};
+					\foreach \x in {1,...,6} \draw (\x,0) node[below]{$\x$};
+					\foreach \a/\b/\p in {1/12.5/{12,5}, 2/25/25, 3/12.5/12{,}5, 4/25, 5/12.5/{12,5}, 6/12.5/12{,}5} \draw [fill=cyan] (\a-.2,0) rectangle (\a+.2,\b/5) node[above, xshift=-2mm]{$\p$};
+				\end{tikzpicture}~
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.75]
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1)$);
+					\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/45/12{,}5/green/0,45/90/25/cyan/0,-45/45/12{,}5/red/-15,-90/90/25/teal/-50,-180/45/12{,}5/violet/-70,-225/45/12{,}5/black/-80}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt]{\noidung\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {1/green,2/cyan,3/red,4/teal,5/violet,6/black}
+							{
+								\draw[fill=\mau!10] (-.5,-0.7*\n) rectangle (0,-0.7*\n-0.4);
+								\draw (0.05,-0.7*\n-0.2)node[right]{$\noidung$ chấm};
+					}}};
+					\draw (2.3,4.2) node[text width=8cm]{\begin{center}
+							\bfseries Biểu đồ hình quạt tròn
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Kết quả đánh giá chất lượng bằng điểm của $40$ sản phẩm được cho trong bảng sau.
+	\begin{center}
+		\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{.5cm}|>{\centering\arraybackslash}m{.5cm}|>{\centering\arraybackslash}m{.5cm}|>{\centering\arraybackslash}m{.5cm}|>{\centering\arraybackslash}m{2cm}|}
+			\hline Điểm $(x)$ &$7$ &$8$ &$9$ &$10$ &Cộng \\
+			\hline Tần số $(n)$	&$6$	&$14$ &$16$ &$4$	&$N=40$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối của mẫu số liệu thống kê đó.
+		\item Vẽ biểu đồ tần số tương đối ở dạng biểu đồ cột và biểu đồ hình quạt tròn của mẫu số liệu thống kê đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số tương đối của mẫu số liệu thống kê đó là
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.25cm}|}
+					\hline Điểm $(x)$ &$7$ &$8$ &$9$ &$10$	&Cộng 	\\
+					\hline Tần số tương đối $(\%)$ &$15\%$	&$35\%$ &$40\%$ &$10\%$ &$100\%$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Biểu đồ tần số tương đối của mẫu số liệu thống kê đó là
+			\begin{center}
+				\begin{tikzpicture}[scale=.8]
+					\draw (2,6) node{\textbf{Biểu đồ cột}};
+					\tikzset{every node/.style={scale=0.8}}%
+					\draw [thick, ->] (0,0) -- (5,0) node[below]{Điểm};
+					\draw [thick, ->] (0,0) -- (0,5) node[left]{Tần số tương đối $(\%)$};
+					\foreach \y in {0,10,...,40} \draw (-.05,\y/10)--(.05,\y/10) node[left,xshift=-1mm]{$\y$};
+					\foreach \x in {7,8,9,10} \draw (\x-6,0) node[below]{$\x$};
+					\foreach \a/\b in {1/15, 2/35, 3/40, 4/10} \draw [fill=cyan] (\a-.2,0) rectangle (\a+.2,\b/10) node[above, xshift=-2mm]{$\b$};
+				\end{tikzpicture}~
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.75]
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1.5)$);
+					\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/54/15/green/0,36/126/35/cyan/0,-90/144/40/red/-15,-234/36/10/teal/-50}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt]{\noidung\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {7/green,8/cyan,9/red,10/teal}
+							{
+								\draw[fill=\mau!10] (0,-0.7*\n) rectangle (0.5,-0.7*\n-0.4);
+								\draw (0.55,-0.7*\n-0.2)node[right]{$\noidung$ điểm};
+					}}};
+					\draw (2.3,4.2) node[text width=8cm]{\begin{center}
+							\bfseries Biểu đồ hình quạt tròn
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Trịnh Bá Hiếu]%[9D5H2-2]
+	Kiểm tra khối lượng một số hộp sữa chua được lấy ngẫu nhiên từ thành phẩm của máy đóng hộp X, nhà máy chế biến sữa thu được bảng sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|c|}
+			\hline
+			Khối lượng (g) & $92$ & $96$ & $100$ & $105$ & $110$ & \\
+			\hline
+			Tần số & $7$ & $18$ & $38$ & $9$ & $8$ & $N = 80$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số tương đối và vẽ biểu đồ tần số tương đối dạng hình quạt tròn biểu diễn dữ liệu đã cho.
+		\item Những hộp cân nặng từ $95$ g đến $105$ g được xem là đạt yêu cầu về khối lượng. Vậy trong $80$ hộp sữa chua được kiểm tra có bao nhiêu phần trăm hộp đạt yêu cầu?
+		\item Máy đóng hộp được xem là vận hành tốt nếu trên $90\%$ sản phẩm của nó đạt yêu cầu. Nếu $80$ hộp sữa chua này đại diện được cho sản phẩm đóng hộp của máy X thì có thể xem là máy này vận hành tốt hay không?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số tương đối của dữ liệu đã cho là
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|c|c|}
+					\hline
+					Khối lượng (g) & $92$ & $96$ & $100$ & $105$ & $110$ & \\
+					\hline
+					Tần số & $7$ & $18$ & $38$ & $9$ & $8$ & $N = 80$\\
+					\hline
+					Tần số tương đối (\%) & $8{,}75$ & $22{,}5$ & $47{,}5$ & $11{,}25$ & $10$ & $100$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Bảng tính các số đo cung từ bảng dữ liệu trong bảng lập ở trên là
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|c|c|}
+					\hline
+					Khối lượng (g) & $92$ & $96$ & $100$ & $105$ & $110$ & \\
+					\hline
+					Tần số tương đối (\%) & $8{,}75$ & $22{,}5$ & $47{,}5$ & $11{,}25$ & $10$ & $100$\\
+					\hline
+					Số đo cung & $31{,}5^\circ$ & $81^\circ$ & $171^\circ$ & $40{,}5^\circ$ & $36^\circ$ & $360^\circ$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Biểu đồ dạng hình quạt tròn biểu diễn dữ liệu trong bảng lập ở trên là
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.75]
+					\coordinate (O) at (0,0);
+					\coordinate (O') at ($(O)+(0:3+1.5)$);
+					\foreach \gocdau/\do/\noidung/\mau/\quay [count=\n] in {90/31.5/8{,}75/green/80,58.5/81/22{,}5/cyan/0,-22.5/171/47{,}5/red/0,-193.5/40.5/11{,}25/teal/0,-234/36/10/violet/0}{
+						\draw[fill = \mau!10,line width=1pt] (O)--($(O)+(\gocdau:3)$) arc (\gocdau:\gocdau-\do:3 cm)--(O);
+						\draw ($(O)+({(2*\gocdau-\do)/2}:3*0.6)$) node[ inner sep=0pt, rounded corners=2pt, rotate=\quay]{\noidung\%};
+					}
+					\draw (O')node[right]{
+						\tikz{
+							\foreach \noidung/\mau [count=\n] in {92/green,96/cyan,100/red,105/teal,110/violet}
+							{
+								\draw[fill=\mau!10] (0,-0.7*\n) rectangle (0.5,-0.7*\n-0.4);
+								\draw (0.55,-0.7*\n-0.2)node[right]{$\noidung$ g};
+					}}};
+					\draw (2.3,4.2) node[text width=8cm]{\begin{center}
+							\bfseries Tần số tương đối của một số hộp sữa chua
+					\end{center}};
+				\end{tikzpicture}
+			\end{center}
+			\item Những hộp cân nặng từ $95$ g đến $105$ g được xem là đạt yêu cầu về khối lượng. Vậy trong $80$ hộp sữa chua được kiểm tra có $22{,}5\% + 47{,}5\% + 11{,}25\% = 81{,}25\%$ hộp đạt yêu cầu.
+			\item Vì $81{,}25\% < 90\%$ nên nếu $80$ hộp sữa chua này đại diện được cho sản phẩm đóng hộp của máy X thì không thể xem là máy này vận hành tốt.
+		\end{enumerate}
+	}
+\end{bt}

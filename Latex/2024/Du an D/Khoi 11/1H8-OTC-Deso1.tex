@@ -1,0 +1,813 @@
+\newpage
+\section{Ôn tập chương 8}
+\def\thoigian{90}%--Thời gian
+\de{Đề số 1}{Chương VIII. Quan hệ vuông góc trong không gian}
+
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE1]
+
+%%%==============Cau_EX1==============%%%
+\begin{ex}%[1H8N1-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình lập phương $ABCD\cdot A'B'C'D'$. Đường thẳng nào sau đây vuông góc với đường thẳng $BC'$?
+	\choice
+	{\True $A'D$}
+	{$AC$}
+	{$BB'$}
+	{$AD'$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1,-0.7) coordinate (B)
+				(1.7,-0.7) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				($(A)+(0,2.7)$) coordinate (A')
+				($(B)+(0,2.7)$) coordinate (B')
+				($(C)+(0,2.7)$) coordinate (C')
+				($(D)+(0,2.7)$) coordinate (D')
+				;
+				\draw (B')--(B)--(C)--(D)--(D')--(A')--(B')--(C')--(C) (C')--(D') (B)--(C') (B')--(C);
+				\draw[dashed] (B)--(A)--(D) (A)--(A')--(D);
+				\foreach \p/\q in {A/-60,B/-135,C/-90,D/-45,A'/90,B'/135,C'/-30,D'/90}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+			\end{tikzpicture}
+		\end{center}
+		Ta có $A'D\parallel B'C, B'C\perp BC' \Rightarrow A'D\perp BC'$.
+	}
+\end{ex}
+
+%%%==============Cau_EX2==============%%%
+\begin{ex}%[1H8N4-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S\cdot ABC$ có đáy $ABC$ là tam giác đều, cạnh bên $SA$ vuông góc với đáy.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\path
+			(0,0) coordinate (A)
+			(1.5,-1.2) coordinate (B)
+			(3,0) coordinate (C)
+			($(A)+(0,2.3)$) coordinate (S)
+			;
+			\draw (S)--(A)--(B)--(C)--(S)--(B);
+			\draw[dashed] (A)--(C);
+			\foreach \p/\q in {A/-135,B/-90,C/-45,S/90}
+			\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+			\draw pic[draw,angle radius=3mm]{right angle=S--A--C};
+			\draw pic[draw,angle radius=2.2mm]{right angle=S--A--B};
+		\end{tikzpicture}
+	\end{center}
+	Khi đó số đo góc giữa hai mặt phẳng $(SAC)$ và $(ABC)$ là
+	\choice
+	{$45^\circ$}
+	{\True $90^\circ$}
+	{$30^\circ$}
+	{$60^\circ$}
+	\loigiai{
+		Do $SA\perp(ABC)$ mà $SA\subset(SAC) \Rightarrow(SAC) \perp(ABC)$.\\
+		Vậy số đo góc giữa hai mặt phẳng $(SAC)$ và $(ABC)$ là $90^\circ$.
+	}
+\end{ex}
+
+%%%==============Cau_EX3==============%%%
+\begin{ex}%[1H8N6-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình chữ nhật tâm $O$, $SA\perp(ABCD)$. Gọi $H$ là hình chiếu của $A$ lên $BD$ và $K$ là hình chiếu của $A$ lên $SD$. Góc phẳng nhị diện $[S,BD,A]$ là
+	\choice
+	{$\widehat{SKA}$}
+	{$\widehat{SBA}$}
+	{\True $\widehat{SHA}$}
+	{$\widehat{SDA}$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(3,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				($(A)+(0,3)$) coordinate (S)
+				(intersection of B--D and A--C) coordinate (O)
+				($(B)!0.35!(D)$) coordinate (H)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D)--(B) (S)--(A)--(C) (A)--(H)--(S);
+				\foreach \p/\q in {A/180,B/-90,C/-90,D/-45,S/90,O/-100,H/-45}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=A--H--B};
+				\draw pic[draw,angle radius=2mm]{right angle=S--H--D};
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\heva{&SH\perp BD\\&AH\perp BD} \Rightarrow \widehat{SHA}$ là góc phẳng nhị diện $[S,BD,A]$.
+	}
+\end{ex}
+
+%%%==============Cau_EX4==============%%%
+\begin{ex}%[1H8N4-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình lập phương $ABCD\cdot A'B'C'D'$ (tham khảo hình vẽ).
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\path
+			(0,0) coordinate (A)
+			(-1,-0.7) coordinate (B)
+			(1.7,-0.7) coordinate (C)
+			($(A)-(B)+(C)$) coordinate (D)
+			($(A)+(0,2.7)$) coordinate (A')
+			($(B)+(0,2.7)$) coordinate (B')
+			($(C)+(0,2.7)$) coordinate (C')
+			($(D)+(0,2.7)$) coordinate (D')
+			;
+			\draw (B')--(B)--(C)--(D)--(D')--(A')--(B')--(C')--(C) (C')--(D');
+			\draw[dashed] (B)--(A)--(D) (A)--(A');
+			\foreach \p/\q in {A/-60,B/-135,C/-90,D/-45,A'/90,B'/135,C'/-30,D'/90}
+			\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Góc giữa hai đường thẳng $AC$ và $C'D'$ bằng góc
+	\choice
+	{$\widehat{AD'C}$}
+	{$\widehat{BCD}$}
+	{$\widehat{AC'D}$}
+	{\True $\widehat{ACD}$}
+	\loigiai{
+		Vì $ABCD.A'B'C'D'$ là hình lập phương nên $C'D' \parallel CD$.\\
+		Suy ra $(AC,C'D') = (AC,CD) = \widehat{ACD}$.
+	}
+\end{ex}
+
+%%%==============Cau_EX5==============%%%
+\begin{ex}%[1H8N2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABC$ có $SA\perp AB$, $SA\perp AC$. Khẳng định nào sau đây đúng?
+	\choice
+	{$SA\perp(SBC)$}
+	{\True $SA\perp(ABC)$}
+	{$SA\perp(SAB)$}
+	{$SA\perp(SAC)$}
+	\loigiai{
+		\immini{
+			Ta có $\heva{&SA\perp AB\\&SA\perp AC\\&AB\cap AC \text{ trong }(ABC)} \Rightarrow SA\perp(ABC)$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(1.5,-1.2) coordinate (B)
+				(3,0) coordinate (C)
+				($(A)+(0,2.3)$) coordinate (S)
+				;
+				\draw (S)--(A)--(B)--(C)--(S)--(B);
+				\draw[dashed] (A)--(C);
+				\foreach \p/\q in {A/-135,B/-90,C/-45,S/90}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=3mm]{right angle=S--A--C};
+				\draw pic[draw,angle radius=2.2mm]{right angle=S--A--B};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%%%==============Cau_EX6==============%%%
+\begin{ex}%[1H8N2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S\cdot ABCD$ có đáy là hình chữ nhật, $SD\perp(ABCD)$. Mệnh đề nào sau đây là đúng?
+	\choice
+	{\True $AD\perp(SCD)$}
+	{$BC\perp(SAB)$}
+	{$AC\perp(SBD$}
+	{$AB\perp(SBC)$}
+	\loigiai{
+		\immini{
+			Ta có $\heva{&AD\perp CD\\&AD\perp SD\\&CD\cap SD \text{ trong } (SCD)} \Rightarrow AD\perp (SCD)$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (D)
+				(-1.5,-1.2) coordinate (A)
+				(2.2,-1.2) coordinate (B)
+				($(D)-(A)+(B)$) coordinate (C)
+				($(D)+(0,2.5)$) coordinate (S)
+				;
+				\draw (S)--(A)--(B)--(C)--(S)--(B);
+				\draw[dashed] (A)--(D)--(C) (S)--(D);
+				\foreach \p/\q in {A/-90,B/-90,C/-45,D/-70,S/90}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--D--C};
+				\draw pic[draw,angle radius=2.5mm]{right angle=S--D--A};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%%%==============Cau_EX7==============%%%
+\begin{ex}%[1H8H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S\cdot ABC$ có $SA\perp(ABC)$. Gọi $J$ là trung điểm của $SA$, $G$ là trọng tâm tam giác $ABC$. Hình chiếu của đường thẳng $JG$ trên mặt phẳng $(ABC)$ là
+	\choice
+	{đường thẳng $AB$}
+	{đường thẳng $BC$}
+	{đường thẳng $AC$}
+	{\True đường thẳng $AG$}
+	\loigiai{
+		\immini{
+			Ta có $SA\perp (ABC)$ tại $A$ mà $J$ là trung điểm của $SA$ nên hình chiếu của $J$ lên mặt phẳng $(ABC)$ là $A$. Hình chiếu của $G$ lên mặt phẳng $(ABC)$ là $G$.\\
+			Vậy hình chiếu của đường thẳng $JG$ trên mặt phẳng $(ABC)$ là đường thẳng $AG$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(1.5,-1.2) coordinate (B)
+				(3,0) coordinate (C)
+				($(A)+(0,2.3)$) coordinate (S)
+				($(A)!0.5!(B)$) coordinate (M)
+				($(C)!0.5!(B)$) coordinate (N)
+				($(S)!0.5!(A)$) coordinate (J)
+				(intersection of A--N and C--M) coordinate (G)
+				;
+				\draw (S)--(A)--(B)--(C)--(S)--(B);
+				\draw[dashed] (N)--(A)--(C)--(M) (J)--(G);
+				\foreach \p/\q in {A/-135,B/-90,C/-45,S/90,J/180,G/-90}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=3mm]{right angle=S--A--C};
+				\draw pic[draw,angle radius=2.2mm]{right angle=S--A--B};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%%%==============Cau_EX8==============%%%
+\begin{ex}%[1H8N4-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông tâm $O$, $SA$ vuông góc với mặt phẳng đáy. Mặt phẳng vuông góc với $(SAC)$ là
+	\choice
+	{$(SAB)$}
+	{\True $(SBD)$}
+	{$(SBC)$}
+	{$(SAD)$}
+	\loigiai{
+		\immini{
+			Ta có $\heva{&AC\perp BD\\&SA\perp BD} \Rightarrow BD\perp(SAC)$.\\
+			Mà $BD\subset(SBD)$ nên $(SBD) \perp(SAC)$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2.2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				($(A)+(0,2.5)$) coordinate (S)
+				(intersection of B--D and A--C) coordinate (O)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D)--(B) (S)--(A)--(C);
+				\foreach \p/\q in {A/160,B/-90,C/-90,D/-45,S/90,O/-100}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--A--D};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%%%==============Cau_EX9==============%%%
+\begin{ex}%[1H8N7-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Thể tích của khối lăng trụ có diện tích đáy $S=12$ và chiều cao $h=4$ là
+	\choice
+	{$V=24$}
+	{$V=3$}
+	{$V=16$}
+	{\True $V=48$}
+	\loigiai{
+		Thể tích của khối lăng trụ có diện tích đáy $S=12$ và chiều cao $h=4$ là $V = S\cdot h = 12\cdot 4 = 48$.
+	}
+\end{ex}
+	
+%%%==============Cau_EX10==============%%%
+\begin{ex}%[1H8H7-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Chiều cao của khối chóp có thể tích $V$ và diện tích $S$ là
+	\choice
+	{$h=\dfrac{S}{V}$}
+	{$h=\dfrac{3S}{V}$}
+	{$h=\dfrac{V}{S}$}
+	{\True $h=\dfrac{3V}{S}$}
+	\loigiai{
+		Ta có $V=\dfrac{1}{3}S\cdot h \Rightarrow h = \dfrac{3V}{S}$.
+	}
+\end{ex}
+	
+%%%==============Cau_EX11==============%%%
+\begin{ex}%[1H8H2-6]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Một tháp chuông có hình dạng là hình chóp tứ giác đều có cạnh đáy dài 6 m, cạnh bên dài 15m. Chiều cao của tháp chuông bằng
+	\choice
+	{$3\sqrt{21}$ m}
+	{$3\sqrt{17}$ m}
+	{$6\sqrt{6}$ m}
+	{\True $3\sqrt{23}$ m}
+	\loigiai{
+		\immini{
+			Chiều cao của tháp chuông là chiều cao $SO$ của hình chóp tứ giác đều $S.ABCD$.\\
+			Vì $S.ABCD$ là hình chóp tứ giác đều nên $ABCD$ là hình vuông do đó
+			$$AC = AB\sqrt{2} = 6\sqrt{2} \Rightarrow AO = \dfrac{1}{2}AC = 3\sqrt{2} \text{ (m).}$$
+			Xét $\triangle SOA$ vuông tại $O$, ta có $$SO=\sqrt{SA^2-AO^2}=\sqrt{15^2-\left(3\sqrt{2}\right)^2}=3\sqrt{23} \text{ (m).}$$
+			Vậy chiều cao của tháp chuông là $3\sqrt{23}$ mét.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-2,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				(intersection of B--D and A--C) coordinate (O)
+				($(O)+(0,2.8)$) coordinate (S)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D)--(B) (O)--(S)--(A)--(C);
+				\foreach \p/\q in {A/160,B/-90,C/-90,D/-45,S/90,O/-100}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--O--D};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+	
+%%%==============Cau_EX12==============%%%
+\begin{ex}%[1H8H5-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Một cái lều ở trại hè có dạng hình lăng trụ đứng tam giác $ABC.A'B'C'$. Cho biết $AB=AC=2$ m; $BC=3{,}2$ m; $AA' = 5$ m. Tính khoảng cách giữa hai đường thẳng $AB$ và $B'C'$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\path
+			(1.3,2.3) coordinate (A)
+			(0,0) coordinate (B)
+			(2.3,-0.7) coordinate (C)
+			(4,0.5) coordinate (x)
+			($(A)+(x)$) coordinate (A')
+			($(B)+(x)$) coordinate (B')
+			($(C)+(x)$) coordinate (C')
+			;
+			\draw (A)--(B)--(C)--(A)--(A')--(C')--(C);
+			\draw[dashed] (B)--(B')--(C') (B')--(A');
+			\foreach \p/\q in {A/90,B/-90,C/-90,A'/90,B'/-90,C'/-90}
+			\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$1{,}2$ m}
+	{$2$ m}
+	{$3{,}2$ m}
+	{\True $5$ m}
+	\loigiai{
+		Ta có $(ABC) \parallel (A'B'C') \Rightarrow \mathrm{d\,}(AB,B'C') = \mathrm{d\,}\left((ABC),(A'B'C')\right) = AA' = 5$ m.
+	}
+\end{ex}
+
+
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{12}{ans/ans-TN-ONTAPCHUONG-DE1}	
+%\end{center}
+
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-DS-ONTAPCHUONG-DE1]
+
+%%%==============Cau_EX1==============%%%
+\begin{ex}%[1H8H6-1]%[1H8H4-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$, $SA\perp (ABC)$, $AB=a$, $BC=a\sqrt{2}$, $SA=a\sqrt{3}$. Gọi $AH$, $AK$ lần lượt là đường cao của $\triangle SAB$, $\triangle SAC$.
+	\choiceTF
+	{\True $\left(SC,(ABC)\right) = 45^\circ$}
+	{\True $(SBC)\perp (SAB)$}
+	{\True $(AHK)\perp (SBC)$}
+	{$\left(AK,(SBC)\right) = 60^\circ$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(1.5,-1.2) coordinate (B)
+				(3,0) coordinate (C)
+				($(A)+(0,2.3)$) coordinate (S)
+				($(S)!(A)!(B)$) coordinate (H)
+				($(S)!(A)!(C)$) coordinate (K)
+				;
+				\draw (S)--(A)--(B)--(C)--(S)--(B) (A)--(H)--(K);
+				\draw[dashed] (K)--(A)--(C);
+				\foreach \p/\q in {A/180,B/-90,C/-45,S/90,H/-15,K/60}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=A--K--S};
+				\draw pic[draw,angle radius=2mm]{right angle=A--H--B};
+				\draw pic[draw,angle radius=2mm]{right angle=A--B--C};
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemchoice}
+			\itemch \textbf{Đúng.}
+			Ta có $SA\perp (ABC)$ nên $AC$ là hình chiếu vuông góc của $SC$ lên $(ABC)$.\\
+			Do đó $\left(SC,(ABC)\right) = (SC,AC) = \widehat{SCA}$.\\
+			Xét $\triangle ABC$ vuông tại $B$, ta có 
+			$$AC = \sqrt{AB^2+BC^2} = \sqrt{a^2 + \left(a\sqrt{2}\right)^2} = a\sqrt{3}.$$
+			Xét $\triangle SAC$ vuông tại $A$, ta có
+			$$\tan \widehat{SCA} = \dfrac{SA}{AC} = \dfrac{a\sqrt{3}}{a\sqrt{3}} = 1 \Rightarrow \widehat{SCA} = 45^\circ.$$
+			\itemch \textbf{Đúng.}
+			Ta có $SA\perp(ABC)$ mà $BC\subset(ABC)$ nên $SA\perp BC$.\\
+			Lại có $AB\perp BC$ (vì $\triangle ABC$ vuông tại $B$).\\
+			Do đó $BC\perp(SAB)$ mà $BC\subset(SBC)$ nên $(SBC)\perp(SAB)$.
+			\itemch \textbf{Đúng.}
+			Ta có $BC\perp(SAB)$ mà $AH\subset(SAB)$ nên $BC\perp AH$.\\
+			Lại có $SB\perp AH$ nên $AH\perp(SBC)$.\\
+			Mặt khác $AH\subset(AHK)$ nên $(AHK) \perp(SBC)$.
+			\itemch \textbf{Sai.}
+			Ta có $AH\perp(SBC)$ nên $\left(AK,(SBC)\right) = (AK,HK) = \widehat{AKH}$.\\
+			Xét $\triangle SAB$ vuông tại $A$, $AH$ là đường cao, ta có
+			\begin{itemize}
+				\item $SB = \sqrt{SA^2+AB^2} = \sqrt{\left(a\sqrt{3}\right)^2 + a^2} = 2a$.
+				\item $SA\cdot AB = AH\cdot SB\Rightarrow AH = \dfrac{SA\cdot AB}{SB} = \dfrac{a\sqrt{3}\cdot a}{2a} = \dfrac{a\sqrt{3}}{2}$.
+			\end{itemize}
+			Xét $\triangle SAC$ vuông tại $A$, $AK$ là đường cao, ta có
+			\begin{itemize}
+				\item $SC = \sqrt{SA^2+AC^2} = \sqrt{\left(a\sqrt{3}\right)^2 + \left(a\sqrt{3}\right)^2} = a\sqrt{6}$.
+				\item $SA\cdot AC = AK\cdot SC\Rightarrow AK = \dfrac{SA\cdot AC}{SC} = \dfrac{a\sqrt{3}\cdot a\sqrt{3}}{a\sqrt{6}} = \dfrac{a\sqrt{6}}{2}$.
+			\end{itemize}
+			Vì $AH\perp (SBC)$ mà $HK\subset (SBC) \Rightarrow AH\perp HK$.\\
+			Xét $\triangle AHK$ vuông tại $H$, ta có
+			$$\sin \widehat{AKH} = \dfrac{AH}{AK} = \dfrac{\dfrac{a\sqrt{3}}{2}}{\dfrac{a\sqrt{6}}{2}} =  \dfrac{\sqrt{2}}{2} \Rightarrow \widehat{AKH} = 45^\circ.$$
+		\end{itemchoice}
+	}
+\end{ex}
+		
+%%%==============Cau_EX2==============%%%
+\begin{ex}%[1H8H5-4]%[1H8H7-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh bằng $a$. Mặt bên $SAB$ là tam giác đều và nằm trong mặt phẳng vuông góc với mặt đáy.
+	\choiceTF
+	{Chiều cao hình chóp bằng $a$}
+	{\True Thể tích khối chóp bằng $\dfrac{\sqrt{3}}{6}a^3$}
+	{\True Khoảng cách giữa đường thẳng $CD$ và mặt phẳng $(SAB)$ bằng $a$}
+	{Khoảng cách giữa hai đường thẳng $SA$ và $CD$ bằng $\sqrt{2} a$}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				($(A)!0.5!(B)$) coordinate (H)
+				($(H)+(0,3.2)$) coordinate (S)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D) (H)--(S)--(A);
+				\foreach \p/\q in {A/170,B/-90,C/-90,D/-45,S/90,H/170}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:3mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--H--A};
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemchoice}
+			\itemch \textbf{Sai.}
+			Gọi $H$ là trung điểm của $AB$.\\
+			Khi đó $SH\perp AB$ và $SH = \dfrac{\sqrt{3}}{2}a$.\\
+			Lại có $(SAB)\perp (ABCD)$ nên $SH\perp(ABCD)$.\\
+			Vậy chiều cao hình chóp là $SH = \dfrac{\sqrt{3}}{2}a$.
+			\itemch \textbf{Đúng.}
+			Thể tích khối chóp $S.ABCD$ là $V_{S.ABCD} = \dfrac{1}{3}SH\cdot S_{ABCD} = \dfrac{1}{3}\cdot \dfrac{\sqrt{3}}{2}a\cdot a^2 = \dfrac{\sqrt{3}}{6}a^3$.
+			\itemch \textbf{Đúng.}
+			Ta có $\heva{&CD\parallel AB\\&AB\subset (SAB)} \Rightarrow CD\parallel(SAB) \Rightarrow \mathrm{d\,}(CD,(SAB)) = \mathrm{d\,}(C,(SAB))$.\\
+			Ta có $\heva{&(SAB) \perp(ABCD)\\&(SAB)\cap (ABCD) = AB\\&CB\perp AB} \Rightarrow CB\perp (SAB) \Rightarrow \mathrm{d\,}(C,(SAB)) = CB = a$.\\
+			Vậy $\mathrm{d\,}(CD,(SAB)) = a$.
+			\itemch \textbf{Sai.}
+			Ta có $\heva{&CD\parallel (SAB)\\&SA\subset (SAB)} \Rightarrow \mathrm{d\,}(CD,SA) = \mathrm{d\,}(CD,(SAB)) = a$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/ans-DS-ONTAPCHUONG-DE1}
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/ans-KQ-ONTAPCHUONG-DE1]
+
+%%%==============Cau_EX1==============%%%
+\begin{ex}%[1H8H6-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Độ dốc của con đường thẳng là tang của góc tạo bởi mặt phẳng chứa mặt con đường thẳng đó với mặt phẳng nằm ngang. Độ dốc của đường thẳng dành cho người khuyết tật được quy định là không quá $\dfrac{1}{12}$. Hỏi theo đó, góc tạo bởi đường dành cho người khuyết tật và mặt phẳng nằm ngang không vượt quá bao nhiêu độ? (\textit{kết quả làm tròn đến hàng phần trăm}).
+	\shortans[oly]{$4{,}76$}
+	\loigiai{
+		Gọi $\alpha$ là góc tạo bởi đường dành cho người khuyết tật và mặt phẳng nằm ngang $(0^\circ \leq \alpha \leq 90^\circ)$.\\
+		Theo đề bài, ta có $\tan\alpha \leq \dfrac{1}{12} \Rightarrow \alpha \leq 4{,}76^\circ$.\\
+		Vậy góc tạo bởi đường dành cho người khuyết tật và mặt phẳng nằm ngang không vượt quá $4{,}76^\circ$.
+	}
+\end{ex}
+
+%%%==============Cau_EX2==============%%%
+\begin{ex}%[1H8H5-6]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Bạn An muốn làm một chiếc đèn lồng bằng gỗ hình chóp tứ giác đều, có tất cả các cạnh bên và cạnh đáy đều bằng $20$ cm như hình vẽ, được mô hình hóa bởi hình chóp tứ giác đều $S.ABCD$. Để tạo nét độc đáo cho chiếc đèn, bạn An muốn trang trí một đoạn ruy băng nối từ một điểm trên cạnh $BD$ đến một điểm trên cạnh bên $SC$. Chiều dài ngắn nhất của đoạn ruy băng là $a$ (cm). Tìm $a$.
+	\begin{center}
+		\begin{tabular}{c c}
+			\includegraphics[scale=0.4]{Images/1H8-OTC-Deso1-1} \hspace*{1 cm} &
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				(intersection of B--D and A--C) coordinate (O)
+				($(O)+(0,2.8)$) coordinate (S)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D)--(B) (O)--(S)--(A)--(C);
+				\foreach \p/\q in {A/160,B/-90,C/-90,D/-45,S/90,O/-100}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+			\end{tikzpicture}
+		\end{tabular}
+	\end{center}
+	\shortans[oly]{$10$}
+	\loigiai{
+		\immini{
+			Do đèn lồng có dạng hình chóp tứ giác đều được mô hình hóa bởi hình chóp tứ giác đều $S.ABCD$ nên $ABCD$ là hình vuông và $SO\perp(ABCD)$.\\
+			Vì $BD$ và $SC$ chéo nhau nên đoạn ruy băng nối từ một điểm trên cạnh $BD$ đến một điểm trên cạnh bên $SC$ ngắn nhất chính là đoạn vuông góc chung của hai đường thẳng $BD$ và $SC$.\\
+			Ta có $SO\perp(ABCD) \Rightarrow SO\perp BD$.\\
+			Lại có $BD\perp AC$ do đó $BD\perp(SAC)$ tại $O$.\\
+			Kẻ $OH\perp SC$ tại $H$.\\
+			Vì $\heva{&BD\perp(SAC)\\&OH\subset (SAC)} \Rightarrow BD\perp OH$ tại $O$.\\
+			Do đó $\mathrm{d\,}(BD,SC) = OH$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				(intersection of B--D and A--C) coordinate (O)
+				($(O)+(0,2.8)$) coordinate (S)
+				($(S)!0.6!(C)$) coordinate (H)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C);
+				\draw[dashed] (B)--(A)--(D)--(B) (H)--(O)--(S)--(A)--(C);
+				\foreach \p/\q in {A/160,B/-90,C/-90,D/-45,S/90,O/-100,H/30}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--O--C};
+				\draw pic[draw,angle radius=2mm]{right angle=O--H--C};
+			\end{tikzpicture}
+		}
+		Vì $ABCD$ là hình vuông cạnh $20$ cm nên 
+		\begin{itemize}
+			\item $AC = 20\sqrt{2}\Rightarrow OC = \dfrac{1}{2}AC = 10\sqrt{2}$ (cm).
+			\item $SO = \sqrt{SC^2-OC^2} = \sqrt{20^2-\left(10\sqrt{2}\right)^2} = 10\sqrt{2}$ (cm).
+		\end{itemize}
+		Xét $\triangle SOC$ vuông tại $O$ có đường cao $OH$ nên
+		$$OH = \dfrac{SO\cdot CO}{SC} = \dfrac{10\sqrt{2}\cdot 10\sqrt{2}}{20} = 10 \text{ (cm).}$$\
+		Vậy chiều dài ngắn nhất của đoạn ruy băng là $10$ cm.
+	}
+\end{ex}
+
+%%%==============Cau_EX3==============%%%
+\begin{ex}%[1H8V6-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	\immini{
+		Kim tự tháp bằng kính tại bảo tàng Louvre ở Paris có dạng hình chóp tứ giác đều với chiều cao là $21$ m và cạnh đáy dài $34$ m. Góc nhị diện tạo bởi hai mặt bên có chung một cạnh của kim tứ tháp có số đo bằng bao nhiêu độ (\textit{làm tròn đến hàng đơn vị})?
+		\shortans[oly]{$113$}
+	}{
+		\includegraphics[scale=0.6]{Images/1H8-OTC-Deso1-2}
+	}
+	\loigiai{
+		\immini{
+			Ta mô hình hóa kim tự tháp bằng một hình chóp tứ giác đều $S.ABCD$ như hình vẽ, khi đó $SO=21$ và $AB=34$.\\
+			Gọi $O$ là tâm của hình vuông $ABCD$, $H$ là hình chiếu vuông góc của $O$ trên $SD$.\\
+			Vì $S.ABCD$ là hình chóp tứ giác đều nên $SO\perp (ABCD)$.\\
+			Ta có $\heva{&AC\perp SO\,\, (SO\perp (ABCD), AC\subset (ABCD))\\&AC\perp BD \text{ ($ABCD$ là hình vuông)}\\&SO\cap BD \text{ trong } (SBD)} \Rightarrow AC\perp (SBD)$.\\
+			Do đó $\heva{&SD\perp AC\,\,(AC\perp (SBD), SD \subset (SBD))\\&SD\perp OH\\&AC\cap SD \text{ trong }(AHC)} \Rightarrow SD\perp (AHC)$.\\
+			Suy ra $[A,SD,C] = \widehat{AHC}$.\\
+			Ta có $BD = 34\sqrt{2}\Rightarrow OD = \dfrac{1}{2}BD = \dfrac{1}{2}\cdot 34\sqrt{2} = 17\sqrt{2}$.
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				(intersection of B--D and A--C) coordinate (O)
+				($(O)+(0,2.8)$) coordinate (S)
+				($(S)!0.6!(D)$) coordinate (H)
+				;
+				\draw (S)--(B)--(C)--(D)--(S)--(C)--(H);
+				\draw[dashed] (B)--(A)--(D)--(B) (A)--(H)--(O)--(S)--(A)--(C);
+				\foreach \p/\q in {A/160,B/-90,C/-90,D/-45,S/90,O/-100,H/30}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--O--D};
+				\draw pic[draw,angle radius=2mm]{right angle=O--H--D};
+			\end{tikzpicture}
+		}
+		Xét $\triangle SOD$ vuông tại $O$ có $OH$ là đường cao nên
+		$$OH = \dfrac{SO\cdot OD}{\sqrt{SO^2+OD^2}} = \dfrac{21\cdot 17\sqrt{2}}{\sqrt{21^2+\left(17\sqrt{2}\right)^2}} = \dfrac{357\sqrt{2}}{\sqrt{1019}}.$$
+		Suy ra $AH = CH = \sqrt{OH^2+OC^2} = \sqrt{\dfrac{843880}{1019}}$.\\
+		Ta có $\cos \widehat{AHC} = \dfrac{AH^2+CH^2-AC^2}{2AH\cdot CH} = -\dfrac{289}{730} \Rightarrow \widehat{AHC} \approx 113^\circ$.\\
+		Vậy $[A,SD,C] \approx 113^\circ$ hay góc nhị diện tạo bởi hai mặt bên có chung một cạnh của kim tứ tháp có số đo bằng $113^\circ$.
+	}
+\end{ex}
+
+%%%==============Cau_EX4==============%%%
+\begin{ex}%[1H8H5-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABC$ có $SA$ vuông góc với đáy, tam giác $ABC$ vuông cân tại $B$, $AB=1$, $SA=2$. Tính khoảng cách giữa hai đường thẳng $AC$ và $SB$ (\textit{làm tròn đến hàng phần trăm}).
+	\shortans[oly]{$0{,}67$}
+	\loigiai{
+		\immini{
+			Kẻ đường thẳng $\Delta$ qua $B$ và song song $AC$.\\
+			Kẻ $AI$ vuông góc $\Delta$.\\
+			Ta có $\heva{&\Delta \perp SA\,\, (SA\perp (ABC), \Delta \subset (ABCD))\\&\Delta \perp AI\\&SA\cap AI \text{ trong } (SAI)} \Rightarrow \Delta \perp (SAI)$.\\
+			Kẻ $AH\perp SI$ tại $H$.\\
+			Ta có $\heva{&AH\perp SI\\&AH\perp \Delta\,\, (\Delta\perp (SAI), AH\subset (SAI))\\&SI\cap AH \text{ trong } (SBI)} \Rightarrow AH\perp(SBI)$.\\
+			Do đó $\mathrm{d\,}(AC,SB) = \mathrm{d\,}(AC,(SBI)) = AH$.\\
+			Xét $\triangle ABC$ vuông tại $B$, ta có $AC = \sqrt{AB^2 + BC^2} = \sqrt{1^2 + 1^2} = \sqrt{2}$.\\
+			Ta có $AI = \dfrac{1}{2}AC = \dfrac{\sqrt{2}}{2}$.\\
+			Xét $\triangle SAI$ vuông tại $A$ có đường cao là $AH$ nên
+			$$AH = \dfrac{SA\cdot AI}{\sqrt{SA^2 + AI^2}} = \dfrac{2\cdot \dfrac{\sqrt{2}}{2}}{\sqrt{2^2 + \left(\dfrac{\sqrt{2}}{2}\right)^2}} = \dfrac{2}{3} \approx 0{,}67.$$
+		}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\path
+				(0,0) coordinate (A)
+				(2.7,-1.2) coordinate (B)
+				(4,0) coordinate (C)
+				(4.6,-1.2) coordinate (x)
+				(-0.6,-1.2) coordinate (y)
+				($(A)+(0,2.6)$) coordinate (S)
+				($(y)!0.42!(B)$) coordinate (I)
+				($(S)!0.6!(I)$) coordinate (H)
+				;
+				\draw (S)--(A)--(I)--(B)--(C)--(S)--(B) (S)--(I)--(y) (A)--(H) (B)--(x);
+				\draw[dashed] (B)--(A)--(C);
+				\foreach \p/\q in {A/-135,B/-90,C/-45,I/-90,S/90,H/30}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=A--B--C};
+				\draw pic[draw,angle radius=2mm]{right angle=A--H--S};
+				\draw pic[draw,angle radius=2mm]{right angle=A--I--B};
+				\fill (4,-1.2) node[below]{$\Delta$};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\inputansbox[3]{5}{ans/ans-KQ-ONTAPCHUONG-DE1}
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+%%%==============Cau_EX1==============%%%
+\begin{ex}%[1H8H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông tâm $O$ và $SA$ vuông góc với mặt phẳng đáy; $AB=a$ và $SA=a\sqrt{2}$. Gọi $H$, $K$ theo thứ tự là hình chiếu của $A$ trên các cạnh $SB$, $SD$.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $SB\perp BC$.
+			\item $SC\perp (AHK)$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\path
+				(0,0) coordinate (A)
+				(-1.5,-1.2) coordinate (B)
+				(2,-1.2) coordinate (C)
+				($(A)-(B)+(C)$) coordinate (D)
+				($(A)+(0,3.4)$) coordinate (S)
+				(intersection of B--D and A--C) coordinate (O)
+				($(S)!0.52!(D)$) coordinate (K)
+				($(S)!0.6!(B)$) coordinate (H)
+				;
+				\draw (B)--(C)--(D)--(S)--cycle (S)--(C);
+				\draw[dashed] (C)--(A)--(D)--(B)--(A) (O)--(S)--(A)--(H)--(K)--(A);
+				\foreach \p/\q in {A/180,B/-90,C/-90,D/-45,O/-100,S/90,H/160,K/30}
+				\fill[black] (\p) circle (1.0pt) ($(\p)+(\q:2.5mm)$) node{$\p$};
+				\draw pic[draw,angle radius=2mm]{right angle=S--A--D};
+				\draw pic[draw,angle radius=2mm]{right angle=B--H--A};
+				\draw pic[draw,angle radius=2mm]{right angle=A--K--D};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\heva{&BC\perp AB\\&BC\perp SA\; (SA\perp (ABCD), BC\subset (ABCD))\\&AB\cap SA \text{ trong } (SAB)} \Rightarrow BC\perp (SAB)$.\\
+			Vì $\heva{&BC\perp (SAB)\\&SB\subset (SAB)}\Rightarrow BC\perp SB$.
+			\item Ta có $\heva{&AH\perp SB\\&AH\perp BC\; (BC\perp (SAB), AH\subset (SAB))\\&SB\cap BC \text{ trong } (SBC)} \Rightarrow AH\perp (SBC)\Rightarrow AH\perp SC$. $\quad (1)$\\
+			Hơn nữa, ta có $\heva{&CD\perp AD\\&CD\perp SA\; (SA\perp (ABCD), CD\subset (ABCD))\\&AD\cap SA \text{ trong } (SAD)} \Rightarrow CD\perp (SAD)$.\\
+			Do đó $\heva{&AK\perp SD \\&AK\perp CD\; (CD\perp (SAD), AK\subset (SAD))\\&SD\cap CD \text{ trong } (SCD)}\Rightarrow AK\perp (SCD)\Rightarrow AK\perp SC$. $\quad (2)$\\
+			Từ $(1)$ và $(2)$ suy ra $SC\perp (AHK)$.
+		\end{enumerate}
+	}
+\end{ex}
+
+%%%==============Cau_EX2==============%%%
+\begin{ex}%[1H8H4-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Một hộp phấn không bụi có dạng hình hộp chữ nhật, chiều cao hộp phấn bằng $8{,}2$ cm và đáy của nó có hai kích thước là $8{,}5$ cm; $10{,}5$ cm (xem hình vẽ sau). Tìm góc giữa hai mặt phẳng $(AB'D')$ và $(A'B'D')$ (\textit{kết quả làm tròn đến độ}).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+			\path
+			(0,0) coordinate (A)
+			(-2.4,-1.4) coordinate (D)
+			(2.7,-1.4) coordinate (C)
+			($(A)-(D)+(C)$) coordinate (B)
+			(0,-3) coordinate (x)
+			($(A)+(x)$) coordinate (A')
+			($(B)+(x)$) coordinate (B')
+			($(C)+(x)$) coordinate (C')
+			($(D)+(x)$) coordinate (D')
+			;
+			\draw (D)--(A)--(B)--(C)--(D)--(D')--(C')--(B')--(B) (C)--(C');
+			\draw[dashed] (A)--(A')--(D')--(B')--(A)--(D') (A')--(B');
+			\foreach \d/\g in {A/90,B/90,C/90,D/90,A'/45,D'/-90,C'/-90,B'/0} \fill (\d)node[shift={(\g:0.3)}]{$\d$} circle(1pt);
+			\fill ($(D)!0.25!(D')$) node[above left,rotate=90]{$8{,}2$ cm};
+			\fill ($(C')!0.5!(B')$) node[below,rotate=35]{$8{,}5$ cm};
+			\fill ($(D')!0.5!(C')$) node[below]{$10{,}5$ cm};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\immini{
+			Trong mặt phẳng $(A'B'C'D')$, kẻ $A'H \perp B'D'$ tại $H$.\\
+			Ta có $\heva{&B'D'\perp A'H\\&B'D'\perp AA' \textrm{ ($AA'\perp (A'B'C'D')$)}} \Rightarrow B'D' \perp (AA'H) \Rightarrow B'D' \perp AH$.\\
+			Do đó $\left((AB'D'),(A'B'D')\right) = \widehat{AHA'}$ (vì $\triangle AA'H$ vuông tại $A'$).\\
+			Xét $\triangle A'B'D'$ vuông tại $A'$ có đường cao $A'H$ nên
+			$$ A'H = \dfrac{A'B'\cdot A'D'}{\sqrt{A'B'^2 + A'D'^2}}  = \dfrac{10{,}5\cdot 8{,}5}{\sqrt{10{,}5^2 + 8{,}5^2}} = \dfrac{357}{2\sqrt{730}}. $$
+			Xét $\triangle AHA'$ vuông tại $A'$, ta có
+			$$ \tan\widehat{AHA'} = \dfrac{AA'}{A'H} = \dfrac{8{,}2}{\dfrac{357}{2\sqrt{730}}} \Rightarrow \widehat{AHA'} \approx 51^\circ. $$
+			Vậy $\left((AB'D'),(A'B'D')\right) = \widehat{AHA'} \approx 51^\circ$.
+		}{
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+				\path
+				(0,0) coordinate (A)
+				(-2.4,-1.4) coordinate (D)
+				(2.7,-1.4) coordinate (C)
+				($(A)-(D)+(C)$) coordinate (B)
+				(0,-3) coordinate (x)
+				($(A)+(x)$) coordinate (A')
+				($(B)+(x)$) coordinate (B')
+				($(C)+(x)$) coordinate (C')
+				($(D)+(x)$) coordinate (D')
+				($(B')!0.55!(D')$) coordinate (H)
+				;
+				\draw (D)--(A)--(B)--(C)--(D)--(D')--(C')--(B')--(B) (C)--(C');
+				\draw[dashed] (A)--(A')--(D')--(B')--(A)--(D') (A')--(B') (A')--(H)--(A);
+				\foreach \d/\g in {A/90,B/90,C/90,D/90,A'/45,D'/-90,C'/-90,B'/0,H/-45} \fill (\d)node[shift={(\g:0.3)}]{$\d$} circle(1pt);
+				\fill ($(D)!0.25!(D')$) node[above left,rotate=90]{$8{,}2$ cm};
+				\fill ($(C')!0.5!(B')$) node[below,rotate=35]{$8{,}5$ cm};
+				\fill ($(D')!0.5!(C')$) node[below]{$10{,}5$ cm};
+				\pic[draw,angle radius=2mm,angle eccentricity=1.5] {right angle = A'--H--D'};
+				\pic[draw,angle radius=3mm,angle eccentricity=1.5] {right angle = A--H--B'};
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%%%==============Cau_EX3==============%%%
+\begin{ex}%[1H8V5-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 3 - Quan Ón]
+	Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình thoi tâm $O$, cạnh $a$, $\widehat{ABC} = 60^\circ$, $SO \perp (ABCD)$ và $SO = \dfrac{3a}{4}$.
+	\begin{enumerate}
+		\item Tính khoảng cách từ $O$ đến $(SAB)$.
+		\item Tính khoảng cách giữa hai đường thẳng $CD$ và $SA$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+				\path
+				(0,0) coordinate (C)
+				(-2,-2) coordinate (D)
+				(2.7,-2) coordinate (A)
+				($(C)-(D)+(A)$) coordinate (B)
+				(intersection of A--C and B--D) coordinate (O)
+				($(O)+(0,3.5)$) coordinate (S)
+				($(A)!0.5!(B)$) coordinate (M)
+				($(A)!0.5!(M)$) coordinate (N)
+				($(S)!0.7!(N)$) coordinate (H)
+				;
+				\draw (S)--(D)--(A)--(B)--(S)--(A) (S)--(N);
+				\draw[dashed] (D)--(C)--(B)--(D) (A)--(C)--(M) (C)--(S)--(O)--(N) (O)--(H);
+				\foreach \d/\g in {A/-45,D/-135,C/-90,B/0,S/90,O/-90,M/0,N/0,H/10} \fill (\d)node[shift={(\g:0.3)}]{$\d$} circle(1pt);
+				\pic[draw,angle radius=2mm,angle eccentricity=1.5] {right angle = S--H--O};
+				\pic[draw,angle radius=2mm,angle eccentricity=1.5] {right angle = S--O--N};
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Vì $ABCD$ là hinh thoi nên $AB = BC$ do đó $\triangle ABC$ cân tại $B$ mà $\widehat{ABC} = 60^\circ$ nên $\triangle ABC$ đều.\\
+			Ta có $\triangle ABC$ đều cạnh $a$ nên đường cao $CM = \dfrac{a\sqrt{3}}{2}$.\\
+			Gọi $N$ là trung điểm của $AM$.\\
+			Khi đó $ON$ là đường trung bình của $\triangle AMC$ do đó
+			\begin{itemize}
+				\item $ON\parallel CM$ mà $CM\perp AB \Rightarrow ON \perp AB$.
+				\item $ON = \dfrac{1}{2}CM = \dfrac{1}{2}\cdot \dfrac{a\sqrt{3}}{2} = \dfrac{a\sqrt{3}}{4}$.
+			\end{itemize}
+			Kẻ $OH \perp SN$.\\
+			Ta có $\heva{&AB\perp SO\,\, (SO\perp (ABCD), AB\subset (ABCD))\\&AB\perp ON\\&SO\cap ON \text{ trong } (SON)} \Rightarrow AB\perp (SON)$.\\
+			Do đó $\heva{&OH\perp AB\,\, (AB\perp (SON), OH\subset (SON))\\&OH\perp SN\\&AB\cap SN \text{ trong } (SAB)} \Rightarrow OH\perp (SAB)$.\\
+			Suy ra $\mathrm{d\,}(O,(SAB)) = OH$.\\
+			Xét $\triangle SON$ vuông tại $O$ có đường cao $OH$ nên
+			$$ OH = \dfrac{SO\cdot ON}{\sqrt{SO^2 + ON^2}} = \dfrac{\dfrac{3a}{4}\cdot\dfrac{a\sqrt{3}}{4}}{\sqrt{\left(\dfrac{3a}{4}\right)^2 + \left(\dfrac{a\sqrt{3}}{4}\right)^2}} = \dfrac{3a}{8}.$$
+			Vậy $\mathrm{d\,}(O,(SAB)) = OH = \dfrac{3a}{8}$.
+			\item Ta có $\heva{&CD\parallel AB \text{ ($ABCD$ là hình thoi)}\\&AB\subset (SAB)} \Rightarrow CD\parallel (SAB)$.\\
+			Suy ra $\mathrm{d\,}(CD,SA) = \mathrm{d\,}(CD,(SAB)) = \mathrm{d\,}(D,(SAB))$.\\
+			Ta có $O$ là trung điểm của $DB$ và $DB\cap (SAB) = B$ do đó
+			$$ \dfrac{\mathrm{d\,}(D,(SAB))}{\mathrm{d\,}(O,(SAB))} = \dfrac{DB}{OB} = 2 \Rightarrow \mathrm{d\,}(D,(SAB)) = 2\mathrm{d\,}(O,(SAB)) = 2\cdot \dfrac{3a}{8} = \dfrac{3a}{4}. $$
+			Vậy $\mathrm{d\,}(CD,SA) = \dfrac{3a}{4}$.
+		\end{enumerate}
+	}
+\end{ex}
+
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%\end{center}
+%\inputansbox{12}{ans/ans-TN-ONTAPCHUONG-DE1}
+%\inputansbox[2]{2}{ans/ans-DS-ONTAPCHUONG-DE1}
+%\inputansbox[3]{5}{ans/ans-KQ-ONTAPCHUONG-DE1}

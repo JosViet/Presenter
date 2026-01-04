@@ -1,0 +1,1204 @@
+\newpage
+\section{XÁC SUẤT CỦA BIẾN CỐ}
+
+\subsection{LÝ THUYẾT CẦN NHỚ}
+\subsubsection{Xác suất của biến cố}
+Giả sử một phép thử có không gian mẫu $\Omega$ gồm hữu hạn các kết quả có cùng khả năng xảy ra và $A$ là một biến cố.\\
+Xác suất của biến cố $A$ là một số, kí hiệu là $\mathrm{P}(A)$, được xác định bởi công thức
+$$\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}.$$
+trong đó: $n(A)$ và $n(\Omega)$ lần lượt kí hiệu số phần tử của tập $A$ và $\Omega$.\\
+Xác suất của mỗi biến cố phụ thuộc vào khả năng xảy ra của biến cố đó.
+\begin{itemize}
+	\item Biến cố có khả năng xảy ra cao hơn sẽ có xác suất lớn hơn biến cố có khả năng xảy ra thấp hơn.
+	\item Biến cố có khả năng xảy ra càng cao thì xác suất của nó càng gần $1$. Biến cố chắc chắn có xác suất bằng $1$.
+	\item Biến cố có khả năng xảy ra càng thấp thì xác suất của nó càng gần $0$. Biến cố không thể có xác suất bằng $0$.		
+\end{itemize}
+\textbf{Lưu ý:} Với biến cố $A$ bất kì, ta có $0 \leq \mathrm{P}(A) \leq 1$.
+
+\subsubsection{Biến cố đối}
+Cho $A$ là một biến cố. Khi đó biến cố \lq\lq Không xảy ra $A$\rq\rq\,, kí hiệu là $\overline{A}$, được gọi là biến cố đối của $A$.
+$$\overline{A}=\Omega \setminus A, \quad \mathrm{P}\left(\overline{A}\right)+\mathrm{P}(A)=1.$$
+\begin{center}
+	\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+		\tikzset{declare function={a=3.1;b=1.5;r=.4;c=a*r;d=b*r;}}
+		\path 
+		(0,0)coordinate (O)
+		(180:1.5)coordinate (O1)
+		(-30: a and b)coordinate (M)
+		;	
+		\fill[gray!10](O)ellipse (a and b);
+		\fill[white](O1)ellipse (c and d);
+		\draw(O)ellipse (a and b);
+		\draw (O1)ellipse (c and d);
+		\path 
+		(O1)node[scale=1]{$A$}
+		(O)node[scale=1.2,right]{$\overline{A}=\Omega\backslash A$}
+		(M)node[right,scale=1.2]{$\Omega$}
+		;
+		\path (current bounding box.south) node[below=1mm,scale=1.2]{Biểu đồ Venn của biến cố đối};
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Nguyên lí xác suất bé}
+Nếu một biến cố có xác suất rất bé thì trong một phép thử, biến cố đó sẽ không xảy ra.
+
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+
+\begin{dang}{Xác suất liên quan đến việc đếm số}
+	
+\end{dang}
+
+\begin{vd}%[0D0H2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Một người bấm số gọi điện thoại nhưng quên hai số cuối của số điện thoại cần gọi và chỉ nhớ rằng hai chữ số đó khác nhau. Hãy tính xác suất của biến cố \lq\lq Người đó bấm thử $1$ lần được đúng số điện thoại cần gọi\rq\rq.
+	\loigiai{
+		Hai số cuối là hai chữ số khác nhau thuộc tập hợp $\big\{0; 1; \ldots; 9\big\}$. \\
+		Mỗi cách bấm hai chữ số đó cho ta một chỉnh hợp chập $2$ của tập hợp $10$ phần tử. \\
+		Vì vậy, không gian mẫu $\Omega$ gồm các chỉnh hợp chập $2$ của $10$ phần tử và $n(\Omega) = \mathrm{A}_{10}^2 = 90$.\\
+		Gọi $A$ là biến cố \lq\lq Người đó bấm thử $1$ lần được đúng số điện thoại cần gọi\rq\rq. \\
+		Vì chỉ có $1$ số điện thoại cần gọi là đúng nên $n(A) = 1$. \\
+		Vậy xác suất của biến cố $A$ là
+		\[
+		\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{1}{90}.
+		\]
+	}
+\end{vd}
+
+\begin{dang}{Xác suất liên quan đến việc sắp xếp chỗ}
+\end{dang}
+
+\begin{vd}%[0D0H2-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Hai bạn nữ Hoa, Thảo và hai bạn nam Dũng, Huy được xếp ngồi ngẫu nhiên vào bốn ghế đặt theo hàng dọc. Tính xác suất của mỗi biến cố sau
+	\begin{enumerate}
+		\item \lq\lq Bạn Thảo ngồi ghế đầu tiên\rq\rq.
+		\item \lq\lq Bạn Thảo ngồi ghế đầu tiên và bạn Huy ngồi ghế cuối cùng\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Mỗi cách xếp $4$ bạn vào bốn ghế là một hoán vị của $4$ phần tử.\\ 
+		Vì vậy, không gian mẫu $\Omega$ gồm các hoán vị của $4$ phần tử và $n(\Omega) = 4! = 24$.
+		\begin{enumerate}
+			\item Gọi $A$ là biến cố \lq\lq Bạn Thảo ngồi ghế đầu tiên\rq\rq.\\
+			Vì bạn Thảo ngồi ghế đầu tiên nên chỉ xếp $3$ bạn còn lại vào ba ghế sau. Do đó, tập hợp $A$ gồm các hoán vị của $3$ phần tử và $n(A) = 3! = 6$.\\			
+			Vậy xác suất của biến cố $A$ là
+			\[
+			\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{6}{24} = \dfrac{1}{4}.
+			\]
+			\item Gọi $B$ là biến cố \lq\lq Bạn Thảo ngồi ghế đầu tiên và bạn Huy ngồi ghế cuối cùng\rq\rq.\\
+			Vì bạn Thảo ngồi ghế đầu tiên và bạn Huy ngồi ghế cuối cùng nên chỉ xếp $2$ bạn còn lại vào hai ghế ở giữa. Do đó, tập hợp $B$ gồm các hoán vị của $2$ phần tử và $n(B) = 2! = 2$.\\			
+			Vậy xác suất của biến cố $B$ là
+			\[
+			\mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{2}{24} = \dfrac{1}{12}.
+			\]
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[0D0H2-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Xếp ngẫu nhiên $6$ bạn An, Bình, Cường, Dũng, Đông, Huy vào một dãy hàng dọc. Tính xác suất của các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Bạn Dũng luôn đứng liền sau bạn Bình\rq\rq.
+		\item $B$: \lq\lq Bạn Bình và bạn Cường luôn đứng liền nhau\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Số cách xếp ngẫu nhiên $6$ bạn thành một hàng dọc là $n(\Omega) = 6! = 720$.
+		\begin{enumerate}
+			\item Coi cặp (Bình, Dũng) theo đúng thứ tự này là một phần tử $X$.\\
+			Ta cần xếp $X$ và $4$ bạn còn lại (An, Cường, Đông, Huy).\\
+			Số cách xếp $5$ phần tử này là $5! = 120$. Vậy $n(A) = 120$.\\			
+			Xác suất của biến cố $A$ là
+			\[
+			\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{120}{720} = \dfrac{1}{6}.
+			\]
+			\item Coi cặp (Bình, Cường) là một phần tử $Y$.\\
+			Ta cần xếp $Y$ và $4$ bạn còn lại. Số cách xếp $5$ phần tử này là $5! = 120$.\\
+			Trong cặp $Y$, Bình và Cường có thể đổi chỗ cho nhau, có $2! = 2$ cách sắp xếp.\\
+			Số kết quả thuận lợi cho biến cố $B$ là $n(B) = 5! \cdot 2! = 120 \cdot 2 = 240$.\\			
+			Xác suất của biến cố $B$ là
+			\[
+			\mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{240}{720} = \dfrac{1}{3}.
+			\]
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{dang}{Xác suất liên quan đến việc chọn đối tượng khác}
+	
+\end{dang}
+
+\begin{vd}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Từ một hộp chứa $3$ quả cầu trắng, $4$ quả cầu đỏ, $5$ quả cầu vàng, các quả cầu có kích thước và khối lượng giống nhau, lấy ngẫu nhiên đồng thời $3$ quả cầu. Tính xác suất lấy được $3$ quả cầu có màu đôi một khác nhau.
+	\loigiai{
+		Tổng số quả cầu trong hộp là $3 + 4 + 5 = 12$ (quả cầu).\\
+		Số cách chọn ngẫu nhiên $3$ quả cầu từ $12$ quả cầu là $n(\Omega) = \mathrm{C}_{12}^3 = 220$.\\		
+		Gọi $A$ là biến cố \lq\lq Lấy được $3$ quả cầu có màu đôi một khác nhau\rq\rq.\\
+		Để lấy được $3$ quả cầu có màu đôi một khác nhau, ta phải lấy được $1$ quả cầu trắng, $1$ quả cầu đỏ và $1$ quả cầu vàng.
+		\begin{itemize}
+			\item Số cách chọn $1$ quả cầu trắng: $\mathrm{C}_3^1 = 3$.
+			\item Số cách chọn $1$ quả cầu đỏ: $\mathrm{C}_4^1 = 4$.
+			\item Số cách chọn $1$ quả cầu vàng: $\mathrm{C}_5^1 = 5$.
+		\end{itemize}
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = \mathrm{C}_3^1 \cdot \mathrm{C}_4^1 \cdot \mathrm{C}_5^1 = 3 \cdot 4 \cdot 5 = 60$.\\		
+		Xác suất của biến cố $A$ là
+		\[
+		\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{60}{220} = \dfrac{3}{11}.
+		\]
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Từ bộ tú lơ khơ có $52$ quân bài thường đang được úp, rút ngẫu nhiên đồng thời $4$ quân bài. Tính xác suất các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Rút được $4$ quân bài cùng một giá trị\rq\rq\, (ví dụ $4$ quân $3$, $4$ quân K, \ldots).
+		\item $B$: \lq\lq Rút được $4$ quân bài có cùng chất\rq\rq.
+		\item $C$: \lq\lq Trong $4$ quân bài rút được chỉ có $2$ quân Át\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Không gian mẫu là số cách chọn $4$ quân bài từ $52$ quân bài: $n(\Omega) = \mathrm{C}_{52}^4 = 270\,725$.
+		\begin{enumerate}
+			\item Có $13$ giá trị (từ $2$ đến Át). Để rút được $4$ quân cùng giá trị, ta phải chọn $1$ trong $13$ giá trị đó, sau đó chọn cả $4$ quân của giá trị đó.\\
+			Số kết quả thuận lợi: $n(A) = \mathrm{C}_{13}^1 \cdot \mathrm{C}_4^4 = 13 \cdot 1 = 13$.
+			\[ \mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{13}{270\,725} = \dfrac{1}{20\,825}. \]
+			\item Có $4$ chất (cơ, rô, chuồn, bích), mỗi chất có $13$ quân bài. Ta phải chọn $1$ trong $4$ chất, sau đó chọn $4$ quân từ $13$ quân của chất đó.\\
+			Số kết quả thuận lợi: $n(B) = \mathrm{C}_4^1 \cdot \mathrm{C}_{13}^4 = 4 \cdot 715 = 2\,860$.
+			\[ \mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{2\,860}{270\,725} = \dfrac{44}{4\,165}. \]
+			\item Ta cần chọn $2$ quân Át từ $4$ quân Át và $2$ quân còn lại từ $48$ quân không phải Át.\\
+			Số kết quả thuận lợi: $n(C) = \mathrm{C}_4^2 \cdot \mathrm{C}_{48}^2 = 6 \cdot 1\,128 = 6\,768$.
+			\[ \mathrm{P}(C) = \dfrac{n(C)}{n(\Omega)} = \dfrac{6\,768}{270\,725} \approx 0{,}02. \]
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Một giải bóng đá gồm $16$ đội, trong đó có $4$ đội của nước V. Ban tổ chức bốc thăm ngẫu nhiên để chia thành $4$ bảng đấu A, B, C, D, mỗi bảng đấu có $4$ đội. Tính xác suất của biến cố \lq\lq Bốn đội của nước V ở $4$ bảng đấu khác nhau\rq\rq.
+	\loigiai{
+		Số cách chia $16$ đội vào $4$ bảng A, B, C, D (phân biệt), mỗi bảng $4$ đội là
+		\[ n(\Omega) = \mathrm{C}_{16}^4 \cdot \mathrm{C}_{12}^4 \cdot \mathrm{C}_8^4 \cdot \mathrm{C}_4^4. \]
+		Gọi $A$ là biến cố \lq\lq Bốn đội của nước V ở $4$ bảng đấu khác nhau\rq\rq.\\
+		Để tính số kết quả thuận lợi cho $A$, ta thực hiện các bước sau
+		\begin{itemize}
+			\item Bước 1: Xếp $4$ đội của nước V, mỗi đội vào một bảng đấu khác nhau. Có $4!$ cách xếp.
+			\item Bước 2: Xếp $12$ đội còn lại vào các chỗ trống. Mỗi bảng còn $3$ chỗ trống.
+			\begin{itemize}
+				\item Chọn $3$ trong $12$ đội cho bảng A: $\mathrm{C}_{12}^3$ cách.
+				\item Chọn $3$ trong $9$ đội còn lại cho bảng B: $\mathrm{C}_9^3$ cách.
+				\item Chọn $3$ trong $6$ đội còn lại cho bảng C: $\mathrm{C}_6^3$ cách.
+				\item $3$ đội cuối cùng vào bảng D: $\mathrm{C}_3^3$ cách.
+			\end{itemize}
+		\end{itemize}
+		Số kết quả thuận lợi cho $A$ là
+		\[ n(A) = 4! \cdot \mathrm{C}_{12}^3 \cdot \mathrm{C}_9^3 \cdot \mathrm{C}_6^3 \cdot \mathrm{C}_3^3. \]
+		Xác suất của biến cố $E$ là
+		$$ \mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{4! \cdot \mathrm{C}_{12}^3 \cdot \mathrm{C}_9^3 \cdot \mathrm{C}_6^3 \cdot \mathrm{C}_3^3}{\mathrm{C}_{16}^4 \cdot \mathrm{C}_{12}^4 \cdot \mathrm{C}_8^4 \cdot \mathrm{C}_4^4} =
+		\dfrac{64}{455}. $$
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Có $20$ tấm thẻ màu xanh, $30$ tấm thẻ màu đỏ. Người ta chọn ra đồng thời $18$ tấm thẻ. Tính xác suất của biến cố $A$: \lq\lq Trong $18$ tấm thẻ được chọn ra có ít nhất một tấm thẻ màu xanh\rq\rq.
+	\loigiai{
+		Tổng số tấm thẻ là $20 + 30 = 50$ (tấm thẻ).\\
+		Số cách chọn ngẫu nhiên $18$ tấm thẻ từ $50$ tấm thẻ là $n(\Omega) = \mathrm{C}_{50}^{18}$.\\
+		Gọi $A$ là biến cố \lq\lq Trong $18$ tấm thẻ được chọn ra có ít nhất một tấm thẻ màu xanh\rq\rq.\\
+		Xét biến cố đối $\overline{A}$: \lq\lq Trong $18$ tấm thẻ được chọn không có tấm thẻ màu xanh nào\rq\rq, tức là cả $18$ thẻ đều màu đỏ.\\
+		Số cách chọn $18$ thẻ màu đỏ từ $30$ thẻ màu đỏ là $n\left(\overline{A}\right) = \mathrm{C}_{30}^{18}$.\\
+		Xác suất của biến cố đối $\overline{A}$ là
+		\[
+		\mathrm{P}(\overline{A}) = \dfrac{n\left(\overline{A}\right)}{n(\Omega)} = \dfrac{\mathrm{C}_{30}^{18}}{\mathrm{C}_{50}^{18}}.
+		\]
+		Vậy, xác suất của biến cố $A$ là
+		\[
+		\mathrm{P}(A) = 1 - \mathrm{P}\left(\overline{A}\right) = 1 - \dfrac{\mathrm{C}_{30}^{18}}{\mathrm{C}_{50}^{18}} \approx 1.
+		\]
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Trong một trò chơi, ban Hằng ghi tên $63$ tỉnh, thành phố trực thuộc Trung ương của Việt Nam (tính đến năm $2021$) vào $63$ phiếu, hai phiếu khác nhau ghi tên hai nơi khác nhau, rồi bỏ tất cả các phiếu đó vào một hộp kín. Ban Hoài rút ngẫu nhiên $2$ phiếu. Tính xác suất của các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng âm tiết Hà\rq\rq.
+		\item $B$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng chữ K\rq\rq.
+		\item $C$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng chữ B\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Không gian mẫu là số cách chọn $2$ phiếu từ $63$ phiếu: $n(\Omega) = \mathrm{C}_{63}^2 = 1\,953$.
+		\begin{enumerate}
+			\item Biến cố $A$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng âm tiết Hà\rq\rq.\\
+			Các tỉnh, thành phố có tên bắt đầu bằng \lq\lq Hà\rq\rq\, là Hà Nội, Hà Giang, Hà Nam, Hà Tĩnh ($4$ nơi).\\
+			Số cách chọn $2$ phiếu từ $4$ phiếu này là $n(A) = \mathrm{C}_4^2 = 6$.\\
+			Xác suất của biến cố $A$ là
+			\[ \mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{6}{1\,953} = \dfrac{2}{651}. \]
+			\item Biến cố $B$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng chữ K\rq\rq.\\
+			Các tỉnh, thành phố có tên bắt đầu bằng \lq\lq K\rq\rq\, là Kiên Giang, Kon Tum ($2$ nơi).\\
+			Số cách chọn $2$ phiếu từ $2$ phiếu này là $n(B) = \mathrm{C}_2^2 = 1$.\\
+			Xác suất của biến cố $B$ là
+			\[ \mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{1}{1\,953}. \]
+			\item Biến cố $C$: \lq\lq Hai phiếu rút được ghi tên hai nơi bắt đầu bằng chữ B\rq\rq.\\
+			Các tỉnh, thành phố có tên bắt đầu bằng \lq\lq B\rq\rq\, là Bắc Giang, Bắc Kạn, Bạc Liêu, Bắc Ninh, Bà Rịa – Vũng Tàu, Bến Tre, Bình Định, Bình Dương, Bình Phước, Bình Thuận ($10$ nơi).\\
+			Số cách chọn $2$ phiếu từ $10$ phiếu này là $n(C) = \mathrm{C}_{10}^2 = 45$.\\
+			Xác suất của biến cố $C$ là
+			\[ \mathrm{P}(C) = \dfrac{n(C)}{n(\Omega)} = \dfrac{45}{1\,953} = \dfrac{15}{651}. \]
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{dang}{Xác suất liên quan đến việc chọn người}
+\end{dang}
+
+\begin{vd}%[0D0H2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Lớp $10$A có $16$ nam và $24$ nữ. Chọn ngẫu nhiên $5$ bạn để phân công trực nhật. Tính xác suất của biến cố $A$: \lq\lq Trong $5$ bạn được chọn có $2$ bạn nam và $3$ bạn nữ\rq\rq.
+	\loigiai{
+		Tổng số học sinh lớp $10$A là $16 + 24 = 40$ (học sinh).\\
+		Số cách chọn ngẫu nhiên $5$ bạn từ $40$ bạn là $n(\Omega) = \mathrm{C}_{40}^5 = 658\,008$.\\		
+		Gọi $A$ là biến cố \lq\lq Trong $5$ bạn được chọn có $2$ bạn nam và $3$ bạn nữ\rq\rq.
+		\begin{itemize}
+			\item Số cách chọn $2$ bạn nam từ $16$ bạn nam: $\mathrm{C}_{16}^2 = 120$.
+			\item Số cách chọn $3$ bạn nữ từ $24$ bạn nữ: $\mathrm{C}_{24}^3 = 2\,024$.
+		\end{itemize}
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = \mathrm{C}_{16}^2 \cdot \mathrm{C}_{24}^3 = 120 \cdot 2\,024 = 242\,880$.\\		
+		Xác suất của biến cố $A$ là
+		\[
+		\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{242\,880}{658\,008} = \dfrac{10\,120}{27\,417}.
+		\]
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Một hội thảo quốc tế gồm $12$ học sinh đến từ các nước: Việt Nam, Nhật Bản, Singapore, Ấn Độ, Hàn Quốc, Brasil, Canada, Tây Ban Nha, Đức, Pháp, Nam Phi, Cameroon, mỗi nước chỉ có đúng một học sinh. Chọn ra ngẫu nhiên $2$ học sinh trong nhóm học sinh quốc tế để tham gia ban tổ chức. Tính xác suất của các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Hai học sinh được chọn ra đến từ châu Á\rq\rq.
+		\item $B$: \lq\lq Hai học sinh được chọn ra đến từ châu Âu\rq\rq.
+		\item $C$: \lq\lq Hai học sinh được chọn ra đến từ châu Mĩ\rq\rq.
+		\item $D$: \lq\lq Hai học sinh được chọn ra đến từ châu Phi\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Số cách chọn ngẫu nhiên $2$ học sinh từ $12$ học sinh là $n(\Omega) = \mathrm{C}_{12}^2 = 66$.\\		
+		Phân loại các nước theo châu lục
+		\begin{itemize}
+			\item Châu Á: Việt Nam, Nhật Bản, Singapore, Ấn Độ, Hàn Quốc ($5$ học sinh).
+			\item Châu Âu: Tây Ban Nha, Đức, Pháp ($3$ học sinh).
+			\item Châu Mĩ: Brasil, Canada ($2$ học sinh).
+			\item Châu Phi: Nam Phi, Cameroon ($2$ học sinh).
+		\end{itemize}
+		\begin{enumerate}
+			\item Biến cố $A$: \lq\lq Hai học sinh được chọn ra đến từ châu Á\rq\rq.\\
+			Số cách chọn $2$ học sinh từ $5$ học sinh châu Á là $n(A) = \mathrm{C}_5^2 = 10$.\\
+			Xác suất của biến cố $A$ là
+			\[ \mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{10}{66} = \dfrac{5}{33}. \]
+			\item Biến cố $B$: \lq\lq Hai học sinh được chọn ra đến từ châu Âu\rq\rq.\\
+			Số cách chọn $2$ học sinh từ $3$ học sinh châu Âu là $n(B) = \mathrm{C}_3^2 = 3$.\\
+			Xác suất của biến cố $B$ là
+			\[ \mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{3}{66} = \dfrac{1}{22}. \]
+			\item Biến cố $C$: \lq\lq Hai học sinh được chọn ra đến từ châu Mĩ\rq\rq.\\
+			Số cách chọn $2$ học sinh từ $2$ học sinh châu Mĩ là $n(C) = \mathrm{C}_2^2 = 1$.\\
+			Xác suất của biến cố $C$ là
+			\[ \mathrm{P}(C) = \dfrac{n(C)}{n(\Omega)} = \dfrac{1}{66}. \]
+			\item Biến cố $D$: \lq\lq Hai học sinh được chọn ra đến từ châu Phi\rq\rq.\\
+			Số cách chọn $2$ học sinh từ $2$ học sinh châu Phi là $n(D) = \mathrm{C}_2^2 = 1$.\\
+			Xác suất của biến cố $D$ là
+			\[ \mathrm{P}(D) = \dfrac{n(D)}{n(\Omega)} = \dfrac{1}{66}. \]
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[0D0V2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Một đội thanh niên tình nguyện gồm $27$ người đến từ các tỉnh: Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông, Lâm Đồng, Phú Yên, Khánh Hoà, Ninh Thuận, Bình Thuận, Bà Rịa – Vũng Tàu, Bình Dương, Bình Phước, Đồng Nai, Tây Ninh, Long An, Tiền Giang, Vĩnh Long, Bến Tre, Đồng Tháp, Trà Vinh, An Giang, Cần Thơ, Hậu Giang, Bạc Liêu, Sóc Trăng, Kiên Giang và Cà Mau; mỗi tỉnh chỉ có đúng một thành viên. Chọn ngẫu nhiên $3$ thành viên của đội để phân công nhiệm vụ. Tính xác suất của các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Ba thành viên được chọn đến từ Tây Nguyên\rq\rq.
+		\item $B$: \lq\lq Ba thành viên được chọn đến từ Duyên hải Nam Trung Bộ\rq\rq.
+		\item $C$: \lq\lq Ba thành viên được chọn đến từ Đông Nam Bộ\rq\rq.
+		\item $D$: \lq\lq Ba thành viên được chọn đến từ Đồng bằng sông Cửu Long\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Số cách chọn ngẫu nhiên $3$ người từ $27$ người là $n(\Omega) = \mathrm{C}_{27}^3 = 2\,925$.\\		
+		Phân loại các tỉnh, thành phố theo vùng địa lý
+		\begin{itemize}
+			\item Tây Nguyên: Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông, Lâm Đồng ($5$ người).
+			\item Duyên hải Nam Trung Bộ: Phú Yên, Khánh Hoà, Ninh Thuận, Bình Thuận ($4$ người).
+			\item Đông Nam Bộ: Bà Rịa – Vũng Tàu, Bình Dương, Bình Phước, Đồng Nai, Tây Ninh ($5$ người).
+			\item Đồng bằng sông Cửu Long: Long An, Tiền Giang, Vĩnh Long, Bến Tre, Đồng Tháp, Trà Vinh, An Giang, Cần Thơ, Hậu Giang, Bạc Liêu, Sóc Trăng, Kiên Giang, Cà Mau ($13$ người).
+		\end{itemize}
+		\begin{enumerate}
+			\item Biến cố $A$: \lq\lq Ba thành viên được chọn đến từ Tây Nguyên\rq\rq.\\
+			Số cách chọn $3$ người từ $5$ người của Tây Nguyên là $n(A) = \mathrm{C}_5^3 = 10$.\\
+			Xác suất của biến cố $A$ là
+			\[ \mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{10}{2\,925} = \dfrac{2}{585}. \]
+			\item Biến cố $B$: \lq\lq Ba thành viên được chọn đến từ Duyên hải Nam Trung Bộ\rq\rq.\\
+			Số cách chọn $3$ người từ $4$ người của Duyên hải Nam Trung Bộ là $n(B) = \mathrm{C}_4^3 = 4$.\\
+			Xác suất của biến cố $B$ là
+			\[ \mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{4}{2\,925}. \]
+			\item Biến cố $C$: \lq\lq Ba thành viên được chọn đến từ Đông Nam Bộ\rq\rq.\\
+			Số cách chọn $3$ người từ $5$ người của Đông Nam Bộ là $n(C) = \mathrm{C}_5^3 = 10$.\\
+			Xác suất của biến cố $C$ là
+			\[ \mathrm{P}(C) = \dfrac{n(C)}{n(\Omega)} = \dfrac{10}{2\,925} = \dfrac{2}{585}. \]
+			\item Biến cố $D$: \lq\lq Ba thành viên được chọn đến từ Đồng bằng sông Cửu Long\rq\rq.\\
+			Số cách chọn $3$ người từ $13$ người của Đồng bằng sông Cửu Long là $n(D) = \mathrm{C}_{13}^3 = 286$.\\
+			Xác suất của biến cố $D$ là
+			\[ \mathrm{P}(D) = \dfrac{n(D)}{n(\Omega)} = \dfrac{286}{2\,925} = \dfrac{22}{225}. \]
+		\end{enumerate}
+	}
+\end{vd}
+\subsection{Bài tập rèn luyện}
+\ind{PHẦN I.} \inden{Câu trắc nghiệm nhiều phương án lựa chọn. Mỗi câu hỏi học sinh chỉ chọn một phương án.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0T10-Bai2-TN]
+
+\begin{ex}%[0D0N2-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - SGD Bắc Ninh - Năm học 2024-2025]
+	Xét một phép thử có không gian mẫu $\Omega$ và biến cố $A$ liên quan đến phép thử đó. Mệnh đề nào dưới đây đúng?
+	\choice
+	{$\mathrm{P}(\overline{A}) < 0$}
+	{$\mathrm{P}(A) = \dfrac{n(\Omega)}{n(A)}$}
+	{$\mathrm{P}(A) > 1$}
+	{\True $\mathrm{P}(A) + \mathrm{P}(\overline{A}) = 1$}
+	\loigiai{
+		Theo định nghĩa xác suất, ta có $0 \le \mathrm{P}(A) \le 1$. \\
+		Nếu $A$ và $\overline{A}$ là hai biến cố đối nhau thì $\mathrm{P}(A) + \mathrm{P}(\overline{A}) = 1$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0N2-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Nguyễn Thái Bình - Tp.HCM - Năm học 2023-2024]
+	Xét một phép thử có không gian mẫu $\Omega$ gồm hữu hạn các kết quả có cùng khả năng xảy ra, $A$ là một biến cố có biến cố đối là $\overline{A}$. Mệnh đề nào dưới đây \textbf{sai}?
+	\choice
+	{$\mathrm{P}(\overline{A})=1-\mathrm{P}(A)$}
+	{\True $0<\mathrm{P}(\overline{A})<1$}
+	{$\mathrm{P}(\Omega)=1$}
+	{$\mathrm{P}(\varnothing)=0$}
+	\loigiai{
+		Với mọi biến cố $A$ ta luôn có $0\le \mathrm{P}(\overline{A})\le 1$ nên \lq\lq $0<\mathrm{P}(\overline{A})<1$\rq\rq\, sai.
+	}
+\end{ex}
+
+\begin{ex}%[0D0N2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Marie Curie - Tp.HCM - Năm học 2024-2025]
+	Xét phép thử gieo $2$ con xúc xắc cân đối và đồng chất, số phần tử của không gian mẫu là
+	\choice
+	{$6$}
+	{\True $36$}
+	{$30$}
+	{$12$}
+	\loigiai{
+		Không gian mẫu $\Omega$ có $n(\Omega)=6\cdot=36$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0N2-1]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Nguyễn Thái Bình - Tp.HCM - Năm học 2023-2024]
+	Xét phép thử $T$ có $n(\Omega)=6$ và $A$ là biến cố có xác suất bằng $\dfrac{1}{3}$. Số phần tử của biến cố $A$ là 
+	\choice
+	{$12$}
+	{$3$}
+	{$18$}
+	{\True $2$}
+	\loigiai{
+		Theo đề bài, ta có $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)} \Rightarrow \dfrac{1}{3}=\dfrac{n(A)}{6} \Rightarrow n(A)=6\cdot\dfrac{1}{3}=2$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Marie Curie - Tp.HCM - Năm học 2024-2025]
+	Tung $2$ đồng xu cân đối và  đồng chất, xác suất của biến cố \lq\lq Xuất hiện ít nhất $1$ mặt sấp\rq\rq\  bằng
+	\choice
+	{\True $\dfrac{3}{4}$}
+	{$\dfrac{1}{4}$}
+	{$\dfrac{1}{2}$}
+	{$1$}
+	\loigiai{
+		Ta có không gian mẫu $\Omega=\{NN, NS, SN, SS\}$, từ đó suy ra xác suất để mặt sấp xuất hiện ít nhất $1$ lần bằng $\dfrac{3}{4}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lương Ngọc Quyến - Thái Nguyên - Năm học 2023-2024]
+	Gieo một đồng xu cân đối liên tiếp bốn lần. Xác suất để cả bốn lần xuất hiện mặt sấp là
+	\choice
+	{$\dfrac{4}{16}$}
+	{$\dfrac{2}{16}$}
+	{$\dfrac{6}{16}$}
+	{\True$\dfrac{1}{16}$}
+	\loigiai{
+		Gieo một đồng xu cân đối liên tiếp bốn lần, ta có $n(\Omega)=2^4=16$.\\
+		Gọi $A$ là biến cố cả bốn lần xuất hiện mặt sấp, ta có $n(A)=1^4=1$.\\
+		Xác suất cần tìm là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=
+		\dfrac{1}{16}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lê Quý Đôn - Tp.HCM - Năm học 2023-2024]
+	Gieo một đồng tiền liên tiếp $3$ lần. Tính xác suất của biến cố $A$: \lq\lq Trong $3$ lần gieo, có ít nhất một lần xuất hiện mặt sấp \rq\rq.
+	\choice
+	{$\mathrm{P}(A)=\dfrac{1}{2}$}
+	{$\mathrm{P}(A)=\dfrac{1}{4}$}
+	{\True $\mathrm{P}(A)=\dfrac{7}{8}$}
+	{$\mathrm{P}(A)=\dfrac{3}{8}$}
+	\loigiai{
+		Số phần tử của không gian mẫu là $n(\Omega) = 2^3=8$.\\
+		Ta có $A=\left\lbrace SSS; SSN; SNS; SNN; NSS; NSN; NNS\right\rbrace \Rightarrow n(A)=7$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{7}{8}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Hoàng Hoa Thám - Tp.HCM - Năm học 2024-2025]
+	Tung một con xúc xắc cân đối và đồng chất hai lần liên tiếp. Xác suất để số chấm hai lần gieo giống nhau là
+	\choice
+	{$\dfrac{3}{5}$}
+	{$\dfrac{1}{3}$}
+	{\True $\dfrac{1}{6}$}
+	{$\dfrac{1}{2}$}
+	\loigiai{
+		Khi gieo một con xúc xắc hai lần liên tiếp, không gian mẫu ${\Omega}$ gồm các cặp ${(i, j)}$ với ${i, j \in \{1;2;3;4;5;6\}}$.\\
+		Tổng số kết quả có thể xảy ra là ${n(\Omega) = 6 \cdot 6 = 36}$.\\
+		Gọi $A$ là biến cố \lq\lq Số chấm xuất hiện ở hai lần gieo như nhau\rq\rq.\\
+		Các kết quả thuận lợi cho biến cố $A$ là $(1;1)$, $(2;2)$, $(3;3)$, $(4;4)$, $(5;5)$, $(6;6)$.\\
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = 6$.\\
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{6}{36} = \dfrac{1}{6}$.
+	}
+\end{ex}
+
+
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]		
+	[Trích đề thi HKII - Trường THPT Nguyễn Thái Bình - Tp.HCM - Năm học 2023-2024]
+	Một hộp có $5$ chiếc thẻ được đánh số từ $1$ đến $5$. Rút ngẫu nhiên đồng thời hai chiếc thẻ từ hộp. Tính xác suất của biến cố \lq\lq Các số ghi trên hai thẻ đều là số lẻ\rq\rq. 
+	\choice
+	{$\dfrac{3}{5}$}
+	{$\dfrac{1}{2}$}
+	{$\dfrac{2}{5}$}
+	{\True $\dfrac{3}{10}$}	
+	\loigiai{
+		Không gian mẫu $n(\Omega)=\mathrm{C}_5^2$.\\
+		Gọi biến cố $A\colon$ \lq\lq Các số ghi trên hai thẻ đều là số lẻ\rq\rq.\\
+		Từ $1$ đến $5$ có các số lẻ là $1$, $3$, $5$. Do đó $n(A)=\mathrm{C}_3^2$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{\mathrm{C}_3^2}{\mathrm{C}_5^2}=\dfrac{3}{10}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0N2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Nguyễn Tất Thành - Tp.HCM - Năm học 2024-2025]
+	Từ một hộp chứa $11$ quả cầu màu đỏ và $4$ quả cầu màu xanh, lấy ngẫu nhiên đồng thời $3$ quả cầu. Xác suất để lấy được $3$ quả cầu màu xanh là
+	\choice
+	{$\dfrac{24}{455}$}
+	{$\dfrac{4}{165}$}
+	{\True $\dfrac{4}{455}$}
+	{$\dfrac{33}{91}$}
+	\loigiai{
+		Số phần tử của không gian mẫu $n(\Omega)=\mathrm{C}_{15}^3=455$.\\
+		Gọi $A$ là biến cố \lq\lq Lấy được $3$ quả cầu màu xanh\rq\rq. Ta có $n(A)=\mathrm{C}_4^3=4$.\\
+		Vậy xác suất của biến cố $A$ là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)} = \dfrac{4}{455}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lê Quý Đôn - Tp.HCM - Năm học 2023-2024]
+	Một tổ có $5$ học sinh nam và $7$ học sinh nữ. Chọn ngẫu nhiên $3$ học sinh. Xác suất để trong $3$ học sinh được chọn không có học sinh nữ là
+	\choice
+	{$\dfrac{7}{24}$}
+	{\True $\dfrac{1}{22}$}
+	{$\dfrac{5}{12}$}
+	{$\dfrac{7}{44}$}
+	\loigiai{
+		Chọn ngẫu nhiên $3$ học sinh từ $12$ học sinh, ta có $n(\Omega) = \mathrm{C}_{12}^3=220$.\\
+		Gọi $A$ là biến cố \lq\lq $3$ học sinh được không có học sinh nữ\rq\rq.\\
+		Để $3$ học sinh được chọn không có học sinh nữ thì $3$ học sinh được chọn toàn là học sinh nam, suy ra
+		$n(A)=\mathrm{C}_{5}^3=10$.\\
+		Vậy $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{10}{220}=\dfrac{1}{22}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Hoàng Hoa Thám - Tp.HCM - Năm học 2023-2024]
+	Một đội gồm $5$ nam và $8$ nữ. Lập một nhóm gồm $4$ người đi công tác, tính xác suất để trong $4$ người được chọn có ít nhất $3$ nữ.
+	\choice
+	{$\dfrac{73}{143}$}
+	{\True $\dfrac{70}{143}$}
+	{$\dfrac{87}{143}$}
+	{$\dfrac{56}{143}$}
+	\loigiai{
+		Số phần tử của không gian mẫu $n(\Omega)=\mathrm{C}^4_{13}=715$.\\
+		Gọi $A\colon$\lq\lq Trong $4$ người được chọn có ít nhất $3$ nữ\rq\rq.\\
+		\textbf{Trường hợp 1:} Chọn 3 nữ và 1 nam: $\mathrm{C}^3_8\cdot 5$ cách.\\
+		\textbf{Trường hợp 2:} Chọn 4 nữ: $\mathrm{C}^4_8$ cách.\\
+		Suy ra $n(A)=\mathrm{C}^3_8\cdot 5+ \mathrm{C}^4_8=350$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{350}{715}=\dfrac{70}{143}$.}
+\end{ex}
+
+\begin{ex}%[0D0H2-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lương Ngọc Quyến - Thái Nguyên - Năm học 2023-2024]
+	Hai bạn lớp $A$ và hai bạn lớp $B$ được xếp vào $4$ ghế sắp thành hàng ngang. Xác suất sao cho các bạn cùng lớp không ngồi cạnh nhau bằng
+	\choice
+	{\True $\dfrac{1}{3}$}
+	{$\dfrac{1}{2}$}
+	{$\dfrac{2}{3}$}
+	{$\dfrac{1}{4}$}
+	\loigiai{
+		Xếp ngẫu nhiên $4$ bạn vào $4$ ghế, ta có $n(\Omega)=4!=24$.\\
+		Gọi $A$ là biến cố \lq\lq Các bạn cùng lớp không ngồi cạnh nhau\rq\rq.\\
+		Có $2$ cách xếp thỏa mãn là ABAB và BABA.\\
+		Mỗi cách xếp như trên có 
+		\begin{itemize}
+			\item $2!$ cách xếp cho $2$ bạn A.
+			\item $2!$ cách xếp cho $2$ bạn B.
+		\end{itemize}
+		Do đó $n(A) = 2\cdot 2!\cdot 2! = 8$.\\
+		Vậy xác suất của biến cố $A$ là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)} = \dfrac{8}{24}=\dfrac{1}{3}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Ngô Thị Nhậm - Hà Nội - Năm học 2023-2024]
+	Một hộp có $5$ viên bi đỏ và $9$ viên bi xanh. Chọn ngẫu nhiên $2$ viên bi. Xác suất để chọn được $2$ viên bi khác màu là
+	\choice
+	{$\dfrac{15}{22}$}
+	{\True $\dfrac{45}{91}$}
+	{$\dfrac{46}{91}$}
+	{$\dfrac{14}{45}$}
+	\loigiai{
+		Chọn ngẫu nhiên $2$ quả cầu từ hộp gồm $14$ quả $\Rightarrow$ $n(\Omega)=\mathrm{C}_{14}^{2}$.\\
+		Gọi $A$ là biến cố \lq\lq $2$ quả cầu được chọn khác màu\rq\rq
+		$\Rightarrow n(A)=\mathrm{C}_{5}^{1}\cdot \mathrm{C}_{9}^{1}$.\\
+		Xác suất để lấy được $2$ quả cầu khác màu là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{\mathrm{C}_{5}^{1}\cdot \mathrm{C}_9^1}{\mathrm{C}_{14}^{2}}=\dfrac{45}{91}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lương Ngọc Quyến - Thái Nguyên - Năm học 2023-2024]
+	Chọn ngẫu nhiên $2$ viên bi từ hộp có $2$ viên bi đỏ và $3$ viên bi xanh. Tính xác suất để chọn được $2$ viên bi xanh.
+	\choice
+	{$\dfrac{7}{10}$}
+	{\True $\dfrac{3}{10}$}
+	{$\dfrac{3}{25}$}
+	{$\dfrac{2}{5}$}
+	\loigiai{
+		Chọn ngẫu nhiên $2$ viên bi từ $5$ viên bi có $\mathrm{C}_5^2=10$ cách. Suy ra $n\left( \Omega \right)=10$.\\
+		Gọi $A$ là biến cố \lq\lq Chọn được $2$ viên bi xanh\rq\rq.\\
+		Ta có $n(A)=\mathrm{C}_3^2=3$.\\
+		Xác suất cần tìm là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{3}{10}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Chuyên Lê Quý Đôn - Ninh Thuận - Năm học 2024-2025]
+	Trong một chiếc hộp đựng $6$ viên bi đỏ, $10$ viên bi trắng có chất liệu và kích cỡ như nhau. Lấy ngẫu nhiên $4$ viên bi. Xác suất của biến cố \lq\lq$4$ viên bi lấy ra đều có màu trắng\rq\rq\, bằng
+	\choice
+	{$\dfrac{361}{364}$}
+	{$\dfrac{23}{26}$}
+	{$\dfrac{3}{364}$}
+	{\True $\dfrac{3}{26}$}
+	\loigiai{
+		Tổng số viên bi trong hộp là $6 + 10 = 16$ viên.\\
+		Lấy ngẫu nhiên $4$ viên bi từ $16$ viên bi, số phần tử của không gian mẫu là $n(\Omega) = \mathrm{C}_{16}^4= 1\,820$.\\
+		Gọi $A$ là biến cố \lq\lq$4$ viên bi lấy ra đều có màu trắng\rq\rq.\\
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = \mathrm{C}_{10}^4= 210$.\\
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{210}{1\,820}=\dfrac{3}{26}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Lương Thế Vinh - Hà Nội - Năm học 2024-2025]
+	Một hộp có $6$ viên bi đỏ và $5$ viên bi xanh, các viên bi có kích thước và trọng lượng giống nhau. Lấy ngẫu nhiên ra $2$ viên bi từ hộp. Xác suất để lấy được đủ cả hai màu bằng
+	\choice
+	{$\dfrac{5}{11}$}
+	{$0{,}2$}
+	{$0{,}8$ }
+	{\True $\dfrac{6}{11}$}
+	\loigiai{
+		Chọn $2$ viên bi từ $11$ viên có $\mathrm{C}_{11}^2$ cách. Suy ra $n(\Omega)=\mathrm{C}_{11}^2 = 55$.\\
+		Gọi $A$ là biến cố \lq\lq Lấy được hai viên bi đủ cả hai màu\rq\rq.
+		\begin{itemize}
+			\item Chọn $1$ viên bi đỏ có $\mathrm{C}_{6}^1$ cách.
+			\item Chọn $1$ viên bi xanh có $\mathrm{C}_{5}^1$ cách.
+		\end{itemize}
+		Suy ra $n(A)=\mathrm{C}_{6}^1\cdot\mathrm{C}_{5}^1=30$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{30}{55}=\dfrac{6}{11}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Lương Thế Vinh - Hà Nội - Năm học 2024-2025]
+	Gọi $S$ là tập các số tự nhiên có $3$ chữ số đôi một khác nhau được lập từ các chữ số $1$, $2$, $3$, $4$, $5$. Chọn ngẫu nhiên một số từ tập $S$, xác suất để số được chọn là số chẵn bằng
+	\choice
+	{\True $\dfrac{2}{5}$}
+	{$\dfrac{3}{5}$}
+	{$\dfrac{1}{6}$}
+	{$\dfrac{1}{2}$}
+	\loigiai{
+		Có $\mathrm{A}_{5}^3$ số  tự nhiên có $3$ chữ số đôi một khác nhau lập được từ các chữ số $1$, $2$, $3$, $4$, $5$.\\ 
+		Suy ra $n(\Omega)=n(S)=\mathrm{A}_{5}^3=60$.\\
+		Gọi $\overline{abc}$ là số tự nhiên cần lập.\\
+		Vì $\overline{abc}$ là số chẵn nên $c\in\{2;4\}$.
+		\begin{itemize}
+			\item $c$ có $2$ cách chọn.
+			\item $\overline{ab}$ có $\mathrm{A}_{4}^2$ cách chọn.
+		\end{itemize}
+		Vậy có $2\cdot\mathrm{A}_{4}^2=2\cdot 12=24$ số chẵn có $3$ chữ số khác nhau lập được từ các chữ số $1$, $2$, $3$, $4$, $5$.\\
+		Gọi $A$ là biến cố \lq\lq Chọn được một số tự nhiên chẵn từ tập $S$\rq\rq. Suy ra $n(A)=24$.\\
+		Do đó \[\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{24}{60}=\dfrac{2}{5}.\]
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Nguyễn Thái Bình - Tp.HCM - Năm học 2023-2024]
+	Gọi $S$ là tập hợp tất cả các số tự nhiên có $4$ chữ số đôi một khác nhau và các chữ số thuộc tập hợp $\{1;2;3;4;5;6;7\}$. Chọn ngẫu nhiên một số thuộc $S$, xác suất để số đó không có hai chữ số liên tiếp nào cùng chẵn bằng
+	\choice
+	{$\dfrac{16}{35}$}
+	{$\dfrac{9}{35}$}
+	{\True $\dfrac{22}{35}$}
+	{$\dfrac{19}{35}$}
+	\loigiai{
+		Số phần tử của tập $S$ là $\mathrm{A}_7^4=840$ số.\\
+		Số phần tử không gian mẫu là $n(\Omega)=\mathrm{C}_{840}^1=840$ số.\\
+		Gọi biến cố $A\colon $ \lq\lq Không có hai chữ số liên tiếp nào cùng chẵn\rq\rq.\\
+		Ta chia thành $3$ trường hợp như sau
+		\begin{itemize}
+			\item \textbf{Trường hợp 1: 4 chữ số đều lẻ}\\
+			Vì $\{1;2;3;4;5;6;7\}$ có $4$ chữ số lẻ nên ta có số các số có $4$ chữ số lẻ thuộc $S$ là $4! = 24$.
+			\item \textbf{Trường hợp 2: 3 chữ số lẻ và 1 chữ số chẵn}
+			\begin{itemize}
+				\item Số cách chọn $3$ chữ số lẻ là $\mathrm{C}_4^3 = 4$.
+				\item Số cách chọn $1$ chữ số chẵn là $\mathrm{C}_3^1 = 3$.
+				\item Hoán vị $4$ chữ số trên là $4! = 24$.
+			\end{itemize}
+			Do đó số các số có $3$ chữ số lẻ và $1$ chữ số chẵn thuộc $S$ là $4\cdot 3\cdot 24 = 288$.
+			\item \textbf{Trường hợp 3: 2 chữ số lẻ và 2 chữ số chẵn}
+			\begin{itemize}
+				\item Số cách chọn $2$ chữ số lẻ là $\mathrm{C}_4^2 = 6$.
+				\item Số cách chọn $2$ chữ số chẵn là $\mathrm{C}_3^2 = 3$.
+			\end{itemize}
+			Với mỗi bộ $2$ số chẵn và $2$ số lẻ được chọn, để $2$ số chẵn không đứng cạnh nhau thì ta có các trường hợp: CLCL, CLLC, LCLC.\\
+			Với mỗi trường hợp trên ta có $2! = 2$ cách sắp xếp các số lẻ và $2! = 2$ cách sắp xếp các số chẵn nên có $3\cdot 2\cdot 2 = 12$ số thỏa mãn.\\
+			Do đó số các số có $2$ chữ số lẻ và $2$ chữ số chẵn thuộc $S$ là $6\cdot 3\cdot 12 = 216$.
+		\end{itemize}
+		\textbf{Lưu ý:} \textit{Không tính trường hợp có $3$ hoặc $4$ chữ số chẵn vì khi đó chắc chắn có $2$ chữ số chẵn đứng liền nhau.}\\
+		Số các số thuộc $S$ mà không có $2$ chữ số chẵn liên tiếp là $n(A) = 24 + 288 + 216 = 528$ số.\\
+		Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{528}{840}=\dfrac{22}{35}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Mạc Đĩnh Chi - Tp.HCM - Năm học 2024-2025]
+	Trong một hộp có $40$ viên bi được đánh số từ $1$ đến $40$. Chọn ngẫu nhiên $3$ viên trong hộp, xác suất để tổng ba số trên $3$ viên bi được chọn là một số chia hết cho $3$ bằng
+	\choice
+	{$\dfrac{483}{760}$}
+	{$\dfrac{129}{380}$}
+	{\True $\dfrac{127}{380}$}
+	{$\dfrac{122}{1235}$}
+	\loigiai{
+		Ta có $ n(\Omega)=\mathrm{C}^3_{40}= 9\,880$.\\
+		Gọi $X$ là biến cố \lq\lq $3$ viên bi được chọn có tổng các số là một số chia hết cho $3$\rq\rq.\\
+		Tập các số chia hết cho $ 3 $ trong các số từ $1$ đến $40$ là $A = \{3;6;9;\ldots;39\}$, có tất cả $13$ phần tử.\\
+		Tập các số chia cho $3$ dư $1$ trong các số từ $1$ đến $40$ là $B=\{1;4;7;\ldots;40\}$, có tất cả $14$ phần tử.\\
+		Tập các số chia cho $3$ dư $2$ trong các số từ $1$ đến $40$ là $C=\{2;5;8;\ldots;38\}$, có tất cả $13$ phần tử.\\
+		Ba số có tổng chia hết cho $3$ thì
+		\begin{itemize}
+			\item \textbf{Trường hợp 1.} Cả $3$ số đều thuộc $A$, $B$ hoặc $C$ lần lượt có số cách chọn là $\mathrm{C}^3_{13}=286$, $ \mathrm{C}^3_{14} =364$, $\mathrm{C}^3_{13} = 286$.\\
+			Vậy có tất cả $286+364+286=936$ cách.
+			\item \textbf{Trường hợp 2.} Một số thuộc tập $A$, một số thuộc tập $B$ và một số thuộc tập $C$ có tất cả $13\cdot 14 \cdot 13=2\,366$ cách.
+		\end{itemize}
+		Vậy $n(X)=936+2366 = 3\,302$ nên $\mathrm{P}(X)=\dfrac{3\,302}{9\,880}= \dfrac{127}{380}$.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{10}{ans/0T10-Bai2-TN}
+
+\ind{PHẦN II.} \inden{Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, học sinh chọn đúng hoặc sai.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0T10-Bai2-DS]
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Marie Curie - Tp.HCM - Năm học 2024-2025]
+	Một hộp đựng $17$ tấm thẻ được đánh số từ $1$ đến $17$. Lấy ngẫu nhiên $4$ thẻ. Hãy xác định tính đúng sai của các khẳng định sau
+	\choiceTF
+	{\True Số phần tử của không gian mẫu là $n(\Omega )=\mathrm{C}_{17}^4$}
+	{\True Xác suất của biến cố \lq\lq$4$ thẻ lấy ra đều mang số chẵn\rq\rq\, là $\dfrac{1}{34}$}
+	{Xác suất của biến cố \lq\lq $4$ thẻ lấy ra có đúng $3$ thẻ mang số chẵn và $1$ thẻ mang số lẻ\rq\rq\, là $\dfrac{24}{85}$}
+	{\True Xác suất của biến cố \lq\lq Tích các số ghi trên $4$ thẻ là số lẻ\rq\rq\, là $\dfrac{9}{170}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.
+			Số phần tử của không gian mẫu là $n(\Omega )=\mathrm{C}_{17}^4$.
+			\itemch \textbf{Đúng}. Gọi $A$ là biến cố \lq\lq$4$ thẻ lấy ra đều mang số chẵn\rq\rq.\\
+			Từ $1$ đến $17$ có $8$ số chẵn, suy ra số cách chọn $4$ thẻ đều mang số chẵn là $n(A)=\mathrm{C}_{8}^4$.\\
+			Vậy xác suất để $4$ thẻ lấy ra đều mang số chẵn là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega )}=\dfrac{\mathrm{C}_{8}^4}{\mathrm{C}_{17}^4} =\dfrac{70}{2\,380} = \dfrac{1}{34}$.
+			\itemch \textbf{Sai}.
+			Gọi $B$ là biến cố \lq\lq $4$ thẻ lấy ra có đúng $3$ thẻ mang số chẵn và $1$ thẻ mang số lẻ\rq\rq.\\
+			Vì từ $1$ đến $17$ có $8$ số chẵn và $9$ số lẻ.\\
+			Số cách chọn $3$ số chẵn và $1$ số lẻ là $n(B)=\mathrm{C}_8^3 \cdot \mathrm{C}_9^1 = 56 \cdot 9 = 504$.\\
+			Xác suất của biến cố $B$ là $\mathrm{P}(B)=\dfrac{n(B)}{n(\Omega )}=\dfrac{504}{2\,380} = \dfrac{18}{85}$.
+			\itemch \textbf{Đúng}.
+			Gọi $C$ là biến cố \lq\lq Tích các số ghi trên $4$ thẻ lấy ra là số lẻ\rq\rq.\\
+			Biến cố $C$ xảy ra khi trong $4$ thẻ lấy ra đều là số lẻ. Do đó $n(C) = \mathrm{C}_9^4$.\\
+			Vậy xác suất của biến cố $C$ là $
+			\mathrm{P}(C)=\dfrac{n(C)}{n(\Omega )}=\dfrac{\mathrm{C}_{9}^4}{\mathrm{C}_{17}^4} = \dfrac{126}{2\,380}=\dfrac{9}{170}$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+
+\begin{ex}%[0D0V2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - SGD Bắc Ninh - Năm học 2024-2025]
+	Gieo một con xúc xắc cân đối và đồng chất $2$ lần liên tiếp.
+	\choiceTF
+	{\True Số phần tử của không gian mẫu bằng $36$}
+	{Xác suất để tổng số chấm xuất hiện của hai lần gieo lớn hơn $9$ là $\dfrac{1}{4}$}
+	{\True Xác suất để số chấm xuất hiện trong hai lần gieo là khác nhau bằng $\dfrac{5}{6}$}
+	{\True Xác suất để tích số chấm xuất hiện của hai lần gieo bằng $12$ là $\dfrac{1}{9}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Số phần tử của không gian mẫu là $n(\Omega) = 6 \cdot  6 = 36$. 
+			\itemch \textbf{Sai}. Gọi $A$ là biến cố \lq\lq Tổng số chấm xuất hiện của hai lần gieo lớn hơn $9$\rq\rq.\\
+			Các kết quả thuận lợi cho $A$ là $(4;6)$, $(6;4)$, $(5;5)$, $(5;6)$, $(6;5)$, $(6;6)$.\\
+			Suy ra $n(A) = 6$.\\
+			Vậy $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{6}{36} = \dfrac{1}{6}$.
+			\itemch \textbf{Đúng}. Gọi $B$ là biến cố \lq\lq Số chấm xuất hiện trong hai lần gieo là khác nhau\rq\rq.\\
+			Khi đó $\overline{B}$ là biến cố \lq\lq Số chấm xuất hiện trong hai lần gieo là giống nhau\rq\rq.\\
+			Các kết quả thuận lợi cho $\overline{B}$ là $(1;1)$, $(2;2)$, $(3;3)$, $(4;4)$, $(5;5)$, $(6;6)$.\\
+			Suy ra $n\left(\overline{B}\right) = 6$.\\
+			Do đó $\mathrm{P}\left(\overline{B}\right) = \dfrac{n\left(\overline{B}\right)}{n(\Omega)} = \dfrac{6}{36} = \dfrac{1}{6}$.\\
+			Vậy $\mathrm{P}(B) = 1 - \mathrm{P}\left(\overline{B}\right) = 1 - \dfrac{1}{6} = \dfrac{5}{6}$.
+			\itemch \textbf{Đúng}. Gọi $C$ là biến cố \lq\lq Tích số chấm xuất hiện của hai lần gieo bằng $12$\rq\rq. \\
+			Các kết quả thuận lợi cho $C$ là $(2;6)$, $(6;2)$, $(3;4)$, $(4;3)$.\\
+			Suy ra $n(C) = 4$. \\
+			Vậy $\mathrm{P}(C) = \dfrac{n(C)}{n(\Omega)} = \dfrac{4}{36} = \dfrac{1}{9}$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Hoàng Hoa Thám - Tp.HCM - Năm học 2024-2025]
+	Một đội có $10$ bạn nam trong đó có bạn nam tên Hùng và $11$ bạn nữ trong đó có bạn nữ tên Hoa. Giáo viên chọn ngẫu nhiên ra $4$ bạn tham gia Hội khỏe Phù Đổng của huyện.
+	\choiceTF
+	{\True Số phần tử của không gian mẫu là $n(\Omega)=\mathrm{C}_{21}^4$}
+	{Số cách chọn bốn bạn gồm $3$ bạn nữ và $1$ bạn nam là $\mathrm{C}_{11}^3+\mathrm{C}_{10}^1$}
+	{\True Xác suất chọn được bốn bạn nữ là $\dfrac{22}{399}$}
+	{\True Xác suất chọn được ba bạn nữ và một bạn nam trong đó không có Hoa là $\dfrac{80}{399}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Chọn ngẫu nhiên $4$ học sinh trong $21$ học sinh có $\mathrm{C}_{21}^4$ cách.\\
+			Do đó số phần tử của không gian mẫu là $n(\Omega)=\mathrm{C}_{21}^4$.
+			\itemch \textbf{Sai}. Ta có
+			\begin{itemize}
+				\item Số cách chọn ba bạn nữ là $\mathrm{C}_{11}^3$.
+				\item Số cách chọn một bạn nam là $\mathrm{C}_{10}^1$.
+			\end{itemize}
+			Theo quy tắc nhân, ta có số cách chọn bốn bạn gồm $3$ bạn nữ và $1$ bạn nam là $\mathrm{C}_{11}^3\cdot \mathrm{C}_{10}^1$.
+			\itemch \textbf{Đúng}. Gọi $A$ là biến cố \lq\lq Chọn được bốn bạn nữ\rq\rq.\\
+			Xác suất của biến cố $A$ là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{\mathrm{C}_{11}^4}{\mathrm{C}_{21}^4}=\dfrac{22}{399}$.
+			\itemch \textbf{Đúng}. Gọi $B$ là biến cố \lq\lq Chọn được ba bạn nữ và một bạn nam trong đó không có Hoa\rq\rq.\\
+			Ta có
+			\begin{itemize}
+				\item Chọn ba bạn nữ trong đó không có Hoa là $\mathrm{C}_{10}^3=120$ cách.
+				\item Chọn một bạn nam là $\mathrm{C}_{10}^1=10$.
+			\end{itemize}
+			Theo quy tắc nhân, ta có số cách ba bạn nữ và một bạn nam trong đó không có Hoa là $120\cdot 10 = 1\,200$.\\
+			Xác suất của biến cố $B$ là \[\mathrm{P}(B)=\dfrac{n(B)}{n(\Omega)}=\dfrac{1\,200}{\mathrm{C}_{21}^4}=\dfrac{80}{399}.\]
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Nguyễn Tất Thành - Tp.HCM - Năm học 2024-2025]
+	Gieo ngẫu nhiên hai con xúc xắc cân đối và đồng chất.
+	\choiceTF
+	{\True Không gian mẫu $\Omega$ có $n(\Omega)=36$}
+	{Biến cố $A\colon$\lq\lq Mặt hai chấm xuất hiện đúng một lần\rq\rq\,có $n(A)=11$}
+	{\True Biến cố $B\colon$\lq\lq Tổng số chấm xuất hiện là $5$\rq\rq\,có xác suất $\mathrm{P}(B)=\dfrac{1}{9}$}
+	{\True Biến cố $C\colon$\lq\lq Tích số chấm xuất hiện là số chia hết cho 3\rq\rq\,có xác suất $\mathrm{P}(C)=\dfrac{5}{9}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Không gian mẫu $\Omega$ có $n(\Omega)=6\cdot6=36$.
+			\itemch \textbf{Sai}. Ta có các trường hợp
+			\begin{enumerate}[{\it TH 1.}]
+				\item Mặt hai chấm chỉ xuất hiện ở con xúc xắc thứ nhất, có $1\cdot5=5$ cách.
+				\item Mặt hai chấm chỉ xuất hiện ở con xúc xắc thứ hai, có $5\cdot1=5$ cách.
+			\end{enumerate}
+			Vậy $n(A)=5+5=10$ cách.
+			\itemch \textbf{Đúng}. Ta có $B=\{(1;4);(2;3);(3;2);(4;1)\}$. Suy ra $n(B)=4$.\\
+			Xác suất của biến cố $B$ là $\mathrm{P}(B)=\dfrac{4}{36}=\dfrac{1}{9}$.
+			\itemch \textbf{Đúng}. Ta có các số $3$ và $6$ chia hết cho $3$. Gọi $a$ và $b$ lần lượt là số chấm xuất hiện trên con xúc xúc thứ nhất và thứ hai. Ta có các trường hợp
+			\begin{enumerate}[{\it TH 1.}]
+				\item $a$ chia hết cho $3$ và $b$ không chia hết cho $3$, có $2\cdot4=8$ cách.
+				\item $a$ không chia hết cho $3$ và $b$ chia hết cho $3$, có $4\cdot2=8$ cách.
+				\item $a$ chia hết cho $3$ và $b$ chia hết cho $3$, có $2\cdot2=4$ cách.
+			\end{enumerate}
+			Suy ra $n(C)=8+8+4=20$.\\
+			Vậy xác suất của biến cố $C$ là $\mathrm{P}(C)=\dfrac{20}{36}=\dfrac{5}{9}$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Lương Thế Vinh - Hà Nội - Năm học 2024-2025]
+	Một hộp đựng các tấm thẻ được đánh số lần lượt từ $1$ đến $11$. Chọn ngẫu nhiên từ hộp ra $3$ tấm thẻ. Gọi $A$ là biến cố \lq\lq Chọn được $3$ tấm thẻ đều là số chẵn\rq\rq.
+	\choiceTF
+	{\True $n(\Omega)=165$}
+	{$n(A)=20$}
+	{$\mathrm{P}(A)=\dfrac{4}{33}$}
+	{\True Xác suất để tích các số ghi trên $3$ tấm thẻ là số chẵn bằng $\dfrac{29}{33}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.
+			Chọn $3$ thẻ trong $11$ thẻ nên ta có $n(\Omega)=\mathrm{C}^3_{11}=165$.
+			\itemch \textbf{Sai}.
+			Từ $1$ đến $11$ có $5$ số chẵn. Chọn $3$ số chẵn trong $5$ số chẵn có $\mathrm{C}^3_{5}=10$ cách nên $n(A)=10$.
+			\itemch \textbf{Sai}.
+			Ta có $P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{10}{165}=\dfrac{2}{33}$.
+			\itemch \textbf{Đúng}.
+			Gọi $B$ là biến cố \lq\lq Tích các số ghi trên $3$ tấm thẻ là số chẵn\rq\rq.\\
+			Suy ra $\overline{B}$ là biến cố \lq\lq Tích các số ghi trên $3$ tấm thẻ là số lẻ\rq\rq.\\
+			Ta có $n\left( \overline{B}\right) =\mathrm{C}^3_{6}=20$.\\
+			Suy ra $\mathrm{P}(\overline{B})=\dfrac{n\left( \overline{B}\right) }{n(\Omega)}=\dfrac{20}{165}=\dfrac{4}{33}$, suy ra $\mathrm{P}(B)=1-\mathrm{P}\left( \overline{B}\right) =\dfrac{29}{33}$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Ngô Quyền - Tp.HCM - Năm học 2024-2025]
+	Một tổ có $8$ nam và $7$ nữ. Chọn ngẫu nhiên $5$ người. Khi đó
+	\choiceTF
+	{\True Số cách chọn để tất cả đều là nam là $56$}
+	{\True Số phần tử của không gian mẫu là $3\,003$}
+	{Xác suất để chọn được 2 nam và 3 nữ là $\dfrac{8}{429}$}
+	{Xác suất để có ít nhất một nữ là $\dfrac{70}{429}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.
+			Số cách chọn để tất cả đều là nam là ${\mathrm{C}_8^5 = 56}$.
+			\itemch \textbf{Đúng}.
+			Số phần tử của không gian mẫu là ${\mathrm{C}_{15}^5 = 3\,003}$.
+			\itemch \textbf{Sai}.
+			Số cách chọn được $2$ nam và $3$ nữ là ${\mathrm{C}_8^2 \cdot \mathrm{C}_7^3 = 28 \cdot 35 = 980}$.\\
+			Xác suất để chọn được 2 nam và 3 nữ là $\dfrac{980}{3\,003} = \dfrac{140}{429}$.
+			\itemch \textbf{Sai}.
+			Xác suất để chọn được $5$ nam là $\dfrac{56}{3\,003}$.\\
+			Xác suất để có ít nhất một nữ là $1 - \dfrac{56}{3\,003} = \dfrac{2\,947}{3\,003} = \dfrac{421}{429}$.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{4}{ans/0T10-Bai2-DS}
+
+\ind{PHẦN III.} \inden{Trả lời ngắn.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/0T10-Bai2-TLN]
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Hoàng Hoa Thám - Tp.HCM - Năm học 2024-2025]
+	Một hộp đựng $9$ thẻ được đánh số từ $1$ đến $9$. Rút ngẫu nhiên $3$ thẻ. Tính xác suất để $3$ thẻ được rút đều mang số lẻ (\textit{Làm tròn kết quả đến hàng phần trăm}).
+	\shortans[oly]{$0{,}12$}
+	\loigiai{
+		Ta có $n(\Omega)=\mathrm{C}_9^3=84$.\\
+		Gọi $A$ là biến cố \lq\lq $3$ thẻ được rút đều mang số lẻ\rq\rq.\\
+		Ta có $5$ thẻ mang số lẻ và $4$ thẻ mang số chẵn. Suy ra $n(A)=\mathrm{C}_5^3=10$.\\
+		Vậy xác suất cần tìm là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{10}{84}=\dfrac{5}{42} \approx 0{,}12$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Lương Thế Vinh - Hà Nội - Năm học 2024-2025]
+	Gieo đồng thời hai viên xúc xắc cân đối và đồng chất. Hỏi xác suất để tổng số chấm xuất hiện trên hai viên xúc sắc bằng $9$ bằng bao nhiêu? (\textit{Làm tròn kết quả đến hàng phần trăm}).
+	\shortans[oly]{$0{,}11$}
+	\loigiai{
+		Số phần tử của không gian mẫu $n(\Omega)=6\cdot 6=36$.\\
+		Gọi $A$ là biến cố \lq\lq Tổng số chấm xuất hiện trên hai viên xúc sắc bằng $9$\rq\rq\ .\\
+		Khi đó $A=\{(3,6);(4,5);(5,4);(6,3)\}$. Suy ra $n(A)=4$.\\
+		Do đó $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{4}{36}=\dfrac{1}{9}\approx0{,}11$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Ngô Quyền - Tp.HCM - Năm học 2024-2025]
+	Một hộp đựng $10$ thẻ được đánh số từ $1$ đến $10$. Rút ngẫu nhiên hai thẻ và nhân hai số ghi trên hai thẻ với nhau. Xác suất để tích hai số được đánh trên thẻ là số chẵn bằng bao nhiêu (\textit{làm tròn kết quả đến hàng phần chục})?
+	\par\shortans{$0{,}8$}
+	\loigiai{
+		Gọi $A$ là biến cố \lq\lq Tích hai số được đánh trên thẻ là số chẵn\rq\rq. \\
+		Khi đó $\overline{A}$ biến cố \lq\lq Tích hai số được đánh trên thẻ là số lẻ\rq\rq. \\
+		Số phần tử của không gian mẫu là $n(\Omega) = \mathrm{C}^{2}_{10} = 45$. \\
+		Ta có tích hai số được đánh trên thẻ là số lẻ khi cả $2$ số đều là số lẻ. \\
+		Do đó, số kết quả thuận lợi cho biến cố $\overline{A}$ là $n\left(\overline{A}\right) = \mathrm{C}^{2}_{5} = 10$. \\
+		Xác suất của biến cố $\overline{A}$ là $\mathrm{P}(\overline{A}) = \dfrac{n\left(\overline{A}\right)}{n(\Omega)} = \dfrac{10}{45} = \dfrac{2}{9}$. \\
+		Vậy xác suất của biến cố $A$ là $\mathrm{P}(A) = 1 - \mathrm{P}\left(\overline{A}\right) = 1 - \dfrac{2}{9} = \dfrac{7}{9} \approx 0{,}8$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Nguyễn Tất Thành - Tp.HCM - Năm học 2024-2025]
+	Gieo ba con xúc xắc cân đối và đồng chất. Tính xác suất của biến cố \lq\lq Tích số chấm xuất hiện chia hết cho $5$\rq\rq\, (\textit{kết quả làm tròn đến hàng phần trăm}).
+	\shortans[oly]{$0{,}42$}
+	\loigiai{ 
+		Gọi $A$ là biến cố \lq\lq Tích các số chấm ở mặt xuất hiện trên $3$ con xúc xắc chia hết cho $5$\rq\rq.\\
+		Khi đó biến cố đối $\overline{A}$: \lq\lq Tích các số chấm ở mặt xuất hiện không chia hết cho $5$\rq\rq, tức là cả $3$ con xúc xắc đều không ra các số chia hết cho $5$.\\
+		Vì có $5$ giá trị không chia hết cho $5$ là $\{1;2;3;4;6\}$, nên
+		$n\left(\overline{A}\right)=5^3=125$.\\
+		Không gian mẫu có $n\left(\Omega\right)=6^3=216$ phần tử.\\
+		Suy ra $n(A)=216-125=91$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{91}{216} \approx 0{,}42$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Marie Curie - Tp.HCM - Năm học 2024-2025]
+	Trên kệ sách có $5$ quyển sách Toán, $4$ quyển sách Lý và $3$ quyển sách Hóa (các quyển sách này đều khác nhau). Chọn ngẫu nhiên đồng thời $4$ quyển sách trên kệ. Tính xác suất để $4$ quyển sách được chọn có đủ cả ba môn Toán, Lý và Hóa (\textit{làm tròn kết quả đến hàng phần trăm}).
+	\shortans{$0{,}55$}
+	\loigiai{
+		Số phần tử không gian mẫu là $n(\Omega) = \mathrm{C}_{12}^4 = 495$ (cách).\\
+		Gọi $A$ là biến cố: \lq\lq$4$ quyển sách được chọn có đủ cả ba môn Toán, Lý và Hóa\rq\rq.
+		\begin{itemize}
+			\item \textbf{Trường hợp 1:} $2$ quyển Toán, $1$ quyển Lý, $1$ quyển Hóa có $\mathrm{C}_{5}^2 \cdot 4 \cdot 3 = 120$ (cách).
+			\item \textbf{Trường hợp 2:} $1$ quyển Toán, $2$ quyển Lý, $1$ quyển Hóa có $5\cdot \mathrm{C}_{4}^2 \cdot 3 = 90$ (cách).
+			\item \textbf{Trường hợp 3:} $1$ quyển Toán, $1$ quyển Lý, $2$ quyển Hóa có $5 \cdot 4\cdot\mathrm{C}_{3}^2 = 60$ (cách).
+		\end{itemize}
+		Suy ra $n(A) = 120 + 90 + 60 = 270$.\\
+		Vậy xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{270}{495} = \dfrac{6}{11} \approx 0{,}55$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-3]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	[Trích đề thi HKII - Trường THPT Hoàng Hoa Thám - Tp.HCM - Năm học 2024-2025]
+	Một nhóm gồm $7$ học sinh nam và $4$ học sinh nữ xếp thành một hàng ngang để tham gia một trò chơi. Tính xác suất để khi xếp $2$ học sinh nữ bất kì không đứng cạnh nhau (\textit{làm tròn kết quả đến hàng phần trăm}).
+	\shortans[oly]{$0,21$}
+	\loigiai{
+		Có tổng cộng $7+4=11$ học sinh nên $n(\Omega)=11!$.\\
+		Gọi $A \colon$ \lq\lq Xếp 2 học sinh nữ bất kì không đứng cạnh nhau\rq\rq.\\
+		Xếp $7$ học sinh nam vào hàng, có $7!$ cách.\\
+		Giữa $7$ học sinh nam tạo ra $8$ khoảng trống (tính cả đầu hàng và cuối hàng), khi đó chọn ra $4$ khoảng trống và xếp $4$ học sinh nữ vào, có $\mathrm{A}_8^4$ cách.\\
+		Suy ra $n(A)=7!\cdot \mathrm{A}_8^4$.\\
+		Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{7!\cdot \mathrm{A}_8^4}{11!}=\dfrac{7}{33} \approx 0{,}21$.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{5}{ans/0T10-Bai2-TLN}
+
+\ind{PHẦN IV.} \inden{Tự luận.}\\
+\setcounter{ex}{0}
+
+\begin{ex}%[0D0H2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Mạc Đĩnh Chi - Tp.HCM - Năm học 2023-2024]
+	Gieo một đồng xu cân đối đồng chất ba lần liên tiếp. Tính xác suất để trong ba lần gieo có ít nhất một lần xuất hiện mặt sấp.
+	\loigiai{
+		Số phần từ không gian mẫu $n(\Omega)=2^3=8$.\\
+		Gọi A là biến cố \lq\lq Trong ba lân gieo có ít nhất một lần xuất hiện mặt sấp\rq\rq.\\
+		Ta có $A=\{SNN; NSN; NNS; SSN; SNS; NSS; SSS\} \Rightarrow n(A)=7$.\\
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{7}{8}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Một hộp có $20$ viên bi, trong đó có $8$ viên bi màu đỏ, $7$ viên bi màu xanh và $5$ viên bi màu vàng. Lấy ngẫu nhiên ra $3$ viên bi. Tính xác suất của các biến cố sau
+	\begin{enumerate}
+		\item $A$: \lq\lq Ba viên bi lấy ra đều màu đỏ\rq\rq.
+		\item $B$: \lq\lq Ba viên bi lấy ra đủ ba màu\rq\rq.
+		\item $C$: \lq\lq Ba viên bi lấy ra có không quá $2$ màu\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		Chọn ngẫu nhiên $3$ viên bi từ $20$ viên bi, số phần tử của không gian mẫu là
+		$n(\Omega) = \mathrm{C}_{20}^3 = 1\,140$.
+		\begin{enumerate}
+			\item Biến cố $A$: \lq\lq Ba viên bi lấy ra đều màu đỏ\rq\rq.\\
+			Số cách chọn $3$ viên bi màu đỏ từ $8$ viên bi màu đỏ là $n(A) = \mathrm{C}_8^3 = 56$.\\
+			Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{56}{1\,140} = \dfrac{14}{285}$.			
+			\item Biến cố $B$: \lq\lq Ba viên bi lấy ra đủ ba màu\rq\rq.\\
+			Số cách chọn $3$ viên bi đủ ba màu là chọn $1$ đỏ, $1$ xanh, $1$ vàng:
+			$n(B) = \mathrm{C}_8^1 \cdot \mathrm{C}_7^1 \cdot \mathrm{C}_5^1 = 8 \cdot 7 \cdot 5 = 280$.\\
+			Xác suất của biến cố $B$ là $\mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{280}{1\,140} = \dfrac{14}{57}$.			
+			\item Biến cố $C$: \lq\lq Ba viên bi lấy ra có không quá $2$ màu\rq\rq.\\
+			Biến cố đối của $C$ là $\overline{C}$: \lq\lq Ba viên bi lấy ra có đủ $3$ màu \rq\rq.\\
+			Khi đó $n\left(\overline{C}\right) = n(B) = 280$ nên $\mathrm{P}\left(\overline{C}\right) = \mathrm{P}(B) = \dfrac{14}{57}$.\\
+			Do đó $\mathrm{P}(C) = 1 - \mathrm{P}\left(\overline{C}\right) = 1 - \dfrac{14}{57} = \dfrac{43}{57}$.
+		\end{enumerate}
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Khối $12$ có $12$ học sinh xuất sắc trong đó có $7$ nam. Khối $11$ có $15$ học sinh xuất sắc trong đó có $4$ nam. Khối $10$ có $10$ học sinh xuất sắc trong đó có $6$ nam. Nhân dịp tổng kết cuối năm học, nhà trường chọn ngẫu nhiên $3$ học sinh để trao thưởng. Tính xác suất sao cho mỗi khối có ít nhất $1$ học sinh và có cả học sinh nam lẫn học sinh nữ.
+	\loigiai{
+		Chọn ngẫu nhiên $3$ học sinh, mỗi khối $1$ em. Số phần tử không gian mẫu:
+		$n(\Omega) = 12 \cdot 15 \cdot 10 = 1800$.\\		
+		Gọi $A$ là biến cố \lq\lq $3$ học sinh được chọn có cả nam và nữ\rq\rq.\\
+		Xét biến cố đối $\overline{A}$: \lq\lq $3$ học sinh được chọn hoặc toàn nam hoặc toàn nữ\rq\rq.
+		\begin{itemize}
+			\item Trường hợp 1: Cả $3$ học sinh đều là nam.\\
+			Số cách chọn là $7 \cdot 4 \cdot 6 = 168$.
+			\item Trường hợp 2: Cả $3$ học sinh đều là nữ.\\
+			Số cách chọn là $5 \cdot 11 \cdot 4 = 220$.
+		\end{itemize}
+		Số kết quả thuận lợi cho $\overline{A}$ là $n\left(\overline{A}\right) = 168 + 220 = 388$.\\
+		Xác suất của $\overline{A}$ là $\mathrm{P}\left(\overline{A}\right) = \dfrac{388}{1800} = \dfrac{97}{450}$.\\
+		Xác suất của $A$ là $\mathrm{P}(A) = 1 - \mathrm{P}\left(\overline{A}\right) = 1 - \dfrac{97}{450} = \dfrac{353}{450}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0H2-5]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Hộp thứ nhất có $5$ quả cầu trắng và $6$ quả cầu đỏ. Hộp thứ hai có $4$ quả cầu trắng và $7$ quả cầu đỏ. Tất cả các quả cầu đều khác nhau. Lấy ngẫu nhiên mỗi hộp $2$ quả cầu để chọn được $4$ quả cầu. Tính xác suất để $4$ quả cầu được chọn có đủ cả $2$ màu.
+	\loigiai{
+		Lấy $2$ quả từ hộp I và $2$ quả từ hộp II. Số phần tử không gian mẫu:
+		$n(\Omega) = \mathrm{C}_{11}^2 \cdot \mathrm{C}_{11}^2 = 55 \cdot 55 = 3\,025$.\\		
+		Gọi $A$ là biến cố \lq\lq $4$ quả cầu được chọn có đủ cả $2$ màu\rq\rq.\\
+		Xét biến cố đối $\overline{A}$: \lq\lq $4$ quả cầu được chọn chỉ có $1$ màu (hoặc toàn trắng hoặc toàn đỏ)\rq\rq.
+		\begin{itemize}
+			\item Trường hợp 1: Cả $4$ quả đều màu trắng.\\
+			Chọn $2$ trắng từ hộp I và $2$ trắng từ hộp II: $\mathrm{C}_5^2 \cdot \mathrm{C}_4^2 = 10 \cdot 6 = 60$.
+			\item Trường hợp 2: Cả $4$ quả đều màu đỏ.\\
+			Chọn $2$ đỏ từ hộp I và $2$ đỏ từ hộp II: $\mathrm{C}_6^2 \cdot \mathrm{C}_7^2 = 15 \cdot 21 = 315$.
+		\end{itemize}
+		Số kết quả thuận lợi cho $\overline{A}$ là $n\left(\overline{A}\right) = 60 + 315 = 375$.\\
+		Xác suất của $\overline{A}$ là $\mathrm{P}\left(\overline{A}\right) = \dfrac{375}{3\,025} = \dfrac{15}{121}$.\\
+		Xác suất của $A$ là $\mathrm{P}(A) = 1 - \mathrm{P}\left(\overline{A}\right) = 1 - \dfrac{15}{121} = \dfrac{106}{121}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Học sinh khối $10$ của một trường THPT có $5$ học sinh giỏi môn Toán, $8$ học sinh giỏi môn Văn và $7$ học sinh giỏi môn Tiếng Anh. Nhà trường chọn $4$ học sinh từ những học sinh trên để lập đội tuyển thi học sinh giỏi.
+	\begin{enumerate}
+		\item Có bao nhiêu cách để được lập đội tuyển thi học sinh giỏi sao cho có đủ học sinh giỏi các môn Toán, Văn và Tiếng Anh.
+		\item Tính xác suất để lập được đội tuyển thi học sinh giỏi trong đó có ít nhất một học sinh giỏi môn Toán.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Lập đội tuyển $4$ người có đủ cả ba môn. Ta xét các trường hợp
+			\begin{itemize}
+				\item $2$ Toán, $1$ Văn, $1$ Anh: $\mathrm{C}_5^2 \cdot \mathrm{C}_8^1 \cdot \mathrm{C}_7^1 = 10 \cdot 8 \cdot 7 = 560$ cách.
+				\item $1$ Toán, $2$ Văn, $1$ Anh: $\mathrm{C}_5^1 \cdot \mathrm{C}_8^2 \cdot \mathrm{C}_7^1 = 5 \cdot 28 \cdot 7 = 980$ cách.
+				\item $1$ Toán, $1$ Văn, $2$ Anh: $\mathrm{C}_5^1 \cdot \mathrm{C}_8^1 \cdot \mathrm{C}_7^2 = 5 \cdot 8 \cdot 21 = 840$ cách.
+			\end{itemize}
+			Tổng số cách lập đội tuyển là $560 + 980 + 840 = 2\,380$ cách.\\			
+			\item Chọn ngẫu nhiên $4$ học sinh từ $20$ học sinh.\\
+			Số phần tử không gian mẫu là $n(\Omega) = \mathrm{C}_{20}^4 = 4\,845$.\\			
+			Gọi $A$ là biến cố \lq\lq Có ít nhất một học sinh giỏi Toán\rq\rq.\\
+			Biến cố đối $\overline{A}$ là \lq\lq Không có học sinh giỏi Toán nào\rq\rq.\\
+			Số học sinh không giỏi Toán là $8+7=15$ học sinh.\\
+			Số cách chọn $4$ học sinh không có em nào giỏi Toán là $n(\overline{A}) = \mathrm{C}_{15}^4 = 1\,365$.\\
+			Xác suất của $\overline{A}$ là $\mathrm{P}(\overline{A}) = \dfrac{1\,365}{4\,845} = \dfrac{91}{323}$.\\
+			Xác suất của $A$ là $\mathrm{P}(A) = 1 - \mathrm{P}(\overline{A}) = 1 - \dfrac{91}{323} = \dfrac{232}{323}$.
+		\end{enumerate}
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-4]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Tại một phòng thi chọn học sinh giỏi lớp $10$ cấp trường có $24$ thí sinh, trong đó có $14$ học sinh thi môn Toán (gồm $8$ nam và $6$ nữ) và $10$ học sinh thi môn Văn là nữ, mỗi thí sinh thi một môn. Giám thị chọn ngẫu nhiên $3$ học sinh trong phòng để vệ sinh phòng thi.
+	\begin{enumerate}
+		\item Tính $n(\Omega)$ và tính xác suất biến cố $A$: \lq\lq Ba học sinh được chọn cùng thi môn Toán\rq\rq.
+		\item Tính xác suất biến cố $B$: \lq\lq Ba học sinh được chọn có cả học sinh thi Toán, có cả học sinh thi Văn đồng thời có cả nam và nữ\rq\rq.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Chọn ngẫu nhiên $3$ học sinh từ $24$ học sinh.\\
+			Số phần tử của không gian mẫu là $n(\Omega) = \mathrm{C}_{24}^3 = 2\,024$.\\				
+			Biến cố $A$: \lq\lq Ba học sinh được chọn cùng thi môn Toán\rq\rq.\\
+			Ta chọn $3$ học sinh từ $14$ học sinh thi Toán.\\
+			Số kết quả thuận lợi cho $A$ là $n(A) = \mathrm{C}_{14}^3 = 364$.\\				
+			Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{364}{2\,024} = \dfrac{91}{506}$.				
+			\item Biến cố $B$: \lq\lq Ba học sinh được chọn có cả học sinh thi Toán, có cả học sinh thi Văn đồng thời có cả nam và nữ\rq\rq.\\
+			Để thỏa mãn điều kiện, nhóm $3$ học sinh phải có: (ít nhất 1 Toán, ít nhất 1 Văn) và (ít nhất 1 nam, ít nhất 1 nữ).\\
+			Vì học sinh nam chỉ thi Toán, nên chọn 1 học sinh nam chắc chắn sẽ có học sinh thi Toán.\\
+			Ta xét các trường hợp thành phần của nhóm $3$ học sinh được chọn
+			\begin{itemize}
+				\item Trường hợp 1: $1$ nam Toán, $2$ nữ Văn.\\
+				Số cách chọn là $\mathrm{C}_8^1 \cdot \mathrm{C}_{10}^2 = 8 \cdot 45 = 360$.					
+				\item Trường hợp 2: $1$ nam Toán, $1$ nữ Toán, $1$ nữ Văn.\\
+				Số cách chọn là $\mathrm{C}_8^1 \cdot \mathrm{C}_6^1 \cdot \mathrm{C}_{10}^1 = 8 \cdot 6 \cdot 10 = 480$.					
+				\item Trường hợp 3: $2$ nam Toán, $1$ nữ Văn.\\
+				Số cách chọn là $\mathrm{C}_8^2 \cdot \mathrm{C}_{10}^1 = 28 \cdot 10 = 280$.
+			\end{itemize}
+			Số kết quả thuận lợi cho $B$ là $n(B) = 360 + 480 + 280 = 1\,120$.\\				
+			Xác suất của biến cố $B$ là $\mathrm{P}(B) = \dfrac{n(B)}{n(\Omega)} = \dfrac{1\,120}{2\,024} = \dfrac{140}{253}$.
+		\end{enumerate}
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Mật khẩu mở điện thoại của bác Bình là một số tự nhiên lẻ gồm $6$ chữ số khác nhau và nhỏ hơn $600\,000$. Bạn An được bác Bình cho biết thông tin ấy nhưng không cho biết mật khẩu chính xác là số nào nên quyết định thử bấm ngẫu nhiên một số tự nhiên lẻ gồm $6$ chữ số khác nhau và nhỏ hơn $600\,000$. Tính xác suất để bạn An nhập một lần duy nhất mà đúng mật khẩu để mở được điện thoại của bác Bình.
+	\loigiai{
+		Gọi $A$ là biến cố \lq\lq Bạn An nhập một lần duy nhất mà đúng mật khẩu để mở được điện thoại của bác Bình\rq\rq.\\			
+		Gọi số tự nhiên có $6$ chữ số khác nhau là $\overline{a_1a_2a_3a_4a_5a_6}$.\\
+		Vì số cần tìm nhỏ hơn $600\,000$ nên $a_1 \in \{1;2;3;4;5\}$.\\
+		Vì số cần tìm là số lẻ nên $a_6 \in \{1;3;5;7;9\}$.\\			
+		Ta xét không gian mẫu là tập hợp các số tự nhiên lẻ có $6$ chữ số khác nhau và nhỏ hơn $600\,000$.
+		\begin{itemize}
+			\item Trường hợp 1: $a_1 \in \{1;3;5\}$. Có $3$ cách chọn $a_1$.\\
+			Khi đó $a_6$ có $5-1=4$ cách chọn (khác $a_1$).\\
+			Các chữ số $a_2, a_3, a_4, a_5$ được chọn từ $10-2=8$ chữ số còn lại. Có $\mathrm{A}_8^4$ cách chọn.\\
+			Trường hợp này có $3 \cdot 4 \cdot \mathrm{A}_8^4 = 12 \cdot 1\,680 = 20\,160$ số.				
+			\item Trường hợp 2: $a_1 \in \{2;4\}$. Có $2$ cách chọn $a_1$.\\
+			Khi đó $a_6$ có $5$ cách chọn.\\
+			Các chữ số $a_2, a_3, a_4, a_5$ được chọn từ $10-2=8$ chữ số còn lại. Có $\mathrm{A}_8^4$ cách chọn.\\
+			Trường hợp này có $2 \cdot 5 \cdot \mathrm{A}_8^4 = 10 \cdot 1,680 = 16\,800$ số.
+		\end{itemize}
+		Vậy số phần tử của không gian mẫu là $n(\Omega) = 20\,160 + 16\,800 = 36\,960$.\\			
+		Vì chỉ có một mật khẩu đúng nên $n(A)=1$.\\
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{1}{36\,960}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Từ tập hợp các số tự nhiên có sáu chữ số đôi một khác nhau lập từ tập $M = \{1;2;3;4;5;6\}$, chọn ngẫu nhiên một số. Tính xác suất để số được chọn có tổng ba chữ số đầu lớn hơn tổng ba chữ số cuối một đơn vị.
+	\loigiai{
+		Số các số tự nhiên có sáu chữ số đôi một khác nhau lập từ tập $M$ là $6! = 720$.\\
+		Số phần tử của không gian mẫu là $n(\Omega) = 720$.\\			
+		Gọi $A$ là biến cố \lq\lq Số được chọn có tổng ba chữ số đầu lớn hơn tổng ba chữ số cuối một đơn vị\rq\rq.\\
+		Gọi số cần tìm có dạng $\overline{a_1a_2a_3a_4a_5a_6}$.\\
+		Theo đề bài, ta có $\{a_1, a_2, a_3, a_4, a_5, a_6\} = \{1,2,3,4,5,6\}$.\\
+		Tổng các chữ số là $S = 1+2+3+4+5+6 = 21$.\\			
+		Đặt $S_1 = a_1+a_2+a_3$ và $S_2 = a_4+a_5+a_6$.\\
+		Ta có hệ phương trình: $\heva{ & S_1 + S_2 = 21 \\ & S_1 - S_2 = 1} \Leftrightarrow \heva{ & S_1 = 11 \\ & S_2 = 10}$.\\			
+		Ta tìm các bộ ba chữ số $\{a_1, a_2, a_3\}$ có tổng bằng $11$: $\{1;4;6\}$, $\{2;3;6\}$, $\{2;4;5\}$.			
+		\begin{itemize}
+			\item Nếu $\{a_1,a_2,a_3\} = \{1;4;6\}$ thì $\{a_4,a_5,a_6\} = \{2;3;5\}$ (có tổng bằng $10$).\\
+			Có $3!$ cách sắp xếp cho bộ ba chữ số đầu và $3!$ cách sắp xếp cho bộ ba chữ số cuối.\\
+			Vậy có $3! \cdot 3! = 36$ số.
+			\item Nếu $\{a_1,a_2,a_3\} = \{2;3;6\}$ thì $\{a_4,a_5,a_6\} = \{1;4;5\}$ (có tổng bằng $10$).\\
+			Có $3! \cdot 3! = 36$ số.
+			\item Nếu $\{a_1,a_2,a_3\} = \{2;4;5\}$ thì $\{a_4,a_5,a_6\} = \{1;3;6\}$ (có tổng bằng $10$).\\
+			Có $3! \cdot 3! = 36$ số.
+		\end{itemize}
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = 36+36+36=108$.\\			
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{108}{720} = \dfrac{3}{20}$.
+	}
+\end{ex}
+
+\begin{ex}%[0D0V2-7]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Quan Ón]
+	[Trích đề thi HKII - Trường THPT Lê Quý Đôn - Tp.HCM - Năm học 2023-2024]
+	Cho tập hợp $A = \left\lbrace 1;2; \dots; 2023\right\rbrace$. Lấy ngẫu nhiên $3$ số từ tập hợp $A$. Tính xác suất để $3$ số được chọn cách đều nhau.
+	\loigiai{
+		Số cách lấy $3$ số từ tập hợp $A$ là $\mathrm{C}_{2023}^{3}$.\\
+		\textbf{Nhận xét:} Gọi $a$, $b$, $c$ là $3$ số được chọn cách đều nhau được chọn từ tập hợp $A$. Khi đó, $b$ bằng trung bình cộng của hai số $a$ và $c$, mà tập hợp $A$ chỉ bao gồm các số tự nhiên nên tổng hai số $a$ và $c$ phải chia hết cho $2$.\\
+		Do đó
+		\begin{itemize}
+			\item \textbf{Trường hợp 1:} Hai số $a$ và $c$ đều là số chẵn.\\
+			Từ $1$ đến $2023$ có $1011$ số chẵn nên có $\mathrm{C}_{1011}^{2}$ cách chọn hai số $a$ và $c$ đều chẵn.
+			\item \textbf{Trường hợp 2:} Hai số $a$ và $c$ đều là số lẻ.\\
+			Từ $1$ đến $2023$ có $1012$ số lẻ nên có $\mathrm{C}_{1012}^{2}$ cách chọn hai số $a$ và $c$ đều lẻ.
+		\end{itemize}
+		Như vậy có $\mathrm{C}_{1011}^{2} + \mathrm{C}_{1012}^{2}$.\\
+		Xác suất để $3$ số được chọn cách đều nhau là
+		$$ \dfrac{\mathrm{C}_{1011}^{2} + \mathrm{C}_{1012}^{2}}{\mathrm{C}_{2023}^{3}} \approx 0{,}0007. $$
+	}
+\end{ex}
+
+\begin{ex}%[0D0C2-2]%[Dự án đề cương 3 khối NH24-25 - Đợt 2 - Hiệp Quang Nguyễn]
+	Kết quả $(b,c)$ của việc gieo con xúc xắc cân đối và đồng chất hai lần, trong đó $b$ là số chấm xuất hiện trong lần gieo thứ nhất, $c$ là số chấm xuất hiện ở lần gieo thứ hai, được thay vào phương trình bậc hai $x^2 + bx + c = 0$. Tính xác suất để phương trình $x^2 + bx + c = 0$ có nghiệm.
+	\loigiai{
+		Gieo con xúc xắc hai lần, số phần tử của không gian mẫu là $n(\Omega) = 6 \cdot 6 = 36$.\\			
+		Gọi $A$ là biến cố \lq\lq Phương trình $x^2 + bx + c = 0$ có nghiệm\rq\rq.\\
+		Phương trình có nghiệm khi và chỉ khi biệt thức $\Delta = b^2 - 4c \ge 0 \Leftrightarrow b^2 \ge 4c$.\\			
+		Vì $b$, $c$ là số chấm xuất hiện khi gieo xúc xắc nên $b, c \in \{1;2;3;4;5;6\}$.\\
+		Ta xét các trường hợp sau
+		\begin{itemize}
+			\item Nếu $c=1$ thì $b^2 \ge 4$, suy ra $b \in \{2;3;4;5;6\}$. Có $5$ cặp $(b,c)$.
+			\item Nếu $c=2$ thì $b^2 \ge 8$, suy ra $b \in \{3;4;5;6\}$. Có $4$ cặp $(b,c)$.
+			\item Nếu $c=3$ thì $b^2 \ge 12$, suy ra $b \in \{4;5;6\}$. Có $3$ cặp $(b,c)$.
+			\item Nếu $c=4$ thì $b^2 \ge 16$, suy ra $b \in \{4;5;6\}$. Có $3$ cặp $(b,c)$.
+			\item Nếu $c=5$ thì $b^2 \ge 20$, suy ra $b \in \{5;6\}$. Có $2$ cặp $(b,c)$.
+			\item Nếu $c=6$ thì $b^2 \ge 24$, suy ra $b \in \{5;6\}$. Có $2$ cặp $(b,c)$.
+		\end{itemize}
+		Số kết quả thuận lợi cho biến cố $A$ là $n(A) = 5+4+3+3+2+2 = 19$.\\			
+		Xác suất của biến cố $A$ là $\mathrm{P}(A) = \dfrac{n(A)}{n(\Omega)} = \dfrac{19}{36}$.
+	}
+\end{ex}
+
+\indapan{10}{ans/0T10-Bai2-TN}
+\indapan{4}{ans/0T10-Bai2-DS}
+\indapan{5}{ans/0T10-Bai2-TLN}

@@ -1,0 +1,1232 @@
+\section{Hệ thức giữa cạnh và góc của tam giác vuông} % Tên bài
+\subsection{Kiến thức trọng tâm}
+\begin{dl}
+	\begin{itemize}
+		\item Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với cosin góc kề.
+		\item Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông còn lại nhân với tang góc đối hoặc nhân với cotang góc kề.
+	\end{itemize}
+\end{dl}
+
+\immini{\luuy{Trong tam giác $ABC$ vuông tại $A$ (hình bên), ta có
+		\begin{eqnarray*}
+			&&b=a\cdot\sin B=a\cdot\cos C;\quad c=a\cdot\sin C=a\cdot\cos B\\
+			&&b=c\cdot\tan B=c\cdot\cot C;\quad c=b\cdot\tan C=b\cdot\cot B
+	\end{eqnarray*}
+}}{
+\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+	\def\r{2.5}
+	\path
+	(-180:\r) coordinate (B)
+	(0:\r) coordinate (C)
+	(110:\r) coordinate (A)
+	;
+	
+	\draw (A)--(B)node[midway, above left]{$c$}--(C)node[midway, below]{$a$}--cycle node[midway, above right]{$b$};
+	
+	\foreach \p/\r/\t in {C/A/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+	
+	\foreach \p/\r in {A/110,B/-150,C/-30}
+	\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+\end{tikzpicture}
+}
+
+\subsection{Ví dụ}
+
+\luuy{Trong tất cả các ví dụ dưới đây, các kết quả độ dài được làm tròn đến hàng thập phân thứ nhất, các kết quả góc được làm tròn đến hàng đơn vị.}
+
+\begin{dang}{Giải tam giác vuông}
+	\begin{itemize}
+		\item Giải tam giác vuông là bài toán mà ta đi tìm tất cả các cạnh và các góc của một tam giác vuông.
+		\item Để giải quyết bài toán này, cần áp dụng các hệ thức về các cạnh và góc của tam giác vuông.
+	\end{itemize}
+\end{dang}
+
+\setcounter{vd}{0}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1H2-1]%[9H1H2-2]
+	Giải tam giác $ABC$ vuông tại $A$ trong các trường hợp sau.
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $BC=10$, $AB=7$.
+			\item $BC=17$, $\widehat{C}=60^\circ$.
+			\item $AB=25$, $CA=18$.
+			\item $CA=13$, $\widehat{B}=25^\circ$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+	\begin{enumerate}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, theo định lý Pythagore, ta có
+		$$AC^2=BC^2-AB^2=10^2-7^2=51.$$
+		Suy ra
+		$$AC=\sqrt{51}\approx7{,}1.$$
+		Ta tiếp tục có
+		$$\sin B=\dfrac{AB}{BC}=\dfrac{7}{10}.$$
+		Suy ra
+		$$\widehat{B}\approx44^\circ.$$
+		và
+		$$\widehat{C}=90^\circ-\widehat{B}\approx90^\circ-44^\circ=46^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.5]
+			\path
+			(0,0) coordinate (A)
+			(90:7) coordinate (B)
+			(0:7.1) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, left]{$7$}--(C)node[midway, above right]{$10$}--cycle;
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$AB=BC\cdot\sin C=17\cdot\sin60^\circ=\dfrac{17\sqrt{3}}{2}\approx14{,}7.$$
+		$$CA=BC\cdot\cos C=17\cdot\cos60^\circ=\dfrac{17}{2}=8{,}5.$$
+		$$\widehat{B}=90^\circ-\widehat{C}=90^\circ-60^\circ=30^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.35]
+			\path
+			(0,0) coordinate (A)
+			(90:14.7) coordinate (B)
+			(0:8.5) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)node[midway, above right]{$17$}--cycle;
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {B/C/A} \draw pic[draw, angle radius=0.55cm, "$60^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, theo định lý Pythagore, ta có
+		$$BC^2=AB^2+CA^2=25^2+18^2=949.$$
+		Suy ra
+		$$BC=\sqrt{949}\approx30{,}8.$$
+		Ta tiếp tục có
+		$$\tan B=\dfrac{CA}{AB}=\dfrac{18}{25}.$$
+		Suy ra
+		$$\widehat{B}\approx36^\circ.$$
+		và
+		$$\widehat{C}=90^\circ-\widehat{B}\approx90^\circ-36^\circ=54^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.23]
+			\path
+			(0,0) coordinate (A)
+			(90:25) coordinate (B)
+			(0:18) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, left]{$25$}--(C)--cycle node[midway, below]{$18$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$AB=CA\cdot\cot B=13\cdot\cot25^\circ\approx27{,}9.$$
+		và
+		$$\widehat{C}=90^\circ-\widehat{B}=90^\circ-25^\circ=65^\circ.$$
+		Theo định lý Pythagore, ta có
+		$$BC^2=AB^2+CA^2\approx27{,}9^2+13^2=947{,}41.$$
+		Suy ra
+		$$BC=\sqrt{947{,}41}\approx30{,}8.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.2]
+			\path
+			(0,0) coordinate (A)
+			(90:27.9) coordinate (B)
+			(0:13) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)--cycle node[midway, below]{$13$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {A/B/C} \draw pic[draw, angle radius=1cm, "$25^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+	\end{enumerate}
+	}
+\end{vd}
+
+\begin{dang}{Tính cạnh và góc của tam giác thường}
+	Để giải quyết bài toán này, cần làm xuất hiện tam giác vuông bằng cách kẻ thêm đường cao, và sử dụng các hệ thức về cạnh và góc trong tam giác vuông.
+\end{dang}
+\setcounter{vd}{0}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $\widehat{B}=35^\circ$, $\widehat{C}=50^\circ$ và đường cao $AH=6$. Tính độ dài các cạnh của tam giác $AB$, $BC$, $CA$ và độ lớn của góc $A$.
+	\loigiai{
+	\immini{Xét tam giác $AHB$ vuông tại $H$, ta có
+	$$AH=AB\cdot\sin B\quad\text{và}\quad BH=AH\cdot\cot B.$$
+	Suy ra
+	$$AB=\dfrac{AH}{\sin B}=\dfrac{6}{\sin35^\circ}\approx10{,}5.$$
+	và
+	$$BH=6\cdot\cot35^\circ.\quad(1)$$
+	}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.45]
+		\path
+		(0,0) coordinate (H)
+		(90:6) coordinate (A)
+		(180:8.6) coordinate (B)
+		(0:5) coordinate (C)
+		;
+		
+		\draw (A)--(B)--(C)--cycle (A)--(H) node[midway, left]{$6$};
+		
+		\foreach \p/\r/\t in {B/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\foreach \p/\r/\t in {C/B/A} \draw pic[draw, angle radius=0.75cm, "$35^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+		\foreach \p/\r/\t in {A/C/B} \draw pic[draw, angle radius=0.75cm, "$50^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+		\foreach \p/\r/\t in {A/C/B} \draw pic[draw, angle radius=0.65cm]{angle=\p--\r--\t};
+		
+		\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+		\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	Xét tam giác $AHC$ vuông tại $H$, ta có
+	$$AH=AC\sin C\quad\text{và}\quad HC=AH\cdot\cot C.$$
+	Suy ra
+	$$AC=\dfrac{AH}{\sin C}=\dfrac{6}{\sin50^\circ}\approx7{,}8.$$
+	và
+	$$CH=6\cdot\cot50^\circ.\quad(2)$$
+	Từ (1) và (2), ta suy ra
+	$$BC=BH+CH=6\cdot\cot35^\circ+6\cdot\cot50^\circ\approx13{,}6.$$
+	Xét tam giác $ABC$, ta có
+	$$\widehat{A}=180^\circ-\widehat{B}-\widehat{C}=180^\circ-35^\circ-50^\circ=95^\circ.$$
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $AB=16$ cm, $AC=13$ cm và $\widehat{B}=50^\circ$. Tính độ dài $BC$.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.45]
+			\path
+			(0,0) coordinate (H)
+			(90:12.3) coordinate (A)
+			(180:10.3) coordinate (B)
+			(0:4.3) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, left]{$16$}--(C)--cycle node[midway, right]{$13$} (A)--(H);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {C/B/A} \draw pic[draw, angle radius=0.75cm, "$50^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		\hspace{1 cm}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.45]
+			\path
+			(0,0) coordinate (H)
+			(90:12.3) coordinate (A)
+			(180:10.3) coordinate (B)
+			(180:4.3) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, left]{$16$}--(C)--cycle node[midway, right]{$13$} (A)--(H)--(C);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {C/B/A} \draw pic[draw, angle radius=0.75cm, "$50^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/-90,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Từ $A$, kẻ đường cao $AH$ của tam giác $ABC$.\\
+	Xét tam giác $AHB$ vuông tại $H$, ta có
+	$$AH=AB\cdot\sin B=16\cdot\sin50^\circ\text{ (cm)}$$
+	và
+	$$BH=AB\cdot\cos B=16\cdot\cos50^\circ\text{ (cm)}.$$
+	Xét tam giác $AHC$ vuông tại $C$, theo định lý Pytagore, ta có
+	$$HC^2=AC^2-AH^2=13^2-\left(16\cdot\sin50^\circ\right)^2.$$
+	Suy ra
+	$$HC=\sqrt{13^2-\left(16\cdot\sin50^\circ\right)^2}\text{ (cm)}.$$
+	Ta có hai trường hợp xảy ra
+	\begin{itemize}
+		\item Trường hợp 1: $H$ nằm giữa $B$ và $C$. Khi đó, ta có
+		$$BC=BH+HC=16\cdot\cos50^\circ+\sqrt{13^2-\left(16\cdot\sin50^\circ\right)^2}\approx4{,}6\text{ (cm)}.$$
+		\item Trường hợp 2: $C$ nằm giữa $B$ và $H$. Khi đó, ta có
+		$$BC=BH-HC=16\cdot\cos50^\circ-\sqrt{13^2-\left(16\cdot\sin50^\circ\right)^2}\approx6\text{ (cm)}.$$
+	\end{itemize}
+	Vậy $BC\approx14{,}6$ cm hoặc $BC\approx6$ cm.
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $AB=16$ cm, $AC=21$ cm và $\widehat{B}=70^\circ$. Tính độ dài $BC$.
+	\loigiai{
+	\immini{Từ $A$, kẻ đường cao $AH$ của tam giác $ABC$.\\
+	Xét tam giác $AHB$ vuông tại $H$, ta có
+	$$AH=AB\cdot\sin B=16\cdot\sin70^\circ\text{ (cm)}$$
+	và
+	$$BH=AB\cdot\cos B=16\cdot\cos70^\circ\text{ (cm)}.$$
+	Xét tam giác $AHC$ vuông tại $C$, theo định lý Pytagore, ta có
+	$$HC^2=AC^2-AH^2=21^2-\left(16\cdot\sin70^\circ\right)^2.$$
+	Suy ra
+	$$HC=\sqrt{21^2-\left(16\cdot\sin70^\circ\right)^2}\text{ (cm)}.$$}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.25]
+		\path
+		(0,0) coordinate (H)
+		(90:15) coordinate (A)
+		(180:5.5) coordinate (B)
+		(0:14.7) coordinate (C)
+		;
+		
+		\draw (A)--(B)node[midway, left]{$16$}--(C)--cycle node[midway, right]{$21$} (A)--(H);
+		
+		\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\foreach \p/\r/\t in {C/B/A} \draw pic[draw, angle radius=0.75cm, "$70^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+		
+		\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+		\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	Vì $BH<HC$ nên điểm $C$ không thể nằm giữa $B$ và $H$. Do đó, ta chỉ có trường hợp $H$ nằm giữa $B$ và $C$, tức ta có
+	$$BC=BH+HC=16\cdot\cos70^\circ+\sqrt{21^2-\left(16\cdot\sin70^\circ\right)^2}\approx20{,}1\text{ (cm)}.$$
+	Vậy $BC\approx20{,}1$ cm.
+	}
+\end{vd}
+
+\begin{dang}{Bài toán thực tế}
+	\begin{itemize}
+		\item Để giải quyết bài toán này, ta cần thực hiện mô hình hóa bài toán một cách phù hợp, đặc biệt là làm xuất hiện tam giác vuông.
+		\item Từ đó áp dụng các hệ thức về cạnh và góc trong tam giác vuông để giải quyết vấn đề đặt ra.
+	\end{itemize}
+\end{dang}
+
+\setcounter{vd}{0}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Một kiến trúc sư cần thiết kế một tầng lửng cho căn phòng. Sau khi hoàn thiện bản vẽ và tính toán chi tiết, kiến trúc sư thấy chiếc cầu thang phải dài khoảng $4{,}8$ m và được đặt nghiêng sao cho tạo với mặt sàn một góc $58^\circ$. Hỏi độ cao của tầng lửng so với mặt đất mà anh thiết kế là bao nhiêu mét?}{
+	\includegraphics[scale=0.04]{./Images/Hinh1}
+	}
+	\loigiai{
+	\immini{Ta mô hình hóa bài toán như hình vẽ bên với $AB$ là độ cao của tầng lửng so với mặt đất, $BC$ là chiều dài chiếc cầu thang và $AC$ là mặt đất.\\
+	Khi đó, ta có tam giác $ABC$ là tam giác vuông tại $A$, có $BC=4{,}8$ m và $\widehat{BCA}=58^\circ$. Do đó, ta có
+	$$AB=BC\cdot\sin C=4{,}8\cdot\sin58^\circ\approx4{,}1\text{ (m)}.$$
+	Vậy độ cao của tầng lửng so với mặt đất là khoảng $4{,}1$ m.}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.75]
+		\path
+		(0,0) coordinate (A)
+		(90:4.1) coordinate (B)
+		(0:2.54) coordinate (C)
+		;
+		
+		\draw (A)--(B)--(C) node[midway, above right]{$4{,}8$ m}--cycle;
+		
+		\foreach \p/\r/\t in {C/A/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\draw pic[draw, angle radius=0.55cm, "$58^\circ$", angle eccentricity=1.5]{angle=B--C--A};
+		
+		\foreach \p/\r in {A/-135,B/90,C/0}
+		\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	}
+\end{vd}
+
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Tòa nhà Landmark 81 là một tòa nhà cao tầng bên sông Sài Gòn tại Thành phố Hồ Chí Minh. Tòa nhà này có 81 tầng và từng là tòa nhà cao nhất Đông Năm Á (năm 2018). Để ước lượng chiều cao của tòa nhà, tại một thời điểm tia sáng mặt trời tạo với mặt đất một góc khoảng $63^\circ$, người ta đo được bóng của tòa nhà trên mặt đất dài khoảng $235$ m. Từ số liệu trên, hãy ước lượng chiều cao của tòa nhà này.}{
+	\includegraphics[scale=0.75]{./Images/Hinh2}
+	}
+	\loigiai{
+	\immini{Ta mô hình hóa bài toán như hình vẽ dưới với $AB$ là tòa nhà, $AC$ là bóng của tòa nhà trên mặt đất.\\
+	Khi đó, tam giác $ABC$ vuông tại $A$ và góc tạo bởi tia nắng và mặt đất là $\widehat{BCA}=63^\circ$. Do đó, ta có
+	$$AB=AC\cdot\tan C=235\cdot\tan63^\circ\approx461{,}2\text{ (m)}.$$
+	Vậy chiều cao của tòa nhà này khoảng $461{,}2$ m.}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+		\path
+		(0,0) coordinate (A)
+		(90:4.1) coordinate (B)
+		(0:2.54) coordinate (C)
+		;
+		
+		\draw (A)--(B)--(C)--cycle node[midway, below]{$235$ m};
+		
+		\foreach \p/\r/\t in {C/A/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\draw pic[draw, angle radius=0.55cm, "$63^\circ$", angle eccentricity=1.5]{angle=B--C--A};
+		
+		\foreach \p/\r in {A/-135,B/90,C/0}
+		\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Để đo chiều cao của một ngọn hải đăng, người ta đặt giác kế tại $2$ vị trí $M$ và $N$ sao cho các vị trí $M$, $N$, $P$ cùng nằm trên một đường thẳng như hình vẽ. Kết quả thu được, vị trí $M$ nhìn ngọn hải đăng dưới góc $30^\circ$, vị trí $N$ nhìn ngọn hải đăng dưới góc $40^\circ$, khoảng cách giữa $M$ và $N$ là $24$ m. Hỏi chiều cao của ngọn hải đăng là bao nhiêu mét?}{
+	\includegraphics[scale=1]{./Images/Hinh3}
+	}
+	\loigiai{
+	Đặt chiều cao của ngọn hải đăng là $x$ (đơn vị: mét, điều kiện: $x>0$).\\
+	Xét tam giác $MDP$ vuông tại $P$, ta có
+	$$MP=DP\cdot\cot M=x\cdot\cot30^\circ\text{ (m)}.$$
+	Xét tam giác $NDP$ vuông tại $P$, ta có
+	$$NP=DP\cdot\cot N=x\cdot\cot40^\circ\text{ (m)}.$$
+	Theo giả thiết, ta có $MN=24$ m nên ta có phương trình
+	\begin{eqnarray*}
+		MP-NP&=&MN\\
+		x\cdot\cot30^\circ-x\cdot\cot40^\circ&=&24\\
+		x\left(\cot30^\circ-\cot40^\circ\right)&=&24\\
+		x&\approx&44{,}1.
+	\end{eqnarray*}
+	Vậy chiều cao của ngọn hải đăng là khoảng $44{,}1$ m.
+	}
+\end{vd}
+
+
+\subsection{Bài tập}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1H2-1]%[9H1H2-2]
+	Giải tam giác $ABC$ vuông tại $A$ trong các trường hợp sau
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $BC=13$, $CA=12$.
+			\item $BC=17,{5}$, $\widehat{B}=37^\circ$.
+			\item $AB=27{,}9$, $CA=10{,}2$.
+			\item $CA=10\sqrt{3}$, $\widehat{C}=30^\circ$.
+			\item $CA=2{,}7$, $\widehat{B}=41^\circ$.
+			\item $AB=10\sqrt{2}$, $\widehat{B}=65^\circ$.
+		\end{enumerate}
+	\end{multicols}
+	\textit{(các kết quả về độ dài làm tròn đến hàng thập phân thứ nhất, các kết quả về góc làm tròn đến hàng đơn vị)}
+	\loigiai{
+	\begin{enumerate}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, theo định lý Pythagore, ta có
+		$$AB=\sqrt{BC^2-CA^2}=\sqrt{13^2-12^2}=5.$$
+		Từ đó, ta có
+		$$\sin B=\dfrac{CA}{BC}=\dfrac{12}{13}.$$
+		Suy ra
+		$$\widehat{B}\approx67^\circ.$$
+		và
+		$$\widehat{C}=90^\circ-\widehat{B}\approx90^\circ-67^\circ=23^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.5]
+			\path
+			(0,0) coordinate (A)
+			(90:5) coordinate (B)
+			(0:12) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C) node[midway, above right]{$13$}--cycle node[midway, below]{$12$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$AB=BC\cdot\cos B=17{,}5\cdot\cos37^\circ\approx14.$$
+		$$CA=BC\cdot\sin B=17{,}5\cdot\sin37^\circ\approx10{,}5.$$
+		$$\widehat{C}=-90^\circ-\widehat{B}=90^\circ-37^\circ=53^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.25]
+			\path
+			(0,0) coordinate (A)
+			(90:14) coordinate (B)
+			(0:10.5) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C) node[midway, above right]{$17{,}5$}--cycle;
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {A/B/C} \draw pic[draw, angle radius=0.75cm, "$37^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, theo định lý Pythagore, ta có
+		$$BC=\sqrt{AB^2+CA^2}=\sqrt{27{,}9^2+10{,}2^2}\approx29{,}7.$$
+		Từ đó, ta có
+		$$\tan B=\dfrac{CA}{AB}=\dfrac{10{,}2}{27{,}9}=\dfrac{34}{93}.$$
+		Suy ra
+		$$\widehat{B}\approx20^\circ.$$
+		và
+		$$\widehat{C}=90^\circ-\widehat{B}\approx90^\circ-20^\circ=70^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.2]
+			\path
+			(0,0) coordinate (A)
+			(90:27.9) coordinate (B)
+			(0:10.2) coordinate (C)
+			;
+			
+			\draw (A)--(B) node[midway, left]{$27{,}9$}--(C)--cycle node[midway, below]{$10{,}2$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$AB=CA\cdot\tan C=10\sqrt{3}\cdot\tan30^\circ=10.$$
+		Theo định lý Pythagore, ta có
+		$$BC=\sqrt{AB^2+CA^2}=\sqrt{10^2+\left(10\sqrt{3}\right)^2}=20.$$
+		Ta cũng có
+		$$\widehat{B}=90^\circ-\widehat{C}=90^\circ-30^\circ=60^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.3]
+			\path
+			(0,0) coordinate (A)
+			(90:10) coordinate (B)
+			(0:17.3) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)--cycle node[midway, below]{$10\sqrt{3}$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {B/C/A} \draw pic[draw, angle radius=0.75cm, "$30^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$AB=CA\cdot\cot B=2{,}7\cdot\cot41^\circ\approx3{,}1.$$
+		Theo định lý Pythagore, ta có
+		$$BC=\sqrt{AB^2+CA^2}\approx\sqrt{3{,}1^2+2{,}7^2}\approx4{,}1.$$
+		Ta cũng có
+		$$\widehat{C}=90^\circ-\widehat{B}=90^\circ-41^\circ=49^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\path
+			(0,0) coordinate (A)
+			(90:3.1) coordinate (B)
+			(0:2.7) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)--cycle node[midway, below]{$2{,}7$};
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {A/B/C} \draw pic[draw, angle radius=0.75cm, "$41^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+		\immini{\item Xét tam giác $ABC$ vuông tại $A$, ta có
+		$$CA=AB\cdot\tan B=10\sqrt{2}\cdot\tan65^\circ\approx30{,}3.$$
+		Theo định lý Pythagore, ta có
+		$$BC=\sqrt{AB^2+CA^2}\approx\sqrt{\left(10\sqrt{2}\right)^2+30{,}3^2}\approx33{,}4.$$
+		Ta cũng có
+		$$\widehat{C}=90^\circ-\widehat{B}=90^\circ-65^\circ=25^\circ.$$}{
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.15]
+			\path
+			(0,0) coordinate (A)
+			(90:14.1) coordinate (B)
+			(0:30.3) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, left]{$10\sqrt{2}$}--(C)--cycle;
+			
+			\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {A/B/C} \draw pic[draw, angle radius=0.5cm, "$65^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-135,B/90,C/0}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		}
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $AB=22$ cm, $AC=15$ cm và $\widehat{C}=30^\circ$. Tính độ dài đoạn $BC$ \textit{(kết quả làm tròn đến hàng thập phân thứ nhất)}.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.45]
+			\path
+			(0,0) coordinate (H)
+			(90:7.5) coordinate (A)
+			(180:20.7) coordinate (B)
+			(0:13) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, above left]{$22$}--(C)--cycle node[midway, above right]{$15$} (A)--(H);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {A/C/B} \draw pic[draw, angle radius=0.75cm, "$30^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Từ $A$, kẻ đường cao $AH$ của tam giác $ABC$.\\
+	Xét tam giác $AHC$ vuông tại $H$, ta có
+	$$AH=AC\cdot\sin C=15\cdot\sin30^\circ\text{ (cm)}$$
+	và
+	$$HC=AC\cdot\cos C=15\cdot\cos30^\circ\text{ (cm)}.$$
+	Xét tam giác $AHB$ vuông tại $C$, theo định lý Pytagore, ta có
+	$$BH^2=AB^2-AH^2=22^2-\left(15\cdot\sin30^\circ\right)^2.$$
+	Suy ra
+	$$BH=\sqrt{22^2-\left(15\cdot\sin30^\circ\right)^2}\text{ (cm)}.$$
+	Vì $BH>CH$ nên điểm $B$ không thể nằm giữa $C$ và $H$. Do đó, ta chỉ có trường hợp $H$ nằm giữa $C$ và $B$, tức ta có
+	$$BC=BH+HC=\sqrt{22^2-\left(15\cdot\sin30^\circ\right)^2}+15\cdot\cos30^\circ\approx33{,}7\text{ (cm)}.$$
+	Vậy $BC\approx33{,}7$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $AB=14$ m, $BC=17$ cm và $\widehat{C}=35^\circ$. Tính độ dài đoạn $AC$ \textit{(kết quả làm tròn đến hàng phần thập phân thứ nhất)}.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.35]
+			\path
+			(0,0) coordinate (H)
+			(90:9.8) coordinate (B)
+			(180:10) coordinate (A)
+			(0:13.9) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, above left]{$14$}--(C) node[midway, above right]{$17$}--cycle (B)--(H);
+			
+			\foreach \p/\r/\t in {C/H/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {B/C/A} \draw pic[draw, angle radius=0.75cm, "$35^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/180,B/90,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+		\hspace{1 cm}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.35]
+			\path
+			(0,0) coordinate (H)
+			(90:9.8) coordinate (B)
+			(0:10) coordinate (A)
+			(0:13.9) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, below left]{$14$}--(C) node[midway, above right]{$17$}--cycle (B)--(H)--(A);
+			
+			\foreach \p/\r/\t in {C/H/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r/\t in {B/C/A} \draw pic[draw, angle radius=0.75cm, "$35^\circ$", angle eccentricity=1.5]{angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/-90,B/90,C/0,H/-135}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Từ $B$, kẻ đường cao $BH$ của tam giác $ABC$.\\
+	Xét tam giác $BHC$ vuông tại $H$, ta có
+	$$BH=BC\cdot\sin C=17\cdot\sin35^\circ\text{ (cm)}$$
+	và
+	$$HC=BC\cdot\cos C=17\cdot\cos35^\circ\text{ (cm)}.$$
+	Xét tam giác $BHA$ vuông tại $H$, theo định lý Pytagore, ta có
+	$$AH^2=AB^2-BH^2=14^2-\left(17\cdot\sin35^\circ\right)^2.$$
+	Suy ra
+	$$AH=\sqrt{14^2-\left(17\cdot\sin35^\circ\right)^2}\text{ (cm)}.$$
+	Ta có hai trường hợp xảy ra
+	\begin{itemize}
+		\item Trường hợp 1: $H$ nằm giữa $A$ và $C$. Khi đó, ta có
+		$$AC=AH+HC=17\cdot\cos35^\circ+\sqrt{14^2-\left(17\cdot\sin35^\circ\right)^2}\approx24\text{ (cm)}.$$
+		\item Trường hợp 2: $A$ nằm giữa $C$ và $H$. Khi đó, ta có
+		$$AC=HC-AH=17\cdot\cos35^\circ-\sqrt{14^2-\left(17\cdot\sin35^\circ\right)^2}\approx3{,}9\text{ (cm)}.$$
+	\end{itemize}
+	Vậy $BC\approx24$ cm hoặc $BC\approx3{,}9$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$ cân tại $A$, góc ở đáy bằng $30^\circ$. Vẽ các đường cao $AH$ và $BK$ của tam giác. Biết $BK=15$, tính độ dài $AH$.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\def\r{4.5}
+			\path
+			(90:\r) coordinate (A)
+			(30:\r) coordinate (C)
+			(150:\r) coordinate (B)
+			($(A)!(B)!(C)$) coordinate (K)
+			($(B)!(A)!(C)$) coordinate (H)			
+			;
+			
+			\draw (A)--(B)--(C)--cycle (A)--(H) (B)--(K) node[midway, above left]{$15$};
+			\draw [dashed] (A)--(K);
+			
+			\draw pic[draw, angle radius=0.75cm, "$30^\circ$", angle eccentricity=1.5]{angle=C--B--A};
+			
+			\foreach \p/\r/\t in {B/K/A,C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90,K/90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Vì tam giác $ABC$ cân tại $A$ nên ta có
+	$$\widehat{ABC}=\widehat{ACB}=30^\circ.$$
+	Xét tam giác $BKC$ vuông tại $K$, ta suy ra
+	$$\widehat{KBC}=90^\circ-\widehat{KCB}=90^\circ-30^\circ=60^\circ.$$
+	Từ đó, ta suy ra
+	$$\widehat{KBA}=\widehat{KBC}-\widehat{ABC}=60^\circ-30^\circ=30^\circ.$$
+	Xét tam giác $AKB$ vuông tại $K$, ta có
+	$$AB=\dfrac{BK}{\cos\widehat{KBA}}=\dfrac{15}{\cos30^\circ}=10\sqrt{3}.$$
+	Xét tam giác $AHB$ vuông tại $B$, ta có
+	$$AH=AB\cdot\sin\widehat{ABH}=10\sqrt{3}\cdot\sin30^\circ=5\sqrt{3}.$$
+	Vậy $AH=5\sqrt{3}$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$, $AB=4$ cm, $\widehat{B}=60^\circ$ và $\widehat{C}=45^\circ$. Tính độ dài cạnh $BC$ và $CA$.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\path
+			(0,0) coordinate (H)
+			(180:2) coordinate (B)
+			(90:3.464) coordinate (A)
+			(0:3.464) coordinate (C)
+			;
+			
+			\draw (A)--(B) node[midway, above left]{$4$ cm}--(C)--cycle (A)--(H);
+			\draw pic[draw, angle radius=0.75cm, "$60^\circ$", angle eccentricity=1.5]{angle=C--B--A};
+			\draw pic[draw, angle radius=0.75cm, "$45^\circ$", angle eccentricity=1.5]{angle=A--C--B};
+			\draw pic[draw, angle radius=0.65cm,]{angle=A--C--B};
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Gọi $H$ là chân đường cao hạ từ đỉnh $A$ lên $BC$.\\
+	Xét tam giác $ABH$ vuông tại $H$, ta có
+	$$AH=AB\cdot\sin B=4\cdot\sin60^\circ=2\sqrt{3}\text{ (cm)}.$$
+	$$BH=AB\cdot\cos B=4\cdot\cos60^\circ=2\text{ (cm)}.$$
+	Xét tam giác $ACH$ vuông tại $H$, ta có
+	$$CA=\dfrac{AH}{\sin C}=\dfrac{2\sqrt{3}}{\sin45^\circ}=2\sqrt{6}\text{ (cm)}.$$
+	$$CH=AH\cdot\cot C=2\sqrt{3}\cdot\cot45^\circ=2\sqrt{3}\text{ (cm)}.$$
+	Từ đó, suy ra
+	$$BC=BH+HC=2+2\sqrt{3}\text{ (cm)}.$$
+	Vậy $BC=2+2\sqrt{3}$ cm và $CA=2\sqrt{6}$ cm.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác nhọn $ABC$, $AB=15$, $AC=19$ và $\widehat{A}=45^\circ$. Tính độ dài cạnh $BC$ (làm tròn kết quả đến hàng thập phân thứ hai).
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.35]
+			\path
+			(0,0) coordinate (H)
+			(90:14.899) coordinate (A)
+			(180:1.7355) coordinate (B)
+			(0:11.7903) coordinate (C)
+			($(A)!(B)!(C)$) coordinate (K)
+			;
+			
+			\draw (A)--(B) node[midway, above left]{$15$}--(C)--cycle node[midway, above right]{$19$} (B)--(K);
+			
+			\draw pic[draw, angle radius=0.85cm, "$45^\circ$", angle eccentricity=1.5]{angle=B--A--C};
+			\foreach \p/\r/\t in {B/K/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,K/30}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Gọi $K$ là chân đường cao hạ từ đỉnh $B$ lên $AC$.\\
+	Xét tam giác $ABK$, ta có
+	$$AK=AB\cdot\cos A=15\cdot\cos45^\circ=\dfrac{15\sqrt{2}}{2}.$$
+	$$BK=AB\cdot\sin A=15\cdot\sin45^\circ=\dfrac{15\sqrt{2}}{2}.$$
+	Khi đó, ta suy ra
+	$$CK=CA-AK=19-\dfrac{15\sqrt{2}}{2}.$$
+	Xét tam giác $BKC$, theo định lý Pythagore, ta có
+	$$BC=\sqrt{BK^2+CK^2}=\sqrt{\left(\dfrac{15\sqrt{2}}{2}\right)^2+\left(19-\dfrac{15\sqrt{2}}{2}\right)^2}\approx13{,}53.$$
+	Vậy $BC\approx13{,}53$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $ABC$ nhọn, $BC=a$, $CA=b$, $AB=c$. Chứng minh rằng
+	$$a=b\cdot\cos C+c\cdot\cos B.$$
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\def\r{3}
+			\path
+			(110:\r) coordinate (A)
+			(-150:\r) coordinate (B)
+			(-30:\r) coordinate (C)
+			($(B)!(A)!(C)$) coordinate (H)
+			;
+			
+			\draw (A)--(B)--(C)--cycle (A)--(H);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Gọi $H$ là chân đường cao hạ từ đỉnh $A$ lên $BC$.\\
+	Xét tam giác $ABH$ vuông tại $H$, ta có
+	$$BH=AB\cdot\cos B=c\cdot\cos B.$$
+	Xét tam giác $ACH$ vuông tại $H$, ta có
+	$$CH=AC\cdot\cos C=b\cdot\cos C.$$
+	Suy ra
+	$$a=CH+BH=b\cdot\cos C+c\cdot\cos B.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $MNP$ có $\widehat{N}=65^\circ$, $\widehat{P}=48^\circ$ và đường cao $MH=10$ cm. Tính diện tích tam giác $MNP$ (kết quả làm tròn đến hàng thập phân thứ hai).
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.5]
+			\path
+			(0,0) coordinate (H)
+			(90:10) coordinate (M)
+			(180:4.663) coordinate (N)
+			(0:9.004) coordinate (P)
+			;
+			
+			\draw (M)--(N)--(P)--cycle (M)--(H) node[midway, right]{$10$ cm};
+			
+			\foreach \p/\r/\t in {P/H/M} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\draw pic[draw, angle radius=0.75cm, "$65^\circ$", angle eccentricity=1.5]{angle=P--N--M};
+			\draw pic[draw, angle radius=0.75cm, "$48^\circ$", angle eccentricity=1.5]{angle=M--P--N};
+			\draw pic[draw, angle radius=0.65cm]{angle=M--P--N};
+			
+			\foreach \p/\r in {M/90,N/180,P/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Xét tam giác $MHN$ vuông tại $H$, ta có
+	$$NH=MH\cdot\cot N=10\cdot\cot65^\circ\text{ (cm)}.$$
+	Xét tam giác $MHP$ vuông tại $H$, ta có
+	$$HP=MH\cdot\cot P=10\cdot\cot48^\circ\text{ (cm)}.$$
+	Từ đó, suy ra
+	$$NP=NH+HP=10\cdot\cot65^\circ+10\cdot\cot48^\circ\text{ (cm)}.$$
+	Diện tích tam giác $MNP$ bằng
+	$$S_{MNP}=\dfrac{1}{2}\cdot MH\cdot NP=\dfrac{1}{2}\cdot10\cdot\left(10\cdot\cot65^\circ+10\cdot\cot48^\circ\right)\approx68{,}34\text{ (cm$^2$)}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho tam giác $MNP$ có $MN=12$, $NP=16$ và $PM=20$. Tính độ lớn các góc của tam giác $MNP$.
+	\loigiai{
+	Gọi $H$ là chân đường cao hạ từ đỉnh $N$ lên $PM$. Đặt $MH=x$, suy ra $HP=MP-MH=20-x$ ($x>0$).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.45]
+			\path
+			(0,0) coordinate (H)
+			(90:9.6) coordinate (N)
+			(180:7.2) coordinate (M)
+			(0:12.8) coordinate (P)
+			;
+			
+			\draw (N)--(M)node[midway, above left]{$12$}--(P)node[midway, below]{$20$}--cycle node[midway, above right]{$16$} (N)--(H);
+			
+			\foreach \p/\r/\t in {P/H/N} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {N/90,M/180,P/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Xét tam giác $NHM$ vuông tại $H$, ta có
+	$$NH^2=MN^2-MH^2=12^2-x^2.\quad(1)$$
+	Xét tam giác $NHP$ vuông tại $H$, ta có
+	$$NH^2=NP^2-HP^2=16^2-\left(20-x\right)^2.\quad(2)$$
+	Từ (1) và (2), suy ra
+	\begin{eqnarray*}
+		12^2-x^2&=&16^2-\left(20-x\right)^2\\
+		144-x^2&=&256-\left(400-40x+x^2\right)\\
+		40x&=&288\\
+		x&=&\dfrac{36}{5}.
+	\end{eqnarray*}
+	Như vậy, ta có $MH=\dfrac{36}{5}$ và $HP=\dfrac{64}{5}$.\\
+	Xét tam giác $NHM$ vuông tại $H$, ta có
+	$$\cos M=\dfrac{MH}{NM}=\dfrac{\frac{36}{5}}{12}=\dfrac{3}{5}.$$
+	Suy ra
+	$$\widehat{B}\approx53^\circ.$$
+	Xét tam giác $NHP$ vuông tại $H$, 16 cos
+	$$\cos C=\dfrac{HP}{NP}=\dfrac{\frac{64}{5}}{16}=\dfrac{4}{5}.$$
+	Suy ra
+	$$\widehat{C}\approx37^\circ.$$
+	Từ đó, ta có
+	$$\widehat{A}=180^\circ-\widehat{B}-\widehat{C}\approx180^\circ-53^\circ-37^\circ=90^\circ.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho hình thang $ABCD$ vuông có $\widehat{A}=\widehat{D}=90^\circ$, $\widehat{C}=40^\circ$, $AB=6$ cm, $AD=4{,}5$ cm. Tính diện tích hình thang $ABCD$ (làm tròn kết quả đến hàng thập phân thứ hai).
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\path
+			(0,0) coordinate (A)
+			(-90:4.5) coordinate (D)
+			++(0:0.1) coordinate (C1)
+			(0:6) coordinate (B)
+			++(-40:0.1) coordinate (C2)
+			(intersection of D--C1 and B--C2) coordinate (C)
+			($(D)!(B)!(C)$) coordinate (H)
+			;
+			
+			\draw (A)--(B)node[midway, above]{$6$ cm}--(C)--(D)--cycle node[midway, left]{$4{,}5$ cm} (B)--(H);
+			
+			\foreach \p/\r/\t in {C/H/B,C/D/A,D/A/B} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\draw pic[draw, angle radius=0.75cm, "$40^\circ$", angle eccentricity=1.5]{angle=B--C--D};
+			
+			\foreach \p/\r in {A/135,D/-135,C/-45,B/30,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$}; 
+		\end{tikzpicture}
+	\end{center}
+	Gọi $H$ là chân đường cao hạ từ đỉnh $B$ lên $DC$.\\
+	Xét tứ giác $ABHD$ có
+	$$\widehat{BAD}=\widehat{ADH}=\widehat{DHB}=90^\circ$$
+	nên tứ giác $ABHD$ là hình chữ nhật. Suy ra
+	$$DH=AB=6\text{ (cm)}\quad\text{và}\quad BH=AD=4{,}5\text{ (cm)}.$$
+	Xét am giác $BHC$ vuông tại $H$, ta có
+	$$HC=BH\cdot\cot C=4{,}5\cdot\cot40^\circ\text{ (cm)}.$$
+	Suy ra
+	$$DC=DH+HC=6+4{,}5\cdot\cot40^\circ\text{ (cm)}.$$
+	Diện tích hình thang $ABCD$ là
+	$$S_{ABCD}=\dfrac{1}{2}\cdot\left(AB+DC\right)\cdot AD=\dfrac{1}{2}\cdot\left(6+6+4{,}5\cdot\cot40^\circ\right)\cdot4{,}5\approx39{,}07\text{ (cm$^2$)}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Cho hình thang $ABCD$ ($AB\parallel CD$) có $AB=AD=15$ cm, $\widehat{A}=120^\circ$, $BC$ vuông tại với đường chéo $BD$. Tính chu vi hình thang $ABCD$.
+	\loigiai{
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.25]
+			\path
+			(0,0) coordinate (B)
+			(180:15) coordinate (A)
+			++(-120:15) coordinate (D)
+			++(0:0.1) coordinate (C1)
+			($(B)!0.1!90:(D)$) coordinate (C2)
+			(intersection of B--C2 and D--C1) coordinate (C)
+			;
+			
+			\draw (A)--(B)node[midway, above]{$15$ cm}--(C)--(D)--cycle node[midway, above left]{$15$ cm} (B)--(D);
+			
+			\foreach \p/\r/\t in {D/B/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\draw pic[draw, angle radius=0.65cm, "$120^\circ$", angle eccentricity=1.5]{angle=D--A--B};
+			
+			\foreach \p/\r in {A/135,B/45,D/-135,C/-45}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Vì tam giác $ABD$ cân tại $A$ nên ta có
+	$$\widehat{ABD}=\widehat{ADB}=\dfrac{180^\circ-\widehat{DAB}}{2}=\dfrac{180^\circ-120^\circ}{2}=30^\circ.$$
+	Từ đó, suy ra
+	$$\widehat{ABC}=\widehat{ABD}+\widehat{DBC}=30^\circ+90^\circ=120^\circ.$$
+	Như vậy, hình thang $ABCD$ có $\widehat{DAB}=\widehat{ABC}=120^\circ$ nên hình thang $ABCD$ là hình thang cân.\\
+	Do đó,
+	$$BC=AD=15\text{ (cm)}\quad\text{và}\quad\widehat{C}=180^\circ-\widehat{ABC}=180^\circ-120^\circ=60^\circ.$$
+	Xét tam giác $DBC$ vuông tại $B$, ta có
+	$$DC=\dfrac{BC}{\cos C}=\dfrac{15}{\cos60^\circ}=30\text{ (cm)}.$$
+	Chu vi của hình thang $ABCD$ là
+	$$AB+BC+CD+DA=15+15+30+15=75\text{ (cm)}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-1]%[9H1V2-2]
+	Với hình vẽ dưới đây. Tính diện tích tam giác $OMN$ (làm tròn kết quả đến chữ số hàng thập phân thứ nhất).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.5]
+			\path
+			(0,0) coordinate (P)
+			(90:8.36) coordinate (O)
+			(0:4.82) coordinate (M)
+			(0:15.49) coordinate (N)
+			;
+			
+			\draw (O)--(P)--(N)--cycle node[midway, above right]{$13$ cm} (O)--(M); 
+			
+			\foreach \p/\r/\t in {M/P/O} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\draw pic[draw, angle radius=0.5cm, "$60^\circ$", angle eccentricity=1.5]{angle=O--M--P};
+			
+			\draw pic[draw, angle radius=0.75cm, "$40^\circ$", angle eccentricity=1.5]{angle=O--N--P};
+			\draw pic[draw, angle radius=0.65cm]{angle=O--N--P};
+			
+			\foreach \p/\r in {O/90,P/-135,M/-90,N/-45}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+	Xét tam giác $OPN$ vuông tại $P$, ta có
+	$$OP=ON\cdot\sin N=13\cdot\sin40^\circ\text{ (cm)}.$$
+	$$PN=ON\cdot\cos N=13\cdot\cos40^\circ\text{ (cm)}.$$
+	Xét tam giác $OPM$ vuông tại $P$, ta có
+	$$PM=OP\cdot\cot\widehat{OMP}=13\cdot\sin40^\circ\cdot\cot60^\circ\text{ (cm)}.$$
+	Suy ra
+	$$MN=PN-PM=13\cdot\cos40^\circ-13\cdot\sin40^\circ\cdot\cot60^\circ\text{ (cm)}.$$
+	Diện tích tam giác $OMN$ bằng
+	$$S_{OMN}=\dfrac{1}{2}\cdot OP\cdot MN=\dfrac{1}{2}\cdot13\cdot\sin40^\circ\cdot\left(13\cdot\cos40^\circ-13\cdot\sin40^\circ\cdot\cot60^\circ\right)\approx21{,}5\text{ (cm$^2$)}.$$
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Bạn Sơn có một chiếc thang dài khoảng $3{,}5$ m. Cần đặt chân thang cách chân tường một khoảng cách bao nhiêu để thang tạo với mặt đất một góc \lq\lq an toàn\rq\rq\,là $65^\circ$? (kết quả làm tròn đến hàng thập phân thứ nhất)}{
+	\includegraphics[scale=1]{./Images/Hinh4.png}
+	}
+	\loigiai{
+	\immini{Ta mô hình hóa bài như hình vẽ bên, trong đó $AB$ là bức tường, $CA$ là mặt đất và $BC$ là chiếc thang. Theo đề bài, ta có $BC=3{,}5$ m và $\widehat{BCA}=65^\circ$. Ta cần tính độ dài đoạn $CA$.\\
+	Xét tam giác $ABC$ vuông tại $A$, ta có
+	$$CA=BC\cdot\cos\widehat{BCA}=3{,}5\cdot\cos65^\circ\approx1{,}48\text{ (m)}.$$
+	Vậy cần đặtt hang cách chân tường một khoảng bằng $1{,}48$ m để thang tạo với mặt đất một góc \lq\lq an toàn\rq\rq.}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1.25]
+		\path
+		(0,0) coordinate (A)
+		(90:3.172) coordinate (B)
+		(180:1.47916) coordinate (C)
+		;
+		
+		\draw (A)--(B)--(C)node[midway, above left]{$3{,}5$ cm}--cycle;
+		
+		\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\draw pic[draw, angle radius=0.35cm, "$65^\circ$", angle eccentricity=2]{angle=A--C--B};
+		
+		\foreach \p/\r in {A/0,B/90,C/180}
+		\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Tháp Eiffel là một công trình kiến trúc nổi tiếng của thủ đô Paris, nước Pháp. Giả sử, tại một thời điểm khi tia nắng mặt trời tạo với mặt đất một góc là $62^\circ$, người ta đo được bóng của tháp trên mặt đất là $175$ m. Hãy ước lượng chiều cao của tháp Eiffel (làm tròn đến hàng thập phân thứ hai).}{
+	\includegraphics[scale=1]{./Images/Hinh5.png}
+	}
+	\loigiai{
+	\immini{Ta mô hình hóa bài như hình vẽ bên, trong đó $BH$ là tháp Eiffel, $AH$ là bóng của tháp Eiffel trên mặt đất. Theo đề bài, ta có $AH=175$ m và $\widehat{HAB}=62^\circ$. Ta cần tính độ dài đoạn $BH$.\\
+	Xét tam giác $AHB$ vuông tại $H$, ta có
+	$$BH=AH\cdot\tan\widehat{HAB}=175\cdot\tan62^\circ\approx329{,}13\text{ (m)}.$$
+	Vậy chiều cao của tháp Eiffell xấp xỉ bằng $329{,}13$ m.}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.012]
+		\path
+		(0,0) coordinate (H)
+		(90:329.127) coordinate (B)
+		(180:175) coordinate (A)
+		;
+		
+		\draw (A)--(B)--(H)--cycle node[midway, below]{$175$ m};
+		
+		\foreach \p/\r/\t in {B/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\draw pic[draw, angle radius=0.35cm, "$62^\circ$", angle eccentricity=2]{angle=H--A--B};
+		
+		\foreach \p/\r in {H/0,B/90,A/180}
+		\filldraw (\p) circle (60pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Từ đỉnh của một ngọn hải đăng cao $80$ m sao với mặt nước biển, người ta nhìn thấy một hòn đảo dưới góc $30^\circ$ so với đường nằm ngang (xem hình vẽ). Tính khoảng cách trên mặt nước biển từ hòn đảo đến ngọn hải đăng.}{
+	\includegraphics[scale=1]{./Images/Hinh6.png}
+	}
+	\loigiai{
+	Dựa vào hình vẽ đã cho, ta thấy $Ax\parallel BC$ nên $\widehat{ACB}=\widehat{CAx}=30^\circ.$\\
+	Xét tam giác $ACB$ vuông tại $B$, ta có
+	$$BC=AB\cdot\cot\widehat{ACB}-80\cdot\cot30^\circ=80\sqrt{3}\text{ (m)}.$$
+	Vậy khoảng cách trên mặt nước biển từ hòn đảo đến ngọn hải đăng là $80\sqrt{3}$ m.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Một chiếc thuyền muốn qua sông rộng khoảng $250$ m theo phương ngang nhưng bị dòng nước đẩy theo phương xiên, nên phải đi khoảng $320$ m mới sang được bờ bên kia sông. Hỏi dòng nước đã đẩy thuyền đi một góc bao nhiêu độ? (làm tròn kết quả đến hàng đơn vị)}{
+	\includegraphics[scale=1]{./Images/Hinh7.png}
+	}
+	\loigiai{
+	\immini{Ta mô hình hóa bài toán như hình bên, trong đó $AB$ là độ rộng của con sông theo phương ngang, $BC$ là hướng đi của chiếc thuyền thực tế do bị dòng nước đẩy. Theo đề bài, ta có $AB=250$ m, $BC=320$ m. Ta cần tính độ lớn của $\widehat{ABC}$.\\
+	Xét tam giác $ABC$ vuông tại $A$, ta có
+	$$\cos\widehat{ABC}=\dfrac{AB}{BC}=\dfrac{250}{320}=\dfrac{25}{32}.$$
+	Suy ra
+	$$\widehat{ABC}\approx39^\circ.$$
+	Vậy dòng nước đã đẩy thuyền đi một góc khoảng $39^\circ.$}{
+	\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.015]
+		\path
+		(0,0) coordinate (A)
+		(-90:250) coordinate (B)
+		(0:199.7498) coordinate (C)
+		;
+		
+		\draw (A)--(B)node[midway, left]{$250$ m}--(C)node[midway, below right]{$320$ m}--cycle;
+		\draw (-50,0)--(250,0) (-50,5)--(250,5)node[right]{bờ sông} (-50,-250)--(250,-250) (-50,-255)--(250,-255)node[right]{bờ sông};
+		
+		\foreach \p/\r/\t in {B/A/C} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+		
+		\foreach \p/\r in {A/135,C/45,B/-90}
+		\filldraw (\p) circle (60pt) node[shift={(\r:0.35cm)}]{$\p$};
+	\end{tikzpicture}
+	}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Nóc mái nhà của một ngôi nhà là hình tam giác cân và được mô phỏng là một tam giác $ABC$ cân tại $A$, trong đó $A$ là đỉnh mái nhà và $BC$ là thanh ngang. Theo thiết kế, độ cao của đỉnh nóc nhà so với thanh ngang là $1{,}2$ m và chiều rộng của thanh ngang là $8$ m. Tính độ dốc của phần mái so với thanh ngang (làm tròn kết quả đến hàng đơn vị).}{
+	\includegraphics[scale=1]{./Images/Hinh8.png}
+	}
+	\loigiai{
+	Ta có hình vẽ mô tả mái nhà như hình bên dưới, trong đó $AH$ là độ cao của đỉnh nóc nhà so với thành ngang. Ta cần tính góc $\widehat{ABH}$.
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=1]
+			\path
+			(0,0) coordinate (H)
+			(90:1.2) coordinate (A)
+			(180:4) coordinate (B)
+			(0:4) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)--cycle (A)--(H);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Vì tam giác $ABC$ cân tại $A$, có $AH$ là đường cao nên $H$ đồng thời là trung điểm của $BC$. Do đó, ta có
+	$$BH=HC=\dfrac{BC}{2}=\dfrac{8}{2}=4\text{ (m)}.$$
+	Xét tam giác $ABH$ vuông tại $H$, ta có
+	$$tan\widehat{ABH}=\dfrac{AH}{BH}=\dfrac{1{,}2}{4}=\dfrac{3}{10}.$$
+	Suy ra
+	$$\widehat{ABH}\approx17^\circ.$$
+	Vậy độ dốc cả phần mái so với thanh ngang là khoảng $17^\circ$.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Một người đứng ở vị trí điểm $C$ trên mặt đất cách một tòa tháp một khoảng $CD=120$ m. Biết rằng người ấy nhìn thấy tòa tháp với $\widehat{AOB}=36^\circ$ so với đường nằm ngang, khoảng cách từ mắt người đó đến mặt đất là $OC=1{,}6$ m (hình vẽ bên). Hãy ước lượng chiều cao của tòa tháp trên (làm tròn kết quả đến hàng thập phân thứ hai).}{
+	\includegraphics[scale=1]{./Images/Hinh9.png}
+	}
+	\loigiai{
+	Theo hình vẽ, ta có tứ giác $OBDC$ là hình chữ nhật nên $OB=CD=120$ m và $BD=OC=1{,}6$ m.\\
+	Xét tam giác $AOB$ vuông tại $B$, ta có
+	$$AB=OB\cdot\tan\widehat{AOB}=120\cdot\tan36^\circ\text{ (m)}.$$
+	Từ đó, suy ra
+	$$AD=AB+BD=120\cdot\tan36^\circ+1{,}6\approx88{,}79\text{ (m)}$$
+	Vậy chiều cao của tòa tháp khoảng $88{,}79$ m.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Từ vị trí đỉnh $C$ của một tòa nhà có chiều cao là $CD=35$ m. Người ta nhìn thấy đỉnh $A$ của một tòa tháp truyền hình với góc nâng là $\widehat{ACH}=40^\circ$ và nhìn thấy chân của tòa tháp với góc hạ $\widehat{BCH}=25^\circ$ (hình vẽ bên).
+	\begin{enumerate}
+		\item Tính khoảng cách $BD$ từ chân tòa nhà đến chân tháp truyền hình trên.
+		\item Tính chiều cao $AB$ của tháp truyền hình.
+	\end{enumerate}
+	\textit{(kết quả làm tròn đến hàng đơn vị của mét)}}{
+	\includegraphics[scale=1]{./Images/Hinh10.png}
+	}
+	\loigiai{
+	\begin{enumerate}
+		\item Theo hình vẽ, ta có tứ giác $CHBD$ là hình chữ nhật nên $CH\parallel DB$. Do đó,
+		$$\widehat{CBD}=\widehat{BCH}=25^\circ.$$
+		Xét tam giác $CBD$ vuông tại $D$, ta có
+		$$BD=CD\cdot\cot\widehat{CBD}=35\cdot\cot25^\circ\approx75\text{ (m)}.$$
+		Vậy khoảng cách từ chân tòa nhà đến chân tháp truyền hình là khoảng $75$ m.
+		\item Vì $CHBD$ là hình chữ nhật nên ta có
+		$$BH=CD=35\text{ (m)}\quad\text{và}\quad CH=BD=35\cdot\cot25^\circ\text{ (m)}.$$
+		Xét tam giác $AHC$ vuông tại $H$, ta có
+		$$AH=CH\cdot\tan\widehat{ACH}=35\cdot\cot25^\circ\cdot\tan40^\circ\text{ (m)}.$$
+		Từ đó, ta có
+		$$AB=AH+HB=35\cdot\cot25^\circ\cdot\tan40^\circ+35\approx98\text{ (m)}.$$
+		Vậy chiều cao của tòa tháp truyền hình là khoảng $98$ m.
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Bạn Nam đứng ở sân thượng nhà mình, cách cây xoài gần đó một khoảng $CE=5$ m và quan sát thấy đỉnh cây $B$ dưới góc nâng $30^\circ$ và thấy gốc cây $C$ với góc hạ $35^\circ$ (hình vẽ bên). Hãy tính chiều cao của cây xoài đó (kết quả làm tròn đến hàng thập phân thứ hai).}{
+	\includegraphics[scale=1]{./Images/Hinh11.png}
+	}
+	\loigiai{
+	Theo hình vẽ, ta có tứ giác $DACE$ là hình chữ nhật nên ta có
+	$$CE=DA=5\text{ (m)}.$$
+	Xét tam giác $DAC$ vuông tại $A$, ta có
+	$$AC=DA\cdot\tan\widehat{ADC}=5\cdot\tan35^\circ\text{ (m)}.$$
+	Xét tam giác $DAB$ vuông tại $A$, ta có
+	$$AB=DA\cdot\tan\widehat{ADB}=5\cdot\tan30^\circ\text{ (m)}.$$
+	Từ đó, ta suy ra
+	$$BC=AC+AB=5\cdot\tan35^\circ+5\cdot\tan30^\circ\approx6{,}39\text{ (m)}.$$
+	Vậy chiều cao của cây xoài xấp xỉ bằng $6{,}39$ m.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Một ngọn hải đăng cao $36$ m nhìn về hướng Tây Nam có một chiếc thuyền $D$ đang hướng về ngọn hải đăng, từ vị trí chiếc thuyền $D$ nhìn lên ngọn hải đăng dưới một góc nâng là $40^\circ$.
+	\begin{enumerate}
+		\item Tính khoảng cách từ con thuyền $D$ đến ngọn hải đăng.
+		\item Cùng tại thời điểm đó, một chiếc thuyền $C$ cũng đang hướng về ngọn hải đăng, từ vị trí chiếc thuyền $C$ nhìn lên ngọn hải đăng dưới một góc nâng là $20^\circ$. Giả sử vị trí hai chiếc thuyền và chân ngọn hải đăng là thẳng hàng, hãy ước lượng khoảng cách giữa hai chiếc thuyền $C$ và $D$.
+	\end{enumerate}}{
+	\includegraphics[scale=1]{./Images/Hinh12.png}
+	}
+	\loigiai{
+	\begin{enumerate}
+		\item Xét tam giác $BAD$ vuông tại $A$, ta có
+		$$DA=BA\cdot\cot\widehat{BDA}=36\cdot\cot40^\circ\approx42{,}9\text{ (m)}.$$
+		Vậy khoảng cách từ con thuyền D đến ngọn hải đăng là khoảng $42{,}9$ m.
+		\item Xét tam giác $BAC$ vuông tại $A$, ta có
+		$$CA=BA\cdot\cot\widehat{BCA}=36\cdot\cot20^\circ\text{ (m)}.$$
+		Từ đó, suy ra
+		$$CD=CA-DA=36\cdot\cot20^\circ-36\cdot\cot40^\circ\approx56\text{ (m)}.$$
+		Vậy khoảng cách giữa hai chiếc thuyền $C$ và $D$ là khoảng $56$ m.
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thái Sơn]%[9H1V2-3]
+	\immini{Một người đứng trên tháp quan sát của ngọn hải đăng có độ cao $45$ m so với mực nước biển, người ta quan sát thấy hai con thuyền đang hướng về ngọn hải đăng. Người đó nhìn con thuyền thứ nhất với góc hạ là $45^\circ$ và nhìn thấy con thuyền thứ hai với góc hạ là $32^\circ$. Hỏi khoảng cách giữa hai con thuyền là bao nhiêu, biết hai con thuyền và chân ngọn hải đăng là thẳng hàng và hai chiếc thuyền ở khác phía so với ngọn hải đăng.}{
+	\includegraphics[scale=1]{./Images/Hinh13.png}
+	}
+	\loigiai{
+	Ta mô hình hóa bài toán như hình vẽ bên dưới, trong đó $AH$ là ngọn hải đăng, $B$ và $C$ lần lượt là chiếc thuyền thứ nhất và thứ hai. Khi đó, theo đề, ta có $H$ là nằm giữa $B$ và $C$, $AH=45$ m và $\widehat{ABH}=45^\circ$ và $\widehat{ACH}=32^\circ$.
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, thick, line cap=round,font=\footnotesize, scale=0.05]
+			\path
+			(0,0) coordinate (H)
+			(90:45) coordinate (A)
+			(180:45) coordinate (B)
+			(0:72.01505) coordinate (C)
+			;
+			
+			\draw (A)--(B)--(C)--cycle (A)--(H);
+			
+			\foreach \p/\r/\t in {C/H/A} \draw pic[draw, angle radius=0.25cm]{right angle=\p--\r--\t};
+			
+			\draw pic[draw, angle radius=0.75cm, "$45^\circ$", angle eccentricity=1.5]{angle=H--B--A};
+			\draw pic[draw, angle radius=0.75cm, "$32^\circ$", angle eccentricity=1.5]{angle=A--C--H};
+			\draw pic[draw, angle radius=0.65cm]{angle=A--C--H};
+			
+			\foreach \p/\r in {A/90,B/180,C/0,H/-90}
+			\filldraw (\p) circle (1.2pt) node[shift={(\r:0.35cm)}]{$\p$};
+		\end{tikzpicture}
+	\end{center}
+	Ta cần tính độ dài $BC$.\\
+	Xét tam giác $AHB$ vuông tại $H$, ta có
+	$$BH=AH\cdot\cot B=45\cdot\cot45^\circ\text{ (m)}.$$
+	Xét tam giác $AHC$ vuông tại $H$, ta có
+	$$CH=AH\cdot\cot C=45\cdot\cot32^\circ\text{ (m)}.$$
+	Từ đó, ta có
+	$$BC=BH+CH=45\cdot\cot45^\circ+45\cdot\cot32^\circ\approx117{,}02\text{ (m)}.$$
+	Vậy khoảng cách giữa hai con thuyền là khoảng $117{,}02$ m.
+	}
+\end{bt}
+
+

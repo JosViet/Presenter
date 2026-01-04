@@ -1,0 +1,509 @@
+\section{PHÂN TÍCH DỮ LIỆU}
+\subsection{Phát hiện vấn đề qua phân tích dữ liệu thống kê}
+\subsubsection{Kiến thức trọng tâm}
+Phân tích dữ liệu thống kê giúp phát hiện các vấn đề trọng tâm cần giải quyết và các thông tin hữu ích có liên quan đến các vấn đề đó.
+
+\begin{vd}%[8D5N3-1]%AI
+	Phân tích bảng thống kê và cho biết môn thể thao nào có chênh lệch nam nữ chọn cao nhất.
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline \multicolumn{3}{|l|}{Thống kê môn thể thao yêu thích của học sinh lớp $8A$ (mỗi học sinh chọn $1$ môn)} \\ 
+			\hline Môn thể thao & Nam & Nữ \\ 
+			\hline Bóng đá & $17$ & $4$ \\ 
+			\hline Bóng chuyền & $3$ & $2$ \\ 
+			\hline Bóng bàn & $1$ & $7$ \\ 
+			\hline Cầu lông & $4$ & $4$ \\ 
+			\hline 
+		\end{tabular}
+	\end{center}
+	\loigiai{
+		Ta lập thêm cột \lq\lq Chênh lệch\rq\rq\ như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline Môn thể thao & Nam & Nữ & Chênh lệch \\ 
+				\hline Bóng đá & $17$ & $4$ & $13$ \\ 
+				\hline Bóng chuyền & $3$ & $2$ & $1$ \\ 
+				\hline Bóng bàn & $1$ & $7$ & $6$ \\ 
+				\hline Cầu lông & $4$ & $4$ & $0$ \\ 
+				\hline 
+			\end{tabular}
+		\end{center}
+		Vậy bóng đá là môn thể thao có chênh lệch nam nữ chọn cao nhất.
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+
+\begin{bt}%[8D5N3-1]
+	Thống kê trong lần kiểm tra cuối học kì I của lớp $8A$ vừa qua là
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline Điểm & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\ 
+			\hline Số bài (đơn vị : bài) & $6$ & $7$ & $6$ & $7$ & $4$ & $7$ & $5$ \\ 
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tính tổng số bài kiểm tra cuối học kì I của lớp $8A$.  
+		\item Số bài được điểm $10$ chiếm bao nhiêu phần trăm so với tổng số bài kiểm tra cuối học kì I của lớp $8A$?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tổng số bài kiểm tra là $6+7+6+7+4+7+5 = 42$ bài.
+			\item Số bài được điểm $10$ là $5$ (bài).  \\
+			Khi đó, tỉ lệ phần trăm là $\dfrac{5}{42} \cdot 100\% \approx 11{,}9\%$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8D5H3-2]
+	\immini{
+		Phân tích biểu đồ thống kê bên dưới và cho biết
+		\begin{enumerate}
+			\item Môn thể thao được yêu thích nhất của học sinh khối $8$.
+			\item Tỉ lệ học sinh yêu thích môn bóng đá so với các môn thể thao còn lại của học sinh khối $8$.
+	\end{enumerate} }{\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\draw (0,0) circle(4);
+			\fill[pattern=grid] (0,0) -- ++(90:4)arc (90:-79.2:4);
+			\fill[pattern=dots] (0,0) -- ++(-79.2:4)arc (-79.2:-140.4:4);
+			\fill[pattern=bricks] (0,0) -- ++(-140.4:4)arc (-140.4:-201.6:4);
+			\fill[pattern=north east lines] (0,0) -- ++(-201.6:4)arc (-201.6:-270:4);
+			\draw (2,0) node[fill=white]{$47\%$};
+			\draw (-0.5,-2) node[fill=white]{$17\%$};
+			\draw (-3,-.5) node[fill=white]{$17\%$};
+			\draw (-1.5,2) node[fill=white]{$19\%$};
+			\draw[pattern=north east lines] (4.5,-4)  rectangle (6,-3)++(.5,-.5) node[right] {Cầu lông};
+			\draw[pattern=bricks] (4.5,-2) rectangle (6,-1)++(.5,-.5) node[right] {Bóng bàn};
+			\draw[pattern=dots] (4.5,0) rectangle (6,1)++(.5,-.5) node[right] {Bóng chuyền};
+			\draw[pattern=grid] (4.5,2) rectangle (6,3)++(.5,-.5) node[right] {Bóng đá};
+	\end{tikzpicture}}
+	\loigiai{
+		\begin{enumerate}
+			\item Vì bóng đá chiếm tỉ lệ $47\%$ nhiều nhất nên là môn thể thao được học sinh yêu thích nhất. 
+			\item Phân tích biểu đồ hình quạt tròn ta thấy
+			\begin{itemize}
+				\item 
+				Tỉ lệ học sinh yêu thích môn bóng đá với môn bóng chuyền là 
+				$\dfrac{47 \%}{17 \%} \cdot 100 \% \approx 276{,}5 $.
+				\item Tỉ lệ học sinh yêu thích môn bóng đá với môn bóng bàn là 
+				$\dfrac{47 \%}{17 \%} \cdot 100 \% \approx 276{,}5 \%$.
+				\item Tỉ lệ học sinh yêu thích môn bóng đá với môn bóng chuyền là  $\dfrac{47 \%}{19 \%} \cdot 100 \% \approx 247{,}4 \%$.
+			\end{itemize}
+	\end{enumerate}}
+\end{bt}
+\begin{bt}%[8D5H3-2]
+	Số sản phẩm bán được của một công ty trong sáu tháng đầu năm được biểu diễn trong biểu đồ sau
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\foreach \i/\g in {0/0,1/2,2/4,3/6,4/8} 
+			\draw[thin,gray!30] (0,\i) node[left,black] {$\g$} -- (13,\i);
+			\draw[thick,cyan] (2,1) circle (1.5pt) node[above] {$2$}--(4,2) circle (1.5pt) node[above] {$4$} --(6,3)circle (1.5pt) node[above] {$6$}--(8,1.5)circle (1.5pt) node[above] {$3$} --(10,1)circle (1.5pt) node[above] {$2$} --(12,3.5)circle (1.5pt) node[above] {$7$};
+			\draw[->] (0,0) -- (0,5) node[left] {\bf (Nghìn sản phẩm)};
+			\draw[->] (0,0) -- (13,0) node[below] {\bf (Tháng)};
+			\foreach \i/\g in {2/1,4/2,6/3,8/4,10/5,12/6} 
+			\draw (\i,0.1)--(\i,-0.1) node[below,cyan] {$\g$};
+			\path (0,5.5)--(10,5.5) node[pos=0.5,above] {\bf Sản phẩm bán được của một công ty trong sáu tháng đầu năm};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Chuyển dữ liệu trong biểu đồ trên sang dạng bảng thống kê theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline Tháng & 1 & 2 & 3 & 4 & 5 & 6 \\
+				\hline 
+				Số sản phẩm 
+				(nghìn sản phẩm)
+				& $? $ & $? $ & $? $ & $? $ & $? $ & $? $ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item Phân tích biểu đồ thống kê trên để tìm tháng bán được nhiều hàng nhất và tháng bán được ít hàng nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê tương ứng là
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Tháng & 1 & 2 & 3 & 4 & 5 & 6 \\
+					\hline 
+					Số sản phẩm 
+					(nghìn sản phẩm)
+					& $2$ & $4$ & $6$ & $3$ & $2$ & $7$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Tháng bán được nhiều hàng nhất là tháng $6$.\\
+			Tháng bán được ít hàng nhất là tháng $1$ và tháng $5$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[8D5H3-1]
+	Đánh giá kết quả cuối HKI của lớp $8A$ của một trường THCS, số liệu được ghi theo bảng sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline Mức & Tốt & Khá & Đạt & Chưa đạt \\
+			\hline Số học sinh & $16$ & $11$ & $10$ & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Số học sinh Tốt và học sinh Khá của lớp mỗi loại chiếm bao nhiêu phần trăm?
+		\item Cô giáo thông báo tỷ lệ học sinh xếp loại Chưa đạt của lớp chiếm trên $7 \%$ có đúng không?
+	\end{enumerate}
+	\loigiai{
+		Tổng số học sinh của lớp là
+		\[
+		16 + 11 + 10 + 3 = 40.
+		\]
+		\begin{enumerate}
+			\item Tỉ lệ học sinh Tốt là
+			\[
+			\dfrac{16}{40} \cdot 100\% = 40\%.
+			\]
+			Tỉ lệ học sinh Khá là
+			\[
+			\dfrac{11}{40} \cdot 100\% = 27,5\%.
+			\]
+			\item Tỉ lệ học sinh Chưa đạt là
+			\[
+			\dfrac{3}{40} \cdot 100\% = 7,5\%.
+			\]
+			Vì $7,5\% > 7\%$ nên thông báo của cô giáo là đúng.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8D5H3-1]
+	Thống kê xếp loại học tập của học sinh lớp $8$A$1$
+	\begin{center}
+		\begin{tabular}{|c|l|c|c|c|c|}
+			\hline
+			1 & Xếp loại học tập & Tốt & Khá & Đạt & Chưa đạt \\
+			\hline
+			2 & Số học sinh & 10 & 12 & 14 & 4 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tính sĩ số học sinh lớp 8A1.
+		\item Tính tỉ lệ phần trăm số học sinh chưa đạt của lớp 8A1.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Sĩ số lớp 8A1 là
+			\[
+			10 + 12 + 14 + 4 = 40 \ (\text{học sinh}).
+			\]
+			\item Tỉ lệ phần trăm số học sinh chưa đạt là
+			\[
+			\dfrac{4}{40} \cdot 100\% = 10\%.
+			\]
+		\end{enumerate}
+	}
+\end{bt}
+
+\subsection{Giải quyết các vấn đề qua phân tích biểu đồ thống kê} 
+\subsubsection{Kiến thức trọng tâm}
+Phân tích dữ liệu của biểu đồ thống kê giúp nắm bắt các thông tin, hỗ trợ đề xuất các quyết định hợp lí, hiệu quả và thuyết phục.
+\begin{vd}%[8D5H3-3]
+	Tỉ lệ phần trăm kết quả phỏng vấn $1\,000$ khách hàng về sự lựa chọn món ăn của một cửa hàng được thể hiện trong biểu đồ sau
+	\begin{center}
+		\textbf{Tỉ lệ phần trăm món ăn được chọn của một cửa hàng}
+		\begin{tabular}{|l|c|c|c|c|c}
+			\hline
+			Món ăn & Phở & Bún bò & Bánh mì & Gỏi cuốn \\
+			\hline
+			Tỉ lệ & $45\%$ &  $25\%$ & $18\%$ & $12\%$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Nếu một người muốn kinh doanh ẩm thực thì người đó nên ưu tiên chọn món ăn nào?
+	\loigiai{
+		Vì $45\% > 25\% > 18\% > 12\%$, do đó ta thấy món phở được chọn là nhiều nhất ở cửa hàng.\\
+		Vậy nếu một người muốn kinh doanh ẩm thực thì người đó nên ưu tiên chọn món phở.
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+
+\begin{bt}%[8D5V3-3]
+	Cho biểu đồ 
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\foreach \i/\g in {0/0,1/5,2/10,3/15,4/20,5/25,6/30} 
+			\draw[thin,gray!30] (0,\i) node[left,black] {$\g\%$} -- (9,\i);
+			
+			\draw[pattern=grid] 
+			(1,0) rectangle (1.5,2.4) 
+			
+			(3,0) rectangle (3.5,2.6) 
+			
+			(5,0) rectangle (5.5,3) 
+			(7,0) rectangle (7.5,2.8)
+			
+			;
+			\draw[pattern=dots]
+			(1.5,0) rectangle (2,4.8) 
+			(3.5,0) rectangle (4,4.6)
+			(5.5,0) rectangle (6,3.4)
+			(7.5,0) rectangle (8,2.4);
+			\path (1,0) -- (2,0) node[pos=0.5,below] {$2017$};
+			\path (3,0) -- (4,0) node[pos=0.5,below] {$2018$};
+			\path (5,0) -- (6,0) node[pos=0.5,below] {$2019$};
+			\path (7,0) -- (8,0) node[pos=0.5,below] {$2020$};
+			
+			\foreach \i/\g/\n in {1/2.4/12, 3/2.6/13, 5/3/15, 7/2.8/14} \path (\i,\g)--(\i+0.5,\g) node[pos=0.5,above] {$\n\%$};
+			
+			\foreach \i/\g/\n in {1/4.8/24, 3/4.6/23, 5/3.4/17, 7/2.4/12} \path (\i+0.5,\g)--(\i+1,\g) node[pos=0.5,above] {$\n\%$};
+			\path (-1,0)--(-1,7) node[pos=0.5,sloped,above] {\bf \large Thị phần};
+			\path (0,-1)--(9,-1) node[pos=0.5,sloped,above] {\bf \large Năm};
+			\path (0,7)--(9,7) node[pos=0.5,sloped,above] {\bf \large Thị phần xuất khẩu gạo};
+			\draw[pattern=grid] (10,3) rectangle (10.5,3.5) ++ (.5,-0.25) node[right] {Việt Nam};
+			\draw[pattern=dots] (10,2) rectangle (10.5,2.5) ++ (.5,-0.25) node[right] {Thái Lan};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Nhận xét về xu thế của thị phần xuất khẩu gạo của Thái Lan trong các năm từ $2017$ đến $2020$.
+		\item Lập bảng thống kê thị phần xuất khẩu gạo của Việt Nam trong giai đoạn này.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Thị phần xuất khẩu gạo của Thái Lan
+			\begin{itemize}
+				\item Từ năm $2017$ đến năm $2018$ thị phần xuất khẩu gạo giảm (từ $24\%$ xuống còn $23\%$);
+				\item Từ năm $2018$ đến năm $2019$ thị phần xuất khẩu gạo giảm (từ $23\%$ xuống còn $17\%$);
+				\item Từ năm $2019$ đến năm $2020$ thị phần xuất khẩu gạo giảm (từ $17\%$ xuống còn $12\%$).
+			\end{itemize}
+			Do đó, xu thế của thị phần xuất khẩu gạo của Thái Lan trong các năm từ $2017$ đến $2020$ là giảm.
+			\item Bảng thống kê thị phần xuất khẩu gạo của Việt Nam trong giai đoạn từ năm $2017$ đến năm $2020$
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline Năm & $2017$ & $2018$ & $2019$ & $2020$ \\
+					\hline Thị phần & $12\%$ & $13\%$ & $15\%$ & $14\%$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+	\end{enumerate}}
+\end{bt}
+
+\begin{bt}%[8D5V3-3]
+	\immini{
+		Biểu đồ cột ở hình bên biểu diễn tỉ lệ về giá trị đạt được của khoáng sản xuất khẩu nước ngoài của nước ta (tính theo tỉ số phần trăm).
+	}{\begin{tikzpicture}[scale=0.5, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\foreach \i/\g in {0/0,1/10,2/20,3/30,4/40,5/50,6/60,7/70} 
+			\draw[thin,gray!30] (0.1,\i)--(-0.1,\i) node[left,black] {$\g$} ;
+			\draw[->,thick] (0,0)--(16,0) node[below] {Khoáng sản};
+			\draw[->,thick] (0,0)--(0,8) node[right] {Tỉ lệ ($\%$)};
+			\draw[fill=cyan] 
+			(2,0) rectangle (3,6) 
+			(5,0) rectangle (6,2.5) 
+			(8,0) rectangle (9,1) 
+			(11,0) rectangle (12,0.5) ;
+			\path (2,0) -- (3,0) node[pos=0.5,below] {Dầu};
+			\path (5,0) -- (6,0) node[pos=0.5,below] {Than đá};
+			\path (8,0) -- (9,0) node[pos=0.5,below] {Sắt};
+			\path (11,0) -- (12,0) node[pos=0.5,below] {Vàng};
+			
+			\path (2,5.6) -- (3,6) node[pos=0.5,above] {$60$};
+			\path (5,2.5) -- (6,2.5) node[pos=0.5,above]{$25$};
+			\path (8,1) -- (9,1) node[pos=0.5,above] {$10$};
+			\path (11,0.5) -- (12,0.5) node[pos=0.5,above] {$5$};
+	\end{tikzpicture}}
+	\begin{enumerate}
+		\item Lập bảng thống kê tỉ lệ về giá trị đạt được của khoáng sản xuất khẩu nước ngoài của nước ta theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline 
+				Khoáng sản & Dầu & Than đá & Sắt & Vàng \\ 
+				\hline 
+				Tỉ lệ phần trăm (\%) & ? & ? & ? & ? \\ 
+				\hline 
+			\end{tabular}
+		\end{center}
+		\item Khoáng sản nào có tỉ lệ phần trăm xuất khẩu nước ngoài cao nhất? Thấp nhất?
+		\item Dựa vào biểu đồ trên người ta có một nhận định cho rằng tỉ lệ than đá xuất khẩu nước ngoài gấp $5$ lần so với vàng. Theo em nhận định đó đúng không? Vì sao?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline
+					\text{Khoáng sản} & Dầu & Than đá & Sắt & Vàng \\
+					\hline
+					\text{Tỉ lệ phần trăm ($\%)$} & $60$ & $25$ & $10$ & $5$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Ta có
+			\begin{itemize}
+				\item Tỉ lệ cao nhất là của \textbf{Dầu} với $60\%$.
+				\item Tỉ lệ thấp nhất là của \textbf{Vàng} với $5\%$.
+			\end{itemize}
+			\item Kiểm tra nhận định: \lq\lq tỉ lệ than đá xuất khẩu nước ngoài gấp $5$ lần so với vàng\rq\rq.\\
+			Tỉ lệ than đá là $25\%$, tỉ lệ vàng là $5\%$.\\
+			Ta có $\dfrac{25}{5}=5$.\\
+			Vậy nhận định là \textbf{đúng} vì $25\%$ bằng đúng $5$ lần $5\%$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8D5C3-3]
+	Cho biểu đồ xuất khẩu các loại gạo của nước ta trong năm $2020$.
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\draw (0,0) circle(4);
+			\fill[pattern=grid] (0,0) -- ++(90:4)arc (90:-72.72:4);
+			\fill[pattern=dots] (0,0) -- ++(-72.72:4)arc (-72.72:-169.2:4);
+			\fill[pattern=bricks] (0,0) -- ++(-169.2:4)arc (-169.2:-201.6:4);
+			\fill[pattern=north east lines] (0,0) -- ++(-201.6:4)arc (-201.6:-270:4);
+			\draw (2,0) node[fill=white]{$45{,}2\%$};
+			\draw (-0.5,-2) node[fill=white]{$26{,}8\%$};
+			\draw (-3,0) node[fill=white]{$9\%$};
+			\draw (-1.5,2) node[fill=white]{$19\%$};
+			\draw[pattern=north east lines] (4.5,-4)  rectangle (6,-3)++(.5,-.5) node[right] {Gạo khác};
+			\draw[pattern=bricks] (4.5,-2) rectangle (6,-1)++(.5,-.5) node[right] {Gạo nếp};
+			\draw[pattern=dots] (4.5,0) rectangle (6,1)++(.5,-.5) node[right] {Gạo thơm};
+			\draw[pattern=grid] (4.5,2) rectangle (6,3)++(.5,-.5) node[right] {Gạo trắng};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng thống kê cho biểu đồ trên.
+		\item Loại gạo nào nước ta xuất khẩu nhiều nhất và ít nhất chiếm bao nhiêu phần trăm.
+		\item Biết rằng tổng lượng gạo xuất khẩu là $6,15$ triệu.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có bảng thống kê
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|}
+					\hline Loại gạo & Gạo trắng & Gạo thơm & Gạo nếp & Gạo khác \\
+					\hline Tỉ lệ phần trăm & $45{,}2 \%$ & $26{,}8 \%$ & $9 \%$ & $19 \%$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Gạo trắng được nước ta xuất khẩu nhiều nhất với $45{,}2 \%$.\\
+			Còn gạo nếp được nước ta xuất khẩu ít nhất với $9 \%$.
+			\item Vì gạo thơm chiếm $26{,}8 \%$ tổng lượng gạo xuất khẩu nên số lượng gạo thơm xuất khẩu nước ta trong năm $2020$ là
+			\[
+			6,15 \cdot \dfrac{26,8}{100} = 1,6482 \ \text{triệu tấn gạo}.
+			\]
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8D5V3-3]
+	Biểu đồ cột kép ở hình bên biểu diễn diện tích gieo trồng sắn của tỉnh A và tỉnh B trong các năm $2018$; $2019$; $2020$ (\textit{đơn vị: Nghìn ha}).
+	\begin{enumerate}
+		\item Tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2020$ nhiều hơn hay ít hơn tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2019$. Vì sao?
+		\item Một bài báo nêu thông tin \lq\lq Tỉ số phần trăm diện tích gieo trồng sắn của tỉnh A năm $2020$ với tổng diện tích gieo trồng sắn của tỉnh A trong các năm $2018$; $2019$; $2020$ là xấp xỉ $35\%$\rq\rq. Theo em bài báo nêu thông tin có chính xác không? Vì sao?
+	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.8]
+			% Trục tọa độ
+			\draw[->] (0,0)--(0,7)node[above]{\textbf{Diện tích} \textit{(nghìn ha)}};
+			\draw[->] (0,0)--(10,0)node[below right]{\textbf{Năm}};
+			
+			% Các vạch trên trục Oy
+			\foreach \y in {0,5,10,15,20,25,30}
+			\draw[shift={(0,\y/5)}] (-2pt,0)--(0,0) node[left]{\scriptsize \y};
+			
+			% Đường lưới ngang
+			\foreach \y in {1,2,3,4,5,6}
+			\draw[dashed,thin,gray] (0,\y)--(9,\y);
+			
+			% Dữ liệu và các cột
+			% Năm 2018
+			\draw[fill=blue] (1,0) rectangle (2,5.14); % Tỉnh A
+			\draw[pattern=north east lines, pattern color=blue] (2,0) rectangle (3,2.72); % Tỉnh B
+			\node[above] at (1.5,5.14) {\scriptsize 25,7};
+			\node[above] at (2.5,2.72) {\scriptsize 13,6};
+			
+			% Năm 2019
+			\draw[fill=blue] (4,0) rectangle (5,5.28); % Tỉnh A
+			\draw[pattern=north east lines, pattern color=blue] (5,0) rectangle (6,2.06); % Tỉnh B
+			\node[above] at (4.5,5.28) {\scriptsize 26,4};
+			\node[above] at (5.5,2.06) {\scriptsize 10,3};
+			
+			% Năm 2020
+			\draw[fill=blue] (7,0) rectangle (8,5.6); % Tỉnh A
+			\draw[pattern=north east lines, pattern color=blue] (8,0) rectangle (9,1.18); % Tỉnh B
+			\node[above] at (7.5,5.6) {\scriptsize 28};
+			\node[above] at (8.5,1.18) {\scriptsize 5,9};
+			
+			% Nhãn trục Ox
+			\node[below] at (2,0) {\scriptsize\textbf{2018}};
+			\node[below] at (5,0) {\scriptsize\textbf{2019}};
+			\node[below] at (8,0) {\scriptsize\textbf{2020}};
+			
+			% Ghi chú
+			\node[right] at (3.5,-1) {\scriptsize\textbf{Tỉnh A}};
+			\draw[fill=blue] (3.2,-1.2) rectangle (3.5,-.9);
+			\node[right] at (5.8,-1) {\scriptsize\textbf{Tỉnh B}};
+			\draw[pattern=north east lines, pattern color=blue] (5.5,-1.2) rectangle (5.8,-.9);
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\begin{enumerate}
+			\item 
+			Tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2020$ là $28+5{,}9=33{,}9$ (nghìn ha)\\
+			Tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2019$ là $26{,}4+10{,}3=36{,}7$ (nghìn ha)\\
+			Vì $33{,}9<36{,}7$ nên tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2020$ ít hơn tổng diện tích gieo trồng sắn của $2$ tỉnh vào năm $2019$.
+			\item 
+			Tỉ số phần trăm diện tích gieo trồng sắn của tỉnh B năm $2020$ với tổng diện tích gieo trồng sắn của tỉnh B trong các năm $2018$; $2019$; $2020$ là
+			\[
+			\dfrac{28}{25{,}7+26{,}4+28}\cdot 100\% \approx 35\%.
+			\]
+			Vậy bài báo nêu thông tin có chính xác.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[8D5H3-3]
+	Biểu đồ sau biểu diễn số lượng người yêu thích một số loại nước uống giải khát vào mùa hè khi được hỏi ý kiến tại địa điểm $A$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round,line cap=round, >=stealth]
+			\foreach \i/\g in {0/0,1/50,2/100,3/150,4/200,5/250,6/300,7/350,8/400} 
+			\draw[thin,gray!30] (0.1,\i)--(-0.1,\i) node[left,black] {$\g$} ;
+			\draw[->,thick] (0,0)--(14,0);
+			\draw[->,thick] (0,0)--(0,9);
+			\draw[fill=cyan] 
+			(2,0) rectangle (3,5.6) 
+			(5,0) rectangle (6,7.42) 
+			(8,0) rectangle (9,4.68) 
+			(11,0) rectangle (12,3.98) ;
+			\path (2,0) -- (3,0) node[pos=0.5,below] {Nước chanh};
+			\path (5,0) -- (6,0) node[pos=0.5,below] {Trà tắc};
+			\path (8,0) -- (9,0) node[pos=0.5,below] {Nước lọc};
+			\path (11,0) -- (12,0) node[pos=0.5,below] {Nước dừa};
+			
+			\path (2,5.6) -- (3,5.6) node[pos=0.5,above] {$280$};
+			\path (5,7.42) -- (6,7.42) node[pos=0.5,above]{$371$};
+			\path (8,4.68) -- (9,4.68) node[pos=0.5,above] {$234$};
+			\path (11,3.98) -- (12,3.98) node[pos=0.5,above] {$199$};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Cho biết đây là biểu đồ gì? Loại nước uống nào được nhiều người yêu thích nhất?
+		\item Lập bảng thống kê cho dữ liệu được biểu diễn trong biểu đồ.
+		\item Dựa vào biểu đồ trên, người thu thập số liệu đã lấy ý kiến của bao nhiêu người?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Đây là biểu đồ cột biểu diễn số lượng người yêu thích các loại nước uống vào mùa hè.\\
+			Loại nước uống được nhiều người yêu thích nhất là trà tắc với $371$ người.
+			\item Ta có bảng thống kê
+			\begin{center}
+				\begin{tabular}{|l|c|c|c|c|}
+					\hline Loại nước uống & Nước chanh & Trà tắc & Nước lọc & Nước dừa \\
+					\hline Số người yêu thích & $280$ & $371$ & $234$ & $199$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Tổng số người được hỏi ý kiến là
+			\[
+			280 + 371 + 234 + 199 = 1\,084 \ \text{người}.
+			\]
+		\end{enumerate}
+	}
+\end{bt}

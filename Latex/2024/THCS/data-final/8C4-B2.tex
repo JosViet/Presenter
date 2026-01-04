@@ -1,0 +1,1186 @@
+\section{LỰA CHỌN DẠNG BIỂU ĐỒ ĐỂ BIỂU DIỄN DỮ LIỆU}
+\subsubsection{Kiến thức trọng tâm}
+\subsection{Lựa chọn dạng biểu đồ để biểu diễn dữ liệu}
+Biểu đồ cho chúng ta hình ảnh cụ thể về số liệu. Việc chọn loại biểu đồ phù hợp sẽ giúp chúng ta thể hiện số liệu thống kê một cách rõ ràng, trực quan, dễ đọc và dễ hiểu.
+\begin{itemize}
+	\item \textbf{Biểu đồ tranh:} phù hợp khi số liệu ở dạng đơn giản và muốn tạo sự lôi cuốn, thu hút bằng hình ảnh.
+	\item \textbf{Biểu đồ cột:} phù hợp với những số liệu phức tạp hơn, số liệu lớn, sự sai khác giữa các số liệu cũng lớn và để thuận tiện trong việc so sánh.
+	\item \textbf{Biểu đồ cột kép:} phù hợp khi muốn có sự so sánh một cách trực quan từng cặp số liệu của hai bộ dữ liệu cùng loại.
+	\item \textbf{Biểu đồ hình quạt tròn:} phù hợp để biểu thị tỉ lệ phần trăm của từng loại số liệu so với toàn thể.
+	\item \textbf{Biểu đồ đoạn thẳng:} phù hợp để biểu diễn sự thay đổi số liệu của một đối tượng theo thời gian.
+\end{itemize}
+
+\begin{vd} %[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Lựa chọn dạng biểu đồ thích hợp để biểu diễn dữ liệu trong các bảng thống kê sau
+	\begin{enumerate}
+		\item Bảng thống kê về cân nặng trung bình (đơn vị: kg) của nam, nữ tại một số khu vực của châu Á như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				& Tây Á & Đông Á & Nam Á & Trung Á & Đông Nam Á \\
+				\hline
+				Nam & $80{,}6$ & $73{,}3$ & $60{,}9$ & $77{,}0$ & $62{,}8$ \\
+				\hline
+				Nữ & $72{,}2$ & $61{,}6$ & $54{,}0$ & $69{,}2$ & $56{,}7$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\begin{flushright}
+			(Nguồn: worlddata.info)
+		\end{flushright}
+		\item Bảng thống kê về môn thể thao yêu thích nhất của học sinh lớp $8A7$ (sĩ số $40$ học sinh; mỗi học sinh chọn một môn thể thao yêu thích nhất) như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Môn thể thao & Bóng đá & Cầu lông & Bóng rổ & Cờ Vua & Bơi \\
+				\hline
+				Số học sinh yêu thích & $15$ & $5$ & $12$ & $6$ & $2$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta chọn biểu đồ cột hoặc biểu đồ đoạn thẳng.
+			\item Ta chọn biểu đồ tranh hoặc biểu đồ hình quạt tròn.
+		\end{enumerate}
+	}
+\end{vd}
+\subsection{Các dạng biểu diễn khác nhau cho một tập dữ liệu}
+Một tập dữ liệu có thể biểu diễn dưới các dạng khác nhau. Chuyển đổi dữ liệu giữa các dạng giúp việc đánh giá thuận lợi và đạt hiệu quả hơn.
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Quan sát bảng thống kê sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Xếp loại học tập & Tốt & Khá & Đạt & Chưa đạt \\
+			\hline
+			Lớp 8C & $6 \%$ & $44 \%$ & $43 \%$ & $7 \%$ \\
+			\hline
+			Lớp 8D & $9 \%$ & $47 \%$ & $40 \%$ & $4 \%$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lựa chọn dạng biểu đồ thích hợp để biểu diễn dữ liệu từ bảng thống kê trên.
+		\item So sánh tỉ lệ học sinh xếp loại Tốt và Chưa đạt của hai lớp 8C và 8D.
+		\item So sánh tỉ lệ học sinh xếp loại từ Khá trở lên của hai lớp 8C và 8D.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biểu đồ cột kép là thích hợp để biểu diễn dữ liệu từ bảng thống kê trên.
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (4,4) rectangle(4,4) node[midway]{\bf Tỉ lệ xếp loại học tập của hai lớp 8C và 8D};
+					\draw[->] (0,0)node[left]{0}--(13.5,0)node[below]{(Xếp loại)};
+					\draw[->] (0,0)--(0,3)node[left]{(\%)};
+					\foreach \i/\j in{1/$10$,2/$20$,3/$30$,4/$40$,5/$50$} 
+					\draw (-0.2,\i*0.5)node[left]{\j}--(0,\i*0.5);
+					\fill[blue!60] 
+					(7.5,3.5)--(7.7,3.5)--(7.7,3.7)--(7.5,3.7)--(7.5,3.5);
+					\draw (7.7,3.5) node[right]{Lớp 8C};
+					\fill[red!60] 
+					(7.5,3)--(7.7,3)--(7.7,3.2)--(7.5,3.2)--(7.5,3);
+					\draw (7.7,3) node[right]{Lớp 8D};
+					\fill[blue!60] 
+					(1.5,0)--(1.5,0.36)--(2,0.36)--(2,0)
+					(4.5,0)--(4.5,2.1)--(5,2.1)--(5,0)
+					(7.5,0)--(7.5,2.05)--(8,2.05)--(8,0)
+					(10.5,0)--(10.5,0.39)--(11,0.39)--(11,0);
+					\fill[red!60]
+					(2.5,0)--(2.5,0.45)--(3,0.45)--(3,0)
+					(5.5,0)--(5.5,2.3)--(6,2.3)--(6,0)
+					(8.5,0)--(8.5,2.0)--(9,2.0)--(9,0)
+					(11.5,0)--(11.5,0.2)--(12,0.2)--(12,0);
+					\draw (1.7,0.36) node[above]{$6$} (1.5,0) (2.7,0.45) node[above]{$9$} (2.2,0) node[below]{Tốt};
+					\draw (4.7,2.1) node[above]{$44$} (5.7,2.3) node[above]{$47$} (5.2,0) node[below]{Khá};
+					\draw (7.7,2.05) node[above]{$43$} (8.7,2.0) node[above]{$40$} (8.2,0) node[below]{Đạt};
+					\draw (10.7,0.39) node[above]{$7$} (11.7,0.2) node[above]{$4$} (11.2,0) node[below]{Chưa đạt};
+				\end{tikzpicture}
+			\end{center}
+			\item Tỉ lệ học sinh xếp loại Tốt của lớp 8C thấp hơn lớp 8D và tỉ lệ học sinh xếp loại Chưa đạt của lớp 8C cao hơn lớp 8D.
+			\item Tỉ lệ học sinh xếp loại từ Khá trở lên của lớp 8D $\left(56\%\right)$ cao hơn lớp 8C $\left(50\%\right)$.
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-2]
+	Bảng thống kê sau cho biết việc sử dụng thời gian của Mai trong ngày.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{Thống kê việc sử dụng thời gian trong ngày của Mai} \\
+			\hline
+			Công việc & Thời gian (giờ) \\
+			\hline
+			Học trên lớp & $6$ \\
+			\hline
+			Ngủ & $7$ \\
+			\hline
+			Ăn uống, vệ sinh cá nhân & $2$ \\
+			\hline
+			Làm bài ở nhà & $2$ \\
+			\hline
+			Làm việc nhà & $4$ \\
+			\hline
+			Chơi thể thao/Giải trí & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy biểu diễn dữ liệu trong bảng thống kê trên vào hai dạng biểu đồ sau
+	\begin{enumerate}
+		\item Biểu đồ cột.
+		\item Biểu đồ hình quạt tròn.
+		\begin{center}
+			\begin{tikzpicture}
+				\path (3,3) rectangle(3,3) node[midway]{\bf Thời gian trong ngày của Mai};
+				\def\r{2}
+				\def\gocxp{90}
+				\coordinate (A) at (90:\r);
+				\foreach \val/\freq/\col/\pattern[count=\i from 0] in{Học trên lớp/25/red/dots, Ngủ/29/blue/north east lines,{Ăn uống, vệ sinh cá nhân}/8/magenta/horizontal lines,Làm bài ở nhà/8/black/grid, Làm việc nhà/17/red/bricks, {Chơi thể thao/Giải trí}/13/blue/vertical lines}{
+					\pgfmathsetmacro\gockt{-(\freq*3.6-\gocxp)}
+					\pgfmathsetmacro\gocnode{\gocxp+\gockt}
+					\draw[gray!50,pattern = \pattern,pattern color=\col] (0,0)--(A) arc(\gocxp:\gockt:\r) coordinate(A)--cycle;
+					\fill[pattern = \pattern,pattern color=\col] (\r+1,\r-.75*\i) --++(0:.5)--++(-90:.5) node[pos=.5,right,black]{\val}--++(180:.5)--cycle;
+					\path ($(0,0)+(\gocnode/2:1.1)$) node[fill=white,inner sep=0pt,circle]{\color{black} $?\%$};
+					\global\let\gocxp=\gockt
+				}
+			\end{tikzpicture}
+		\end{center}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biểu đồ cột
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (4,4) rectangle(4,4) node[midway]{\bf Thời gian trong ngày của Mai};
+					\draw[->] (0,0)node[left]{0}--(13.5,0)node[below]{(Công việc)};
+					\draw[->] (0,0)--(0,3)node[left]{(Giờ)};
+					\foreach \i/\j in{1/$2$,2/$4$,3/$6$,4/$8$} 
+					\draw (-0.2,\i*0.5)node[left]{\j}--(0,\i*0.5);
+					\fill[red!60]
+					(0.5,0)--(0.5,1.5)--(1,1.5)--(1,0)
+					(2.5,0)--(2.5,1.75)--(3,1.75)--(3,0)
+					(4.5,0)--(4.5,0.5)--(5,0.5)--(5,0)
+					(6.5,0)--(6.5,0.5)--(7,0.5)--(7,0)
+					(8.5,0)--(8.5,1.0)--(9,1.0)--(9,0)
+					(10.5,0)--(10.5,0.75)--(11,0.75)--(11,0);
+					\draw (0.7,1.5) node[above]{$6$} (1.4,0) node[left,rotate=45]{\scriptsize Học trên lớp};
+					\draw (2.7,1.75) node[above]{$7$} (2.9,0) node[left,rotate=45]{\scriptsize Ngủ};
+					\draw (4.7,0.5) node[above]{$2$} (5,0) node[left,rotate=45]{\scriptsize Ăn uống, vệ sinh cá nhân};
+					\draw (6.7,0.5) node[above]{$2$} (7,0) node[left,rotate=45]{\scriptsize Làm bài ở nhà};
+					\draw (8.7,1.0) node[above]{$4$} (9,0) node[left,rotate=45]{\scriptsize Làm việc nhà};
+					\draw (10.7,0.75) node[above]{$3$} (11,0) node[left,rotate=45]{\scriptsize Chơi thể thao/Giải trí};
+				\end{tikzpicture}
+			\end{center}
+			\item Biểu đồ hình quạt tròn
+			\begin{center}
+				\begin{tikzpicture}
+					\path (3,3) rectangle(3,3) node[midway]{\bf Thời gian trong ngày của Mai};
+					\def\r{2}
+					\def\gocxp{90}
+					\coordinate (A) at (90:\r);
+					\foreach \val/\freq/\col/\pattern[count=\i from 0] in{Học trên lớp/25/red/dots, Ngủ/29/blue/north east lines,{Ăn uống, vệ sinh cá nhân}/8/magenta/horizontal lines,Làm bài ở nhà/8/black/grid, Làm việc nhà/17/red/bricks, {Chơi thể thao/Giải trí}/13/blue/vertical lines}{
+						\pgfmathsetmacro\gockt{-(\freq*3.6-\gocxp)}
+						\pgfmathsetmacro\gocnode{\gocxp+\gockt}
+						\draw[gray!50,pattern = \pattern,pattern color=\col] (0,0)--(A) arc(\gocxp:\gockt:\r) coordinate(A)--cycle;
+						\fill[pattern = \pattern,pattern color=\col] (\r+1,\r-.75*\i) --++(0:.5)--++(-90:.5) node[pos=.5,right,black]{\val}--++(180:.5)--cycle;
+						\path ($(0,0)+(\gocnode/2:1.1)$) node[fill=white,inner sep=0pt,circle]{\color{black} $\freq\%$};
+						\global\let\gocxp=\gockt
+					}
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2H2-1]
+	Giá trị xuất khẩu gạo của Việt Nam qua các năm được biểu diễn trong biều đồ cột dưới đây:
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+			\path (4,4) rectangle(4,4) node[midway]{\bf Giá trị xuất khẩu gạo của Việt Nam};
+			\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Năm)};
+			\draw[->] (0,0)--(0,3)node[left]{(tỉ USD)};
+			\foreach \i/\j in{1/$1$,2/$2$,3/$3$,4/$4$, 5/$5$} 
+			\draw (-0.2,\i*0.5)node[left]{\j}--(0,\i*0.5);
+			\fill[red!60]
+			(0.5,0)--(0.5,1.15)--(1,1.15)--(1,0)
+			(2.5,0)--(2.5,1.35)--(3,1.35)--(3,0)
+			(4.5,0)--(4.5,1.55)--(5,1.55)--(5,0)
+			(6.5,0)--(6.5,1.45)--(7,1.45)--(7,0)
+			(8.5,0)--(8.5,1.6)--(9,1.6)--(9,0)
+			(10.5,0)--(10.5,1.75)--(11,1.75)--(11,0)
+			(12.5,0)--(12.5,2)--(13,2)--(13,0);
+			\draw (0.7,1.15) node[above]{$2{,}16$} (0.7,0) node[below]{$2016$};
+			\draw (2.7,1.35) node[above]{$2{,}63$} (2.7,0) node[below]{$2017$};
+			\draw (4.7,1.55) node[above]{$3{,}06$} (4.7,0) node[below]{$2018$};
+			\draw (6.7,1.45) node[above]{$2{,}81$} (6.77,0) node[below]{$2019$};
+			\draw (8.7,1.6) node[above]{$3{,}12$} (8.7,0) node[below]{$2020$};
+			\draw (10.7,1.75) node[above]{$3{,}29$} (10.7,0) node[below]{$2021$};
+			\draw (12.7,2) node[above]{$4$} (12.7,0) node[below]{$2022$};
+		\end{tikzpicture}
+	\end{center}
+	\begin{flushright}
+		(Nguồn: \href{https://infographics.vn}{https://infographics.vn})
+	\end{flushright}
+	\begin{enumerate}
+		\item Hãy chuyển đổi dữ liệu từ biểu đồ trên thành dạng bảng thống kê theo mẫu sau.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				Năm & $2016$ & $ 2017 $ & $ 2018  $& $ 2019 $ & $ 2020 $ & $ 2021 $ & $ 2022 $ \\
+				\hline
+				$\begin{array}{c}\text {Giá trị xuất khẩu} \\ \text {gạo (tỉ USD)}\end{array}$ & $?$ & $?$ & $?$ & $?$ & $?$ & $?$ & $?$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item Hãy chuyển đổi dữ liệu từ biểu đồ trên thành dạng biểu đồ đoạn thẳng.
+		\item So sánh ý nghĩa của hai loại biểu đồ đang sử dụng.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê tương ứng với biểu đồ cột trên là
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Năm & $2016$ & $ 2017 $ & $ 2018  $& $ 2019 $ & $ 2020 $ & $ 2021 $ & $ 2022 $ \\
+					\hline
+					$\begin{array}{c}\text {Giá trị xuất khẩu} \\ \text {gạo (tỉ USD)}\end{array}$ & $ 2{,}16 $ & $ 2{,}63 $ & $ 3{,}06  $& $ 2{,}81  $& $ 3{,}12 $ & $ 3{,}29 $ & $ 4 $ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Biểu đồ đoạn thẳng tương ứng với biểu đồ cột trên là
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (5,8.5) rectangle(6,8.5) node[midway]{\textbf{Giá trị xuất khẩu gạo của Việt Nam}};
+					\draw[->] (0,0)node[left]{0}--(12,0)node[below]{(Năm)};
+					\draw[->] (0,0)--(0,8.5)node[left]{(tỉ USD)};
+					\draw (0,1.5)node[left]{$1$}--(11,1.5) (0,3)node[left]{$2$}--(11,3) (0,4.5)node[left]{$3$}--(11,4.5) (0,6)node[left]{$4$}--(11,6) (0,7.5) node[left]{$5$}--(11,7.5);
+					\draw  (1,-0.2)--(1,0.2) (1,-0.3) node[below] {$2016$};
+					\draw  (2.5,-0.2)--(2.5,0.2) (2.5,-0.3) node[below] {$2017$};
+					\draw  (4,-0.2)--(4,0.2) (4,-0.3) node[below] {$2018$};
+					\draw  (5.5,-0.2)--(5.5,0.2) (5.5,-0.3) node[below] {$2019$};
+					\draw  (7,-0.2)--(7,0.2) (7,-0.3) node[below] {$2020$};
+					\draw  (8.5,-0.2)--(8.5,0.2) (8.5,-0.3) node[below] {$2021$};
+					\draw  (10,-0.2)--(10,0.2) (10,-0.3) node[below] {$2022$};
+					\draw[thick,red] (1,3.1)--(2.5,4.1)--(4,4.6)--(5.5,4.3)--(7,4.7)--(8.5,4.8)--(10,6);
+					\fill[blue!60] (1,3.1) circle (1mm) node[above]{$2{,}16$};
+					\fill[blue!60] (2.5,4.1) circle (1mm) node[above]{$2{,}63$};
+					\fill[blue!60] (4,4.6) circle (1mm) node[above]{$3{,}06$};
+					\fill[blue!60] (5.5,4.3) circle (1mm) node[above]{$2{,}81$};
+					\fill[blue!60] (7,4.7) circle (1mm) node[above]{$3{,}12$};
+					\fill[blue!60] (8.5,4.8) circle (1mm) node[above]{$3{,}29$};
+					\fill[blue!60] (10,6) circle (1mm) node[above]{$4$};
+				\end{tikzpicture}
+			\end{center}	
+			\item Biểu đồ cột có mục đích so sánh sự hơn kém của giá trị xuất khẩu gạo giữa các năm. Biểu đồ đoạn thẳng có mục đích biểu diễn sự biến thiên của giá trị xuất khẩu gạo theo thời gian (năm).	
+		\end{enumerate}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2H2-2]
+	Lượng mưa các tháng trong năm $2021$ của thành phố Đà Lạt được cho trong bảng thống kê sau.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{Lượng mưa các tháng trong năm $2021$ của thành phố Đà Lạt} \\
+			\hline
+			Tháng & Lượng mưa (mm) \\
+			\hline
+			$1$ & $0$ \\
+			\hline
+			$2$ & $0$ \\
+			\hline
+			$3$ & $7{,}6$ \\
+			\hline
+			$4$ & $270{,}3$ \\
+			\hline
+			$5$ & $108{,}2$ \\
+			\hline
+			$6$ & $96{,}7$ \\
+			\hline
+			$7$ & $328{,}3$ \\
+			\hline
+			$8$ & $224{,}1$ \\
+			\hline
+			$9$ & $269{,}6$ \\
+			\hline
+			$10$ & $252{,}6$ \\
+			\hline
+			$11$ & $134{,}9$ \\
+			\hline
+			$12$ & $66{,}2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{flushright}
+		\textit{(Nguồn: Niên giám thống kê năm $2021$)}
+	\end{flushright}
+	\begin{enumerate}
+		\item Số liệu từ bảng thống kê trên được biểu diễn vào biểu đồ cột sau. Hãy tìm các giá trị của $A$, $B$, $C$, $D$ trong biểu đồ.
+		\begin{center}
+			\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+				\path (8,8) rectangle(8,8) node[midway]{\bf Lượng mưa các tháng trong năm $2021$ của thành phố Đà Lạt};
+				\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Tháng)};
+				\draw[->] (0,0)--(0,8)node[left]{(mm)};
+				\foreach \i/\j in{1/$50$,2/$100$,3/$150$,4/$200$, 5/$250$, 6/$300$, 7/$350$} 
+				\draw (-0.2,\i*1)node[left]{\j}--(0,\i*1);
+				\fill[red!60]
+				%			(0.5,0)--(0.5,1.15)--(1,1.15)--(1,0)
+				%			(2.5,0)--(2.5,1.35)--(3,1.35)--(3,0)
+				(3,0)--(3,0.1)--(3.2,0.1)--(3.2,0)
+				(4,0)--(4,5.4)--(4.2,5.4)--(4.2,0)
+				(5,0)--(5,2.1)--(5.2,2.1)--(5.2,0)
+				(6,0)--(6,1.8)--(6.2,1.8)--(6.2,0)
+				(7,0)--(7,6.6)--(7.2,6.6)--(7.2,0)
+				(8,0)--(8,4.4)--(8.2,4.4)--(8.2,0)
+				(9,0)--(9,5.2)--(9.2,5.2)--(9.2,0)
+				(10,0)--(10,5.1)--(10.2,5.1)--(10.2,0)
+				(11,0)--(11,2.7)--(11.2,2.7)--(11.2,0)
+				(12,0)--(12,1.2)--(12.2,1.2)--(12.2,0)
+				;
+				\draw (1.1,0) node[above]{$0$} (1.1,0) node[below]{$1$};
+				\draw (2.1,0) node[above]{$0$} (2.1,0) node[below]{$2$};
+				\draw (3.1,0.1) node[above]{$7{,}6$} (3.1,0) node[below]{$3$};
+				\draw (4.1,5.4) node[above]{$A$} (4.1,0) node[below]{$4$};
+				\draw (5.1,2.1) node[above]{$108{,}2$} (5.1,0) node[below]{$5$};
+				\draw (6.1,1.7) node[above]{$96{,}7$} (6.1,0) node[below]{$6$};
+				\draw (7.1,6.5) node[above]{$B$} (7.1,0) node[below]{$7$};
+				\draw (8.1,4.5) node[above]{$224{,}1$} (8.1,0) node[below]{$8$};
+				\draw (9.1,5.3) node[above]{$C$} (9.1,0) node[below]{$9$};
+				\draw (10.1,5.1) node[above]{$252{,}6$} (10.1,0) node[below]{$10$};
+				\draw (11.1,2.7) node[above]{$134{,}9$} (11.1,0) node[below]{$11$};
+				\draw (12.1,1.2) node[above]{$D$} (12.1,0) node[below]{$12$};
+			\end{tikzpicture}
+		\end{center}
+		\item Hãy biểu diễn dữ liệu trong biểu đồ trên dưới dạng biểu đồ đoạn thẳng.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $A=270{,}3$ ; $B=328{,}3$ ; $C=269{,}6$ ; $D=66{,}2$.	
+			\item Biểu đồ đoạn thẳng
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (8,8) rectangle(8,8) node[midway]{\bf Lượng mưa các tháng trong năm $2021$ của thành phố Đà Lạt};
+					\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Tháng)};
+					\draw[->] (0,0)--(0,8)node[left]{(mm)};
+					\foreach \i/\j in{1/$50$,2/$100$,3/$150$,4/$200$, 5/$250$, 6/$300$, 7/$350$} 
+					\draw (-0.2,\i*1)node[left]{\j}--(0,\i*1);
+					\draw (0,1)--(14,1) (0,2)--(14,2) (0,3)--(14,3) (0,4)--(14,4) (0,5)--(14,5) (0,6)--(14,6) (0,7)--(14,7);
+					\draw[thick,red] (1,0)--(2,0)--(3,0.1)--(4,5.4)--(5,2.1)--(6,1.7)--(7,6.5)--(8,4.5)--(9,5.3)--(10,5.1)--(11,2.7)--(12,1.2);
+					\draw (1,0) node[below]{$1$};
+					\draw (2,0) node[below]{$2$};
+					\draw (3,0) node[below]{$3$};
+					\draw (4,0) node[below]{$4$};
+					\draw (5,0) node[below]{$5$};
+					\draw (6,0) node[below]{$6$};
+					\draw (7,0) node[below]{$7$};
+					\draw(8,0) node[below]{$8$};
+					\draw (9,0) node[below]{$9$};
+					\draw (10,0) node[below]{$10$};
+					\draw (11,0) node[below]{$11$};
+					\draw (12,0) node[below]{$12$};
+					\fill[blue!60] (1,0) circle (1mm) node[above]{$0$};
+					\fill[blue!60] (2,0) circle (1mm) node[above]{$0$};
+					\fill[blue!60] (3,0.1) circle (1mm) node[above]{$7{,}6$};
+					\fill[blue!60] (4,5.4) circle (1mm) node[above]{$270{,}3$};
+					\fill[blue!60] (5,2.1) circle (1mm) node[above]{$108{,}2$};
+					\fill[blue!60] (6,1.7) circle (1mm) node[below]{$96{,}7$};
+					\fill[blue!60] (7,6.5) circle (1mm) node[above]{$328{,}3$};
+					\fill[blue!60] (8,4.5) circle (1mm) node[below]{$224{,}1$};
+					\fill[blue!60] (9,5.3) circle (1mm) node[above]{$269{,}6$};
+					\fill[blue!60] (10,5.1) circle (1mm) node[above]{$252{,}6$};
+					\fill[blue!60] (11,2.7) circle (1mm) node[right]{$134{,}9$};
+					\fill[blue!60] (12,1.2)  circle (1mm) node[right]{$66{,}2$};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{vd}
+
+\setcounter{subsubsection}{1}
+\subsubsection{Bài tập}
+%===============/ SBT Canh dieu/==================
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Trong 10 tháng đầu năm 2022, lượng khách quốc tế đến Việt Nam tăng khoảng $90\%$ so với cùng kỳ năm trước. Thống kê số lượt khách du lịch quốc tế đến Việt Nam 10 tháng đầu năm 2022 phân theo vùng lãnh thổ: Châu Á, Châu Âu, Châu Mỹ, Châu Úc, Châu Phi lần lượt khoảng là: $1658{,}6$; $323{,}6$; $260{,}8$; $106{,}3$; $7{,}9$ (đơn vị: nghìn lượt người). \textit{(Nguồn: Báo cáo tháng 11-2022, Tổng cục thống kê)}
+	\begin{enumerate}
+		\item Lập bảng thống kê số lượt khách du lịch quốc tế đến Việt Nam 10 tháng đầu năm 2022 phân theo vùng lãnh thổ theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|>{\centering\arraybackslash}m{3.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}	
+				\hline \textbf{Phân theo vùng lãnh thổ} &\textbf{Châu Á} &\textbf{Châu Âu} & \textbf{Châu Mỹ}&\textbf{Châu Úc} &\textbf{Châu Phi} \\
+				\hline 
+				\makecell{Số lượt khách\\ (nghìn lượt người)} &  &  & & & \\
+				\hline
+			\end{tabular}	
+		\end{center}
+		\item Hãy hoàn thiện biểu đồ ở hình bên để nhận được biểu đồ hình cột biểu diễn các dữ liệu thống kê số lượt khách du lịch quốc tế đến Việt Nam 10 tháng đầu năm 2022 phân theo vùng lãnh thổ: Châu Á, Châu Âu, Châu Mỹ, Châu Úc, Châu Phi.
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.7]
+				\tikzset{every node/.style={scale=.8}}% thu nhỏ phóng tỏ tex trong hình
+				\node (0,0)[left]{$0$};
+				\draw[->] (0,0)--(11,0) node[below]{Châu lục}; 
+				\draw[->] (0,0)--(0,10.3) node[below right,align=left]{Số lượt khách\\(nghìn lượt người)};
+				\foreach \x/\y in {1/200,2/400,3/600,4/800,5/1000,6/1200,7/1400,8/1600,9/1800} \draw (0.1,\x)--(-0.1,\x)node[left]{$\y$}; 
+				\foreach \x/\y in {1/Châu Á,3/Châu Âu,5/Châu Mỹ,7/Châu Úc,9/Châu Phi} \draw (\x,0)node[below]{$\fbox{?}$};
+				%Cột 1
+				\foreach \x/\y/\z in {1/8.293/1658{,}6,3/1.618/323{,}6,5/1.304/260{,}8,7/.5315/106{,}3,9/.04/7{,}9}
+				{\draw[fill=black] (\x-.5,0) rectangle (\x+.5,\y)node[above,xshift=-.4cm]{$\fbox{?}$};}
+			\end{tikzpicture}
+		\end{center}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê số lượt khách du lịch quốc tế đến Việt Nam 10 tháng đầu năm 2022 phân theo vùng lãnh thổ như sau
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{3.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}	
+					\hline \textbf{Phân theo vùng lãnh thổ} &\textbf{Châu Á} &\textbf{Châu Âu} & \textbf{Châu Mỹ}&\textbf{Châu Úc} &\textbf{Châu Phi} \\
+					\hline 
+					\makecell{Số lượt khách\\ (nghìn lượt người)} &$1658{,}6$  & $323{,}6$  &$260{,}8$ &$106{,}3$ &$7{,}9$ \\
+					\hline
+				\end{tabular}	
+			\end{center}
+			\item \immini{Biểu đồ hình cột ở bên biểu diễn các dữ liệu thống kê số lượt khách du lịch quốc tế đến Việt Nam 10 tháng đầu năm 2022 phân theo vùng lãnh thổ trên.}
+			{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.7]
+					\tikzset{every node/.style={scale=.8}}% thu nhỏ phóng tỏ tex trong hình
+					\node (0,0)[left]{$0$};
+					\draw[->] (0,0)--(11,0) node[below]{Châu lục}; 
+					\draw[->] (0,0)--(0,10) node[below right,align=left]{Số lượt khách\\(nghìn lượt người)};
+					\foreach \x/\y in {1/200,2/400,3/600,4/800,5/1000,6/1200,7/1400,8/1600,9/1800} \draw (0.1,\x)--(-0.1,\x)node[left]{$\y$}; 
+					\foreach \x/\y in {1/Châu Á,3/Châu Âu,5/Châu Mỹ,7/Châu Úc,9/Châu Phi} \draw (\x,0)node[below]{{\y}};
+					%Cột 1
+					\foreach \x/\y/\z in {1/8.293/1658{,}6,3/1.618/323{,}6,5/1.304/260{,}8,7/.5315/106{,}3,9/.04/7{,}9}
+					{\draw[fill=black] (\x-.5,0) rectangle (\x+.5,\y)node[above,xshift=-.4cm]{$\z$};}
+			\end{tikzpicture}}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Dân số của Việt Nam ở các năm $1979$, $1989$, $1999$, $2009$, $2019$ lần lượt khoảng là: $54{,}7$; $64{,}4$; $76{,}3$; $85{,}8$; $96{,}2$ (đơn vị: triệu người). \textit{(Nguồn: Tổng cục Thống kê)}
+	\begin{enumerate}
+		\item Lập bảng thống kê dân số của Việt Nam ở các năm $1979$, $1989$, $1999$, $2009$, $2019$ theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|>{\centering\arraybackslash}m{3.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}	
+				\hline \textbf{Năm} &\textbf{1979} &\textbf{1989} & \textbf{1999}&\textbf{2009} &\textbf{2019} \\
+				\hline 
+				\makecell{Dân số\\ (triệu người)} &  &  & & & \\
+				\hline
+			\end{tabular}	
+		\end{center}
+		\item \immini{Hãy hoàn thiện biểu đồ ở hình bên để nhận được biểu đồ đoạn thẳng biểu diễn các dữ liệu thống kê dân số của Việt Nam ở các năm $1979$, $1989$, $1999$, $2009$, $2019$.}
+		{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.8]
+				\draw[->] (0,0)--(8.5,0) node[below,yshift=-.2cm]{Năm}; 
+				\draw[->] (0,0)--(0,6.5) node[below right,align=center]{Dân số\\ (triệu người)};
+				\foreach \x/\y in {1/20,2/40,3/60,4/80,5/100} \draw (0.2,\x)--(-0.2,\x)node[left]{$\y$}; 
+				\foreach \x/\y in {1.5/1979,3/1989,4.5/1999,6/2009,7.5/2019}\draw (\x,-0.2)node[below]{$\fbox{?}$}--(\x,0);
+				\foreach \x/\y in {1.5/2.74,3/3.22,4.5/3.82,6/4.29,7.5/4.81}{\draw[dashed] (\x,0)--(\x,\y) node[above]{$\fbox{?}$};
+					\draw[fill=black] (\x,\y)circle(1.5pt);}
+				\draw (1.5,2.74)--(3,3.22)--(4.5,3.82)--(6,4.29)--(7.5,4.81);
+				
+				%		\foreach \x/\y in {2/5,4/10,6/5}{\draw[fill=cyan] (\x-.5,0) rectangle (\x+.5,\y) node[above] at (\x,\y){?};}
+		\end{tikzpicture}}
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê dân số của Việt Nam ở các năm $1979$, $1989$, $1999$, $2009$, $2019$ như sau
+			\begin{center}
+				\begin{tabular}{|>{\centering\arraybackslash}m{3.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|}	
+					\hline \textbf{Năm} &\textbf{1979} &\textbf{1989} & \textbf{1999}&\textbf{2009} &\textbf{2019} \\
+					\hline 
+					\makecell{Dân số\\ (triệu người)} & $54{,}7$ &$64{,}4$  &$76{,}3$ &$85{,}8$ &$96{,}2$ \\
+					\hline
+				\end{tabular}	
+			\end{center}
+			\item \immini{Biểu đồ đoạn thẳng ở hình bên biểu diễn các dữ liệu thống kê dân số của Việt Nam ở các năm $1979$, $1989$, $1999$, $2009$, $2019$.}
+			{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.8]
+					\draw[->] (0,0)--(8.8,0) node[below,yshift=-.2cm]{Năm}; 
+					\draw[->] (0,0)--(0,6.5) node[below right,align=center]{Dân số\\ (triệu người)};
+					\foreach \x/\y in {1/20,2/40,3/60,4/80,5/100} \draw (0.2,\x)--(-0.2,\x)node[left]{$\y$}; 
+					\foreach \x/\y in {1.5/1979,3/1989,4.5/1999,6/2009,7.5/2019}\draw (\x,-0.2)node[below]{\y}--(\x,0.2);
+					\foreach \x/\y/\z in {1.5/2.74/54{,}7,3/3.22/64{,}4,4.5/3.82/76{,}3,6/4.29/85{,}8,7.5/4.81/96{,}2}{\draw[dashed] (\x,0)--(\x,\y) node[above]{$\z$};
+						\draw[fill=black] (\x,\y)circle(1.5pt);}
+					\draw (1.5,2.74)--(3,3.22)--(4.5,3.82)--(6,4.29)--(7.5,4.81);
+			\end{tikzpicture}}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	\immini{Biểu đồ cột ở hình bên biểu diễn lượng xuất khẩu thép của Việt Nam đến các thị trường Indonesia, Thái Lan, Malaysia, Philippines trong năm $2020$. Nêu cách xác định lượng xuất khẩu thép của Việt Nam đến thị trường Thái lan và Philippines trong năm $2020$.}
+	{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.7]
+			\tikzset{every node/.style={scale=0.8}}% thu nhỏ phóng tỏ tex trong hình
+			\draw[->] (0,0)--(10,0) node[below]{Nước}; 
+			\draw[->] (0,0)--(0,9) node[below right,align=center]{Lượng xuất khẩu\\ (nghìn tấn)};
+			\foreach \x/\y in {1/100,2/200,3/300,4/400,5/500,6/600,7/700,8/800} \draw (0.2,\x)--(-0.2,\x)node[left]{$\y$}; 
+			\foreach \x/\y in {2/Indonesia,4/Thái Lan,6/Malaysia,8/Philippines} \draw (\x,-0.2)node[below]{\y}--(\x,0.2);
+			\draw[fill=gray] (1.5,0) rectangle (2.5,5.51) (2,5.51)node[above]{$551$};
+			\draw[fill=gray] (3.5,0) rectangle (4.5,6.75)node[above,xshift=-0.5cm]{$675$};
+			\draw[fill=gray] (5.5,0) rectangle (6.5,6.29)node[above,xshift=-.5cm]{$629$};
+			\draw[fill=gray] (7.5,0) rectangle (8.5,5.57)node[above,xshift=-.5cm]{$556{,}8$};
+	\end{tikzpicture}}
+	\loigiai{
+		Nhìn vào các cột biểu diễn lượng xuất khẩu thép của Việt Nam đến các thị trường Thái Lan và Philippines trong năm $2020$, ta thấy trên đỉnh các cột  đó ghi các số lần lượt là $675$ và $556{,}8$, đơn vị tính ghi trên cột thẳng đứng là nghìn tấn. Vậy lượng xuất khẩu thép của Việt Nam đến các thị trường Thái Lan và Philippines trong năm $2020$ lần lượt là  $675$ nghìn tấn và $556{,}8$ nghìn tấn.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Chọn biểu đồ phù hợp nhất để biểu diễn dữ liệu về tuổi thọ trung bình ở một số khu vực ở Việt Nam được cho trong bảng sau. Giải thích tại sao em chọn biểu đồ đó.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Khu vực & Tuổi thọ trung bình (Đơn vị: năm) \\
+			\hline
+			Đồng bằng Sông Hồng & $74{,}8$ \\
+			\hline
+			Trung du và miền núi phía Bắc. & $71{,}4$ \\
+			\hline
+			Bắc Trung Bộ và Duyên hải miền Trung & $73{,}2$ \\
+			\hline
+			Tây Nguyên & $71{,}0$ \\
+			\hline
+			Đông Nam Bộ & $76{,}2$ \\
+			\hline
+			Đồng bằng sông Cửu Long & $74{,}9$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{flushright}
+		(Nguồn: Tổng cục thống kê)
+	\end{flushright}
+	\loigiai{
+		Tuổi thọ trung bình của một số khu vực không phải là các số nguyên nên biểu đồ tranh không phù hợp. Ta không thể dùng biểu đồ đoạn thẳng để biểu diễn vì trong dữ liệu này tuổi thọ trung bình không thay đổi theo thời gian mà thay đồi theo quốc gia. Ta nên dùng biểu đồ cột để biểu diễn dữ liệu này.
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2N2-1]
+	Cho bảng thống kê số người dùng Facebook mỗi quý trong năm $2022$ như dưới đây (đơn vị: triệu người)
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Quý $1/2022$ & Quý $2/2022$ & Quý $3/2022$ & Quý $4/2022$ \\
+			\hline
+			$2936$ & $2934$ & $2958$ & $2963$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy chọn biểu đồ phù hợp nhất để biểu diễn dữ liệu này.
+		\item Nếu ta có dữ liệu về số người dùng Facebook hàng quý từ năm $2015$ đến nay thì nên dùng biểu đồ nào để biểu diễn thống kê này?
+	\end{enumerate}
+	\begin{flushright}
+		(Nguồn: www.statista.com)
+	\end{flushright}
+	\loigiai{
+		\begin{enumerate}
+			\item Nên chọn biểu đồ cột để biểu diễn dữ liệu bảng
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=.7,yscale=0.8,xscale=1.8]
+					\def\tl{5}
+					\def\kc{1}
+					\foreach \n in {1,2,...,8}{
+						\pgfmathsetmacro{\ny}{int(\n*\tl+2930)}
+						\draw[opacity=.3,dashed] (0,\n)
+						node[left,opacity=1]{$\ny$};
+					}
+					\foreach \x/\y [count=\i from 0] in {2936/Quý 1, 2934/Quý 2, 2958/Quý 3,2963/Quý 4}
+					{
+						\pgfmathsetmacro{\ni}{\i*2+1}
+						\pgfmathsetmacro{\xi}{(\x-2930)/\tl}
+						\fill[orange!50,draw] ({\ni-\kc/2},0) rectangle +(\kc,\xi);
+						\draw (\ni,2pt)--(\ni,-2pt)node[below]{\y};
+						\path (\ni,\xi)node[above]{\x};
+					}
+					\draw[<->] (0,9)node[above]{Số người dùng}|-(9,0)node[below right]{Quý}
+					;
+					\fill circle (1pt) node[left]{$O$};
+					\draw (current bounding box.south) node[align=center, below]{\bfseries Thống kê số người dùng Facebook mỗi quý trong năm $2022$};
+				\end{tikzpicture}
+			\end{center}
+			\item Nếu ta có dữ liệu về số người dùng Facebook hàng quý từ năm $2015$ đến nay thì nên dùng biểu đồ cột kép.
+		\end{enumerate}
+	}
+\end{bt} 
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2V2-1]
+	Lượng gạo nhập khẩu gạo từ Việt Nam của năm quốc gia nhiều nhất trong năm tháng đầu năm $2021$ được biểu diễn dưới dạng biểu đồ sau
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+			\path (5,5) rectangle(5,5) node[midway]{\bf Lượng gạo nhập khẩu từ Việt Nam của năm quốc gia};
+			\draw[->] (0,0)node[left]{0}--(12.5,0) node[below]{(Quốc gia)};
+			\draw[->] (0,0)--(0,4)node[left]{(nghìn tấn)};
+			\foreach \i/\j in{1/$500$,2/$1000$} 
+			\draw (-0.2,\i*1.5)node[left]{\j}--(0,\i*1.5);
+			\fill[red!60]
+			(1,0)--(1,2.9)--(1.5,2.9)--(1.5,0)
+			(3,0)--(3,1.5)--(3.5,1.5)--(3.5,0)
+			(5,0)--(5,0.4)--(5.5,0.4)--(5.5,0)
+			(7,0)--(7,0.7)--(7.5,0.7)--(7.5,0)
+			(9,0)--(9,0.6)--(9.5,0.6)--(9.5,0)
+			;
+			\draw (1.2,2.9) node[above]{$944{,}008$} (1,0) node[below]{Philippines};
+			\draw (3.2,1.5) node[above]{$482{,}848$} (3.4,0) node[below]{Trung Quốc};
+			\draw (5.2,0.4) node[above]{$136{,}56$} (5.5,0) node[below]{Malaysia};
+			\draw (7.2,0.7) node[above]{$270{,}068$} (7.4,0) node[below]{Ghana};
+			\draw (9.2,0.6) node[above]{$199{,}376$} (9.5,0) node[below]{Bờ Biển Ngà};
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy chuyển dữ liệu từ biểu đồ trên thành dạng bảng thống kê theo mẫu sau.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Quốc gia & Philippines & $\begin{array}{c}\text { Trung } \\ \text { Quốc }\end{array}$ & Malaysia & Ghana & $\begin{array}{c}\text {Bờ} \\ \text {Biển}\\ \text {Ngà}\end{array}$ \\
+				\hline
+				$\begin{array}{c}\text { Lượng gạo nhập khẩu } \\ \text { từ Việt Nam (nghìn tấn) }\end{array}$ & $?$ & $?$ & $?$ & $?$ & $?$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item Tính tỉ số phần trăm lượng gạo nhập khẩu từ Việt Nam của mỗi quốc gia.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê tương ứng biểu diễn biểu đồ
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					Quốc gia & Philippines & $\begin{array}{c}\text { Trung } \\ \text { Quốc }\end{array}$ & Malaysia & Ghana & $\begin{array}{c}\text {Bờ} \\ \text {Biển}\\ \text {Ngà}\end{array}$\\
+					\hline
+					$\begin{array}{c}\text {Lượng gạo} \\ \text {nhập khẩu} \\ \text {từ Việt Nam} \\ \text {(nghìn tấn) }\end{array}$ & $944{,}008$ & $482{,}848$ & $136{,}56$ & $270{,}068$ & $199{,}376$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Tổng lượng gạo nhập khẩu từ Việt Nam của năm quốc gia trong năm tháng đầu năm $2021$ là
+			\begin{center}
+				$944{,}008+482{,}848+136{,}56+270{,}068+199{,}376=2 \ 032{,}86$ (nghìn tấn).
+			\end{center}		
+			Tỉ số phần trăm lượng gạo nhập khẩu từ Việt Nam của Philippines là
+			\begin{center}
+				$\dfrac{944{,}008}{2 \ 032{,}86} \cdot 100 \% \approx 46{,}44 \%$.
+			\end{center}
+			Tỉ số phần trăm lượng gạo nhập khầu từ Việt Nam của Trung Quốc là
+			\begin{center}
+				$\dfrac{482{,}848}{2 \ 032{,}86} \cdot 100 \% \approx 23{,}75 \%$.
+			\end{center}
+			Tỉ số phần trăm lượng gạo nhập khẩu từ Việt Nam của Malaysia là
+			\begin{center}
+				$\dfrac{136{,}56}{2 \ 032{,}86} \cdot 100 \% \approx 6{,}72 \%$.
+			\end{center}
+			Tỉ số phần trăm lượng gạo nhập khẩu từ Việt Nam của Ghana là		
+			\begin{center}
+				$\dfrac{270{,}068}{2 \ 032{,}86} \cdot 100 \% \approx 13{,}28 \%$.
+			\end{center}
+			Tỉ số phần trăm lượng gạo nhập khẩu từ Việt Nam của Bờ Biển Ngà là		
+			\begin{center}
+				$\dfrac{199{,}376}{2 \ 032{,}86} \cdot 100 \% \approx 9{,}81 \%$.
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2V2-2]
+	Bảng thống kê sau cho biết số giờ luyện tập cầu lông các ngày trong tuần của bạn Hùng để chuẩn bị tham dự hội thao cấp trường.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			Ngày & Thứ Hai & Thứ Ba & Thứ Tư & Thứ Năm & Thứ Sáu & Thứ Bảy & Chủ nhật \\
+			\hline
+			Số giờ & $1$ & $2$ & $1$ & $2$ & $1$ & $3$ & $5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy biểu diễn dữ liệu trong bảng trên vào hai dạng biểu đồ sau
+	\begin{enumerate}
+		\item Biểu đồ cột;
+		\item Biểu đồ đoạn thẳng.
+	\end{enumerate} 
+	\loigiai{
+		\begin{enumerate}
+			\item Biểu đồ cột
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (5,5) rectangle(5,5) node[midway]{\textbf{Số giờ luyện tập cầu lông các ngày trong tuần của Hùng}};
+					\draw[->] (0,0)node[left]{0}--(14.5,0)node[below]{(Ngày)};
+					\draw[->] (0,0)--(0,3.5) node[left]{(Số giờ)};
+					\foreach \i/\j in{1/$1$,2/$2$,3/$3$,4/$4$, 5/$5$,6/$6$} 
+					\draw (0,\i*0.5)node[left]{\j}--(0,\i*0.5);
+					\fill[red!60]
+					(0.5,0)--(0.5,0.5)--(1,0.5)--(1,0)
+					(2.5,0)--(2.5,1)--(3,1)--(3,0)
+					(4.5,0)--(4.5,0.5)--(5,0.5)--(5,0)
+					(6.5,0)--(6.5,1)--(7,1)--(7,0)
+					(8.5,0)--(8.5,0.5)--(9,0.5)--(9,0)
+					(10.5,0)--(10.5,1.5)--(11,1.5)--(11,0)
+					(12.5,0)--(12.5,2.5)--(13,2.5)--(13,0);
+					\draw (0,0.5)--(14,0.5) (0,1)--(14,1) (0,1.5)--(14,1.5) (0,2)--(14,2) (0,2.5)--(14,2.5);
+					\draw (0.7,0.5) node[above]{$1$} (0.7,0) node [below]{\scriptsize Thứ Hai};
+					\draw (2.7,1) node[above]{$2$} (2.7,0) node [below]{\scriptsize Thứ Ba};
+					\draw (4.7,0.5) node[above]{$1$} (4.7,0) node [below]{\scriptsize Thứ Tư};
+					\draw (6.7,1) node[above]{$2$} (6.7,0) node [below] {\scriptsize Thứ Năm};
+					\draw (8.7,0.5) node[above]{$1$} (8.7,0) node [below]{\scriptsize Thứ Sáu};
+					\draw (10.7,1.5) node[above]{$3$} (10.7,0) node [below]{\scriptsize Thứ Bảy};
+					\draw (12.7,2.5) node[above]{$5$} (12.7,0) node [below]{\scriptsize Chủ nhật};
+				\end{tikzpicture}
+			\end{center}
+			\item Biểu đồ đoạn thẳng
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (4.5,4.5) rectangle(4.5,4.5) node[midway]{\textbf{Số giờ luyện tập cầu lông các ngày trong tuần của Hùng}};
+					\draw[->] (0,0)node[left]{0}--(14.5,0)node[below]{(Ngày)};
+					\draw[->] (0,0)--(0,4) node[left]{(Số giờ)};
+					\foreach \i/\j in{1/$1$,2/$2$,3/$3$,4/$4$, 5/$5$,6/$6$} 
+					\draw (0,\i*0.5)node[left]{\j}--(0,\i*0.5);
+					\draw (0,0.5)--(14,0.5) (0,1)--(14,1) (0,1.5)--(14,1.5) (0,2)--(14,2) (0,2.5)--(14,2.5);
+					\draw  (0.7,-0.2)--(0.7,0.2) (0.7,-0.3) node [below]{\scriptsize Thứ Hai};
+					\draw  (2.7,-0.2)--(2.7,0.2) (2.7,-0.3) node [below]{\scriptsize Thứ Ba};
+					\draw  (4.7,-0.2)--(4.7,0.2) (4.7,-0.3) node [below]{\scriptsize Thứ Tư};
+					\draw  (6.7,-0.2)--(6.7,0.2) (6.7,-0.3) node [below] {\scriptsize Thứ Năm};
+					\draw  (8.7,-0.2)--(8.7,0.2) (8.7,-0.3) node [below]{\scriptsize Thứ Sáu};
+					\draw  (10.7,-0.2)--(10.7,0.2) (10.7,-0.3) node [below]{\scriptsize Thứ Bảy};
+					\draw  (12.7,-0.2)--(12.7,0.2) (12.7,-0.3) node[below] {Chủ nhật};
+					\draw[thick,red] (0.7,0.5)--(2.7,1)--(4.7,0.5)--(6.7,1)--(8.7,0.5)--(10.7,1.5)--(12.7,2.5);
+					\fill[blue!60] (0.7,0.5) circle (1mm) node[above]{$1$};
+					\fill[blue!60] (2.7,1) circle (1mm) node[above]{$2$};
+					\fill[blue!60] (4.7,0.5) circle (1mm) node[above]{$1$};
+					\fill[blue!60] (6.7,1) circle (1mm) node[above]{$2$};
+					\fill[blue!60] (8.7,0.5) circle (1mm) node[above]{$1$};
+					\fill[blue!60] (10.7,1.5) circle (1mm) node[above]{$3$};
+					\fill[blue!60] (12.7,2.5) circle (1mm) node[above]{$5$};
+				\end{tikzpicture}
+			\end{center}		
+		\end{enumerate} 
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2H2-1]
+	Tốc độ tăng năng suất lúa của Việt Nam qua một số năm tính từ năm $ 1990 $ được cho trong bảng thống kê sau
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Năm & Năng suất lúa (\%) \\
+			\hline
+			$1990$ & $ 100{,}0 $ \\
+			\hline
+			$1993$ & $ 126{,}9  $\\
+			\hline
+			$1995$ & $ 116{,}0 $ \\
+			\hline
+			$1997$ & $ 120{,}9 $ \\
+			\hline
+			$1999$ & $ 129{,}0 $ \\
+			\hline
+			$2002$ & $ 144{,}3 $ \\
+			\hline
+			$2003$ & $ 145{,}9$\\
+			\hline
+			$2005$ & $ 153{,}7 $ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{flushright}
+		(Nguồn: \href{https://infographics.vn}{https://infographics.vn})
+	\end{flushright}
+	Hãy tìm biểu đồ thích hợp để biểu diễn dữ liệu trong bảng thống kê trên.
+	\loigiai{
+		Hai dạng biểu đồ thích hợp biểu diễn dữ liệu trong bảng thống kê là biểu đồ cột và biểu đồ đoạn thẳng.	
+		\begin{enumerate}
+			\item Biểu đồ cột
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (7,7) rectangle(7,7) node[midway]{\textbf{Tốc độ tăng năng suất lúa của Việt Nam}};
+					\draw[->] (0,0)node[left]{0}--(14.5,0)node[below]{(Năm)};
+					\draw[->] (0,0)--(0,7) node[left]{(\%)};
+					\foreach \i/\j in{1/$50$,2/$100$,3/$150$,4/$200$} 
+					\draw (0,\i*1.5)node[left]{\j}--(0,\i*1.5);
+					\fill[red!60]
+					(0.5,0)--(0.5,3)--(1,3)--(1,0)
+					(2,0)--(2,3.7)--(2.5,3.7)--(2.5,0)
+					(3.5,0)--(3.5,3.4)--(4,3.4)--(4,0)
+					(5,0)--(5,3.5)--(5.5,3.5)--(5.5,0)
+					(6.5,0)--(6.5,3.6)--(7,3.6)--(7,0)
+					(8,0)--(8,4.1)--(8.5,4.1)--(8.5,0)
+					(9.5,0)--(9.5,4.3)--(10,4.3)--(10,0)
+					(11,0)--(11,4.53)--(11.5,4.53)--(11.5,0)
+					;
+					\draw (0,1.5)--(14,1.5) (0,3)--(14,3) (0,4.5)--(14,4.5) (0,6)--(14,6);
+					\draw (0.7,3) node[above]{$100\%$} (0.7,0) node [below]{$1990$};
+					\draw (2.2,3.7) node[above]{$126{,}9\%$} (2.2,0) node [below]{$1993$};
+					\draw (3.7,3.4) node[above]{$116\%$} (3.7,0) node [below]{$1995$};
+					\draw (5.2,3.5) node[above]{$120{,}9\%$} (5.2,0) node [below] {$1997$};
+					\draw (6.7,3.6) node[above]{$129\%$} (6.7,0) node [below] {$1999$};
+					\draw (8.2,4.1) node[above]{$144{,}3\%$} (8.2,0) node [below] {$2002$};
+					\draw (9.7,4.3) node[above]{$145{,}9\%$} (9.7,0) node [below] {$2003$};
+					\draw (11.2,4.53) node[above]{$153{,}7\%$} (11.2,0) node [below] {$2005$};
+				\end{tikzpicture}
+			\end{center}			
+			\item Biểu đồ đoạn thẳng
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (7,7) rectangle(7,7) node[midway]{\textbf{Tốc độ tăng năng suất lúa của Việt Nam}};
+					\draw[->] (0,0)node[left]{0}--(14.5,0)node[below]{(Năm)};
+					\draw[->] (0,0)--(0,7) node[left]{(\%)};
+					\foreach \i/\j in{1/$50$,2/$100$,3/$150$,4/$200$} 
+					\draw (0,\i*1.5)node[left]{\j}--(0,\i*1.5);
+					\draw  (0.7,-0.2)--(0.7,0.2) (0.7,-0.3) node [below]{$1990$};
+					\draw  (2.2,-0.2)--(2.2,0.2) (2.2,-0.3) node [below]{$1993$};
+					\draw  (3.7,-0.2)--(3.7,0.2) (3.7,-0.3) node [below] {$1995$};
+					\draw  (5.2,-0.2)--(5.2,0.2) (5.2,-0.3) node [below] {$1997$};
+					\draw  (6.7,-0.2)--(6.7,0.2) (6.7,-0.3) node [below] {$1999$};
+					\draw  (8.2,-0.2)--(8.2,0.2) (8.2,-0.3) node [below] {$2002$};
+					\draw  (9.7,-0.2)--(9.7,0.2) (9.7,-0.3) node [below] {$2003$};
+					\draw  (11.2,-0.2)--(11.2,0.2) (11.2,-0.3) node [below] {$2005$};
+					\draw[thick,red] (0.7,3)--(2.2,3.7)--(3.7,3.4)--(5.2,3.4)--(6.7,3.6)--(8.2,4.1)--(9.7,4.3)--(11.2,4.53);
+					\fill[blue!60] (0.7,3) circle (1mm) node[above]{$100\%$};
+					\fill[blue!60] (2.2,3.7) circle (1mm) node[above]{$126{,}9\%$};
+					\fill[blue!60] (3.7,3.4) circle (1mm) node[above]{$116\%$};
+					\fill[blue!60] (5.2,3.4) circle (1mm) node[above]{$120{,}9\%$};
+					\fill[blue!60] (6.7,3.6) circle (1mm) node[above]{$129\%$};
+					\fill[blue!60] (8.2,4.1) circle (1mm) node[above]{$144{,}3\%$};
+					\fill[blue!60] (9.7,4.3) circle (1mm) node[above]{$145{,}9\%$};
+					\fill[blue!60] (11.2,4.53) circle (1mm) node[above]{$153{,}7\%$};
+					\draw (0,1.5)--(14,1.5) (0,3)--(14,3) (0,4.5)--(14,4.5) (0,6)--(14,6); 
+				\end{tikzpicture}
+			\end{center}	
+		\end{enumerate} 	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2V2-2]
+	Bảng thống kê sau cho biết tỉ lệ phần trăm các yếu tố ảnh hưởng đến sự phát triển chiều cao của trẻ em.
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Yếu tố & Tỉ lệ phần trăm \\
+			\hline
+			Vận động & $22 \%$ \\
+			\hline
+			Di truyền & $23 \%$ \\
+			\hline
+			Dinh dưỡng & $32 \%$ \\
+			\hline
+			Yếu tố khác (môi trường sống,$\ldots$) & $23 \%$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{flushright}
+		(Nguồn: \href{https://soyte.hanoi.gov.vn}{https://soyte.hanoi.gov.vn})
+	\end{flushright}
+	Hãy biểu diễn dữ liệu trong bảng trên vào hai dạng biểu đồ sau
+	\begin{enumerate}
+		\item Biểu đồ cột;
+		\item Biểu đồ hình quạt tròn. 
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biểu đồ cột
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (6,6) rectangle (6,6) node[midway]{\textbf{Tỉ lệ phần trăm các yếu tố ảnh hưởng đến sự phát triển chiều cao của trẻ em}};
+					\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Yếu tố)};
+					\draw[->] (0,0)--(0,4.5) node[left]{(\%)};
+					\foreach \i/\j in{1/$10$,2/$20$,3/$30$,4/$40$} 
+					\draw (0,\i*1)node[left]{\j}--(0,\i*1);
+					\fill[red!60]
+					(1,0)--(1,2.2)--(1.5,2.2)--(1.5,0)
+					(3,0)--(3,2.3)--(3.5,2.3)--(3.5,0)
+					(5,0)--(5,3.2)--(5.5,3.2)--(5.5,0)
+					(7,0)--(7,2.3)--(7.5,2.3)--(7.5,0)
+					;
+					\draw (0,1)--(14,1) (0,2)--(14,2) (0,3)--(14,3) (0,4)--(14,4);
+					\draw (1.2,2.2) node[above]{$22\%$} (1.2,0) node [below]{\scriptsize Vận động};
+					\draw (3.2,2.3) node[above]{$23\%$} (3.2,0) node [below]{\scriptsize Di truyền};
+					\draw (5.2,3.2) node[above]{$32\%$} (5.2,0) node [below]{\scriptsize Dinh dưỡng};
+					\draw (7.2,2.3) node[above]{$23\%$} (9.2,0) node [below] {\scriptsize Yếu tố khác (môi trường sống,...)};
+				\end{tikzpicture}
+			\end{center}		
+			\item Biểu đồ hình quạt tròn
+			\begin{center}
+				\begin{tikzpicture}
+					\path (3,3) rectangle(3,3) node[midway]{\bf Các yếu tố ảnh hưởng đến sự phát triển chiều cao của trẻ em};
+					\def\r{2}
+					\def\gocxp{90}
+					\coordinate (A) at (90:\r);
+					\foreach \val/\freq/\col/\pattern[count=\i from 0] in{Vận động/22/red/dots, Di truyền/23/blue/north east lines, Dinh dưỡng/32/magenta/horizontal lines,{Yếu tố khác (môi trường sống,...)}/23/black/grid}{
+						\pgfmathsetmacro\gockt{-(\freq*3.6-\gocxp)}
+						\pgfmathsetmacro\gocnode{\gocxp+\gockt}
+						\draw[gray!50,pattern = \pattern,pattern color=\col] (0,0)--(A) arc(\gocxp:\gockt:\r) coordinate(A)--cycle;
+						\fill[pattern = \pattern,pattern color=\col] (\r+1,\r-.75*\i) --++(0:.5)--++(-90:.5) node[pos=.5,right,black]{\val}--++(180:.5)--cycle;
+						\path ($(0,0)+(\gocnode/2:1.1)$) node[fill=white,inner sep=0pt,circle]{\color{black} $\freq\%$};
+						\global\let\gocxp=\gockt
+					}
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate} 
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2V2-2]
+	Nhiệt độ trung bình các tháng trong năm $2021$ của thành phố Đà Lạt được biểu diễn qua biểu đồ thống kê sau
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+			\path (6,6) rectangle(6,6) node[midway]{\bf Nhiệt độ trung bình các tháng trong năm $2021$ của thành phố Đà Lạt};
+			\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Tháng)};
+			\draw[->] (0,0)--(0,5.5)node[left]{($ ^\circ C $)};
+			\foreach \i/\j in{1/$5$,2/$10$,3/$15$,4/$20$, 5/$25$} 
+			\draw (-0.2,\i*1)node[left]{\j}--(0,\i*1);
+			\fill[red!60]
+			(1,0)--(1,3.1)--(1.2,3.1)--(1.2,0)
+			(2,0)--(2,3.2)--(2.2,3.2)--(2.2,0)
+			(3,0)--(3,3.4)--(3.2,3.4)--(3.2,0)
+			(4,0)--(4,3.8)--(4.2,3.8)--(4.2,0)
+			(5,0)--(5,4)--(5.2,4)--(5.2,0)
+			(6,0)--(6,3.9)--(6.2,3.9)--(6.2,0)
+			(7,0)--(7,3.8)--(7.2,3.8)--(7.2,0)
+			(8,0)--(8,3.85)--(8.2,3.85)--(8.2,0)
+			(9,0)--(9,3.35)--(9.2,3.35)--(9.2,0)
+			(10,0)--(10,3.3)--(10.2,3.3)--(10.2,0)
+			(11,0)--(11,3.25)--(11.2,3.25)--(11.2,0)
+			(12,0)--(12,3.22)--(12.2,3.22)--(12.2,0)
+			;
+			\draw (0,1)--(14,1) (0,2)--(14,2) (0,3)--(14,3) (0,4)--(14,4) (0,5)--(14,5);
+			\draw (1.1,3.1) node[above]{$15{,}8$} (1.1,0) node[below]{$1$};
+			\draw (2.1,3.2) node[above]{$16{,}6$} (2.1,0) node[below]{$2$};
+			\draw (3.1,3.4) node[above]{$18{,}3$} (3.1,0) node[below]{$3$};
+			\draw (4.1,3.8) node[above]{$19$} (4.1,0) node[below]{$4$};
+			\draw (5.1,4) node[above]{$20$} (5.1,0) node[below]{$5$};
+			\draw (6.1,3.9) node[above]{$19{,}6$} (6.1,0) node[below]{$6$};
+			\draw (7.1,3.8) node[above]{$19$} (7.1,0) node[below]{$7$};
+			\draw (8.1,3.85) node[above]{$19{,}5$} (8.1,0) node[below]{$8$};
+			\draw (9.1,3.35) node[above]{$18{,}8$} (9.1,0) node[below]{$9$};
+			\draw (10.1,3.3) node[above]{$18{,}5$} (10.1,0) node[below]{$10$};
+			\draw (11.1,3.25) node[above]{$18{,}2$} (11.1,0) node[below]{$11$};
+			\draw (12.1,3.22) node[above]{$16{,}1$} (12.1,0) node[below]{$12$};
+		\end{tikzpicture}
+	\end{center}
+	\begin{flushright}
+		(Nguồn: \textit{Niên giám thống kê năm $2021$})
+	\end{flushright}
+	Hãy biểu diễn dữ liệu trong biểu đồ trên dưới dạng
+	\begin{enumerate}
+		\item Bảng thống kê;
+		\item Biểu đồ đoạn thẳng.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng thống kê
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					\multicolumn{2}{|c|}{Nhiệt độ trung bình các tháng trong năm $2021$ của thành phố Đà Lạt} \\
+					\hline
+					Tháng & Nhiệt độ trung bình $\left(^{\circ} \mathbf{C}\right)$ \\
+					\hline
+					$1$ & $15{,}8$ \\
+					\hline
+					$2$ & $16{,}6$ \\
+					\hline
+					$3$ & $18{,}3$ \\
+					\hline
+					$4$ & $19$ \\
+					\hline
+					$5$ & $20$ \\
+					\hline
+					$6$ & $19{,}6$\\
+					\hline
+					$7$ & $19$ \\
+					\hline
+					$8$ & $19{,}5$ \\
+					\hline
+					$9$ & $18{,}8$ \\
+					\hline
+					$10$ & $18{,}5$ \\
+					\hline
+					$11$ & $18{,}2$ \\
+					\hline
+					$12$ & $16{,}1$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Biểu đồ đoạn thẳng
+			\begin{center}
+				\begin{tikzpicture}[scale=0.9,font=\footnotesize,line join=round,line cap=round,>=stealth]
+					\path (6,6) rectangle(6,6) node[midway]{\bf Nhiệt độ trung bình các tháng trong năm $2021$ của thành phố Đà Lạt};
+					\draw[->] (0,0)node[left]{0}--(14.5,0) node[below]{(Tháng)};
+					\draw[->] (0,0)--(0,5.5)node[left]{($ ^\circ C $)};
+					\foreach \i/\j in{1/$5$,2/$10$,3/$15$,4/$20$, 5/$25$} 
+					\draw (0,\i*1)node[left]{\j}--(0,\i*1);
+					\draw  (1,-0.2)--(1,0.2) (1,-0.3) node[below]{$1$};
+					\draw  (2,-0.2)--(2,0.2) (2,-0.3) node[below]{$2$};
+					\draw  (3,-0.2)--(3,0.2) (3,-0.3) node [below] {$3$};
+					\draw  (4,-0.2)--(4,0.2) (4,-0.3) node [below] {$4$};
+					\draw  (5,-0.2)--(5,0.2) (5,-0.3) node [below] {$5$};
+					\draw  (6,-0.2)--(6,0.2) (6,-0.3) node [below] {$6$};
+					\draw  (7,-0.2)--(7,0.2) (7,-0.3) node [below] {$7$};
+					\draw  (8,-0.2)--(8,0.2) (8,-0.3) node [below] {$8$};
+					\draw  (9,-0.2)--(9,0.2) (9,-0.3) node [below] {$9$};
+					\draw  (10,-0.2)--(10,0.2) (10,-0.3) node [below] {$10$};
+					\draw  (11,-0.2)--(11,0.2) (11,-0.3) node [below] {$11$};
+					\draw  (12,-0.2)--(12,0.2) (12,-0.3) node [below] {$12$};
+					\fill[blue!60] (1,3.1) circle (1mm) node[above]{$15{,}8$};
+					\fill[blue!60] (2,3.2) circle (1mm) node[above]{$16{,}6$};
+					\fill[blue!60] (3,3.4) circle (1mm) node[above]{$18{,}3$};
+					\fill[blue!60] (4,3.8) circle (1mm) node[above]{$19$};
+					\fill[blue!60] (5,4) circle (1mm) node[above]{$20$};
+					\fill[blue!60] (6,3.9) circle (1mm) node[above]{$19{,}6$};
+					\fill[blue!60] (7,3.8) circle (1mm) node[above]{$19$};
+					\fill[blue!60] (8,3.85) circle (1mm) node[above]{$19{,}5$};
+					\fill[blue!60] (9,3.35) circle (1mm) node[above]{$18{,}8$};
+					\fill[blue!60] (10,3.3) circle (1mm) node[above]{$18{,}5$};
+					\fill[blue!60] (11,3.25) circle (1mm) node[above]{$18{,}2$} ;
+					\fill[blue!60] (12,3.22) circle (1mm) node[above]{$16{,}1$} ;
+					\draw (0,1)--(14,1) (0,2)--(14,2) (0,3)--(14,3) (0,4)--(14,4) (0,5)--(14,5);
+					\draw[thick,red] (1,3.1)--(2,3.2)--(3,3.4)--(4,3.8)--(5,4)--(6,3.9)--(7,3.8)--(8,3.85)--(9,3.35)--(10,3.3)--(11,3.25)--(12,3.22);
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2H2-1]
+	Bảng thống kê sau cho biết số lượng di sản thế giới của $5$ quốc gia đứng đầu tính đến tháng $8$ năm $2\;021$
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline Quốc gia & Ý & Trung Quốc & Đức & Tây Ban Nha & Pháp \\
+			\hline Số di sản thế giới & 58 & 56 & 51 & 49 & 49 \\
+			\hline
+		\end{tabular}	
+	\end{center}
+	\hfill(Theo Tổ chức Giáo dục, Khoa học và Văn hoá Liên hợp quốc (UNESSCO)
+	\begin{enumerate}
+		\item Có nên dùng biểu đồ tranh biểu diễn bảng thống kê trên? Tại sao?
+		\item Nên sử dụng biểu đồ nào để biểu diễn? Vẽ biểu đồ đó.	
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Không nên dùng biểu đồ tranh vì ƯCLN $(58;56;51;49)=1$ nên nếu dùng biểu đồ tranh ta phải vẽ rất nhiều biểu tượng.
+			\item Dùng biểu đồ cột để biểu diễn.
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,yscale=0.8,scale=.8]
+					\def\kc{2}
+					\def\cc{1}
+					\draw[-stealth] (0,0)--(6*\kc,0) node[below]{Quốc gia};
+					\draw[-stealth] (0,0)--(0,7*\cc) node[left]{Số di sản thế giới};
+					\foreach \x/\y/\z in {1/Ý,2/Trung Quốc, 3/Đức, 4/Tây Ban Nha,5/Pháp}{
+						\draw (\x*\kc,0) node[below] {\y};}
+					\foreach \x/\y in {1/58,2/56,3/51,4/49,5/49}{
+						\draw[fill=blue] ({(\x-0.25)*\kc},0) rectangle ({(\x+0.25)*\kc},\y*\cc*0.1);
+						\draw ({(\x)*\kc},\y*\cc*0.1) node[above]{\y};}
+					\foreach \x in {0,10,...,60} \draw (0.1,\x*\cc*0.1)--(-0.1,\x*\cc*0.1) node[left]{$\x$};
+					\draw (3*\kc,7.5*\cc) node{\textbf{Biểu đồ biểu diễn số di sản thế giới}};
+					\draw (3*\kc,7*\cc) node{\textbf{ của 5 quốc gia đứng đầu tính từ 08/2021}};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}		
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2V2-1]
+	Kết quả khảo sát tiếng Anh tại khối $8$ của một trường THCS như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline Trình độ & $\begin{array}{c}\text { Bắt đầu } \\
+				\text { (Beginner) }\end{array}$ & $\begin{array}{c}\text { Sơ cấp } \\
+				\text { (Elementary) }\end{array}$ & $\begin{array}{c}\text { Trung cấp } \\
+				\text { (Intermediate) }\end{array}$ & $\begin{array}{c}\text { Trên trung cấp } \\
+				\text { (Upper Intermediate) }\end{array}$ \\
+			\hline Số học sinh & $40$ & $70$ & $80$ & $10$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Vẽ biểu đồ cột biễu diễn bảng thống kê trên.
+		\item  Nếu muốn biễu diễn tỉ lệ học sinh ở từng trình độ tiếng Anh so với tổng số học sinh thì nên dùng biểu đồ nào để biểu diễn?
+	\end{enumerate}	
+	\loigiai{
+		\begin{enumerate}
+			\item Vẽ biểu đồ cột theo các bước đã học.
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,yscale=0.8,scale=.8]
+					\def\kc{2}
+					\def\cc{1}
+					\draw[-stealth] (0,0)--(9*\kc,0) node[below]{Trình độ};
+					\draw[-stealth] (0,0)--(0,11*\cc) node[left]{Số học sinh};
+					\foreach \x/\y/\z in {1/Bắt đầu/Beginner,3/Sơ cấp/Elementary,5/Trung Cấp/Intermediate, 7/Trên trung cấp/Upper Intermediate}{
+						\draw (\x*\kc,0) node[below] {\y};
+						\draw (\x*\kc,-0.5) node[below] {(\z)};}
+					\foreach \x/\y in {1/40,3/70,5/80,7/10}{
+						\draw[fill=blue] ({(\x-0.5)*\kc},0) rectangle ({(\x+0.5)*\kc},\y*\cc*0.1);
+						\draw ({(\x)*\kc},\y*\cc*0.1) node[above]{\y};}
+					\foreach \x in {0,10,...,100} \draw (0.1,\x*\cc*0.1)--(-0.1,\x*\cc*0.1) node[left]{$\x$};
+					\draw (4.5*\kc,11*\cc) node{\textbf{Biểu đồ biểu diễn}};
+					\draw (4.5*\kc,10.5*\cc) node{\textbf{kết quả khảo sát tiếng Anh khối 8}};
+				\end{tikzpicture}
+			\end{center}
+			\item Nếu muốn biểu diễn tỉ lệ học sinh ở từng trình độ tiếng Anh so với tổng số học sinh ta nên dùng biễu đồ hình quạt tròn để biểu diễn.
+		\end{enumerate}		
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thao Thao]%[8D2C2-2]
+	Thống kê số trận thắng của ba câu lạc bộ thành London là Arsenal, Chelsea, Tottenham Hotspur trong hai mùa giải $2020 - 2021$; $2021 - 2022$ cho kết quả như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline Mùa giải & Arsenal & Chelsea & Tottenham Hotspur \\
+			\hline $2020-2021$ & $18$ & $19$ & $18$ \\
+			\hline $2021-2022$ & $22$ & $21$ & $22$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\hfill(Theo premierleague.com/stats)	
+	\begin{enumerate}
+		\item Để so sánh số trận thắng của mỗi câu lạc bộ trong hai mùa giải ta nên sử dụng biểu đồ nào? Vẽ biểu đồ đó.
+		\item Để so sánh số trận thắng của ba câu lạc bộ trong mỗi mùa giải ta nên sử dụng biểu đồ nào? Vẽ biễu đồ đó.
+	\end{enumerate}	
+	\loigiai{
+		\begin{enumerate}
+			\item Để so sánh số bàn thắng của mỗi câu lạc bộ ta nên sử dụng biểu đồ cột kép.
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,yscale=0.8,scale=.8]
+					\def\kc{1}
+					\def\cc{0.5}
+					\draw[-stealth] (0,0)--(11*\kc,0) node[below]{Đội};
+					\draw[-stealth] (0,0)--(0,24*\cc) node[left]{Số bàn thắng};
+					\foreach \x/\y in {2/Arsenal,5/Chelsea,8/Tottenham} \draw (\x*\kc,0) node[below] {$\y$};
+					\foreach \x/\y in {1/18,4/19,7/18}{
+						\draw[fill=blue] (\x*\kc,0) rectangle ({(\x+1)*\kc},\y*\cc);
+						\draw ({(\x+0.5)*\kc},\y*\cc) node[above]{\y};}
+					\foreach \x/\y in {2/22,5/21,8/22}
+					{\draw[fill=red!40!white] (\x*\kc,0) rectangle ({(\x+1)*\kc},\y*\cc);
+						\draw ({(\x+0.5)*\kc},\y*\cc) node[above]{\y};}
+					\foreach \x in {0,2,...,22} \draw (0.1,\x*\cc)--(-0.1,\x*\cc) node[left]{$\x$};
+					\draw (5*\kc,26*\cc) node{\textbf{Biểu đồ so sánh số trận thắng của mỗi câu lạc bộ }};
+					\draw (5*\kc,25*\cc) node{\textbf{trong hai mùa giải}};
+					\draw[fill = blue] (12*\kc,12*\cc) rectangle (13*\kc,13*\cc) node[right,shift = {(-90:0.2)}] {Mùa giải 2020-2011};
+					\draw[fill = red!40!white] (12*\kc,10*\cc) rectangle (13*\kc,11*\cc) node[right,shift = {(-90:0.2)}] {Mùa giải 2021-2022};
+				\end{tikzpicture}
+			\end{center}
+			\item Để so sánh số bàn thắng của ba câu lạc bộ ta nên sử dụng biểu đồ cột.
+			\begin{center}
+				\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,yscale=0.8,scale=.8]
+					\def\kc{1}
+					\def\cc{0.5}
+					\draw[-stealth] (1,0)--(11*\kc,0) node[below]{Mùa giải};
+					\draw[-stealth] (1,0)--(1,24*\cc) node[left]{Số bàn thắng};
+					\foreach \x/\y in {4/2020-2021,8/2021-2022} \draw (\x*\kc,0) node[below] {$\y$};
+					\foreach \x/\y in {2.5/18,6.5/22}{
+						\draw[fill=blue] (\x*\kc,0) rectangle ({(\x+1)*\kc},\y*\cc);
+						\draw ({(\x+0.5)*\kc},\y*\cc) node[above]{\y};}
+					\foreach \x/\y in {3.5/19,7.5/21}
+					{\draw[fill=red!40!white] (\x*\kc,0) rectangle ({(\x+1)*\kc},\y*\cc);
+						\draw ({(\x+0.5)*\kc},\y*\cc) node[above]{\y};}
+					\foreach \x/\y in {4.5/18,8.5/22}{
+						\draw[pattern = dots] (\x*\kc,0) rectangle ({(\x+1)*\kc},\y*\cc);
+						\draw ({(\x+0.5)*\kc},\y*\cc) node[above]{\y};}
+					\foreach \x in {0,2,...,22} \draw (1.1,\x*\cc)--(0.9,\x*\cc) node[left]{$\x$};
+					\draw (5*\kc,26*\cc) node{\textbf{Biểu đồ so sánh số trận thắng của ba câu lạc bộ }};
+					\draw (5*\kc,25*\cc) node{\textbf{trong mỗi mùa giải}};
+					\draw[fill = blue] (12*\kc,12*\cc) rectangle (13*\kc,13*\cc) node[right,shift = {(-90:0.2)}] {Arsenal};
+					\draw[fill = red!40!white] (12*\kc,10*\cc) rectangle (13*\kc,11*\cc) node[right,shift = {(-90:0.2)}] {Chelsea};
+					\draw[pattern = dots] (12*\kc,8*\cc) rectangle (13*\kc,9*\cc) node[right,shift = {(-90:0.2)}] {Tottenham Hotspur};
+				\end{tikzpicture}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+
+
+
+
+

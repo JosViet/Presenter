@@ -1,0 +1,601 @@
+\section{BẢNG TẦN SỐ VÀ BIỂU ĐỒ TẦN SỐ} % Tên bài
+\subsection{Biểu đồ tần số}
+\subsubsection{Định nghĩa}
+\begin{tomtat}
+	\begin{itemize}
+		\item Biểu đồ biểu diễn tần số của các giá trị trong mẫu số liệu gọi là \textit{biểu đồ tần số}. Biểu đồ tần số thường thường có dạng cột hoặc dạng đoạn thẳng.
+        \item Trong biểu đồ tần số dạng cột, mỗi cột tương ứng với một giá trị, chiều cao của cột tương ứng tần số của giá trị.
+        \item Trong biểu đồ tần số dạng đoạn thẳng, đường gấp khúc đi từ trái qua phải nối các điểm có hoành độ là giá trị số liệu và tung độ là tần số của giá trị đó.
+        \item Để vẽ biểu đồ tần số dạng đoạn thẳng ta thực hiện theo các bước sau
+        \begin{itemize}
+            \item Bước 1. Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.
+            \item Bước 2. Với mỗi giá trị trên trục ngang và tần số tương ứng ta xác đinh một điểm. Nối các điểm liên tích với nhau.
+            \item Bước 3. Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ
+        \end{itemize}
+	\end{itemize}
+\end{tomtat}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5H1-2]
+	Bảng thống kê sau cho biết số lượng các loại phương tiện đi học của học sinh trong lớp $9A$
+    \begin{center}
+        \begin{tabular}{|w{l}{3.5cm}|w{c}{2cm}|w{c}{2cm}|w{c}{2cm}|w{c}{2cm}|}
+        \hline
+            Phương tiện & Xe đạp & Xe buýt & Đi bộ & Ô tô \\
+        \hline
+            Số lượng & $15$ & $12$ & $6$ & $8$\\
+        \hline
+        \end{tabular}
+    \end{center}
+    Vẽ biểu đồ tần số biểu diễn mẫu số liệu thống kê trên.
+	\loigiai{
+	Ta có thể biểu diễn tần số của mỗi loại phương trình bởi biểu đồ cột hoặc biểu đồ đoạn thẳng như sau
+    \begin{center}
+    \begin{tabular}{cc}
+     \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.9]
+	%Các trục
+	\draw[->] (0,0)--(0,20) node[left]{Số lượng};
+	\draw[->] (0,0)--(7,0) node[below]{Phương tiện};
+	\foreach \x in {5,10,...,15} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(7,\x);}
+	%Các cột
+	\foreach \x\y\z in {0.5/Xe đạp/15,2/Xe buýt/12,3.5/Đi bộ/6,5/Ô tô/8}
+	{
+		\draw[fill=cyan] (\x,0) rectangle (0.6+1*\x,\z);
+		\path ({0.3+1*\x},0) node[below]{\y} (0.3+1*\x,\z)node[above]{$\z$};
+	}
+\end{tikzpicture} &  
+\begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=0.9]
+	%Các trục
+	\draw[->] (0,0)--(0,20) node[left]{Số lượng};
+	\draw[->] (0,0)--(7,0) node[below]{Phương tiện};
+	\foreach \x in {5,10,...,15} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(7,\x);}
+	%Các cột
+    \foreach \x\y\z in {0/1/15,1.5/2/12,3/3/6,4.5/4/8}
+	{
+		\fill (.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (.5+1*\x,\z) -- (.5+1*\x,0);
+        \path (.5+1*\x,\z) coordinate (A\y);
+	}
+    \foreach \x/\y in {1/2,2/3,3/4}{
+    \draw (A\x) -- (A\y);
+    }
+    \foreach \x/\y in {0/Xe đạp,1.5/Xe buýt,3/Đi bộ,4.5/Ô tô}{
+    \path (.5+1*\x,0) node[below]{\y};
+    }
+\end{tikzpicture}
+    \end{tabular}
+    \end{center}
+    \begin{luuy}
+        Có thể kết hợp biểu đồ cột và biểu đồ đoạn thẳng trên cùng một biểu đồ như sau
+        \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,20) node[left]{Số lượng};
+	\draw[->] (0,0)--(7,0) node[below]{Phương tiện};
+	\foreach \x in {5,10,...,15} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(7,\x);}
+	%Các cột
+	\foreach \x\y\z in {0.5/Xe đạp/15,2/Xe buýt/12,3.5/Đi bộ/6,5/Ô tô/8}
+	{
+		\draw[fill=cyan] (\x,0) rectangle (0.6+1*\x,\z);
+		\path ({0.3+1*\x},0) node[below]{\y} (0.3+1*\x,\z)node[above]{$\z$};
+	}
+    \foreach \x\y\z in {0.5/1/15,2/2/12,3.5/3/6,5/4/8}
+	{
+		\path (0.3+1*\x,\z) coordinate(A\y);
+	}
+    \foreach \x/\y in {1/2,2/3,3/4}
+	{
+	\draw (A\x) -- (A\y);
+	}
+\end{tikzpicture} 
+        \end{center}
+    \end{luuy}
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5H1-2]
+	Điểm kiểm tra môn Toán của $100$ học sinh lớp $9$ được thống kê như bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline Điểm & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\
+			\hline Số học sinh & $8$ & $18$ & $20$ & $24$ & $18$ & $12$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Vẽ biểu đồ cột biểu diễn mẫu số liệu thống kê trên.
+		\item Vẽ biểu đoạn thẳng biểu diễn mẫu số liệu thống kê trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Biểu đồ biểu diễn tần số tương đối của mẫu số liệu trên 
+            \begin{center}
+            \textbf{Biểu đồ biểu diễn số lượng điểm môn Toán}\\[0.2cm]
+                \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,30) node[left]{Số học sinh};
+	\draw[->] (0,0)--(1.25+1.5*5,0) node[below]{Xếp loại};
+	\foreach \x in {5,10,...,25} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(1.25+1.5*5,\x);}
+	%Các cột
+	\foreach \x\y\z in {0/5/8,1.25/6/18,2.5/7/20,3.75/8/24,5/9/18,6.25/10/12}
+	{
+		\draw[fill=cyan] (.25+1*\x,0) rectangle (1+1*\x,\z);
+		\draw (0.65+1*\x,0) node[below]{\y} (0.65+1*\x,\z)node[above]{$\z$};
+	}
+\end{tikzpicture}
+            \end{center}
+            \item Biểu đồ đoạn thẳng biểu diễn mẫu số liệu thống kê trên 
+             \begin{center}
+            \textbf{Biểu đồ biểu diễn số lượng điểm môn Toán}\\[0.2cm]
+                \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,30) node[left]{Số học sinh};
+	\draw[->] (0,0)--(1.25+1.5*5,0) node[below]{Xếp loại};
+	\foreach \x in {5,10,...,25} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(1.25+1.5*5,\x);}
+	%Các cột
+	\foreach \x\y\z in {0/5/8,1.25/6/18,2.5/7/20,3.75/8/24,5/9/18,6.25/10/12}
+	{
+		\fill (.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (.5+1*\x,\z) -- (.5+1*\x,0) node[below]{$\y$};
+        \path (.5+1*\x,\z) coordinate (A\y);
+	}
+    \foreach \x/\y in {5/6,6/7,7/8,8/9,9/10}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+            \end{center}
+		\end{enumerate}
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5H1-2]
+	Người ta thống kê các loại ô tô chạy qua một trạm thu phí trong $1$ giờ và vẽ được biểu đồ như hình dưới
+    \begin{center}
+        \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,30) node[left]{Số lượt xe};
+	\draw[->] (0,0)--(10,0) node[below]{Loại xe};
+	\foreach \x in {5,10,...,25} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(1.25+1.5*5,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/xe $4$ chỗ/12,3/xe $7$ chỗ/22,5/xe $9$ chỗ/15,7/xe $16$ chỗ/11,9/xe $24$ chỗ/9}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7,7/9}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+    \end{center}
+    \begin{enumerate}
+        \item Lập bảng tần số cho dữ liệu được biểu diễn trên biểu đồ.
+        \item Vẽ biểu đồ tần số dạng cột biểu diễn mẫu số liệu trên.
+    \end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	    \item Bảng tần số biểu diễn mẫu số liệu trên
+        \begin{center}
+            \begin{tabular}{|w{c}{2.5cm}|w{c}{2cm}|w{c}{2cm}|w{c}{2cm}|w{c}{2cm}|w{c}{2cm}|}
+            \hline
+                Loại xe & Xe $4$ chỗ & Xe $7$ chỗ & Xe $9$ chỗ & Xe $16$ chỗ & Xe $24$ chỗ\\
+                \hline
+               Số lượng  & $12$ & $22$ & $15$ & $11$ & $9$\\
+               \hline
+            \end{tabular}
+        \end{center}
+    \item Biểu đồ dạng cột biểu diễn mẫu số liệu trên
+    \begin{center}
+        \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,30) node[left]{Số lượt xe};
+	\draw[->] (0,0)--(10,0) node[right]{Loại xe};
+	\foreach \x in {5,10,...,25} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[dashed] (0,\x)--(10,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/xe $4$ chỗ/12,3/xe $7$ chỗ/22,5/xe $9$ chỗ/15,7/xe $16$ chỗ/11,9/xe $24$ chỗ/9}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$};
+		\path (1*\x,0) node[below]{\y};  
+	}
+    
+\end{tikzpicture}
+    \end{center}
+	\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5V1-2]
+	Lớp $9$E góp tiền ủng hộ đồng bào bị thiên tai. Số tiền góp của mỗi bạn được thống kê trong bảng sau (đơn vị nghìn đồng).
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+            $10$ & $50$ & $30$ & $20$ & $30$ & $40$ & $40$ & $50$ & $20$ & $10$\\
+            \hline
+            $20$ & $50$ & $20$ & $20$ & $30$ & $30$ & $40$ & $50$ & $20$ & $10$\\
+            \hline
+            $10$ & $10$ & $30$ & $30$ & $20$ & $40$ & $20$ & $50$ & $20$ & $50$\\
+            \hline
+            $30$ & $30$ & $10$ & $30$ & $20$ & $40$ & $40$ & $30$ & $50$ & $50$\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \begin{enumerate}
+		\item Trong bảng số liệu trên, có bao nhiêu giá trị khác nhau?
+		\item Lập bảng tần số của mẫu số liệu thống kê trên.
+		\item Vẽ biểu đồ tần số ở dạng biểu đồ cột của mẫu số liệu thống kê đó.
+	\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	    \item Trong bảng số liệu trên có $5$ giá trị khác nhau là: $10$; $20$; $30$; $40$; $50$.
+        \item Bảng tần số của mẫu số liệu thống kê trên
+        \begin{center}
+            \begin{tabular}{|w{c}{3.5cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|}
+            \hline
+                Số tiền (nghìn đồng) & $10$ & $20$ & $30$ & $40$ & $50$\\
+            \hline
+                Tần số & $6$ & $10$ & $10$ & $6$ & $8$ \\
+            \hline
+            \end{tabular}
+        \end{center}
+        \item Biểu đồ cột biểu diễn mẫu số liệu trên
+        \begin{center}
+        \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,20) node[left]{Tần số};
+	\draw[->] (0,0)--(10,0) node[right]{Nghìn đồng};
+	\foreach \x in {5,10,...,15} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[dashed] (0,\x)--(10,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$10$/6,3/$20$/10,5/$30$/10,7/$40$/6,9/$50$/8}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$};
+		\path (1*\x,0) node[below]{\y};  
+	}
+    
+\end{tikzpicture}
+    \end{center}
+	\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5V1-2]
+	Thống kê điểm sau $42$ lần bắn bia của một xạ thủ như sau
+    \begin{center}
+        \begin{tabular}{cccccccccccccc}
+            $8$ & $9$ & $7$ & $7$ & $10$ & $7$ & $9$ & $8$ & $9$ & $8$ & $7$ & $7$ & $10$ & $7$\\
+            $10$ & $10$ & $9$ & $8$ & $8$ & $9$ & $9$ & $8$ & $8$ & $9$ & $8$ & $8$ & $7$ & $8$\\
+            $7$ & $8$ & $9$ & $8$ & $7$ & $9$ & $10$ & $8$ & $8$ & $9$ & $9$ & $8$ & $8$ & $7$
+        \end{tabular}
+    \end{center}
+    \begin{enumerate}
+        \item Lập bảng tần số của mẫu số liệu thống kê đó.
+        \item Vẽ biểu đồ tần số ở dạng biểu đồ đoạn thẳng của mẫu số liệu thống kê trên.
+        \item Vẽ biểu đồ tần số ở dạng biểu đồ cột của mẫu số liệu thống kê trên.
+    \end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	    \item Bảng tần số của mẫu số liệu thống kê đó.
+        \begin{center}
+            \begin{tabular}{|w{c}{2.5cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|}
+            \hline
+                Số điểm & $7$ & $8$ & $9$ & $10$\\
+            \hline
+                Tần số & $10$ & $16$ & $11$ & $5$\\
+            \hline
+            \end{tabular}
+        \end{center}
+        \item Biểu đồ tần số dạng đoạn thẳng
+        \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,25) node[left]{Tần số};
+	\draw[->] (0,0)--(8,0) node[below]{Số điểm};
+	\foreach \x in {5,10,...,20} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(8,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$7$/10,3/$8$/16,5/$9$/11,7/$10$/5}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+        \end{center}
+        \item Biểu đồ tần số dạng cột
+         \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,25) node[left]{Tần số};
+	\draw[->] (0,0)--(8,0) node[right]{Số điểm};
+	\foreach \x in {5,10,...,20} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(8,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$7$/10,3/$8$/16,5/$9$/11,7/$10$/5}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$};
+		\path (1*\x,0) node[below]{\y};  
+	}
+\end{tikzpicture}
+        \end{center}
+	\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5V1-2]
+	Khối lượng rau xanh bán được trong các tháng $8$, $9$, $10$, $11$, $12$ năm $2025$ của một hệ thống siêu thị được thống kê dưới dạng biểu đồ tranh như sau
+    \begin{center}
+        \begin{tabular}{|w{c}{2cm}|w{l}{6cm}|}
+        \hline
+            Tháng $8$ & \faLeaf \, \faLeaf \, \faLeaf \, \faLeaf \, \faLeaf\\
+        \hline
+            Tháng $9$ & \faLeaf\, \faLeaf\, \faLeaf\, \faLeaf \, \faLemonO\, \faLemonO\\
+        \hline
+            Tháng $10$ & \faLeaf\, \faLeaf\, \faLeaf \, \faLemonO\, \faLemonO \, \faLemonO\,\\
+        \hline 
+            Tháng $11$ & \faLeaf\, \faLeaf\, \faLeaf\, \faLeaf\, \faLeaf\, \faLeaf\\
+        \hline Tháng $12$ & \faLeaf\, \faLeaf\, \faLemonO\\
+        \hline
+        \end{tabular}\\
+        Mỗi \faLeaf \, ứng với $5$ tấn; mỗi \faLemonO \, ứng với $2$ tấn. 
+    \end{center}
+    \begin{enumerate}
+        \item Lập bảng tần số của mẫu số liệu thống kê trên.
+        \item Vẽ biểu đồ tần số dạng cột của mẫu số liệu thống kê trên.
+        \item Vẽ biểu đồ tần số dạng đoạn thẳng của mẫu số liệu thống kê trên.
+    \end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	    \item Bảng tần số của mẫu số liệu trên
+        \begin{center}
+            \begin{tabular}{|w{c}{2.5cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|w{c}{1.2cm}|}
+            \hline
+                Tháng & $8$ & $9$ & $10$ & $11$ & $12$ \\
+            \hline
+                Số lượng (tấn) & $25$ & $22$ & $21$ & $30$ & $12$\\
+            \hline
+            \end{tabular}
+        \end{center}
+        \item Biểu đồ dạng cột của mẫu số liệu trên 
+        \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,35) node[left]{Tấn};
+	\draw[->] (0,0)--(10,0) node[right]{Tháng};
+	\foreach \x in {5,10,...,30} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(10,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$8$/25,3/$9$/22,5/$10$/21,7/$11$/30,9/$12$/12}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$};
+		\path (1*\x,0) node[below]{\y};  
+	}
+\end{tikzpicture}
+        \end{center}
+        \item Biểu đồ dạng đoạn thẳng biểu diễn mẫu số liệu trên
+        \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,35) node[left]{Tấn};
+	\draw[->] (0,0)--(10,0) node[below]{Tháng};
+	\foreach \x in {5,10,...,30} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(10,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$8$/25,3/$9$/22,5/$10$/21,7/$11$/30,9/$12$/12}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7,7/9}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+        \end{center}
+	\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5V1-2]
+    Kết quả học tập của học sinh lớp $8$A và $8$B năm học $2022-2023$ được cho bởi bảng sau.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Lớp	& Tốt & Khá & Đạt & Chưa đạt \\
+			\hline
+			$9A$ & $12$ & $14$ & $13$ & $1$ \\
+			\hline
+			$9B$ & $8$ & $16$ & $17$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy vẽ biểu đồ biểu diễn kết quả học tập của học sinh lớp $8$A và $8$B năm học $2022-2023$	
+	\loigiai{
+	Ta có 
+     \begin{center}
+            \begin{tikzpicture}[y=0.2 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,20) node[left]{Số học sinh};
+	\draw[->] (0,0)--(9,0) node[right]{Xếp loại};
+	\foreach \x in {5,10,...,15} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(9,\x);}
+	%Các cột
+	\foreach \x\z in {1/12,3/14,5/13,7/1}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$}; 
+	}
+    \foreach \x\z in {1.7/8,3.7/16,5.7/17,7.7/2}
+	{
+        \draw[pattern=north east lines] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (1*\x,\z) node[above]{$\z$}; 
+	}
+    \foreach \x\y\z in {1/1.7/Tốt,3/3.7/Khá,5/5.7/Đạt,7/7.7/Chưa đạt}
+	{
+    \path ($(\x,0)!0.5!(\y,0)$) node[below]{\z};
+    }
+    \draw[fill=cyan] (9,13) rectangle +(10pt,-10pt) node[shift={(2pt,5pt)},anchor=west]{$9A$};
+    \draw[pattern=north east lines] (9,8) rectangle +(10pt,-10pt) node[shift={(2pt,5pt)},anchor=west]{$9B$};
+\end{tikzpicture}
+    
+        \end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5H1-2]
+	Cho bảng thể hiện sự biến đổi nhiệt độ trong một tuần của một thành phố như sau.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+	Thứ	& hai & ba & tư & năm & sáu & bảy & chủ nhật \\
+		\hline
+	Nhiệt độ	& $28$ & $30$ & $32$ & $29$ & $31$ & $26$ & $27$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+Hãy vẽ biểu đồ đoạn thẳng thể hiện sự biến đổi nhiệt độ trong một tuần của một thành phố đó.
+	\loigiai{
+	Biểu đồ đoạn thẳng thể hiện sự biến đổi nhiệt độ trong một tuần của một thành phố đó là 
+    \begin{center}
+         \begin{tikzpicture}[y=0.15 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,40) node[left]{Nhiệt độ};
+	\draw[->] (0,0)--(14,0) node[below]{Thứ};
+	\foreach \x in {5,10,...,35} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(14,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/Thứ $2$/28,3/Thứ $3$/30,5/Thứ $4$/32,7/Thứ $5$/29,9/Thứ $6$/31,11/Thứ $7$/26,13/Chủ nhật/27}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7,7/9,9/11,11/13}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+    \end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[ID]
+    Biểu đồ đoạn thẳng dưới đây biểu diễn khối lượng nông sản được bán ra của một hợp tác xã trong $4$ tháng cuối năm $2024$
+     \begin{center}
+            \begin{tikzpicture}[y=0.1 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,70) node[left]{Tấn};
+	\draw[->] (0,0)--(8,0) node[below]{Tháng};
+	\foreach \x in {10,20,...,60} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(8,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$9$/52,3/$10$/45,5/$11$/30,7/$12$/59}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+        \end{center}
+    \begin{enumerate}
+        \item Lập bảng tần số của mẫu số liệu thống kê trên.
+        \item Vẽ biểu đồ cột biểu diễn mẫu số liệu thống kê trên.
+    \end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+	    \item Bảng tần số của mẫu số liệu thống kê
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|}
+            \hline
+                Tháng & $9$ & $10$ & $11$ & $12$\\
+            \hline
+                Tấn & $52$ & $45$ & $30$ & $59$\\
+            \hline
+            \end{tabular}
+        \end{center}
+        \item Biểu đồ cột của mẫu số liệu trên
+        \begin{center}
+            \begin{tikzpicture}[y=0.1 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,70) node[left]{Tấn};
+	\draw[->] (0,0)--(8,0) node[right]{Tháng};
+	\foreach \x in {10,20,...,60} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(8,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$9$/52,3/$10$/45,5/$11$/30,7/$12$/59}
+	{
+        \draw[fill=cyan] (-.35+1*\x,0) rectangle (0.35+1*\x,\z);
+		\fill (+1*\x,\z) node[above]{$\z$};
+		\path (1*\x,0) node[below]{\y};  
+	}
+\end{tikzpicture}
+        \end{center}
+	\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Thế Duy]%[9D5H1-2]
+	Bảng sau cho biết số tiền bảo dưỡng máy móc của một xưởng sản xuất đồ cơ khí ở bốn tháng cuối năm $2023$.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline Tháng & $9$ & $10$ & $11$ & $12$ \\
+			\hline Số tiền (đơn vị: triệu đồng) & $15$ & $24$ & $20$ & $36$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ biểu đồ đoạn thẳng biểu diễn kết quả thống kê trên.
+	\loigiai{
+	Biểu đồ đoạn thẳng biểu diễn kết quả thống kê trên
+    \begin{center}
+            \begin{tikzpicture}[y=0.16 cm,>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+	%Các trục
+	\draw[->] (0,0)--(0,40) node[left]{Tấn};
+	\draw[->] (0,0)--(8,0) node[below]{Tháng};
+	\foreach \x in {5,10,...,35} {
+		\draw (0,\x) node[left]{$\x$};
+		\draw[cyan,opacity=.5] (0,\x)--(8,\x);}
+	%Các cột
+	\foreach \x\y\z in {1/$9$/15,3/$10$/24,5/$11$/20,7/$12$/36}
+	{
+		\fill (-0.5+1*\x,\z)  circle(1.2pt) node[above]{$\z$};
+		\draw[dashed] (-.5+1*\x,\z) -- (-0.5+1*\x,0) node[below]{\y};
+        \path (-0.5+1*\x,\z) coordinate (A\x);
+	}
+    \foreach \x/\y in {1/3,3/5,5/7}{
+    \draw (A\x) -- (A\y);
+    }
+\end{tikzpicture}
+        \end{center}
+	}
+\end{bt}

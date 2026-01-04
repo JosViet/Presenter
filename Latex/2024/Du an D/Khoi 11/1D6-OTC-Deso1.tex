@@ -1,0 +1,336 @@
+\newpage
+\section{Ôn tập chương 6}
+\def\thoigian{90}%--Thời gian
+\de{Đề số 1}{Chương VI. Hàm số mũ và hàm số lôgarit}
+
+
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE1]
+\begin{ex}%[Câu 5]
+	Cho $\alpha$, $\beta$ là hai số thực với $\alpha<\beta$. Khẳng định nào sau đây đúng?
+	\choice
+	{$(0,3)^\alpha<(0,3)^\beta$}
+	{$\pi^\alpha\geq\pi^\beta$}
+	{\True $(\sqrt{2})^\alpha<(\sqrt{2})^\beta$}
+	{$\left(\dfrac{1}{2}\right)^\beta>\left(\dfrac{1}{2}\right)^\alpha$}
+	\loigiai
+	{
+		Ta có  $\left\{\begin{aligned}
+		&\sqrt{2}>1\\
+		&\alpha<\beta\\
+		\end{aligned}\right.$  $ \Rightarrow $ $(\sqrt{2})^\alpha<(\sqrt{2})^\beta$.
+	}
+\end{ex}
+\begin{ex}%[1D6N1-2]%::Cau 6::
+	Biểu thức $T=\sqrt[5]{a\sqrt{a}}$ với $a>0$. Viết biểu thức $T$ dưới dạng luỹ thừa với số mũ hữu tỉ là
+	\choice
+	{$a^{\frac{3}{5}}$}
+	{$a^{\frac{2}{15}}$}
+	{$a^{\frac{4}{15}}$}
+	{\True $a^{\frac{3}{10}}$}
+	\loigiai{
+		Ta có $T=\sqrt[5]{a\sqrt{a}}=\left(a\cdot a^{\frac{1}{2}}\right)^{\frac{1}{5}}=\left(a^{\frac{3}{2}}\right)^{\frac{1}{5}}=a^{\frac{3}{2}\cdot \frac{1}{5}}=a^{\frac{3}{10}}$.
+	}
+\end{ex}
+\begin{ex}%[1D6N1-1]%::Cau 1::
+	Tính giá trị biểu thức $P=\left(3-2\sqrt{2}\right)^{1\,414}\left(2\sqrt{2}+3\right)^{1\,415}$.
+	\choice
+	{$P=-1$}
+	{\True $P=2\sqrt{2}+3$}
+	{$P=3-2\sqrt{2}$}
+	{$P=1$}
+	\loigiai{
+		Ta có
+		\allowdisplaybreaks
+		$ \begin{aligned}[t] 
+		P&= \left(3-2\sqrt{2}\right)^{1\,414}\left(2\sqrt{2}+3\right)^{1\,415}=\left(3+2\sqrt{2}\right)\left[\left(3-2\sqrt{2}\right)\left(3+2\sqrt{2}\right)\right]^{1\,414}\\
+		&= \left(3+2\sqrt{2}\right)(9-8)^{1\,414}=3+2\sqrt{2}.
+		\end{aligned}$
+	}
+\end{ex}
+\begin{ex}
+	Với $a$, $b$ là các số thực dương khác $1$ thoả mãn $\log_a b=\dfrac{3}{2}$. Giá trị của biểu thức $\log_a b^4$ bằng
+	\choice
+	{$\dfrac{8}{3}$}
+	{$3$}
+	{$\dfrac{4}{3}$}
+	{\True $6$}
+	\loigiai{
+		Ta có $\log_a b^4=4\log_a b=4\cdot \dfrac{3}{2}=6$.
+	}
+\end{ex}
+\begin{ex}
+	Cho các số thực dương $a$, $b$ thỏa mãn $3\log a+2\log b=1$. Mệnh đề nào sau đây đúng?
+	\choice
+	{$a^3+b^2=1$}
+	{$3a+2b=10$}
+	{\True $a^3b^2=10$}
+	{$a^3+b^2=10$}
+	\loigiai{Ta có $3\log a+2\log b=\log a^{3}+\log b^{2}=\log\left(a^3b^2\right)$.\\
+		Theo giả thiết, ta có $3\log a+2\log b=1 \Rightarrow \log\left(a^3b^2\right)=1 \Rightarrow a^3b^2=10$.\\
+		Vậy $a^3b^2=10$.}
+\end{ex}
+\begin{ex}
+	Nếu đặt $\log 2=a$ và $\log 5=b$ thì $\log 200$ bằng
+	\choice
+	{\True $3a+2b$}
+	{$2a+3b$}
+	{$3a-2b$}
+	{$2a-3b$}
+	\loigiai{
+		Ta có $\log 200=\log \left(2^3\cdot 5^2\right)=\log 2^3+\log 5^2=3\log 2+2\log 5=3a+2b$.
+	}
+\end{ex}
+\begin{ex}
+	\immini[thm]
+	{
+		Đồ thị sau đây là của hàm số nào?
+		\choice
+		{\True $y=2^x$}
+		{$y=\log_{\frac{1}{2}}x$}
+		{$y=\left(\dfrac{1}{2}\right)^x$}
+		{$y=\log_2x$}
+	}
+	{
+		\begin{tikzpicture}[scale=0.6, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[->](-3.5,0)--(3,0)node[below]{$x$};
+		\draw[->](0,-1)--(0,4)node[left]{$y$};
+		\draw[smooth, samples=100, domain=-3:2]plot(\x,{2^(\x)});
+		\draw
+		(0,0)node[below left]{$O$}
+		(0,1)node[left]{$1$};
+		;
+		\fill
+		(0,0)circle(2pt)
+		;
+		\end{tikzpicture}
+	}
+	\loigiai
+	{
+		Hàm số nằm phía trên trục hoành và đồng biến trên $\mathbb{R}$ nên chọn $y=2^x$.
+	}
+\end{ex}
+
+\begin{ex}
+	Hàm số nào dưới đây đồng biến trên $\mathbb{R}$?
+	\choice
+	{$y=\left( \dfrac{3}{\pi}\right)^x$}
+	{\True $y=\left( \sqrt{2}\right)^x$}
+	{$y=\left( 0{,}5\right)^x$}
+	{$y=\left( \dfrac{2}{\mathrm{e}}\right)^x$}
+	\loigiai
+	{
+		Vì $\sqrt{2}>1$ nên hàm số $y=\left( \sqrt{2}\right)^x$ đồng biến trên $\mathbb{R}$.
+	}
+\end{ex}
+
+\begin{ex}
+	Tập xác định của hàm số $y=\log_2(3-x)$ là
+	\choice
+	{$(3;+\infty)$}
+	{$(0;3)$}
+	{$[3;+\infty)$}
+	{\True $(-\infty;3)$}
+	\loigiai{
+		Điều kiện xác định $3-x>0 \Leftrightarrow x<3$.\\
+		Tập xác định của hàm số là $\mathscr{D}=(-\infty;3)$.
+	}
+\end{ex}
+
+\begin{ex}
+	Phương trình $2^x=7$ có nghiệm là 
+	\choice
+	{\True $x=\log_2 7$}
+	{$x=\log_7 2$}
+	{$x=3$}
+	{$x=2$}
+	\loigiai{
+		Ta có $2^x = 7\Leftrightarrow x = \log_2 7$.
+	}
+\end{ex}
+\begin{ex}
+	Nghiệm của phương trình $2^{2 x+1}=\dfrac{1}{8}$ là
+	\choice
+	{$x=-1$}
+	{$x=2$}
+	{$x=1$}
+	{\True $x=-2$}
+	\loigiai{
+		Ta có $2^{2 x+1}=\dfrac{1}{8} \Leftrightarrow 2^{2x+1}= 2^{-3} \Leftrightarrow 2x + 1 = - 3 \Leftrightarrow x = - 2$.
+	}
+\end{ex}
+
+
+
+
+\begin{ex}
+	Tập nghiệm của bất phương trình $\log _{0{,}5}(x-1)>1$ là
+	\choice
+	{$\left(\dfrac{3}{2};+\infty\right)$}
+	{$\left[1;\dfrac{3}{2}\right)$}
+	{$\left(-\infty;\dfrac{3}{2}\right)$}
+	{\True $\left(1;\dfrac{3}{2}\right)$}
+	\loigiai{
+		Ta có $\log_{0{,}5}(x-1)>1\Leftrightarrow \heva{&x-1>0\\&x-1<\dfrac{1}{2}}\Leftrightarrow\heva{&x>1\\&x<\dfrac{3}{2}}\Leftrightarrow 1<x<\dfrac{3}{2}$.\\
+		Vậy tập nghiệm của bất phương trình đã cho là $S=\left(1;\dfrac{3}{2}\right)$.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+
+\Closesolutionfile{ans}
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+
+\Opensolutionfile{ans}[ans/answer-DS-ONTAPCHUONG-DE1]
+
+\begin{ex}
+	Cho $\log_{a}b=5$, $\log_{a}c=9$ ($b,c>0$, $0< a\neq 1$).
+	\choiceTF
+	{$\log_{a} (bc)=-4$}
+	{$\log_{b} c=\dfrac{5}{9}$}
+	{$\log_{a} \dfrac{b}{c^2}=23$}
+	{\True $\log_{a^3}\dfrac{\sqrt{b}}{c^2}=-\dfrac{31}{6}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai.} Vì  $\log_{a} (bc)=\log_{a} b+\log_{a} c=5+9=14$.
+			\itemch \textbf{Sai.} Vì $\log_{b} c=\dfrac{\log_{a} c}{\log_{a}b}=\dfrac{9}{5}$.
+			\itemch \textbf{Sai.} Ta có $\log_{a} \dfrac{b}{c^2}=\log_{a}b-\log_{a}c^2=\log_{a}b-2\log_{a}c=5-2\cdot 9=-13$.
+			\itemch \textbf{Đúng.} Ta có
+			\begin{eqnarray*} \log_{a^3}\dfrac{\sqrt{b}}{c^2}&=&\dfrac{1}{3}\log_{a}\dfrac{\sqrt{b}}{c^2}\\
+				&=&\dfrac{1}{3}\left(\log_{a}\sqrt{b}-\log_{a}c^2\right)\\
+				&=&\dfrac{1}{3}\left(\dfrac{1}{2}\log_{a}b-2\log_{a}c\right)\\
+				&=&\dfrac{1}{3}\left(\dfrac{1}{2}\cdot 5-2\cdot 9\right)\\
+				&=&-\dfrac{31}{6}.
+			\end{eqnarray*}
+		\end{itemchoice}
+	}
+\end{ex}
+
+\begin{ex}
+	Thực hiện một mẻ nuôi cấy vi khuẩn với $1\,200$ vi khuẩn ban đầu, nhà sinh học phát hiện số lượng vi khuẩn tăng thêm $25\%$ sau mỗi hai ngày. Công thức $P(t)=P_0\cdot a^t$ $(a>0)$ cho phép tính số lượng vi khuẩn của mẻ nuôi cấy sau $t$ ngày kể từ thời điểm ban đầu.
+	\choiceTF 
+	{Số lượng vi khuẩn sau hai ngày là $1\,200$}
+	{\True Giá trị của $a$ bằng $1{,}12$ \textit{(kết quả làm tròn đến hàng phần trăm)}}
+	{\True Sau $7$ ngày thì số lượng vi khuẩn bằng $2\,600$ \textit{(kết quả làm tròn đến hàng trăm)}}
+	{Sau $10$ ngày, số lượng vi khuẩn có được bằng $3{,}0$ lần số lượng vi khuẩn ban đầu \textit{(kết quả làm tròn đến hàng phần mười)}}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai.} Số lượng vi khuẩn sau hai ngày là $P(2)=1\,200\cdot(1+25\%)=1\,500$.
+			\itemch \textbf{Đúng.} $P(2)=1\,200\cdot a^2=1\,500\Rightarrow a^2=1{,}25\Rightarrow a\approx 1{,}12$.
+			\itemch \textbf{Đúng.} Sau $7$ ngày thì số lượng vi khuẩn bằng $P(7)=1\,200\cdot 1{,}12^7\approx 2\,600$.
+			\itemch \textbf{Sai.} Số lượng vi khuẩn sau $10$ ngày là $P(10)=1\,200\cdot 1{,}12^{10}\approx 3\,727$.\\ $\dfrac{P(10)}{P(0)}=\dfrac{3\,727}{1200}\approx 3{,}1$.
+		\end{itemchoice}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/answer.tex}
+
+
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-ONTAPCHUONG-DE1]
+
+\begin{ex}
+	Tập giá trị của hàm số $y=\log_2 x$ trên đoạn $[2;8]$ có dạng $[a;b]$. Tính $a+b$.
+	\shortans[]{$4$}
+	\loigiai{
+		Ta có $2\le x\le 8\Rightarrow \log_2 2\le \log_2 x\le \log_2 8\Leftrightarrow 1\le y\le 3$.\\
+		Suy ra $a=1$, $b=3$. Vậy $a+b=4$.
+	}
+\end{ex}
+\begin{ex}
+	Giải phương trình $\log_2\left(x^2+3x\right)=2$. Tính tổng các nghiệm của phương trình.
+	\shortans{$-3$}
+	\loigiai
+	{
+		Điều kiện $x^2+3x>0$.\\
+		Ta có \allowdisplaybreaks
+		\begin{eqnarray*}
+			\log_2\left(x^2+3x\right)=2&\Leftrightarrow& x^2+3x=2^2=4\\
+			&\Leftrightarrow&x^2+3x-4=0\\
+			&\Leftrightarrow&\hoac{&x=-4\\&x=1.}
+		\end{eqnarray*}
+		Kiểm tra điều kiện
+		\begin{itemize}
+			\item Với $x=1$, $x^2+3x=1+3=4>0$ (thỏa mãn).
+			\item Với $x=-4$, $x^2+3x=16-12=4>0$ (thỏa mãn).
+		\end{itemize}
+		Vậy tổng các nghiệm là $1+(-4)=-3$.
+	}
+\end{ex}
+
+\begin{ex}
+	Dân số thành phố C năm $2\,024$ khoảng $9{,}2$ triệu người. Giả sử tỉ lệ tăng dân số hàng năm của thành phố C không đổi và bằng $r=1{,}4\%$. Biết rằng, sau $t$ năm dân số thành phố C (tính từ mốc năm $2024$) ước tính theo công thức $S=A\cdot \mathrm{e}^{rt}$, trong đó $A$ là dân số năm lấy làm mốc. Sau ít nhất $t$ ($t\in \mathbb{Z}$) năm, dân số của thành phố vượt quá $11$ triệu người. Vậy $t$ bằng bao nhiêu?
+	\shortans[]{$13$}
+	\loigiai{
+		Dân số thành phố vượt quá $11$ triệu người khi và chỉ khi 
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			A\cdot \mathrm{e}^{rt}>11&\Leftrightarrow& 9{,}2\cdot \mathrm{e}^{0{,}014t}>11\\
+			&\Leftrightarrow& \mathrm{e}^{0{,}014t}>\dfrac{11}{9{,}2}\\
+			&\Leftrightarrow& t>\dfrac{1}{0{,}014} \ln\dfrac{11}{9{,}2}\approx 12{,}7.
+		\end{eqnarray*}
+		Vậy cần ít nhất $13$ năm, dân số thành phố vượt qua $11$ triệu người.
+	}
+\end{ex}
+\begin{ex}
+	Trong một số trường hợp, tin đồn lan truyền và được mô hình hoá bằng hàm số $p(t)=\dfrac{1}{1 + a\mathrm{e}^{-kt}}$
+	trong đó $p(t)$ là tỉ lệ dân số biết tin đồn tại thời điểm $t$ (giờ) và $a$, $k$ là hằng số dương. Giả sử $a = 10$; $k=0{,}5$ và tốc độ lan truyền tin đồn là hàm số $f(t) = \dfrac{5\mathrm{e}^{-0{,}5t}}{(1 + 10\mathrm{e}^{-0{,}5t})^2}$ tại thời điểm $t$ (giờ). Tại thời điểm tin đồn lan truyền với tốc độ lớn nhất thì có $a$ (đơn vị \%) dân số biết tin đồn. Tìm $a$.
+	\shortans[]{$50$}
+	\loigiai{
+		Đặt $a = 10\mathrm{e}^{-0{,}5t}>0$, khi đó \[f(t) = \dfrac{1}{2} \cdot \dfrac{a}{(1 + a)^2}=\dfrac{1}{2} \cdot\dfrac{a}{(1 + a)^2} = \dfrac{1}{2} \cdot\dfrac{a}{a^2 + 2a + 1} =\dfrac{1}{2} \cdot \dfrac{1}{a + 2 + \dfrac{1}{a}}.\]
+		Áp dụng BĐT Cauchy, ta được \[a + \dfrac{1}{a} \geq 2 \Rightarrow a + 2 + \dfrac{1}{a} \geq 4 \Rightarrow \dfrac{1}{a + 2 + \dfrac{1}{a}} \leq \dfrac{1}{4}.\]
+		Do đó $f(t) \leq \dfrac{1}{2} \cdot \dfrac{1}{4} = \dfrac{1}{8}$.\\
+		Dấu \lq\lq=\rq\rq\, xảy ra khi $a = 1 \Leftrightarrow 10\mathrm{e}^{-0{,}5t} = 1 \Leftrightarrow \mathrm{e}^{-0{,}5t} = \dfrac{1}{10} \Leftrightarrow -0{,}5t = \ln \dfrac{1}{10} = -\ln 10 \Leftrightarrow t = 2 \ln 10$.\\
+		Tại $t = 2 \ln 10$ thì $p(2 \ln 10) = \dfrac{1}{1 + 10\mathrm{e}^{-0{,}5 \cdot 2 \ln 10}} = \dfrac{1}{2}$.\\
+		Vậy tại thời điểm tốc độ tin đồn lan truyền lớn nhất thì sẽ có $50$\% dân số biết tin đồn.}
+\end{ex}
+\Closesolutionfile{ans}
+
+
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+\setcounter{ex}{0}
+\begin{ex}
+	Rút gọn biểu thức  $K=\dfrac{a^{\sqrt{2}+2} \cdot a^{3-\sqrt{2}}}{\left(a^{\sqrt{3}-1}\right)^{\sqrt{3}+1}}$ ($ a>0 $).
+	\loigiai{
+		Ta có $$K=\dfrac{a^{\sqrt{2}+2} \cdot a^{3-\sqrt{2}}}{\left(a^{\sqrt{3}-1}\right)^{\sqrt{3}+1}}=\dfrac{a^{\sqrt{2}+2+3-\sqrt{2}}}{a^{({\sqrt{3}-1)\cdot(\sqrt{3}+1)}}}=\dfrac{a^{5}}{a^2}=a^3.$$
+	}
+\end{ex}
+\begin{ex}%[2D2K6-1]
+	Tìm tất cả các nghiệm nguyên của bất phương trình $\left(x^2-99 x-100\right)\ln (x-1)<0 $.
+	\loigiai{
+		Bất phương trình đã cho
+		\begin{eqnarray*}
+			&&\left(x^2-99x-100\right)\ln (x-1)<0\\
+			&\Leftrightarrow &\hoac{&\heva{& x^2-99x-100<0\\ &\ln (x-1)>0}\\ &\heva{& x^2-99x-100>0\\ &\ln (x-1)<0}}\\
+			&\Leftrightarrow &\hoac{&\heva{&-1<x<100\\ & x>2}\\ &\heva{&\hoac{& x<-1\\ & x>100}\\ & 1<x<2}}\\
+			&\Leftrightarrow & 2<x<100.
+		\end{eqnarray*}
+		Vì $ x $ nguyên nên $ x\in\{3; 4; 5; \ldots; 97; 98; 99\}$.\\
+		Vậy có $ 97 $ giá trị nguyên của $ x $ thỏa mãn.
+	}
+\end{ex}
+\begin{ex}
+	Người ta dùng thuốc để khử khuẩn cho một thùng nước. Biết rằng nếu lúc đầu mỗi mi-li-lít nước chứa $P_{0}$ vi khuẩn thì sau $t$ giờ (kể từ khi cho thuốc vào thùng), số lượng vi khuẩn trong mỗi mi-li-lít nước là $P=P_0 \cdot 10^{-\alpha t}$, với $\alpha$ là một hằng số dương nào đó. Biết rằng ban đầu mỗi mi-li-lít nước có $9000$ vi khuẩn và sau $2$ giờ, số lượng vi khuẩn trong mỗi mi-li-lít nước là $6000$. Sau thời gian bao lâu thì số lượng vi khuẩn trong mỗi mi-li-lít nước trong thùng ít hơn hoặc bằng $1000$?
+	\loigiai{
+		Ta có $6000=9000\cdot 10^{-2\alpha} \Rightarrow \alpha=-\dfrac{1}{2} \log \dfrac{2}{3}=\dfrac{1}{2} \log \dfrac{3}{2}$.\\
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			9000 \cdot 10^{-\alpha t} \leq 1000 
+			&\Leftrightarrow & 10^{-\alpha t} \leq \dfrac{1}{9} \\
+			&\Leftrightarrow &-\alpha t \leq \log \dfrac{1}{9}	\\
+			&\Leftrightarrow &t \geq-\dfrac{2}{\alpha} \log \dfrac{1}{3}=-\dfrac{2}{\dfrac{1}{2} \log \dfrac{3}{2}} \cdot \log \dfrac{1}{3}=\dfrac{4 \log 3}{\log \dfrac{3}{2}} \approx 10{,}8 \ \text{(giờ).}
+		\end{eqnarray*}
+	}
+\end{ex} 
+

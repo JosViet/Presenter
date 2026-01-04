@@ -1,0 +1,553 @@
+\section{TỌA ĐỘ CỦA MỘT ĐIỂM VÀ ĐỒ THỊ CỦA HÀM SỐ} % Tên bài
+\subsubsection{Kiến thức trọng tâm}
+\subsection{Mặt phẳng toạ độ}
+\immini{
+	\begin{itemize}
+		\item Trên mặt phẳng, ta vẽ hai trục số $Ox$ và $Oy$ vuông góc với nhau tại gốc $O$ của mỗi trục, khi đó ta có hệ trục toạ độ $Oxy$.
+		\item Các trục $Ox$, $Oy$ gọi là các trục toạ độ.
+		\item Trục $Ox$ gọi là trục hoành và thường được vẽ nằm ngang; trục $Oy$ gọi là trục tung và thẳng được vẽ thẳng đứng.
+		\item Giao điểm $O$ được gọi là gốc toạ độ.
+		\item Mặt phẳng có hệ trục toạ độ $Oxy$ gọi là mặt phẳng toạ độ $Oxy$.
+		\item Hai trục $Ox$, $Oy$ chia mặt phẳng toạ độ $Oxy$ thành bốn góc: góc phần tư thứ $I$, $II$, $III$, $IV$.
+	\end{itemize}
+}{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[->] 
+		(-2.5,0) -- (3,0) node[below]{$x$};
+		\draw[->] 
+		(0,-2.5) -- (0,3) node[right]{$y$};
+		\fill 
+		(0,0) circle(1pt) node[below left]{$O$}
+		;
+		\foreach \x in {-2,-1,1,2} {
+			\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+		}
+		\foreach \y in {-2,-1,1,2} {
+			\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+		}
+		\path 
+		(2,2) node{$I$}
+		(-2,2) node{$II$}
+		(-2,-2) node{$III$}
+		(2,-2) node{$IV$}
+		;
+	\end{tikzpicture}
+}
+\subsection{Toạ độ của một điểm trên mặt phẳng toạ độ}
+\immini{
+	Ta xác định vị trí của một điểm trong mặt phẳng toạ độ bằng các dùng hai số thực như sau
+	\begin{itemize}
+		\item Từ $P$ vẽ các đường đường vuông góc với các trục toạ độ, cắt trục hoành tại điểm $a$ và trục tung tại điểm $b$.
+		\item Khi đó, cặp số $\left(a; b \right)$ gọi là toạ độ của điểm $P$ và kí hiệu là $P\left(a; b \right)$.
+		\item Số $a$ gọi là hoành độ và số $b$ gọi là tung độ của điểm $P$.
+		\item Gốc toạ độ $O$ có toạ độ là $\left(0; 0\right)$. 
+	\end{itemize}
+}{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[->] 
+		(-2.5,0) -- (3,0) node[below]{$x$};
+		\draw[->] 
+		(0,-2.5) -- (0,3) node[right]{$y$};
+		\fill 
+		(0,0) circle(1pt) node[below left]{$O$}
+		;
+		\foreach \x in {-2,-1,1,2} {
+			\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+		}
+		\foreach \y in {-2,-1,1,2} {
+			\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+		}
+		\fill 
+		(1.5,1.5) circle (1pt) node[above]{$P$}
+		;
+		\draw[dashed]
+		(1.5,0) node[below]{$a$} -- (1.5,1.5) -- (0, 1.5) node[left]{$b$}
+		;
+	\end{tikzpicture}
+}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-1]
+	Tìm toạ độ các điểm $A$, $B$, $C$ trong hình bên dưới
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\draw[->] 
+			(-3.5,0) -- (5,0) node[below]{$x$};
+			\draw[->] 
+			(0,-2.5) -- (0,3) node[right]{$y$};
+			\fill
+			(0,0) circle(1pt) node[below left]{$O$}
+			;
+			\foreach \x in {-3,-2,-1,1,2,3,4} {
+				\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+			}
+			\foreach \y in {-2,1,2} {
+				\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+			}
+			\draw (-0.1,-1) -- (0.1,-1) node[{shift=(210:12pt)}]{$-1$};
+			\path 
+			(2,2) coordinate (A)
+			(0,-2) coordinate (B)
+			(-3,-1) coordinate (C)
+			(4,0) coordinate (D)
+			;
+			\fill 
+			(A) circle (1pt) node[above]{$A$}
+			(B) circle (1pt) node[right]{$B$}
+			(C) circle (1pt) node[left]{$C$}
+			(D) circle (1pt) node[above]{$D$}
+			;
+			
+			\draw[dashed]
+			(2,0) -- (A) -- (0,2)
+			(-3,0) -- (C) -- (0,-1)
+			;
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		\begin{itemize}
+			\item Điểm $A$ có toạ độ là $\left(2; 2 \right)$.
+			\item Điểm $B$ có toạ độ là $\left(0; -2 \right)$.
+			\item Điểm $B$ có toạ độ là $\left(-3; -1 \right)$.
+			\item Điểm $D$ có toạ độ là $\left(4; 0 \right)$.
+		\end{itemize}
+	}
+\end{vd}
+\subsubsection{Xác định một điểm trên mặt phẳng toạ độ khi biết toạ độ của nó}
+\immini{
+	Để xác định một điểm $P$ có toạ độ là $\left(a; b \right)$, ta thực hiện như sau
+	\begin{itemize}
+		\item Tìm trên trục hoành điểm $a$ và vẽ đường thẳng vuông góc với trục này tại điểm $a$.
+		\item Tìm trên trục trung điểm $b$ và vẽ đường thẳng vuông góc với trục này tại điểm $b$.
+		\item Giao điểm của hai đường thẳng vừa vẽ cho ta điểm $P$ cần tìm.
+	\end{itemize}
+}{
+	\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\draw[->] 
+		(-2.5,0) -- (3,0) node[below]{$x$};
+		\draw[->] 
+		(0,-2.5) -- (0,3) node[right]{$y$};
+		\fill 
+		(0,0) circle(1pt) node[below left]{$O$}
+		;
+		\foreach \x in {-2,-1,1,2} {
+			\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+		}
+		\foreach \y in {-2,-1,1,2} {
+			\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+		}
+		\fill 
+		(1.5,1.5) circle (1pt) node[above]{$P$}
+		;
+		\draw[dashed]
+		(1.5,0) node[below]{$a$} -- (1.5,1.5) -- (0, 1.5) node[left]{$b$}
+		;
+	\end{tikzpicture}
+}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-2]
+	Vẽ một hệ trục toạ độ $Oxy$ và đánh dấu các điểm $A\left(-2; 2\right)$, $B\left(2, 0 \right)$
+	\loigiai{
+		Các điểm $A\left(-2; 2\right)$, $B\left(2, 0 \right)$ được xác định như hình dưới.
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\draw[->] 
+				(-2.5,0) -- (3,0) node[below]{$x$};
+				\draw[->] 
+				(0,-2.5) -- (0,3) node[right]{$y$};
+				\fill 
+				(0,0) circle(1pt) node[below left]{$O$}
+				;
+				\foreach \x in {-2,-1,1,2} {
+					\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+				}
+				\foreach \y in {-2,-1,1,2} {
+					\draw (-0.1,\y) -- (0.1,\y) node[right]{$\y$};
+				}
+				\fill 
+				(-2,2) circle (1pt) node[above]{$A$}
+				;
+				\draw[dashed]
+				(-2,0) -- (-2,2) -- (0,2)
+				;
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\subsection{Đồ thị của hàm số}
+\begin{dn}
+	Đồ thị của hàm số $y = f(x)$ trên mặt phẳng toạ độ $Oxy$ là tập hợp tất cả các điểm $M\left(x; f(x) \right)$.
+\end{dn}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-3]
+	Vẽ đồ thị của hàm số $y = f(x)$ cho bằng bảng sau
+	\begin{center}
+		\begin{tabular}{|w{c}{2cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|}
+			\hline
+			$x$ & $10$ & $15$ & $22$ & $28$ & $32$ & $38$\\
+			\hline
+			$y = f(x)$ & $8$ & $18$ & $25$ & $35$ & $20$ & $10$ \\ 
+			\hline
+		\end{tabular}
+	\end{center}
+	\loigiai{
+		Đồ thị hàm số là tập hợp các điểm có toạ độ $\left(10; 8\right)$, $\left(15 ; 18\right)$, $\left(22; 25\right)$, $\left(28 ; 35\right)$, $\left(32; 20\right)$, $\left(38; 10\right)$
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1,y = 0.1 cm,x = 0.1 cm]
+				\draw[->]
+				(-15,0) -- (45,0) node[below]{$x$};
+				\draw[->]
+				(0,-15) -- (0,45) node[right]{$y$};
+				\foreach \x in {-10,10,20,30,40} {
+					\draw (\x,1) -- (\x,-1) node[below]{$\x$};
+				}
+				\foreach \y in {-10,10,20,30,40} {
+					\draw (1,\y) -- (-1,\y) node[left]{$\y$};
+				}
+				\foreach \x/\y in {10/8,15/18,22/25,28/35,32/20,38/10} {
+					\draw[dashed] (\x,0) -- (\x,\y) -- (0,\y);
+					\fill (\x,\y) circle(1pt);
+				}
+				\fill 
+				(0,0) circle(1pt) node[below left]{$O$};
+				
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-3]
+	\immini{Cho hàm số $y = f(x)$ có đồ thị như hình bên. Hãy hoàn thành bảng giá trị của hàm số sau đây
+		\begin{center}
+			\begin{tabular}{|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|}
+				\hline
+				$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+				\hline
+				$y$ & & & & &\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\draw[->] 
+			(-2.5,0) -- (3,0) node[below]{$x$}
+			;
+			\draw[->]
+			(0,-1.5) -- (0,5) node[left]{$y$}
+			;
+			\fill 
+			(0,0) circle (1pt) node[below left]{$O$}
+			;
+			\foreach \x in {-2,-1,1,2} {
+				\draw (\x,0.05) -- (\x,-0.05) node[below]{$\x$};
+			}
+			\foreach \x in {-1,1,2,3,4} {
+				\draw (0.05,\x) -- (-0.05,\x);
+			}
+			\draw[smooth,blue,line width=1]
+			plot[domain=-2.1:2.1] (\x,{(\x)^(2)});
+			
+			\draw[dashed]
+			(-2,0) -- (-2,4) -- (2,4) -- (2,0)
+			(-1,0) -- (-1,1) -- (1,1) -- (1,0)
+			;
+			\path 
+			(0,1) node[{shift=(135:9pt)}]{$1$}
+			(0,4) node[{shift=(135:9pt)}]{$4$}
+			;
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Từ đồ thị hàm số ta có
+		\begin{center}
+			\begin{tabular}{|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|}
+				\hline
+				$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+				\hline
+				$y$ & $4$ & $1$ & $0$ & $1$ & $4$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{vd}
+\subsubsection{Bài tập}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-1]
+	Tìm toạ độ các điểm $M$, $N$, $P$ trong hình bên dưới
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\draw[->] 
+			(-3.5,0) -- (5,0) node[below]{$x$};
+			\draw[->] 
+			(0,-2.5) -- (0,3) node[right]{$y$};
+			\fill 
+			(0,0) circle(1pt) node[below left]{$O$}
+			;
+			\foreach \x in {-3,-2,-1,1,2,3,4} {
+				\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+			}
+			\foreach \y in {-2,1,2} {
+				\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+			}
+			\draw (-0.1,-1) -- (0.1,-1) node[{shift=(210:12pt)}]{$-1$};
+			\path 
+			(-3,-1) coordinate (M)
+			(-2,0) coordinate (N)
+			(4,2) coordinate (P)
+			;
+			\fill 
+			(M) circle (1pt) node[below]{$M$}
+			(N) circle (1pt) node[above]{$N$}
+			(P) circle (1pt) node[above]{$P$}
+			;
+			
+			\draw[dashed]
+			(-3,0) -- (M) -- (0,-1)
+			(4,0) -- (P) -- (0,2)
+			;
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Điểm $M \left(-3; -1 \right)$, điểm $N\left(-2; 0 \right)$, điểm $D\left(4; 2 \right)$.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3H2-3]
+	Vẽ đồ thị hàm số được cho bởi bảng sau
+	\begin{center}
+		\begin{tabular}{|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|}
+			\hline
+			$x$ &  $-2$ & $-1$ & $0$ & $1$ & $2$\\
+			\hline
+			$y$ & $-1$ & $0$ & $1$ & $2$ & $3$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\loigiai{
+		Đồ thị hàm số được cho bởi bảng trên là tập hợp tất cả các điểm $M$, $N$, $P$, $E$, $F$ như hình dưới.
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\draw[->] 
+				(-2.5,0) -- (3,0) node[below]{$x$};
+				\draw[->] 
+				(0,-2) -- (0,4) node[right]{$y$};
+				\path 
+				(0,0) circle(1pt) node[below left]{$O$}
+				;
+				\foreach \x in {-2,-1,1,2} {
+					\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+				}
+				\foreach \y in {1,2,3} {
+					\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+				}
+				\draw (-0.1,-1) -- (0.1,-1) node[{shift=(210:12pt)}]{$-1$};
+				\path 
+				(-2,-1) coordinate (M)
+				(-1,0) coordinate (N)
+				(0,1) coordinate (P)
+				(1,2) coordinate (E)
+				(2,3) coordinate (F)
+				;
+				\fill 
+				(M) circle (1pt) node[below]{$M$}
+				(N) circle (1pt) node[above]{$N$}
+				(P) circle (1pt) node[right]{$P$}
+				(E) circle (1pt) node[above]{$E$}
+				(F) circle (1pt) node[above]{$F$}
+				;
+				
+				\draw[dashed]
+				(-2,0) -- (M) -- (0,-1)
+				(2,0) -- (F) -- (0,3)
+				(1,0) -- (E) -- (0,2)
+				;
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3H1-2]
+	Cho hàm số $y = f(x) = \dfrac{x-3}{-x+1}$. Tính
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $f(-1)$;
+			\item $f(0)$;
+			\item $f(5)$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có $f(-1) = \dfrac{-1-3}{-\left(-1 \right) +1} = \dfrac{-4}{2} = -2$.
+			\item Ta có $f(0) = \dfrac{0 - 3}{-0+1} = \dfrac{-3}{1} = -3$.
+			\item Ta có $f(5) = \dfrac{5-3}{-5+1} = \dfrac{2}{-4} = -\dfrac{1}{2}$.
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3H2-2]
+	Vẽ một hệ trục toạ độ $Oxy$ và đánh dấu các điểm $M\left(-3; -2\right)$, $N \left(-2,0\right)$, $P \left(4,1 \right)$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\draw[->] 
+				(-3.5,0) -- (5,0) node[below]{$x$};
+				\draw[->] 
+				(0,-2.5) -- (0,3) node[right]{$y$};
+				\path 
+				(0,0) circle(1pt) node[below left]{$O$}
+				;
+				\foreach \x in {-3,-2,-1,1,2,3,4} {
+					\draw (\x,0.1) -- (\x,-0.1) node[below]{$\x$};
+				}
+				\foreach \y in {-1,1,2} {
+					\draw (0.1,\y) -- (-0.1,\y) node[left]{$\y$};
+				}
+				\draw (-0.1,-2) -- (0.1,-2) node[{shift=(210:12pt)}]{$-2$};
+				\path 
+				(-3,-2) coordinate (M)
+				(-2,0) coordinate (N)
+				(4,1) coordinate (P)
+				;
+				\fill 
+				(M) circle (1pt) node[below]{$M$}
+				(N) circle (1pt) node[above]{$N$}
+				(P) circle (1pt) node[above]{$P$}
+				;
+				
+				\draw[dashed]
+				(-3,0) -- (M) -- (0,-2)
+				(4,0) -- (P) -- (0,1)
+				;
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3N2-1]
+	Trong những điểm sau, tìm điểm thuộc đồ thị của hàm số $y = 2x + 1$
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $A\left(-1; -2 \right)$;
+			\item $B \left(2; 5 \right)$;
+			\item $C\left(-2, -3 \right)$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Với $x = -1$ ta có $y = 2 \cdot (-1) + 1 = -1$.\\
+			Do đó, điểm $A\left(-1; -2\right)$ không thuộc đồ thị của hàm số.
+			\item Với $x = 2$ ta có $y = 2 \cdot 2 + 1 = 5$.\\
+			Do đó, điểm $B\left(2; 5\right)$ thuộc đồ thị của hàm số. 
+			\item Với $x = -2$ ta có $y = 2 \cdot (-2) + 1 = -3$.\\
+			Do đó, điểm $B\left(-2; -3\right)$ thuộc đồ thị của hàm số. 
+		\end{enumerate}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3V2-1]
+	Tìm $m$ để điểm $A\left(m; 4\right)$ thuộc đồ thị của hàm số $y = 2x + 4$.
+	\loigiai{
+		Giả sử $A\left(m; 4 \right)$ thuộc đồ thị hàm số $y = 2x + 4$ ta được
+		\begin{eqnarray*}
+			4  &=& 2m + 4\\
+			m &=& 0.
+		\end{eqnarray*}
+		Vậy $A\left(m; 4 \right)$ thuộc đồ thị hàm số $y = 2x + 4$ khi $m = 0$.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3V2-3]
+	Tìm giá trị của $m$ để đồ thị của hàm số $y = \left(m+1 \right)x^2 - 1$ đi qua điểm $P\left(2; 1 \right)$.
+	\loigiai{
+		Giả sử đồ thị của hàm số $y = \left(m+1 \right)x^2 - 1$ đi qua điểm $P\left(2; 1 \right)$, ta được
+		\begin{eqnarray*}
+			1 &=& \left(m+1 \right) \cdot 2^2 - 1\\
+			4 \left(m+1 \right)&=& 2 \\
+			m +1&=& \dfrac{1}{2}\\
+			m &=& -\dfrac{1}{2}.
+		\end{eqnarray*}
+		Vậy đồ thị hàm số $y = \left(m+1 \right)x^2 - 1$ đi qua điểm $P\left(2; 1 \right)$ khi $m = -\dfrac{1}{2}$.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3H3-3]
+	Tìm giao điểm đồ của đồ thị hàm số $y = 3x+1$ và trục hoành.
+	\loigiai{
+		Gọi $A\left(x;y\right)$ là giao điểm của đồ thị hàm số $y = 3x + 1$ và trục hoành.\\
+		Suy ra $y = 0$ khi đó $3x + 1 = 0$ suy  ra $x = \dfrac{-1}{3}$.\\
+		Vậy giao điểm của đồ thị hàm số $y = 3x+1$ và trục hoành có toạ độ là $A\left(\dfrac{-1}{3}; 0 \right)$.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3V2-4]
+	Chi trông coi một cửa hàng bán kem, em nhận thấy có mối quan hệ giữa số que kem $S$ bán ra mỗi ngày và nhiệt độ cao nhất $t \left(^\circ C \right)$ của ngày hôm đó. Chi đã ghi lại các giá trị tương ứng của $t$ và $S$ trong bảng sau
+	\begin{center}
+		\begin{tabular}{|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|w{c}{0.8cm}|}
+			\hline
+			$t$ &  $20$ & $23$ & $25$ & $28$ & $32$ & $35$\\
+			\hline
+			$S$ & $25$ & $30$ & $33$ & $43$ & $48$ & $60$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Vẽ đồ thị của hàm số $S$ theo biến số $t$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1,y = 0.1 cm,x = 0.15 cm]
+				\draw[->]
+				(-15,0) -- (45,0) node[below]{$t$};
+				\draw[->]
+				(0,-15) -- (0,65) node[right]{$S$};
+				\foreach \x in {-10,10,20,30,40} {
+					\draw (\x,1) -- (\x,-1) node[below]{$\x$};
+				}
+				\foreach \y in {-10,10,20,30,40,50,60} {
+					\draw (1,\y) -- (-1,\y) node[left]{$\y$};
+				}
+				\foreach \x/\y in {20/25,23/30,25/33,28/43,32/48,35/60} {
+					\draw[dashed] (\x,0) -- (\x,\y) -- (0,\y);
+					\fill (\x,\y) circle(1pt);
+				}
+				\fill 
+				(0,0) circle(1pt) node[below left]{$O$};
+				
+			\end{tikzpicture}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[GVSB: Nguyễn Thế Duy - GVPB1: Trần Vinh - GVPB2: Nguyễn Trần Anh Tuấn]%[8D3V4-3]
+	\immini{Số cái bút $x$ đã mua và số tiền $y$ (nghìn đồng) phải trả của ba bạn An, Công, Dũng, Lan được biểu diễn bởi ba điểm $A$, $C$, $D$, $L$ trong mặt phẳng toạ độ $Oxy$ như hình bên. Hãy hoàn thiện bảng dưới đây
+		\begin{center}
+			\begin{tabular}{|w{c}{2cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|}
+				\hline
+				Tên  & An & Công & Dũng & Lan \\
+				\hline
+				Số bút & & & & \\
+				\hline
+				Tổng tiền & & & & \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}{
+		\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1,y=0.1 cm,x=0.2 cm]
+			\draw[->]
+			(-0.5,0) -- (30,0) node[below]{(Cái)};
+			\draw[->]
+			(0,-2) -- (0,65) node[right]{(nghìn đồng)};
+			\foreach \x in {5,10,15,20,25} {
+				\draw (\x,0.5) -- (\x,-0.5) node[below]{$\x$};
+			}
+			\foreach \y in {10,20,30,40,50,60} {
+				\draw (0.5,\y) -- (-0.5,\y) node[left]{$\y$};
+			}
+			\foreach \x/\y/\z in {18/54/A,25/60/C,10/30/D,5/40/L} {
+				\draw[dashed] (\x,0) -- (\x,\y) -- (0,\y);
+				\fill (\x,\y) circle(1pt) node[above]{$\z$};
+			}
+			\fill 
+			(0,0) circle(1pt) node[below left]{$O$};
+			
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Ta có 
+		\begin{center}
+			\begin{tabular}{|w{c}{4cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|w{c}{1cm}|}
+				\hline
+				Tên  & An & Công & Dũng & Lan \\
+				\hline
+				Số bút (cái) & $18$ & $25$ & $10$ & $5$\\
+				\hline
+				Tổng tiền (nghìn đồng) & $54$ & $60$ & $30$ & $40$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}

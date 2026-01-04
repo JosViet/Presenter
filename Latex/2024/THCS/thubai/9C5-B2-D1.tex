@@ -1,0 +1,486 @@
+
+
+
+\section{TIẾP TUYẾN CỦA ĐƯỜNG TRÒN} % Tên bài
+\subsection{Vị trí tương đối giữa đường thẳng và đường tròn}
+\subsubsection{Kiến thức trọng tâm}
+\begin{tomtat}
+	\immini{
+		\begin{itemize}
+			\item Đường thẳng $a$ và đường tròn $(O)$ gọi là \textit{cắt nhau} nếu chúng có đúng hai điểm chung. Hai điểm chung đó gọi là \textit{giao điểm} của đường thẳng và đường tròn.\\
+			\item Đường thẳng $a$ và đường tròn $(O)$ gọi là \textit{tiếp xúc nhau} nếu chúng có duy nhất một điểm chung  $H$. Điểm chung đó gọi là \textit{tiếp điểm}. Đường thẳng $a$ gọi là tiếp tuyến của đường tròn $(O)$ tại $H$.\\
+			\item Đường thẳng $a$ và đường tròn $(O)$ gọi là \textit{không giao nhau} nếu chúng không có điểm chung.
+		\end{itemize}
+	}{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\def\r{1.1}
+			\coordinate [label=below: $O$](O) at (0,0) ;
+			\coordinate[label=above:$ $](A) at (140:\r);
+			\coordinate[label=above:$ $](B) at (40:\r);
+			\coordinate[label=above: $a$](a) at ($(B)!1.5!(A)$);
+			\coordinate[](b) at ($(A)!1.3!(B)$);
+			\coordinate[label=above:$ $](H) at ($(B)!0.5!(A)$);
+			\coordinate[label=left:$R$](R) at ($(O)!0.4!(A)$);
+			%
+			\fill[black] (H) circle (1pt)+(90:2mm) node {$H$};
+			\fill[black] (A) circle (1pt)+(120:2.5mm) node {$A$};
+			\fill[black] (B) circle (1pt)+(60:2.5mm) node {$B$};
+			%%
+			\draw[] (0,0) circle(\r);
+			\draw[] (a)--(b) (A)--(O)--(H);
+			%
+			\foreach \i in {O,A,B,H} \draw[fill=black] (\i) circle(1pt);
+			\draw pic[draw,angle radius=4]{right angle=A--H--O};
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			\def\r{1}
+			\def\h{-2.7}
+			\coordinate [label=left: $O$](O) at (0,\h) ;
+			\coordinate[label=right:$H$](H) at (\r,\h);
+			\coordinate[label=right:$a$](a) at ($(H)!1/1!-90:(O)$);
+			\coordinate[ ](b) at ($(H)!1/1!90:(O)$);
+			\coordinate[label=below:$R$](d) at ($(O)!0.5!(H)$);
+			%%
+			\draw[] (0,\h) circle(\r);
+			\draw[fill=blue!30] (a)--(b) (O)--(H);
+			%
+			\foreach \i in {O,H} \draw[fill=black] (\i) circle(1pt);
+			\draw pic[draw,angle radius=4]{right angle=a--H--O};
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			\def\r{1}
+			\def\h{-5.2}
+			\coordinate [label=right: $O$](O) at (0,\h) ;
+			\coordinate[label=left:$a$](a) at (-1.5,\h+1);
+			\coordinate[](b) at (-1.5,\h-1);
+			\coordinate[label=left:$H$](H) at ($(a)!0.5!(b)$);
+			%
+			\draw[] (0,\h) circle(\r);
+			\draw[fill=blue!30] (a)--(b) (O)--(H);
+			% 
+			\foreach \i in {O,H} \draw[fill=black] (\i) circle(1pt);
+			\draw pic[draw,angle radius=4]{right angle=a--H--O};
+		\end{tikzpicture}	
+	}
+	\begin{luuy}
+		\begin{itemize}
+			\item Cho đường tròn $(O;R)$ và đường thẳng $a$ bất kì. Kẻ $OH$  vuông góc với  $a$ tại $H$. Khi đó
+			\begin{center}
+				\begin{tabular}{|c|l|c|c|} 
+					\hline
+					STT &	Vị trí tương đối của $a$ và $(O;R)$
+					& Số giao điểm
+					& Hệ thức giữa $OH$ và $R$\\ 
+					\hline 
+					1 & Cắt nhau	&  $2$ &  $OH<R$   \\ 
+					\hline 
+					2 & Tiếp xúc nhau	&  $1$ &  $OH=R$  \\ 
+					\hline 
+					3 & Không giao nhau	&  $0$ &  $OH>R$ \\ 
+					\hline 
+				\end{tabular} 
+			\end{center} 
+			\item Nếu đường thẳng $a$ là tiếp tuyến của đường tròn $(O;R)$ tại $H$ thì $a\perp OH$ và $OH=R$.
+		\end{itemize}
+	\end{luuy}
+\end{tomtat}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2N2-1]
+	Cho điểm $O$ cách đường thẳng $d$ một khoảng bằng $9$ cm. Không vẽ hình, hãy dự đoán xem đường thẳng $d$ cắt, tiếp xúc hay không giao nhau với mỗi đường tròn sau và giải thích tại sao?
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $(0; 8 \, \text{cm})$;
+			\item $(0; 10 \, \text{cm})$;
+			\item $(0; 9 \, \text{cm})$.
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Do $9$ cm  $>$ $8$ cm nên đường thẳng $d$ không giao nhau với $(0; 8 \, \text{cm})$.
+			\item Do $9$ cm  $<10$ cm nên đường thẳng $d$ cắt $(O; 10 \, \text{cm})$.
+			\item Do $9$ cm  $=$ $9$ cm nên đường thẳng $d$ tiếp xúc với $(O; 9 \, \text{cm})$.
+		\end{enumerate}	
+	}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho điểm $M$ nằm ngoài đường tròn $(O;R)$ sao cho $MO=2R$. Kẻ tiếp tuyến $MA$ của đường tròn $(O)$, với $A$ là tiếp điểm.
+	\begin{enumerate}
+		\item Tính $MA$ và chu vi tam giác $OAM$ theo $R$.
+		\item Gọi $B$ là giao điểm của đoạn thẳng $OM$ với đường tròn $(O)$. Tính  độ dài cung nhỏ $AB$ theo $R$.
+	\end{enumerate}
+	\loigiai{ 
+		\immini{
+			\begin{enumerate}
+				\item  Vì $MA$ là tiếp tuyến của $(O)$ tại $A$ nên $MA \perp OA$ tại $A$.\\
+				Áp dụng định lý Pytago cho tam giác $OAM$ vuông tại $A$, ta có
+				\begin{eqnarray*}
+					MA^2+OA^2&=&OM^2\\
+					MA^2+R^2&=&(2R)^2\\
+					MA^2&=&3R^2\\
+					MA&=&R\sqrt{3}. 
+				\end{eqnarray*}
+				Chu vi tam giác $OAM$ là
+				\begin{eqnarray*}
+					OA+OM+AM=R+2R+ R\sqrt{3}=3R+R\sqrt{3}.
+				\end{eqnarray*}
+				\item Xét tam giác $OAM$ vuông tại $A$ có
+				\begin{eqnarray*}
+					\cos O=\dfrac{OA}{OM}=\dfrac{R}{2R}=\dfrac{1}{2}.
+				\end{eqnarray*}
+				Suy ra $\widehat{O}=60^\circ$.\\
+				Độ dài cung nhỏ $AB$ là
+				\begin{eqnarray*}
+					l_{AB}=\dfrac{2\pi R \cdot 60^\circ}{360^\circ}=\dfrac{\pi R}{3}.
+				\end{eqnarray*}
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\coordinate[label=above:$O$](O) at (0,0);
+				\coordinate[label=below:$A$](A) at (0,-\r);
+				\coordinate[](x) at ($(A)!2/1!-90:(O)$);
+				\coordinate[label=below:$B$](B) at ($(A)!1/1!-60:(O)$);
+				\coordinate[label=below:$M$](M) at (intersection of B--O and A--x);
+				%
+				\draw[] (O) circle (\r); 
+				\draw[ ]  (O)--(A)--(M)--(O);
+				%
+				\foreach \i in {O,A,M,B} \draw[fill=black] (\i) circle(1pt);
+				\draw pic[draw,angle radius=5]{right angle=M--A--O};
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho đường tròn tâm $O$, có bán kính $R=15$ cm. Vẽ đường thẳng $a$ cắt đường tròn $(O)$ tại hai điểm $E$, $F$ sao cho $EF=18$ cm. Gọi $H$ là hình chiếu của $O$ lên $a$. Tính độ dài $OH$. 
+	\loigiai{
+		\immini{
+			Xét $\triangle OEF$ có $OE=OF=R$ nên $\triangle OEF$ cân tại $O$.\\
+			Mà $OH \perp EF$ tại $H$.\\
+			Nên $HE=HF=\dfrac{EF}{2}=\dfrac{18}{2}=9$ (cm).\\
+			Áp dụng định lý Pytago cho $\triangle OHE$ vuông tại $H$, ta có
+			\begin{eqnarray*}
+				OH^2+HE^2&=&OE^2\\
+				OH^2+9^2&=&15^2\\
+				OH^2&=&144\\
+				OH&=&12 \, (\text{cm}). 
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\coordinate[label=above:$O$](I) at (0,0);
+				\coordinate[ ](X) at (0,-\r);
+				\coordinate[label=below left:$E$](A) at ($(O)!1/1!-53:(X)$);
+				\coordinate[label=below right:$F$](B) at ($(O)!1/1!53:(X)$);
+				\coordinate[label=below:$H$](M) at ($(A)!1/2!(B)$);
+				\coordinate[ ](D) at ($(A)!1.2!(B)$);
+				\coordinate[label=below:$a$](d) at ($(B)!1.4!(A)$);
+				%
+				\draw[] (I) circle (\r); 
+				\draw[]  (B)--(A)--(I)--(B) (I)--(M) (d)--(D);
+				%
+				\foreach \i in {A,I,B,M} \draw[fill=black] (\i) circle(1pt);
+				%
+				\coordinate[](H) at ($(A)!1/2!(M)$);
+				\draw[](H)node[]{$|$};
+				\coordinate[](K) at ($(B)!1/2!(M)$);
+				\draw[](K)node[]{$|$};
+			\end{tikzpicture}
+		}
+	}
+\end{vd}
+
+\subsubsection{Bài tập}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2N2-1]
+	Cho đường tròn $(O; 6{,}5 \, \text{cm})$ và đường thẳng $m$ bất kì. Gọi $d$ là khoảng cách từ điểm $O$ đến đường thẳng $m$. Xác định vị trí của đường thẳng $m$ và đường tròn $(O)$ trong các trường hợp sau
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $d=\sqrt{41}$ cm;
+			\item $d=6{,}5$ cm;
+			\item $d=8{,}5$ cm;
+		\end{enumerate}
+	\end{multicols}
+	\loigiai{
+		\begin{enumerate}
+			\item Do  $d<R$ ($\sqrt{41}<6{,}5$)  nên đường thẳng $d$ cắt $(O; 6{,}5 \, \text{cm})$.
+			\item Do $d=R$ ($6{,}5=6{,}5$) nên đường thẳng $d$ tiếp xúc với $(O; 6{,}5 \, \text{cm})$.
+			\item Do $d>R$ ($8{,}5>6{,}5$) nên đường thẳng $m$ không giao nhau với $(O; 6{,}5 \, \text{cm})$.
+		\end{enumerate}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho điểm $B$ thuộc đường tròn $(A; 5 \, \text{cm})$. Vẽ tiếp tuyến $Bx$ của đường tròn $(A)$. Trên tia $Bx$ lấy điểm $C$ sao cho $BC=12$ cm. 
+	\begin{enumerate}
+		\item  Tính chu vi tam giác $ABC$ và số đo góc $\widehat{BAC}$ (góc làm tròn đến độ).  
+		\item  Đoạn thẳng $AC$ cắt đường tròn $(A)$ tại điểm $D$. Tính diện tích hình quạt tạo bởi hai bán kính $AB$, $AD$ và cung nhỏ $BD$  (lấy $\pi \approx 3{,}14$ và làm trong đến hàng phần mười). 
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item  Vì $BC$ là tiếp tuyến của $(A)$ tại $B$ nên $BC \perp BA$ tại $B$.\\
+				Áp dụng định lý Pytago cho tam giác $ABC$ vuông tại $B$, ta có
+				\begin{eqnarray*}
+					AC^2&=&AB^2+BC^2\\
+					AC^2&=&5^2+12^2\\
+					AC^2&=&196\\
+					AC&=&13 \, (\text{cm}). 
+				\end{eqnarray*}
+				Chu vi tam giác $ABC$ là
+				\begin{eqnarray*}
+					AB+BC+AC=5+12+13=30 \, (\text{cm}).
+				\end{eqnarray*}
+				Xét tam giác $ABC$ vuông tại $B$ có
+				\begin{eqnarray*}
+					\tan A=\dfrac{BC}{AB}=\dfrac{12}{5}.
+				\end{eqnarray*}
+				Suy ra $\widehat{A}=67^\circ$.\\
+				\item 
+				Diện tích hình quạt tạo bởi hai bán kính $AB$, $AD$ và cung nhỏ $BD$ là
+				\begin{eqnarray*}
+					S=\dfrac{\pi R^2 \cdot 67^\circ}{360^\circ}\approx \dfrac{3{,}14 \cdot 5^2 \cdot 67^\circ}{360^\circ} \approx14{,}6 \, (\text{cm}^2).
+				\end{eqnarray*}
+			\end{enumerate}
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\def \t{3.84}
+				\coordinate[label=right:$A$](A) at (0,0);
+				\coordinate[label=left:$B$](B) at (-\r,0);
+				\coordinate[label=left:$C$](C) at (-\r,\t);
+				\coordinate[label=above right:$D$](D) at ($(A)!1/1!-67.38:(B)$);
+				%
+				\draw[] (A) circle (\r); 
+				\draw[ ]  (B)--(A)--(C)--(B);
+				%
+				\foreach \i in {A,C,B,D} \draw[fill=black] (\i) circle(1pt);
+				\draw pic[draw,angle radius=5]{right angle=A--B--C};
+				\coordinate[label=below:$5$ cm](x) at ($(A)!1/2!(B)$);
+				\coordinate[label=left:$12$ cm](y) at ($(C)!1/2!(B)$);
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho $(O;\, R)$, một đường thẳng bất kì cắt đường tròn $(O)$ tại hai điểm $C$ và $D$ scho $CD=30$ cm. Kẻ $OH$ vuông góc với $CD$ tại $H$. Biết $OH=8$ cm. Tính $R$.
+	\loigiai{
+		\immini{
+			Xét $\triangle OCD$ có $OC=OD=R$ nên $\triangle OCD$ cân tại $O$.\\
+			Mà $OH \perp CD$ tại $H$ nên $H$ là trung điểm của $CD$.\\
+			Do đó $HC=HD=\dfrac{CD}{2}=\dfrac{30}{2}=15$ (cm).\\
+			Áp dụng định lý Pytago cho $\triangle OHD$ vuông tại $H$, ta có
+			\begin{eqnarray*}
+				OD^2&=&OH^2+HD^2\\
+				R^2&=&8^2+15^2\\
+				R^2&=&289\\
+				R&=&17 \, (\text{cm}). 
+			\end{eqnarray*}
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\coordinate[label=left:$O$](O) at (0,0);
+				\coordinate[ ](X) at (\r,0);
+				\coordinate[label=below right:$C$](C) at ($(O)!1/1!-62:(X)$);
+				\coordinate[label=above right:$D$](D) at ($(O)!1/1!62:(X)$);
+				\coordinate[label=right:$H$](H) at ($(C)!1/2!(D)$);
+				\coordinate[](E) at ($(C)!1.3!(D)$);
+				\coordinate[](F) at ($(D)!1.3!(C)$);
+				%
+				\draw[] (O) circle (\r); 
+				\draw[]  (D)--(C)--(O)--(D) (O)--(H) (F)--(E);
+				%
+				\foreach \i in {O,C,D,H} \draw[fill=black] (\i) circle(1pt);
+				\draw pic[draw,angle radius=5]{right angle=D--H--O};
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho $(S; 25 \, \text{cm})$, lấy điểm $I$ sao cho $SI=7$ cm. Đường thẳng qua $I$ vuông góc với $SI$ cắt $(S)$ tại $M$ và $N$. Tính $MN$.
+	\loigiai{
+		\immini{
+			Áp dụng định lý Pytago cho $\triangle SIM$ vuông tại $I$, ta có
+			\begin{eqnarray*}
+				IM^2+IS^2=&SM^2\\
+				IM^2+7^2=&25^2\\
+				IM^2=&576\\
+				IM=&24 \, (\text{cm}). 
+			\end{eqnarray*}
+			Xét $\triangle SMN$ có $SM=SN$ nên $\triangle SMN$ cân tại $S$.\\
+			Mà $SI \perp MN$ tại $I$ nên $I$ là trung điểm của $MN$.\\
+			Suy ra $MN=2IM=2\cdot 24=48$ (cm).\\
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\coordinate[label=below:$S$](S) at (0,0);
+				\coordinate[ ](X) at (0,\r);
+				\coordinate[label=above right:$M$](M) at ($(O)!1/1!-73:(X)$);
+				\coordinate[label=above left:$N$](N) at ($(O)!1/1!73:(X)$);
+				\coordinate[label=above:$I$](I) at ($(M)!1/2!(N)$);
+				\coordinate[](E) at ($(M)!1.3!(N)$);
+				\coordinate[](F) at ($(N)!1.3!(M)$);
+				%
+				\draw[] (S) circle (\r); 
+				\draw[]  (M)--(N)--(S)--(M) (S)--(I) (E)--(F);
+				%
+				\foreach \i in {S,M,N,I} \draw[fill=black] (\i) circle(1pt);
+				%
+				\draw pic[draw,angle radius=5]{right angle=M--I--S};
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	Cho đường tròn tâm $(I;R)$. Vẽ đường thẳng $d$ cắt đường tròn $(I)$ tại hai điểm $AB$ sao cho $AB=R\sqrt{3}$. Gọi $M$ là trung điểm của $AB$.  
+	\begin{enumerate}
+		\item Tính độ dài $IM$ theo $R$.
+		\item Tính diện tích của hình được giới hạn bởi  dây $AB$ và cung nhỏ $AB$ theo $R$.
+	\end{enumerate}
+	\loigiai{
+		\immini{
+			\begin{enumerate}
+				\item Có $AM=MB=\dfrac{AB}{2}=\dfrac{R\sqrt{3}}{2}$.\\
+				Xét $\triangle IAB$ có $IA=IB=R$ nên $\triangle IAB$ cân tại $I$.\\
+				Mà $M$ là trung điểm của $AB$ nên $MI \perp AB$ tại $M$.\\
+				Áp dụng định lý Pytago cho $\triangle IAM$ vuông tại $M$, ta có
+				\begin{eqnarray*}
+					IM^2+AM^2&=&IA^2\\
+					IM^2+\left(\dfrac{R\sqrt{3}}{2}\right)^2&=&R^2\\
+					IM^2&=&\dfrac{R^2}{4}\\
+					IM&=&\dfrac{R}{2}. 
+				\end{eqnarray*}
+				\item Xét tam giác $IAM$ vuông tại $M$ có
+				\begin{eqnarray*}
+					\tan \widehat{MIA}=\dfrac{AM}{AI}=\dfrac{R\sqrt{3}}{2R}=\dfrac{\sqrt{3}}{2}.
+				\end{eqnarray*}
+				Suy ra $\widehat{MIA}=60^\circ$ nên $\widehat{AIB}=120^\circ$.\\
+				Diện tích tam giác $IAB$ là
+				\begin{eqnarray*}
+					 \dfrac{1}{2} \cdot AB \cdot IM=\dfrac{1}{2} \cdot R\sqrt{3} \cdot \dfrac{1}{2}=\dfrac{R^2\sqrt{3}}{4}.
+				\end{eqnarray*}
+				Diện tích hình quạt tạo bởi hai bán kính $IA$, $IB$ và cung nhỏ $AB$ là
+				\begin{eqnarray*}
+					\dfrac{\pi R^2 \cdot 120^\circ}{360^\circ}=\dfrac{\pi R^2}{3}.
+				\end{eqnarray*} 
+				Diện tích của hình được giới hạn bởi  dây $AB$ và cung nhỏ $AB$ là 
+				\begin{eqnarray*}
+					\dfrac{\pi R^2}{3}-\dfrac{R^2\sqrt{3}}{4}.
+				\end{eqnarray*}
+			\end{enumerate}
+			
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6}
+				\coordinate[label=right:$I$](I) at (0,0);
+				\coordinate[ ](X) at (-\r,0);
+				\coordinate[label=above left:$A$](A) at ($(O)!1/1!-60:(X)$);
+				\coordinate[label=below left:$B$](B) at ($(O)!1/1!60:(X)$);
+				\coordinate[label=left:$M$](M) at ($(A)!1/2!(B)$);
+				\coordinate[ ](D) at ($(A)!1.4!(B)$);
+				\coordinate[label=right:$d$](d) at ($(B)!1.6!(A)$);
+				%
+				\draw[] (I) circle (\r); 
+				\draw[]  (B)--(A)--(I)--(B) (I)--(M) (d)--(D);
+				%
+				\foreach \i in {A,I,B,M} \draw[fill=black] (\i) circle(1pt);
+				%
+				\coordinate[](H) at ($(A)!1/2!(M)$);
+				\draw[](H)node[]{$-$};
+				\coordinate[](K) at ($(B)!1/2!(M)$);
+				\draw[](K)node[]{$-$};
+			\end{tikzpicture}
+		}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Nguyễn Chiến]%[9H2H2-1]
+	\immini{
+		Mép ngoài cửa ra vào một khu vui chơi có dạng một phần của đường tròn bán kính $1{,}8$ m (như hình vẽ bên). Biết lối vào $BC$ rộng $2{,}4$ m, hãy tính chiều cao  $AH$ của cửa đó (làm tròn kết quả đến hàng phần trăm).
+	}
+	{
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\def \r{1.6} 
+			\def \c{3.2}
+			\coordinate[label=left:$O$](O) at (0,0);
+			\coordinate[label=below right:$A$](A) at (0,\r);
+			\coordinate[ ](X) at (0,-\r);
+			\coordinate[label=below:$B$](B) at ($(O)!1/1!-42:(X)$);
+			\coordinate[label=below:$C$](C) at ($(O)!1/1!42:(X)$);
+			\coordinate[label=below:$H$](H) at ($(B)!1/2!(C)$);
+			%%%%%%%%%%%
+			\coordinate[](F) at ($(B)!1.8!(C)$);
+			\coordinate[](E) at ($(C)!1.8!(B)$);
+			\coordinate[](G) at ($(F)+(0,\c)$);
+			\coordinate[](Q) at ($(E)+(0,\c)$);
+			\draw[fill=brown!20]  (E)--(F)--(G)--(Q)--(E);
+			\draw[pattern=bricks,opacity=0.6]  (E)--(F)--(G)--(Q)--(E);
+			%%%%%%%%%%%
+			\draw[rotate=-90,fill=white] (C) arc (42:320:\r);
+			\draw[]  (B)--(C) (A)--(H);
+			%
+			\foreach \i in {O,A,C,B,H} \draw[fill=black] (\i) circle(1pt);
+			%
+			\coordinate[label=left:$O$](O) at (0,0);
+			\fill[black] (A) circle (1pt)+(-55:2.7mm) node {$A$};
+			\coordinate[](X) at ($(B)!1/2!(H)$);
+			\draw[](X)node[]{$|$};
+			\coordinate[](Y) at ($(C)!1/2!(H)$);
+			\draw[](Y)node[]{$|$};
+			\draw pic[draw,angle radius=5]{right angle=C--H--O};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		\immini{
+			Do $H$ là trung điểm của $BC$ nên $HC=\dfrac{1}{2}BC=1{,}2$ (m).\\
+			Áp dụng định lý Pytago cho $\triangle OHC$ vuông tại $H$, ta có
+			\begin{eqnarray*}
+				OH^2+HC^2&=&OC^2\\
+				OH^2+(1{,}2)^2&=&(1{,}8)^2\\
+				OH^2&=&\dfrac{9}{5}\\
+				OH&\approx&1{,}34 \, \text{(m)}. 
+			\end{eqnarray*}
+			Khi đó $AH \approx 1{,}8+1{,}34 \approx 3{,}14$ (m).\\
+			Vậy chiều cao của cửa đó xấp xỉ $3{,}14$ m.  
+		}
+		{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def \r{1.6} 
+				\def \c{3.2}
+				\coordinate[label=left:$O$](O) at (0,0);
+				\coordinate[label=below right:$A$](A) at (0,\r);
+				\coordinate[ ](X) at (0,-\r);
+				\coordinate[label=below:$B$](B) at ($(O)!1/1!-42:(X)$);
+				\coordinate[label=below:$C$](C) at ($(O)!1/1!42:(X)$);
+				\coordinate[label=below:$H$](H) at ($(B)!1/2!(C)$);
+				%%%%%%%%%%%
+				\coordinate[](F) at ($(B)!1.8!(C)$);
+				\coordinate[](E) at ($(C)!1.8!(B)$);
+				\coordinate[](G) at ($(F)+(0,\c)$);
+				\coordinate[](Q) at ($(E)+(0,\c)$);
+				\draw[fill=brown!20]  (E)--(F)--(G)--(Q)--(E);
+				\draw[pattern=bricks,opacity=0.6]  (E)--(F)--(G)--(Q)--(E);
+				%%%%%%%%%%%
+				\draw[rotate=-90,fill=white] (C) arc (42:320:\r);
+				\draw[]  (B)--(C)--(O) (A)--(H);
+				%
+				\foreach \i in {O,A,C,B,H} \draw[fill=black] (\i) circle(1pt);
+				%
+				\coordinate[label=left:$O$](O) at (0,0);
+				\fill[black] (A) circle (1pt)+(-55:2.7mm) node {$A$};
+				\coordinate[](X) at ($(B)!1/2!(H)$);
+				\draw[](X)node[]{$|$};
+				\coordinate[](Y) at ($(C)!1/2!(H)$);
+				\draw[](Y)node[]{$|$};
+				\draw pic[draw,angle radius=5]{right angle=C--H--O};
+			\end{tikzpicture}
+		}	
+	}
+\end{bt}

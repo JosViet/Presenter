@@ -1,0 +1,518 @@
+\newpage
+\def\thoigian{90}%--Thời gian
+\de{Đề số 3}{Chương VIII. Đại số tổ hợp}
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE3]
+%Cau1
+\begin{ex}%[0D8N1-1]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+	Một học sinh có thể chọn học môn tự chọn là Toán hoặc Vật lí hoặc Hóa học. Nếu có $3$ lớp Toán, $2$ lớp Vật lí và $4$ lớp Hóa học thì học sinh đó có bao nhiêu cách chọn một lớp học?
+	\choice
+	{$6$}
+	{$9$}
+	{\True $9$}
+	{$24$}
+	\loigiai{
+		Tổng số cách chọn là $3 + 2 + 4 = 9$ (quy tắc cộng).
+	}
+\end{ex}
+%Cau2
+\begin{ex}%[0D8N1-2]
+Một học sinh đến thư viện và cần chọn một quyển sách và một tạp chí để đọc. Phòng đọc hiện có có $5$ quyển sách khác nhau và $4$ tạp chí khác nhau. Số cách chọn một quyển sách và một tạp chí là
+\choice
+{$9$}
+{$20$}
+{\True $20$}
+{$10$}
+\loigiai{
+	Sơ đồ cây minh họa các cách chọn một quyển sách và một tạp chí
+\begin{center}
+	\begin{tikzpicture}[>=stealth,
+		every node/.style={font=\footnotesize},
+		edge from parent/.style={draw,->},
+		level distance=15mm,
+		level 1/.style={level distance=15mm, sibling distance=32mm},
+		level 2/.style={level distance=10mm, sibling distance=7mm,
+			every node/.append style={rotate=90,xshift=-10mm}
+		}
+		]
+		%		\node {Chọn sách}
+		%		child foreach \s in {1,...,5} {
+			%				child {node {Sách \s}
+				%						child foreach \t in {1,...,4} {
+					%								child {node[rotate=180]{Tạp chí \t}}
+					%							}
+				%					}
+			%			};
+		\node {\boxed{$Sách và tạp chí$}}
+		child {node {Sách 1}
+			child {node [rotate=180]{Tạp chí 1}}
+			child {node [rotate=180]{Tạp chí 2}}
+			child {node [rotate=180]{Tạp chí 3}}
+			child {node [rotate=180]{Tạp chí 4}}
+		}
+		child {node {Sách 2}
+			child {node [rotate=180]{Tạp chí 1}}
+			child {node [rotate=180]{Tạp chí 2}}
+			child {node [rotate=180]{Tạp chí 3}}
+			child {node [rotate=180]{Tạp chí 4}}
+		}
+		child {node {Sách 3}
+			child {node [rotate=180]{Tạp chí 1}}
+			child {node [rotate=180]{Tạp chí 2}}
+			child {node [rotate=180]{Tạp chí 3}}
+			child {node [rotate=180]{Tạp chí 4}}
+		}
+		child {node {Sách 4}
+			child {node [rotate=180]{Tạp chí 1}}
+			child {node [rotate=180]{Tạp chí 2}}
+			child {node [rotate=180]{Tạp chí 3}}
+			child {node [rotate=180]{Tạp chí 4}}
+		}
+		child {node {Sách 5}
+			child {node [rotate=180]{Tạp chí 1}}
+			child {node [rotate=180]{Tạp chí 2}}
+			child {node [rotate=180]{Tạp chí 3}}
+			child {node [rotate=180]{Tạp chí 4}}
+		};
+	\end{tikzpicture}
+\end{center}
+Mỗi lựa chọn sách có thể kết hợp với $4$ lựa chọn tạp chí.\\
+Do đó số cách chọn là $5 \cdot 4 = 20$ (quy tắc nhân).
+}
+\end{ex}
+%Cau3
+\begin{ex}%[0D8H1-2]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+Một số tự nhiên gồm ba chữ số được tạo ra bằng cách chọn chữ số hàng trăm từ tập $\{1;2\}$, chữ số hàng chục từ tập $\{3;4;5\}$, và chữ số hàng đơn vị từ tập $\{6;7\}$. Hỏi có bao nhiêu số tự nhiên có thể được tạo ra theo cách đó?
+\choice
+{$7$}
+{$6$}
+{\True $12$}
+{$8$}
+\loigiai{
+	Mỗi số gồm $1$ chữ số hàng trăm có $2$ cách, $1$ chữ số hàng chục có $3$ cách, và $1$ chữ số hàng đơn vị có $2$ cách.\\
+	Vì vậy có tất cả $2 \cdot 3 \cdot 2 = 12$ số.
+}
+\end{ex}
+%Cau4
+\begin{ex}%[0D8H1-2]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+	Một mã PIN gồm $4$ chữ số, mỗi chữ số được chọn từ các số $0$ đến $9$. Số cách tạo ra mã PIN khác nhau là
+	\choice
+	{$100$}
+	{$5\,040$}
+	{\True $10\,000$}
+	{$720$}
+	\loigiai{
+		Mỗi mã PIN có $4$ chữ số, mỗi chữ số có $10$ lựa chọn (từ $0$ đến $9$).\\
+		Theo quy tắc nhân, số mã PIN là $10 \cdot 10 \cdot 10 \cdot 10 = 10\,000$.
+	}
+\end{ex}
+%Cau5
+\begin{ex}%[0D8H3-2]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+	Khai triển $(2x + y)^4$, ta được biểu thức nào dưới đây?
+	\choice
+	{\True $16x^4 + 32x^3y + 24x^2y^2 + 8xy^3 + y^4$}
+	{$8x^4 + 12x^3y + 6x^2y^2 + 4xy^3 + y^4$}
+	{$16x^4 + 24x^3y + 36x^2y^2 + 16xy^3 + y^4$}
+	{$x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4$}
+	\loigiai{
+		Ta khai triển theo nhị thức Newton
+		\begin{align*}
+			(2x + y)^4 
+			&= \mathrm{C}_4^0(2x)^4 + \mathrm{C}_4^1(2x)^3y + \mathrm{C}_4^2(2x)^2y^2 + \mathrm{C}_4^3(2x)y^3 + \mathrm{C}_4^4y^4 \\
+			&= 1 \cdot 16x^4 + 4 \cdot 8x^3y + 6 \cdot 4x^2y^2 + 4 \cdot 2xy^3 + 1 \cdot y^4 \\
+			&= 16x^4 + 32x^3y + 24x^2y^2 + 8xy^3 + y^4.
+		\end{align*}
+	}
+\end{ex}
+%Cau6
+\begin{ex}%[0D8H3-4]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+	Trong khai triển $(x - 2)^4$, hệ số của $x^2$ là
+	\choice
+	{\True $24$}
+	{$-24$}
+	{$12$}
+	{$6$}
+	\loigiai{
+	Ta có 
+	\begin{align*}
+		(x-2)^4 
+		& = \mathrm{C}_4^0 x^4 + \mathrm{C}_4^1 x^3 (-2)^1 + \mathrm{C}_4^2 x^2 (-2)^2 + \mathrm{C}_4^3 x (-2)^3 + \mathrm{C}_4^4 (-2)^4 \\
+		& = x^4 -8x^3 + 24x^2 -32x + 16.
+	\end{align*}
+	Vậy hệ số của số hạng chứa $x^2$ là $24$.
+	}
+\end{ex}
+%Cau7
+\begin{ex}%[0D8H3-4]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+	Số hạng thứ hai trong khai triển của $(a + b)^5$ là
+	\choice
+	{$\mathrm{C}_5^3 a^2 b^3$}
+	{$\mathrm{C}_5^0 a^5$}
+	{\True $\mathrm{C}_5^1 a^4 b^1$}
+	{$\mathrm{C}_5^2 a^3 b^2$}
+	\loigiai{
+		Ta có khai triển của $(a+b)^5$ là
+		\begin{align*}
+			(a+b)^5 
+			&= \mathrm{C}_5^0 a^5 + \mathrm{C}_5^1 a^4 b^1 + \mathrm{C}_5^2 a^3 b^2 + \mathrm{C}_5^3 a^2 b^3 + \mathrm{C}_5^4 a^1 b^4 + \mathrm{C}_5^5 a^0 b^5 \\
+			&= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5.
+		\end{align*}
+		Vậy, số hạng thứ hai trong khai triển là $\mathrm{C}_5^1 a^4 b^1$.
+	}
+\end{ex}
+%Cau8
+\begin{ex}%[0D8H3-4]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Số hạng thứ ba xếp theo thứ tự giảm dần theo lũy thừa của $x$ trong khai triển $(x^2 + 1)^4$ là
+\choice
+{\True $6x^4$}
+{$6x^3$}
+{$4x^6$}
+{$4x^2$}
+\loigiai{
+	Ta có
+	\begin{align*}
+		(x^2+1)^4 
+		&= \mathrm{C}_4^0 (x^2)^4 + \mathrm{C}_4^1 (x^2)^3 1^1 + \mathrm{C}_4^2 (x^2)^2 1^2 + \mathrm{C}_4^3 (x^2)^1 1^3 + \mathrm{C}_4^4 1^4 \\
+		&= x^8 + 4x^6 + 6x^4 + 4x^2 + 1.
+	\end{align*}
+	Số hạng thứ ba xếp theo thứ tự giảm dần theo lũy thừa của $x$ là $6x^4$.
+}
+\end{ex}
+%Cau9
+\begin{ex}%[0D8N2-5]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Cho các chữ số $1$, $2$, $3$, $4$, $5$. Số các số tự nhiên gồm $3$ chữ số khác nhau là
+	\choice
+	{\True $60$}
+	{$125$}
+	{$10$}
+	{$20$}
+	\loigiai{
+		Mỗi số là một chỉnh hợp chập $3$ của $5$ chữ số khác nhau nên có $\mathrm{A}_5^3=60$ số.
+	}
+\end{ex}
+%Cau10
+\begin{ex}%[0D8N2-5]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Một tổ có $8$ học sinh. Số cách chọn ra $2$ bạn để trực nhật là
+	\choice
+	{$56$}
+	{\True $28$}
+	{$16$}
+	{$64$}
+	\loigiai{
+		Số cách chọn $2$ bạn trong $8$ là tổ hợp chập $2$ của $8$: $\mathrm{C}_8^2=\dfrac{8\cdot7}{2}=28$ cách.
+	}
+\end{ex}
+%Cau11
+\begin{ex}%[0D8N2-5]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Số cách sắp xếp $5$ quyển sách khác nhau lên một kệ sách dài là
+	\choice
+	{$\mathrm{C}_5^2$}
+	{\True $5!$}
+	{$\mathrm{A}_5^2$}
+	{$25$}
+	\loigiai{
+		Số cách sắp xếp $5$ quyển sách khác nhau là số hoán vị của $5$ phần tử, tức là $5! = 120$ cách.
+	}
+\end{ex}
+%Cau12
+\begin{ex}%[0D8H2-5]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Trong một hộp có $7$ viên bi đỏ và $3$ viên bi xanh. Chọn ngẫu nhiên $3$ viên bi. Số cách chọn sao cho có đúng $2$ viên đỏ là
+	\choice
+	{$21$}
+	{\True $63$}
+	{$35$}
+	{$84$}
+	\loigiai{
+		Chọn $2$ viên đỏ từ $7$ viên, có $\mathrm{C}_7^2 = 21$ cách.\\
+		Chọn $1$ viên xanh từ $3$ viên, có $\mathrm{C}_3^1 = 3$ cách.\\
+		Tổng số cách là $21 \cdot 3 = 63$ cách.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+
+\Opensolutionfile{ans}[ans/answer-DS-ONTAPCHUONG-DE3]
+\setcounter{ex}{0}
+%%Cau1
+\begin{ex}%[0D8H3-5]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+	Xét khai triển biểu thức $(2x - 1)^5$.
+	\choiceTF
+	{\True Có $6$ số hạng trong khai triển}
+	{ Hệ số của số hạng chứa $x^3$ là $10$}
+	{\True Số hạng chứa $x^2$ là $-40x^2$}
+	{\True Tổng các hệ số trong khai triển là $1$}
+	\loigiai{
+		Ta có:
+		\begin{align*}
+		(2x - 1)^5 
+		&= \mathrm{C}_5^0 (2x)^5 + \mathrm{C}_5^1 (2x)^4 (-1)^1 + \mathrm{C}_5^2 (2x)^3 (-1)^2 + \mathrm{C}_5^3 (2x)^2 (-1)^3 + \mathrm{C}_5^4 (2x)^1 (-1)^4 + \mathrm{C}_5^5 (-1)^5 \\
+		&= 1 \cdot (32x^5) + 5 \cdot (16x^4) \cdot (-1) + 10 \cdot (8x^3) \cdot 1 + 10 \cdot (4x^2) \cdot (-1) + 5 \cdot (2x) \cdot 1 + 1 \cdot (-1) \\
+		&= 32x^5 - 80x^4 + 80x^3 - 40x^2 + 10x - 1
+		\end{align*}
+		\begin{itemchoice}
+			\itemch Có $6$ số hạng.
+			\itemch Hệ số của số hạng chứa $x^3$ là $80$.
+			\itemch Số hạng chứa $x^2$ là $-40x^2$.
+			\itemch Tổng hệ số là $32+(- 80)+80+(- 40)+10+(- 1)=1$.
+		\end{itemchoice}
+	}
+\end{ex}
+%%Cau2
+\begin{ex}%[0D8H1-3]%[Dự án D - đợt 3 NH24-25 - ChatGPT]
+Một hộp có $6$ viên bi đỏ, $4$ viên bi xanh. Lấy ngẫu nhiên $1$ viên, không hoàn lại rồi lại lấy tiếp $1$ viên nữa.
+\choiceTF
+{\True Có $90$ cách chọn hai viên}
+{Có $42$ cách chọn hai viên bi cùng màu đỏ}
+{Có $45$ cách chọn hai viên bi khác màu}
+{\True Có $78$ cách chọn hai viên bi sao cho có ít nhất một viên bi đỏ}
+\loigiai{
+	\begin{itemchoice}
+		\itemch Tổng số viên bi là $6 + 4 = 10$. \\
+		Lần thứ nhất có $10$ cách chọn, lần thứ hai có $9$ cách chọn (không hoàn lại). \\
+		Theo quy tắc nhân, số cách chọn có thứ tự là $10 \cdot 9 = 90$.
+		\itemch
+		Có $6$ viên bi đỏ. \\
+		Lần thứ nhất có $6$ cách chọn, lần thứ hai có $5$ cách chọn (không hoàn lại). \\
+		Theo quy tắc nhân, số cách chọn $2$ viên đỏ (có thứ tự) là $6 \cdot 5 = 30$ cách.
+		\itemch 
+		\begin{itemize}
+			\item Chọn $1$ viên đỏ rồi $1$ viên xanh, có $6 \cdot  4 = 24$ cách.
+			\item Chọn $1$ viên xanh rồi $1$ viên đỏ, có $4 \cdot  6 = 24$ cách.
+		\end{itemize}
+		Tổng số cách chọn $2$ viên khác màu là $24 + 24 = 48$ cách.
+		\itemch 
+		Tổng số cách chọn $2$ viên bi có thứ tự là $90$.\\
+		Số cách chọn $2$ viên bi không có viên đỏ nào (tức là cả $2$ viên đều xanh) là $4 \cdot 3 = 12$ cách.\\
+		Số cách chọn $2$ viên bi có ít nhất một viên đỏ là $90 - 12 = 78$ cách.
+	\end{itemchoice}
+}
+\end{ex}
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/answer.tex}
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-ONTAPCHUONG-DE3]
+%%%Cau1
+\begin{ex}%[0D8V1-5]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Số các ước nguyên dương của số $18\,000$ bằng bao nhiêu?
+\par
+\shortans{$60$}
+\loigiai{
+Để tìm số các ước nguyên dương của một số, ta cần phân tích số đó ra thừa số nguyên tố.\\
+Ta có $18\,000 = 2^4 \cdot 3^2 \cdot 5^3 $.\\
+Số tự nhiên $N$ là ước của $18\,000$ thì phải có dạng $2^m \cdot 3^n \cdot 5^p $,\\ trong đó $m$, $n$, $p$ là những số tự nhiên thỏa mãn $m\in \{0;1;2;3;4\}$, $n\in \{0;1;2\}$, $p\in \{0;1;2;3\}$.\\
+Như vậy, có $5$ cách chọn $m$, có $3$ cách chọn $n$ và có $4$ cách chọn $p$.\\
+Vậy số các ước nguyên dương của $18\,000$ là $5 \cdot 3 \cdot 4 = 60$.
+}
+\end{ex}
+%%%Cau2
+\begin{ex}%[0D8V1-3]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Có $8$ người, trong đó có $2$ cặp vợ chồng. Hỏi có bao nhiêu cách sắp xếp $8$ người này vào một bàn tròn có $8$ ghế sao cho mỗi cặp vợ chồng đều ngồi cạnh nhau?
+	\par
+	\shortans{$480$}
+	\loigiai{
+		Coi mỗi cặp vợ chồng là một đơn vị ("khối"). Vì mỗi cặp vợ chồng phải ngồi cạnh nhau, chúng ta có thể coi họ như một "khối" duy nhất. Do đó các đối tượng chúng ta cần sắp xếp là
+		\begin{itemize}
+			\item Cặp vợ chồng thứ nhất: $C_1$;
+			\item Cặp vợ chồng thứ hai: $C_2$;
+			\item $4$ người độc thân: $D_1$, $D_2$, $D_3$, $D_4$.
+		\end{itemize}
+		Tổng cộng, chúng ta có $2+4=6$ đơn vị cần sắp xếp.\\
+		Để sắp xếp các đơn vị này vào một bàn tròn, chúng ta sẽ cố định vị trí của một trong các đơn vị.\\
+		Chẳng hạn, chọn $C_1$ và đặt họ vào một ghế bất kỳ. Việc này giúp ta loại bỏ vấn đề các cách sắp xếp bị lặp lại khi xoay bàn tròn (xem hình minh họa).
+		\begin{center}
+			\begin{tikzpicture}
+				\def\r{2}
+				\foreach \i in {1,...,8} {
+					\node[circle, fill=brown!60, minimum size={5mm*\r}] (P\i) at ({360/8*(\i-1)}:{0.85*\r}) {};
+					\node at ({360/8*(\i-1)}:{1*\r}) {\footnotesize \i};
+				}			
+				\draw(P1.center) -- (P2.center);
+				\node at ({1.15*\r},{0.34*\r}) {\scriptsize Cặp thứ nhất};
+				\draw(P5.center) -- (P6.center);
+				\node at ({-1.15*\r},{-0.34*\r}) {\scriptsize Cặp thứ hai};
+				\fill[brown!60] (0,0) circle ({17pt*\r}) ;
+			\end{tikzpicture}
+		\end{center}
+		\begin{itemize}
+			\item Khi $C_1$ đã được cố định, ta sắp xếp $5$ đơn vị còn lại là $C_2$, $D_1, \dots, D_4$ vào $5$ vị trí còn lại. \\
+			Số cách sắp xếp này là số các hoán vị của $5$ phần tử, tức là $5!$ (cách).
+			\item Mỗi cặp vợ chồng $C_1$ và $C_2$ đều gồm $2$ người. Đối với mỗi cặp, khi họ đã được xếp vào hai ghế liền kề, có $2$ cách để hoán đổi vị trí cho nhau. \\
+			Số cách sắp xếp nội bộ cho $2$ cặp $C_1$ và $C_2$ là $2! \cdot 2!$ (cách).
+		\end{itemize}
+		Vậy tổng số cách sắp xếp là $5! \cdot 2!\cdot 2! = 480$ cách.
+}\end{ex}
+%%%Cau3
+\begin{ex}%[0D8V3-5]%[Dự án D - đợt 3 NH24-25- Bùi Lương Phúc]
+Một công ty phần mềm có một nhóm $5$ lập trình viên và họ cần phát triển $2$ tính năng mới độc lập là tính năng A và tính năng B. Mỗi lập trình viên sẽ được giao nhiệm vụ làm việc cho chỉ một trong hai tính năng này. Số cách phân bổ cho $5$ lập trình viên đó bằng bao nhiêu?
+\par
+\shortans{$32$}
+	\loigiai{
+		Gọi $k$ là số lập trình viên làm việc cho tính năng B thì có $5-k$ lập trình viên làm việc cho tính năng A.\\
+		Ta có các khả năng như sau
+		\begin{itemize}
+		\item $k=0$, tức là tất cả $5$ lập trình viên làm việc cho tính năng A. \\
+		Số cách phân công là $\mathrm{C}_5^0$ (cách).
+		\item $k=1$, tức là $1$ lập trình viên làm việc cho tính năng B và $4$ lập trình viên làm việc cho tính năng A.\\
+		Số cách phân công là $\mathrm{C}_5^1$ (cách).
+		\item $k=2$, tức là $2$ lập trình viên làm việc cho tính năng B và $3$ lập trình viên làm việc cho tính năng A.\\
+		Số cách phân công là $\mathrm{C}_5^2$ (cách).
+		\item $k=3$, tức là $3$ lập trình viên làm việc cho tính năng B và $2$ lập trình viên làm việc cho tính năng A.\\
+		Số cách phân công là $\mathrm{C}_5^3$ (cách).
+		\item $k=4$, tức là $4$ lập trình viên làm việc cho tính năng B và $1$ lập trình viên làm việc cho tính năng A. \\
+		Số cách phân công là $\mathrm{C}_5^4$ (cách).
+		\item $k=5$, tức là tất cả $5$ lập trình viên làm việc cho tính năng B. \\
+		Số cách phân công là $\mathrm{C}_5^5$ (cách).
+		\end{itemize}
+	Tổng số cách phân công là
+	\begin{align*}
+		\mathrm{C}_5^0+\mathrm{C}_5^1+\mathrm{C}_5^2+\mathrm{C}_5^3+\mathrm{C}_5^4+\mathrm{C}_5^5
+		&=\mathrm{C}_5^0\cdot1^5+\mathrm{C}_5^1\cdot1^4\cdot1^1+\mathrm{C}_5^2\cdot1^3\cdot1^2+\mathrm{C}_5^3\cdot1^2\cdot1^3+\mathrm{C}_5^4\cdot1^1\cdot1^4+\mathrm{C}_5^5\cdot1^5\\
+		&=(1+1)^5\\
+		&=32.
+	\end{align*}
+	}
+\end{ex}
+%%%Cau4
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Tìm số hạng không chứa $x$ của khai triển của $Q(x)=x^5\left(x-\dfrac{3}{x^2}\right)^4$.
+	\par
+	\shortans{$-108$}
+	\loigiai{
+		Áp dụng công thức nhị thức Newton $(a+b)^n$ với $a=x$, $b=-\dfrac{3}{x^2}$ và $n=4$ ta được
+		\begin{align*}
+			\left(x-\dfrac{3}{x^2}\right)^4 
+			&= \mathrm{C}_4^0 (x)^4 \left(-\dfrac{3}{x^2}\right)^0 + \mathrm{C}_4^1 (x)^3 \left(-\dfrac{3}{x^2}\right)^1 + \mathrm{C}_4^2 (x)^2 \left(-\dfrac{3}{x^2}\right)^2 + \mathrm{C}_4^3 (x)^1 \left(-\dfrac{3}{x^2}\right)^3 + \mathrm{C}_4^4 (x)^0 \left(-\dfrac{3}{x^2}\right)^4 \\
+			&= 1 \cdot x^4 \cdot 1 + 4 \cdot x^3 \cdot \left(-\dfrac{3}{x^2}\right) + 6 \cdot x^2 \cdot \left(\dfrac{9}{x^4}\right) + 4 \cdot x^1 \cdot \left(-\dfrac{27}{x^6}\right) + 1 \cdot 1 \cdot \left(\dfrac{81}{x^8}\right) \\
+			&= x^4 - 12x + \dfrac{54}{x^2} - \dfrac{108}{x^5} + \dfrac{81}{x^8}.
+		\end{align*}
+		Nhân khai triển trên với $x^5$ ta được
+		\begin{align*}
+			Q(x) 
+			&= x^5 \left(x^4 - 12x + \dfrac{54}{x^2} - \dfrac{108}{x^5} + \dfrac{81}{x^8}\right) \\
+			&= x^5 \cdot x^4 - x^5 \cdot 12x + x^5 \cdot \dfrac{54}{x^2} - x^5 \cdot \dfrac{108}{x^5} + x^5 \cdot \dfrac{81}{x^8} \\
+			&= x^9 - 12x^6 + 54x^3 - 108 + \dfrac{81}{x^3}.
+		\end{align*}
+		Số hạng không chứa $x$ là số hạng mà lũy thừa của $x$ bằng $0$, tức là số hạng chứa $x^0$.\\
+		Từ kết quả khai triển của $Q(x)$, số hạng không chứa $x$ là $-108$.\\
+		Vậy số hạng không chứa $x$ trong khai triển của $Q(x)=x^5\left(x-\dfrac{3}{x^2}\right)^4$ là $-108$.
+	}
+\end{ex}
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-TL-ONTAPCHUONG-DE3]
+%%%%Cau1
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Có bao nhiêu hoán vị của các chữ cái trong từ \texttt{THANH} sao cho hai chữ cái \texttt{H} không đứng cạnh nhau?
+	\par
+	\dapso{$36$}
+	\loigiai{
+		Đầu tiên ta sắp xếp theo hàng ngang $3$ chữ cái $T$, $A$, $N$, có $3!$ cách xếp.\\
+		Với mỗi cách xếp như thế, ta có $4$ vách. \\
+		Xếp $2$ chữ cái $H$ vào $2$ trong $4$ vị trí này, có $\mathrm{C}_4^2$ cách (xem hình minh họa).
+		\begin{center}
+			\begin{tikzpicture}
+				\def\a{1cm}
+				\def\b{0.5cm}
+				\def\c{0.5cm}
+				\def\d{-0.2cm}
+				\draw (0,0) rectangle (\a, \a);
+				\draw (\a+\b, 0) rectangle (2*\a+\b, \a);
+				\draw (2*\a+2*\b, 0) rectangle (3*\a+2*\b, \a);
+				\draw (-0.25*\a, \a+\d+\c) -- (-0.25*\a, \a+\d);
+				\draw (1.25*\a, \a+\d+\c) -- (1.25*\a, \a+\d);
+				\draw (2.25*\a+\b, \a+\d+\c) -- (2.25*\a+\b, \a+\d);
+				\draw (3.25*\a+2*\b, \a+\d+\c) -- (3.25*\a+2*\b, \a+\d);
+			\end{tikzpicture}
+		\end{center}
+		Theo quy tắc nhân ta có số cách sắp xếp là  $3!\cdot \mathrm{C}_4^2=36$ (cách).
+	}
+\end{ex}
+%%%%Cau2
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Có $10$ người, chia thành $3$ tổ sao cho mỗi tổ có ít nhất $2$ người. Hỏi có bao nhiêu cách chia?
+	\par
+	\dapso{$6\,825$}
+	\loigiai{
+		Các tổ có thể nhận số người là $(2, 2, 6)$, $(2, 3, 5)$, $(2, 4, 4)$, $(3, 3, 4)$.\\
+		Xét từng trường hợp
+		\begin{itemize}
+			\item $(2, 2, 6)$:\\			
+			Chọn $2$ người đầu, có $\mathrm{C}_{10}^2$ cách;\\
+			Chọn $2$ người tiếp theo, có $\mathrm{C}_8^2$ cách;\\
+			$6$ người còn lại là một tổ, có $\mathrm{C}_6^6$ cách.\\
+			Vì hai tổ có số người đều là $2$ nên có thể hoán vị được hai tổ đó. Suy ra số cách thực tế giảm đi $2!$ lần.\\
+			Số cách chia ở trường hợp này là $\dfrac{\mathrm{C}_{10}^2\cdot\mathrm{C}_8^2\cdot\mathrm{C}_6^6}{2!}$ cách.
+			\item $(2, 3, 5)$:\\			
+			Chọn $2$ người đầu, có $\mathrm{C}_{10}^2$ cách;\\
+			Chọn $3$ người tiếp theo, có $\mathrm{C}_8^3$ cách;\\
+			$5$ người còn lại là một tổ, có $\mathrm{C}_5^5$ cách.\\
+			Số cách chia ở trường hợp này là $\mathrm{C}_{10}^2\cdot\mathrm{C}_8^3\cdot\mathrm{C}_5^5$ cách.
+			\item $(2, 4, 4)$:\\			
+			Chọn $2$ người đầu, có $\mathrm{C}_{10}^2$ cách;\\
+			Chọn $4$ người tiếp theo, có $\mathrm{C}_8^4$ cách;\\
+			$4$ người còn lại là một tổ, có $\mathrm{C}_4^4$ cách.\\
+			Vì hai tổ có số người đều là $4$ nên có thể hoán vị được hai tổ đó. Suy ra số cách thực tế giảm đi $2!$ lần.\\
+			Số cách chia ở trường hợp này là $\dfrac{\mathrm{C}_{10}^2\cdot\mathrm{C}_8^4\cdot\mathrm{C}_4^4}{2!}$ cách.			
+			\item $(3, 3, 4)$:\\			
+			Chọn $3$ người đầu, có $\mathrm{C}_{10}^3$ cách;\\
+			Chọn $3$ người tiếp theo, có $\mathrm{C}_7^3$ cách;\\
+			$4$ người còn lại là một tổ, có $\mathrm{C}_4^4$ cách.\\
+			Vì hai tổ có số người đều là $4$ nên có thể hoán vị được hai tổ đó. Suy ra số cách thực tế giảm đi $2!$ lần.\\
+			Số cách chia ở trường hợp này là $\dfrac{\mathrm{C}_{10}^3\cdot\mathrm{C}_7^3\cdot\mathrm{C}_3^3}{2!}$ cách.						
+		\end{itemize}
+		Số cách chia $10$ người thành $3$ tổ sao cho mỗi tổ có ít nhất $2$ người là
+		\[\dfrac{\mathrm{C}_{10}^2\cdot\mathrm{C}_8^2\cdot\mathrm{C}_6^6}{2!}+\mathrm{C}_{10}^2\cdot\mathrm{C}_8^3\cdot\mathrm{C}_5^5+\dfrac{\mathrm{C}_{10}^2\cdot\mathrm{C}_8^4\cdot\mathrm{C}_4^4}{2!}+\dfrac{\mathrm{C}_{10}^3\cdot\mathrm{C}_7^3\cdot\mathrm{C}_3^3}{2!}=6\,825\ \text{cách}.
+		\]
+				}
+\end{ex}
+%%%%Cau3
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 3 NH24-25 - Bùi Lương Phúc]
+	Khai triển rồi thu gọn biểu thức $\left(2 + \sqrt{3}\right)^5$ thành dạng $x+y\sqrt{3}$ trong đó $x$, $y$ là những số nguyên dương. 
+	\par
+	\dapso{$362 + 209\sqrt{3}$}
+	\loigiai{
+		Áp dụng công thức nhị thức Newton với $a=2$, $b=\sqrt{3}$ và $n=5$, ta có
+		\begin{align*}
+			\left(2 + \sqrt{3}\right)^5 &= \mathrm{C}_5^0 (2)^5 (\sqrt{3})^0 + \mathrm{C}_5^1 (2)^4 (\sqrt{3})^1 + \mathrm{C}_5^2 (2)^3 (\sqrt{3})^2 + \mathrm{C}_5^3 (2)^2 (\sqrt{3})^3 + \mathrm{C}_5^4 (2)^1 (\sqrt{3})^4 + \mathrm{C}_5^5 (2)^0 (\sqrt{3})^5 \\
+			&= 1 \cdot 32 \cdot 1 + 5 \cdot 16 \cdot \sqrt{3} + 10 \cdot 8 \cdot 3 + 10 \cdot 4 \cdot (3\sqrt{3}) + 5 \cdot 2 \cdot 9 + 1 \cdot 1 \cdot (9\sqrt{3}) \\
+			&= (32 + 240 + 90) + (80\sqrt{3} + 120\sqrt{3} + 9\sqrt{3}) \\
+			&= 362 + 209\sqrt{3}.
+		\end{align*}
+	}
+\end{ex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

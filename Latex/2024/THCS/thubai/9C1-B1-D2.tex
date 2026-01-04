@@ -1,0 +1,391 @@
+%\section{PHƯƠNG TRÌNH QUY VỀ PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN}
+\subsection{Bài toán thực tế về phương trình tích, phương trình chứa ẩn ở mẫu quy về phương trình bậc nhất}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một mảnh vườn hình chữ nhật có chiều dài hơn chiều rộng $7$ m. Nếu tăng thêm chiều dài $3$ m và chiều rộng thêm $2$ m thì diện tích tăng thêm $45$ m$^2$. Hãy tính chiều dài và chiều rộng của mảnh vườn.
+\loigiai{
+Gọi $x$ là chiều rộng ban đầu của mảnh vườn hình chữ nhật (đơn vị: mét, $x>0$).\\
+Khi đó, chiều dài ban đầu của mảnh vườn hình chữ nhật là $x+7$ (m).\\
+Diện tích ban đầu của mảnh vườn là $x(x+7)=x^2+7x$ $\left(\text{m}^2\right)$.\\
+Nếu tăng thêm chiều dài $3$ m và chiều rộng thêm $2$ m thì diện tích mảnh vườn tăng thêm $45$ m$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&\left[(x+7)+3\right](x+2)-\left(x^2+7x\right)=45\\
+&&(x^2+2x+10x+20)-\left(x^2+7x\right)=45\\
+&&5x=25\\
+&&x=5 \ (\text{nhận}).
+\end{eqnarray*}
+Vậy mảnh vườn ban đầu có chiều dài là $12$ m và chiều rộng là $5$ m.}
+\end{vd}
+
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Trên sân thượng của một gia đình có dạng hình chữ nhật với chu vi bằng $48$ mét, người ta làm một vườn rau có dạng hình chữ nhật với diện tích là $84$ m$^2$ và một lối đi xung quanh vườn rộng $1$ m như hình vẽ sau:
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,line join=round, line cap=round, >=stealth,scale=1] 
+\foreach \x/\y/\pos in {0/0/A, 6/0/B, 0/4.5/D} \path ($(\x,\y)$) coordinate (\pos); 
+\path ($(B)+(D)-(A)$) coordinate (C)
+		($(A)+(45:1)$) coordinate (M)
+		($(B)+(135:1)$) coordinate (N)
+		($(C)+(-135:1)$) coordinate (P)
+		($(D)+(-45:1)$) coordinate (Q);
+\draw[<->] ($(A)!1/2!(D)$)--($(M)!1/2!(Q)$) node[pos=0.5,above]{$1$ m};
+\draw[<->] ($(A)!1/2!(B)$)--($(M)!1/2!(N)$) node[pos=0.5,right]{$1$ m};
+\draw[<->] ($(B)!1/2!(C)$)--($(N)!1/2!(P)$) node[pos=0.5,above]{$1$ m};
+\draw[<->] ($(C)!1/2!(D)$)--($(P)!1/2!(Q)$) node[pos=0.5,right]{$1$ m};
+\fill[gray!30] (M)--(N)--(P)--(Q)--(M);
+\node[font=\normalsize,inner sep=2pt, fill=white] at ($(A)!1/2!(C)$){\text{Vườn rau}};
+\draw (A)--(B)--(C)--(D)--(A) (M)--(N)--(P)--(Q)--(M);
+\end{tikzpicture}
+\end{center}
+Tính chiều dài và chiều rộng của sân thượng đó.
+\loigiai{Nửa chu vi của sân thượng là $48:2=24$ (m).\\
+Gọi $x$ là chiều dài của sân thượng (đơn vị: mét, $x\ge 12$).\\
+Khi đó, chiều rộng của sân thượng là $24-x$ mét.\\
+Suy ra vườn rau có chiều dài là $x-2$ mét và chiều rộng là $22-x$ mét.\\
+Theo giả thiết, diện tích vườn rau là $84$ m$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&(x-2)(22-x)=84\\ 
+&&x^2-24x+128=0\\
+&&\left(x^2-16x\right) - (8x-128)=0\\
+&&x(x-16)-8(x-16)=0\\
+&&(x-16)(x-8)=0\\
+&&x-16=0 \ \text{hoặc}\ x-8=0\\
+&&x=16 \ \text{(nhận)  hoặc}\ x=8\ (\text{loại}).
+\end{eqnarray*}
+Vậy sân thượng có chiều dài là $16$ mét và chiều rộng là $8$ mét.
+} 
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Quãng đường $AB = 200$ km. Lúc $8$ giờ, một xe tải đi từ $A$ đến $B$. Sau $40$ phút, một xe con cũng đi từ $A$ đến $B$ với vận tốc lớn hơn vận tốc xe tải $10$ km/h. Hai xe đến $B$ cùng một lúc. Hỏi hai xe đến $B$ lúc mấy giờ?
+\loigiai{
+Gọi vận tốc của xe tải là $x$ km/h (điều kiện $x > 0$). \\
+Khi đó, vận tốc của xe con là $x + 10$ (km/h). \\
+Thời gian đi từ $A$ đến $B$ của xe tải và xe con lần lượt là $\dfrac{200}{x}$ (giờ) và $\dfrac{200}{x + 10}$ (giờ). \\
+Vì xe tải xuất phát trước xe con $40$ phút (tương ứng $\dfrac{2}{3}$ giờ) và hai xe đến $B$ cùng lúc nên ta có phương trình
+\begin{eqnarray*}
+&&\dfrac{200}{x} - \dfrac{200}{x + 10} = \dfrac{2}{3} \\
+&&100\cdot 3(x+10)-100\cdot 3x=x(x+10)\\
+&&x^2+10x-3\,000=0\\
+&&x^2-50x+60x-3\,000=0\\
+&&x(x-50)+60(x-50)=0\\
+&&(x-50)(x+60)=0\\
+&&x-50=0 \ \text{hoặc}\ x+60=0\\
+&&x=50 \ \text{(nhận)  hoặc } x=-60\ (\text{loại}).
+\end{eqnarray*}
+Suy ra thời gian xe tải đi từ $A$ đến $B$ là $\dfrac{200}{50}=4$ (giờ).\\
+Vậy hai xe đến $B$ lúc $12$ giờ.
+}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Từ một miếng tôn hình chữ nhật, người ta cắt ở góc bốn hình vuông có cạnh bằng $5$ dm để làm thành một cái thùng hình hộp chữ nhật không nắp có dung tích $1\,500$ lít. Hãy tính chiều dài và chiều rộng của miếng tôn lúc đầu, biết rằng chiều dài gấp đôi chiều rộng.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[line join=round, line cap=round,font=\footnotesize, >=stealth,scale=0.7]
+\draw[dashed, thin] (0,0) rectangle (8,5);
+\draw[dashed, thin] (1,1) rectangle (7,4);
+\draw[very thick] (1,0)--(7,0)--(7,1)--(8,1)--(8,4)--(7,4)--(7,5)--(1,5)--(1,4)--(0,4)--(0,1)--(1,1)--cycle;
+\draw[<->] ($(0,0)+(-90:0.25 cm)$)--($(8,0)+(-90:0.25 cm)$) node[midway,below]{$2x$ dm};
+\draw[<->] ($(8,0)+(0:0.25 cm)$)--($(8,5)+(0:0.25 cm)$) node[midway,right]{$x$ dm};
+\end{tikzpicture}
+\end{center}
+Gọi $x$ là chiều rộng ban đầu của miếng tôn (đơn vị: dm, $x>10$).\\
+Khi đó, chiều dài ban đầu của miếng tôn là $2x$ (dm).\\
+Thùng hình hộp chữ nhật được tạo ra có chiều cao $5$ dm, đáy là hình chữ nhật chiều rộng $x-10$ (dm) và chiều dài $2x-10$ (dm).\\
+Vì dung tích của cái thùng là $1\,500\,\text{lít}=1\,500\,\text{dm}^3$ nên ta có phương trình
+\begin{eqnarray*}
+&&\left(x-10\right)\left(2x-10\right)\cdot 5=1\,500\\
+&&2x^2-30x+100=300\\
+&&x^2-15x-100=0\\
+&&\left(x^2-20x\right)+(5x-100)=0\\
+&&x(x-20)+5(x-20)=0\\
+&&(x-20)(x+5)=0\\
+&&x-20=0 \ \text{hoặc}\ x+5=0\\
+&&x=20 \ \text{(nhận)  hoặc } x=-5\ (\text{loại}).
+\end{eqnarray*}
+Vậy chiều dài và chiều rộng ban đầu của miếng tôn lần lượt là $40$ dm và $20$ dm.
+}
+\end{vd}
+\subsubsection{Bài tập}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1H1-3]
+Một mảnh đất hình chữ nhật có chiều dài hơn chiều rộng là $2$ m. Biết diện tích của mảnh đất là $48$ m$^2$. Tính chiều dài các cạnh của mảnh đất hình chữ nhật đó.
+\loigiai{
+Gọi $x$ là chiều dài mảnh đất hình chữ nhật (đơn vị: mét, $x \ge 2$).\\
+Vì chiều dài hơn chiều rộng $2$ m nên chiều rộng mảnh đất là $x-2$ mét.\\
+Vì diện tích mảnh đất là $48$ m$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&x(x-2)=48\\
+&&x^2-2x-48=0\\
+&&x^2-8x+6x-48=0\\
+&&x(x-8)+6(x-8)=0\\
+&&(x-8)(x+6)=0\\
+&&x-8=0 \ \text{hoặc}\ x+6=0\\
+&&x=8 \ \text{(nhận)  hoặc } x=-6\ (\text{loại}).
+\end{eqnarray*}
+Vậy mảnh đất hình chữ nhật có chiều dài là $8$ m và chiều rộng là $6$ m.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một hình chữ nhật có chu vi là $70$ m. Nếu giảm chiều rộng đi $3$ m và tăng chiều dài thêm $5$ m thì diện tích hình chữ nhật không thay đổi. Tìm chiều rộng và chiều dài của hình chữ nhật ban đầu.
+\loigiai{
+Nửa chu vi của hình chữ nhật ban đầu là $70:2=35$ (m).\\
+Gọi $x$ là chiều rộng của hình chữ nhật ban đầu (đơn vị: mét, $x>0$).\\
+Khi đó, chiều dài của hình chữ nhật ban đầu là $35-x$ (m) và diện tích là $x(35-x)=-x^2+35x$ $\left(\text{m}^2\right)$.\\
+Nếu giảm chiều rộng đi $3$ m và tăng chiều dài thêm $5$ m thì ta được hình chữ nhật mới có diện tích là 
+$$(x-3)(35-x+5)=(x-3)(40-x)=-x^2+43x-120\ \left(\text{m}^2\right).$$
+Theo giả thiết, diện tích hình chữ nhật là không thay đổi nên ta có phương trình
+\begin{eqnarray*}
+&&-x^2+43x-120=-x^2+35x\\
+&&8x=120\\
+&&x=15\ (\text{nhận}). 
+\end{eqnarray*}
+Vậy hình chữ nhật ban đầu có chiều rộng là $15$ mét và chiều dài là $20$ mét.
+} 
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một hình chữ nhật có chu vi bằng $28$ cm. Nếu tăng chiều dài $2$ cm và tăng chiều rộng $1$ cm thì diện tích tăng $22$ cm$^2$. Tính chiều dài, chiều rộng của hình chữ nhật đó.
+\loigiai{
+Nửa chu vi của hình chữ nhật là $28:2=14$ (cm).\\
+Gọi $x$ là chiều rộng của hình chữ nhật (đơn vị: cm, $0<x\le 7$).\\
+Khi đó, chiều dài của hình chữ nhật là $14-x$ (cm).\\
+Diện tích hình chữ nhật là $x(14-x)$ $\left(\text{cm}^2\right)$.\\
+Nếu tăng thêm chiều dài $2$ cm và chiều rộng thêm $1$ cm thì diện tích tăng thêm $22$ cm$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&\left[(14-x)+2\right](x+1)-x(14-x)=22\\ 
+&&\left(16x+16-x^2-x\right)-(14x-x^2)=22\\ 
+&&x+16=22\\
+&&x=6\ (\text{nhận}). 
+\end{eqnarray*}
+Vậy hình chữ nhật có chiều dài là $8$ cm và chiều rộng là $6$ cm.}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một vườn hoa hình chữ nhật có chu vi bằng $48$ m. Nếu tăng chiều rộng lên bốn lần và chiều dài lên ba lần thì chu vi của khu vườn hoa sẽ là $162$ m. Tính diện tích của vườn hoa.
+\loigiai{
+Nửa chu vi vườn hoa hình chữ nhật là $48:2=24$ (m).\\
+Gọi $x$ là chiều rộng vườn hoa ban đầu (đơn vị: mét, $0<x \le 12$).\\
+Khi đó, chiều rộng vườn hoa ban đầu là $24-x$ (m).\\
+Theo giả thiết, khi tăng chiều rộng lên bốn lần và chiều dài lên ba lần thì chu vi của khu vườn hoa sẽ là $162$ m nên ta có phương trình 
+\begin{eqnarray*}
+&&2\left(4x+3(24-x)\right)=162\\
+&&4x+72-3x=81\\
+&&x=9\ (\text{nhận}). 
+\end{eqnarray*}
+Suy ra vườn hoa ban đầu có chiều rộng là $9$ m và chiều dài là $15$ m.\\
+Vậy diện tích của vườn hoa ban đầu là $9\cdot 15=135$ $\left(\text{m}^2\right)$.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1C1-3]
+Một khu vườn hình chữ nhật có chu vi là $200$ m. Nếu giảm chiều dài đi $20\%$ và tăng chiều rộng thêm $15$ m thì diện tích mới bằng $\dfrac{11}{10}$ diện tích cũ. Tính chiều dài và chiều rộng của khu vườn.
+\loigiai{
+Nửa chu vi của khu vườn là $200:2=100$ (m).\\
+Gọi $x$ là chiều dài mảnh vườn (đơn vị: mét, $x\ge 50$).\\
+Khi đó, chiều rộng mảnh vườn là $100-x$ (m).\\
+Nếu giảm chiều dài đi $20\%$ thì chiều dài mới là $\dfrac{80}{100}\cdot x=0{,}8\cdot x$ (m).\\
+Nếu tăng chiều rộng thêm $15$ m thì chiều rộng mới là $(100-x)+15=115-x$ (m).\\
+Diện tích khu vườn mới là $0{,}8x(115-x)$ (m$^2$).\\
+Theo đề bài, diện tích mới bằng $\dfrac{11}{10}$ diện tích cũ nên ta có phương trình
+\begin{eqnarray*}
+&&0{,}8\cdot x\cdot (115-x)=\dfrac{11}{10}\cdot x\cdot (100-x)\\
+&&8(115-x)=11(100-x)\qquad (\text{vì } x>0)\\
+&&920-8x=1100-11x\\
+&&3x=180\\
+&&x=60\ (\text{nhận}).
+\end{eqnarray*}
+Vậy khu vườn có chiều dài là $60$ mét và chiều rộng là $40$ mét.
+} 
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1C1-3]
+Khu trường học cũ của một trường THCS nằm trên mảnh đất hình chữ nhật có chu vi là $250$ m. Do số lượng học sinh tăng, nhằm đáp ứng nhu cầu sử dụng và đảm bảo diện tích chuẩn của một ngôi trường nên khu trường mới được chuyển sang khu vực khác trên mảnh đất hình chữ nhật rộng hơn khu đất cũ, có chiều dài tăng thêm $13$ m và chiều rộng tăng thêm $17$ m. Tính diện tích khu trường học mới, biết diện tích khu trường học mới rộng hơn $2\,146$ m$^2$ so với diện tích đất khu trường học cũ.
+\loigiai{
+Gọi $x$ là chiều rộng của mảnh đất khu trường cũ (đơn vị: mét, $x>0$).\\
+Khi đó, chiều dài của mảnh đất khu trường cũ là $\dfrac{250}{2}-x=125-x$ (m) và diện tích là 
+$$x(125-x)=-x^2+125x\ \left(\text{m}^2\right).$$
+Nếu chiều rộng tăng thêm $17$ m và chiều dài tăng thêm $13$ m thì ta được khu đất trường mới có diện tích là 
+$$(x+17)(125-x+13)=(x+17)(138-x)=-x^2+121x+2\,346\ \left(\text{m}^2\right).$$
+Theo giả thiết, diện tích khu trường học mới rộng hơn $2\,146$ m$^2$ so với diện tích đất khu trường học cũ nên ta có phương trình
+\begin{eqnarray*}
+&&\left(-x^2+121x+2\,346\right)-\left(-x^2+125x\right)=2\,146\\
+&&-4x=-200\\
+&&x=50\ (\text{nhận}). 
+\end{eqnarray*}
+Vậy khu đất trường mới có diện tích là $(50+17)(138-50)=5\,896$ $\left(\text{m}^2\right)$.
+} 
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một khu vườn hình chữ nhật có chiều dài hơn chiều rộng là $5$ m. Người ta làm một lối đi xung quanh vườn (thuộc đất vườn) rộng $2$ m. Phần diện tích còn lại để trồng trọt là $66$ m$^2$. Tính các kích thước của khu vườn đó.
+\loigiai{
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,line join=round, line cap=round, >=stealth,scale=1] 
+\foreach \x/\y/\pos in {0/0/A, 6/0/B, 0/4.5/D} \path ($(\x,\y)$) coordinate (\pos); 
+\path ($(B)+(D)-(A)$) coordinate (C)
+		($(A)+(45:1.5)$) coordinate (M)
+		($(B)+(135:1.5)$) coordinate (N)
+		($(C)+(-135:1.5)$) coordinate (P)
+		($(D)+(-45:1.5)$) coordinate (Q);
+\draw[<->] ($(A)!1/2!(D)$)--($(M)!1/2!(Q)$) node[pos=0.5,above]{$2$ m};
+\draw[<->] ($(A)!1/2!(B)$)--($(M)!1/2!(N)$) node[pos=0.5,right]{$2$ m};
+\draw[<->] ($(B)!1/2!(C)$)--($(N)!1/2!(P)$) node[pos=0.5,above]{$2$ m};
+\draw[<->] ($(C)!1/2!(D)$)--($(P)!1/2!(Q)$) node[pos=0.5,right]{$2$ m};
+\fill[gray!30] (M)--(N)--(P)--(Q)--(M);
+\node[font=\normalsize,inner sep=2pt, fill=white] at ($(A)!1/2!(C)$){\text{Đất trồng trọt}};
+\draw (A)--(B)--(C)--(D)--(A) (M)--(N)--(P)--(Q)--(M);
+\end{tikzpicture}
+\end{center}
+Gọi $x$ là chiều dài của khu vườn (đơn vị: mét, $x\ge 5$).\\
+Khi đó, chiều rộng của khu vườn là $x-5$ mét.\\
+Suy ra khu đất trồng trọt có chiều dài là $x-4$ mét và chiều rộng là $x-9$ mét.\\
+Theo giả thiết, diện tích khu đất trồng trọt là $66$ m$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&(x-4)(x-9)=66\\ 
+&&x^2-13x-30=0\\
+&&\left(x^2-15x\right) + (2x-30)=0\\
+&&x(x-15)+2(x-15)=0\\
+&&(x-15)(x+2)=0\\
+&&x-5=0 \ \text{hoặc}\ x+2=0\\
+&&x=15 \ \text{(nhận)  hoặc } x=-2\ (\text{loại}).
+\end{eqnarray*}
+Vậy khu vườn có chiều dài là $15$ mét và chiều rộng là $10$ mét.
+} 
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một khu đất trồng hoa ban đầu hình chữ nhật có chiều dài $6{,}6$ m. Người trồng hoa muốn mở rộng thêm về phía chiều rộng của khu đất một hình vuông có cạnh $x$ (m) để được khu đất có diện tích $34$ m$^2$ như hình vẽ sau:
+\begin{center}
+\begin{tikzpicture}[font=\footnotesize,line join=round, line cap=round, >=stealth,scale=0.8] 
+\foreach \x/\y/\pos in {0/0/A, 5/0/B, 5/3/C, 0/3/D, 8/0/E, 8/3/F} \path ($(\x,\y)$) coordinate (\pos); 
+\fill[gray!20] (B)--(C)--(F)--(E)--(B);
+\draw (B)--(C)--(D)node[pos=0.5,above]{$6{,}6$ mét}--(A)--(E)--(F)node[pos=0.5,right]{$x$ mét}--(C)node[pos=0.5,above]{$x$ mét};
+\end{tikzpicture}
+\end{center}
+Tìm chu vi của khu đất trồng hoa sau khi được mở rộng.
+\loigiai{
+Khu đất trồng hoa ban đầu có chiều dài là $6{,}6$ mét, chiều rộng là $x$ mét ($x>0$).\\
+Khu đất sau khi mở rộng có chiều dài là $x+6{,}6$ mét, chiều rộng là $x$ mét.\\
+Diện tích khu đất sau khi mở rộng là $34$ m$^2$ nên ta có phương trình
+\begin{eqnarray*}
+&&x(x+6{,}6)=34\\
+&&x^2+6{,}6x-34=0\\
+&&\left(x^2+10x\right)-(3{,}4x+34)=0\\
+&&x(x+10)-3{,}4(x+10)=0\\
+&&(x+10)(x-3{,}4)=0\\
+&&x+10=0 \ \text{hoặc}\ x-3{,}4=0\\
+&&x=-10 \ \text{(loại)  hoặc } x=3{,}4\ (\text{nhận}).
+\end{eqnarray*}
+Suy ra khu đất sau khi mở rộng có chiều rộng là $3{,}4$ mét và chiều dài là $10$ mét.\\
+Vậy chu vi của khu đất sau khi mở rộng là $(10+3{,}4) \cdot 2=26{,}8$ (m).
+} 
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1H1-3]
+Bảng A của một giải Bóng đá gồm $4$ đội bóng tham gia thi đấu, hai đội bóng bất kì thi đấu với nhau đúng một trận. Mỗi trận đấu, đội thua được $0$ điểm, đội thắng được $3$ điểm, hai đội hòa nhau mỗi đội được $1$ điểm; số điểm của mỗi trận đấu bằng tổng số điểm của hai đội bóng tham gia trận đấu đón. Biết rằng tổng số điểm của tất cả các trận đấu bằng $16$ điểm. Tính số trận hòa và số trận thắng (trận đấu có đội thắng, đội thua) của Bảng A.
+\loigiai{
+Mỗi đội bóng thi đấu với ba đội còn lại nên tổng số trận bóng là $(4\cdot 3):2=6$ (trận).\\
+Gọi $x$ số trận thắng ($x$ là số tự nhiên).\\
+Khi đó, số trận hòa là $6-x$ (trận).\\
+Tổng số điểm trận hoà là $2(6-x)$ (điểm) và tổng số điểm trận thắng là $3x$ (điểm).
+\\
+Biết rằng tổng số điểm của tất cả các trận đấu bằng $16$ điểm nên ta có phương trình $2(6-x)+3x=16$ hay $x=4$ (nhận).\\
+Vậy có $2$ trận hoà và $4$ trận thắng.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1H1-3]
+Trong Kỳ thi tuyển sinh vào lớp $10$ THPT, hai lớp $9$A và $9$B có tổng cộng $75$ học sinh dự thi. Biết rằng, lớp $9$A có $80\%$ học sinh trúng tuyển so với số học sinh dự thi của lớp, lớp $9$B có $90\%$ học sinh trúng tuyển so với số học sinh dự thi của lớp. Tổng số học sinh trúng tuyển của hai lớp $9$A và $9$B là $64$. Tính số học sinh dự thi của lớp $9$A, lớp $9$B.
+\loigiai{
+Gọi số học sinh dự thi vào lớp $10$ của lớp $9$A là $x$ ($x$ nguyên dương và $x \le 75$). \\
+Khi đó, số học sinh dự thi vào lớp $10$ của lớp $9$B là $75-x$ (học sinh).\\
+Lớp $9$A có tỉ lệ trúng tuyển vào lớp $10$ là $80\%$, tương ứng $80\%x=0{,}8x$ (học sinh).\\
+Lớp $9$B có tỉ lệ trúng tuyển vào lớp $10$ là $90\%$, tương ứng $90\%(75-x)=67{,}5-0{,}9x$ (học sinh).\\
+Tổng số học sinh trúng tuyển của hai lớp $9$A và $9$B là $64$ nên ta có phương trình $0{,}8x+67{,}5-0{,}9x=64$.\\
+Do đó $0{,}1x=67{,}5-64$ hay $x=35$ (nhận).\\
+Vậy số học sinh dự thi vào lớp $10$ của lớp $9$A là $35$ học sinh và của lớp $9$B là $40$ học sinh.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một đội xe dự định chở $75$ tấn hàng để ủng hộ đồng bào miền trung. Lúc sắp khởi hành, đội nhận được ủng hộ thêm $5$ tấn hàng và được bổ sung thêm $5$ xe. Do đó, mỗi xe chở ít hơn dự định $1$ tấn hàng. Hỏi lúc đầu có bao nhiêu xe?
+\loigiai{
+Gọi $x$ là số xe lúc đầu đội có, $x$ là số tự nhiên khác $0$.\\
+Số tấn hàng mỗi xe ban đầu dự định chở là $\dfrac{75}{x}$ (tấn).\\
+Số tấn hàng thực tế mỗi xe chở là $\dfrac{75+5}{x+5}=\dfrac{80}{x+5}$ (tấn).\\
+Vì mỗi xe chở ít hơn dự định $1$ tấn hàng nên ta có phương trình
+\begin{eqnarray*}
+&&\dfrac{80}{x+5} + 1 = \dfrac{75}{x}\\
+&&80x + x(x+5) = 75x + 375\\
+&&x^2 + 10x - 375 = 0\\
+&&\left(x^2-15x\right)+(25x-375) = 0\\
+&&x(x-15)+25(x-15)= 0\\
+&&(x-15)(x+25)= 0\\
+&&x-15=0 \ \text{hoặc}\ x+25=0\\
+&&x=15 \ \text{(nhận)  hoặc } x=-25\ (\text{loại}).
+\end{eqnarray*}
+Vậy ban đầu đội có $15$ xe.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Bác Tiến chia số tiền $400$ triệu đồng của mình cho hai khoản đầu tư. Sau một năm, tổng số tiền lãi thu được là $27$ triệu đồng. Lãi suất cho khoản đầu tư thứ nhất là $6\%$/năm và khoản đầu tư thứ hai là $8 \%$/năm. Tính số tiền bác Tiến đầu tư cho mỗi khoản.
+\loigiai{
+Gọi số tiền đầu tư cho khoản thứ nhất là $x$ (đơn vị: triệu đồng, $0 < x \le 400$). \\
+Khi đó, số tiền đầu tư cho khoản thứ hai là $400-x$ (triệu đồng).\\
+Số tiền lãi thu được sau $1$ năm của hai khoản đầu tư là 
+$$ 6\%x+8\%(400-x)= 32-0{,}02x \, (\text{triệu đồng}).$$
+Vì tổng số tiền lãi thu được sau $1$ năm là $27$ triệu đồng nên ta có phương trình 
+$$ 32-0{,}02x=27 \text{ hay } x=250\ (\text{nhận}).$$
+Vậy số tiền đầu tư cho hai khoản lần lượt là $250$ triệu đồng và $150$ triệu đồng.
+} 
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một tổ sản xuất có kế hoạch làm $300$ sản phẩm cùng loại trong một số ngày quy định. Thực tế, mỗi ngày tổ đã làm được nhiều hơn $10$ sản phẩm so với số sản phẩm dự định làm trong một ngày theo kế hoạch. Vì thế tổ đã hoàn thành công việc sớm hơn kế hoạch $1$ ngày. Giả định rằng số sản phẩm mà tổ đó làm được trong mỗi ngày là bằng nhau. Hỏi theo kế hoạch, mỗi ngày tổ sản xuất phải làm bao nhiêu sản phẩm?
+\loigiai{
+Gọi số sản phẩm cần làm trong một ngày theo kế hoạch là $x$ ($x$ là số tự nhiên và $0<x < 300$).\\
+Số ngày hoàn thành theo kế hoạch là $\dfrac{300}{x}$.\\
+Trên thực tế, số sản phẩm làm một ngày là $x+10$ và số ngày hoàn thành $\dfrac{300}{x}-1$.\\
+Do đó, ta có phương trình
+\begin{eqnarray*}
+&&\left(x+10\right)\cdot \left(\dfrac{300}{x}-1 \right)=300\\
+&&300-x +\dfrac{3\,000}{x}-10=300\\
+&&-x +\dfrac{3\,000}{x}-10=0\\
+&&x^2+10x-3\,000=0\\
+&&x^2-50x+60x-3\,000=0\\
+&&x(x-50)+60(x-50)=0\\
+&&(x-50)(x+60)=0\\
+&&x-50=0 \ \text{hoặc}\ x+60=0\\
+&&x=50 \ \text{(nhận)  hoặc } x=-60\ (\text{loại}).
+\end{eqnarray*}
+Vậy theo kế hoạch, mỗi ngày tổ sản xuất phải làm $50$ sản phẩm.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Hai thành phố $A$ và $B$ cách nhau $120$ km. Lúc $7$ giờ sáng, một xe máy đi từ $A$ đến $B$ với vận tốc không đổi. Cùng lúc đó, một ô tô đi từ $B$ đến $A$ với vận tốc nhanh hơn xe máy $20$ km/h. Hai xe gặp nhau lúc $8$ giờ $30$ phút sáng. Tính vận tốc của xe máy.
+\loigiai{
+Gọi vận tốc xe máy là $x$ km/h ($x > 0$).\\
+Khi đó, vận tốc ô tô là $x + 20$ km/h.\\
+Thời gian hai xe đi đến lúc gặp nhau là $1{,}5$ giờ.\\
+Vì hai xe đi ngược chiều và quãng đường $AB = 120$ km bằng tổng quãng đường mỗi xe đi nên ta có phương trình
+\begin{eqnarray*}
+&&1{,}5x + 1{,}5(x + 20) = 120\\
+&&1{,}5(2x + 20) = 120\\
+&&2x + 20 = 80\\
+&&x = 30 (\text{nhận}).
+\end{eqnarray*}
+Vậy vận tốc xe máy là $30$ km/h.
+}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Tran Quoc]%[9D1V1-3]
+Một xe buýt khởi hành từ thị trấn $A$ đi đến thị trấn $B$ cách đó $90$ km với vận tốc không đổi. Sau khi xe buýt đi được $30$ phút, một người đi xe máy khởi hành từ $A$ đuổi theo xe buýt và đến $B$ cùng lúc với xe buýt. Biết vận tốc của xe máy lớn hơn vận tốc xe buýt $15$ km/h. Tính vận tốc của xe buýt.
+\loigiai{
+Gọi vận tốc xe buýt là $x$ km/h ($x > 0$).\\
+Khi đó, vận tốc xe máy là $x + 15$ km/h.\\
+Thời gian xe buýt đi từ $A$ đến $B$ là $\dfrac{90}{x}$ (giờ).\\
+Xe máy xuất phát sau $30$ phút (tương ứng $\dfrac{1}{2}$ giờ), nên thời gian đi của xe máy là $\dfrac{90}{x} - \dfrac{1}{2}$ (giờ).\\
+Theo giả thiết, quãng đường $AB=90$ km nên ta có phương trình
+\begin{eqnarray*}
+&&(x + 15)\left(\dfrac{90}{x} - \dfrac{1}{2}\right)=90\\
+&&(x + 15)\cdot \dfrac{(180-x)}{2x}=90\\
+&&(x+15)(180-x)=90\cdot 2x\\
+&&180x-x^2+2\,700-15x=180x\\
+&&x^2+15x-2\,700=0\\
+&&\left(x^2-45x\right)+(60x-2\,700)=0\\
+&&x(x-45)+60(x-45)=0\\
+&&(x-45)(x+60)=0\\
+&&x-45=0 \ \text{hoặc}\ x+60=0\\
+&&x=45 \ \text{(nhận)  hoặc } x=-60\ (\text{loại}).
+\end{eqnarray*}
+Vậy vận tốc xe buýt là $45$ km/h.
+}
+\end{bt}

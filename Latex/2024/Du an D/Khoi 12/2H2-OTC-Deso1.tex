@@ -1,0 +1,693 @@
+\newpage
+\section{Ôn tập chương 2}
+\def\thoigian{90}%--Thời gian
+\de{Đề số 1}{Chương II. Vectơ và hệ tọa độ trong không gian}
+
+
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE1]
+\setcounter{ex}{0}
+%Cau1
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Cho tứ diện $ABCD$. Có bao nhiêu vectơ được tạo thành có điểm đầu là $A$ và điểm cuối là một trong các đỉnh còn lại của tứ diện?
+	\choice
+	{\True $3$}
+	{$1$}
+	{$2$}
+	{$4$}
+	\loigiai{
+		Các vectơ có điểm đầu là $A$ và điểm cuối là một trong các đỉnh còn lại của tứ diện $ABCD$ là $\overrightarrow{AB}$, $\overrightarrow{AC}$ và $\overrightarrow{AD}$.\\
+		Do đó có $3$ vectơ thỏa mãn đề bài.}
+\end{ex}
+%Cau2
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Cho hình lăng trụ $ABC.A'B'C'$. Gọi $K$, $K'$ lần lượt là trung điểm của $BC$, $B'C'$ tương ứng. Vectơ nào trong bốn phương án bên dưới bằng $\overrightarrow{KK'}$?
+	\choice
+	{$\overrightarrow{AB}$}
+	{$\overrightarrow{BC'}$}
+	{\True $\overrightarrow{AA'}$}
+	{$\overrightarrow{C'C}$}
+	\loigiai{
+		\immini{Ta biết rằng hai vectơ bằng nhau khi chúng cùng độ lớn và cùng hướng.\\
+		Do đó $\overrightarrow{KK'}=\overrightarrow{AA'}=\overrightarrow{BB'}=\overrightarrow{CC'}$.}
+		{\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def\ac{4} % cạnh AC
+				\def\ab{2} % cạnh AB
+				\def\ben{4} % cạnh bên
+				\def\gocnghieng{100} % góc nghiêng cạnh bên
+				\def\gocO{50} % góc A của đáy
+				\coordinate[label=left:$A$] (A) at (0,0);
+				\coordinate[label=right:$C$] (C) at (\ac,0);
+				\coordinate[label=below left:$B$] (B) at (-\gocO:\ab);
+				\coordinate[label=left:$A'$] (A') at ($(A)+(\gocnghieng:\ben)$);
+				\coordinate[label=right:$C'$] (C') at ($(C)-(A)+(A')$);
+				\coordinate[label=below left:$B'$] (B') at ($(B)-(A)+(A')$);
+				\coordinate[label=below:$K$] (K) at ($(B)!0.5!(C)$);
+				\coordinate[label=above:$K'$] (K') at ($(B')!0.5!(C')$);
+				\draw (A')--(A)--(B)--(B')--(A')--(C')--(B') (B)--(C)--(C') (K)--(K');
+				\draw[dashed] (A)--(C);
+				\foreach \diem in {A,B,C,A',B',C',K,K'} \fill (\diem)circle(1pt);
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+%Cau3
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	\immini{
+	Cho hình hộp $ABCD.A'B'C'D'$ (minh họa như hình bên). Phát biểu nào sau đây là đúng?
+	\choice
+	{$\overrightarrow{AB}+\overrightarrow{BB'}+\overrightarrow{B'A'}=\overrightarrow{AC'}$}
+	{$\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{C'D'}=\overrightarrow{AC'}$}
+	{$\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AA'}=\overrightarrow{AC'}$}
+	{\True $\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{AC'}$}
+	}
+	{
+		\begin{tikzpicture}[line join = round, line cap=round,>=stealth,font=\footnotesize,scale=0.7]
+			\def\r{3}
+			\path 
+			(0,0) coordinate (A)
+			(4,0) coordinate (D)
+			(-2,-2) coordinate (B)
+			($(B)+(D)-(A)$) coordinate (C)
+			($(A)+(1,\r)$) coordinate (A')
+			($(B)+(1,\r)$) coordinate (B')
+			($(C)+(1,\r)$) coordinate (C')
+			($(D)+(1,\r)$) coordinate (D')
+			;
+			\draw (B)--(C)--(D)--(D')--(A')--(B')--(B)
+			(B')--(C')--(D') (C)--(C')
+			;
+			\draw[dashed]
+			(B)--(A)--(D) (A)--(A') (A)--(C');
+			\foreach \p/\r in {A/-90,B/-90,C/-90,D/-90,A'/90,B'/90,C'/90,D'/90}
+			\fill (\p) circle (1.2pt) node[shift={(\r:3mm)}]{$\p$};
+		\end{tikzpicture}
+	}
+	\loigiai{
+		Theo quy tắc hình hộp, ta có  $$\overrightarrow{AB}+\overrightarrow{AA'}+\overrightarrow{AD}=\overrightarrow{AC'}.$$
+	}
+\end{ex}
+%Cau4
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Cho hình lập phương $EFGH.E'F'G'H'$. Góc giữa hai $\overrightarrow{EG}$ và $\overrightarrow{F'G'}$ bằng
+	\choice
+	{$30^\circ$}
+	{$60^\circ$}
+	{\True $45^\circ$}
+	{$90^\circ$}
+	\loigiai{
+		\immini{
+			Vì tứ giác $EHG'F'$ là hình bình hành nên $\overrightarrow{EH}=\overrightarrow{F'G'}$.\\
+			Khi đó $\left(\overrightarrow{EG},\overrightarrow{F'G'}\right)= \left(\overrightarrow{EG},\overrightarrow{EH}\right)=\widehat{GEH}= 45^\circ$.
+		}{
+			
+			\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def\bc{4} % cạnh BC
+				\def\ba{2} % cạnh BA
+				\def\gocB{35} % góc B của đáy
+				\coordinate[label=below left:$F$] (F) at (0,0);
+				\coordinate[label=above right:$E$] (E) at (\gocB:\ba);
+				\coordinate[label=below:$G$] (G) at (\bc,0);
+				\coordinate[label=right:$H$] (H) at ($(G)-(F)+(E)$);
+				\coordinate[label=above left:$E'$] (E') at ($(E)+(90:\bc)$);
+				\coordinate[label=left:$F'$] (F') at ($(F)-(E)+(E')$);
+				\coordinate[label=below left:$G'$] (G') at ($(G)-(E)+(E')$);
+				\coordinate[label=right:$H'$] (H') at ($(H)-(E)+(E')$);
+				\draw (F')--(F)--(G)--(H)--(H')--(E')--(F')--(G')--(H') (H)--(G')--(G);
+				\draw[dashed] (E')--(E)--(H) (G)--(E)--(F) (F')--(E);
+				\foreach \diem in {E,F,G,H,E',F',G',H'}	\fill (\diem)circle(1.5pt);
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%Cau5
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho vectơ $\overrightarrow{u}=2\overrightarrow{i}-2\overrightarrow{j}$. Tọa độ của vectơ $\overrightarrow{u}$ là
+		\choice
+		{$(0;2;-2)$}
+		{$(0;-2;0)$}
+		{$(-2;2;0)$}
+		{\True $(2;-2;0)$}
+		\loigiai{
+		Vì vectơ $\overrightarrow{u}=2\overrightarrow{i}-2\overrightarrow{j}$ nên tọa độ của vectơ $\overrightarrow{u}$ là $(2;-2;0)$.
+		}
+\end{ex}
+%Cau6
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hai điểm $A(0;-4;3)$ và $B(-2;2;1)$. Tọa độ của vectơ $\overrightarrow{AB}$ là
+	\choice
+	{$(2;6;-2)$}
+	{\True $(-2;6;-2)$}
+	{$(2;-6;2)$}
+	{$(-2;0;4)$}
+	\loigiai{
+	Theo đề bài, ta có  $\overrightarrow{AB}=(x_B-x_A;y_B-y_A;z_B-z_A)=(-2;6;-2)$.
+	}
+\end{ex}
+%Cau7
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho tam giác $ABC$ có $A(-1;-1;0)$; $B(4;-3;-4)$ và $C(-2;2;0)$. Tìm tọa độ điểm $D$ để $ABCD$ là hình bình hành.
+	\choice
+	{$D(-5;6;4)$}
+	{$D(-3;0;4)$}
+	{\True $D(-7;4;4)$}
+	{$D(1;-2;-4)$}
+	\loigiai{Gọi $D\left(x_D;y_D;z_D\right)$.\\
+		Theo đề bài ta có  
+		\begin{itemize}
+			\item  $\overrightarrow{BA}=(x_A-x_B;y_A-y_B;z_A-z_B)=(-5;2;4)$;
+			\item  $\overrightarrow{CD}=(x_D-x_C; y_D-y_C;z_D-z_C)=(x_D+2;y_D-2;z_D)$.
+		\end{itemize}
+		Do đó để $ABCD$ là hình bình hành thì 
+		\begin{eqnarray*}
+			&&\overrightarrow{BA}=\overrightarrow{CD}\\
+			&\Leftrightarrow&\heva{&x_D+2=-5\\&y_D-2=2\\&z_D=4}\\
+			&\Leftrightarrow&\heva{&x_D=-7\\&y_D=4\\&z_D=4.}
+		\end{eqnarray*}
+		Vậy $D(-7;4;4)$.
+	}
+\end{ex}
+%Cau8
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hình lăng trụ tam giác $ABC.A'B'C'$ có các đỉnh $A(4;3;-3)$, $B(2;-2;-2)$, $C(4;-4;1)$ và $A'(4; 2;-3)$. Khi đó tọa độ của $\overrightarrow{BC'}$ là
+	\choice
+	{$(2;-3;-2)$}
+	{$(4;-5;1)$}
+	{$(6;-7;-1)$}
+	{\True $(2;-3;3)$}
+	\loigiai{
+		\immini{Gọi $C'(x;y;z)$.\\
+		Khi đó $\overrightarrow{CC'}=(x-4;y+4;z-1)$ và $\overrightarrow{AA'}=(0;-1;0)$.\\ 
+		Vì $ABC.A'B'C'$ là hình lăng trụ nên $ACC'A'$ là hình bình hành, suy ra  $\overrightarrow{AA'}=\overrightarrow{CC'}$.\\
+		Do đó ta được hệ phương trình
+		\begin{eqnarray*}
+			&&\heva{&x-4=0\\&y+4=-1\\&z-1=0}\\
+			&\Leftrightarrow&\heva{x&=4\\y&=-5\\z&=1.}
+		\end{eqnarray*}
+		Suy ra $C'(4;-5;1)$.\\
+		Vậy tọa độ của $\overrightarrow{BC'}=(2;-3;3)$.}
+		{\begin{tikzpicture}[scale=0.8, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\def\ac{4} % cạnh AC
+				\def\ab{2} % cạnh AB
+				\def\ben{4} % cạnh bên
+				\def\gocnghieng{100} % góc nghiêng cạnh bên
+				\def\gocO{50} % góc A của đáy
+				\coordinate[label=left:$A$] (A) at (0,0);
+				\coordinate[label=right:$C$] (C) at (\ac,0);
+				\coordinate[label=below left:$B$] (B) at (-\gocO:\ab);
+				\coordinate[label=left:$A'$] (A') at ($(A)+(\gocnghieng:\ben)$);
+				\coordinate[label=right:$C'$] (C') at ($(C)-(A)+(A')$);
+				\coordinate[label=below left:$B'$] (B') at ($(B)-(A)+(A')$);
+				\draw (A')--(A)--(B)--(B')--(A')--(C')--(B') (B)--(C)--(C');
+				\draw[dashed] (A)--(C);
+				\foreach \diem in {A,B,C,A',B',C'} \fill (\diem)circle(1pt);
+			\end{tikzpicture}
+		}
+	}
+\end{ex}
+
+%Cau9
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho điểm $M(-1;-4;-4)$ và $N(1;-4;1)$. Tọa độ trung điểm của đoạn thẳng $MN$ là
+	\choice
+	{$\left(-1;0;-\dfrac{5}{2}\right)$}
+	{\True $\left(0;-4;-\dfrac{3}{2}\right)$}
+	{$\left(-\dfrac{2}{3};0;-\dfrac{5}{3}\right)$}
+	{$\left(0;-\dfrac{8}{3};-1\right)$}
+	\loigiai{
+		Gọi điểm $I(x_I;y_I;z_I)$ là trung điểm của đoạn thẳng $MN$.\\
+		Khi đó ta có
+		$$\heva{&x_I=\dfrac{x_M+x_N}{2}=0\\&y_I=\dfrac{y_M+y_N}{2}=-4\\ &z_I=\dfrac{z_M+z_N}{2}=-\dfrac{3}{2}.}$$
+		Vậy $I\left(0;-4;-\dfrac{3}{2}\right)$.
+	}
+\end{ex}
+%Cau10
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hai vectơ  $\overrightarrow{a}=(-2;3;-1)$ và $\overrightarrow{b}=(2;0;0)$. Khi đó $\overrightarrow{a}-\overrightarrow{b}=(m;n;p)$, với $m$, $n$, $p$ là các số thực. Giá trị của $m^2+n^2+p^2$ là
+	\choice
+	{$20$}
+	{\True $26$}
+	{$10$}
+	{$5$}
+	\loigiai{
+		Theo đề bài ta có $\overrightarrow{a}-\overrightarrow{b}=(-4;3;-1)$. Suy ra $m=-4$, $n=3$ và $p=-1$.\\
+		Vậy $m^2+n^2+p^2=26$.
+	}
+\end{ex}
+%Cau11
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hai vectơ $\overrightarrow{a}=(0;-1;3)$ và $\overrightarrow{b}=(2;0;-1)$. Tích vô hướng của hai vectơ $\overrightarrow{a}$ và $\overrightarrow{b}$ bằng
+	\choice
+	{$3$}
+	{$1$}
+	{\True $-3$}
+	{$6$}
+	\loigiai{
+		Ta có  $\overrightarrow{a}\cdot\overrightarrow{b}=0\cdot2+(-1)\cdot0+3\cdot(-1)=-3$.
+	}
+\end{ex}
+%Cau12
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hai điểm $D(2;1;-3)$ và $N(-3;2;2)$. Độ dài của đoạn thẳng $DN$ bằng $\sqrt{m}$, với $m$ là số nguyên dương. Giá trị của $m^2+25$ là
+	\choice
+	{$76$}
+	{\True $2626$}
+	{$2025$}
+	{$2050$}
+	\loigiai{
+		Theo đề bài ta có $\overrightarrow{DN}=(-5;1;5)$.\\
+		Khi đó $DN=\sqrt{25+1+25}=\sqrt{51}$. Suy ra $m=51$.\\
+		Vậy $m^2+25=2626$.
+	}
+\end{ex}
+
+
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/answer-DS-ONTAPCHUONG-DE1]
+%Cau1
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Cho hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $2$. Với hệ tọa độ $Oxyz$ được thiết lập như hình vẽ bên dưới, gốc tọa độ $O$ trùng với tâm hình vuông $ABCD$, vectơ $\overrightarrow{OC}$ cùng hướng với tia $Ox$, vectơ $\overrightarrow{OD}$ cùng hướng với tia $Oy$ và vectơ $\overrightarrow{OO'}$ cùng hướng với tia $Oz$, với $O'$ là tâm của hình vuông $A'B'C'D'$. 
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\def\bc{4} % cạnh BC
+			\def\ba{2} % cạnh BA
+			\def\gocB{35} % góc B của đáy
+			\coordinate[label=below left:$B$] (B) at (0,0);
+			\coordinate[label=above left:$A$] (A) at (\gocB:\ba);
+			\coordinate[label=below:$C$] (C) at (\bc,0);
+			\coordinate[label=below:$D$] (D) at ($(C)-(B)+(A)$);
+			\coordinate[label=above left:$A'$] (A') at ($(A)+(90:\bc)$);
+			\coordinate[label=left:$B'$] (B') at ($(B)-(A)+(A')$);
+			\coordinate[label=below right:$C'$] (C') at ($(C)-(A)+(A')$);
+			\coordinate[label=right:$D'$] (D') at ($(D)-(A)+(A')$);
+			\coordinate[label=below:$O$] (O) at ($(B)!.5!(D)$);
+			\coordinate[label=below left:$O'$] (O') at ($(B')!.5!(D')$);
+			\coordinate[label=below:$x$] (x) at ($(C)+(-26:\ba)$);
+			\coordinate[label=below:$y$] (y) at ($(D)+(14:\ba)$);
+			\coordinate[label=left:$z$] (z) at ($(O)+(90:{3*\ba})$);
+			\draw (B')--(B)--(C)--(D)--(D')--(A')--(B')--(C')--(D') (C)--(C')(A')--(C')(B')--(D');
+			\draw[->] (C)--(x);
+			\draw[->] (D)--(y);
+			\draw[->] (O)+(90:{2*\ba})--(z);
+			\draw[dashed] (A')--(A)--(D) (A)--(B)(A)--(C)(B)--(D)(O)--++(90:{2*\ba});
+			\foreach \diem in {A,B,C,D,A',B',C',D'}	\fill (\diem)circle(1.5pt);
+		\end{tikzpicture}
+	\end{center}
+	\choiceTF
+	{Tọa độ điểm $A\left(\sqrt{2};0;0\right)$}
+	{\True $\overrightarrow{AC'}=\left(2\sqrt{2};0;2\right)$}
+	{Tọa độ điểm $D'\left(0;\sqrt{2};2\right)$}
+	{\True $\overrightarrow{BD'}=\left(0;2\sqrt{2};2\right)$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Điểm $A$ nằm trên $Ox$, ngược chiều dương và $OA=\sqrt{2}$ nên $A\left(-\sqrt{2};0;0\right)$.
+			\itemch Điểm $C'$ có hình chiếu vuông góc xuống $(Oxy)$ là điểm $C\left(\sqrt{2};0;0\right)$ và $CC'=2$ nên $C'\left(\sqrt{2};0;2\right)$.\\ Suy ra $\overrightarrow{AC'}=\left(2\sqrt{2};0;2\right)$.
+			\itemch Điểm $D'$ có hình chiếu vuông góc xuống $(Oxy)$ là điểm $D\left(0;\sqrt{2};0\right)$ và $DD'=2$ nên $D'\left(0;\sqrt{2};2\right)$.
+			\itemch Điểm $B$ nằm trên $Oy$, ngược chiều dương và $OB=\sqrt{2}$ nên $B\left(0;-\sqrt{2};0\right)$, suy ra $\overrightarrow{BD'}=\left(0;2\sqrt{2};2\right)$.
+	\end{itemchoice}}
+\end{ex}
+%Cau2
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	\immini[thm]{Một tháp trung tâm kiểm soát không lưu ở sân bay cao $110$ m sử dụng ra đa có phạm vi theo dõi $450$ km được đặt trên đỉnh tháp. Chọn hệ trục tọa độ $Oxyz$ có gốc $O$ trùng với vị trí chân tháp, mặt phẳng $(Oxy)$ trùng với mặt đất sao cho trục $Ox$ hướng về phía tây, trục $Oy$ hướng về phía nam, trục $Oz$ hướng thẳng đứng lên phía trên, đơn vị đo trên các trục lấy theo km. Một máy bay tại vị trí $A$ cách mặt đất $14$ km, cách $349$ km về phía đông và $167$ km về phía bắc so với tháp trung tâm kiểm soát không lưu.}{\begin{tikzpicture}[>=stealth,line join=round,line cap=round,font=\footnotesize,scale=1]
+			\def\h{3.5}\def\d{0.4}\def\dd{0.8}\def\hh{0.5}
+			\draw[ball color=cyan!50] (-0.5*\d,0) rectangle +(\d,\h);
+			\draw[fill=yellow] (-0.5*\dd,\h) rectangle +(\dd,\hh);
+			\draw[fill=red] (-0.6*\dd,\h+\hh)--(0,\h+\hh+0.3) --(0.6*\dd,\h+\hh)--cycle;
+			\coordinate(O) at (0,0); 
+			\draw[->,line width=1.5pt,red] (O)--++(3,0) node[above]{$y$};	
+			\draw[->,line width=1.5pt,red] (O)--++(0,\h+\hh+1) node[right]{$z$};
+			\draw[->,line width=1.5pt,red] (O)--++(-150:2cm) node[left]{$x$};
+			\fill[ball color=red] (O) circle (2.5pt) node[below right,red]{$O$};	
+			\path (-140:2cm) node[left]{Tây};
+			\draw[dashed,line width=1pt] (O)--++(30:2cm) node[above]{Đông};
+			\path (3,0) node[below]{Nam};
+			\draw[dashed,line width=1pt] (O)--++(-3,0) node[above]{Bắc};
+	\end{tikzpicture}}
+	\choiceTF
+	{Ra đa ở vị trí có tọa độ $(0;0;110)$}
+	{\True Vị trí $A$ có tọa độ $(-349;-167;14)$}
+	{\True Khoảng cách từ máy bay đến ra đa là khoảng $387{,}15$ km}
+	{Ra đa của trung tâm kiểm soát không lưu không phát hiện được máy bay tại vị trí $A$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Vì ra đa đặt tại đỉnh tháp có chiều cao $110$ m ( tức $0{,}11$ km) nên có tọa độ là $(0;0;0{,}11)$.
+			\itemch Với cách chọn hệ trục toạ độ trên thì tọa độ điểm $A$ là $(-349;-167;14)$.
+			\itemch Ta có $\overrightarrow{AO}=\left(349;167;-13{,}89\right)$ nên khoảng cách từ máy bay đến ra đa là 
+			$$AO=\sqrt{349^2+167^2+\left(-13{,}89\right)^2} \approx 387{,}15 \, \text{ (km).}$$
+			\itemch Máy bay cách ra đa khoảng $387{,}15$ km, trong phạm vi ra đa theo dõi là $450$ km nên ra đa của trung tâm kiểm soát không lưu phát hiện được máy bay.
+		\end{itemchoice}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/answer.tex}
+
+\begin{center}
+\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-ONTAPCHUONG-DE1]
+
+%Cau1
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian $Oxyz$, cho hai điểm $A(1;-4;-3)$ và $B(-2;-4;-2)$. Điểm $M$ thuộc đoạn $AB$ sao cho $MA=2MB$, tọa độ điểm $M$ là $(a;b;c)$. Khi đó, tính giá trị của biểu thức $T=a^2+4b-30c$.
+	\shortans[oly]{$55$}
+	\loigiai{
+		Ta có $M(a;b;c)$.\\
+		Vì $M$ thuộc đoạn $AB$ và $MA=2MB$ nên
+		\begin{eqnarray*}
+			&&\overrightarrow{MA}=-2\overrightarrow{MB}\\
+			&\Leftrightarrow&\heva{&1-a=-2(-2-a)\\&-4-b=-2(-4-b)\\&-3-c=-2(-2-c)}\\
+			&\Leftrightarrow&\heva{&a=-1\\&b=-4\\&c=-\dfrac{7}{3}.}
+		\end{eqnarray*}
+		Suy ra $T=a^2+4b-30c=1-16+70=55$.
+		}
+\end{ex}
+%Cau2
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với hệ toạ độ $Oxyz$, cho hai vectơ $\overrightarrow{u}=(-2;5;0)$ và $\overrightarrow{v}=(5;4;5)$. Biết $\overrightarrow{a}=-\overrightarrow{u}+2\overrightarrow{v}$, tính độ dài của $\overrightarrow{a}$ (kết quả làm tròn đến hàng phần chục).
+	\shortans[oly]{$15{,}9$}
+	\loigiai{
+		Ta có $\overrightarrow{a}=-\overrightarrow{u}+2\overrightarrow{v}=(12;3;10)$.\\
+		Suy ra $\left|\overrightarrow{a}\right|=\sqrt{12^2+3^2+10^2}=\sqrt{253}\approx 15{,}9$.
+	}
+\end{ex}
+%Cau3
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Một chiếc ô tô được đặt trên mặt đáy dưới của một khung sắt dạng hình hộp chữ nhật với đáy trên là hình chữ nhật $ABCD$, mặt phẳng $(ABCD)$ song song với mặt phẳng nằm ngang. Khung sắt đó được đặt vào móc $E$ của chiếc cần cẩu sao cho các đoạn dây cáp $EA$, $EB$, $EC$, $ED$ bằng nhau và cùng tạo với mặt phẳng $(ABCD)$ một góc $\alpha$. Chiếc cần cẩu kéo khung sắt lên theo phương thẳng đứng. Biết các lực căng $\overrightarrow{F}_1$, $\overrightarrow{F}_2$, $\overrightarrow{F}_3$, $\overrightarrow{F}_4$ đều có cường độ là $4\,200$ N, trọng lượng của cả khung sắt chứa xe ô tô là $15\,200$ N. Tính $\sin \alpha$ (kết quả làm tròn đến hàng phần chục).
+	\begin{center}
+		\begin{tikzpicture}[>=stealth,line join=round, line cap=round,scale=.6,transform shape]
+			\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+			\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+			\definecolor{bananayellow}{rgb}{1.0, 0.88, 0.21}
+			\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+			% \clip (-6,-3) rectangle (6,3);
+			\tikzset{%
+				xeoto/.pic={%
+					%-------------------------- 
+					\tikzset{xe/.pic={
+							\def\N{ 
+								(-2.7,.56)--(-2.5,.56)
+								..controls +(50:1.5) and +(165:1.5) .. (2.1,1.88)--(2.05,2)
+								..controls +(-10:.1) and +(130:.1) .. (3.25,1.75)--(3.15,1.65)
+								..controls +(-4:.2) and +(130:.15) .. (4.05,.7)--(4.25,.75)
+								..controls +(-40:.2) and +(130:.15) .. (4.55,.35)--(4.35,.26)
+								..controls +(-40:.2) and +(130:.15) .. (4.8,-.45)--(4.92,-.4)
+								..controls +(-40:.25) and +(73:.17) .. (4.8,-1.8)--(-4.4,-1.8)
+								..controls +(175:.7) and +(-175:3.2) ..cycle
+								;
+							}
+							\fill[bostonuniversityred] \N;
+							\draw \N;
+							\def\K{ 
+								(-2.2,.56)--(3.3,.7)
+								..controls +(100:1.18) and +(43:3) .. cycle
+								;
+							}
+							\fill[bottom color=charcoal,top color=charcoal!20!white, middle color=charcoal!80!white] \K;
+							\draw \K;
+							\def\K1{ 
+								(-2.2,.56)
+								..controls +(43:.2) and +(43:.2) .. (-1.58,1.05)--(-1.53,.57)--cycle
+								;
+							}
+							\draw \K1;
+							\fill[charcoal] \K1;
+							\def\K2{ 
+								(1.2,1.85)
+								..controls +(-10:.1) and +(160:.1) .. (1.58,1.8)--(1.8,.65)--(1.25,.65)--cycle
+								;
+							}
+							\draw \K2;
+							\fill[charcoal] \K2;
+							\def\Kt{ 
+								(-2.5,.56)
+								..controls +(50:1.5) and +(165:1.5) .. (2.1,1.88)--(2.05,2)
+								..controls +(170:2.2) and +(45:1.5) .. (-2.7,.56)--cycle
+								;
+							}
+							\fill[charcoal!50] \Kt;
+							\draw \Kt;
+							\def\Ks{ 
+								(3.25,1.75)--(3.15,1.65)
+								..controls +(-4:.2) and +(130:.15) .. (4.05,.7)--(4.22,.75)
+								..controls +(120:.3) and +(-35:.3) .. cycle
+								;
+							}
+							\fill[charcoal!50] \Ks;
+							\draw \Ks;
+							%Đèn sau
+							\def\D{ 
+								(4.55,.35)--(4.35,.26)
+								..controls +(-40:.2) and +(130:.15) .. (4.8,-.45)--(4.92,-.4)
+								..controls +(110:.2) and +(-40:.15) ..cycle
+								;
+							}
+							\fill[bananayellow] \D;
+							\draw \D;
+							\def\M{ 
+								(2.2,-1.3)--(-1.8,-1.4)--(-1.78,-1.7)
+								..controls +(-5:.3) and +(-90:.6) ..cycle
+								;
+							}
+							\draw \M;
+							\fill[charcoal!90] \M;
+							\draw (-1.6,.55)
+							..controls +(-170:.5) and +(95:.4) .. (-1.78,-1.7)
+							(1.6,.65)
+							..controls +(-30:.5) and +(35:.3) .. (1.7,-1.3)
+							;
+							%gương
+							\def\G{ 
+								(-1.5,.45)--(-1.4,.6)
+								..controls +(85:1) and +(20:.6) .. (-1.25,.5)--(-1.4,.33)
+								;
+							}
+							\draw \G;
+							\fill[bostonuniversityred] \G;
+							%Đèn trước
+							\def\Dt{ 
+								(-4.85,-.7)
+								..controls +(75:1) and +(65:.8) .. (-4.5,-.7)
+								..controls +(-115:.6) and +(-105:.4) .. cycle
+								;
+							}
+							\fill[bananayellow] \Dt;
+							\draw \Dt;
+							\def\Dt2{ 
+								(-4.85,-.7)
+								..controls +(75:.6) and +(65:.4) .. (-4.7,-.7)
+								..controls +(-115:.3) and +(-105:.2) .. cycle
+								;
+							}
+							\fill[anti-flashwhite] \Dt2;
+							\draw \Dt2;
+							\draw[fill=anti-flashwhite] (-4.86,-1.45)--(-4.82,-1.5)--(-4.55,-1.3)
+							..controls +(90:.3) and +(45:.2) .. cycle;
+					}}
+					\tikzset{banh_xe/.pic={
+							\draw[fill=charcoal] (-3.25,-1.65) circle (1) ;
+							\draw[fill=anti-flashwhite] (-3.25,-1.65) circle (.7) ;
+							\draw[fill=charcoal] (-3.25,-1.65) circle (.4) ;
+					}}
+					%----------------
+					\path
+					(0,0)pic[scale=1]{xe}(0,0)pic[scale=1]{banh_xe}(6.9,0)pic[scale=1]{banh_xe};
+					%--------------------------------
+			}}
+			%%%%%%%%%%%%%%%%%%%
+			\def\bc{4.25} % cạnh BC
+			\def\ba{1.5} % cạnh BA
+			\def\h{4} % đường cao
+			\def\gocnghieng{90} % góc nghiêng
+			\def\gocB{160} % góc B của đáy
+			\coordinate (B1) at (0,0);
+			\coordinate (A1) at (\gocB:\ba);
+			\coordinate (C1) at (\bc,0.25);
+			\coordinate (D1) at ($(C1)-(B1)+(A1)$);
+			\coordinate[label=above left:$A$] (A) at ($(A1)+(\gocnghieng:\h)$);
+			\coordinate[label=below left:$B$] (B) at ($(B1)-(A1)+(A)$);
+			\coordinate[label=right:$C$] (C) at ($(C1)-(A1)+(A)$);
+			\coordinate[label=above right:$D$] (D) at ($(D1)-(A1)+(A)$);
+			\coordinate (E) at ($(A)!0.5!(C)+(\gocnghieng:\h)$);
+			%------------
+			\draw[->,blue,very thick] (E)--($(E)!0.6!(A)$) node[above left]{$\overrightarrow{F}_1$};
+			\draw[->,blue,very thick] (E)--($(E)!0.6!(B)$) node[right]{$\overrightarrow{F}_2$};
+			\draw[->,blue,very thick] (E)--($(E)!0.6!(C)$) node[above right]{$\overrightarrow{F}_3$};
+			\draw[->,blue,very thick] (E)--($(E)!0.6!(D)$) node[left=2pt]{$\overrightarrow{F}_4$};
+			%------------
+			\path (E) node[left=1mm]{$E$};
+			\draw[blue,very thick] (A)--(B)--(C)--(D)--cycle
+			(A1)--(A) (D1)--(D) (C1)--(C)
+			(A)--(E)--(B) (C)--(E)--(D);
+			\draw[fill=teal] (A1)--(B1)--(C1)--(D1)--cycle;
+			\draw[fill=teal!30] (A1)--(B1)--(C1)--++(0,-0.3)--([yshift=-0.3cm]B1)--([yshift=-0.3cm]A1)--cycle;
+			\foreach \diem in {A1,B1,C1,D1,A,B,C,D,E} \fill (\diem)circle(1.5pt);
+			%phần móc và dây
+			\def\r{0.3}\def\rr{0.25}
+			\coordinate (tam) at ([yshift=6mm]E);
+			\draw[brown,fill=brown,line width=1pt] (tam) circle (\r cm);
+			\fill (tam) circle (2pt);
+			\draw[brown,line width=1pt] (tam)++(\r,0)--++(0,0.7)
+			(tam)++(-\r,0)--++(0,0.7);
+			\draw[line width=1.5pt] (tam)--++(0,-1.35*\r) arc(90:370:1mm);
+			%%%%%%%%%%%%%%%%%%%
+			\pic[scale=0.45,rotate=4] at (1.6,1.3) [pic type = xeoto];
+			%--------
+			\draw[blue,very thick] (B)--(B1);
+		\end{tikzpicture}
+	\end{center}
+	
+	\shortans[oly]{ ${0{,}9}$ }
+	\loigiai{ 
+		Gọi $A_1$, $B_1$, $C_1$, $D_1$ lần lượt là các điểm thỏa mãn $\overrightarrow{EA}_1=\overrightarrow{F}_1$, $\overrightarrow{EB}_1=\overrightarrow{F}_2$, $\overrightarrow{EC}_1=\overrightarrow{F}_3$, $\overrightarrow{ED}_1=\overrightarrow{F}_4$.
+		\begin{center}
+			\begin{tikzpicture}[scale=1,font=\footnotesize,line join=round,line cap=round,>=stealth]
+				\def\a{4}
+				\def\h{4}
+				\path (0:0) coordinate (A_1)
+				++(0:\a) coordinate (D_1)
+				++(-130:\a/2) coordinate (C_1)
+				($(A_1)+(C_1)-(D_1)$) coordinate (B_1)
+				(intersection of A_1--C_1 and B_1--D_1) coordinate (O)
+				($(O)+(90:\h)$) coordinate (E)
+				;
+				\draw[dashed] (B_1)--(A_1)--(D_1) (A_1)--(E)
+				(A_1)--(C_1) (B_1)--(D_1) (E)--(O) ;
+				\draw (B_1)--(C_1)--(D_1)
+				(B_1)--(E) (C_1)--(E) (D_1)--(E);
+				%------------
+				\draw[->, dashed] (E)--(A_1) ;%node[above left]{$\overrightarrow{F_1}$};
+				\draw[->] (E)--(B_1) ;%node[left]{$\overrightarrow{F_2}$};
+				\draw[->] (E)--(C_1);% node[above left]{$\overrightarrow{F_3}$};
+				\draw[->] (E)--(D_1);% node[left=2pt]{$\overrightarrow{F_4}$};
+				\foreach \x/\g in {A_1/30,B_1/-135,C_1/-45,D_1/45,E/90,O/-90}
+				\fill (\x) circle (1.0pt)
+				($(\g:4mm)+(\x)$) node {$\x$}; 
+			\end{tikzpicture}
+		\end{center} 
+		Vì $EA$, $EB$, $EC$, $ED$ bằng nhau và cùng tạo với mặt phẳng $(ABCD)$ một góc $\alpha$ nên $EA_1$, $EB_1$, $EC_1$, $ED_1$ cũng bằng nhau và cùng tạo với mặt phẳng $\left(A_1B_1C_1D_1\right)$ một góc $\alpha$.\\
+		Mặt khác $ABCD$ là hình chữ nhật nên $A_1B_1C_1D_1$ cũng là hình chữ nhật có tâm $O$.\\
+		Từ các điều kiện trên ta suy ra $EO\perp\left(A_1B_1C_1D_1\right)$. \\
+		Khi đó $\alpha=\big(EA_1,\left(A_1B_1C_1D_1\right)\big)=\widehat{EA_1O}$.\\
+		Ta có $\left|\overrightarrow{F}_1\right|=\left|\overrightarrow{F}_2\right|=\left|\overrightarrow{F}_3\right|=\left|\overrightarrow{F}_4\right|=4\,200$ N nên $EA_1=EB_1=EC_1=ED_1=4\,200$.\\
+		Xét tam giác $EA_1O$ vuông tại $O$ nên $EO=EA_1\cdot \sin \alpha=4\,200\cdot \sin \alpha$.\\
+		Ta có $\overrightarrow{F}_1+\overrightarrow{F}_2+\overrightarrow{F}_3+\overrightarrow{F}_4=\overrightarrow{EA}_1+\overrightarrow{EB}_1+\overrightarrow{EC}_1+\overrightarrow{ED}_1=4\overrightarrow{EO}$.\\
+		Mặt khác $\overrightarrow{F}_1+\overrightarrow{F}_2+\overrightarrow{F}_3+\overrightarrow{F}_4=\overrightarrow{P}$ với $\overrightarrow{P}$ là trọng lực tác động lên khung chứa xe ô tô.\\
+		Suy ra $\overrightarrow{P}=4\overrightarrow{EO}$.\\
+		Trọng lượng của cả khung sắt chứa xe ô tô là $\left|\overrightarrow{P}\right|=4EO=16\,800\cdot \sin \alpha$\\
+		Theo giả thiết, ta có $\left|\overrightarrow{P}\right|=15\,200$, suy ra $\sin \alpha=\dfrac{\left|\overrightarrow{P}\right|}{16\,800}=\dfrac{15\,200}{16\,800} \approx 0{,}9$.	
+	}
+\end{ex}
+
+%cau4
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Ba chiếc máy bay không người lái cùng bay lên tại một địa điểm. Sau một thời gian bay, chiếc máy bay thứ nhất cách điểm xuất phát về phía Đông $39$ km và về phía Nam $34$ km, đồng thời cách mặt đất $1{,}7$ km. Chiếc máy bay thứ hai cách điểm xuất phát về phía Bắc $45$ km và về phía Tây $52$ km, đồng thời cách mặt đất $3{,}4$ km. Chiếc máy bay thứ ba nằm chính giữa hai chiếc máy bay thứ nhất và thứ hai, đồng thời cách mặt đất trung bình giữa hai máy bay. Xác định khoảng cách của chiếc máy bay thứ ba với vị trí tại điểm xuất phát của nó.
+	\shortans[oly]{$8,9$}
+	\loigiai{
+		Chọn hệ trục tọa độ $Oxyz$ như hình vẽ bên dưới, gốc toạ độ $O$ đặt tại điểm xuất phát của hai chiếc máy bay, mặt phẳng $(Oxy)$ trùng với mặt đất, trục $Ox$ hướng về phía Đông, trục $Oy$ hướng về phía Bắc, trục $Oz$ hướng thẳng đứng lên trời, đơn vị đo lấy theo kilômét (km).
+		\begin{center}
+			\begin{tikzpicture}[>=stealth, line join=round, line cap=round,font={\scriptsize}]
+				\def\len{3.5} % chiều dài của đoạn đường
+				\path (0,0,0) node[left] {$O$} ;
+				\draw[->] (0,0,0) -- (\len,0,0) node[below] {Bắc} node[above] {$y$};
+				\draw[->] (0,0,0) -- (0,\len,0) node[right] {Trời} node[above left] {$z$};
+				\draw[->] (0,0,0) -- (0,0,\len) node[above left] {Đông} node[below right] {$x$};
+				\coordinate (B) at (0,0,\len-1);
+				\coordinate (T) at (\len-1,0,0);
+				\coordinate (TR) at (0,\len-1,0);
+				\coordinate (TB) at ($(B)+(T)$);
+				\coordinate (TRTB) at ($(TR)+(TB)$);
+				\draw[dashed] (B)--(TB)--(T) (0,0,0)--(TB)--(TRTB)--(TR);
+				\foreach \diem in {B,T,TB,TR,TRTB} \fill (\diem)circle(1pt);
+			\end{tikzpicture}
+		\end{center}
+		Chiếc máy bay thứ nhất có tọa độ $A(39;-34;1{,}7)$.\\
+		Chiếc máy bay thứ hai có tọa độ $B(-52;45;3{,}4)$.\\
+		Tọa độ trung điểm của đoạn thẳng nối hai chiếc máy bay thứ nhất và thứ hai là $I\left(-6{,}5;\,5{,}5;\,2{,}55\right)$.\\
+		Hay chiếc máy bay thứ ba có tọa độ $I\left(-6{,}5;\,5{,}5;\,2{,}55\right)$.\\
+		Khoảng cách giữa chiếc máy bay thứ ba với vị trí tại điểm xuất phát của nó là
+		$$OI=\sqrt{\left(-6{,}5\right)^2+\left(5{,}5\right)^2+\left(2{,}55\right)^2} \approx 8{,}9 \, \text{(km)}.$$
+	}
+\end{ex}
+
+
+
+\Closesolutionfile{ans}
+
+
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+\setcounter{ex}{0}
+%Cau1
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Cho tứ diện $ABCD$. Chứng minh rằng $\overrightarrow{AC}+\overrightarrow{BD}=\overrightarrow{AD}+\overrightarrow{BC}$.
+	\loigiai{
+	Ta có 
+		\begin{eqnarray*}
+			\overrightarrow{AC}+\overrightarrow{BD}&=&\overrightarrow{AD}+\overrightarrow{DC}+\overrightarrow{BC}+\overrightarrow{CD}\\
+			&=&\overrightarrow{AD}+\overrightarrow{BC}+\overrightarrow{0}\\
+			&=&\overrightarrow{AD}+\overrightarrow{BC}.
+		\end{eqnarray*}
+	Vậy $\overrightarrow{AC}+\overrightarrow{BD}=\overrightarrow{AD}+\overrightarrow{BC}$.
+	}
+\end{ex}
+%Cau2
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Trong không gian với một hệ trục tọa độ cho trước (đơn vị đo lấy theo km), ra đa phát hiện một chiếc máy bay di chuyển với vận tốc và hướng không đổi từ điểm $A(500; 280;330)$ đến điểm $B(490;530;780)$ trong $5$ phút. Nếu máy bay tiếp tục giữ nguyên vận tốc và hướng bay thì tọa độ của máy bay sau $10$ phút tiếp theo $D(x;y;z)$. Tính giá trị của biểu thức $T=x+y+z$.
+	\loigiai{
+		Gọi $D(x;y;z)$ là vị trí của máy bay sau $10$ phút bay tiếp theo (tính từ thời điểm máy bay ở điểm $B$).
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\draw[red,line width=1] (0,0) node[shift={(-158:5mm)}, rotate=-25]{\color{cyan}\Huge \faPlane}--(2,1);
+				\draw[->,blue,line width=1] (2,1)--(6,3);
+				\fill (0,0) node[above]{$A$} circle (1pt) (2,1)node[above]{$B$} circle (1pt) (6,3)node[above]{$D$};
+			\end{tikzpicture} 
+		\end{center}
+		Vì hướng của máy bay không đổi nên $\overrightarrow{AB}$ và $\overrightarrow{BD}$ cùng hướng. \\
+		Ta có $\overrightarrow{AB}=(-10;250;450)$.\\
+		Do vận tốc máy bay không đổi và thời gian bay từ $B$ đến $D$ bằng $2$ thời gian bay từ $A$ đến $B$ nên
+		$$\overrightarrow{BD}=2\overrightarrow{AB}=(-20;500;900).$$
+		Mặt khác $\overrightarrow{BD}=(x-490;y-530;z-780)$ nên ta có
+		\begin{eqnarray*}
+			&&\heva{&x-490=-20 \\&y-530=500 \\&z-780=900}\\
+			&\Leftrightarrow&\heva{&x=470\\&y=1\,030\\&z=1\,680.}
+		\end{eqnarray*}
+		Vậy $T=x+y+z=3\,180$.
+	}
+\end{ex}
+%Cau3
+\begin{ex}%[Dự án D - Dot 3 - NH25-26-Nắng Đông]
+	Một hệ thống chiếu sáng trong không gian cần xác định vị trí của một nguồn sáng $M$ trong căn phòng lớn. Trong không gian với hệ tọa độ $Oxyz$, có bốn đèn chiếu sáng cố định tại các điểm $A(4;5;3)$, $B(5;5;10)$, $C(3;7;4)$ và $D(9;5;13)$. Vị trí của nguồn sáng $M(a;b;c)$ thỏa mãn $MA=\sqrt{2}$, $MB=\sqrt{68}$, $MC=\sqrt{8}$ và $MD=\sqrt{157}$. Tính giá trị của biểu thức $T=a^2+3b^3-4c^4$.
+	\loigiai{
+		Theo đề, ta có
+		\begin{eqnarray*}
+			&&\heva{&MA^2=2\\&MB^2=68\\&MC^2=8\\&MD^2=157}\\
+			&\Leftrightarrow&\heva{&(a-4)^2+(b-5)^2+(c-3)^2=2\\&(a-5)^2+(b-5)^2+(c-10)^2=68\\&(a-3)^2+(b-7)^2+(c-4)^2=8\\&(a-9)^2+(b-5)^2+(c-13)^2=157}\\
+			&\Leftrightarrow&\heva{&a^2+b^2+c^2-8a-10b-6c=-48\\&a^2+b^2+c^2-10a-10b-20c=-72\\&a^2+b^2+c^2-6a-14b-8c=-56\\&a^2+b^2+c^2-18a-10b-26c=-118}\\
+			&\Rightarrow&\heva{&2a+14c=24\\&-4a+4b-12c=-16\\&12a-4b+18c=62}\\
+			&\Rightarrow&\heva{&a=5\\&b=4\\&c=1.}
+		\end{eqnarray*}
+		Vậy $T=a^2+3b^3-4c^4=25+192-4=213$.
+	}
+\end{ex}
+
+
+
+

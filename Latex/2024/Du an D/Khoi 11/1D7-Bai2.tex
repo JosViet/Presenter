@@ -1,0 +1,824 @@
+\newpage
+\section{CÁC QUY TẮC TÍNH ĐẠO HÀM}
+\subsection{KIẾN THỨC CẦN NHỚ}
+\subsubsection{Quy tắc tính đạo hàm của tổng hiệu, tích thương}
+Giả sử $u=u(x)$, $v=v(x)$ là các hàm số có đạo hàm tại điểm $x$ thuộc khoảng xác định. Ta có các quy tắc sau:
+\begin{tcolorbox}[colframe=cyan,colback=red!1!white,boxrule=0.3mm]
+	\begin{itemize}
+		\begin{multicols}{2}
+			\item [\ding{172}] $(u+v)'=u'+v'$
+			\item [\ding{173}] $(u-v)'=u'-v'$
+			\item [\ding{174}] $(u\cdot v)'=u'\cdot v+v' \cdot u$
+			\item [\ding{175}] $\left( \dfrac{u}{v}\right)'=\dfrac{u' \cdot v-v' \cdot u}{v^2}$,  với $v \ne 0$.
+			\item [\ding{176}] $(k \cdot u)'=k \cdot u'$, với $k$ là hằng số.
+			\item [\ding{177}] $\left( \dfrac{1}{v}\right)'=-\dfrac{v'}{v^2}$, với $v \ne 0$.
+		\end{multicols}
+	\end{itemize}
+\end{tcolorbox}
+
+\subsubsection{Đạo hàm của hàm hợp}
+Nếu hàm số $u=g(x)$ có đạo hàm tại $x$ là $u_x'$ và hàm số $y=f(u)$ có đạo hàm tại $u$ là $y_u'$ thì hàm hợp $y=f\left( g(x)\right) $ có đạo hàm tại $x$ là $y_x'=y_u'\cdot u_x'$.
+\subsubsection{Bảng đạo hàm của một số hàm số sơ cấp cơ bản và hàm hợp}
+\begin{center}
+	\begin{tikzpicture}[xscale=9,yscale=1,font=\footnotesize]
+	\begin{scope}[shift={(-.5,.5)}]
+	\fill[pink!5] (0,-1) rectangle (2,-12);
+	\fill[cyan!25] (0,0) rectangle (2,-1);
+	\draw [line width=0.5pt](0,0) grid (2,-12)
+	(1,-1)--(2,-1) (1,-2)--(2,-2)
+	(1,-3)--(2,-3) (0,-4)--(2,-4)
+	(1,-5)--(2,-5) (0,-6)--(2,-6)
+	(1,-7)--(2,-7) (0,-8)--(2,-8)
+	(1,-9)--(2,-9) (1,-10)--(2,-10)
+	(1,-11)--(2,-11) (0.15,0)--(0.15,-12)
+	;
+	\end{scope}
+	\path
+	(-0.42,0) node{\text{\textbf{STT}}}
+	(-0.42,-1) node{\circEX{1}} 
+	(-0.42,-2) node{\circEX{2}}
+	(-0.42,-3) node{\circEX{3}}
+	(-0.42,-4) node{\circEX{4}}
+	(-0.42,-5) node{\circEX{5}}
+	(-0.42,-6) node{\circEX{6}}
+	(-0.42,-7) node{\circEX{7}}
+	(-0.42,-8) node{\circEX{8}}
+	(-0.42,-9) node{\circEX{9}}
+	(-0.42,-10) node{\circEX{10}}
+	(-0.42,-11) node{\circEX{11}} 
+	;
+	\path
+	(0.08,0) node{\text{\textbf{Đạo hàm của một số hàm sơ cấp cơ bản}}}  
+	(-0.2,-1) node[right]{$\left(x^n\right)'=n \cdot x^{n-1}$}
+	(-0.2,-2) node[right]{$\left({\dfrac{1}{x}}\right)'=-\dfrac{1}{x^2}$}    
+	(-0.2,-3) node[right]{$\left(\sqrt{x}\right)'=\dfrac{1}{2\sqrt{x}}$}
+	(-0.2,-4) node[right]{$\left({\sin x}\right)'=\cos x$}    
+	(-0.2,-5) node[right]{$\left({\cos x}\right)'=-\sin x$}
+	(-0.2,-6) node[right]{$\left({\tan x}\right)'=\dfrac{1}{{\cos}^2x}$}    
+	(-0.2,-7) node[right]{$\left({\cot x}\right)'=-\dfrac{1}{{\sin}^2x}$}
+	(-0.2,-8) node[right]{$\left({\mathrm{e}^x}\right)'=\mathrm{e}^x$}    
+	(-0.2,-9) node[right]{$\left({a^x}\right)'=a^x \cdot\ln a$}
+	(-0.2,-10) node[right]{$\left({\ln x}\right)'=\dfrac{1}{x}$}
+	(-0.2,-11) node[right]{$\left({\log_a x}\right)'=\dfrac{1}{x \cdot \ln a}$}
+	(1,0) node{\text{\textbf{Đạo hàm của hàm hợp tương ứng, với u = u(x)}}}    
+	(0.8,-1) node[right]{$\left(u^n\right)'=n \cdot u^{n-1} \cdot u'$}
+	(0.8,-2) node[right]{$\left({\dfrac{1}{u}}\right)'=-\dfrac{u'}{u^2}$}    							
+	(0.8,-3) node[right]{$\left(\sqrt{u}\right)'=\dfrac{u'}{2\sqrt{u}}$}
+	(0.8,-4) node[right]{$\left({\sin u}\right)'=u' \cdot \cos u$}    
+	(0.8,-5) node[right]{$\left({\cos u}\right)'=-u' \cdot \sin u$}
+	(0.8,-6) node[right]{$\left({\tan u}\right)'=\dfrac{u'}{{\cos}^2u}$}    
+	(0.8,-7) node[right]{$\left({\cot u}\right)'=-\dfrac{u'}{{\sin}^2u}$}
+	(0.8,-8) node[right]{$\left({\mathrm{e}^u}\right)'=u' \cdot \mathrm{e}^u$}    
+	(0.8,-9) node[right]{$\left({a^u}\right)'=u' \cdot a^u \cdot \ln a$}
+	(0.8,-10) node[right]{$\left({\ln u}\right)'=\dfrac{u'}{u}$}
+	(0.8,-11) node[right]{$\left({\log_a u}\right)'=\dfrac{u'}{u \cdot \ln a}$}
+	;
+	\end{tikzpicture}
+\end{center}
+
+%-------------------------------------------------------------------------------------------------------------
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+\begin{dang}{Tính đạo hàm bằng công thức và vận dụng}
+\end{dang}
+
+\begin{vd}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+Tính đạo hàm của mỗi số sau tại điểm $x_0=1$.
+	\begin{enumerate}[\bf a)]
+		\item $f(x)=x^6$;
+		\item $g(x)=(2x-1)(x+1)$;
+		\item $h(x)=\dfrac{1-x}{3x+5}$;
+		\item $k(x)=\dfrac{1}{\sqrt{x}}$;
+		\item $m(x)={{2}^{3x+1}}$; 
+		\item $n(x)={\log_{3}}(2x+1)$;
+		\item $f(x)=2 \sin x$;
+		\item $g(x)=\cot \left( x+\dfrac{\pi}{4}\right)$.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}[\bf a)]
+		\item Ta có $f'(x)=6x^5$.\\
+		Đạo hàm của hàm số $f(x)$ tại điểm $x_0=1$ là $f'(1)=6 \cdot 1^5=6$.
+		\item Ta có $g'(x)=(2x-1)'\cdot (x+1)+(2x-1)\cdot(x+1)'=2(x+1)+(2x-1)=4 x+1$.\\
+		Đạo hàm của hàm số $g(x)$ tại điểm $x_0=1$ là $g'(1)=4 \cdot 1+1=5$.
+		\item  Ta có
+		$h'(x)=\dfrac{(1-x)'\cdot (3x+5)-(1-x)\cdot(3x+5)'}{(3x+5)^2}=\dfrac{(-1)\cdot(3x+5)-3\cdot(1-x)}{(3x+5)^2}=\dfrac{-8}{(3x+5)^2}$.\\
+		Đạo hàm của hàm số $h(x)$ tại điểm $x_0=1$ là $h^{\prime}(1)=\dfrac{-8}{(3.1+5)^2}=-\dfrac{1}{8}$.
+		\item Ta có $k'(x)=-\dfrac{\left( \sqrt{x}\right) '}{x}=-\dfrac{1}{2x\sqrt{x}}$.\\
+		Đạo hàm của hàm số $k(x)$ tại điểm $x_0=1$ là $k'(1)=-\dfrac{1}{2 \cdot 1 \cdot \sqrt{1}}=-\dfrac{1}{2}$.
+		\item Ta có $m'(x)=(3x+1)' \cdot 2^{3x+1} \cdot \ln 2=3 \cdot\ln 2 \cdot 2^{3x+1}$.\\
+		Đạo hàm của hàm số $m(x)$ tại điểm $x_0=1$ là $m'(1)=3 \cdot \ln 2 \cdot 2^{3\cdot 1+1}=48 \ln 2$.
+		\item Ta có $n'(x)=\dfrac{(2x+1)'}{(2x+1) \cdot \ln 3}=\dfrac{2}{(2x+1) \cdot \ln 3}$.\\
+		Đạo hàm của hàm số $n(x)$ tại điểm $x_0=1$ là $n'(1)=\dfrac{2}{(2\cdot 1+1) \cdot \ln 3}=\dfrac{2}{3 \ln 3}$.
+		\item Ta có: $f'(x)=2\cdot (\sin x)'=2 \cos x$.\\
+		Đạo hàm của hàm số $f(x)$ tại điểm $x_0=\dfrac{\pi}{4}$ là $f'\left( \dfrac{\pi}{4}\right)=2 \cdot \cos \left( \dfrac{\pi}{4}\right) =\sqrt{2}$.
+		\item $g'(x)=-\dfrac{\left( x+\dfrac{\pi}{4}\right) '}{\sin ^2\left( x+\dfrac{\pi}{4}\right)}=\dfrac{-1}{\sin ^2\left( x+\dfrac{\pi}{4}\right)}$.\\
+		Đạo hàm của hàm số $g(x)$ tại điểm $x_0=\dfrac{\pi}{4}$ là $g'\left( \dfrac{\pi}{4}\right)=\dfrac{-1}{\sin ^2\left( \dfrac{\pi}{4}+\dfrac{\pi}{4}\right)}=-1$. 
+	\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen] 
+	Cho hàm số $f(x)=x^{3}+3x^{2}-9x+1$. Giải bất phương trình $f'(x)>0$.
+	\loigiai{
+		Ta có 
+		\begin{itemize}
+			\item Tập xác định $\mathbb{R}$.
+			\item $f'(x)=3x^{2}+6x-9.$
+			\item $f'(x)>0  \Leftrightarrow  3x^{2}+6x-9>0
+			\Leftrightarrow  \hoac{&x<-3\\&x>1.}$
+		\end{itemize}
+		Vậy bất phương trình đã cho có tập nghiệm là $S=(-\infty;-3)\cup(1;+\infty).$		
+	}
+\end{vd}
+\begin{vd}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]  
+	\begin{enumerate}[\bf a)]
+		\item Cho hàm số $f(x)$ có đạo hàm tại mọi điểm thuộc tập xác định, hàm số $g(x)$ được xác định bời $g(x)=-3-2f(x)$. Biết $f'(5)=1$. Tính $g'(5)$.
+		\item Cho hàm số $f(x)$ có đạo hàm tại mọi điểm thuộc tập xác định và $f'(5)=1$. Tính đạo hàm của hàm số $g(x)=f(1+2x)$ tại $x=2$.
+	\end{enumerate}
+\loigiai{\begin{enumerate}[\bf a)]
+	\item Ta có $g'(x)=(-3)'-\left(2f(x)\right)'=0-2\cdot f'(x)=-2f(x)$.\\
+	Suy ra $g'(5)=-2 \cdot  f'(5)=(-2) \cdot 1=-2$.
+	\item Ta có $g'(x)=(1+2x)\cdot f'(1+2x)=2\cdot f'(1+2x)$.\\
+	Suy ra $g'(2)=2 \cdot f'(5)=2 \cdot 1=2$.
+\end{enumerate}
+} 
+\end{vd} 
+
+\begin{dang}{Ứng dụng hình học của đạo hàm}
+	Cho hàm số $y=f(x)$ có đồ thị $(C)$ và $f(x)$ có đạo hàm tại $x_0$.\\
+	Phương trình tiếp tuyến của đồ thị hàm số tại điểm $M_0(x_0;f(x_0))$ thuộc đồ thị hàm số có dạng
+	$$y=f'(x_0)(x-x_0)+f(x_0).$$
+	Trong đó, $k=f'(x_0)$ được gọi là hệ số góc của tiếp tuyến.
+\end{dang}
+\begin{vd}%[1D7H2-4]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen] 
+	Cho đường cong $(C) \colon y=f(x)=\dfrac{x^2}{2}-4x+1$.
+	\begin{tasks}(1)
+		\task Viết phương trình tiếp tuyến của $(C)$ tại điểm có hoành độ $x_0=-2$.
+		\task Viết phương trình tiếp tuyến của $(C)$ tại điểm có hoành độ $x_0=-3$.
+		\task Viết phương trình tiếp tuyến của $(C)$, biết tiếp tuyến có hệ số góc $k=1$.
+	\end{tasks}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Ta có $f'(x)=x-4$. Với $x_0=-2\Rightarrow y_0=f\left( x_0\right) =11$.\\
+			Vậy tiếp tuyến của đồ thị hàm số có phương trình là $y=f'(-2)(x+2)+11=-6x-1$.
+			\item Gọi $(x_0;y_0)$ là tiếp điểm. Ta có $f'(x_0)=1\Leftrightarrow x_0-4=1\Leftrightarrow x_0=5\Rightarrow y_0=f\left( x_0\right)=-\dfrac{13}{2}$.\\
+			Vậy tiếp tuyến của đồ thị hàm số có phương trình là $y=1(x-5)-\dfrac{13}{2}=x-\dfrac{23}{2}$.
+	\end{enumerate}}
+\end{vd} 
+
+\begin{vd}%[1D7H2-4]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen] 
+	Cho hàm số $y=f(x)=x^3-3x^2+2$ có đồ thị $(C)$. Viết phương trình tiếp tuyến của $(C)$ biết tiếp tuyến song song với đường thẳng $\Delta:\ 3x+y=2$.
+	\loigiai{Gọi $(x_0;y_0)$ là tiếp điểm của tiếp tuyến cần tìm.\\
+		Vì tiếp tuyến song song với đường thẳng $\Delta \colon y=-3x+2$ nên ta có $$f'(x_0)=-3\Leftrightarrow 3x_0^2-6x_0+3=0\Leftrightarrow x_0=1\Rightarrow y_0=0.$$
+		Vậy tiếp tuyến của đồ thị hàm số có phương trình $y=-3(x-1)+0=-3x+3$.}
+\end{vd}
+
+\begin{vd}%[1D7H2-4]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen] 
+	Viết phương trình tiếp tuyến của đồ thị $(C)\colon y=\dfrac{x-1}{x+2}$ biết tiếp tuyến vuông góc với đường thẳng $\Delta \colon 3x+y-2=0$.
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{-2\}$.\\
+		Đạo hàm $y'=\dfrac{3}{(x+2)^2}$.\\
+		Viết lại phương trình đường thẳng $\Delta \colon y=-3x+2$.\\
+		Gọi $(x_0;y_0)$ là tiếp điểm của tiếp tuyến cần tìm. Tiếp tuyến vuông góc với đường thẳng $\Delta$ nên ta có $$ k_{\Delta }\cdot f'\left( x_0\right) =-1 \Leftrightarrow f'(x_0)=\dfrac{1}{3}\Leftrightarrow \dfrac{3}{(x_0+2)^2}=\dfrac{1}{3}\Leftrightarrow \hoac{&x_0=1\\&x_0=-5.}$$
+		Từ đó tìm được hai tiếp tuyến thỏa mãn yêu cầu bài toán là $y=\dfrac{x-1}{3}$ và $y=\dfrac{x+11}{3}$.}
+\end{vd}
+\begin{dang}{Ứng dụng thực tiễn của đạo hàm}
+	Giả sử hàm số $y=f(x)$ là một đại lượng vật lí (vị trí chất điểm, thể tích, \dots). Nếu tồn tại $f'(x_0)$ là thì $f'(x_0)$ là vận tốc thay đổi của đại lượng đó tại $x_0$. Đặc biệt
+	\begin{enumerate}[1.]
+		\item Cho chuyển động thẳng được xác định bởi phương trình $s=s(t)$. Khi đó, vận tốc tức thời của chuyển động tại thời điểm $t_0$ được xác định bởi công thức $v(t_0)=s'(t_0).$
+		\item Cho chuyển động thẳng có vận tốc được xác định bởi phương trình $v=v(t)$. Khi đó, gia tốc tức thời của chuyển động tại thời điểm $t_0$ được xác định bởi công thức $a(t_0)=v'(t_0).$
+	\end{enumerate}
+\end{dang}
+\begin{vd}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]  
+	\begin{enumerate}[\bf a)]
+	\item Một chất điểm chuyển động theo phương trình $s(t)=\dfrac{1}{3} t^3-2t^2+4 t+1$, trong đó $t>0$, $t$ tính bằng giây, $s(t)$ tính bằng mét. Tính vận tốc tức thời của chất điểm tại thời điểm $t=3$ giây.
+	\item Một chất điểm chuyển động theo phương trình $s(t)=6 \sin \left( 3 t+\dfrac{\pi}{4}\right)$, trong đó $t>0$, $t$ tính bằng giây, $s(t)$ tính bằng centimét. Tính vận tốc tức thời của chất điểm tại thời điểm $t=\dfrac{\pi}{6}$ giây.
+	\end{enumerate}
+\loigiai{
+	\begin{enumerate}[\bf a)]
+	\item Vận tốc tức thời của chất điểm tại thời điểm $t$ là $v(t)=s'(t)=t^2-4 t+4$.\\
+	Vậy vận tốc tức thời của chất điểm tại thời điểm $t=3$ là
+	$v(3)=3^2-4 \cdot 3+4=1$ (m/s).
+	\item Vận tốc tức thời của chất điểm tại thời điểm $t$ là $v(t)=s'(t)=18 \cos \left(3 t+\dfrac{\pi}{4}\right)$.\\
+	Vậy vận tốc tức thời của chất điểm tại thời điểm $t=\dfrac{\pi}{6}$ là
+	$v\left(\dfrac{\pi}{6}\right)=18 \cos \left(3 \cdot \dfrac{\pi}{6}+\dfrac{\pi}{4}\right)=-9 \sqrt{2}$ (cm/s).
+	\end{enumerate}
+}
+ \end{vd} 
+\begin{vd}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]   
+Một viên đạn được bắn lên cao theo phương thẳng đứng có phương trình chuyển động $s(t)=2+196 t-4{,}9t^2$, trong đó $t \geq 0$, $t$ là thời gian chuyển động tính bằng giây, $s$ là độ cao so với mặt đất tính bằng mét.
+\begin{enumerate}[a)]
+	\item  Sau bao lâu kề từ khi bắn thì viên đạn đạt được độ cao $1\,962$ mét?
+	\item Tính vận tốc tức thời của viên đạn khi viên đạn đạt được độ cao $1\,962$ mét.
+	\item Tại thời điểm viên đạn đạt vận tốc tức thời bằng $98$ (m/s) thì viên đạn đang ở độ cao bao nhiêu mét so với mặt đất?
+\end{enumerate}
+\loigiai{
+	\begin{enumerate}[a)]
+	\item Khi viên đạn đạt được độ cao $1\,962$ mét,
+	$1\,962=2+196t-4{,}9 t^2 \Leftrightarrow t=20$.\\
+	Vậy sau $20$ giây kể từ lúc bắn thì viên đạn đạt được độ cao $1\,962$ mét.
+	\item  Vận tốc tức thời của viên đạn tại thời điểm $t$ là $v(t)=s'(t)=196-9{,}8 t$.\\
+	Viên đạn đạt được độ cao $1\,962$ mét vào thời điểm $t=20$ giây kể tử lúc bắn, khi đó vận tốc tức thời của viên đạn là $v(20)=196-9{,}8\cdot 20=0$ (m/s).
+	\item Viên đạn có vận tốc tức thời bằng $98$ (m/s) thì ta có phương trình\\
+	$v(t)=196-9{,}8 t=98 \Leftrightarrow t=10$.\\
+	Khi đó viên đạn đang ở độ cao là $s(10)=2+196 \cdot 10-4{,}9 \cdot 10^2=1\,472$ mét.
+	\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]   
+Năm $2001$, dân số Việt Nam khoảng $78\,690\,000$ người. Nếu tỉ lệ tăng dân số hàng năm luôn là $1{,}7\%$ thì ước tính số dân Việt Nam sau $x$ năm kể tử năm $2001$ được tính theo hàm số $f(x)=7{,}869 \mathrm{e}^{0{,}017x}$ (chục triệu người). Tốc độ gia tăng dân số (chục triệu người/năm) sau $x$ năm kể từ năm $2001$ được xác định bởi hàm số $f'(x)$.
+\begin{enumerate}[a)]
+	\item Tìm hàm số thể hiện tốc độ gia tăng dân số sau $x$ năm kể từ năm $2001$. 
+	\item Tính tốc độ gia tăng dân số Việt Nam theo đơn vị chục triệu người/năm vào năm $2023$ (làm tròn kết quả đến hàng phần mười), nêu ý nghĩa của kết quả đó.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}[a)]
+		\item $f'(x)=7{,}869 \cdot(0{,}017 x)' \cdot \mathrm{e}^{0,017 x}=7{,}869 \cdot 0{,}017 \cdot \mathrm{e}^{0{,}017 x}=0{,}133773 \mathrm{e}^{0{,}017 x}$.\\
+		Vậy hàm số thể hiện tốc độ gia tăng dân số sau $x$ năm kể từ năm $2001$ là
+		$$f'(x)=0,133773\mathrm{e}^{0{,}017 x}.$$
+		\item Ta có $x=2023-2001=22$.\\
+		Tốc độ gia tăng dân số Việt Nam vào năm $2023$ là
+		$f'(22)=0,133773{\mathrm{e}^{0{,}017\cdot 22}}\approx 0,2$ (chục triệu người/năm).\\
+		Theo kết quả trên thì dân số nước ta tăng thêm khoảng $2$ triệu người trong năm $2023$.
+\end{enumerate}
+}
+\end{vd} 
+
+%-----------------------------------------------------------------------------
+\subsection{Bài tập rèn luyện}
+\ind{PHẦN I.} \inden{Câu trắc nghiệm nhiều phương án lựa chọn. Mỗi câu hỏi học sinh chỉ chọn một phương án.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-TN]%--Đặt tên 2D1-Bai1-Dang1-TN
+
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKI - NH23-24 - THPT Phạm Phú Thứ - Đà Nẵng]%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Gọi $u=u(x)$ và $v=v(x)$ là hai hàm số có đạo hàm trên khoảng $(a;b)$. Khi đó $(u\cdot v)^\prime$ bằng
+	\choice
+	{$u^\prime \cdot v^\prime$}
+	{$u^\prime \cdot v- v^\prime \cdot u$}
+	{\True $u^\prime \cdot v+ v^\prime \cdot u$}
+	{$u \cdot v$}
+	\loigiai{ Ta có $(u\cdot v)^\prime=u^\prime \cdot v+ v^\prime \cdot u$.
+	}
+\end{ex}
+
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKI - NH23-24 - THPT Phạm Phú Thứ - Đà Nẵng]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hai hàm số $f(x)$ và $g(x)$ có $f^\prime (5)=13$, $g^\prime (5)=10$. Đạo hàm của hàm số $f(x)-g(x)$ tại điểm $x=5$ bằng
+	\choice
+	{$13$}
+	{\True $3$}
+	{$10$}
+	{$5$}
+	\loigiai{ Gọi $h(x)=f(x)-g(x)$.\\
+		Ta có $h^\prime(x)=\left(f(x)-g(x)\right)^\prime=f^\prime(x)-g^\prime(x)$.\\
+		Do đó $h^\prime(5)=f^\prime(5)-g^\prime(5)=13-10=3$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 CHKII - NH23-24 - THPT Nguyễn Quốc Trinh - Hà Nội]%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=x^2-x+2$. Tính $y'(1)$.
+	\choice
+	{$y'(1)=2$}
+	{$y'(1)=0$}
+	{\True $y'(1)=1$}
+	{$y'(1)=-1$}
+	\loigiai{
+		Ta có $y'=2x-1\Rightarrow y'(1)=1$.	
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKII - NH23-24 - THPT Hoàng Văn Thụ]%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=2\sqrt{x}-\ln x$ trên $(0;+\infty)$ là
+	\choice
+	{$y'=\dfrac{2}{\sqrt{x}}-\dfrac{1}{x}$}
+	{$y'=\dfrac{1}{2\sqrt{x}}-\dfrac{1}{x}$}
+	{$y'=\dfrac{1}{\sqrt{x}}+\dfrac{1}{x}$}
+	{\True $y'=\dfrac{1}{\sqrt{x}}-\dfrac{1}{x}$}
+	\loigiai{Ta có $y'=\dfrac{1}{\sqrt{x}}-\dfrac{1}{x}$.}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HK2 - NH23-24 - THPT Chuyên Hùng vương - Phú Thọ]%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Hàm số $y = \dfrac{1}{3}x^3 + 2x^2 - 1$ có đạo hàm trên $\mathbb{R}$ bằng
+	\choice
+	{\True $y' = x^2 + 4x$}
+	{$y' = \dfrac{1}{3}x^2 + 4x$}
+	{$y' = x^2 + 4x - 1$}
+	{$y' = x^2 - 4x$}
+	\loigiai{
+		Ta có $y' = \left(\dfrac{1}{3}x^3 + 2x^2 - 1\right)' = x^2 + 4x$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=4^{3-2x}$ là
+	\choice
+	{$y'=2\cdot 4^{3-2x}\cdot \ln{4}$}
+	{\True $y'=-2\cdot 4^{3-2x}\cdot \ln{4} $}
+	{$y'=4^{3-2x}\cdot \ln{4}$}
+	{$y'=-2\cdot 4^{3-2x}$}
+	\loigiai{
+		Ta có $y'=\left(4^{3-2x}\right)' = (3-2x)'\cdot 4^{3-2x}\cdot \ln{4} = -2\cdot 4^{3-2x}\cdot \ln{4}$.
+	}
+\end{ex}
+
+\begin{ex}%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $f(x)=3^x$ là
+	\choice
+	{$f'(x)=x \cdot 3^{x-1}$}
+	{$f'(x)=3^x$}
+	{\True $f'(x)=3^x \cdot \ln 3$}
+	{$f'(x)=\dfrac{3^x}{\ln 3}$}
+	\loigiai{
+		Ta có $f(x)=3^x\Rightarrow f'(x)=3^x\cdot \ln 3$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24 - THPT Đống Đa - Hà Nội]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Hàm số $y=\mathrm{e}^{2x}$ có đạo hàm là
+	\choice
+	{$\mathrm{e}^{2x}$}
+	{$(2+x)\mathrm{e}^x$}
+	{$2x\mathrm{e}^x$}
+	{\True $2\mathrm{e}^{2x}$}
+	\loigiai{Ta có $y'=(2x)'\mathrm{e}^{2x}=2\mathrm{e}^{2x}$.
+	}
+\end{ex}
+\begin{ex}%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Với $x > 0$, đạo hàm của hàm số $y = \log_2 x$ là
+	\choice
+	{\True $y' = \dfrac{1}{x \ln 2}$}
+	{$y' = \dfrac{\ln 2}{x}$}
+	{$y' = \dfrac{x}{\ln 2}$}
+	{$y' = \dfrac{1}{x}$}
+	\loigiai{
+		Ta có $\left(\log_2 x\right)' = \dfrac{1}{x \ln 2}$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKI - NH23-24 - THPT Phạm Phú Thứ - Đà Nẵng]%[1D7N2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=\dfrac{2}{x}$ là
+	\choice
+	{$y^\prime=-\dfrac{2}{x}$}
+	{$y^\prime=2$}
+	{\True $y^\prime=-\dfrac{2}{x^2}$}
+	{$y^\prime=0$}
+	\loigiai{ Ta có $y^\prime=\left(\dfrac{2}{x}\right)^\prime=-\dfrac{2}{x^2}$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24 - THPT Đống Đa- Hà Nội]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	%%[]	
+	Tính đạo hàm của hàm số $y=\sin x+\cos x$.
+	\choice
+	{$y'=\sin x-\cos x$}
+	{$y'=\sin x \cos x$}
+	{\True $y'=\cos x-\sin x$}
+	{$y'=\sin x+\cos x$}
+	\loigiai{Ta có $y'=(\sin x+ \cos x)'=\cos x - \sin x$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24 - THPT Đống Đa- Hà Nội]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=\sqrt{x^2+3x+2}$ là biểu thức có dạng $\dfrac{ax+3}{2\sqrt{x^2+3x+2}}$. Khi đó $a$ bằng
+	\choice
+	{$4$}
+	{$1$}
+	{\True $2$}
+	{$-2$}
+	\loigiai{Ta có $y'=\dfrac{(x^2+3x+2)'}{2\sqrt{x^2+3x+2}}=\dfrac{2x+3}{2\sqrt{x^2+3x+2}}$.\\
+		Suy ra $a=2$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=\sin^2 2x$ trên $\mathbb{R}$ là
+	\choice
+	{$y'=-2\sin 4x$}
+	{\True $y'=2\sin 4x$}
+	{$y'=-2\cos 4x$}
+	{$y'=2\cos 4x$}
+	\loigiai{
+		Ta có $y'=2\sin 2x\cdot\left(2\cos 2x\right)=4\sin 2x\cos 2x=2\sin 4x$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $f(x)=\sin 2x$. Tính $f'(x)$.
+	\choice
+	{$f'(x)=2\sin 2x$}
+	{$f'(x)=\cos 2x$}
+	{\True $f'(x)=2\cos 2x$}
+	{$f'(x)=-\dfrac{1}{2} \cos 2x$}
+	\loigiai{
+		Ta có $f(x)=\sin 2x$, suy ra $f'(x)=2\cos 2x$.
+	}
+\end{ex}
+
+\begin{ex}[Trích đề thi HKII Toán khối 11 - NH23-24 - THPT Chuyên Nguyễn Huệ - Hà Nội]%[1D7N2-5]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=x^2-x+1$ có đồ thị $(C)$. Tiếp tuyến đồ thị $(C)$ tại giao điểm của $(C)$ với trục tung có hệ số góc $k$ bằng
+	\choice
+	{$k=1$}
+	{$k=0$}
+	{$k=2$}
+	{\True $k=-1$}
+	\loigiai{
+		Gọi $M(x_M,y_M)$ là giao điểm của đồ thị $(C)$ với trục tung. Suy ra $M(0;1)$. \\
+		Ta có $y'=2x-2\Rightarrow y'(0)=2\cdot 0 - 1 = -1$. \\
+		Vậy hệ số góc $k=y'(0) = -1$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-3]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=\dfrac{2x-1}{x-1}$ có đồ thị là $(C)$. Phương trình tiếp tuyến của $(C)$ tại điểm $A(0; 1)$ là
+	\choice
+	{\True $y=-x+1$}
+	{$y=-x-1$}
+	{$y=x+1$}
+	{$y=x-1$}
+	\loigiai{
+		Ta có $y'=\dfrac{-1}{(x-1)^2},\,\forall x\neq 1$.\\
+		Hệ số góc tiếp tuyến tại điểm $x_0=0$ là $y'(0)=-1$.\\
+		Khi đó phương trình tiếp tuyến của $(C)$ tại điểm $A(0; 1)$ là $y=-x+1$.
+	}
+\end{ex}
+
+\begin{ex}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Một vật chuyển động thẳng theo phương trình $S(t)=t^2+2t+5$ (m), trong đó $t$ là thời gian chuyển động được tính bằng giây (s), $S(t)$ là quãng đường chuyển động của vật theo thời gian $t$. Tại thời điểm $t=2$ giây, vận tốc của vật là
+	\choice
+	{$13$ m/s}
+	{$4$ m/s}
+	{$8$ m/s}
+	{\True $6$ m/s}
+	\loigiai{
+		Vận tốc tức thời của chuyển động là $v(t)=S'(t)=2t+2$.\\
+		Tại thời điểm $t=2$ giây, vận tốc của vật là $v(2)=2\cdot 2+2=6$ m/s.
+	}
+\end{ex}
+
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=\dfrac{1}{3} x^3-3x^2+5x+1$. Gọi $x_1$, $x_2$ là các nghiệm của phương trình $y^{\prime}=0$, ($x_1 < x_2$). Giá trị của biểu thức $S=2x_2-x_1$ bằng
+	\choice
+	{$-9$}
+	{$4$}
+	{$-4$}
+	{\True $9$}
+	\loigiai{
+		Ta có $y=\dfrac{1}{3} x^3-3x^2+5x+1\Rightarrow y'=x^2-6x+5$.\\
+		$y'=0\Leftrightarrow x^2-6x+5=0\Leftrightarrow \hoac{&x_1=1\\&x_2=5.}$\\
+		Khi đó giá trị của biểu thức $S=2x_2-x_1=2\cdot 5-1=9$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=x^3-3x+2025$. Bất phương trình $y'<0$ có tập nghiệm là
+	\choice
+	{\True $S=\left(-1;1\right)$}
+	{$S=\left(-\infty;-1\right)\cup \left(1;+\infty \right)$}
+	{$\left(1;+\infty \right)$}
+	{$\left(-\infty;-1\right)$}
+	\loigiai{
+		\begin{itemize}
+			\item $y=x^3-3x+2015\Rightarrow y'=3x^2-3$;
+			\item $y' < 0\Leftrightarrow x^2-1 < 0\Leftrightarrow-1 < x < 1$.
+		\end{itemize}
+	Vậy tập nghiệm của bất phương trình đã cho là $S=(-1;1)$.
+	}
+\end{ex}
+\begin{ex}[Trích đề thi HKII Toán khối 11 NH 23 24 - Đợt 16 - THPT Chuyên Nguyễn Huệ - Hà Nội]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Đạo hàm của hàm số $y=(x+1)(7x^2-5x-2\,024)$ có dạng $y'=ax^2+bx+c$ với $a$, $b$, $c$ là các số nguyên. Giá trị của $T=a-b+c$ bằng
+	\choice
+	{\True $-2\,012$}
+	{$-2\,024$}
+	{$19$}
+	{$-19$}
+	\loigiai{
+		Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			y ' & = & (x+1)'(7x^2-5x-2\,024) + (x+1)(7x^2-5x-2\,024)' \\
+			& = & 7x^2 - 5x - 2\,024 + (x+1)(14x-5) \\
+			& = & 7x^2 - 5x - 2\,024 + 14x^2 +  14x - 5x - 5 \\
+			& = & 21x^2 + 4x - 2\,029.
+		\end{eqnarray*}
+		Suy ra $a=21$, $b=4$ và $c=-2\,029$. \\
+		Vậy $T = a - b + c = 21 - 4 - 2\,029 =-2\,012$. 
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\ind{PHẦN II.} \inden{Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, học sinh chọn đúng hoặc sai.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-DS]%--Đặt tên 2D1-Bai1-DS
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII NH23-24-Đợt 16- THPT Đống Đa- Hà Nội]%[1D7V2-5]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=x^3-3x^2-9x+10$ có đồ thị $(C)$.
+	\choiceTF
+	{$y'=3x^2-3x-9$}
+	{\True Tập nghiệm của bất phương trình $y'(x)<0$ là $S=(-1;3)$}
+	{\True Hệ số góc của tiếp tuyến tại giao điểm của $(C)$ với trục $Oy$ bằng $-9$}
+	{Tiếp tuyến có hệ số góc nhỏ nhất của $(C)$ có phương trình là $y=12x-11$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai.}\\ 
+			Ta có $y'=3x^2-6x-9$.
+			\itemch \textbf{Đúng.}\\ 
+			Ta có $y'(x)<0\Leftrightarrow 3x^2-6x-9<0 \Leftrightarrow -1<x<3$.\\
+			Vậy tập nghiệm của bất phương trình $y'(x)<0$ là $S=(-1;3)$.
+			\itemch	\textbf{Đúng.}\\
+			Hệ số góc của tiếp tuyến tại giao điểm của $(C)$ với trục $Oy$ là $y'(0)=-9$.
+			\itemch \textbf{Sai.}\\ 
+			Xét hàm số $g(x)=3x^2-6x-9$.\\
+			Hàm số đạt giá trị nhỏ nhất tại $x=\dfrac{-(-6)}{2\cdot 3}=1$.\\
+			Ta có $y'(1)=g(1)=-12$ và $y(1)=-1$.\\
+			Do đó tiếp tuyến có hệ số góc nhỏ nhất của $(C)$ có phương trình là:\\
+			\[y=y'(1)(x-1)+y(1)=-12(x-1)-1=-12x+11.\]
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}[Trích đề thi HKII Toán khối 11 NH 23 24-Dot16- THPT Chuyên Nguyễn Huệ - Hà Nội]%[1D7V2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Một tài xế đang lái xe ô tô, ngay khi phát hiện có vật cản phía trước đã phanh gấp lại nhưng vẫn xảy ra va chạm, chiếc ô tô để lại vết trượt dài $20{,}4$ m (được tính từ lúc bắt đầu đạp phanh đến khi xảy ra va chạm), tốc độ giới hạn cho phép trên đoạn đường này là $70$ km/h. Trong quá trình đạp phanh, ô tô chuyển động theo phương trình $s(t)=20t-\dfrac{5}{2}t^2$, trong đó $s$ (tính bằng mét) là độ dài quãng đường đi được sau khi phanh, $t$ (tính bằng giây) là thời gian tính từ lúc bắt đầu phanh $(0\le t \le 4)$.
+	\choiceTF
+	{Vận tốc tức thời của ô tô tại thời điểm $t$ là $v(t)=20t-5t^2$}
+	{\True Xe ô tô này đã chạy quá tốc độ cho phép}
+	{\True Vận tốc tức thời của ô tô ngay khi đạp phanh là $20$ m/s}
+	{\True Vận tốc tức thời của ô tô ngay khi xảy ra va chạm là $14$ m/s}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai}. Vận tốc tức thời của ô tô tại thời điểm $t$ là $v(t)=s'(t) = \left(20t-\dfrac{5}{2}t^2\right)' = 20 - 5t$.
+			\itemch \textbf{Đúng}. Ta có $70$ km/h = $\dfrac{175}{9}$ m/s. \\
+			Ta có $0\le t \le 4$ suy ra $0 \le 20-5t \le 20$ hay $0 \le v(t)\le 20$. \\
+			Vậy xe ô tô này đã chạy quá tốc độ cho phép.
+			\itemch \textbf{Đúng}. Vận tốc tức thời của ô tô ngay khi đạp phanh là $v(0) = 20 - 5\cdot 0 = 20$ m/s.
+			\itemch \textbf{Đúng}. Ta có 
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				& & 20t - \dfrac{5}{2}t^2 = 20{,}4 \\
+				&\Leftrightarrow& - \dfrac{5}{2}t^2 + 20t - 20{,}4 = 0 \\
+				&\Leftrightarrow& \hoac{&t=1{,}2 & \text{(N)}\\ & t = 6{,}8 &\text{(L)}.}
+			\end{eqnarray*}
+			Suy ra thời gian ô tô đã đi được sau khi phanh đến khi xảy ra va chạm là $t=1{,}2$. \\
+			Vậy vận tốc tức thời của ô tô ngay khi xảy ra va chạm là $v(1{,}2) = 20 - 5\cdot 1{,}2 = 14$ m/s.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HK2 - NH23-24 - THPT Chuyên Hùng Vương - Phú Thọ]%[1D7H2-3]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y = f(x) = \sqrt{x}$, có đồ thị $(C)$
+	\choiceTF
+	{\True Hàm số có đạo hàm trên $(0;+\infty)$}
+	{\True $f'(9) = \dfrac{1}{6}$}
+	{Hàm số $y = f(x^2 + 1)$ có đạo hàm là $y' = \dfrac{1}{2\sqrt{x^2 + 1}}$ trên $\mathbb{R}$}
+	{Gọi $M$ là điểm thuộc $(C)$ có hoành độ bằng $4$, tiếp tuyến của $(C)$ tại $M$ có hệ số góc bằng $\dfrac{1}{2}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng.} Tập xác định $\mathscr{D} = [0;+\infty)$ và hàm số có đạo hàm trên $(0;+\infty)$.
+			\itemch \textbf{Đúng.} Ta có $f'(x) = \dfrac{1}{2\sqrt{x}} \Rightarrow f'(9) = \dfrac{1}{2\sqrt{9}} = \dfrac{1}{6}$.
+			\itemch \textbf{Sai.} Ta có $y' = \left(f(x^2 + 1)\right)'= \dfrac{(x^2 + 1)'}{2 \sqrt{x^2 + 1}} = \dfrac{2x}{2 \sqrt{x^2 + 1}} = \dfrac{x}{\sqrt{x^2 + 1}}.$
+			\itemch \textbf{Sai.} Hệ số góc của tiếp tuyến tại điểm $M$ là $k = f'(4) = \dfrac{1}{2\sqrt{4}} = \dfrac{1}{4}$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24 - THPT Đống Đa - Hà Nội]%[1D7V2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $f(x)=\ln x-\ln (x+1)$
+	\choiceTF
+	{Hàm số có tập xác định là $(-1;+\infty)$}
+	{\True $f'(x)=\dfrac{1}{x}-\dfrac{1}{x+1}$}
+	{Phương trình $f'(x)=\dfrac{1}{6}$ có tổng các nghiệm bằng $-1$}
+	{\True Cho biểu thức $P=f'(1)+f'(2)+f'(3)+\ldots+f'(2\,023)+f'(2\,024)$. Giá trị của biểu thức $P$ bằng $\dfrac{2\,024}{2\,025}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai.}\\
+			Hàm số xác định khi và chỉ khi $\heva{&x>0\\&x+1>0}\Leftrightarrow x>0$.\\
+			Vậy tập xác định của hàm số là $\mathscr{D}=(0;+\infty)$.
+			\itemch \textbf{Đúng.}\\
+			Ta có $f'(x)=\left(\ln x-\ln (x+1)\right)'= \dfrac{1}{x}-\dfrac{(x+1)'}{x+1}=\dfrac{1}{x}-\dfrac{1}{x+1}$.
+			\itemch \textbf{Sai.}\\
+			Xét phương trình \[f'(x)=\dfrac{1}{6}\Leftrightarrow \dfrac{1}{x}-\dfrac{1}{x+1}=\dfrac{1}{6} \Leftrightarrow \dfrac{1}{x(x+1)}=\dfrac{1}{6}\Leftrightarrow x(x+1)=6\Leftrightarrow \hoac{&x=2\\&x=-3.}\]
+			Vì $-3\notin\mathscr{D}$ nên $-3$ không phải là nghiệm của phương trình.\\
+			$2\in\mathscr{D}$ nên $2$ là nghiệm của phương trình.\\
+			Suy ra tổng các nghiệm là $2$.
+			\itemch \textbf{Đúng.}\\ 
+			Ta có $P=\dfrac{1}{1}-\dfrac{1}{2}+\dfrac{1}{2}-\dfrac{1}{3}+\ldots+\dfrac{1}{2\,023}-\dfrac{1}{2\,024}+\dfrac{1}{2\,024}-\dfrac{1}{2\,025}=1-\dfrac{1}{2\,025}=\dfrac{2\,024}{2\,025}$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKII - NH232 4- THPT Hoàng Văn Thụ - Hà Nội]%[1D7V2-5]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=f(x)=\sin x+\cos 2x+3$ có đồ thị $(C)$.
+	\choiceTF
+	{\True Phương trình $f'(x)=0$ có $4$ nghiệm phân biệt thuộc $[0; 2\pi]$}
+	{Phương trình tiếp tuyến của $(C)$ tại điểm $M(0; 4)$ là $y=x-4$}
+	{\True Đạo hàm của hàm số là $f'(x)=\cos x-2\sin 2x$}
+	{$f'\left(-\dfrac{\pi}{4}\right)=2-\dfrac{\sqrt{2}}{2}$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng.}\\
+			Ta có $f'(x)=0$ tương đương với 
+			\begin{eqnarray*}
+				& & \cos x-2\sin2x=0\\
+				&\Leftrightarrow & \cos x-4\sin x \cos x=0 \Leftrightarrow  \cos x\left(1-4\sin x \right)=0\\
+				&\Leftrightarrow & \hoac{&\cos x=0\\&\sin x=\dfrac{1}{4}}\Leftrightarrow \hoac{&x=\dfrac{\pi}{2}+k\pi\\&x=\alpha+k2\pi\\&x=\pi -\alpha+k2\pi}, k\in\mathbb{Z}.
+			\end{eqnarray*}	
+			với $\sin\alpha=\dfrac{1}{4}$.\\
+			Vì $[0; 2\pi]$ có độ dài là một chu kì nên phương trình $f'(x)=0$ có $4$ nghiệm phân biệt thuộc $[0; 2\pi]$.
+			\itemch \textbf{Sai.}\\
+			Ta có $f'(0)=1$. Khi đó phương trình tiếp tuyến của $(C)$ tại điểm $M(0; 4)$ là
+			\[y=f'(0)(x-0)+4\Leftrightarrow y=x+4.\]
+			\itemch \textbf{Đúng.}\\
+			Đạo hàm của hàm số là $f'(x)=\cos x-2\sin 2x$.
+			\itemch \textbf{Sai.}\\
+			Ta có $f'\left(-\dfrac{\pi}{4}\right)= \cos \left(-\dfrac{\pi}{4}\right)-2\sin 2\left(-\dfrac{\pi}{4}\right)=\dfrac{\sqrt{2}}{2}+2$.
+	\end{itemchoice}}
+\end{ex}
+\Closesolutionfile{ans}
+\ind{PHẦN III.} \inden{Câu trắc nghiệm trả lời ngắn}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D1-Bai1-DS]%--Đặt tên 2D1-Bai1-DS
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH2324 - THPT Đống Đa- Hà Nội]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $f(x)$ có đạo hàm tại mọi điểm thuộc tập xác định, hàm số $g(x)$ được xác định bởi $g(x)=2xf(x)$. Biết $f'(1)=f(1)=1$. Tính $g'(1)$.
+		\shortans[oly]{4}
+	\loigiai{
+		Ta có $g'(x)=\left[2xf(x)\right]'=2f(x)+2xf'(x)$.\\
+		Suy ra $g'(1)=2f(1)+2\cdot1\cdot f'(1)=4$.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24 - THPT Phạm Phú Thứ - Đà Nẵng]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $f(x)=x \cdot \sqrt{x+1}$. Khi đó, $f'(x)=0\Leftrightarrow x=-\dfrac{m}{n}$ với $\dfrac{m}{n}$ là phân số tối giản. Tính $m+n$.
+	\shortans[oly]{3}
+	\loigiai{
+		Ta có $f'(x)=  \sqrt{x+1}+x\cdot \dfrac{1}{ \sqrt{x+1}}=\dfrac{ 2x+1}{ \sqrt{x+1}}$.\\
+		$f'(x)=0\Leftrightarrow 2x+1=0\Leftrightarrow x=-\dfrac{1}{2}$.\\
+		Suy ra $m=1$, $n=2$.\\
+		Vậy $m+1=3$.
+	}
+\end{ex}
+\begin{ex}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Một vật chuyển động rơi tự do có phương trình $h(t)=50-\dfrac{1}{2} g t^2$, trong đó $h$ là độ cao của vật so với mặt đất tính bằng mét, thời gian $t$ tính bằng giây và $g=9{,}8$ m/s$^2$ là gia tốc rơi tự do. Khi đó, vận tốc của vật khi vật vừa chạm đất là $v_1$ m/s. Tìm $\left|v_1\right|$ (làm tròn đến hàng đơn vị).
+		\shortans[oly]{31}
+	\loigiai{
+		Khi vật chạm đất, độ cao $h(t)=0$:
+		\[50-\dfrac{1}{2} g t^2=0\Leftrightarrow 50-\dfrac{1}{2} \cdot 9{,}8 t^2=0\Leftrightarrow t^2=\dfrac{50}{4{,}9}\Leftrightarrow t=\sqrt{\dfrac{50}{4{,}9}}\approx 3{,}194~\text{s}.\]
+		Vận tốc của vật tại thời điểm $t$ được tính bằng đạo hàm của $h(t)$:\\
+		Ta có $v(t)=h'(t)=-gt $.\\
+		Khi vật chạm đất, $t\approx  3{,}194~\text{s}$, do đó vận tốc của vật là
+		\[v_1=v(3{,}194)=-9{,}8\cdot 3{,}194\approx -31{,}301~\text{m/s}.\]
+		Ta có $|v_1|\approx 31$ m/s.
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 12 HKII - NH24-25 - Sở GD\&ĐT Nam Định]%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Sau khi phát hiện một bệnh dịch, các chuyên gia y tế ước tính số người nhiễm bệnh kể từ ngày xuất hiện bệnh nhân đầu tiên đến ngày thứ $t$ là $f(t)=45 t^2-t^3$, $t=0,1,2, \ldots, 25$. Nếu coi $f(t)$ là hàm số xác định trên đoạn $[0; 25]$ thì đạo hàm $f'(t)$ được xem là tốc độ truyền bệnh (người/ngày) tại thời điểm $t$ ngày. Hỏi đến ngày thứ mấy thì tốc độ truyền bệnh là $675$ (người/ngày)?
+	\shortans[oly]{15}
+	\loigiai{
+		Ta có $f'(t)=-3t^2+90t$.\\
+		Theo đề bài, ta có phương trình
+		\[-3t^2+90t=675\Leftrightarrow -3t^2+90t-675=0\Leftrightarrow x=15\ (\text{thỏa mãn}).\]
+		Vậy đến ngày thứ $15$ thì tốc độ truyền bệnh là $675$ (người/ngày).
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 GHKI NH23-24-THPT Chuyên Hùng vương - Phú Thọ]%[1D7H2-3]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Trong mặt phẳng tọa độ $Oxy$, tiếp tuyến của đồ thị hàm số $y=\dfrac{3x-2}{x+1}$ tại điểm $A(4;2)$ cắt trục hoành và trục tung lần lượt tại $M$ và $N$. Tính diện tích tam giác $OMN$.
+	\shortans[oly]{3{,}6}
+	\loigiai{
+		Ta có $y'=\dfrac{5}{(x+1)^2}\Rightarrow y'(4)=\dfrac{1}{5}$.\\
+		Phương trình tiếp tuyến của đồ thị hàm số đã cho tại $A(4;2)$ là
+		$$y-2=\dfrac{1}{5}\cdot (x-4)\Leftrightarrow y=\dfrac{1}{5}x+\dfrac{6}{5}.$$
+		Từ đó ta có $M(-6;0)$ và $N\left(0;\dfrac{6}{5}\right)$. Diện tích tam giác $OMN$ là
+		$$S_{\triangle OMN}=\dfrac{1}{2}OM\cdot ON=\dfrac{1}{2}\cdot |-6|\cdot \dfrac{6}{5}=\dfrac{18}{5}=3{,}6.$$
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\ind{PHẦN IV.} \inden{Tự luận.}\\
+\setcounter{ex}{0}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Tính đạo hàm của mỗi hàm số sau
+	\begin{enumEX}{2}
+		\item $y = 3x^2 + 2\sqrt{x}$;
+		\item $y = x^7 \cdot \sin x$;
+		\item $y = \dfrac{3x + 2}{4x + 3}$;
+		\item $y = \sin^3 4x$.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumEX}{1}
+			\item $y = 3x^2 + 2\sqrt{x} \Rightarrow y' = 6x + \dfrac{2}{2\sqrt{x}} = 6x + \dfrac{1}{\sqrt{x}}$.
+			\item $y = x^7 \cdot \sin x \Rightarrow y' = 7x^6 \cdot \sin x + x^7 \cdot \cos x$.
+			\item $y = \dfrac{3x + 2}{4x + 3}\Rightarrow y' = \dfrac{3\cdot 3 - 2\cdot 4}{(4x+3)^2} = \dfrac{1}{(4x+3)^2}$.
+			\item $y = \sin^3 4x \Rightarrow y' = 3\sin^2 4x \cdot (\sin 4x)' = 12 \sin^2 4x\cdot  \cos 4x$.
+		\end{enumEX}
+	}
+\end{ex}
+\begin{ex}[Trích đề kiểm tra Toán 11 HKII - NH23-24- THPT DƯƠNG VĂN THÌ]%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Tính đạo hàm của các hàm số sau
+	\begin{listEX}[2]
+		\item $y=-x^3-2 x+2$;
+		\item $y=\dfrac{2 x^2+3 x+2}{x^2+x-4}$;
+		\item $y=\sin 2 x \cdot \cos 3 x$;
+		\item $y=\log _3\left(x^2+2 x-3\right)$.
+	\end{listEX}
+	\loigiai{
+		\begin{enumerate}
+			\item $y=-x^3-2 x+2$ có $y'=\left(-x^3-2 x+2\right)'=-3x^2-2$.
+			\item $y=\dfrac{2 x^2+3 x+2}{x^2+x-4}$ có
+			\begin{eqnarray*}
+				y'&=&\left(\dfrac{2 x^2+3 x+2}{x^2+x-4}\right)'\\
+				&=&\dfrac{\left(2 x^2+3 x+2\right)'\left(x^2+x-4\right)-\left(2 x^2+3 x+2\right)\left(x^2+x-4\right)'}{\left(x^2+x-4\right)^2}\\
+				&=&\dfrac{\left(4 x+3\right)\left(x^2+x-4\right)-\left(2 x^2+3 x+2\right)\left(2x+1\right)}{\left(x^2+x-4\right)^2}\\
+				&=&\dfrac{-x^2-20x-14}{\left(x^2+x-4\right)^2}.
+			\end{eqnarray*}
+			\item $y=\sin 2 x \cdot \cos 3 x$ có 
+			\begin{eqnarray*}
+				y'&=&(\sin 2 x \cdot \cos 3 x)'\\
+				&=& (\sin 2x)'\cdot \cos 3x+\sin 2x\cdot (\cos 3x)'\\
+				&=&2\cdot \cos 2x\cdot \cos 3x-3\sin 2x\cdot \sin 3x.
+			\end{eqnarray*}
+			\item $y=\log _3\left(x^2+2 x-3\right)$ có 
+			\begin{eqnarray*}
+				y'&=&\left[\log _3\left(x^2+2 x-3\right)\right]'\\
+				&=&\dfrac{\left(x^2+2 x-3\right)'}{\left(x^2+2 x-3\right)\cdot \ln3}\\
+				&=&\dfrac{\left(2x+2\right)}{\left(x^2+2 x-3\right)\cdot \ln3}.
+			\end{eqnarray*}
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $f(x)=\dfrac{x}{\sqrt{4-x^2}}$ và $g(x)=\dfrac{1}{x}+\dfrac{1}{\sqrt{x}}+x^2$. Tính $f'(0)-g'(1)$.
+	\loigiai{
+		Dùng quy tắc tính đạo hàm $f'(x), g'(x)$ và thay giá trị tương ứng.\\
+		Ta có:
+		\begin{eqnarray*}
+			&& f'(x)=\dfrac{\sqrt{4-x^2}+\dfrac{x^2}{\sqrt{4-x^2}}}{\left(\sqrt{4-x^2}\right)^2}=\dfrac{4}{\left(4-x^2\right) \sqrt{4-x^2}} \\
+			&& g'(x)=-\dfrac{1}{x^2}-\dfrac{1}{2 x \sqrt{x}}+2 x
+		\end{eqnarray*}
+		Do đó $f'(0)=\dfrac{1}{2}$, $g'(1)=\dfrac{1}{2}$ và $f'(0)-g'(1)=0$.	
+	}
+\end{ex}
+
+\begin{ex}%[1D7H2-3]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Cho hàm số $y=x^2+3x$ có đồ thị $(C)$. Viết phương trình tiếp tuyến của đồ thị $(C)$ tại điểm có
+	\begin{tasks}(2)
+		\task Hoành độ bằng $-1$;
+		\task Tung độ bằng $4$.
+	\end{tasks} 
+	\loigiai{
+		Gọi $M(x_0;y_0)$ là tiếp điểm và $y'=2x+3$.
+		\begin{enumerate}[a)]
+			\item 
+			Ta có $x_0=-1$ suy ra $y_0=-2$.\\
+			Khi đó $y'(-1)=2\cdot (-1)+3=1$.\\
+			Ta có phương trình tiếp tuyến của đồ thị hàm số là $$y=y'(-1)\cdot (x+1)-2=x-1.$$
+			\item 
+			Ta có $y_0=4\Leftrightarrow x_0^2+3x_0=4\Leftrightarrow \hoac{&x=1\\&x=-4.}$\\
+			Với $x=1$ suy ra $y'(1)=5$.\\
+			Ta có phương trình tiếp tuyến của đồ thị hàm số là $$y=y'(1)\cdot (x-1)+4=5(x-1)+4=5x-1.$$
+			Với $x=-4$ suy ra $y'(-4)=-5$.\\
+			Phương trình tiếp tuyến là $$y=y'(-4)\cdot (x+4)+4=-5(x+4)+4=-5x-16.$$
+		\end{enumerate}
+	}
+\end{ex}
+\begin{ex}%[1D7H2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+Cho hàm số $f(x)=2^{3x-6}$. Giải phương trình $f'(x)=3\ln 2$.
+\loigiai{
+	Ta có $f'(x)=3\cdot 2^{3x-6}\cdot\ln 2$.\\
+	Khi đó
+	$f'(x)=3\ln 2\Leftrightarrow 3\cdot 2^{3x-6}\cdot\ln 2=3\cdot \ln 2\Leftrightarrow 2^{3x-6}=1\Leftrightarrow x=2$.\\
+Vậy phương trình đã cho có nghiệm là $x=2$.} 
+\end{ex} 
+\begin{ex}%[1D7H1-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+Giải bất phương trình $f'(x)<0$, biết
+\begin{enumerate}
+	\item $f(x)=x^3-9x^2+24x$;
+	\item $f(x)=-\log_{5}(x+1)$.
+\end{enumerate}
+\loigiai{
+	\begin{enumerate}
+		\item Ta có $f'(x)=3x^2-18x+24$.\\
+		Khi đó, $f'(x)<0\Leftrightarrow 3x^2-18x+24<0\Leftrightarrow 2<x<4$.\\
+		Vậy bất phương trình đã cho có tập nghiệm là $S=(2;4)$.
+		\item Ta có $f'(x)=-\dfrac{1}{(x+1)\ln 5}$.\\
+		Khi đó, $f'(x)<0\Leftrightarrow -\dfrac{1}{(x+1)\ln 5}<0\Leftrightarrow x+1>0\Leftrightarrow x>-1$.\\
+		Vậy bất phương trình đã cho có tập nghiệm là $S=(-1;+\infty)$.
+	\end{enumerate}
+}
+\end{ex} 
+\begin{ex}%[1D7V2-1]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+Cho hàm số $f(x)$ có đạo hàm tại mọi điểm thuộc tập xác định, hàm số $g(x)$ được xác định bởi $g(x)=\left[ f(x)\right]^2+2xf(x)$. Biết $f'(0)=f(0)=1$. Tính $g'(0)$.
+\loigiai{
+Ta có $g'(x)=2f'(x)\cdot f(x)+2f(x)+2x\cdot f'(x)$.\\
+Khi đó $g'(0)=2\cdot f'(0)\cdot f(0)+2 \cdot f(0)+2\cdot 0 \cdot f'(0)=4$.
+} 
+\end{ex}
+
+\begin{ex}%[1D7H2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Một chất điểm chuyển động thẳng có phương trình $s=100+2t-t^2$ trong đó thời gian được tính bằng giây và $s$ được tính bằng mét.
+	\begin{tasks}
+		\task Tại thời điểm nào chất điểm có vận tốc bằng $0$?
+		\task Tìm vận tốc và gia tốc của chất điểm tại tời điểm $t=3$ s.
+	\end{tasks}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có $v(t)=s'(t)=2-2t$.\\
+			$v(t)=0\Rightarrow 2-2t=0\Leftrightarrow t=1$.\\
+			Vậy tại thời điểm $t=1$ (s) chất điểm có vận tốc bằng $0$.\\
+			\item Ta có $a(t)=v'(t)=-2$.\\
+			Khi đó $v(3)=2-2\cdot 3=-4$\,(m/s); $a(3)=-2$ (m/s$^2$).
+	\end{enumerate}}
+\end{ex}
+
+\begin{ex}%[1D7V2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Nếu số lượng sản phẩm sản xuất được của một nhà máy là $x$ (đơn vị: trăm sản phẩm) thì lợi nhuận sinh ra là $P(x)=200\left(x-2\right)\left(17-x\right)$ (nghìn đồng). Tính tốc độ thay đổi lợi nhuận của nhà máy đó khi sản xuất $3\,000$ sản phẩm.
+	\loigiai{
+		Ta có 
+		$$P'(x)=200\left(x-2\right)'\left(17-x\right)+200\left(x-2\right){\left(17-x\right)'}=200\left(17-x\right)-200\left(x-2\right)=200\left(19-2x\right).$$
+		Tốc độ thay đổi lợi nhuận của nhà máy đó khi sản xuất $3\,000$ sản phẩm là
+		$$P'\left(30\right)=200\left(19-2\cdot 30\right)=-8\,200.$$}
+\end{ex}
+\begin{ex}%[1D7V2-8]%[Dự án đề cương 3 khối NH 24-25 - Đợt 1 - LamNguyen]
+	Một mạch dao động điện từ $LC$ có lượng điện tích dịch chuyển qua tiết diện thẳng của một dây xác định bởi hàm số $Q(t)=10^{-5}\sin \left(2\,000t+\dfrac{\pi}{3}\right)$, trong đó $t>0$, $t$ tính bằng giây, $Q$ tính bằng Coulomb. Tính cường độ dòng điện tức thời $I$ (A) trong mạch tại thời điểm $t=\dfrac{\pi}{1\,500}$ (s). Biết $I(t)=Q'(t)$.
+	\loigiai{
+		Cường độ dòng điện tức thời trong mạch tại thời điểm $t$ (s) là
+		$$I(t)=Q'(t)=10^{-5}\cdot 2\,000 \cos \left(2\,000t+\dfrac{\pi}{3}\right)=0{,}02\cos \left(2\,000t+\dfrac{\pi}{3}\right).$$
+		Cường độ dòng điện tức thời trong mạch tại thời điểm $t=\dfrac{\pi}{1\,500}$ (s) là
+		$$I\left(\dfrac{\pi}{1\,500}\right)=0{,}02\cos \left(2\,000\cdot \dfrac{\pi}{1\,500}+\dfrac{\pi}{3}\right)=0{,}01\text{ (A)}.$$
+	}
+\end{ex}
+

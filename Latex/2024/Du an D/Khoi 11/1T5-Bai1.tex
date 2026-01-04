@@ -1,0 +1,1975 @@
+\section{SỐ TRUNG BÌNH VÀ MỐT CỦA MẪU SỐ LIỆU GHÉP NHÓM}
+\subsection{LÝ THUYẾT CẦN NHỚ}
+\subsubsection{MẪU SỐ LIỆU GHÉP NHÓM}
+\iconGN~\indam{Định nghĩa:}
+	\begin{boxdn}
+	 	\iconMT~\textbf{Mẫu số liệu ghép nhóm} thường được trình bày dưới dạng bảng thống kê có dạng như sau
+	 \begin{center}
+	 	\textbf{\textit{Bảng 1: Bảng tần số ghép nhóm}}\\
+	 	\begin{tabular}{|c|c|c|c|c|}
+	 		\hline
+	 		\textbf{Nhóm} &$\left[u_1;u_2\right)$ &$\left[u_2; u_3\right)$ & $\ldots$ &$\left[u_k; u_{k+1}\right)$ \\
+	 		\hline \textbf{Tần số} & $n_1$ & $n_2$ & $\ldots$ & $n_k$ \\
+	 		\hline
+	 	\end{tabular}
+	 \end{center}
+	\end{boxdn}
+	\begin{note}
+		\begin{itemize}
+			\item Bảng trên gồm \textbf{$k$ nhóm} $\left[u_j;u_{j+1}\right)$ với $1 \leq j \leq k$, mỗi nhóm gồm một số giá trị được ghép theo một tiêu chí xác định.
+			\item Nhóm số liệu thường được cho dưới dạng $\left[u_j; u_{j+1}\right)$ trong đó $u_j$ là \textbf{đầu mút trái}, $u_{j+1}$ là \textbf{đầu mút phải}.
+			\item Cỡ mẫu $n=n_1+n_2+\cdots+n_k$.
+			\item Giá trị chính giữa của mỗi nhóm được dùng làm \textbf{giá trị đại diện} cho nhóm ấy.\\ Ví dụ nhóm $\left[u_1; u_2\right)$ có \textbf{giá trị đại diện} là $\dfrac{u_1+u_2}{2}$.
+			\item Hiệu $u_{j+1}-u_j$ được gọi là \textbf{độ dài} của nhóm $\left[u_j; u_{j+1}\right)$.
+		\end{itemize}
+	\end{note}
+	%%=====Ví dụ 1
+	\begin{vd}%[1D5N1-2]
+		Tính giá trị đại diện và độ dài của mỗi nhóm trong mẫu số liệu sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline \textbf{Khoảng tuổi} & $[20;30)$ & $[30;40)$ & $[40;50)$ & $[50;60)$ & $[60;70)$ \\
+				\hline \textbf{Số khách hàng nữ} & $3$ & $9$ & $6$ & $4$ & $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\loigiai{
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \textbf{Khoảng tuổi} &{[20; 30)} &{[30; 40)} &{[40; 50)} &{[50; 60)} &{[60; 70)} \\
+					\hline \textbf{Giá trị đại diện} & 25 & 35 & 45 & 55 & 65 \\
+					\hline \textbf{Độ dài của nhóm} & 10 & 10 & 10 & 10 & 10 \\
+					\hline
+				\end{tabular}
+			\end{center}
+		}
+	\end{vd}
+	\begin{khung4}{MỘT SỐ QUY TẮC GHÉP NHÓM CỦA MẪU SỐ LIỆU}
+		Mỗi mẫu số liệu có thể được ghép nhóm theo nhiều cách khác nhau nhưng thường tuân theo một số quy tắc sau
+		\begin{itemize}
+			\item Sử dụng từ $k=5$ đến $k=20$ nhóm.\\ 
+			Cỡ mẫu càng lớn thì cần càng nhiều nhóm số liệu.\\
+			Các nhóm có cùng độ dài bằng $L$ thoả mãn $R<k\cdot L$, trong đó $R$ là \textbf{khoảng biến thiên}, $k$ là \textbf{số nhóm}.
+			\item \textbf{Giá trị nhỏ nhất} của mẫu thuộc vào nhóm $\left[u_1; u_2\right)$ và càng gần $u_1$ càng tốt.\\ \textbf{Giá trị lớn nhất} của mẫu thuộc nhóm $\left[u_k; u_{k+1}\right)$ và càng gần $u_{k+1}$ càng tốt.
+		\end{itemize}
+	\end{khung4}
+	%%=====Ví dụ 2
+	\begin{vd}%[1D5H1-2]
+		Cân nặng của $28$ học sinh nam lớp $11$ được cho như sau
+		\begin{center}
+			\begin{tabular}{llllllllllllll}
+				$55{,}4$ & $62{,}6$ & $54{,}2$ & $56{,}8$ & $58{,}8$ & $59{,}4$ & $60{,}7$ & $58$ & $59{,}5$ & $63{,}6$ & $61{,}8$ & $52{,}3$ & $63{,}4$ & $57{,}9$\\
+				$49{,}7$ & $45{,}1$ & $56{,}2$ & $63{,}2$ & $46{,}1$ & $49{,}6$ & $59{,}1$ & $55{,}3$ & $55{,}8$ & $45{,}5$ & $46{,}8$ & $54$ & $49{,}2$ & $52{,}6$
+			\end{tabular}
+		\end{center}
+		Hãy chia mẫu dữ liệu trên thành $5$ nhóm, lập bảng tần số ghép nhóm và xác định giá trị đại diện cho mỗi nhóm.
+		\loigiai{
+			Khoảng biến thiên của mẫu số liệu trên là $R=63{,}6-45{,}1=18{,}5$.\\
+			Độ dài của mỗi nhóm $L>\dfrac{R}{k}=\dfrac{18{,}5}{5}=3{,}7$.\\
+			Ta chọn $L=4$ và chia dữ liệu thành các nhóm $\left[45;49\right)$, $\left[49;53\right)$, $\left[53;57\right)$, $\left[57;61\right)$, $\left[61;65\right)$.\\
+			Khi đó ta có bảng tần số ghép nhóm như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \textbf{Cân nặng} &{$\left[45;49\right)$} &{$\left[49;53\right)$} &{$\left[53;57\right)$} &{$\left[57;61\right)$} &{$\left[61;65\right)$} \\
+					\hline \textbf{Giá trị đại diện} & $47$ & $51$ & $55$ & $59$ & $63$ \\
+					\hline \textbf{Số học sinh} & $4$ & $5$ & $7$ & $7$ & $5$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		}
+	\end{vd}
+	\begin{note}
+		\begin{itemize}
+			\item Các đầu mút của các nhóm có thể không là giá trị của mẫu số liệu.
+			\item Ta hay gặp các bảng số liệu ghép nhóm là \textbf{số nguyên}, chẳng hạn như bảng thống kê số lỗi chính tả trong bài kiểm tra giữa học kì 1 môn Ngữ Văn của học sinh khối 11 như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \textbf{Số lỗi} &{$\left[1;2\right]$} &{$\left[3;4\right]$} &{$\left[5;6\right]$} &{$\left[7;8\right]$} &{$\left[9;10\right]$} \\
+					\hline \textbf{Số bài} & $122$ & $75$ & $14$ & $5$ & $2$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Bảng số liệu này không có dạng như Bảng 1. Để thuận lợi cho việc tính các số đặc trưng cho bảng số liệu này, người ta hiệu chỉnh về dạng như Bảng 1 bằng cách thêm và bớt $0{,}5$ đơn vị vào đầu mút bên phải và bên trái của mỗi nhóm số liệu như sau:
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \textbf{Số lỗi} &{$[0{,}5; 2{,}5)$} &{$[2{,}5; 4{,}5)$} &{$[4{,}5; 6{,}5)$} &{$[6{,}5; 8{,}5)$} &{$[8{,}5; 10{,}5)$} \\
+					\hline \textbf{Số bài} & $122$ & $75$ & $14$ & $5$ & $2$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{itemize}
+	\end{note}
+	%%=====Ví dụ 3
+	\begin{vd}%[1D5H1-2]
+		Một cửa hàng đã thống kê số ba lô bán được mỗi ngày trong tháng $9$ với kết quả cho như sau
+		\begin{center}
+			\begin{tabular}{lllllllllllllll}
+				$12$ & $29$ & $12$ & $19$ & $15$ & $21$ & $19$ & $29$ & $28$ & $12$ & $15$ & $25$ & $16$ & $20$ & $29$\\
+				$21$ & $12$ & $24$ & $14$ & $10$ & $12$ & $10$ & $23$ & $27$ & $28$ & $18$ & $16$ & $10$ & $20$ & $21$
+			\end{tabular}
+		\end{center}
+		Hãy chia mẫu số liệu trên thành $5$ nhóm, lập bảng tần số ghép nhóm, hiệu chỉnh bảng tần số ghép nhóm và xác định giá trị đại diện cho mỗi nhóm.
+		\loigiai{
+			Khoảng biến thiên của mẫu số liệu trên là $R=29-10=19$.\\
+			Độ dài của mỗi nhóm $L>\dfrac{R}{k}=\dfrac{19}{5}=3{,}8$.\\
+			Ta chọn $L=4$ và chia dữ liệu thành các nhóm $\left[10;14\right)$, $\left[14;18\right)$, $\left[18;22\right)$, $\left[22;26\right)$, $\left[26;30\right)$.\\
+			Khi đó ta có bảng tần số ghép nhóm sau
+			\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline \textbf{Cân nặng} &{$\left[10;14\right)$} &{$\left[14;18\right)$} &{$\left[18;22\right)$} &{$\left[22;26\right)$} &{$\left[26;30\right)$} \\
+				\hline \textbf{Giá trị đại diện} & $12$ & $16$ & $20$ & $24$ & $28$ \\
+				\hline \textbf{Số ba lô bán được} & $8$ & $5$ & $8$ & $3$ & $6$ \\
+				\hline
+			\end{tabular}
+			\end{center}
+		}
+	\end{vd}
+\subsubsection{SỐ TRUNG BÌNH}
+Giả sử mẫu số liệu được cho dưới dạng bảng tần số ghép nhóm
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+	Nhóm	& Nhóm $1$ & Nhóm $2$ & $\ldots$ & Nhóm $k$ \\
+		\hline
+	Giá trị đại diện	& $c_{1}$ & $c_{2}$ & $\ldots$ & $c_{k}$ \\
+		\hline
+	Tần số	& $n_{1}$ & $n_{1}$ & $\ldots$ & $n_{k}$ \\
+		\hline
+	\end{tabular}
+\end{center}
+	\begin{boxdn}
+	\iconMT~\textbf{Số trung bình} của mẫu số liệu ghép nhóm, kí hiệu $\overline{x}$, được tính như sau
+	\[\overline{x}=\dfrac{n_1 c_1+n_2 c_2+\cdots+n_k c_k}{n}, \]
+	trong đó $n=n_1+n_2+\cdots+n_k$.
+	\end{boxdn}
+	%%=====Ví dụ 4
+	\begin{vd}%[1D5H1-3]
+		Kết quả khảo sát cân nặng của $25$ quả cam ở mỗi lô hàng $A$ và $B$ được cho ở bảng sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline \multicolumn{1}{|c|}{Cân nặng $(\mathrm{g})$} &{$\left[150;155\right)$} &{$\left[155;160\right)$} &{$\left[160;165\right)$} &{$\left[165;170\right)$} &{$\left[170;175\right)$} \\
+				\hline Số quả cam ở lô hàng $A$ & $2$ & $6$ & $12$ & $4$ & $1$ \\
+				\hline Số quả cam ở lô hàng $B$ & $1$ & $3$ & $7$ & $10$ & $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\begin{enumerate}
+			\item Hãy ước lượng cân nặng trung bình của mỗi quả cam ở lô hàng $A$ và lô hàng $B$.
+			\item Nếu so sánh theo số trung bình thì cam ở lô hàng nào nặng hơn?
+		\end{enumerate}
+		\loigiai{
+			Ta có bảng thống kê số lượng cam theo giá trị đại diện
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \multicolumn{1}{|c|}{Cân nặng $\left( \mathrm{g}\right)$} &{$152{,}5$} &{$157{,}5$} &{$162{,}5$} &{$167{,}5$} &$172{,}5$\\
+					\hline Số quả cam ở lô hàng $A$ & $2$ & $6$ & $12$ & $4$ & $1$ \\
+					\hline Số quả cam ở lô hàng $B$ & $1$ & $3$ & $7$ & $10$ & $4$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\begin{enumerate}
+				\item Cân nặng trung bình của mỗi quả cam ở lô hàng $A$ xấp xỉ bằng
+				\begin{eqnarray*}
+				\overline{x}_{A}=\dfrac{2\cdot 152{,}5+6\cdot 157{,}5+12\cdot 162{,}5+4\cdot 167{,}5+1\cdot 172{,}5}{25}=161{,}7\,(\mathrm{g}).
+				\end{eqnarray*}
+				Cân nặng trung bình của mỗi quả cam ở lô hàng $B$ xấp xỉ bằng
+				\begin{eqnarray*}
+				\overline{x}_{B}=\dfrac{1\cdot 152{,}5+3\cdot 157{,}5+7\cdot 162{,}5+10\cdot 167{,}5+4\cdot 172{,}5}{25}=165{,}1\,(\mathrm{g}). 
+				\end{eqnarray*}
+				\item Vì $\overline{x}_{B}>\overline{x}_{A}$ nên nếu so sánh theo số trung bình thì cam ở lô hàng $B$ nặng hơn cam ở lô hàng $A$.
+			\end{enumerate}
+		}
+	\end{vd}
+	\begin{khung4}{Ý NGHĨA CỦA SỐ TRUNG BÌNH CỦA MẪU SỐ LIỆU GHÉP NHÓM}
+		 Số trung bình của mẫu số liệu ghép nhóm là giá trị xấp xỉ cho số trung bình của mẫu số liệu gốc.\\ Nó thường dùng để đo xu thế trung tâm của mẫu số liệu.
+	\end{khung4}
+\subsubsection{MỐT}	
+\textbf{\textit{Nhóm chứa mốt}} của mẫu số liệu ghép nhóm là nhóm có \textbf{tần số lớn nhất}.\\
+Giả sử nhóm chứa mốt là $\left[u_m;u_{m+1}\right)$, khi đó \textbf{mốt của mẫu số liệu ghép nhóm}, kí hiệu là $M_0$, được xác định bởi công thức
+\[M_0=u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right). \]
+\begin{note}
+\begin{itemize}
+	\item Nếu không có \textbf{nhóm kề trước} của nhóm chứa mốt thì $n_{m-1}=0$. 
+	\item Nếu không có \textbf{nhóm kề sau} của nhóm chứa mốt thì $n_{m+1}=0$.
+\end{itemize}
+\end{note}
+
+%%=====Ví dụ 5
+\begin{vd}%[1D5H1-4]
+	Một công ty xây dựng khảo sát khách hàng xem họ có nhu cầu mua nhà ở mức giá nào. Kết quả khảo sát được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline \begin{tabular}{c}
+				\textbf{Mức giá} \\
+				\textbf{(triệu đồng/$\mathrm{m}^2)$}
+			\end{tabular} &{$\left[10;14\right)$} &{$\left[14;18\right)$} &{$\left[18;22\right)$} &{$\left[22;26\right)$} &{$\left[26;30\right)$} \\
+			\hline \textbf{Số khách hàng} & $54$ & $78$ & $120$ & $45$ & $12$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tìm mốt của mẫu số liệu ghép nhóm trên.
+		\item Công ty nên xây nhà ở mức giá nào để nhiều người có nhu cầu mua nhất?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tần số lớn nhất là $120$ nên nhóm chứa mốt của mẫu số liệu trên là nhóm $[18;22)$.\\ Khi đó ta có $u_m=18$, $u_{m+1}=22$, $n_{m-1}=78$, $n_m=120$, $n_{m+1}=45$, $u_{m+1}-u_m=22-18=4$.\\
+			Mốt của mẫu số liệu ghép nhóm trên là
+			\begin{eqnarray*}
+				M_0&=&u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right)\\
+				&=&18+\dfrac{120-78}{(120-78)+(120-45)} \cdot 4=\dfrac{758}{39} \approx 19{,}4. 
+			\end{eqnarray*}
+			\item Dựa vào kết quả trên ta có thể dự đoán rằng nếu công ty xây nhà ở mức giá $19{,}4$ triệu đồng$/ \mathrm{m}^2$ thì sẽ có nhiều người có nhu cầu mua nhất.
+		\end{enumerate}
+	}
+\end{vd}
+
+%%=====Ví dụ 6
+\begin{vd}%[1D5H1-4]
+	Số cuộc gọi điện thoại một người thực hiện mỗi ngày trong $30$ ngày được lựa chọn ngẫu nhiên được thống kê trong bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Số cuộc gọi &{$\left[3;5\right]$} &{$\left[6;8\right]$} &{$\left[9;11\right]$} &{$\left[12;14\right]$} &{$\left[15;17\right]$} \\
+			\hline Số ngày & $5$ & $13$ & $7$ & $3$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tìm mốt của mẫu số liệu ghép nhóm trên.
+		\item Hãy dự đoán xem khả năng người đó thực hiện bao nhiêu cuộc gọi mỗi ngày là cao nhất.
+	\end{enumerate}
+	\loigiai{
+		Do số cuộc gọi là số nguyên nên ta hiệu chỉnh lại bảng như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Số cuộc gọi &{$\left[2{,}5;5{,}5\right)$} &{$\left[5{,}5;8{,}5\right)$} &{$\left[8{,}5;11{,}5\right)$} &{$\left[11{,}5;14{,}5\right)$} &{$\left[14{,}5;17{,}5\right)$} \\
+				\hline Số ngày & $5$ & $13$ & $7$ & $3$ & $2$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\begin{enumerate}
+			\item Tần số lớn nhất là $13$ nên nhóm chứa mốt của mẫu số liệu trên là $\left[5{,}5;8{,}5\right)$.\\
+			Do đó $u_m=5{,}5$; $u_{m+1}=8{,}5$; $n_{m-1}=5$; $n_m=13$; $n_{m+1}=7$; $u_{m+1}-u_m=8{,}5-5{,}5=3$.\\
+			Mốt của mẫu số liệu ghép nhóm là
+			\begin{eqnarray*}
+				M_0&=&u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right)\\
+				&=&5{,}5+\dfrac{13-5}{\left(13-5\right)+\left(13-7\right)} \cdot 3=\dfrac{101}{14} \approx 7{,}2.
+			\end{eqnarray*}
+			\item Dựa vào kết quả trên ta có thể dự đoán rằng khả năng người đó thực hiện $7$ cuộc gọi mỗi ngày là cao nhất.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{khung4}{Ý NGHĨA CỦA MỐT CỦA MẪU SỐ LIỆU GHÉP NHÓM}
+	\begin{itemize}
+		\item Mốt của mẫu số liệu không ghép nhóm là giá trị có khả năng xuất hiện cao nhất khi lấy mẫu.\\
+		Mốt của mẫu số liệu sau khi ghép nhóm $M_0$ xấp xỉ với mốt của mẫu số liệu không ghép nhóm.\\
+		Các giá trị nằm xung quanh $M_0$ thường có khả năng xuất hiện cao hơn các giá trị khác.
+		\item Một mẫu số liệu ghép nhóm có thể có nhiều nhóm chứa mốt và nhiều mốt.
+	\end{itemize}
+\end{khung4}
+
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+\begin{dang}{Nhận dạng mẫu số liệu ghép nhóm}
+	\iconMT~Dựa vào lý thuyết để nhận dạng được mẫu số liệu ghép nhóm.
+\end{dang}
+%%%=============VD_1=============%%%
+\begin{vd}%[1D5H1-2]
+	Mẫu số liệu sau cho biết phân bố theo độ tuổi của dân số Việt Nam năm $2019$.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Độ tuổi&Dưới $15$ tuổi&Từ $15$ đến dưới $65$ tuổi&Từ $65$ tuổi trở lên\\
+			\hline
+			Số người& $23\;371\;882$&$65\;420\;451$&$7\;416\;651$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Mẫu số liệu đã cho có là mẫu số liệu ghép nhóm hay không?
+		\item Nêu các nhóm và tần số tương ứng. Dân số Việt Nam năm $2019$ là bao nhiêu?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Mẫu số liệu đã cho là mẫu số liệu ghép nhóm.
+			\item Có ba nhóm là: Dưới $15$ tuổi, Từ $15$ đến dưới $65$ tuổi, Từ $65$ tuổi trở lên.\\ Có $23\;371\;882$ người dưới $15$ tuổi; $65\;420\;451$ người từ $15$ đến dưới $65$ tuổi và $7\;416\;651$ người từ $65$ tuổi trở lên.\\
+			Dân số Việt Nam năm $2019$ là $23\;371\;882+65\;420\;451+7\;416\;651=96\;208\;984$ người.
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_2=============%%%
+\begin{vd}%[1D5H1-2]
+	Mẫu số liệu sau cho biết kết quả kiểm tra môn Toán của lớp $11$A năm 2022
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Điểm số & $[3;5)$&$[5;7)$&$[7;9)$&$[9;11)$\\
+			\hline
+			Số học sinh &5&18&10&7\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Mẫu số liệu đã cho có là mẫu số liệu ghép nhóm hay không?
+		\item Nêu các nhóm và tần số tương ứng. Số học sinh của lớp 11A là bao nhiêu?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Mẫu số liệu đã cho là mẫu số liệu ghép nhóm.
+			\item Có bốn nhóm là Từ 3 đến dưới 5 điểm, từ 5 đến dưới 7 điểm, từ 7 đến dưới 9 điểm, từ 9 đến dưới 11 điểm.\\
+			Có 5 em từ 3 đến dưới 5 điểm; có 18 em từ 5 đến dưới 7 điểm; có 10 em từ 7 đến dưới 9 điểm; có 7 em từ 9 đến dưới 11 điểm.\\
+			Số học sinh của lớp 11A là $5+18+10+7=40$ em.
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_3=============%%%
+\begin{vd}%[1D5H1-2]
+	Bảng $4$ biểu diễn mẫu số liệu ghép nhóm được cho dưới dạng bảng tần số ghép nhóm.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Nhóm	& $\left[0;10\right)$ & $\left[10;20\right)$ & $\left[20;30\right)$ & $\left[30;40\right)$ & \\
+			\hline
+			Tần số	& $8$ & $7$ & $9$ & $6$ & $n=30$ \\
+			\hline
+		\end{tabular}
+		\begin{center}
+			\textbf{Bảng 4}
+		\end{center}
+	\end{center}
+	Hãy cho biết
+	\begin{enumerate}
+		\item Mẫu số liệu đó có bao nhiêu số liệu, bao nhiêu nhóm?
+		\item Tần số của mỗi nhóm?
+	\end{enumerate}
+	\loigiai{
+		Từ Bảng 4, ta thấy
+		\begin{enumerate}
+			\item Mẫu số liệu đó gồm $30$ số liệu và $4$ nhóm.
+			\item Tần số của các nhóm $1$, $2$, $3$, $4$ lần lượt là $8$, $7$, $9$, $6$.
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============================%%%
+\begin{dang}{Ghép nhóm mẫu số liệu. Lập bảng tần số ghép nhóm của mẫu số liệu}
+	Để chuyển mẫu số liệu không ghép nhóm sang mẫu số liệu ghép nhóm, ta làm như sau
+	\\
+	\iconCH~Chia miền giá trị của mẫu số liệu thành một số nhóm theo tiêu chí cho trước.\\
+	\iconCH~Đếm số giá trị của mẫu số liệu thuộc mỗi nhóm (tần số) và lập bảng thống kê cho mẫu số liệu ghép nhóm.
+\end{dang}
+%%%=============VD_1=============%%%
+\begin{vd}%[1D5H1-2]
+	Bảng thống kê sau cho biết thời gian chạy (phút) của $30$ vận động viên (VĐV) trong một giải chạy Marathon như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			Thời gian&$129$&$130$&$133$&$134$&$135$&$136$&$138$&$141$&$142$&$143$&$144$&$145$\\
+			\hline
+			Số VĐV&$1$&$2$&$1$&$1$&$1$&$2$&$3$&$3$&$4$&$5$&$2$&$5$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Chuyển mẫu số liệu trên sang mẫu số liệu ghép nhóm gồm $6$ nhóm có độ dài bằng nhau và bằng $3$.
+	\loigiai{
+	\immini{Giá trị nhỏ nhất là $129$, giá trị lớn nhất là $145$ nên khoảng biến thiên là $145-129=16$.\\ 
+		Tổng độ dài của $6$ nhóm là $3\cdot 6=18$.\\ 
+		Để cho đối xứng, ta chọn đầu mút trái của nhóm đầu tiên là $127{,}5$ và đầu mút phải của nhóm cuối cùng là $145{,}5$ ta được các nhóm là $[127{,}5;130{,}5)$, $[130{,5};133{,5}]$, $\ldots$ ,$[142{,}5;145{,}5]$.\\ Đếm số giá trị thuộc mỗi nhóm, ta có mẫu số liệu ghép nhóm như sau}
+	{\begin{tabular}{|c|c|}
+			\hline
+		Thời gian 	& Số VĐV \\
+			\hline
+		$[127{,}5;130{,}5)$	& $3$ \\
+			\hline
+		$[130{,}5;133{,}5)$	& $1$ \\
+			\hline
+		$[133{,}5;136{,}5)$	& $4$ \\
+			\hline
+		$[136{,}5;139{,}5)$	& $3$ \\
+			\hline
+		$[139{,}5;142{,}5)$	& $7$ \\
+			\hline
+		$[142{,}5;145{,}5)$	& $12$ \\
+			\hline
+		\end{tabular}
+	}
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_2=============%%%
+\begin{vd}%[1D5H1-2]
+	Cân nặng (kg) của 35 người trưởng thành tại một khu dân cư được cho như sau
+	\begin{center}
+		\begin{tabular}{llllllllllllllllll}
+			43 & 51 & 47 & 62 & 48 & 40 & 50 & 62 & 53 & 56 & 40 & 48 & 56 & 53 & 50 & 42 & 55 & \\
+			52 & 48 & 46 & 45 & 54 & 52 & 50 & 47 & 44 & 54 & 55 & 60 & 63 & 58 & 55 & 60 & 58 & 53.
+		\end{tabular}
+	\end{center}
+	Chuyển mẫu số liệu trên thành dạng ghép nhóm, các nhóm có độ dài bằng nhau, trong đó có nhóm $[40; 45)$.
+	\loigiai{
+		Vì các nhóm có độ dài bằng nhau, trong đó có nhóm $[40; 45)$ nên độ dài mỗi nhóm là $5$.\\ Ta có bảng tần số của mẫu số liệu ghép nhóm đã cho là
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Cân nặng (kg) &$[40;45)$&$[45;50)$&$[50;55)$&$[55;60)$&$[60;65)$\\
+				\hline Số người &5 & 7&11 &7 &5 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_3=============%%%
+\begin{vd}%[1D5H1-2]
+	Một công ty may quần áo đồng phục học sinh cho biết cỡ áo theo chiều cao của học sinh được tính như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Chiều cao $(\mathrm{cm})$ & {$[150 ; 160)$} & {$[160 ; 167)$} & {$[167 ; 170)$} & {$[170 ; 175)$} & {$[175 ; 180)$} \\
+			\hline Cỡ áo & $\mathrm{S}$ & $\mathrm{M}$ & $\mathrm{L}$ & $\mathrm{XL}$ & $\mathrm{XXL}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Công ty muốn ước lượng tỉ lệ các cỡ áo khi may cho học sinh lớp 11 đã đo chiều cao của $36$ học sinh nam khối 11 của một trường và thu được mẫu số liệu sau (đơn vị là cm)
+	\begin{center}
+		\begin{tabular}{lllllllllllll}
+			160 & 161 & 161 & 162 & 162 & 162 & 163 & 163 & 163 & 164 & 164 & 164 & 164 \\
+			165 & 165 & 165 & 165 & 165 & 166 & 166 & 166 & 166 & 167 & 167 & 168 & 168 \\
+			168 & 168 & 169 & 169 & 170 & 171 & 171 & 172 & 172 & 174 & & &
+		\end{tabular}
+	\end{center}
+	\begin{listEX}[1]
+		\item Lập bảng tần số ghép nhóm của mẫu số liệu với các nhóm đã cho ở bảng trên.
+		\item Công ty may 500 áo đồng phục cho học sinh lớp 11 thì nên may số lượng áo theo mỗi cỡ là bao nhiêu chiếc?
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}[1]
+			\item Bảng tần số ghép nhóm
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Chiều cao $(\mathrm{cm})$ & {$[150 ; 160)$} & {$[160 ; 167)$} & {$[167 ; 170)$} & {$[170 ; 175)$} & {$[175 ; 180)$} \\
+					\hline Số học sinh &0& 22 & 8 & 6 & 0 \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Công ty may $500$ áo đồng phục cho học sinh lớp $11$ thì nên may số lượng áo theo mỗi cỡ như sau:
+			\begin{enumerate}[\bf --]
+				\item Không nên may áo cỡ S và cỡ XXL;
+				\item Số lượng áo cỡ M nên may là $\dfrac{22}{36} \cdot 500 \approx 306$ (chiếc);
+				\item Số lượng áo cỡ L nên may là $\dfrac{8}{36} \cdot 500 \approx 111$ (chiếc);
+				\item Số lượng áo cỡ XL nên may là $500 - 306 - 111 = 83$ (chiếc).
+			\end{enumerate}
+		\end{listEX}
+	}
+\end{vd}
+%%%=============================%%%
+
+\begin{dang}{Tính số trung bình của mẫu số liệu ghép nhóm}
+	\iconMT~Số trung bình của mẫu số liệu ghép nhóm kí hiệu là $\overline{x}$ và được tính bằng công thức
+		\[\overline{x}=\dfrac{n_1 c_1+n_2 c_2+\cdots+n_k c_k}{n}, \]
+		trong đó $n=n_1+n_2+\cdots+n_k$ và $c_{j}=\dfrac{u_{j}+u_{j+1}}{2}$ (với $j=1,\ldots, k$) là giá trị đại diện của nhóm $\left[u_{j};u_{j+1}\right)$.
+\end{dang}
+%%%=============VD_1=============%%%
+\begin{vd}%[1D5H1-3]
+	Tìm cân nặng trung bình của học sinh lớp $11D$ cho trong bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Cân nặng	& $\left[40{,}5;45{,}5 \right)$ & $\left[45{,}5;50{,}5 \right)$ & $\left[50{,}5;55{,}5 \right)$ & $\left[55{,}5;60{,}5 \right)$ & $\left[60{,}5;65{,}5 \right)$ & $\left[65{,}5;70{,}5 \right)$ \\
+			\hline
+			Số học sinh&$10$	& $7$ & $16$ &$4$ & $2$ & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\loigiai{
+	Ta có bảng sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				Cân nặng	& $\left[40{,}5;45{,}5 \right)$ & $\left[45{,}5;50{,}5 \right)$ & $\left[50{,}5;55{,}5 \right)$ & $\left[55{,}5;60{,}5 \right)$ & $\left[60{,}5;65{,}5 \right)$ & $\left[65{,}5;70{,}5 \right)$ \\
+				\hline
+				Giá trị đại diện 	& $43$ & $48$ & $53$ & $58$ & $63$ & $68$ \\
+				\hline
+				Số học sinh&$10$	& $7$ & $16$ &$4$ & $2$ & $3$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tổng số học sinh là $n=10+7+16+4+2+3=42$.\\ Cân nặng trung bình của học sinh lớp $11D$ là $$\overline{x}=\dfrac{10\cdot 43+7\cdot 48+16\cdot 53+4\cdot 58+2\cdot 63+3\cdot 68}{42}\approx51{,}81\,\mathrm{(kg)}.$$
+	}
+\end{vd}
+%%%=============================%%%
+%%%=============VD_2=============%%%
+\begin{vd}%[1D5H1-3]
+	Kết quả điều tra thời gian chờ khám (đơn vị: phút) của bệnh nhân tại phòng khám của một bệnh
+	viện ở Thành phố Hồ Chí Minh được cho trong bảng sau
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Thời gian (phút) & $[20;25)$ & $[25;30)$ & $[30;35)$ & $[35;40)$ \\
+		\hline
+		Tần số & $4$ & $5$ & $8$ & $3$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Hãy ước lượng thời gian trung bình chờ khám bệnh của mẫu số liệu ghép nhóm trên.
+	\loigiai{
+	Ta có bảng thống kê thời gian chờ khám bệnh theo giá trị đại diện
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Thời gian (phút) & $[20;25)$ & $[25;30)$ & $[30;35)$ & $[35;40)$ \\
+			\hline
+			Thời gian đại diện & $22{,}5$ & $27{,}5$ & $32{,}5$ & $37{,}5$ \\
+			\hline
+			Tần số & $4$ & $5$ & $8$ & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Thời gian trung bình chờ khám bệnh là $\dfrac{4\cdot22{,}5+5\cdot27{,}5+8\cdot32{,}5+3\cdot37{,}5}{20}=30$.
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_3=============%%%
+\begin{vd}%[1D5H1-3]
+	\immini{Một nhà thực vật học đo chiều dài của $74$ lá cây (đơn vị: mm) và thu được bảng tần số như dưới đây. Tính chiều dài trung bình của $74$ lá cây trên theo đơn vị mm (làm tròn kết quả đến hàng phần trăm).}
+	{\begin{tabular}{|c|c|}
+			\hline
+			Nhóm &  Tần số \\
+			\hline
+			$[5{,}45;5{,}85)$ &  $5$ \\
+			\hline
+			$[5{,}85;6{,}25)$ &  $9$ \\
+			\hline
+			$[6{,}25;6{,}65)$ &  $15$ \\
+			\hline
+			$[6{,}65;7{,}05)$ &  $19$ \\
+			\hline
+			$[7{,}05;7{,}45)$ &  $16$ \\
+			\hline
+			$[7{,}45;7{,}85)$ &  $8$ \\
+			\hline
+			$[7{,}85;8{,}25)$ &  $2$ \\
+			\hline
+	\end{tabular}
+	}
+	\loigiai{
+		Ta có bảng tần số ghép nhóm theo giá trị đại diện như sau
+		\begin{center}
+			{\renewcommand\arraystretch{1.25}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Nhóm &
+					$5{,}65$ &
+					$6{,}05$ &
+					$6{,}45$ &
+					$6{,}85$ &
+					$7{,}25$ &
+					$7{,}65$ &
+					$8{,}05$\\
+					\hline
+					Tần số &
+					$5$
+					& $9$
+					& $15$
+					& $19$
+					& $16$
+					& $8$
+					& $2$\\
+					\hline
+			\end{tabular}}
+		\end{center}
+		Chiều dài trung bình của $74$ lá cây mà nhà thực vật học đo xấp xỉ là
+		\[
+		\overline{x} = \dfrac{5\cdot 5{,}65 + 9 \cdot 6{,}05 + 15\cdot 6{,}45 + 19\cdot 6{,}85 + 16 \cdot 7{,}25 + 8\cdot 7{,}65 + 2\cdot 8{,}05}{74} \approx 6{,}8\, (\text{mm}).
+		\]
+	}
+\end{vd}
+%%%=============================%%%
+
+\begin{dang}{Tính mốt của mẫu số liệu ghép nhóm}
+	Để tìm mốt của mẫu số liệu ghép nhóm, ta thực hiện theo các bước sau\\
+	\iconMT~Xác định nhóm có tần số lớn nhất (gọi là nhóm chứa mốt), giả sử là nhóm $m$: $\left[u_m; u_{m+1}\right)$.\\
+	\iconMT~Mốt được xác định là $M_0=u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right)$, trong đó $n_{j}$  là tần số của nhóm $j$.
+	\begin{itemize}
+	\item Nếu không có nhóm kề trước của nhóm chứa mốt thì $n_{m-1}=0$.
+	\item Nếu không có nhóm kề sau của nhóm chứa mốt thì $n_{m+1}=0$.
+	\end{itemize}
+\end{dang}
+%%%=============VD_1=============%%%
+\begin{vd}%[1D5H1-4]
+	Bảng số liệu ghép nhóm sau cho biết chiều cao (cm) của $50$ học sinh lớp $11A$.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Khoảng chiều cao (cm)	& $\left[145;150 \right)$ & $\left[150;155 \right)$ & $\left[155;160 \right)$ & $\left[160;165 \right)$&$\left[165;170 \right)$ \\
+			\hline
+			Số học sinh & $7$	& $14$ & $10$ &$10$ & $9$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tính mốt của mẫu số liệu ghép nhóm này. Có thể kết luận gì từ giá trị tính được?
+	\loigiai{
+		Tần số lớn nhất là $14$ nên nhóm chứa mốt là nhóm $\left[150;155 \right)$.\\ 
+		Ta có $u_{m}=150$, $u_{m+1}=155$, $n_{m-1}=7$, $n_{m}=14$, $n_{m+1}=10$, $u_{m+1}-u_{m}=5$.\\ 
+		Do đó $$M_{0}=u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right)=150+\dfrac{14-7}{\left(14-7\right)+\left(14-10\right)}\cdot 5\approx 153{,}18.$$
+		Số học sinh có chiều cao khoảng $153{,}18$ là nhiều nhất.
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_2=============%%%
+\begin{vd}%[1D5H1-4]
+	Kết quả kiểm tra môn Toán của lớp $11D$ như sau
+	\[
+	\begin{array}{cccccccccccccccccccc}
+		5 & 6 & 7 & 5 & 6 & 9 & 10 & 8 & 5 & 5 & 4 & 5 & 4 & 5 & 7 & 4 & 5 & 8 & 9 & 10 \\
+		5 & 3 & 5 & 6 & 5 & 7 & 5 & 8 & 4 & 9 & 5 & 6 & 5 & 6 & 8 & 8 & 7 & 9 & 7 & 9
+	\end{array}
+	\]
+	\begin{enumerate}
+		\item Lập bảng tần số ghép nhóm của mẫu số liệu trên có bốn nhóm ứng với bốn nửa khoảng $\left[3;5\right)$, $\left[5;7\right)$, $\left[7;9\right)$, $\left[9;11\right)$.
+		\item Mốt của bảng số liệu ghép nhóm trên là bao nhiêu (làm tròn kết quả đến hàng phần mười)?
+	\end{enumerate}
+	\loigiai{
+		\immini
+		{\begin{enumerate}
+				\item Bảng bên là bảng tần số ghép nhóm cho kết quả kiểm tra môn Toán của lớp $11D$.
+				\item Ta thấy nhóm $2$ ứng với nửa khoảng $\left[5;7\right)$ là nhóm có tần số lớn nhất.\\
+				Khi đó, mốt của mẫu số liệu là
+				\[
+				M_{0}=5+\dfrac{18-5}{\left(18-5\right)+\left(18-10\right)}\cdot 2 \approx 6{,}2.
+				\]
+		\end{enumerate}
+		}
+		{
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Nhóm} & \textbf{Tần số}\\
+				\hline
+				$\left[3;5\right)$ & $5$\\
+				\hline
+				$\left[5;7\right)$ & $18$\\
+				\hline
+				$\left[7;9\right)$ & $10$\\
+				\hline
+				$\left[9;11\right)$ & $7$\\
+				\hline
+				& $n = 40$ \\
+				\hline
+			\end{tabular}
+		}
+	}
+\end{vd}
+%%%=============================%%%
+
+%%%=============VD_3=============%%%
+\begin{vd}%[1D5H1-4]
+	Một công ty xây dựng khảo sát khách hàng xem họ có nhu cầu mua nhà ở mức giá nào. Kết quả khảo sát được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline \begin{tabular}{c}
+				\textbf{Mức giá} \\
+				\textbf{(triệu đồng/$\mathrm{m}^2)$}
+			\end{tabular} &{$[10; 14)$} &{$[14; 18)$} &{$[18; 22)$} &{$[22; 26)$} &{$[26; 30)$} \\
+			\hline \textbf{Số khách hàng} & $54$ & $78$ & $120$ & $45$ & $12$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tìm mốt của mẫu số liệu ghép nhóm trên.
+		\item Công ty nên xây nhà ở mức giá nào để nhiều người có nhu cầu mua nhất?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Tần số lớn nhất là $120$ nên nhóm chứa mốt của mẫu số liệu là nhóm $[18; 22)$.\\ Do đó mốt của mẫu số liệu ghép nhóm là
+			\[M_0=18+\dfrac{120-78}{(120-78)+(120-45)} \cdot 4=\dfrac{758}{39} \approx 19{,}4. \]
+			\item Dựa vào kết quả trên ta có thể dự đoán rằng nếu công ty xây nhà ở mức giá $19{,}4$ triệu đồng/$\mathrm{m}^{2}$ thì sẽ có nhiều người có nhu cầu mua nhất.
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============================%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{BÀI TẬP RÈN LUYỆN}
+\ind{PHẦN I.} \inden{TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/1T1-Bai1-TN]%--Đặt tên 2T1-Bai1-Dang1-TN
+%%%=========EX_1=========%%%
+\begin{ex}[Trích đề thi thử lần 1 - Trường Song Ngữ Á Châu - Đồng Nai - Năm học: 2024 - 2025]%[1D5N1-4]
+	Khảo sát thời gian tập thể dục của một số học sinh khối $11$ thu được mẫu số liệu ghép nhóm sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Thời gian (phút) & $[0;20)$ & $[20;40)$ & $[40;60)$ & $[60;80)$ & $[80;100)$\\
+			\hline
+			Số học sinh & $5$ & $9$ & $12$ & $10$ & $6$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Mốt của mẫu số liệu trên là
+	\choice
+	{\True $52$}
+	{$42$}
+	{$53$}
+	{$54$}
+	\loigiai{
+		Tần số lớn nhất là $12$ nên nhóm chứa mốt là $[40;60)$.\\
+		Mốt của mẫu số liệu trên là
+		$M_{0}=40+\dfrac{12-9}{(12-9)+(12-10)}\cdot(60-40)=52$.
+	}
+\end{ex}
+
+%%%=========EX_2=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Nguyễn Tất Thành - Đắk Nông - Năm học: 2023-2024]%[1D5N1-4]
+	Một công ty xây dựng khảo sát khách hàng xem họ có nhu cầu mua nhà ở mức giá nào. Kết quả khảo sát được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Mức giá (triệu đồng/mét vuông) & $[10;14)$ & $[14;18)$ & $[18;22)$ & $[22;26)$ & $[26;30)$ \\
+			\hline Số lượng & $15$ & $13$ & $7$ & $23$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Ở mức giá nào thì số khách hàng lựa chọn là nhiều nhất?
+	\choice
+	{$[10;14)$}
+	{$[18;22)$}
+	{$[14;18)$}
+	{\True $[22;26)$}
+	\loigiai{Ở mức giá $[22;26)$ thì số khách hàng lựa chọn là nhiều nhất.}
+\end{ex}
+
+%%%=========EX_3=========%%%
+\begin{ex}[Trích đề thi thử tốt nghiệp - Trường THPT Lê Quý Đôn - Đồng Nai - Năm học: 2024 - 2025]%[1D5N1-3]
+	Doanh thu bán hàng trong $20$ ngày được lựa chọn ngẫu nhiên của một cửa hàng được ghi lại ở bảng sau (đơn vị: triệu đồng)
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline Doanh thu&$[5;7)$ &$[7;9)$&$[9;11)$&$[11;13)$&$[13;15)$ \\
+			\hline Số ngày &$2$ &$7$&$7$&$3$&$1$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Số trung bình của mẫu số liệu trên thuộc khoảng nào trong các khoảng dưới đây?
+	\choice
+	{$\left[7;9\right)$}
+	{\True $\left[9;11\right)$}
+	{$\left[11;13\right)$}
+	{$\left[13;15\right)$}
+	\loigiai{Ta có
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline Doanh thu&$[5;7)$ &$[7;9)$&$[9;11)$&$[11;13)$&$[13;15)$ \\
+				\hline Giá trị đại diện &$6$ &$8$&$10$&$12$&$14$ \\
+				\hline Số ngày &$2$ &$7$&$7$&$3$&$1$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Số trung bình của mẫu số liệu là $\overline{x}=\dfrac{2\cdot6+7\cdot8+7\cdot10+3\cdot12+1\cdot14}{2+7+7+3+1}=\dfrac{188}{20}=9{,}4$.\\
+		Số trung bình $9{,}4$ thuộc khoảng $[9;11)$.
+	}
+\end{ex}
+
+%%%=========EX_4=========%%%
+\begin{ex}[Trích đề thi thử tốt nghiệp cụm Chương Mỹ - Hà Nội - Năm học: 2024 - 2025]%[1D5N1-3]
+	Anh Thắng ghi lại cự li $20$ lần ném tạ sắt $3$ kg của mình ở bảng sau (đơn vị: mét)
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\text{Cự li (m)} & $[9{,}2;10)$ & $[10;10{,}8)$ & $[10{,}8;11{,}6)$ & $[11{,}6;12{,}4)$ & $[12{,}4;13{,}2)$ \\
+			\hline
+			\text{Số lần} & $4$ & $1$ & $7$ & $5$ & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy ước lượng cự li trung bình mỗi lần ném tạ xa từ bảng trên.
+	\choice
+	{$10{,}96$ m}
+	{\True $11{,}28$ m}
+	{$11{,}52$ m}
+	{$12{,}23$ m}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				\text{Cự li (m)} & $[9{,}2;10)$ & $[10;10{,}8)$ & $[10{,}8;11{,}6)$ & $[11{,}6;12{,}4)$ & $[12{,}4;13{,}2)$ \\
+				\hline
+				\text{Giá trị đại diện} & $9{,}6$ & $10{,}4$ & $11{,}2$ & $12$ & $12{,}8$ \\
+				\hline
+				\text{Số lần} & $4$ & $1$ & $7$ & $5$ & $3$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Ước lượng cự li trung bình mỗi lần ném tạ xa là
+		$$\overline{x}=\dfrac{4\cdot9{,}6+1\cdot10{,}4+7\cdot11{,}2+5\cdot12+3\cdot12{,}8}{20}=11{,}28.$$
+	}
+\end{ex}
+
+%%%=========EX_5=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Chu Văn An - An Giang - Năm học: 2023 - 2024]%[1D5N1-2]
+	Bảng dữ liệu ghép nhóm dưới đây ghi lại số khách hàng nữ tương ứng từng khoảng độ tuổi đã vào siêu thị X trong giờ đầu mở cửa hôm 9/9
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Khoảng tuổi & $[20;30)$ & $[30;40)$ & $[40;50)$ & $[50;60)$ & $[60;70)$ \\
+			\hline Số khách hàng nữ & $5$ & $9$ & $6$ & $4$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Xác định cỡ mẫu của bảng dữ liệu.
+	\choice
+	{\True $26$}
+	{$10$}
+	{$50$}
+	{$70$}
+	\loigiai{
+		Cỡ mẫu của bảng dữ liệu là $n=5+9+6+4+2=26$.
+	}
+\end{ex}
+
+%%%=========EX_6=========%%%
+\begin{ex}[Trích đề thi HKI - Trường THPT Chuyên Quốc Học Huế - Năm học: 2023 - 2024]%[1D5N1-2]
+	Cho bảng số liệu ghép nhóm về độ dài của $60$ lá dương xỉ trưởng thành như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline Độ dài (cm) & $[10;20)$ & $[20;30)$ & $[30;40)$ & $[40;50)$ \\
+			\hline Số lá dương xỉ & $8$ & $18$ & $24$ & $10$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Số lá có chiều dài từ $30$ cm đến dưới $40$ cm là
+	\choice
+	{$18$}
+	{$34$}
+	{$10$}
+	{\True $24$}
+	\loigiai{
+		Số lá có chiều dài từ $30$ cm đến dưới $40$ cm là $24$.
+	}
+\end{ex}
+
+%%%=========EX_7=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Chuyên Lê Khiết - Quảng Ngãi - Năm học 2023 - 2024]%[1D5N1-2]
+	Trong mẫu số liệu ghép nhóm, độ dài của nhóm $[1;10)$ bằng bao nhiêu?
+	\choice
+	{$8$}
+	{\True $9$}
+	{$10$}
+	{$5$}
+	\loigiai{
+		Độ dài của nhóm $[1;10)$ bằng $10-1=9$.
+	}
+\end{ex}
+
+%%%=========EX_8=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Chuyên Lê Khiết - Quảng Ngãi - Năm học 2023 - 2024]%[1D5N1-1]
+	Các giá trị xuất hiện nhiều nhất trong mẫu số liệu được gọi là
+	\choice
+	{\True Mốt}
+	{Tứ phân vị}
+	{Số trung vị}
+	{Số trung bình}
+	\loigiai{
+		Các giá trị xuất hiện nhiều nhất trong mẫu số liệu được gọi là \textbf{Mốt}.
+	}
+\end{ex}
+
+%%%=========EX_9=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Phan Ngọc Hiển - Cà Mau - Năm học: 2023 - 2024]%[1D5N1-1]
+	Trong mẫu số liệu ghép nhóm, độ dài mỗi nhóm $[a;b)$ được tính như thế nào?
+	\choice
+	{$a-b$}
+	{$a+b$}
+	{\True $b-a$}
+	{$\dfrac{a+b}{2}$}
+	\loigiai{
+		Độ dài nhóm $[a;b)$ là $b-a$.
+	}
+\end{ex}
+
+%%%=========EX_10=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Ngô Mây - Bình Định - Năm học: 2023 - 2024]%[1D5N1-1]
+	Điều tra về chiều cao của $100$ học sinh lớp $10$, ta được kết quả
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline Chiều cao (cm) & $[150;152)$ & $[152;154)$ & $[154;156)$ & $[156;158)$ & $[158;160)$ & $[160;162)$ & $[162;168)$ \\
+			\hline Số học sinh & $5$ & $18$ & $40$ & $25$ & $8$ & $3$ & $1$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Số học sinh có chiều cao từ $156$ cm trở lên là
+	\choice
+	{$25$}
+	{$77$}
+	{\True $37$}
+	{$12$}
+	\loigiai{
+		Số học sinh có chiều cao từ $156$ cm trở lên là $25+8+3+1=37$.
+	}
+\end{ex}
+
+%%%=========EX_11=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Ngô Mây - Bình Định - Năm học: 2023 - 2024]%[1D5N1-1]
+	Khảo sát thời gian xem ti vi trong một ngày của một số học sinh khối $11$ thu được mẫu số liệu
+	ghép nhóm sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline Thời gian (phút) & $[0;20)$ & $[20;40)$ & $[40;60)$ & $[60;80)$ & $[80;100)$ \\
+			\hline Số học sinh & $5$ & $9$ & $12$ & $10$ & $6$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Giá trị đại diện của nhóm $[60;80)$ là
+	\choice
+	{$60$}
+	{$40$}
+	{\True $70$}
+	{$30$}
+	\loigiai{
+		Giá trị đại diện của nhóm $[60;80)$ là 	$70$.
+	}
+\end{ex}
+
+%%%=========EX_12=========%%%
+\begin{ex}[Trích đề thi HKI - Trường THPT Lê Quý Đôn - TP. HCM - Năm học: 2024 - 2025]%[1D5N1-1]
+	Giả sử mẫu số liệu được cho dưới dạng bảng tần số ghép nhóm
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Nhóm & Nhóm $1$ & Nhóm $2$ & $\ldots$ & Nhóm $k$ \\
+			\hline
+			Giá trị đại diện & $c_1$ & $c_2$ & $\ldots$ & $c_k$ \\
+			\hline
+			Tần số & $n_1$ & $n_2$ & $\ldots$ & $n_k$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Đặt $n=n_1+n_2+\ldots+n_k$. Số trung bình của mẫu số liệu ghép nhóm, kí hiệu $\overline{x}$, được tính theo công thức nào?
+	\choice
+	{$\overline{x}=\dfrac{n_1c_1+n_2c_2+\ldots+n_kc_k}{\sqrt{n}}$}
+	{$\overline{x}=\dfrac{n_1^2c_1+n_2^2c_2+\ldots+n_k^2c_k}{n}$}
+	{\True $\overline{x}=\dfrac{n_1c_1+n_2c_2+\ldots+n_kc_k}{n}$}
+	{$\overline{x}=\sqrt{\dfrac{n_1c_1+n_2c_2+\ldots+n_kc_k}{n}}$}
+	\loigiai{
+		Số trung bình được tính theo công thức $\overline{x}=\dfrac{n_1c_1+n_2c_2+\ldots+n_kc_k}{n}$.
+	}
+\end{ex}
+
+%%%=========EX_13=========%%%
+\begin{ex}[Trích đề thi GHKII - Trường THPT Trần Quang Khải - Vũng Tàu - Năm học: 2024 - 2025]%[1D5N1-1]
+	\immini{
+		Điều tra về chiều cao của $100$ học sinh khối 11, người ta thu được mẫu số liệu trong bảng phân bố tần số ghép lớp. Đầu mút trái của nhóm $[156;158)$ là
+		\choice
+		{$158$}
+		{\True $156$}
+		{$26$}
+		{$157$}
+	}
+	{
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Chiều cao (cm)} & \textbf{Số học sinh} \\
+			\hline
+			$[150;152)$ & $5$ \\
+			\hline
+			$[152;154)$ & $18$ \\
+			\hline
+			$[154;156)$ & $40$ \\
+			\hline
+			$[156;158)$ & $26$ \\
+			\hline
+			$[158;160)$ & $8$ \\
+			\hline
+			$[160;162)$ & $3$ \\
+			\hline
+			\textbf{Tổng} & $n=100$ \\
+			\hline
+		\end{tabular}
+	}
+	\loigiai{
+		Đầu mút trái của nhóm $[156;158)$ là $156$.
+	}
+\end{ex}
+
+%%%=========EX_14=========%%%
+\begin{ex}[Trích đề thi GHKII - Trường THPT Hòa Hội - Bà Rịa Vũng Tàu - Năm học: 2024 - 2025]%[1D5N1-1]
+	Cho bảng tần số ghép nhóm về chiều cao của một nhóm học sinh lớp $11$ như sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline
+			Nhóm & $[145;150)$ & $[150;155)$ & $[155;160)$ & $[160;165)$ & $[165;170)$ \\
+			\hline
+			Số học sinh & $2$ & $6$ & $8$ & $12$ & $7$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tần số của nhóm $[155;160)$ là
+	\choice
+	{$6$}
+	{\True $8$}
+	{$7$}
+	{$2$}
+	\loigiai{
+		Tần số của nhóm $[155;160)$ là $8$.
+	}
+\end{ex}
+
+%%%=========EX_15=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Nguyễn Tất Thành - Đắk Nông - Năm học: 2023 - 2024]%[1D5H1-2]
+	Cho mẫu số liệu ghép nhóm về thời gian (phút) đi từ nhà đến trường của các em học sinh một lớp như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline \text{Thời gian (phút)} & $[10;15)$ & $[15;20)$ & $[20;25)$ & $[25;30)$ & $[30;35)$ & $[35;40)$ & $[40;45)$ \\
+			\hline \text{Số học sinh} & $3$ & $6$ & $9$ & $21$ & $4$ & $5$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Có bao nhiêu học sinh có thời gian đi từ nhà đến trường từ $20$ phút đến dưới $25$ phút?
+	\choice
+	{$6$}
+	{\True $9$}
+	{$21$}
+	{$3$}
+	\loigiai{
+		Dựa vào bảng số liệu thì nhóm học sinh có thời gian đi từ nhà đến trường từ $20$ phút đến dưới $25$ phút là $[20;25)$ có tần số là $9$.
+	}
+\end{ex}
+
+%%%=========EX_16=========%%%
+\begin{ex}[Trích đề thi KSCL - Trường THPT chuyên Phan Bội Châu - Nghệ An - Năm học: 2024 - 2025]%[1D5H1-3]
+	Cho mẫu số liệu ghép nhóm có bảng tần số như sau
+	\begin{center}
+		\begin{tabular}{|p{2.2cm}|c|c|c|c|c|c|c|}
+			\hline
+			\centering
+			Nhóm	& $[16;21)$ & $[21;26)$ & $[26;31)$ & $[31;36)$ & $[36;41)$ \\
+			\hline
+			\centering
+			Tần số 	& $4$ & $6$	& $8$ & $18$ & $4$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tính số trung bình của mẫu số liệu trên
+	\choice
+	{$31$}
+	{$32$}
+	{\True $30$}
+	{$29$}
+	\loigiai{
+		Với bảng tần số như hình thì ta có
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				\centering
+				Giá trị đại diện	& $18{,}5$ & $23{,}5$ & $28{,}5$ & $33{,}5$ & $38{,}5$ \\
+				\hline
+				\centering
+				Tần số 	& $4$ & $6$	& $8$ & $18$ & $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Cỡ mẫu $n=4+6+8+18+4=40$.\\
+		Số trung bình $\overline{x}=\dfrac{4\cdot18{,}5+6\cdot23{,}5+8\cdot28{,}5+18\cdot33{,}5+4\cdot38{,}5}{40}=30$.}
+\end{ex}
+
+%%%=========EX_17=========%%%
+\begin{ex}[Trích đề thi KSCL lần 1 - Trường THPT Gia Bình - Bắc Ninh - Năm học: 2024 - 2025]%[1D5H1-3]
+	Tìm hiểu thời gian hoàn thành một bài tập (đơn vị: phút) của một nhóm học sinh thu được kết quả như sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline
+			Thời gian (phút) & $[0;4)$ & $[4;8)$ & $[8;12)$ & $[12;16)$ & $[16;20)$ \\ \hline
+			Số học sinh & $2$ & $4$ & $7$ & $4$ & $3$ \\ \hline
+		\end{tabular}
+	\end{center}
+	Thời gian trung bình (phút) để hoàn thành bài tập của các em học sinh là
+	\choice
+	{\True $10{,}4$}
+	{$7$}
+	{$11{,}3$}
+	{$12{,}5$}
+	\loigiai{
+		Cỡ mẫu $n=2+4+7+4+3=20$.
+		Ta có
+		\begin{center}
+			\begin{tabular}{|l|c|c|c|c|c|}
+				\hline
+				Thời gian (phút) & $[0;4)$ & $[4;8)$ & $[8;12)$ & $[12;16)$ & $[16;20)$ \\ \hline
+				Giá trị đại diện & $2$ & $6$ & $10$ & $14$ & $18$ \\ \hline
+				Số học sinh & $2$ & $4$ & $7$ & $4$ & $3$ \\ \hline
+			\end{tabular}
+		\end{center}
+		Thời gian trung bình (phút) để hoàn thành bài tập của các em học sinh là
+		\[\overline{x}=\dfrac{2\cdot2+4\cdot6+7\cdot10+4\cdot14+3\cdot18}{20}=10{,}4.\]
+	}
+\end{ex}
+
+%%%=========EX_18=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Nguyễn Tất Thành - Đắk Nông - Năm học: 2023-2024]%[1D5H1-3]
+	Thông qua đợt khảo thí chất lượng đầu năm của khối $10$, điểm môn toán của học sinh như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline \text{Điểm thi} & $[0;2{,}5)$ & $[2{,}5;5)$ & $[5;7{,}5)$ & $[7{,}5;10]$ \\
+			\hline \text {Số học sinh} & $91$ & $165$ & $85$ & $30$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Dựa vào mẫu số liệu trên, em hãy tính điểm trung bình môn toán gần với kết quả nào dưới đây
+	\choice
+	{\True $4{,}11$}
+	{$6{,}25$}
+	{$3{,}7$}
+	{$5{,}15$}
+	\loigiai{
+		Ta có
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline \text{Điểm thi} & $[0;2{,}5)$ & $[2{,}5;5)$ & $[5;7{,}5)$ & $[7{,}5;10]$ \\
+				\hline\text{Giá trị đại diện} & $1{,}25$ & $3{,}75$ & $6{,}25$ & $8{,}75$\\
+				\hline \text {Số học sinh} & $91$ & $165$ & $85$ & $30$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Điểm trung bình môn toán của các em học sinh là
+		$$\overline{x}=\dfrac{91\cdot 1{,}25+165\cdot 3{,}75+85\cdot 6{,}25+ 30\cdot 8{,}75}{371}\approx 4{,}11\,\text{(phút)}.$$
+	}
+\end{ex}
+
+%%%=========EX_19=========%%%
+\begin{ex}[Trích đề thi thử lần 1 - Trường Song Ngữ Á Châu - Đồng Nai - Năm học: 2024 - 2025]%[1D5H1-4]
+	Cho mẫu số liệu điểm môn Toán của một nhóm học sinh như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Điểm & $[6;7)$ & $[7;8)$ & $[8;9)$ & $[9;10)$ \\
+			\hline
+			Số học sinh & $8$ & $7$ & $10$ & $5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Mốt của mẫu số liệu (kết quả làm tròn đến hàng phần trăm) là
+	\choice
+	{$7{,}91$}
+	{\True $8{,}38$}
+	{$8{,}37$}
+	{$7{,}95$}
+	\loigiai{
+	Tần số lớn nhất là $10$ nên	nhóm chứa mốt là nhóm $[8;9)$. Khi đó 
+	\begin{eqnarray*}
+		M_{0}=8+\dfrac{10-7}{10-7+10-5}\cdot 1=	8{,}375\approx 8{,}38.
+	\end{eqnarray*}
+	}
+\end{ex}
+
+%%%=========EX_20=========%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Chu Văn An - An Giang - Năm học: 2023 - 2024]%[1D5H1-4]
+	Bảng số liệu ghép nhóm sau cho biết chiều cao (cm) của $50$ học sinh lớp $11A$
+	\setlength\extrarowheight{2pt}
+	\begin{longtable}{|c|c|c|c|c|c|}
+		\hline
+		Khoảng chiều cao (cm) & $[145;150)$ & $[150;155)$ & $[155;160)$ & $[160;165)$ & $[165;170)$ \\
+		\hline
+		Số học sinh & $7$ & $14$ & $10$ & $10$ & $9$ \\
+		\hline
+	\end{longtable}
+	Tìm nhóm chứa mốt của mẫu số liệu ghép nhóm trên.
+	\choice
+	{$[160;165)$}
+	{$[145;150)$}
+	{\True $[150;155)$}
+	{$[155;160)$}
+	\loigiai{
+	Tần số lớn nhất là $14$ nên nhóm chứa mốt là $[150;155)$.
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\ind{PHẦN II.} \inden{TRẮC NGHIỆM ĐÚNG SAI.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/1T1-Bai1-DS]%--Đặt tên 1T1-Bai1-DS
+ %%%=============EX_1=============%%%
+\begin{ex}%[1D5H1-4]
+	Số lượng người đi xem một bộ phim mới theo độ tuổi trong một rạp chiếu phim (sau $1h$ đầu công chiếu) được ghi lại theo bảng phân phối ghép nhóm sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Độ tuổi & $[10;20)$ & $[20;30)$ & $[30;40)$ & $[40;50)$ & $[50;60)$ \\
+			\hline
+			Số người & $6$ & $12$ & $16$ & $7$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\choiceTFt
+	{\True Giá trị đại diện nhóm $[50;60)$ là $55$}
+	{\True Độ tuổi được dự báo là ít xem phim đó nhất là thuộc nhóm $[50;60)$}
+	{\True Nhóm chứa mốt là $[30;40)$}
+	{Độ tuổi được dự báo là thích xem phim đó nhiều nhất là $31$ tuổi}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Giá trị đại diện của nhóm $[50;60)$ là $\dfrac{50+60}{2}=55$.
+			\itemch	Dựa vào bảng ta thấy độ tuổi được dự báo là ít xem phim đó nhất thuộc nhóm $[50;60)$.
+			\itemch	Tần số lớn nhất là $16$ nên nhóm $[30;40)$ chứa mốt.
+			\itemch	Nhóm chứa mốt là $[30;40)$ nên ta có\\ $u_m=30$, $u_{m+1}=40$, $n_m=16$, $n_{m-1}=12$, $n_{m+1}=7$, $u_{m+1}-u_m=40-30=10$.
+			\\ 
+			Khi đó mốt là 
+			\begin{eqnarray*}
+			M_0&=&u_m+\dfrac{n_m-n_{m-1}}{\left(n_m-n_{m-1}\right)+\left(n_m-n_{m+1}\right)} \cdot\left(u_{m+1}-u_m\right)\\
+			&=&30+\dfrac{16-12}{(16-12)+(16-7)}\cdot 10=\dfrac{430}{13}\approx 33.
+			\end{eqnarray*}
+			Vậy  độ tuổi được dự báo là thích xem phim đó nhiều nhất là $33$ tuổi.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_2=============%%%
+\begin{ex}%[1D5H1-4]
+	Cho mẫu số liệu ghép nhóm sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Điểm số môn Toán & $[0;2)$ & $[2;4)$ & $[4;6)$ & $[6;8)$ & $[8;10)$ \\
+			\hline
+			Số học sinh đạt được & $1$ & $6$ & $12$ & $14$ & $8$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\choiceTF[t]
+	{Cỡ mẫu của mẫu số liệu bằng $40$}
+	{Độ dài của nhóm $[0;2)$ bằng $3$}
+	{\True Giá trị đại diện của nhóm $[2;4)$ bằng $3$}
+	{\True Nhóm chứa mốt là $[6;8)$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Cỡ mẫu của mẫu số liệu là $n=1+6+12+14+8=41$.
+			\itemch	Độ dài của nhóm $[0;2)$ bằng $2-0=2$.
+			\itemch	Giá trị đại diện của nhóm $[2;4)$ bằng $\dfrac{2+4}{2}=\dfrac{6}{2}=3$.
+			\itemch Tần số lớn nhất là $14$ nên nhóm $[6;8)$ chứa mốt.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_3=============%%%
+\begin{ex}%[1D5H1-4]
+	\immini{Một nhà thực vật học đo chiều dài trung bình của $74$ lá cây (đơn vị: mm) và thu được bảng tần số ghép nhóm như sau
+		\choiceTFt
+		{Chiều dài trung bình của $74$ lá cây xấp xỉ bằng $6{,}4$ (mm)}
+		{\True Độ dài của mỗi nhóm là $0{,}4$}
+		{Nhóm chứa mốt là $[7{,}05;7{,}45)$}
+		{Mốt của mẫu số liệu ghép nhóm xấp xỉ bằng $6{,}65$}}
+	{\begin{tabular}{|c|c|c|}
+			\hline
+			Nhóm & Giá trị đại diện & Tần số \\
+			\hline
+			$[5{,}45;5{,}85)$ & $5{,}65$ & $5$ \\
+			\hline
+			$[5{,}85;6{,}25)$ & $6{,}05$ & $9$ \\
+			\hline
+			$[6{,}25;6{,}65)$ & $6{,}45$ & $15$ \\
+			\hline
+			$[6{,}65;7{,}05)$ & $6{,}85$ & $19$ \\
+			\hline
+			$[7{,}05;7{,}45)$ & $7{,}25$ & $16$ \\
+			\hline
+			$[7{,}45;7{,}85)$ & $7{,}65$ & $8$ \\
+			\hline
+			$[7{,}85;8{,}25)$ & $8{,}05$ & $2$ \\
+			\hline
+	\end{tabular}}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Chiều dài trung bình của $74$ lá cây là
+			\begin{eqnarray*}
+				\overline{x}=\dfrac{5\cdot5{,}65+9\cdot6{,}05+15\cdot6{,}45+19\cdot6{,}85+16\cdot7{,}25+8\cdot7{,}65+2\cdot8{,}05}{74}=\dfrac{5029}{740}\approx 6{,}8\,(mm).
+			\end{eqnarray*}
+			\itemch Vì mỗi nhóm có độ dài bằng nhau nên độ dài của mỗi nhóm là $5{,}85-5{,}45=0{,}4$.
+			\itemch Tần số lớn nhất là $19$ nên nhóm chứa mốt là $[6{,}65;7{,}05)$.
+			\itemch Nhóm chứa mốt là $[6{,}65;7{,}05)$.\\
+			Trong đó $u_m=6{,}65$; $u_{m+1}=7{,}05$; $u_{m+1}-u_m=0{,}4$; $n_m=19$; $n_{m-1}=15$; $n_{m+1}=16$.\\Mốt của mẫu số liệu ghép nhóm là $M_{0}=6{,}65+\dfrac{19-15}{(19-15)+(19-16)}\cdot0{,}4\approx 6{,}88$.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_4=============%%%
+\begin{ex}[Trích đề KSCL - Trường THPT Nguyễn Đăng Đạo - Bắc Ninh - Năm học: 2024 - 2025]%[1D5H1-4]
+	Thống kê chiều cao của $40$ học sinh của một lớp (đơn vị đo: cm) ta được mẫu số liệu ghép nhóm như sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline
+			Nhóm chiều cao & $[155;160)$ & $[160;165)$ & $[165;170)$ & $[170;175)$ & Tổng\\
+			\hline
+			Số học sinh & $5$ & $12$ & $16$ & $7$ & $n=40$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\choiceTF[t]
+	{\True Tần số của nhóm $[160;165)$ là $12$}
+	{Tần số tích lũy của nhóm $[165;170)$ là $17$}
+	{Mốt của mẫu số liệu là $165{,}6$}
+	{Số trung bình cộng của mẫu số liệu trên khoảng $165{,}5$}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|l|c|c|c|c|c|}
+				\hline
+				Nhóm chiều cao & $[155;160)$ & $[160;165)$ & $[165;170)$ & $[170;175)$ & \\
+				\hline
+				Giá trị đại diện & $157{,}5$ & $162{,}5$ & $167{,}5$ & $172{,}5$ & \\
+				\hline
+				Số học sinh & $5$ & $12$ & $16$ & $7$ & $n=40$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\begin{itemchoice}
+			\itemch
+			Từ bảng thống kê ta thấy tần số của nhóm $[160;165)$ là $12$.
+			\itemch
+			Tần số tích lũy của nhóm $[165;170)$ là $5+12+16=33$.
+			\itemch
+			Tần số lớn nhất là $16$ nên nhóm chứa mốt là $[165;170)$. Khi đó áp dụng công thức ta có
+			$$M_{0}=165+\dfrac{16-12}{16-12+16-7}\cdot 5\approx 166{,}5.$$
+			\itemch
+			Số trung bình cộng của mẫu số liệu trên là
+			$$\overline{x}=\dfrac{5\cdot 157{,}5+12\cdot 162{,}5+16\cdot 167{,}5+7\cdot 172{,}5}{40}\approx 165{,}6.$$
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_5=============%%%
+\begin{ex}%[1D5V1-4]
+	Thâm niên giảng dạy của một số giáo viên trường THPT được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Thâm niên (Số năm) & $[1;5)$ & $[5;10)$ & $[10;15)$ & $[15;20)$ & $[20;25)$ \\
+			\hline
+			Số giáo viên & $4$ & $12$ & $16$ & $8$ & $3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\choiceTF[t]
+	{Cỡ mẫu của mẫu số liệu bằng $50$}
+	{\True Số trung bình của mẫu ghép nhóm là $11{,}85$}
+	{\True Nhóm chứa mốt của mẫu số liệu trên là nhóm $[10;15)$}
+	{Mốt của mẫu số liệu ghép nhóm bằng $11{,}74$}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Thâm niên (Số năm) & $[1;5)$ & $[5;10)$ & $[10;15)$ & $[15;20)$ & $[20;25)$ \\
+				\hline
+				Giá trị đại diện & $3$ & $7{,}5$ & $12{,}5$ & $17{,}5$ & $22{,}5$ \\
+				\hline
+				Số giáo viên & $4$ & $12$ & $16$ & $8$ & $3$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\begin{itemchoice}
+			\itemch Cỡ mẫu của mẫu số liệu bằng $n=4+12+16+8+3=43$.
+			\itemch Số trung bình của mẫu số liệu ghép nhóm là
+			\[\overline{x}=\dfrac{4\cdot3+12\cdot7{,}5+16\cdot12{,}5+8\cdot17{,}5+3\cdot22{,}5}{43}=11{,}85.\]
+			\itemch Tần số lớn nhất là $16$ nên nhóm chứa mốt của mẫu số liệu trên là nhóm $[10;15)$.
+			\itemch Nhóm chứa mốt là $[10;15)$.\\
+			Trong đó $u_m=10$, $u_{m+1}=15$, $n_{m-1}=12$, $n_m=16$, $n_{m+1}=8$, $u_{m+1}-u_m=15-10=5$.\\
+			Khi đó	$M_0=10+\dfrac{16-12}{(16-12)+(16-8)}\cdot5=11{,}67$.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============================%%% 
+\Closesolutionfile{ans}
+\ind{PHẦN III.} \inden{TRẢ LỜI NGẮN.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/1T1-Bai1-TLN]%--Đặt tên 2T1-Bai1-TLN
+%%%=============EX_1=============%%%
+\begin{ex}%[1D5V1-4]
+	Khảo sát số lần sử dụng Facebook của một người thực hiện mỗi ngày trong $30$ ngày được lựa chọn
+	ngẫu nhiên được thống kê trong bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Số lần sử dụng Facebook & $[3;5]$ & $[6;8]$ & $[9;11]$ & $[12;14]$ & $[15;17]$ \\
+			\hline
+			Số ngày & $2$ & $5$ & $11$ & $8$ & $4$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tìm mốt của mẫu số liệu ghép nhóm trên?
+	\par
+	\shortans[oly]{10{,}5}
+	\loigiai{
+		Do số lần sử dụng Facebook là số nguyên nên ta hiệu chỉnh lại như sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Số lần sử dụng Facebook & $[2{,}5;5{,}5)$ & $[5{,}5;8{,}5)$ & $[8{,}5;11{,}5)$ & $[11{,}5;14{,}5)$ & $[14{,}5;17{,}5)$ \\
+				\hline
+				Số ngày & $2$ & $5$ & $11$ & $8$ & $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tần số lớn nhất là $11$ nên nhóm chứa mốt của mẫu số liệu trên là $[8{,}5;11{,}5)$.\\
+		Do đó $u_m=8{,}5$; $u_{m+1}=11{,}5$; $n_{m-1}=5$; $n_m=11$; $n_{m+1}=8$; $u_{m+1}-u_m=11{,}5-8{,}5=3$.\\
+		Mốt của mẫu số liệu ghép nhóm là $M_{0}=8{,}5+\dfrac{11-5}{(11-5)+(11-8)}\cdot3=10{,}5$.
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_2=============%%%
+\begin{ex}%[1D5V1-3]
+	Kết quả đo chiều cao của $250$ cây dừa đột biến $3$ năm tuổi ở một viện nghiên cứu được tổng hợp ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Chiều cao (m$^2$) & $[8,5;8,8)$ & $[8,8;9,1)$ & $[9,1;9,4)$ & $[9,4;9,7)$ & $[9,7;10)$ \\
+			\hline
+			Số cây & $36$ & $45$ & $83$ & $65$ & $21$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy ước lượng số trung bình của mẫu số liệu ghép nhóm trên (kết quả làm tròn đến hàng phần trăm)?
+	\par
+	\shortans[oly]{9{,}24}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Chiều cao (m$^2$) & $[8{,}5;8{,}8)$ & $[8{,}8;9{,}1)$ & $[9{,}1;9{,}4)$ & $[9{,}4;9{,}7)$ & $[9{,}7;10)$ \\
+				\hline
+				Giá trị đại diện & $8{,}65$ & $8{,}95$ & $9{,}25$ & $9{,}55$ & $9{,}85$ \\
+				\hline
+				Số cây & $36$ & $45$ & $83$ & $65$ & $21$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Chiều cao trung bình của $250$ cây dừa đột biến xấp xỉ bằng
+		\[\overline{x}=\dfrac{36\cdot8{,}65+45\cdot8{,}95+83\cdot9{,}25+65\cdot9{,}55+21\cdot9{,}85}{250}\approx 9{,}24.\]
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_3=============%%%
+\begin{ex}%[1D5V1-4]
+	Kết quả đo chiều cao của $200$ cây keo $3$ năm tuổi ở một nông trường được biểu diễn ở biểu đồ dưới đây
+	\begin{center}
+		\begin{tikzpicture}[scale=1,font=\scriptsize]
+			\def\hoanh{11.5};
+			\def\tung{6.5};
+			\def\mau{cyan};
+			\foreach \x/\n in{1/20,3/35,5/60,7/55,9/30}{\draw[line width=16mm,\mau] (\x,0)--++(0,{\n/10});
+				\draw[dashed] (\x,{\n/10})node[above]{$\n$}--(0,{\n/10}) node[left]{$\n$};}
+			\foreach \x/\p in {1/[8{,}5;8{,}8),3/[8{,}8;9{,}1),5/[9{,}1;9{,}4),7/[9{,}4;9{,}7),9/[9{,}7;10{,}0)}{\node[below] at (\x,0){\scriptsize $\p$};}
+			\draw[->] (0,0)--(\hoanh,0) node[below]{($m$)};
+			\draw[->] (0,0)node[below left]{$O$}--(0,\tung) node[left]{(Số cây)};
+			\path (current bounding box.north) node[above]		{\textbf{Chiều cao 200 cây keo 3 năm tuổi}};
+		\end{tikzpicture}
+	\end{center}
+	Hãy ước lượng mốt của mẫu số liệu ghép nhóm trên.
+	\par
+	\shortans[oly]{9{,}35}
+	\loigiai{
+		Bảng tần số ghép nhóm
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Chiều cao &$[8{,}5;8{,}8)$ &{$[8{,}8;9{,}1)$} &{$[9{,}1;9{,}4)$} &{$[9{,}4;9{,}7)$} &{$[9{,}7;10{,}0)$} \\
+				\hline Số cây & $20$ & $35$ & $60$ & $55$ & $30$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tần số lớn nhất là $60$ nên nhóm chứa mốt của mẫu số liệu trên là nhóm $[9{,}1;9{,}4)$.\\
+		Do đó $u_m=9{,}1$; $u_{m+1}=9{,}4$; $n_{m-1}=35$; $n_m=60$; $n_{m+1}=55$; $u_{m+1}-u_m=9{,}4-9{,}1=0{,}3$.\\
+		Vậy mốt của mẫu số liệu ghép nhóm là
+		$M_0=9{,}1+\dfrac{60-35}{(60-35)+(60-55)} \cdot 0{,}3= 9{,}35$.
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_4=============%%%
+\begin{ex}%[1D5C1-3]
+	Kết quả đo chiều cao của $81$ cây tre $2$ năm tuổi ở một ngọn đồi được biểu diễn ở biều đồ dưới đây
+	\begin{center}
+		\begin{tikzpicture}[line join=round, line cap=round, >=stealth,font=\footnotesize, x=1cm,y=0.7cm]
+			\tikzset{every node/.style={scale=0.9}}% thu nhỏ phóng tỏ tex trong hình
+			\draw[<->] (0,6.5)node[above left]{Số cây}--(0,1)node[left]{$5$}--(0,2)node[left]{$10$}--(0,3)node[left]{$15$}--(0,4)node[left]{$20$}--(0,5)node[left]{$25$}--(0,6)node[left]{$30$}--(0,0)node[below left]{$O$}--(2,0)node[below]{$(1;5]$}--(4,0)node[below]{$(5;9]$}--(6,0)node[below]{$(9;13]$}--(8,0)node[below]{$(13;17]$}--(10,0)node[below]{$(17;21]$}--(12,0)node[below]{$(21;25]$}--(13,0) node[below right]{(mét)};%Trục ox và oy
+			\foreach \x/\y in {1/1,3/2.2,5/4.6,7/4.8,9/2.8,11/0.8}{\draw[dashed] ;
+				\draw[fill=cyan] (\x+0.5,0) rectangle (\x+1.5,\y);
+			}
+			\draw
+			node[above right] at (1.7,1){$5$}
+			node[above right] at (3.7,2.2){$11$}
+			node[above right] at (5.7,4.6){$23$}
+			node[above right] at (7.7,4.8){$24$}
+			node[above right] at (9.7,2.8){$14$}
+			node[above right] at (11.7,0.8){$4$};
+			\foreach \y in {1,2,3,4,5,6}{\fill (0,\y) circle (1pt);};
+			\draw (4,7) node[anchor=west,align=center]{\footnotesize \textbf{Chiều cao của 81 cây tre 2 năm tuổi}};
+		\end{tikzpicture}
+	\end{center}
+	Hãy ước lượng chiều cao trung bình của các cây tre $2$ năm tuổi trong ngọn đồi (làm tròn đến hàng đơn vị).
+	\par
+	\shortans[oly]{13}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				Chiều cao & $[1;5]$ & $[5;9]$ & $[9;13]$ & $[13;17]$ & $[17;21]$ & $[21;25]$ \\
+				\hline
+				Giá trị đại diện & $3$ & $7$ & $11$ & $15$ & $19$ & $23$ \\
+				\hline
+				Số cây & $5$ & $11$ & $23$ & $24$ & $14$ & $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		Chiều cao trung bình của các cây tre $2$ năm tuổi trong ngọn đồi là
+		\begin{eqnarray*}
+			\overline{x}=\dfrac{5\cdot3+11\cdot7+23\cdot11+24\cdot15+14\cdot19+4\cdot23}{81}\approx 13.
+		\end{eqnarray*}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_5=============%%%
+\begin{ex}%[1D5C1-4]
+	Một đại lí bảo hiểm đã thống kê số lượng khách mua bảo hiểm nhân thọ trong một ngày ở biểu
+	đồ sau
+	\begin{center}
+		\fbox{
+			\begin{tikzpicture}[ybar,scale=1,font=\footnotesize,>=stealth,line join=round,line cap=round]
+				\begin{scope}[font=\scriptsize]
+					\draw[->] (0,0) -- (0,5.7)node[above]{Người};
+					\draw[->] (0,0) -- (11,0)node[right]{Tuổi};
+					\foreach \i/\j in {0/0,1/2,2/4,3/6,4/8,5/10}
+					{\draw (10,\i) -- (0,\i) node[left]{$\j$};};
+					\draw[color=blue,fill=blue,bar width=.5cm]
+					plot coordinates {(0.75,2) (2.75,3) (4.75,5) (6.75,3.5) (8.75,1.5)};
+					\draw[color=cyan,fill=cyan,bar width=.5cm]
+					plot coordinates {(1.25,1.5) (3.25,4.5) (5.25,3) (7.25,2) (9.25,1)};
+					\foreach \i/\j in {1/$[20;30)$,3/$[30;40)$,5/$[40;50)$,7/$[50;60)$,9/$[60;70)$}{
+						\draw (\i,0) node[below,align=center]{\j};
+					}
+					\draw (2,6) node[anchor=west,align=center]{\footnotesize \textbf{Biểu đồ số lượng khách hàng theo giới tính và độ tuổi}};
+					\foreach \i in {2,4,...,10}{
+						\draw (\i,0) -- (\i,-.1);
+					}
+					\fill[blue] (11.5,2.8) rectangle (11.7,3) node[anchor=west,yshift=-.1cm]{\color{black}Nam};
+					\fill[cyan] (11.5,2.3) rectangle (11.7,2.5) node[anchor=west,yshift=-.1cm]{\color{black}Nữ};
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	Hãy sử dụng dữ liệu trên để tư vấn cho đại lí bảo hiểm xác định khách hàng nam ở độ tuổi $a$ và nữ ở độ tuổi $b$ nào hay mua bảo hiểm nhất. Từ đó tính $T=ab$ (kết quả làm tròn đến hàng đơn vị).
+	\par
+	\shortans[oly]{1676}
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|l|c|c|c|c|c|}
+				\hline
+				Nhóm	& $[20;30)$ & $[30;40)$ & $[40;50)$ & $[50;60)$ & $[60;70)$ \\
+				\hline
+				Khách hàng nam	& $4$ & $6$ & $10$ & $7$ & $3$\\
+				\hline
+				Khách hàng nữ	& $3$ & $9$ & $6$ & $4$ & $2$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tần số lớn nhất là $10$ đối với khách hàng nam nên nhóm chứa mốt là $[40;50)$.\\
+		Mốt của mẫu số liệu đối với khách hàng nam là $M_1=40+\dfrac{10-6}{(10-6)+(10-7)}\cdot10=\dfrac{320}{7}$.\\
+		Do đó đối với nam ở độ tuổi từ $40$ đến $50$ có nhu cầu mua bảo hiểm lớn nhất, đặc biệt là độ tuổi $a=46$.\\
+		Tần số lớn nhất là $9$ đối với khách hàng nữ nên nhóm chứa mốt là $[30;40)$.\\
+		Mốt của mẫu số liệu đối với khách hàng nữ là $M_2=30+\dfrac{9-3}{(9-3)+(9-6)}\cdot10=\dfrac{110}{3}$.\\
+		Do đó đối với nữ ở độ tuổi từ $30$ đến $40$ có nhu cầu mua bảo hiểm lớn nhất, đặc biệt là độ tuổi $b=37$.\\
+		Khi đó ta có $T=ab=\dfrac{320}{7}\cdot\dfrac{110}{3}\approx1\,676$.
+	}
+\end{ex}
+%%%=============================%%%
+\Closesolutionfile{ans}
+
+\ind{PHẦN IV.} \inden{TỰ LUẬN.}\\
+\setcounter{ex}{0}
+%%%=============EX_1=============%%%
+\begin{ex}[Trích đề thi HKI - Trường THPT thị xã Quảng Trị - Năm học: 2024 - 2025]%[1D5H1-4]
+	Theo dõi cân nặng của các học sinh nữ lớp 11A, ta thu được mẫu số liệu ghép nhóm như sau
+	\begin{center}
+		{\setlength\extrarowheight{2pt}
+			\begin{tabular}{|>{\centering\arraybackslash}m{3cm}|*{6}{>{\centering\arraybackslash}m{1.8cm}|}}
+				\hline
+				Cân nặng (kg) & $[35;38)$ & $[38;41)$ & $[41;44)$ & $[44;47)$ & $[47;50)$ & $[50;53)$\\
+				\hline
+				Số học sinh & $2$ & $4$ & $6$ & $5$ & $3$ & $1$\\
+				\hline
+		\end{tabular}}
+	\end{center}
+	Tính mốt của mẫu số liệu ghép nhóm trên (làm tròn đến hàng đơn vị).
+	\loigiai
+	{Tần số lớn nhất là $6$ nên nhóm $[41;44)$ là nhóm chứa mốt. Do đó
+		\begin{eqnarray*}
+			M_{0}= 41 + \dfrac{6-4}{(6-4)+(6-5)} \cdot (44-41) = 43.
+	\end{eqnarray*}}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_2=============%%%
+\begin{ex}%[1D5H1-4]
+	Người ta ghi lại tuổi thọ của một số con ong cho kết quả như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Tuổi thọ (ngày) & $[0;20)$ & $[20;40)$ & $[40;60)$ & $[60;80)$ & $[80;100)$\\
+			\hline
+			Số lượng & $5$ & $12$ & $23$ & $31$ & $29$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tìm mốt của mẫu số liệu. Giải thích ý nghĩa của giá trị nhận được.
+	\loigiai{
+		Tần số lớn nhất là $31$ nên nhóm chứa mốt là nhóm $[60;80)$.\\
+		Ta có $u_m=60$; $u_{m+1}=80$; $n_{m-1}=23$; $n_m=31$; $n_{m+1}=29$; $u_{m+1}-u_m=20$.\\
+		Khi đó $M_0=60+\dfrac{31-23}{(31-23)+(31-29)}\cdot 20=76$.\\
+		Như vậy, số con ong có tuổi thọ $76$ ngày là nhiều nhất.
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_3=============%%%
+\begin{ex}%[1D5H1-3]%[1D5H1-4]
+	Tuổi thọ (năm) của $50$ bình ắc quy ô tô được cho như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Tuổi thọ (năm)	& $\left[2;2{,}5 \right)$ & $\left[2{,}5;3 \right)$ & $\left[3;3{,}5 \right)$ & $\left[3{,}5;4 \right)$ & $\left[4;4{,}5 \right)$ & $\left[4{,}5;5 \right)$ \\
+			\hline
+			Tần số & $4$ & $9$ & $14$ & $11$ & $7$ & $5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item [a)] Xác định mốt và giải thích ý nghĩa.
+		\item [b)] Tính tuổi thọ trung bình của $50$ bình ắc quy ô tô này.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item [a)] Tần số lớn nhất là $14$ nên nhóm chứa mốt là nhóm $\left[3;3{,}5\right)$.\\
+			Ta có $u_m=3$; $u_{m+1}=3{,}5$; $n_{m-1}=9$; $n_m=14$; $n_{m+1}=11$; $u_{m+1}-u_{m}=3{,}5-3=0{,}5$. Do đó
+			\begin{eqnarray*}
+				M_0=3+\dfrac{14-9}{(14-9)+(14-11)}\cdot 0{,}5=3{,}3125.
+			\end{eqnarray*}
+			Tuổi thọ cao nhất của bình ắc quy khoảng $3{,}3125$ năm.
+			\item [b)] Ta có bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline
+					Tuổi thọ (năm)	& $2{,}25$ & $2{,}75$ & $3{,}25$ & $3{,}75$ & $4{,}25$ & $4{,}75$ \\
+					\hline
+					Tần số & $4$ & $9$ & $14$ & $11$ & $7$ & $5$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Tuổi thọ trung bình của $50$ bình ắc quy ô tô này là
+			\begin{eqnarray*}
+				\overline{x}=\dfrac{4\cdot2{,}25+9\cdot2{,}75+14\cdot3{,}25+11\cdot3{,}75+7\cdot4{,}25+5\cdot4{,}75}{50}=3{,}48 \, \text{(năm)}.
+			\end{eqnarray*}
+	\end{enumerate}}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_4=============%%%
+\begin{ex}%[1D5H1-4]%[1D5H1-3]
+	Anh Văn ghi lại cự li $30$ lần ném lao của mình ở bảng sau (đơn vị: mét)
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline $72{,}1$ & $72{,}9$ & $70{,}2$ & $70{,}9$ & $72{,}2$ & $71{,}5$ & $72{,}5$ & $69{,}3$ & $72{,}3$ & $69{,}7$ \\
+			\hline $72{,}3$ & $71{,}5$ & $71{,}2$ & $69{,}8$ & $72{,}3$ & $71{,}1$ & $69{,}5$ & $72{,}2$ & $71{,}9$ & $73{,}1$ \\
+			\hline $71{,}6$ & $71{,}3$ & $72{,}2$ & $71{,}8$ & $70{,}8$ & $72{,}2$ & $72{,}2$ & $72{,}9$ & $72{,}7$ & $70{,}7$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tổng hợp lại kết quả ném của anh Văn vào bảng tần số ghép nhóm theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Cự li $(\mathrm{m})$ &{$[69{,}2; 70)$} &{$[70; 70{,}8)$} &{$[70{,}8; 71{,}6)$} &{$[71{,}6; 72{,}4)$} &{$[72{,}4; 73{,}2)$} \\
+				\hline Số lần & $?$ & $?$ & $?$ & $?$ & $?$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item Hãy ước lượng cự li trung bình mỗi lần ném từ bảng tần số ghép nhóm trên.
+		\item Khả năng anh Văn ném được khoảng bao nhiêu mét là cao nhất?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Điểm tổng của mỗi đợt gồm 10 lần ném
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+					\hline Điểm &Điểm &Điểm &Điểm &Điểm &Điểm &Điểm &Điểm &Điểm &Điểm &Tổng \\
+					\hline $72{,}1$ & $72{,}9$ & $70{,}2$ & $70{,}9$ & $72{,}2$ & $71{,}5$ & $72{,}5$ & $69{,}3$ & $72{,}3$ & $69{,}7$ &$713{,}6$\\
+					\hline $72{,}3$ & $71{,}5$ & $71{,}2$ & $69{,}8$ & $72{,}3$ & $71{,}1$ & $69{,}5$ & $72{,}2$ & $71{,}9$ & $73{,}1$ &$714{,}9$\\
+					\hline $71{,}6$ & $71{,}3$ & $72{,}2$ & $71{,}8$ & $70{,}8$ & $72{,}2$ & $72{,}2$ & $72{,}9$ & $72{,}7$ & $70{,}7$ &$718{,}4$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			Cự li trung bình của mỗi lần ném của anh Văn
+			\[\overline{x}=\dfrac{713{,}6+714{,}9+718{,}4}{30}\approx71{,}56\ (\mathrm{m}). \]
+			\item Bảng tần số ghép nhóm kết quả ném của anh Văn
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Cự li $(\mathrm{m})$ &{$[69{,}2; 70)$} &{$[70; 70{,}8)$} &{$[70{,}8; 71{,}6)$} &{$[71{,}6; 72{,}4)$} &{$[72{,}4; 73{,}2)$} \\
+					\hline Số lần & $4$ & $2$ & $7$ & $12$ & $5$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Bảng tần số ghép nhóm kết quả ném của anh Văn (theo giá trị đại diện)
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Cự li $(\mathrm{m})$ &{$[69{,}2; 70)$} &{$[70; 70{,}8)$} &{$[70{,}8; 71{,}6)$} &{$[71{,}6; 72{,}4)$} &{$[72{,}4; 73{,}2)$} \\
+					\hline Giá trị đại diện &$69{,}6$ &$70{,}4$ &$71{,}2$ &$72{,}0$ &$72{,}8$\\
+					\hline Số lần & $4$ & $2$ & $7$ & $12$ & $5$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Cự li trung bình mỗi lần ném của anh Văn qua bảng tần số ghép nhóm
+			\[\overline{x}=\dfrac{4\cdot69{,}6+2\cdot70{,}4+7\cdot71{,}2+12\cdot72+5\cdot72{,}8}{30}=71{,}52\, (\mathrm{m}).\]
+			\item Tần số lớn nhất là $12$ nên nhóm chứa mốt của mẫu số liệu trên là nhóm $[71{,}6;72{,}4)$.\\
+			Do đó mốt của mẫu số liệu ghép nhóm là
+			\[M_0=71{,}6+\dfrac{12-7}{(12-7)+(12-5)}\cdot 0{,}8=\dfrac{101}{14} \approx 71{,}93.\]
+			Dựa vào kết quả trên thì khả năng anh Văn ném được cao nhất là khoảng $71{,}93$ m.
+		\end{enumerate}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_5=============%%%
+\begin{ex}%[1D5H1-4]%[1D5H1-3]
+	Một thư viện thống kê số lượng sách được mượn mỗi ngày trong ba tháng ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline Số sách &{$[16; 20]$} &{$[21; 25]$} &{$[26; 30]$} &{$[31; 35]$} &{$[36; 40]$} &{$[41; 45]$} &{$[46; 50]$} \\
+			\hline Số ngày & 3 & 6 & 15 & 27 & 22 & 14 & 5 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Hãy ước lượng số trung bình và mốt của mẫu số liệu ghép nhóm trên.
+	\loigiai{
+		Vì số lượng sách được mượn là số nguyên nên ta hiệu chỉnh bảng tần số ghép nhóm (theo giá trị đại diện) như sau
+		\begin{center}
+			{\footnotesize \begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline Số sách &{$[15{,}5; 20{,}5)$} &{$[20{,}5; 25{,}5)$} &{$[25{,}5; 30{,}5)$} &{$[30{,}5; 35{,}5)$} &{$[35{,}5; 40{,}5]$} &{$[40{,}5; 45{,}5)$} &{$[45{,}5; 50{,}5)$} \\
+					\hline Giá trị đại diện &{$18$} &{$23$} &{$28$} &{$33$} &{$38$} &{$43$} &{$48$} \\
+					\hline Số ngày & 3 & 6 & 15 & 27 & 22 & 14 & 5 \\
+					\hline
+			\end{tabular}}
+		\end{center}
+		Trung bình số lượng sách được mượn mỗi ngày trong 3 tháng của thư viện là
+		\[\overline{x}=\dfrac{3\cdot18+6\cdot23+15\cdot28+27\cdot33+22\cdot38+14\cdot43+5\cdot48}{92}\approx 34{,}58.\]
+		Tần số lớn nhất là $27$ nên nhóm chứa mốt của mẫu số liệu trên là nhóm $[30{,}5;35{,}5)$.\\
+		Do đó mốt của mẫu số liệu ghép nhóm là
+		\[M_0=30{,}5+\dfrac{27-15}{(27-15)+(27-22)} \cdot 5\approx 34{,}03.\]
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_6=============%%%
+\begin{ex}[Trích đề thi GHKI - Trường THPT Nguyễn Trãi - Thanh Hóa - Năm học: 2023 - 2024]%[1D5H1-3]
+	Doanh thu bán hàng trong $20$ ngày được lựa chọn ngẫu nhiên của một của hàng được ghi lại ở bảng sau (đơn vị: triệu đồng)
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Doanh thu & $[5;7)$ & $[7;9)$ & $[9;11)$ & $[11;13)$ & $[13;15)$\\
+			\hline
+			Số ngày & $2$ & $7$ & $7$ & $3$ & $1$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tính số trung bình của mẫu số liệu trên.
+	\loigiai{
+		Bảng tần số ghép nhóm theo giá trị đại diện là
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Doanh thu & $[5;7)$ & $[7;9)$ & $[9;11)$ & $[11;13)$ & $[13;15)$\\
+				\hline
+				Giá trị đại diện & $6$ & $8$ & $10$ & $12$ & $14$\\
+				\hline
+				Số ngày & $2$ & $7$ & $7$ & $3$ & $1$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Số trung bình của mẫu số liệu trên là $\overline{x}=\dfrac{2\cdot 6+7\cdot 8+7\cdot 10+3\cdot 12+1\cdot 14}{20}=9{,}4$.
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_7=============%%%
+\begin{ex}%[1D5H1-3]
+	Cơ cấu dân số Việt Nam năm $2020$ theo độ tuổi được cho trong bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			Độ tuổi & Dưới $5$ tuổi & $5-14$ & $15-24$ & $25-64$ & Trên $65$\\
+			\hline
+			Số người (triệu) & $7{,}89$ & $14{,}68$ & $13{,}32$ & $53{,}78$ &$7{,}66$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Chọn $80$ là giá trị đại diện cho nhóm trên $65$ tuổi. Tính tuổi trung bình của người Việt Nam năm $2020$.
+	\loigiai{
+		Trong mỗi khoảng độ tuổi, giá trị đại diện là trung bình cộng của giá trị hai đầu mút nên ta có bảng sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				Độ tuổi & $2{,}5$ & $9{,}5$ & $19{,}5$ & $44{,}5$ & $80$\\
+				\hline
+				Số người (triệu) & $7{,}89$ & $14{,}68$ & $13{,}32$ & $53{,}78$ & $7{,}66$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Tổng số dân là $n=7{,}89+14{,}68+13{,}32+53{,}78+7{,}66=97{,}33$ (triệu người).\\
+		Do đó tuổi trung bình của người dân Việt Nam trong năm $2020$ là
+		\begin{eqnarray*}
+			\overline{x}=\dfrac{7{,}89\cdot2{,}5+14{,}68\cdot9{,}5+13{,}32\cdot19{,}5+53{,}78\cdot44{,}5+7{,}66\cdot80}{97{,}33}\approx 35{,}19.
+		\end{eqnarray*}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_8=============%%%
+\begin{ex}%[1D5V1-4]%[1D5V1-3]
+	Quãng đường (km) từ nhà đến nơi làm việc của $40$ công nhân một nhà máy được ghi lại như sau
+	\begin{center}
+		\begin{tabular}{cccccccccccccccccccc}
+			$5$	& $3$ &$10$ & $20$ & $25$ & $11$ & $13$ & $7$ & $12$ & $31$ & $19$ &$10$ &$12$ & $17$ & $18$ & $11$ & $32$ & $17$ &$16$ &$2$ \\
+			$7$	& $9$ &$7$ & $8$ & $3$ & $5$ & $12$ & $15$ & $18$ & $3$ & $12$ &$14$ &$2$ & $9$ & $6$ & $15$ & $15$ & $7$ &$6$ &$12$
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item [a)] Ghép nhóm dãy số liệu trên thành các khoảng có độ rộng bằng nhau, khoảng đầu tiên là $\left[0;5\right)$. Tìm giá trị đại diện cho mỗi nhóm.
+		\item [b)] Tính số trung bình của mẫu số liệu không ghép nhóm và mẫu số liệu ghép nhóm. Giá trị nào chính xác hơn?
+		\item [c)] Xác định nhóm chứa mốt của mẫu số liệu ghép nhóm thu được.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item [a)] Giá trị nhỏ nhất của mẫu số liệu là 2, giá trị lớn nhất là 32, khoảng đầu tiên của mẫu số liệu ghép nhóm là $\left[0;5\right)$ nên ta ghép nhóm mẫu số liệu như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Quãng đường	 & $\left[0;5\right)$ & $\left[5;10\right)$ & $\left[10;15\right)$ & $\left[15;20\right)$ & $\left[20;25\right)$& $\left[25;30\right)$& $\left[30;35\right)$\\
+					\hline
+					Số công nhân	& $5$ & $11$ & $11$ & $9$ & $1$ & $1$ & $2$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Trong mỗi khoảng, giá trị đại điện là trung bình cộng của hai giá trị đầu mút nên ta có bảng sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Quãng đường	 & $2{,}5$ & $7{,}5$ & $12{,}5$ & $17{,}5$ & $22{,}5$& $27{,}5$& $32{,}5$\\
+					\hline
+					Số công nhân & $5$ & $11$ & $11$ & $9$ & $1$ & $1$ & $2$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item [b)] Số trung bình của mẫu số liệu không ghép nhóm là
+			$$\overline{x}=\dfrac{5+3+10+\cdots +12}{40}=11{,}9.$$
+			Số trung bình của mẫu số liệu ghép nhóm là
+			$$\overline{x}=\dfrac{5\cdot 2{,}5+11\cdot 7{,}5+11\cdot 12{,}5+9\cdot 17{,}5+1\cdot 22{,}5+1\cdot 27{,}5+2\cdot 32{,}5}{40}=12{,}625.$$
+			Số trung bình của mẫu số liệu không ghép nhóm sẽ chính xác hơn số trung bình của mẫu số liệu ghép nhóm vì số trung bình của dữ liệu không ghép nhóm sử dụng chính xác các số liệu, còn số trung bình của dữ liệu ghép nhóm sử dụng giá trị đại diện của mỗi khoảng ghép nhóm.
+			\item [c)] Tần số lớn nhất là $11$ nên nhóm chứa mốt của mẫu số liệu ghép nhóm là nhóm $\left[5;10\right)$ và nhóm $\left[10;15\right)$.
+		\end{enumerate}
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_9=============%%%
+\begin{ex}[Trích đề thi HKI - Trường THPT Ten-lơ-man - TP. HCM - Năm học: 2024 - 2025]%[1D5V1-3]
+	Trong kỳ kiểm tra tập trung giữa học kỳ I của Trường Ten-lơ-man. Điểm kiểm tra giữa học kỳ I môn Toán của lớp $11X$ Ban Xã Hội được thống kê trong bảng ghép nhóm sau
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline Điểm & $[0;2)$ & $[2;4)$ & $[4;6)$ & $[6;8)$ & $[8;10)$ \\
+			\hline Tần số & $2$ & $4$ & $14$ & $20$ & $6$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Tính điểm trung bình và mốt của mẫu số liệu ghép nhóm này. Em có nhận xét gì về lực học môn Toán của các bạn học sinh lớp $11X$ so với học sinh toàn trường, biết điểm trung bình kiểm tra môn Toán của học sinh toàn trường là $7{,}16$.
+	\loigiai{
+		\begin{center}
+			\begin{tabular}{|l|c|c|c|c|c|}
+				\hline Điểm & $[0;2)$ & $[2;4)$ & $[4;6)$ & $[6;8)$ & $[8;10)$ \\
+				\hline Giá trị đại diện & $1$ & $3$ & $5$ & $7$ & $9$\\
+				\hline Tần số & $2$ & $4$ & $14$ & $20$ & $6$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		Điểm trung bình của lớp $11X$ là
+		$$\overline{x}=\dfrac{2\cdot1+4\cdot3+14\cdot5+20\cdot7+6\cdot9}{46}=\dfrac{278}{46}\approx 6{,}04.$$
+		Tần số lớn nhất là $20$ nên nhóm chứa mốt là $[6;8)$. Khi đó ta có
+	$$M_{0}=6+\dfrac{20-14}{20-14+20-6} \cdot(8-6)=6{,}6.$$
+		Vì kết quả điểm trung bình của lớp $11X$ là $6$ thấp hơn so với điểm trung bình kiểm tra môn Toán của học sinh toàn trường nên cho thấy các bạn học sinh lớp $11X$ khá yếu môn Toán.
+	}
+\end{ex}
+%%%=============================%%%
+
+%%%=============EX_10=============%%%
+\begin{ex}%[1D5V1-3]
+	Người ta đếm số xe ô tô đi qua một trạm thu phí mỗi phút trong khoảng thời gian từ $9$ giờ đến $9$ giờ $30$ phút sáng. Kết quả được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline $15$ & $16$ & $13$ & $21$ & $17$ & $23$ & $15$ & $21$ & $6$ & $11$ & $12$ & $23$ & $19$ & $25$ & $11$ \\
+			\hline $25$ & $7$ & $29$ & $10$ & $28$ & $29$ & $24$ & $6$ & $11$ & $23$ & $11$ & $21$ & $9$ & $27$ & $15$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Tính số xe trung bình đi qua trạm thu phí trong mỗi phút.
+		\item Tổng hợp lại số liệu trên vào bảng tần số ghép nhóm theo mẫu sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline Số xe &{$[6; 10]$} &{$[11; 15]$} &{$[16; 20]$} &{$[21; 25]$} &{$[26; 30]$} \\
+				\hline Số lần & $?$ & $?$ & $?$ & $?$ & $?$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\item Hãy ước lượng trung bình số xe đi qua trạm thu phí trong mỗi phút từ bảng tần số ghép nhóm trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+					\hline Giá trị &$6$ & $7$ & $9$ & $10$ & $11$ & $12$ & $13$ & $15$ & $16$\\
+					\hline Tần số &$2$ & $1$ & $1$ & $1$ & $4$ & $1$ & $1$ & $3$ & $1$ \\
+					\hline Giá trị & $17$ & $19$ & $21$ & $23$ & $24$ & $25$ & $27$ & $28$ & $29$ \\
+					\hline Tần số & $1$ & $1$ & $3$ & $3$ & $1$ & $2$ & $1$ & $1$ & $2$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Số xe trung bình đi qua trạm thu phí trong mỗi phút là
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				\overline{x}&=&\dfrac{2\cdot6+1\cdot7+1\cdot9+1\cdot10+4\cdot11+1\cdot12+1\cdot13+3\cdot 15+1\cdot16}{30}\\
+				&+&\dfrac{1\cdot17+1\cdot19+3\cdot21+3\cdot23+1\cdot24+2\cdot25+1\cdot27+1\cdot28+2\cdot29}{30}\\
+				&\approx& 17{,}43\, (\text{xe}).
+			\end{eqnarray*}
+			\item Bảng tần số ghép nhóm
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Số xe &{$[6; 10]$} &{$[11; 15]$} &{$[16; 20]$} &{$[21; 25]$} &{$[26; 30]$} \\
+					\hline Số lần & $5$ & $9$ & $3$ & $9$ & $4$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Bảng tần số ghép nhóm (theo giá trị đại diện) được hiệu chỉnh lại như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Số xe &{$[5{,}5; 10{,}5)$} &{$[10{,}5; 15{,}5)$} &{$[15{,}5; 20{,}5)$} &{$[20{,}5; 25{,}5)$} &{$[25{,}5; 30{,}5)$} \\
+					\hline Giá trị đại diện &{$8$} &{$13$} &{$18$} &{$23$} &{$28$} \\
+					\hline Số lần & $5$ & $9$ & $3$ & $9$ & $4$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Số xe trung bình đi qua trạm qua bảng tần số ghép nhóm là
+			\[\overline{x}=\dfrac{5\cdot8+9\cdot13+3\cdot18+9\cdot23+4\cdot28}{30}\approx 17{,}67\, (\text{xe}). \]
+		\end{enumerate}
+	}
+\end{ex}
+%%%=============================%%%
+
+

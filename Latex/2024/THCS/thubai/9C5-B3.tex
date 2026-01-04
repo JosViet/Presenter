@@ -1,0 +1,912 @@
+\section{GÓC Ở TÂM - GÓC NỘI TIẾP} % Tên bài
+\subsection{Kiến thức trọng tâm}
+\subsubsection{Góc ở tâm}
+\begin{tomtat}
+	\begin{boxdn}
+		\textit{Góc ở tâm} là góc có đỉnh trùng với tâm đường tròn.
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({1*cos(80)},{1*sin(80)});
+				\coordinate (B) at ({1*cos(-20)},{1*sin(-20)});
+				\foreach \x/\y/\z in {B/O/A}{
+				\path pic[draw,fill=orange!35,angle radius=10pt]{angle= \x--\y--\z};}
+				\draw (O) circle (1cm);
+				\foreach \x/\y in {O/A,O/B}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {O/180,A/80,B/-20}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+	\end{boxdn}
+\end{tomtat}
+%Ví dụ 1
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2N3-1]
+	\immini{Cho tam giác $MNP$ có ba đỉnh nằm trên đường tròn $(I)$. Xác định các góc ở tâm của đường tròn
+	\loigiai{
+		Trong hình, đường tròn $(I)$ có các góc ở tâm là $\widehat{MIN}$, $\widehat{NIP}$, $\widehat{PIM}$.
+	}}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+		\coordinate (I) at (0,0);
+		\coordinate (M) at ({2*cos(120)},{2*sin(120)});
+		\coordinate (P) at ({2*cos(-30)},{2*sin(-30)});
+		\coordinate (N) at ({2*cos(-150)},{2*sin(-150)});
+		\draw (I) circle (2cm);
+		\foreach \x/\y in{I/M,I/N,I/P,M/N,M/P,N/P}{
+			\draw (\x)--(\y);
+		}
+		\foreach \x/\y in {I/180,M/120,N/-150,P/-30}{
+			\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+		}
+	\end{tikzpicture}}
+\end{vd}
+
+\subsubsection{Cung, số đo cung}
+\begin{tomtat}
+	\begin{enumerate}
+		\item \textbf{Cung}\\
+		\begin{boxdn}
+			\begin{itemize}
+			\item Mỗi phần đường tròn giới hạn bởi hai điểm $A$, $B$ trên đường tròn gọi là một \textit{cung} $AB$, kí hiệu là $\wideparen{AB}$.
+				\begin{center}
+					\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+						\coordinate (O) at (0,0);
+						\coordinate (A) at ({1*cos(80)},{1*sin(80)});
+						\coordinate (B) at ({1*cos(-20)},{1*sin(-20)});
+						\draw[domain=-20:80, blue] plot ({1*cos(\x)},{1*sin(\x)});
+						\draw[domain=80:340, red] plot ({1*cos(\x)},{1*sin(\x)});
+						\coordinate (n) at ({1*cos(30)},{1*sin(30)});
+						\coordinate (m) at ({1*cos(210)},{1*sin(210)});
+						\foreach \x/\y in {O/A,O/B}{
+							\draw (\x)--(\y);
+						}
+						\foreach \x/\y in {O/180,A/80,B/-20}{
+							\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+						}
+						\foreach \x/\y in {n/30,m/210}{
+							\draw ($(\x)+(\y:3mm)$) node {$\x$};
+						}
+					\end{tikzpicture}
+				\end{center}
+			\end{itemize}
+		\end{boxdn}
+		\begin{luuy}
+			\begin{itemize}
+				\item Cung nằm bên trong góc ở tâm $\widehat{AOB}$ được gọi là cung nhỏ, kí hiệu là $\wideparen{AnB}$. Ta còn nói $\wideparen{AnB}$ là cung bị chắn bởi góc $\widehat{AOB}$ hay $\widehat{AOB}$ chắn cung nhỏ $\wideparen{AnB}$.
+				\item Cung nằm bên ngoài góc ở tâm $\widehat{AOB}$ được gọi là cung lớn, kí hiệu là $\wideparen{AmB}$.
+				\item Khi nói \lq\lq góc ở tâm $\widehat{AOB}$ chắn cung $AB$\rq\rq~thì ta hiểu là góc ở tâm chắn cung nhỏ $AB$.
+			\end{itemize}
+		\end{luuy}
+		\item \textbf{Số đo cung}\\
+		\begin{boxdn}
+			\begin{itemize}
+				\item Số đo của cung nhỏ bằng số đo góc ở tâm chắn cung đó.
+				\item Số đo của cung lớn bằng hiệu giữa $360^{\circ}$ và số đo cung nhỏ (có chung hai đầu mút với cung lớn).
+				\item Số đo của nửa đường tròn bằng $180^{\circ}$.
+				\item Số đo cung $\wideparen{AB}$, kí hiệu là sđ$\wideparen{AB}$.
+			\end{itemize}
+		\end{boxdn}
+		\begin{luuy}
+			\begin{itemize}
+				\item Cung nhỏ có số đo nhỏ hơn $180^{\circ}$, cung lớn có số đo lớn hơn $180^{\circ}$. Cung nửa đường tròn có số đo $180^{\circ}$.
+				\item Khi hai mút của cung trùng nhau, ta có \textit{cung không} với số đo $0^{\circ}$ và \textit{cung cả đường tròn} có số đo $360^{\circ}$.
+				\item Một cung có số đo $n^{\circ}$ thường được gọi tắt là cung $n^{\circ}$.
+				\item Trong một đường tròn, hai cung được gọi là bằng nhau nếu chúng có số đo bằng nhau.
+			\end{itemize}
+		\end{luuy}
+	\end{enumerate}
+\end{tomtat}
+%Ví dụ 2
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-2]
+	\immini{Tính số đo các cung $\wideparen{AnB}$ và $\wideparen{AmB}$ trong hình bên.
+	\loigiai{
+		Ta có $\wideparen{AnB}$ bị chắn bởi góc ở tâm $\widehat{AOB}$ có số đo bằng $60^{\circ}$, suy ra sđ$\wideparen{AnB}=60^{\circ}$ và sđ$\wideparen{AmB}=360^{\circ}-60^{\circ}=300^{\circ}$.
+	}}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+					\coordinate (O) at (0,0);
+					\coordinate (A) at ({2*cos(0)},{2*sin(0)});
+					\coordinate (B) at ({2*cos(60)},{2*sin(60)});
+					\draw (O) circle (2cm);
+					\coordinate (n) at ({2*cos(30)},{2*sin(30)});
+					\coordinate (m) at ({2*cos(210)},{2*sin(210)});
+					\foreach \x/\y/\z in {A/O/B}{
+					\path pic[draw,fill=orange!35,angle radius=10pt, pic text=$60^{\circ}$,
+    				pic text options={shift={(10pt,5pt)}}]{angle= \x--\y--\z};}
+					\foreach \x/\y in {O/A,O/B}{
+						\draw (\x)--(\y);
+					}
+					\foreach \x/\y in {O/180,A/0,B/60}{
+						\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+					}
+					\foreach \x/\y in {n/30,m/210}{
+						\draw ($(\x)+(\y:3mm)$) node {$\x$};
+					}
+				\end{tikzpicture}}
+\end{vd}
+\subsubsection{Góc nội tiếp}
+\begin{tomtat}
+	\begin{enumerate}
+		\item \textbf{Nhận biết góc nội tiếp}\\ 
+		\begin{boxdn}
+			\begin{itemize}
+			\item \textit{Góc nội tiếp} là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó. Cung nằm bên trong góc được gọi là \textit{cung bị chắn}.
+			\begin{center}
+				\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+					\coordinate (O) at (0,0);
+					\coordinate (A) at ({1*cos(-20)},{1*sin(-20)});
+					\coordinate (B) at ({1*cos(60)},{1*sin(60)});
+					\coordinate (C) at ({1*cos(200)},{1*sin(200)});
+					\draw (O) circle (1cm);
+					\foreach \x/\y/\z in {A/C/B}{
+					\path pic[draw,fill=orange!35,angle radius=10pt]{angle= \x--\y--\z};}
+					\foreach \x/\y in {A/C,B/C}{
+						\draw (\x)--(\y);
+					}
+					\foreach \x/\y in {O/180,A/0,B/60,C/200}{
+						\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+					}
+				\end{tikzpicture}
+			\end{center}
+		\end{itemize}
+		\end{boxdn}
+		\item \textbf{Số đo góc nội tiếp}\\ 
+		\begin{boxdn}
+			\begin{itemize}
+			\item Trong một đường tròn, số đo của góc nội tiếp bằng nửa số đo của cung bị chắn.
+			\end{itemize}
+		\end{boxdn}
+		\begin{luuy}
+			Trong một đường tròn
+			\begin{itemize}
+				\item Các góc nội tiếp bằng nhau chắn các cung bằng nhau.
+				\item Các góc nội tiếp cùng chắn một cung hoặc chắn các cung bằng nhau thì bằng nhau.
+				\item Góc nội tiếp nhỏ hơn hoặc bằng $90^{\circ}$ có số đo bằng nửa số đo của góc ở tâm cùng chắn một cung.
+				\item Góc nội tiếp chắn nửa đường tròn là góc vuông.
+			\end{itemize}
+			\begin{center}
+				\vspace{1cm}
+				\begin{multicols}{2}
+					\begin{enumerate}
+						\item \begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+					\coordinate (O) at (0,0);
+					\coordinate (A) at ({1*cos(-30)},{1*sin(-30)});
+					\coordinate (B) at ({1*cos(60)},{1*sin(60)});
+					\coordinate (C) at ({1*cos(200)},{1*sin(200)});
+					\coordinate (D) at ({1*cos(-80)},{1*sin(-80)});
+					\draw (O) circle (1cm);
+					\foreach \x/\y/\z in {A/C/B,A/D/B}{
+					\path pic[draw,fill=orange!35,angle radius=10pt]{angle= \x--\y--\z};}
+					\foreach \x/\y in {A/C,B/C,D/A,D/B}{
+						\draw (\x)--(\y);
+					}
+					\foreach \x/\y in {O/180,A/0,B/60,C/200,D/-80}{
+						\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+					}
+				\end{tikzpicture}
+						\item \begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+					\coordinate (O) at (0,0);
+					\coordinate (A) at ({1*cos(180)},{1*sin(180)});
+					\coordinate (B) at ({1*cos(0)},{1*sin(0)});
+					\coordinate (M) at ({1*cos(120)},{1*sin(120)});
+					\coordinate (N) at ({1*cos(90)},{1*sin(90)});
+					\coordinate (P) at ({1*cos(-80)},{1*sin(-80)});
+					\draw (O) circle (1cm);
+					\foreach \x/\y/\z in {A/M/B,A/N/B,A/P/B}{
+					\path pic[draw,fill=orange!35,angle radius=5pt]{right angle= \x--\y--\z};}
+					\foreach \x/\y in {A/M,B/M,N/A,N/B,A/P,P/B,A/B}{
+						\draw (\x)--(\y);
+					}
+					\foreach \x/\y in {O/-90,A/180,B/0,M/120,N/90,P/-80}{
+						\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+					}
+				\end{tikzpicture}
+					\end{enumerate}
+				\end{multicols}
+			\end{center}
+		\end{luuy}
+	\end{enumerate}
+\end{tomtat}
+%Ví dụ 3
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-3]
+	\immini{Tính số đo của $\widehat{AMB}$ và $\widehat{ANB}$ trong hình bên.
+	\loigiai{
+		Ta có $\widehat{AOB}=90^{\circ}$ và là góc ở tâm chắn $\wideparen{AB}$ nên sđ$\wideparen{AB}=\widehat{AOB}=90^{\circ}$.\\ 
+		$\widehat{AMB}$ và $\widehat{ANB}$ là hai góc nội tiếp chắn $\wideparen{AB}$, suy ra $$\widehat{AMB}=\widehat{ANB}=\dfrac{1}{2}\text{sđ}\wideparen{AB}=\dfrac{1}{2}\cdot 90^{\circ}=45^{\circ}.$$
+	}}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(45)},{2*sin(45)});
+			\coordinate (B) at ({2*cos(-45)},{2*sin(-45)});
+			\coordinate (M) at ({2*cos(100)},{2*sin(100)});
+			\coordinate (N) at ({2*cos(180)},{2*sin(180)});
+			\draw (O) circle (2cm);
+			\foreach \x/\y/\z in {B/O/A}{
+			\path pic[draw,fill=orange!35,angle radius=5pt]{right angle= \x--\y--\z};}
+			\foreach \x/\y in {A/M,B/M,N/A,N/B,A/O,O/B}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/180,A/45,B/-45,M/100,N/180}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}}
+\end{vd}
+%Ví dụ 4
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	\immini{Cho $AB$ và $CD$ là hai đường kính vuông góc của đường tròn $(O)$. Gọi $M$, $N$ là hai điểm lần lượt trên hai cung nhỏ $\wideparen{AC}$, $\wideparen{BC}$ và chia mỗi cung đó thành hai cung bằng nhau (hình bên). Tìm số đo các góc sau
+	\begin{enumerate}
+		\item $\widehat{ACB}$, $\widehat{ADC}$.
+		\item $\widehat{ADM}$, $\widehat{NCB}$.
+	\end{enumerate}}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(180)},{2*sin(180)});
+			\coordinate (B) at ({2*cos(0)},{2*sin(0)});
+			\coordinate (C) at ({2*cos(90)},{2*sin(90)});
+			\coordinate (D) at ({2*cos(-90)},{2*sin(-90)});
+			\coordinate (N) at ({2*cos(45)},{2*sin(45)});
+			\coordinate (M) at ({2*cos(135)},{2*sin(135)});
+			\draw (O) circle (2cm);
+			\foreach \x/\y/\z in {C/O/A}{
+			\path pic[draw,fill=orange!35,angle radius=5pt]{right angle= \x--\y--\z};}
+			\foreach \x/\y in {A/B,C/D,A/M,A/C,A/N,A/D,B/N,B/M,B/C,C/N,D/M}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/-45,A/180,B/0,M/135,N/45,C/90,D/-90}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}}
+		\loigiai{
+			\begin{enumerate}
+				\item Ta có $\widehat{ACB}$ là góc nội tiếp chắn nửa đường tròn, suy ra $\widehat{ACB}=90^{\circ}$.\\ 
+				Ta có $\widehat{ADC}$ và $\widehat{AOC}$ lần lượt là góc nội tiếp và góc ở tâm cùng chắn cung $AC$, suy ra $\widehat{ADC}=\dfrac{\widehat{AOC}}{2}=\dfrac{90^{\circ}}{2}=45^{\circ}$.
+				\item Do hai đường kính $AB$ và $CD$ vuông góc với nhau tại tâm $O$ của $(O)$ nên $\widehat{AOC}=\widehat{COB}=\widehat{BOD}=\widehat{DOA}=90^{\circ}$, suy ra sđ$\wideparen{AC}=\text{sđ}\wideparen{CD}=\text{sđ}\wideparen{BD}=\text{sđ}\wideparen{DA}=90^{\circ}$.\\
+				Vì $M$, $N$ lần lượt chia $\wideparen{AC}$, $\wideparen{CB}$ thành hai cung có số đo bằng nhau nên\\ 
+				sđ$\wideparen{AM}=\text{sđ}\wideparen{MC}=\dfrac{\text{sđ}\wideparen{AC}}{2}=45^{\circ}$.\\ 
+				sđ$\wideparen{CN}=\text{sđ}\wideparen{NB}=\dfrac{\text{sđ}\wideparen{CB}}{2}=45^{\circ}$.\\ 
+				Ta có $\widehat{ADM}$ là góc nội tiếp chắn cung $AM$, suy ra
+				$$\widehat{ADM}=\dfrac{\text{sđ}\wideparen{AM}}{2}=\dfrac{45^{\circ}}{2}=22{,}5^{\circ}.$$
+				Ta có $\widehat{NCB}$ là góc nội tiếp chắn cung $NB$, suy ra
+				$$\widehat{NCB}=\dfrac{\text{sđ}\wideparen{BN}}{2}=\dfrac{45^{\circ}}{2}=22{,}5^{\circ}.$$
+			\end{enumerate}
+		}
+\end{vd}
+\subsection{Bài tập}
+%Dạng 1
+\begin{dang}
+	{Tính số đo góc ở tâm và số đo cung bị chắn}
+	\begin{enumerate}
+		\item Đưa về cách tính số đo một góc của tam giác.
+		\item Để tính số đo của cung nhỏ, ta tính số đo của góc ở tâm tương ứng.
+		\item Để tính số đo của cung lớn, ta lấy $360^{\circ}$ trừ đi số đo của cung nhỏ.
+		\item Sử dụng tỉ số lượng giác của một góc nhọn để tính góc.
+	\end{enumerate}
+\end{dang}
+%Bài 1
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-2]
+	Tính số đo cung $AB$ nhỏ trong hình vẽ dưới đây, biết rằng $\widehat{AOC}=30^{\circ}$ và $\widehat{BOC}=80^{\circ}$
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(-50)},{2*sin(-50)});
+			\coordinate (C) at ({2*cos(-20)},{2*sin(-20)});
+			\coordinate (B) at ({2*cos(60)},{2*sin(60)});
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {O/B,O/C,O/A}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/180,A/-50,B/60,C/-20}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Điểm $C$ nằm trên cung nhỏ $AB$ nên sđ$\wideparen{AB}=\text{sđ}\wideparen{AC}+\text{sđ}\wideparen{BC}\quad (1)$.\\ 
+		Góc ở tâm $\widehat{AOC}$ chắn cung $AC$ nên sđ$\wideparen{AC}=\widehat{AOC}=30^{\circ}$.\\ 
+		Góc ở tâm $\widehat{BOC}$ chắn cung $BC$ nên sđ$\wideparen{BC}=\widehat{BOC}=80^{\circ}$.\\ 
+		Thay vào $(1)$ ta được sđ$\wideparen{AB}=\text{sđ}\wideparen{AC}+\text{sđ}\wideparen{BC}=\widehat{AOC}+\widehat{BOC}=30^{\circ}+80^{\circ}=110^{\circ}$.
+	}
+\end{bt}
+%Bài 2
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-2]
+	\immini{Cho hình vẽ
+	\begin{enumerate}
+		\item Tính số đo cung nhỏ $\wideparen{AB}$.
+		\item Tính số đo cung nhỏ $\wideparen{AC}$.
+		\item Tính số đo cung lớn $\wideparen{BC}$.
+	\end{enumerate}}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(90)},{2*sin(90)});
+			\coordinate (B) at ({2*cos(-20)},{2*sin(-20)});
+			\coordinate (C) at ({2*cos(-150)},{2*sin(-150)});
+			\draw (O) circle (2cm);
+			\foreach \x/\y/\z in {C/A/O}{
+				\path pic[draw,fill=orange!35,angle radius=10pt, pic text=$30^{\circ}$,
+    				pic text options={shift={(-5pt,-20pt)}}]{angle= \x--\y--\z};}
+    		\foreach \x/\y/\z in {B/O/A}{
+				\path pic[draw,fill=orange!35,angle radius=10pt, pic text=$110^{\circ}$,
+    				pic text options={shift={(10pt,10pt)}}]{angle= \x--\y--\z};}
+			\foreach \x/\y in {O/B,O/A,A/C,O/C}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/-90,A/90,B/-20,C/-150}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có sđ$\wideparen{AB}=\widehat{AOB}=110^{\circ}$ (góc ở tâm chắn cung $AB$).
+			\item Xét $\triangle OAC$ có \\ 
+			$OA=OC(=R)$\\ 
+			$\text{Suy ra } \triangle OAC$ cân tại $O$.\\ 
+			$\text{Suy ra } \widehat{ACO}=\widehat{CAO}=30^{\circ}$.
+			Ta có $\widehat{AOC}+\widehat{ACO}+\widehat{CAO}=180^{\circ}$ (tổng ba góc trong một tam giác).\\ 
+			$\text{Suy ra } \widehat{AOC}=180^{\circ}-30^{\circ}-30^{\circ}=120^{\circ}$.\\ 
+			$\text{Suy ra }\text{sđ}\wideparen{AC}=\widehat{AOB}=120^{\circ}$.
+			\item Ta có $\widehat{BOC}+\widehat{AOC}+\widehat{AOB}=360^{\circ}$.\\ 
+			$\text{Suy ra } \widehat{BOC}=360^{\circ}-120^{\circ}-110^{\circ}=130^{\circ}$.
+		\end{enumerate}
+	}
+\end{bt}
+%Bài 3
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-2]
+	Cho đường tròn $(O;R)$. Vẽ dây $AB=R\sqrt{2}$. Tính số đo hai cung $AB$.
+	\loigiai{
+		\immini{Xét $\triangle OAB$ có\\ 
+		$OA^2+OB^2=R^2+R^2=2R^2=AB^2$\\ 
+		$\text{Suy ra } \triangle OAB$ vuông tại $O$.\\ 
+		$\text{Suy ra } \text{sđ}\wideparen{AB}=90^{\circ}$.}{
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(-135)},{2*sin(-135)});
+			\coordinate (B) at ({2*cos(-45)},{2*sin(-45)});
+			\draw (O) circle (2cm);
+			\draw (A)--(B) node[midway, above] {$R\sqrt{2}$};
+			\foreach \x/\y in {O/B,O/A}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/90,A/-135,B/-45}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}}
+	}
+\end{bt}
+%Bài 4
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-2]
+	Cho đường tròn $(O;R)$. Vẽ dây $AB$ sao cho số đo cung nhỏ $\wideparen{AB}$ bằng nửa số đo cung lớn $\wideparen{AB}$. Tính diện tích tam giác $ABC$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({2*cos(-150)},{2*sin(-150)});
+				\coordinate (B) at ({2*cos(-30)},{2*sin(-30)});
+				\coordinate (H) at ($(A)!0.5!(B)$);
+				\draw (O) circle (2cm);
+				\foreach \x/\y in {O/B,O/A,A/B,O/H}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {O/90,A/-150,B/-30,H/-90}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		Vì số đo cung nhỏ bằng nửa số đo cung lớn nên sđ$\wideparen{AB}_{\text{nhỏ}}=360^{\circ}:3=120^{\circ}$ suy ra $\widehat{AOB}=120^{\circ}$.\\ 
+		$\triangle AOB$ cân tại $O$ nên $\widehat{OAB}=\widehat{OBA}=30^{\circ}$.\\
+		Kẻ $OH$ vuông góc với $AB$, ta được $OH=OA\cdot \sin A=R\cdot \sin 30^{\circ}=\dfrac{1}{2}R$.\\ 
+		$S_{\triangle AOB}=\dfrac{1}{2}AB\cdot OH=\dfrac{1}{2}\cdot R\sqrt{3}\cdot \dfrac{1}{2}R=\dfrac{R^2\sqrt{3}}{4}$.
+	}
+\end{bt}
+%Bài 5
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-2]
+	Cho đường tròn $(O)$, hai tiếp tuyến của đường tròn tại $A$ và $B$ cắt nhau ở $M$, biết $\widehat{AMB}=65^{\circ}$.
+	\begin{enumerate}
+		\item Tính số đo $\widehat{AMO}$, $\widehat{AOM}$.
+		\item Tính số đo góc ở tâm tạo bởi hai bán kính $OA$, $OB$.
+		\item Tính số đo cung nhỏ $AB$ và số đo cung lớn $AB$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(60)},{2*sin(60)});
+			\coordinate (B) at ({2*cos(-55)},{2*sin(-55)});
+			\path let \p1 = (O), \p2 = (A) in coordinate (uOA) at (\x2 - \x1, \y2 - \y1);
+			\path let \p1 = (uOA) in coordinate (nOA) at (-\y1, \x1);
+			\path[name path=AM] ($(A)+2*(nOA)$)--($(A)-2*(nOA)$);
+			\path let \p1 = (O), \p2 = (B) in coordinate (uOB) at (\x2 - \x1, \y2 - \y1);
+			\path let \p1 = (uOB) in coordinate (nOB) at (-\y1, \x1);
+			\path[name path=BM] ($(B)+2*(nOB)$)--($(B)-2*(nOB)$);
+			\path[name intersections={of=AM and BM, by=M}];
+			\foreach \x/\y/\z in {O/A/M,M/B/O}{
+				\path pic[draw,fill=orange!35,angle radius=5
+				pt]{right angle= \x--\y--\z};}
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {O/B,O/A,A/M,B/M,O/M}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/180,A/60,B/-55,M/0}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $OM$ là tia phân giác của $\widehat{AMB}$ (định lí hai tiếp tuyến cắt nhau)\\
+			$\text{Suy ra } \widehat{AMO}=32{,}5^{\circ}\text{Suy ra } \widehat{AOM}=180^{\circ}-90^{\circ}-32{,}5^{\circ}=57{,}5^{\circ}$.
+			\item $\widehat{AOB}=360^{\circ}-180^{\circ}-65^{\circ}=115^{\circ}$.
+			\item sđ$\wideparen{AB}_\text{nhỏ}=\widehat{AOB}=115^{\circ}$.\\ 
+			sđ$\wideparen{AB}_\text{lớn}=360^{\circ}-115^{\circ}=245^{\circ}$. 
+		\end{enumerate}
+	}
+\end{bt}
+%Bài 6
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-2]
+	Cho hai tiếp tuyến tại $A$ và $B$ của đường tròn $(O)$ cắt nhau tại $M$, biết $\widehat{AMB}=50^{\circ}$. Tính số đo cung $\wideparen{AB}$ nhỏ và số đo cung $\wideparen{AB}$ lớn.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(65)},{2*sin(65)});
+			\coordinate (B) at ({2*cos(-65)},{2*sin(-65)});
+			\path let \p1 = (O), \p2 = (A) in coordinate (uOA) at (\x2 - \x1, \y2 - \y1);
+			\path let \p1 = (uOA) in coordinate (nOA) at (-\y1, \x1);
+			\path[name path=AM] ($(A)+2*(nOA)$)--($(A)-2*(nOA)$);
+			\path let \p1 = (O), \p2 = (B) in coordinate (uOB) at (\x2 - \x1, \y2 - \y1);
+			\path let \p1 = (uOB) in coordinate (nOB) at (-\y1, \x1);
+			\path[name path=BM] ($(B)+2*(nOB)$)--($(B)-2*(nOB)$);
+			\path[name intersections={of=AM and BM, by=M}];
+			\foreach \x/\y/\z in {O/A/M,M/B/O}{
+				\path pic[draw,fill=orange!35,angle radius=5
+				pt]{right angle= \x--\y--\z};}
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {O/B,O/A,A/M,B/M,O/M,A/B}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/180,A/65,B/-65,M/0}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+		\end{center}
+		Vì $MA$, $MB$ là hai tiếp tuyến của đường tròn $(O)$ nên $OM$ là tia phân giác của $\widehat{AOB}$, $MO$ là tia phân giác của $\widehat{AMB}$.\\ 
+		Hay $\widehat{AMO}=\dfrac{1}{2}\widehat{AMB}=\dfrac{50^{\circ}}{2}=25^{\circ}$.\\ 
+		Mà tam giác $OAM$ vuông tại $A$ (do $MA$ là tiếp tuyến) nên $\widehat{MOA}=90^{\circ}-\widehat{AMO}=65^{\circ}$.\\ 
+		Mà $OM$ là tia phân giác của $\widehat{AOB}$ nên $\widehat{MOB}=\widehat{MOA}=65^{\circ}$.\\ 
+		Suy ra $\widehat{AOB}=\widehat{MOB}+\widehat{MOA}=65^{\circ}+65^{\circ}=130^{\circ}$.
+		Nên số đo cung nhỏ $\wideparen{AB}$ là $130^{\circ}$.\\ 
+		Số đo cung lớn $\wideparen{AB}$ là $360^{\circ}-130^{\circ}=230^{\circ}$.
+	}
+\end{bt}
+%Bài 7
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-2]
+	Trên cung nhỏ $\wideparen{AB}$ của $(O)$, cho hai điểm $C$ và $D$ sao cho cung $\wideparen{AB}$ được chia thành ba cung bằng nhau $\left(\wideparen{AC}=\wideparen{CD}=\wideparen{DB} \right)$. Bán kính $OC$ và $OD$ cắt dây $AB$ lần lượt tại $E$ và $F$. So sánh các đoạn thẳng $AE$ và $BF$.
+	\loigiai{
+		\immini{Xét $\triangle OAB$ có\\ 
+		$OA=OB(=R)$\\ 
+		$\text{Suy ra } \triangle OAB$ cân tại $O$ và $\widehat{OAE}=\widehat{OBF}$.\\ 
+		Ta có $\wideparen{AC}=\wideparen{DB}$.\\ 
+		$\text{Suy ra } \widehat{AOE}=\widehat{BOF}$.\\ 
+		Xét $\triangle OAE$ và $\triangle OBF$ có\\ 
+		$\widehat{OAE}=\widehat{OBF}$ (chứng minh trên)\\ 
+		$OA=OB(=R)$\\
+		$\widehat{AOE}=\widehat{BOF}$ (chứng minh trên)\\ 
+		$\text{Suy ra } \triangle OAE=\triangle OBF$ (g-c-g).\\ 
+		$\text{Suy ra } AE=BF$ (hai cạnh tương ứng).}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(-150)},{2*sin(-150)});
+			\coordinate (B) at ({2*cos(-30)},{2*sin(-30)});
+			\coordinate (C) at ({2*cos(-110)},{2*sin(-110)});
+			\coordinate (D) at ({2*cos(-70)},{2*sin(-70)});
+			\path[name path=AB] (A)--(B);
+			\path[name path=OC] (O)--(C);
+			\path[name path=OD] (O)--(D);
+			\path[name intersections={of=AB and OC, by=E}];
+			\path[name intersections={of=AB and OD, by=F}];
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {O/B,O/A,A/B,O/C,O/D}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/180,A/-150,B/-30,C/-110,D/-70,E/-135,F/-45}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}}
+	}
+\end{bt}
+%Dạng 2
+\begin{dang}
+	{Tính số đo góc nội tiếp và số đo cung bị chắn}
+	Trong một đường tròn
+	\begin{enumerate}
+		\item Các góc nội tiếp bằng nhau chắn các cung bằng nhau và ngược lại.
+		\item Các góc nội tiếp cùng chắn một cung hoặc chắn các cung bằng nhau thì bằng nhau.
+		\item Góc nội tiếp (nhỏ hơn hoặc bằng $90^{\circ}$) có số đo bằng nửa số đo của góc ở tâm cùng chắn một cung.
+		\item Góc nội tiếp chắn nửa đường tròn là góc vuông.
+	\end{enumerate}
+\end{dang}
+\setcounter{bt}{0}
+%Bài 1
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-3]
+	Dựa vào hình vẽ sau
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(-15)},{2*sin(-15)});
+			\coordinate (D) at ({2*cos(-165)},{2*sin(-165)});
+			\coordinate (C) at ({2*cos(165)},{2*sin(165)});
+			\coordinate (B) at ({2*cos(105)},{2*sin(105)});
+			\foreach \x/\y/\z in {B/A/C}{
+				\path pic[draw,fill=orange!35,angle radius=10pt, pic text=$30^{\circ}$,
+				pic text options={shift={(-20pt,12pt)}}]{angle= \x--\y--\z};}
+			\foreach \x/\y/\z in {D/O/A}{
+				\path pic[pic text=$150^{\circ}$,
+				pic text options={shift={(0,0pt)}}]{angle= \x--\y--\z};}
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {A/B,A/D,A/C,O/D}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/90,A/-15,B/105,C/165,D/-165}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}
+		\item Tính số đo cung nhỏ $\wideparen{CD}$.
+		\item Tính số đo cung nhỏ $\wideparen{BD}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+		\item Ta có $\widehat{COD}=180^{\circ}-\widehat{AOD}$ (hai góc bù nhau).\\ 
+		$\widehat{COD}=180^{\circ}-\widehat{AOD}=180^{\circ}-150^{\circ}=30^{\circ}$.\\
+		Số đo cung nhỏ $\wideparen{CD}$ là sđ$\wideparen{CD}=\widehat{COD}=30^{\circ}$ (góc ở tâm).
+		\item Số đo cung nhỏ $\wideparen{BC}$ là sđ$\wideparen{BC}=2\widehat{CAB}=2\cdot 30^{\circ}=60^{\circ}$ (góc nội tiếp).\\ 
+		Số đo cung nhỏ $\wideparen{BD}$ là sđ$\wideparen{BD}=\text{sđ}\wideparen{BC}+\text{sđ}\wideparen{CD}=60^{\circ}+30^{\circ}=90^{\circ}$.
+	\end{enumerate}
+	}
+\end{bt}
+%Bài 2
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-3]
+	Dựa vào hình vẽ sau, biết số đo cung nhỏ $\wideparen{XY}$ của đường tròn tâm $B$ là $70^{\circ}$. Tính $\widehat{MON}$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (M) at ({2*cos(110)},{2*sin(110)});
+			\coordinate (N) at ({2*cos(250)},{2*sin(250)});
+			\coordinate (B) at ({2*cos(0)},{2*sin(0)});
+			\path[name path=circleB] (B) circle (1cm);
+			\path[name path=BM] (B)--(M);
+			\path[name path=BN] (B)--(N);
+			\path[name intersections={of=BM and circleB, by=X}];
+			\path[name intersections={of=BN and circleB, by=Y}];
+			\foreach \x/\y/\z in {M/O/N}{
+				\path pic[draw,fill=orange!35,angle radius=10pt]{angle= \x--\y--\z};}
+			\foreach \x/\y/\z in {}{
+				\path pic[pic text=$150^{\circ}$,
+				pic text options={shift={(0,0pt)}}]{angle= \x--\y--\z};}
+			\draw (O) circle (2cm);
+			\draw (B) circle (1cm);
+			\foreach \x/\y in {O/M,O/N,B/M,B/N}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/0,M/110,B/0,N/250,Y/180,X/180}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Ta có $\widehat{XBY}=\text{sđ}\wideparen{XY}=70^{\circ}$ (góc ở tâm).\\ 
+		Ta lại có $\widehat{MON}=\text{sđ}\wideparen{MBN}=2\cdot \widehat{MBN}=2\cdot \widehat{XBY}=2\cdot 70^{\circ}=140^{\circ}$.
+	}
+\end{bt}
+%Bài 3
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2H3-3]
+	Dựa vào hình vẽ sau, hãy tính $\widehat{BAC}$.
+	\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+			\coordinate (O) at (0,0);
+			\coordinate (A) at ({2*cos(90)},{2*sin(90)});
+			\coordinate (B) at ({2*cos(220)},{2*sin(220)});
+			\coordinate (D) at ({2*cos(-10)},{2*sin(-10)});
+			\coordinate (C) at ({2*cos(-40)},{2*sin(-40)});
+			%\path (C)--(D) node[midway, below right] {$30^{\circ}$};
+			\foreach \x/\y/\z in {A/O/B}{
+				\path pic[pic text=$130^{\circ}$,
+				pic text options={shift={(-0.1,0pt)}}]{angle= \x--\y--\z};}
+			\foreach \x/\y/\z in {A/D/O}{
+				\path pic[pic text=$40^{\circ}$,
+				pic text options={shift={(-0.3,4pt)}}]{angle= \x--\y--\z};}
+			\foreach \x/\y/\z in {C/O/D}{
+				\path pic[pic text=$30^{\circ}$,
+				pic text options={shift={(2,-25pt)}}]{angle= \x--\y--\z};}
+			\draw (O) circle (2cm);
+			\foreach \x/\y in {O/A,O/B,O/D,O/C,A/D,A/C,A/B}{
+				\draw (\x)--(\y);
+			}
+			\foreach \x/\y in {O/-100,A/90,B/220,D/-10,C/-40}{
+				\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\loigiai{
+		Xét $\triangle AOD$ có\\ 
+		$OA=OD$ (bán kính (O)).\\ 
+		$\text{Suy ra } \triangle AOD$ cân tại $O$.\\ 
+		$\text{Suy ra } \widehat{OAD}=\widehat{ADO}=40^{\circ}$.\\ 
+		Ta có $\widehat{AOD}=180^{\circ}-\widehat{OAD}-\widehat{ADO}=180^{\circ}-40^{\circ}-40^{\circ}=100^{\circ}$.\\ 
+		Mà sđ$\wideparen{AD}=\widehat{AOD}=100^{\circ}$ (góc ở tâm).\\ 
+		sđ$\wideparen{AB}=\widehat{AOB}=130^{\circ}$ (góc ở tâm).\\ 
+		Ta có sđ$\wideparen{BC}=360^{\circ}-\text{sđ}\wideparen{AB}-\text{sđ}\wideparen{AD}-\text{sđ}\wideparen{DC}=360^{\circ}-130^{\circ}-100^{\circ}-30^{\circ}=100^{\circ}$.
+		Vì $\widehat{BAC}$ là góc nội tiếp chắn cung $BC$ nên $\widehat{BAC}=\dfrac{1}{2}\cdot\text{sđ}\wideparen{BC}=\dfrac{1}{2}\cdot 100^{\circ}=50^{\circ}$. 
+	}
+\end{bt}
+%Dạng 3
+\begin{dang}
+	{Chứng minh các góc bằng nhau, các cung bằng nhau}
+	Để chứng minh hai cung (của một đường tròn) bằng nhau, ta chứng minh hai cung này có cùng một số đo.
+	\begin{luuy}
+		Trong một đường tròn
+		\begin{enumerate}
+			\item Hai cung bị chắn giữa hai dây song song thì bằng nhau.
+			$$AB\parallel CD \text{ suy ra } \wideparen{AC}=\wideparen{BD}.$$
+			\item Các góc nội tiếp bằng nhau chắn các cung bằng nhau và ngược lại.
+			\item Các góc nội tiếp cùng chắn một cung hoặc chắn các cung bằng nhau thì bằng nhau.
+			\item Góc nội tiếp (nhỏ hơn hoặc bằng $90^{\circ}$) có số đo bằng nửa số đo của góc ở tâm cùng chắn một cung.
+			\item Góc nội tiếp chắn nửa đường tròn là góc vuông.
+		\end{enumerate}
+	\end{luuy}
+\end{dang}
+\setcounter{bt}{0}
+%Bài 1
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho $\triangle ACB$ cân tại $A$ $\left(\widehat{A}<90^{\circ}\right)$. Vẽ đường tròn đường kính $AB$ cắt $BC$ tại $D$, cắt $AC$ tại $E$.
+	\begin{enumerate}
+		\item Chứng minh $\wideparen{BD}=\wideparen{DE}$.
+		\item Chứng minh $\widehat{CBE}=\dfrac{1}{2}\widehat{BAC}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (B) at (0,0);
+				\coordinate (A) at ($(B)+(2,3)$);
+				\coordinate (C) at ($(B)+(4,0)$);
+				\coordinate (I) at ($(A)!0.5!(B)$);
+				%\path (C)--(D) node[midway, below right] {$30^{\circ}$};
+				\path[name path=circleI] let \p1 = ($(A)-(I)$), \n1={veclen(\p1)} in (I) circle (\n1);
+				\path[name path=BC] ($(B)!0.1!(C)$)--(C);
+				\path[name path=AC] ($(A)!0.1!(C)$)--(C);
+				\path[name intersections={of=BC and circleI, by=D}];
+				\path[name intersections={of=AC and circleI, by=E}];
+				\foreach \x/\y/\z in {}{
+					\path pic[pic text=$130^{\circ}$,
+					pic text options={shift={(-0.1,0pt)}}]{angle= \x--\y--\z};}
+				\foreach \x/\y/\z in {}{
+					\path pic[pic text=$40^{\circ}$,
+					pic text options={shift={(-0.3,4pt)}}]{angle= \x--\y--\z};}
+				\foreach \x/\y/\z in {}{
+					\path pic[pic text=$30^{\circ}$,
+					pic text options={shift={(2,-25pt)}}]{angle= \x--\y--\z};}
+				\draw let \p1 = ($(A)-(I)$), \n1={veclen(\p1)} in (I) circle (\n1);
+				\foreach \x/\y in {A/B,A/D,A/C,B/E,D/E,B/C}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {B/-100,A/90,D/-90,C/0,E/0}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\widehat{ADB}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+			Suy ra $AD\perp BC$, hay $AD$ là phân giác của $\widehat{BAC}$.\\ 
+			Nên $\widehat{BAD}=\widehat{DAC}$.\\ 
+			Suy ra $\wideparen{BD}=\wideparen{DE}$.
+			\item Ta có $\widehat{CBE}=\widehat{DAE}=\dfrac{1}{2}\widehat{BAC}$.
+		\end{enumerate}
+	}
+\end{bt}
+%Bài 2
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho nửa đường tròn $(O)$ đường kính $AB$ và dây $AC$ căng cung $AC$ có số đo bằng $60^{\circ}$.
+	\begin{enumerate}
+		\item So sánh các góc của $\triangle ABC$.
+		\item Gọi $M$ và $N$ lần lượt là điểm chính giữa của các cung $AC$ và $BC$, hai dây $AN$ và $BM$ cắt nhau tại $I$. Chứng minh rằng $CI$ là tia phân giác của $\widehat{ACB}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at (-2,0);
+				\coordinate (B) at (2,0);
+				\coordinate (C) at ({2*cos(120)},{2*sin(120)});
+				\coordinate (M) at ({2*cos(150)},{2*sin(150)});
+				\coordinate (N) at ({2*cos(60)},{2*sin(60)});
+				\draw[domain=0:180] plot ({2*cos(\x)},{2*sin(\x)});
+				\path[name path=AN] (A)--(N);
+				\path[name path=BM] (B)--(M);
+				\path[name intersections={of=AN and BM, by=I}];
+				\path[name path=CI] (C)--($(C)!2!(I)$);
+				\path[name path=AB] (A)--(B);
+				\path[name intersections={of=CI and AB, by=D}];
+				\foreach \x/\y in {A/B,A/C,C/B,A/N,B/M,C/D}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {A/180,B/0,O/-90,M/150,C/120,N/60,I/-120}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có sđ$\wideparen{AC}=60^{\circ}$ suy ra sđ$\wideparen{BC}=120^{\circ}$.\\
+			Suy ra $\widehat{ABC}<\widehat{BAC}<\widehat{ACB}$.
+			\item Ta có $AN$ là phân giác của góc $\widehat{BAC}$, $BM$ là phân giác của góc $\widehat{ABC}$ suy ra $CI$ là phân giác của $\widehat{ACB}$.
+		\end{enumerate}
+	}
+\end{bt}
+%Bài 3
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho đường tròn $\left(O;R\right)$, trên đường tròn lấy ba điểm $A$, $B$, $C$ sao cho $AB<AC$. Vẽ $AD$ là đường cao của tam giác $ABC$, $AE$ là đường kính của đường tròn $\left(O;R\right)$. Chứng minh rằng $\widehat{BAD}=\widehat{OAC}$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({2*cos(120)},{2*sin(120)});
+				\coordinate (B) at ({2*cos(-160)},{2*sin(-160)});
+				\coordinate (C) at ({2*cos(-20)},{2*sin(-20)});
+				\coordinate (E) at ({2*cos(-60)},{2*sin(-60)});
+				\path let \p1 = (B), \p2 = (C) in coordinate (uBC) at (\x2 - \x1, \y2 - \y1);
+				\path let \p1 = (uBC) in coordinate (nBC) at (-\y1, \x1);
+				\path[name path=AD] (A)--($(A)-(nBC)$);
+				\path[name path=BC] (B)--(C);
+				\path[name intersections={of=AD and BC, by=D}];
+				\draw (O) circle (2cm);
+				\foreach \x/\y/\z in {A/C/E,A/D/B}{
+					\path pic[draw,fill=orange!35,angle radius=5pt]{right angle= \x--\y--\z};}
+				\foreach \x/\y in {A/B,A/D,A/C,A/E,B/C,C/E}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {B/-160,A/120,C/-20,E/-60,D/-90,O/210}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\widehat{ACE}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+		Xét $\triangle DBA$ và $\triangle CEA$ có\\ 
+		$\widehat{ADB}=\widehat{ACE}(=90^{\circ})$.\\ 
+		$\widehat{ABD}=\widehat{AEC}$ (cùng chắn cung $AC$).
+		Suy ra $\triangle DBA\backsim \triangle CEA$.\\ 
+		Từ đó suy ra $\widehat{BAD}=\widehat{OAC}$. 
+	}
+\end{bt}
+%Dạng 4
+\begin{dang}
+	{Chứng minh hai đường thẳng song song, vuông góc, ba điểm thẳng hàng}
+\end{dang}
+\setcounter{bt}{0}
+%Bài 1
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho đường tròn $(O)$ đường kính $AB$, điểm $D$ thuộc $(O)$. Gọi $E$ là điểm đối xứng với $A$ qua $D$.
+	\begin{enumerate}
+		\item $\triangle ABE$ là tam giác gì?
+		\item Gọi $K$ là giao điểm của $EB$ với $(O)$. Chứng minh $OD\perp AK$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({2*cos(180)},{2*sin(180)});
+				\coordinate (B) at ({2*cos(0)},{2*sin(0)});
+				\coordinate (D) at ({2*cos(135)},{2*sin(135)});
+				\coordinate (E) at ($(A)!2!(D)$);
+				\path[name path=EB] (E)--($(E)!0.9!(B)$);
+				\path[name path=circleO] (O) circle (2cm);
+				\path[name intersections={of=EB and circleO, by=K}];
+				\draw (O) circle (2cm);
+				\foreach \x/\y in {A/B,A/E,E/B,A/K,B/D,O/D}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {A/180,B/0,O/-90,D/135,K/60,E/90}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item $\widehat{ADB}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+			Suy ra $BD\perp AE$.\\ 
+			Mà $AD=DE$.\\ 
+			Suy ra $\triangle ABE$ cân tại $B$.
+			\item Ta có $\widehat{AKB}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+			Suy ra $AK\perp BE\quad (1)$.\\
+			Mặt khác, $D$ là trung điểm $AE$, $O$ là trung điểm $AB$.\\ 
+			Suy ra $OD$ là đường trung bình của $\triangle ABE$.\\ 
+			Suy ra $OD\parallel BE\quad (2)$.\\ 
+			Từ $(1)$ và $(2)$ suy ra $OD\perp AK$.
+		\end{enumerate}
+	}
+\end{bt}
+%Bài 2
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho nửa đường tròn $(O)$ đường kính $AB$ và điểm $C$ nằm ngoài nửa đường tròn. $AC$ cắt nửa đường tròn tại $M$, $BC$ cắt nửa đường tròn tại $N$. Gọi $H$ là giao điểm của $AN$ và $BM$. Chứng minh rằng $CH\perp AB$.
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({2*cos(180)},{2*sin(180)});
+				\coordinate (B) at ({2*cos(0)},{2*sin(0)});
+				\coordinate (C) at ($(A)+(1.5,4)$);
+				\path[name path=circleO] (O) circle (2cm);
+				\path[name path=AC] ($(A)!0.1!(C)$)--(C);
+				\path[name path=BC] ($(B)!0.1!(C)$)--(C);
+				\path[name intersections={of=AC and circleO, by=M}];
+				\path[name intersections={of=BC and circleO, by=N}];
+				\path[name path=AN] (A)--(N);
+				\path[name path=BM] (B)--(M);
+				\path[name intersections={of=AN and BM, by=H}];
+				\draw[domain=0:180] plot ({2*cos(\x)},{2*sin(\x)});
+				\foreach \x/\y in {A/B,A/C,B/C,A/N,B/M,C/H}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {A/180,B/0,O/-90,C/90,M/135,N/45,H/60}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+			\end{tikzpicture}
+		\end{center}
+		Ta có $\widehat{AMB}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+		Suy ra $BM\perp AC$.\\ 
+		Ta có $\widehat{ANB}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+		Suy ra $AN\perp BC$.\\ 
+		Suy ra $H$ là trực tâm $\triangle ABC$.\\ 
+		Suy ra $CH\perp AB$.
+	}
+\end{bt}
+%Bài 3
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Phạm Hoàng Việt]%[9H2V3-3]
+	Cho đường tròn $(O)$, đường kính $AF$, điểm $B$ và $C$ thuộc đường tròn. Hai tam giác $BD$ và $CE$ của $\triangle ABC$ cắt nhau tại $H$.
+	\begin{enumerate}
+		\item Tứ giác $BFCH$ là hình gì?
+		\item Gọi $M$ là trung điểm của $BC$. Chứng minh rằng ba điểm $H$, $M$, $F$ thẳng hàng.
+		\item Chứng minh $OM=\dfrac{1}{2}AH$.
+	\end{enumerate}
+	\loigiai{
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round, >=stealth]
+				\coordinate (O) at (0,0);
+				\coordinate (A) at ({2*cos(120)},{2*sin(120)});
+				\coordinate (B) at ({2*cos(-160)},{2*sin(-160)});
+				\coordinate (C) at ({2*cos(-20)},{2*sin(-20)});
+				\coordinate (F) at ({2*cos(-60)},{2*sin(-60)});
+				\coordinate (M) at ($(B)!0.5!(C)$);
+				\path[name path=circleM] let \p1= ($(B)-(M)$), \n1={veclen(\p1)} in (M) circle (\n1);
+				\path[name path=AB] (A)--($(B)!0.1!(A)$);
+				\path[name path=AC] (A)--($(C)!0.1!(A)$);
+				\path[name intersections={of=AB and circleM, by=E}];
+				\path[name intersections={of=AC and circleM, by=D}];
+				\path[name path=BD] (B)--(D);
+				\path[name path=CE] (C)--(E);
+				\path[name intersections={of=BD and CE, by=H}];
+				\foreach \x/\y/\z in {B/E/C,B/D/C}{
+					\path pic[draw,fill=orange!35,angle radius=5pt]{right angle= \x--\y--\z};}
+				\draw (O) circle (2cm);
+				\foreach \x/\y in{A/B,A/C,B/C,A/F,B/D,C/E,B/F,C/F,F/H}{
+					\draw (\x)--(\y);
+				}
+				\foreach \x/\y in {A/120,B/-160,C/-20,F/-60,E/145,D/45,H/20,O/45,M/-100}{
+					\draw[fill=black] (\x) circle (1pt) ($(\x)+(\y:3mm)$) node {$\x$};
+				}
+				\draw (O)--(M) (A)--(H);
+			\end{tikzpicture}
+		\end{center}
+		\begin{enumerate}
+			\item Ta có $\widehat{ABF}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+			Suy ra $BF\perp AB$ tại $B$.\\ 
+			Mà $CH\perp AB$ tại $E$.\\ 
+			Suy ra $CH\parallel BF$.\\ 
+			Tương tự, ta có $\widehat{ACF}=90^{\circ}$ (góc nội tiếp chắn nửa đường tròn).\\ 
+			Suy ra $CF\perp AC$ tại $C$.\\ 
+			Mà $BH\perp AC$ tại $D$.\\ 
+			Suy ra $BH\parallel CF$.\\ 	
+			Xét tứ giác $BFCH$ có \\ 
+			$CH\parallel BF$ và $BH\parallel CF$.\\ 
+			Suy ra $BFCH$ là hình bình hành.
+			\item Vì $BHCF$ là hình bình hành và $M$ là trung điểm $BC$ nên $M$ là trung điểm của $HF$.\\ 
+			Suy ra $H$, $M$, $F$ thẳng hàng.
+			\item Xét $\triangle AHF$ có\\ 
+			$M$ là trung điểm của $HF$.\\ 
+			$O$ là trung điểm của $AF$.\\ 
+			Suy ra $OM$ là đường trung bình của $\triangle AHF$.\\ 
+			Suy ra $OM=\dfrac{1}{2}AH$.
+		\end{enumerate}
+	}
+\end{bt}

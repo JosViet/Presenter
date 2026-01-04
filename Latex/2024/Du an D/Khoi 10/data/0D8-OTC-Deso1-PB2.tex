@@ -1,0 +1,436 @@
+\newpage
+\section{Ôn tập chương 8}
+\def\thoigian{90}%--Thời gian
+\de{Đề số 1}{Chương VIII. Đại số tổ hợp}
+
+
+\begin{center}
+	\textbf{PHẦN 1 - CÂU TRẮC NGHIỆM BỐN PHƯƠNG ÁN}
+\end{center}
+\Opensolutionfile{ans}[ans/ans-TN-ONTAPCHUONG-DE1]
+
+\begin{ex}%[0D8N1-1]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Giả sử An muốn mua một chiếc áo sơ mi cỡ $39$ hoặc cỡ $40$. Áo cỡ $39$ có $5$ màu khác nhau, áo cỡ $40$ có $4$ màu khác nhau. Hỏi An có bao nhiêu cách mua một chiếc áo?
+	\choice
+	{$4$}
+	{$5$}
+	{\True $9$}
+	{$20$}
+	\loigiai{
+		Việc mua một chiếc áo của An là thực hiện một trong hai phương án sau:
+		\begin{itemize}
+			\item Phương án $1$: Chọn mua áo cỡ $39$. Có $5$ màu khác nhau nên có $5$ cách chọn.
+			\item Phương án $2$: Chọn mua áo cỡ $40$. Có $4$ màu khác nhau nên có $4$ cách chọn.
+		\end{itemize}
+		Áp dụng quy tắc cộng, số cách An có thể mua một chiếc áo là $5+4=9$ (cách).
+	}
+\end{ex}
+\begin{ex}%[0D8N1-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	An muốn qua nhà bạn Hà để cùng Hà tới trường. Từ nhà An tới nhà Hà có $3$ con đường, từ nhà Hà đến trường có $6$ con đường. Hỏi An có bao nhiêu cách chọn đường đi từ nhà đến trường, biết rằng mỗi con đường được đi qua đúng một lần?
+	\choice
+	{$6$}
+	{\True $18$}
+	{$9$}
+	{$3$}
+	\loigiai{
+		Để đi từ nhà An đến trường, An phải thực hiện liên tiếp hai hành động:
+		\begin{itemize}
+			\item Giai đoạn 1: Đi từ nhà An đến nhà Hà, có $3$ cách chọn.
+			\item Giai đoạn 2: Đi từ nhà Hà đến trường, có $6$ cách chọn.
+		\end{itemize}
+		Áp dụng quy tắc nhân, ta có số cách chọn đường đi là $3 \cdot 6=18$ (cách).
+	}
+\end{ex} 
+\begin{ex}%[0D8H1-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Giả sử biển số xe máy của tỉnh A (nếu không kể mã số tỉnh) có $7$ kí tự, trong đó kí tự ở vị trí đầu tiên là một chữ cái (trong bảng $26$ chữ cái tiếng anh), kí tự ở vị trí thứ hai là một số thuộc tập $\{1;2;\dots;9\}$, mỗi kí tự ở $5$ vị trí tiếp theo là một chữ số thuộc tập $\{0;1;2;\dots;9\}$. Hỏi nếu chỉ dùng một mã số tỉnh thì tỉnh A có thể làm được nhiều nhất là bao nhiêu số xe máy khác nhau?
+	\choice
+	{$26\,000\,000$}
+	{$85$}
+	{\True $23\,400\,000$}
+	{$13\,817\,466$}
+	\loigiai{
+		Việc tạo một biển số xe gồm $7$ kí tự được chia thành các công đoạn liên tiếp:
+		\begin{itemize}
+			\item Công đoạn 1: Chọn kí tự đầu tiên là một chữ cái, có $26$ cách chọn.
+			\item Công đoạn 2: Chọn kí tự thứ hai là một chữ số thuộc $\{1;2;\dots;9\}$, có $9$ cách chọn.
+			\item Công đoạn 3: Chọn $5$ kí tự cuối, mỗi kí tự là một chữ số thuộc $\{0;1;2;\dots;9\}$.\\ Mỗi vị trí có $10$ lựa chọn, do đó có $10^5$ cách chọn.	
+		\end{itemize} 
+		Áp dụng quy tắc nhân, số biển số xe có thể tạo được là $26 \cdot 9 \cdot 10^5 = 23\,400\,000$ (biển số).
+	}
+\end{ex}
+
+\begin{ex}%[0D8H1-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Từ các chữ số $1$, $2$, $3$, $4$, $5$, $6$, $7$, lập được bao nhiêu số tự nhiên lẻ có $4$ chữ số với các chữ số đôi một khác nhau?
+	\choice
+	{\True $480$}
+	{$840$}
+	{$720$}
+	{$360$}
+	\loigiai{
+		Gọi số tự nhiên cần tìm có dạng $\overline{abcd}$ với $a$, $b$, $c$, $d$ là các chữ số khác nhau thuộc tập $\{1;2;3;4;5;6;7\}$.\\
+		Vì số cần tìm là số lẻ nên chữ số tận cùng $d$ phải là số lẻ.
+		\begin{itemize}
+			\item Chọn chữ số $d$ từ tập $\{1;3;5;7\}$: có $4$ cách chọn.
+			\item Chọn chữ số $a$ từ $6$ chữ số còn lại: có $6$ cách chọn.
+			\item Chọn chữ số $b$ từ $5$ chữ số còn lại: có $5$ cách chọn.
+			\item Chọn chữ số $c$ từ $4$ chữ số còn lại: có $4$ cách chọn.		
+		\end{itemize}
+		Theo quy tắc nhân, số các số thỏa mãn yêu cầu là $4 \cdot 6 \cdot 5 \cdot 4 = 480$ (số).
+	}
+\end{ex}
+\begin{ex}%[0D8H2-6]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Cho hai đường thẳng song song $a$, $b$. Trên đường thẳng $a$ có $10$ điểm phân biệt và trên đường thẳng $b$ có $15$ điểm phân biệt. Số tam giác được tạo ra từ $25$ điểm đã cho là
+	\choice
+	{$1\,050$}
+	{\True $1\,725$}
+	{$2\,300$}
+	{$675$}
+	\loigiai{
+		Để tạo thành một tam giác, ta cần chọn $3$ điểm không thẳng hàng. Ta xét hai trường hợp:
+		\begin{itemize} 
+			\item  Trường hợp 1: Chọn $1$ đỉnh thuộc đường thẳng $a$ và $2$ đỉnh thuộc đường thẳng $b$.\\
+			Số cách chọn là $\mathrm{C}_{10}^1 \cdot \mathrm{C}_{15}^2 = 10 \cdot 105 = 1\,050$ (tam giác).
+			\item Trường hợp 2: Chọn $2$ đỉnh thuộc đường thẳng $a$ và $1$ đỉnh thuộc đường thẳng $b$.\\
+			Số cách chọn là $\mathrm{C}_{10}^2 \cdot \mathrm{C}_{15}^1 = 45 \cdot 15 = 675$ (tam giác).	
+		\end{itemize}
+		Áp dụng quy tắc cộng, số tam giác có thể lập được là $1\,050 + 675 = 1\,725$ (tam giác).
+	}
+\end{ex}
+\begin{ex}%[0D8N2-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Số cách xếp $4$ lá thư khác nhau vào $4$ chiếc phong bì khác nhau (mỗi lá thư vào một phong bì) là
+	\choice
+	{$12$}
+	{\True $4!$}
+	{$\mathrm{P}_4^2$}
+	{$3!$}
+	\loigiai{
+		Mỗi cách xếp $4$ lá thư khác nhau vào $4$ chiếc phong bì khác nhau là một hoán vị của $4$ phần tử.\\
+		Do đó, số cách xếp là $4! = 24$ (cách).
+	}
+\end{ex}
+
+\begin{ex}%[0D8H2-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Một nhóm học sinh có $7$ em nam và $3$ em nữ. Hỏi có bao nhiêu cách xếp $10$ em này trên một hàng ngang, sao cho hai vị trí đầu và cuối hàng là các em nam và không có $2$ em nữ nào ngồi cạnh nhau?
+	\choice
+	{\True $604\,800$}
+	{$344\,000$}
+	{$100\,800$}
+	{$120\,120$}
+	\loigiai{
+		Để sắp xếp thỏa mãn yêu cầu, ta thực hiện theo các bước sau:
+		\begin{itemize} 
+			\item Bước 1: Xếp $7$ bạn nam thành một hàng ngang. Có $7!$ cách xếp.\\
+			Việc xếp $7$ bạn nam tạo ra $6$ khoảng trống ở giữa các bạn nam.
+			\item Bước 2: Để không có hai bạn nữ nào ngồi cạnh nhau, ta xếp $3$ bạn nữ vào $6$ khoảng trống đó.\\
+			Số cách xếp $3$ bạn nữ là một chỉnh hợp chập $3$ của $6$ là $\mathrm{A}_6^3$ cách.
+		\end{itemize}
+		Theo quy tắc nhân, số cách xếp thỏa mãn yêu cầu là	$7! \cdot \mathrm{A}_6^3 = 5\,040 \cdot 120 = 604\,800$ (cách).
+	}
+\end{ex}
+
+\begin{ex}%[0D8H2-2]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Sắp xếp năm bạn học sinh A, B, C, D, E vào một chiếc ghế dài có $5$ chỗ ngồi. Số cách sắp xếp sao cho bạn A và bạn E luôn ngồi ở hai đầu ghế là
+	\choice
+	{$120$}
+	{$16$}
+	{\True $12$}
+	{$24$}
+	\loigiai{
+		Việc sắp xếp được thực hiện qua hai công đoạn:
+		\begin{itemize} 
+			\item Công đoạn 1: Sắp xếp vị trí cho A và E.\\
+			Vì A và E ngồi ở hai đầu ghế nên có $2! = 2$ cách xếp (A ngồi đầu, E ngồi cuối hoặc ngược lại).
+			\item Công đoạn 2: Sắp xếp vị trí cho $3$ bạn còn lại (B, C, D) vào $3$ ghế trống ở giữa.\\
+			Số cách xếp là một hoán vị của $3$ phần tử: $3! = 6$ cách.	
+		\end{itemize}
+		Theo quy tắc nhân, số cách sắp xếp thỏa mãn yêu cầu là\\
+		$2! \cdot 3! = 2 \cdot 6 = 12$ (cách).
+	}
+\end{ex}
+\begin{ex}%[0D8N3-1]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Số các số hạng trong khai triển nhị thức $(6x+1)^4$ là
+	\choice
+	{$7$}
+	{$6$}
+	{\True $5$}
+	{$4$}
+	\loigiai{
+		Khai triển nhị thức $(a+b)^n$ có $n+1$ số hạng.\\
+		Do đó, khai triển $(6x+1)^4$ có $4+1=5$ số hạng.
+	}
+\end{ex}
+
+\begin{ex}%[0D8H3-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Tổng các hệ số trong khai triển nhị thức $(1-7x)^4$ là
+	\choice
+	{\True $1\,296$}
+	{$-1\,296$}
+	{$2\,916$}
+	{$-2\,916$}
+	\loigiai{
+		Ta có
+		\begin{align*}
+			(1-7x)^4 &= (7x-1)^4 = \mathrm{C}_4^0(7x)^4 - \mathrm{C}_4^1(7x)^3 + \mathrm{C}_4^2(7x)^2 - \mathrm{C}_4^3(7x)^1 + \mathrm{C}_4^4 \\
+			&= 1 \cdot 7^4 x^4 - 4 \cdot 7^3 x^3 + 6 \cdot 7^2 x^2 - 4 \cdot 7 x + 1 \\
+			&= 2\,401x^4 - 1\,372x^3 + 294x^2 - 28x + 1.
+		\end{align*}
+		Tổng các hệ số trong khai triển là $S = 2\,401 \cdot 1^4 - 1\,372 \cdot 1^3 + 294 \cdot 1^2 - 28 \cdot 1 + 1 = 1\,296$.
+	}
+\end{ex}
+
+\begin{ex}%[0D8H3-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Khai triển $P(x) = (2x + 3)^4 = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$. Giá trị biểu thức $a_2 + a_3$ là
+	\choice
+	{$310$}
+	{$311$}
+	{\True $312$}
+	{$313$}
+	\loigiai{
+		Ta có 
+		\begin{eqnarray*}
+			P(x) &=& (2x + 3)^4\\ &=& \mathrm{C}_4^0(2x)^4 + \mathrm{C}_4^1(2x)^3 \cdot 3^1 + \mathrm{C}_4^2(2x)^2 \cdot 3^2 + \mathrm{C}_4^3(2x)^1 \cdot 3^3 + \mathrm{C}_4^4 \cdot 3^4\\
+			&=& 16x^4 + 96x^3 + 216x^2 + 216x + 81\\
+			&=&81 + 216x +216x^2+ 96x^3+16x^4.
+		\end{eqnarray*}
+		Vậy $a_2 + a_3 =216+96= 312$.
+	}
+\end{ex}
+
+\begin{ex}%[0D8H3-5]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Tổng $S = \mathrm{C}_5^0 + 2\mathrm{C}_5^1 + 2^2\mathrm{C}_5^2 + \ldots + 2^5\mathrm{C}_5^5$ bằng
+	\choice
+	{$324$}
+	{$435$}
+	{\True $243$}
+	{$342$}
+	\loigiai{
+		Xét khai triển $(1+x)^5 = \mathrm{C}_5^0 + x\mathrm{C}_5^1 + x^2\mathrm{C}_5^2 + \cdots + x^5\mathrm{C}_5^5$.\\
+		Thay $x = 2$ ta được:
+		\begin{eqnarray*}
+			S = \mathrm{C}_5^0 + 2\mathrm{C}_5^1 + 2^2\mathrm{C}_5^2 + \cdots + 2^5\mathrm{C}_5^5 = (1+2)^5 = 3^5 = 243.
+		\end{eqnarray*}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+
+
+
+\begin{center}
+	\textbf{PHẦN 2 - CÂU TRẮC NGHIỆM ĐÚNG SAI}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/answer-DS-ONTAPCHUONG-DE1]
+\begin{ex}%[0D8V1-3]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Có $3$ học sinh nữ và $4$ học sinh nam cùng xếp theo một hàng ngang.
+	\choiceTF
+	{\True Có $5\,040$ cách xếp hàng tùy ý $7$ học sinh}
+	{Có $208$ cách xếp hàng để học sinh cùng giới đứng cạnh nhau}
+	{\True Có $144$ cách xếp hàng để học sinh nam và nữ xếp xen kẽ}
+	{Có $700$ cách xếp hàng để học sinh nữ đứng cạnh nhau}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.\\
+			Xếp một học sinh vào vị trí thứ nhất: có $7$ cách.\\
+			Xếp một học sinh vào vị trí thứ hai: có $6$ cách.\\
+			Các vị trí tiếp theo lần lượt có số cách tương ứng là $5$, $4$, $3$, $2$, $1$ (cách).\\
+			Vậy số cách xếp học sinh trên là $7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1=5\,040$.
+			\itemch \textbf{Sai}.\\
+			Xếp các em nữ trong một hàng $3$ người, ta có $3 \cdot 2 \cdot 1=6$ (cách).\\
+			Xếp các em nam trong một hàng $4$ người, ta có $4 \cdot 3 \cdot 2 \cdot 1=24$ (cách).\\
+			Số cách hoán đổi vị trí của hai nhóm trên là $2$.\\
+			Vậy số cách xếp hàng thỏa mãn là $6 \cdot 24 \cdot 2=288$.
+			\itemch \textbf{Đúng}.\\
+			Hàng được xếp phải thỏa mãn: Nam-Nữ-Nam-Nữ-Nam-Nữ-Nam.\\
+			Chọn một học sinh nam cho vị trí thứ nhất: có $4$ cách.\\
+			Chọn một học sinh nữ cho vị trí thứ hai: có $3$ cách.\\
+			Các vị trí tiếp theo lần lượt là $3$, $2$, $2$, $1$ (cách).\\
+			Vậy số cách xếp thỏa mãn là $4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1=144$.
+			\itemch \textbf{Sai}.\\
+			Gọi $X$ là nhóm gồm $3$ học sinh nữ.\\
+			Số cách xếp $3$ học sinh trong $X$ là $3 \cdot 2 \cdot 1=6$ (cách).\\
+			Lúc này ta có $5$ phần tử để đưa vào hàng gồm có $X$ cùng với $4$ nam sinh ($X$ được tính là $1$ phần tử).\\
+			Chọn $1$ phần tử cho vị trí thứ nhất: có $5$ (cách).\\
+			Số cách chọn phần tử cho các vị trí tiếp theo lần lượt là $4$, $3$, $2$, $1$.\\
+			Vậy số cách xếp hàng thỏa mãn là $6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1=720$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Xét khai triển nhị thức Newton cho $(x+1)^5$.
+	\choiceTF
+	{\True Hệ số của $x^4$ là $5$}
+	{\True Số hạng không chứa $x$ là $1$}
+	{Tổng các hệ số trong khai triển bằng $3^5$}
+	{\True $32\mathrm{C}_5^0+16\mathrm{C}_5^1+8\mathrm{C}_5^2+4\mathrm{C}_5^3+2\mathrm{C}_5^4+\mathrm{C}_5^5=3^5$}
+	\loigiai{
+		Ta có khai triển nhị thức Newton:
+		\[(x+1)^5 = \mathrm{C}_5^0x^5 + \mathrm{C}_5^1x^4 + \mathrm{C}_5^2x^3 + \mathrm{C}_5^3x^2 + \mathrm{C}_5^4x + \mathrm{C}_5^5 \quad (*).\]
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Số hạng chứa $x^4$ trong khai triển là $\mathrm{C}_5^1x^4 = 5x^4$. Vậy hệ số của $x^4$ là $5$.
+			\itemch \textbf{Đúng}. Số hạng không chứa $x$ (hệ số tự do) trong khai triển là $\mathrm{C}_5^5 = 1$.
+			\itemch \textbf{Sai}. Để tính tổng các hệ số, ta thay $x=1$ vào khai triển $(*)$:
+			\[ (1+1)^5 = \mathrm{C}_5^0 + \mathrm{C}_5^1 + \mathrm{C}_5^2 + \mathrm{C}_5^3 + \mathrm{C}_5^4 + \mathrm{C}_5^5. \]
+			Vậy tổng các hệ số là $2^5=32$.
+			\itemch \textbf{Đúng}. Thay $x=2$ vào khai triển $(*)$, ta được:
+			\begin{align*}
+				(2+1)^5 &= \mathrm{C}_5^0\cdot2^5 + \mathrm{C}_5^1\cdot2^4 + \mathrm{C}_5^2\cdot2^3 + \mathrm{C}_5^3\cdot2^2 + \mathrm{C}_5^4\cdot2 + \mathrm{C}_5^5 \\
+				3^5 &= 32\mathrm{C}_5^0+16\mathrm{C}_5^1+8\mathrm{C}_5^2+4\mathrm{C}_5^3+2\mathrm{C}_5^4+\mathrm{C}_5^5.
+			\end{align*}
+		\end{itemchoice}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\inputansbox[2]{2}{ans/answer.tex}
+
+
+
+\begin{center}
+	\textbf{PHẦN 3 - CÂU TRẮC NGHIỆM TRẢ LỜI NGẮN}
+\end{center}
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans-KQ-ONTAPCHUONG-DE1]
+\begin{ex}%[0D8V1-3]
+	Một nhóm gồm $4$ bạn nam và $4$ bạn nữ mua vé xem ca nhạc với $8$ ghế ngồi liên tiếp nhau theo một hàng ngang. Có bao nhiêu cách xếp chỗ ngồi sao cho các bạn nam và các bạn nữ ngồi xen kẽ nhau?
+	\shortans[]{1152}
+	\loigiai{
+		Ta đánh số các ghế ngồi theo thứ tự từ trái sang phải lần lượt là $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$.\\
+		Có hai phương án để các bạn nam và các bạn nữ ngồi xen kẽ nhau là
+	\begin{enumerate}
+		\item Phương án 1: các bạn nam ngồi các ghế $1$, $3$, $5$, $7$ và các bạn nữ ngồi các ghế $2$, $4$, $6$, $8$.\\
+		Có $4!$ cách xếp $4$ bạn nam vào các ghế $1$, $3$, $5$, $7$.\\
+		Có $4!$ cách xếp $4$ bạn nữ vào các ghế $2$, $4$, $6$, $8$.\\
+		Suy ra có $4!\cdot 4!=576$ cách xếp.
+		\item Phương án 2: các bạn nữ ngồi các ghế $1$, $3$, $5$, $7$ và các bạn nam ngồi các ghế $2$, $4$, $6$, $8$.\\
+		Có $4!$ cách xếp $4$ bạn nữ vào các ghế $1$, $3$, $5$, $7$.\\
+		Có $4!$ cách xếp $4$ bạn nam vào các ghế $2$, $4$, $6$, $8$.\\
+		Suy ra có $4!\cdot 4!=576$ cách xếp.\\		
+	\end{enumerate}
+		Vậy có $576+576=1\,152$ cách xếp chỗ ngồi sao cho các bạn nam và các bạn nữ ngồi xen kẽ nhau.\\
+	}
+\end{ex}
+
+\begin{ex}%[0D8V2-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Đội thanh niên xung kích của một trường phổ thông có $12$ học sinh, gồm $5$ học sinh lớp A, $4$ học sinh lớp B và $3$ học sinh lớp C. Cần chọn $4$ học sinh đi làm nhiệm vụ sao cho $4$ học sinh này thuộc không quá $2$ trong ba lớp trên. Hỏi có bao nhiêu cách chọn như vậy?
+	\shortans[oly]{225}
+	\loigiai{
+		Tổng số học sinh là $5+4+3=12$ (học sinh).\\
+		Số cách chọn $4$ học sinh tùy ý từ $12$ học sinh là $\mathrm{C}_{12}^4 = \dfrac{12 \cdot 11 \cdot 10 \cdot 9}{4 \cdot 3 \cdot 2 \cdot 1} = 495$ (cách).\\
+		Yêu cầu bài toán là chọn $4$ học sinh thuộc không quá $2$ lớp.\\ Ta sử dụng phương pháp phần bù, tức là tìm số cách chọn mà $4$ học sinh được chọn thuộc cả $3$ lớp, rồi lấy tổng số cách trừ đi.\\
+		Để chọn $4$ học sinh từ cả $3$ lớp, các trường hợp về số lượng học sinh mỗi lớp có thể là $(2,1,1)$, $(1,2,1)$, hoặc $(1,1,2)$.
+		\begin{itemize}
+			\item Trường hợp $1$: $2$ học sinh lớp A, $1$ học sinh lớp B, $1$ học sinh lớp C.\\
+			Số cách chọn: $\mathrm{C}_5^2 \cdot \mathrm{C}_4^1 \cdot \mathrm{C}_3^1 = 10 \cdot 4 \cdot 3 = 120$ (cách).
+			\item Trường hợp $2$: $1$ học sinh lớp A, $2$ học sinh lớp B, $1$ học sinh lớp C.\\
+			Số cách chọn: $\mathrm{C}_5^1 \cdot \mathrm{C}_4^2 \cdot \mathrm{C}_3^1 = 5 \cdot 6 \cdot 3 = 90$ (cách).
+			\item Trường hợp $3$: $1$ học sinh lớp A, $1$ học sinh lớp B, $2$ học sinh lớp C.\\
+			Số cách chọn: $\mathrm{C}_5^1 \cdot \mathrm{C}_4^1 \cdot \mathrm{C}_3^2 = 5 \cdot 4 \cdot 3 = 60$ (cách).
+		\end{itemize}
+		Số cách chọn $4$ học sinh có mặt ở cả $3$ lớp là: $120 + 90 + 60 = 270$ (cách).\\
+		Vậy số cách chọn thỏa mãn yêu cầu đề bài là: $495 - 270 = 225$ (cách).\\
+	}
+\end{ex} 
+
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Cho $n$ là số nguyên dương thỏa mãn $\mathrm{C}_n^1 + \mathrm{C}_n^2 = 15$. Khi đó giá trị của số hạng không chứa $x$ trong khai triển nhị thức $\left(x + \dfrac{2}{x^4}\right)^n$ bằng bao nhiêu?
+	\shortans[oly]{10}
+	\loigiai{
+		Điều kiện: $n \in \mathbb{N}, n \ge 2$.\\
+		Ta có: $\mathrm{C}_n^1 + \mathrm{C}_n^2 = 15 \Leftrightarrow n + \dfrac{n(n-1)}{2} = 15$.\\
+		$\Leftrightarrow 2n + n^2 - n = 30 \Leftrightarrow n^2 + n - 30 = 0$.\\
+		$\Leftrightarrow \hoac{& n=5 \text{ (nhận)} \\ & n=-6 \text{ (loại)}.}$\\
+		Vậy $n=5$. Khai triển trở thành $\left(x + \dfrac{2}{x^4}\right)^5$.\\
+		Số hạng tổng quát thứ $k+1$ là $T_{k+1} = \mathrm{C}_5^k x^{5-k} \left(\dfrac{2}{x^4}\right)^k = \mathrm{C}_5^k \cdot 2^k \cdot x^{5-5k}$.\\
+		Số hạng không chứa $x$ ứng với số mũ của $x$ bằng $0$:\\
+		$5-5k = 0 \Leftrightarrow k=1$.\\
+		Vậy số hạng không chứa $x$ có giá trị là $\mathrm{C}_5^1 \cdot 2^1 = 5 \cdot 2 = 10$.\\
+	}
+\end{ex}
+
+\begin{ex}%[0D8V3-4]%[Dự án D - đợt 2 NH24-25- Nguyễn Quang Hiệp]
+	Hệ số của $x^5$ trong khai triển biểu thức $P(x) = x(2x-1)^6 + (x-3)^8$ có dạng $-a$. Khi đó giá trị của $a$ bằng bao nhiêu?
+	
+	\shortans[oly]{1272}
+	\loigiai{
+		Hệ số của $x^5$ trong khai triển $P(x)$ bằng tổng hệ số của $x^5$ trong khai triển $x(2x-1)^6$ và hệ số của $x^5$ trong khai triển $(x-3)^8$.
+		\begin{itemize}
+			\item \textbf{Xét khai triển $x(2x-1)^6$}:\\
+			Hệ số của $x^5$ trong $x(2x-1)^6$ chính là hệ số của $x^4$ trong khai triển $(2x-1)^6$.\\
+			Số hạng tổng quát của $(2x-1)^6$ là $\mathrm{C}_6^k (2x)^{6-k} (-1)^k = \mathrm{C}_6^k \cdot 2^{6-k} \cdot (-1)^k \cdot x^{6-k}$.\\
+			Số mũ của $x$ bằng $4$ khi $6-k=4 \Leftrightarrow k=2$.\\
+			Hệ số của $x^4$ là $\mathrm{C}_6^2 \cdot 2^{6-2} \cdot (-1)^2 = 15 \cdot 16 \cdot 1 = 240$.\\
+			\item \textbf{Xét khai triển $(x-3)^8$}:\\
+			Số hạng tổng quát của $(x-3)^8$ là $\mathrm{C}_8^k x^{8-k} (-3)^k$.\\
+			Số mũ của $x$ bằng $5$ khi $8-k=5 \Leftrightarrow k=3$.\\
+			Hệ số của $x^5$ là $\mathrm{C}_8^3 (-3)^3 = 56 \cdot (-27) = -1\,512$.\\
+		\end{itemize}
+		Vậy hệ số của $x^5$ trong khai triển đã cho là $240 + (-1\,512) = -1\,272$.\\
+		Do đó $a=1\,272$.
+	}
+\end{ex}	
+
+\Closesolutionfile{ans}
+
+
+
+\begin{center}
+	\textbf{PHẦN 4 - TỰ LUẬN}
+\end{center}
+\setcounter{ex}{0}
+\begin{ex}%[0D8V1-2]%[Dự án D-đợt 2 NH24-25-Nguyễn Quang Hiệp]
+	Bạn Nam tô màu các cạnh của tứ giác $ABCD$ bằng $6$ màu khác nhau sao cho mỗi cạnh được tô bởi một màu và hai cạnh kề nhau không được tô màu giống nhau. Hỏi có bao nhiêu cách tô?
+	\loigiai{
+		Ta tiến hành tô màu lần lượt các cạnh của tứ giác $ABCD$ theo thứ tự $AB$, $BC$, $CD$, $DA$.
+		\begin{itemize}
+		\item Bước 1: Tô màu cạnh $AB$. Có $6$ cách chọn màu.
+		\item Bước 2: Tô màu cạnh $BC$. Vì $BC$ kề với $AB$ nên màu của $BC$ phải khác màu của $AB$. Có $5$ cách chọn màu.
+		\item Bước 3: Tô màu cạnh $CD$. Cạnh $CD$ kề với $BC$. Ta xét hai trường hợp:
+		\begin{itemize}
+			\item[--] Trường hợp 1: Cạnh $CD$ được tô cùng màu với cạnh $AB$.\\
+			Khi đó, cạnh $CD$ có $1$ cách chọn màu.\\
+			Tiếp theo, tô màu cạnh $DA$. Cạnh $DA$ kề với $AB$ và $CD$. Vì $AB$ và $CD$ cùng màu nên $DA$ chỉ cần tô khác $1$ màu đó. Vậy có $6-1=5$ cách chọn màu cho $DA$.\\
+			Số cách tô trong trường hợp này là $6 \cdot 5 \cdot 1 \cdot 5=150$ (cách).
+			\item[--] Trường hợp 2: Cạnh $CD$ được tô khác màu với cạnh $AB$.\\
+			Màu của cạnh $CD$ phải khác màu của $BC$ (kề nhau) và khác màu của $AB$ (theo giả thiết trường hợp này), nên có $6-2=4$ cách chọn màu cho $CD$.\\
+			Tiếp theo, tô màu cạnh $DA$. Cạnh $DA$ phải khác màu của $AB$ và $CD$. Vì $AB$ và $CD$ khác màu nhau nên có $6-2=4$ cách chọn màu cho $DA$.\\
+			Số cách tô trong trường hợp này là $6 \cdot 5 \cdot 4 \cdot 4=480$ (cách).	
+		\end{itemize}		
+		\end{itemize}
+		Áp dụng quy tắc cộng, tổng số cách tô màu thỏa mãn yêu cầu bài toán là $150+480=630$ (cách).
+	}
+\end{ex}
+\begin{ex}%[0D8H2-5]%[Dự án D-đợt 2 NH24-25-Nguyễn Quang Hiệp]
+	Cô giáo đã biên soạn $10$ câu hỏi trắc nghiệm. Từ $10$ câu hỏi này, cô giáo chọn ra $6$ câu hỏi và sắp xếp theo thứ tự để tạo nên một đề trắc nghiệm. Cô giáo có thể tạo bao nhiêu đề kiểm tra trắc nghiệm khác nhau?
+	\loigiai{
+		Mỗi đề kiểm tra được tạo thành bằng cách chọn $6$ câu hỏi từ $10$ câu hỏi và sắp xếp chúng theo một thứ tự nhất định.\\
+		Do đó, số đề kiểm tra khác nhau chính là số các chỉnh hợp chập $6$ của $10$ phần tử.\\
+		Số đề kiểm tra có thể tạo được là\\
+		$\mathrm{A}_{10}^6=\dfrac{10!}{(10-6)!}=10 \cdot 9 \cdot 8 \cdot 7 \cdot 6 \cdot 5=151\,200$ (đề).
+	}
+\end{ex}
+
+\begin{ex}%[0D8V3-2]%[Dự án D-đợt 2 NH24-25-Nguyễn Quang Hiệp]
+	Khai triển biểu thức $(a+bx)^4$, viết các số hạng theo thứ tự bậc của $x$ tăng dần, nhận được biểu thức gồm hai số hạng đầu tiên là $16-96x$. Hãy tìm giá trị của $a$ và $b$.
+	\loigiai{
+		Ta có khai triển nhị thức Newton cho $(a+bx)^4$ theo thứ tự bậc của $x$ tăng dần như sau
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			(a+bx)^4 & = & \mathrm{C}_4^0 a^4 (bx)^0 + \mathrm{C}_4^1 a^3 (bx)^1 + \mathrm{C}_4^2 a^2 (bx)^2 + \mathrm{C}_4^3 a (bx)^3 + \mathrm{C}_4^4 (bx)^4 \\
+			& = & a^4 + 4a^3bx + 6a^2b^2x^2 + 4ab^3x^3 + b^4x^4.
+		\end{eqnarray*}
+		Theo đề bài, hai số hạng đầu tiên của khai triển là $16$ và $-96x$.\\
+		Đồng nhất hệ số, ta có hệ phương trình
+		$\heva{& a^4=16 \\ & 4a^3b=-96.}$\\
+		Từ phương trình $a^4=16$, ta suy ra $a=2$ hoặc $a=-2$.
+	\begin{enumerate}
+		\item Trường hợp 1: Với $a=2$, thay vào phương trình thứ hai ta được
+		$4 \cdot 2^3 \cdot b=-96 \Leftrightarrow 32b=-96 \Leftrightarrow b=-3$.
+		\item Trường hợp 2: Với $a=-2$, thay vào phương trình thứ hai ta được
+		$4 \cdot (-2)^3 \cdot b=-96 \Leftrightarrow-32b=-96 \Leftrightarrow b=3$.
+	\end{enumerate}
+		Vậy, các cặp giá trị $(a,b)$ thỏa mãn yêu cầu bài toán là $(2,-3)$ và $(-2, 3)$.
+	}
+\end{ex}

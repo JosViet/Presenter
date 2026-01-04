@@ -1,0 +1,1161 @@
+\newpage
+\section{TÍCH PHÂN}
+\subsection{LÝ THUYẾT CẦN NHỚ}
+\subsubsection{Diện tích hình thang cong}
+\indam{Định nghĩa:}
+\begin{boxdn}
+		Cho hàm số $y=f(x)$ liên tục và không âm trên đoạn $[a;b]$. Hình phẳng giới hạn bởi đồ thị hàm số $y=f(x)$, trục hoành và hai đường thẳng $x=a$, $x=b$ được gọi là \textit{hình thang cong}.
+	\immini{Ta sẽ đưa ra công thức tính diện tích $S$ của hình thang cong này.\\
+		Kí hiệu $S(x)$ là diện tích hình thang cong giới hạn bởi đồ thị hàm số $y=f(x)$, trục hoành và hai đường thẳng vuông góc với trục $Ox$ tại các điểm có hoành độ là $a$ và $x$. Ta được hàm số $S(x)$ xác định trên đoạn $[a;b]$.\\
+		Người ta chứng minh được rằng: $S(x)$ là một nguyên hàm của hàm số $f(x)$ trên đoạn $[a;b]$.
+	}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+			\def \xmin{-1.0};
+			\def \xmax{5.7};
+			\def \ymin{-0.5};
+			\def \ymax{3.5};
+			\draw[->] (\xmin, 0.) -- (\xmax,0.) node[anchor=north] {$x$};
+			\draw[->] (0.,\ymin) -- (0.,\ymax) node[anchor=west] {$y$};
+			\clip(\xmin,\ymin) rectangle (\xmax,\ymax);
+			\draw[thick,smooth,samples=100,domain=1:4.5] plot(\x,{-(1/10)*((\x)-0.5)*((\x)-2)*((\x)-5)+2});%f(x)
+			\filldraw [pattern=north west lines, opacity=0.5] 
+			{plot[domain=1:2.5] (\x,{-(1/10)*((\x)-0.5)*((\x)-2)*((\x)-5)+2})--(2.5,2.25)--(2.5,0)}--(1,0)--cycle;
+			\draw[dashed] (1,0)--(1,1.8) (4.5,0)--(4.5,2.5);
+			\draw (1,0)node[below]{$a$};
+			\draw (2.5,0)node[below]{$x$};
+			\draw (3,2.5)node[above]{$y=f(x)$};
+			\draw (4.5,0)node[below]{$b$};
+			\draw[draw=white,fill=white] (1.3,0.6) rectangle ++(0.9,0.6);
+			\draw (1.7,0.9) node{$S(x)$};
+			\draw (3.4,0.9) node{$S$};
+			%	\draw (3,2.5)node[above, fill=white]{$D$};
+			\draw[fill=black] (0,0) circle (1pt) node[below left] {$O$};
+	\end{tikzpicture}}
+	Giả sử $F(x)$ là một nguyên hàm của $f(x)$ trên $[a;b]$. Khi đó, tồn tại hằng số $C$ sao cho $S(x)=F(x)+C$. Vì $S(a)=0$ nên $F(a)+C=0$ hay $C=-F(a)$.\\
+	Từ đó, $S=S(b)+C=F(b)-F(a)$.\\
+	Vậy ta có kết quả sau:
+	\begin{tcolorbox}[colback=orange!10!white,breakable]
+		Nếu hàm số $y=f(x)$ liên tục và không âm trên đoạn $[a;b]$ thì diện tích $S$ của hình thang cong giới hạn bởi đồ thị hàm số $y=f(x)$, trục hoành và hai đường thẳng $x=a$, $x=b$ được tính bởi
+		\[
+		S=F(b)-F(a),
+		\]
+		trong đó $F(x)$ là một nguyên hàm của $f(x)$ trên đoạn $[a;b]$.
+	\end{tcolorbox}
+\end{boxdn}
+\begin{nx}
+	Cho $f(x)$ là hàm số liên tục trên đoạn $[a;b]$. Giả sử $F(x)$ và $G(x)$ là hai nguyên hàm của $f(x)$ trên đoạn $[a;b]$. Khi đó, $G(x)=F(x)+C$ với hằng số $C$ nào đó. Do đó
+	\[
+	G(b)-G(a)=F(b)+C-\left[F(a)+C\right]=F(b)-F(a).
+	\]
+	Như vậy, hiệu số $F(b)-F(a)$ không phụ thuộc vào việc chọn nguyên hàm $F(x)$ của $f(x)$.	
+\end{nx}
+\subsubsection{Khái niệm tích phân}
+\begin{boxdn}
+		Cho hàm số $f(x)$ liên tục trên đoạn $[a;b]$. Nếu $F(x)$ là một nguyên hàm của $f(x)$ trên đoạn $[a;b]$ thì hiệu số $F(b)-F(a)$ gọi là \textbf{tích phân} từ $a$ đến $b$ của hàm số $f(x)$, kí hiệu $\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x$.
+\end{boxdn}
+	Hiệu số $F(b)-F(a)$ còn được kí hiệu là $F(x)\bigg|_{a}^{b}$.\\
+	Vậy $\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x=F(x)\bigg|_{a}^{b}=F(b)-F(a)$.\\
+	Ta gọi $\displaystyle\int\limits_{a}^{b}$ là dấu tích phân, $a$ và $b$ là cận tích phân, $a$ là cận dưới, $b$ là cận trên, $f(x)\,\mathrm{d}x$ là biểu thức dưới dấu tích phân và $f(x)$ là hàm số dưới dấu tích phân.
+\begin{note}
+	\begin{enumerate}
+		\item Trong trường hợp $a=b$ hoặc $a>b$, ta quy ước $\displaystyle\int\limits_{a}^{a}f(x)\,\mathrm{d}x=0$ và $\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x=-\int\limits_{b}^{a}f(x)\,\mathrm{d}x$.
+		\item Người ta chứng minh được rằng, tích phân chỉ phụ thuộc vào hàm số $f$ và các cận $a$, $b$ mà không phụ thuộc vào biến số $x$ hay $t$, nghĩa là $\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x=\int\limits_{a}^{b}f(t)\,\mathrm{d}t$.
+		\item Ý nghĩa hình học của tích phân.\\
+		\immini{Nếu hàm số $y=f(x)$ liên tục và không âm trên đoạn $[a;b]$ thì $\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x$ là diện tích $S$ của hình thang cong giới hạn bởi đồ thị hàm số $f(x)$, trục hoành và hai đường thẳng $x=a$, $x=b$.\\
+			Vậy $S=\displaystyle\int\limits_{a}^{b}f(x)\,\mathrm{d}x$.}{\begin{tikzpicture}[scale=1, font=\footnotesize, line join=round, line cap=round,>=stealth]
+				\def \xmin{-1.0};
+				\def \xmax{5.7};
+				\def \ymin{-1.0};
+				\def \ymax{3.7};
+				\draw[->] (\xmin, 0.) -- (\xmax,0.) node[anchor=north] {$x$};
+				\draw[->] (0.,\ymin) -- (0.,\ymax) node[anchor=west] {$y$};
+				\clip(\xmin,\ymin) rectangle (\xmax,\ymax);
+				\draw[thick,smooth,samples=100,domain=1:4.5] plot(\x,{-(1/10)*((\x)-0.5)*((\x)-2)*((\x)-5)+2});
+				\filldraw [pattern=north west lines, opacity=0.5] 
+				{plot[domain=1:4.5] (\x,{-(1/10)*((\x)-0.5)*((\x)-2)*((\x)-5)+2})--(4.5,2.5)--(4.5,0)}--(1,0)--cycle;
+				\draw (1,0)--(1,1.8) (4.5,0)--(4.5,2.5);
+				\draw (1,0)node[below]{$a$};
+				%			\draw (2.5,0)node[below]{$x$};
+				\draw (3,2.5)node[above]{$y=f(x)$};
+				\draw (4.5,0)node[below]{$b$};
+				\draw[draw=white,fill=white] (2.3,1.1) rectangle ++(0.4,0.4);
+				\draw (2.5,1.3) node{$S$};
+				\draw[fill=black] (0,0) circle (1pt) node[below left] {$O$};
+		\end{tikzpicture}}
+	\end{enumerate}
+\end{note}
+\begin{note}
+	\begin{enumerate}
+		\item Nếu hàm số $f(x)$ có đạo hàm $f'(x)$ và $f'(x)$ liên tục trên đoạn $[a; b]$ thì
+		\[f(b)-f(a)=\displaystyle\int\limits_a^b f'(x) \,\mathrm{d}x.\]
+		\item Ta đã biết rằng, đạo hàm của quãng đường di chuyển theo thời gian bằng tốc độ của chuyển động tại mỗi thời điểm $\left(v(t)=s'(t)\right)$. Do đó, nếu biết tốc độ $v(t)$ tại mọi thời điểm $t \in[a; b]$ thì tính được quãng đường di chuyển trong khoảng thời gian từ $a$ đến $b$ theo công thức
+		\[s=s(b)-s(a)=\displaystyle\int\limits_a^b v(t) \,\mathrm{d}t.\]
+	\end{enumerate}
+\end{note}
+\begin{nx}
+	Cho hàm số $f(x)$ liên tục trên đoạn $[a; b]$. Khi đó $\dfrac{1}{b-a} \displaystyle\int\limits_a^b f(x) \,\mathrm{d} x$ được gọi là giá trị trung bình của hàm số $f(x)$ trên đoạn $[a; b]$.
+\end{nx}
+%-------------------------------------------------------------------------------------------------------------
+\subsection{PHÂN LOẠI VÀ PHƯƠNG PHÁP GIẢI TOÁN}
+\begin{dang}{Tính diện tích hình thang cong}
+	{\bf{Phương pháp giải}}
+	\begin{itemize}
+		\item \textit{Bước 1.}  Kiểm tra điều kiện: Đảm bảo hàm số $y=f(x)$ liên tục và không âm trên đoạn $[a;b]$. Nếu hàm số có giá trị âm hoặc đổi dấu trên đoạn $[a;b]$, cần chia khoảng và lấy trị tuyệt đối của hàm số (nội dung này sẽ được học kỹ hơn ở các bài sau, trong phạm vi bài này, các hàm số thường là không âm).
+		\item \textit{Bước 2.} Tìm nguyên hàm: Tìm một nguyên hàm $F(x)$ của hàm số $f(x)$.
+		\item \textit{Bước 3.} Áp dụng công thức: Diện tích $S$ được tính bằng công thức: $S=F(b)-F(a)=\displaystyle\int\limits_a^b f(x)\,\mathrm{d}x$.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[2D4N2-2]
+	[SGK 12,CTST]
+	Tính diện tích hình thang cong giới hạn bởi
+	\begin{enumerate}
+		\immini	{\item 
+			
+			Đồ thị hàm số $y=x^2$ với trục hoành và hai đường thẳng $x=0$, $x=2$;
+		}
+		{
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=0.7]
+				\draw[->] (-1.1,0)--(3.1,0) node[below left] {$x$};
+				\draw[->] (0,-0.6)--(0,5.1) node[below left] {$y$};
+				\draw (0,0) node [below left] {$O$};
+				\foreach \x/\nx in {2/2}
+				\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\nx$};
+				\foreach \y/\ny in {4/4}
+				\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\ny$};
+				\draw[dashed,thin](2,0)--(2,4)--(0,4);
+				\begin{scope}
+					\clip (-1,-0.5) rectangle (3,5);
+					\draw[dashed,thin,pattern=vertical lines](0,0) node[below] {}--plot[samples=200,domain=0:2,smooth,variable=\x] (\x,{(\x)^2})--(2,0) node[below] {};
+					\draw plot[samples=200,domain=-0.1:2.1,smooth,variable=\x] (\x,{(\x)^2}) node[left]{$y=x^2$};
+				\end{scope}
+			\end{tikzpicture}
+		}  
+		\immini
+		{
+			\item  Đồ thị hàm số $y=\dfrac{1}{x}$ với trục hoành và hai đường thẳng $x=1$, $x=3$.
+		}
+		{
+			\begin{tikzpicture}[line join=round, line cap=round,>=stealth,thick,scale=1]
+				\draw[->] (-1.1,0)--(4.1,0) node[below left] {$x$};
+				\draw[->] (0,-0.6)--(0,2.1) node[below left] {$y$};
+				\draw (0,0) node [below left] {$O$};
+				\foreach \x/\nx in {1/1,3/3}
+				\draw[thin] (\x,1pt)--(\x,-1pt) node [below] {$\nx$};
+				\foreach \y/\ny in {1/1}
+				\draw[thin] (1pt,\y)--(-1pt,\y) node [left] {$\ny$};
+				\draw[dashed,thin](,0)--(,)--(0,);
+				\draw[dashed,thin](1,0)--(1,1)--(0,1);
+				\begin{scope}
+					\clip (-1,-0.5) rectangle (4,3);
+					\draw[dashed,thin,pattern=grid](1,0) node[below] {}--plot[samples=200,domain=1:3,smooth,variable=\x] (\x,{1/(\x)})--(3,0) node[below] {};
+					\draw plot[samples=200,domain=0.9:3.1,smooth,variable=\x] (\x,{1/(\x)}) node[above left]{$y=\tfrac{1}{x}$};
+				\end{scope}
+			\end{tikzpicture}
+		}	
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Hàm số $y=f(x)=x^2$ liên tục, dương trên đoạn $[0;2]$ và có một nguyên hàm là $F(x)=\dfrac{x^3}{3}$.\\
+			Do đó, diện tích hình thang cong cần tìm là 
+			\[
+			S=F(2)-F(0)=\dfrac{8}{3}-0=\dfrac{8}{3}.\]
+			\item Hàm số $y=f(x)=\dfrac{1}{x}$ liên tục, dương trên đoạn $[1;3]$ và có một nguyên hàm là $F(x)=\ln x$.\\
+			Do đó, diện tích hình thang cong cần tìm là 
+			\[
+			S=F(3)-F(1)=\ln 3-\ln 1=\ln 3.\]
+		\end{enumerate}	
+	}
+\end{vd}
+\begin{dang}{Tính tích phân bằng định nghĩa và công thức}
+	{\bf{Phương pháp giải}}
+	\begin{itemize}
+		\item \textit{Bước 1.} Tìm một nguyên hàm $F(x)$ của hàm số $f(x)$.
+		\item \textit{Bước 2.} Áp dụng công thức $\displaystyle \int\limits_{a}^{b} f(x)\,\mathrm{d}x=F(x)\bigg|_a^b=F(b)-F(a)$.
+	\end{itemize}
+\end{dang}
+
+\begin{vd}%[2D4N2-2]%[2D4N2-3]
+	[SGK 12,CTST]
+	Tính các tích phân sau
+	\begin{listEX}[3]
+		\item $\displaystyle\int\limits_1^2 x^2 \,\mathrm{d}x$;
+		\item $\displaystyle\int\limits_1^\mathrm{e} \dfrac{1}{t} \,\mathrm{d}t$;
+		\item  $\displaystyle\int\limits_{\tfrac{\pi}{2}}^{-\tfrac{\pi}{2}} \cos x \,\mathrm{d}x$. 
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item $\displaystyle\int\limits_1^2 x^2 \,\mathrm{d}x =\left.\dfrac{x^3}{3}\right|_1^2=\dfrac{1}{3}\left(2^3-1^3\right)=\dfrac{7}{3}$.
+			\item $\displaystyle\int\limits_1^{\mathrm{e}} \dfrac{1}{t} \,\mathrm{d} t=\ln t\bigg|_1^{\mathrm{e}}=\ln \mathrm{e}-\ln 1=1$.
+			\item  $\displaystyle\int\limits_{\tfrac{\pi}{2}}^{-\tfrac{\pi}{2}} \cos x \,\mathrm{d}x =-\displaystyle\int\limits_{-\tfrac{\pi}{2}}^{\tfrac{\pi}{2}} \cos x \,\mathrm{d}x=-(\sin x)\Bigg|_{-\tfrac{\pi}{2}} ^{\tfrac{\pi}{2}}=-\left[\sin \dfrac{\pi}{2}-\sin \left(-\dfrac{\pi}{2}\right)\right]=-2$.
+		\end{listEX}
+	}
+\end{vd}
+\begin{dang}{Ứng dụng tích phân trong bài toán chuyển động}
+	{\bf{Phương pháp giải}}
+	\begin{itemize}
+		\item \textit{Bước 1.} Nếu biết tốc độ $v(t)$ (luôn không âm) của một vật chuyển động theo thời gian t trong khoảng $[a;b]$, thì quãng đường $s$ mà vật di chuyển được trong khoảng thời gian đó được tính bằng tích phân $s=\displaystyle\int\limits_a^b v(t) \,\mathrm{d}t$.
+		\item \textit{Bước 2.} Tốc độ trung bình của vật trong khoảng thời gian $[a;b]$ được tính bằng $v_{tb}=\dfrac{1}{b-a}\displaystyle\int\limits_a^b v(t) \,\mathrm{d}t=\dfrac{s}{b-a}$.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[2D4H2-6]
+	[SGK 12, CTST]
+	\immini
+	{
+		Biết rằng tốc độ $v \,(\mathrm{km} /\text{phút})$ của một ca nô cao tốc thay đổi theo thời gian $t$ (phút) như sau:
+		$$
+		v(t)=\heva{&0{,}5t, \quad\quad\;  0 \leq t<2, \\
+			&1,\quad\quad\quad\; 2 \leq t<15, \\
+			&4-0{,}2 t,\; 15 \leq t \leq 20.}
+		$$
+		
+	}
+	{
+		\definecolor{lightcornflowerblue}{rgb}{0.6, 0.81, 0.93}
+		\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+		\definecolor{chamoisee}{rgb}{0.63, 0.47, 0.35}
+		\definecolor{fashionfuchsia}{rgb}{0.96, 0.0, 0.63}
+		\definecolor{grannysmithapple}{rgb}{0.66, 0.89, 0.63}
+		\definecolor{fawn}{rgb}{0.9, 0.67, 0.44}
+		\begin{tikzpicture}[line join=round, line cap=round,scale=1,transform shape]
+			\clip (0,-.5) rectangle (7,4);
+			
+			\fill[lightcornflowerblue!70] (0,-.5) rectangle (7,4);
+			
+			\tikzset{tau/.pic={
+					\def\Ta1{ 
+						(4.4,2.15)
+						..controls +(-150:.1) and +(130:.3) ..(3.35,.95)
+						..controls +(-50:.3) and +(-140:.3) ..(4.7,1.8)
+						..controls +(60:.1) and +(40:.1) ..cycle
+						;
+					}
+					\fill[chamoisee] \Ta1;
+					\draw\Ta1;
+					\def\Ta2{ 
+						(4.4,2.1)
+						..controls +(-150:.1) and +(130:.3) ..(3.4,.97)
+						..controls +(-40:.2) and +(-140:.3) ..(4.65,1.8)
+						..controls +(60:.1) and +(40:.1) ..cycle
+						;
+					}
+					\fill[white] \Ta2;
+					\draw\Ta2;
+					
+					\def\Ta3{ 
+						(3.7,1.45)
+						..controls +(-150:.1) and +(130:.1) ..(3.45,1.02)
+						..controls +(-40:.1) and +(-140:.1) ..(3.9,1.25)--cycle
+						;
+						
+					}
+					\fill[cerulean] \Ta3;
+					\draw\Ta3;
+					
+					\def\Ta4{ 
+						(3.75,1.5)--(3.7,1.25)--(3.95,1.3)--(3.65,1.2)--cycle
+						(3.96,1.6)--(4,1.6)--(4.1,1.5)--(4.1,1.46)--(4.03,1.46)--(3.96,1.52)--cycle
+						(4.35,2)--(4.53,1.78)--(4.2,1.5)--(4.18,1.52)--(4.4,1.74)--(4.3,1.87)--(4.05,1.67)--(4.02,1.7)--cycle;
+					}
+					\fill[chamoisee] \Ta4;
+					\draw\Ta4;
+					
+			}}
+			
+			\path
+			(0,0)pic[scale=1]{tau};
+			
+			
+			\draw[white] 
+			(4.8,2)
+			..controls +(30:.1) and +(-140:.3) ..(5.6,2.2)
+			(4.85,1.95)
+			..controls +(30:.1) and +(-140:.3) ..(5.9,2.16)
+			(4.5,2.2)
+			..controls +(120:.1) and +(-130:.2) ..(4.6,2.8)
+			(4.55,2.2)
+			..controls +(120:.1) and +(-130:.2) ..(4.8,2.85)
+			;
+			
+		\end{tikzpicture}
+	}
+	Tính quãng đường ca nô di chuyển được trong khoảng thời gian từ $0$ đến $20$ phút.
+	\loigiai{
+		Quãng đường ca nô di chuyển được trong khoảng thời gian từ $0$ đến $20$ phút là
+		$$
+		\displaystyle\int\limits_0^{20} v(t)\, \mathrm{d}t =\displaystyle\int\limits_0^2 0{,}5t \,\mathrm{d}t+\displaystyle\int\limits_2^{15} 1 \,\mathrm{d}t+\displaystyle\int\limits_{15}^{20} (4-0{,}2 t) \,\mathrm{d}t=16{,}5\, \,(\mathrm{km}).
+		$$
+	}
+\end{vd}
+\begin{vd}%[2D4H2-6]
+	[SGK 12, CTST]
+	Sau khi xuất phát, ô tô di chuyển với tốc độ
+	$$
+	v(t)=2t-0{,}03t^2 \,\;(0 \leq t \leq 10),
+	$$
+	trong đó $v(t)$ tính theo $\mathrm{m}/\mathrm{s}$, thời gian $t$ tính theo giây với $t=0$ là thời điểm xe xuất phát.
+	\begin{enumerate}
+		\item Tính quãng đường xe đi được sau $5$ giây, sau $10$ giây.
+		\item Tính tốc độ trung bình của xe trong khoảng thời gian từ $t=0$ đến $t=10$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Quãng đường xe đi được sau $5$ giây, sau $10$ giây tương ứng là
+			\begin{itemize}
+				\item $
+				s(5)-s(0)=\displaystyle\int\limits_0^5 v(t) \,\mathrm{d} t=\displaystyle\int\limits_0^5 (2t-0{,}03t^2) \,\mathrm{d}t=\left(t^2-0{,}03\cdot\dfrac{t^3}{3}\right)\Bigg|_0 ^5=23{,}75\, \,(\mathrm{m}).
+				$
+				\item $
+				s(10)-s(0)=\displaystyle\int\limits_0^{10} v(t)\, \mathrm{d} t=\displaystyle\int\limits_0^{10} (2t-0{,}03t^2) \,\mathrm{d}t=\left(t^2-0{,}03\cdot\dfrac{t^3}{3}\right)\Bigg|_0 ^{10}=90\, \,(\mathrm{m}).
+				$
+			\end{itemize}
+			\item Tốc độ trung bình của xe trong khoảng thời gian từ $t=0$ đến $t=10$
+			$$v_{\mathrm{tb}}=\dfrac{1}{10-0} \displaystyle\int\limits_0^{10} v(t) \,\mathrm{d} t=\dfrac{90}{10}=9\, \,(\mathrm{m/s}).$$
+		\end{enumerate}
+	}
+\end{vd}
+\begin{dang}{Tính tích phân sử dụng các tính chất}
+	{\bf{Phương pháp giải}}\\ Áp dụng các tính chất sau
+	\begin{itemize}
+		\item \textit{Tính chất 1.} Cho hàm số $y=f(x)$ liên tục trên đoạn $[a ; b]$, $k$ là số thực. Khi đó
+		$$
+		\displaystyle\int\limits_a^b k f(x) \,\mathrm{d} x=k \displaystyle\int\limits_a^b f(x) \,\mathrm{d} x.
+		$$
+		\item \textit{Tính chất 2.} Cho hai hàm số $y=f(x)$, $y=g(x)$ liên tục trên đoạn $[a; b]$. Khi đó
+		$$
+		\begin{aligned}
+			& \displaystyle\int\limits_a^b[f(x)+g(x)] \,\mathrm{d} x=\displaystyle\int\limits_a^b f(x) \,\mathrm{d} x+\displaystyle\int\limits_a^b g(x) \,\mathrm{d} x ; \\
+			& \displaystyle\int\limits_a^b[f(x)-g(x)] \,\mathrm{d} x=\displaystyle\int\limits_a^b f(x) \,\mathrm{d} x-\displaystyle\int\limits_a^b g(x) \,\mathrm{d} x .
+		\end{aligned}
+		$$
+		\item \textit{Tính chất 3.} Cho hàm số $y=f(x)$ liên tục trên đoạn $[a ; b]$, $c \in(a ; b)$. Khi đó
+		$$
+		\displaystyle\int\limits_a^b f(x) \,\mathrm{d} x=\displaystyle\int\limits_a^c f(x) \,\mathrm{d} x+\displaystyle\int\limits_c^b f(x) \,\mathrm{d} x .
+		$$
+	\end{itemize}
+\end{dang}
+\begin{vd}%[2D4H2-4]
+	[SGK 12, CTST]
+	Tính các tích phân sau
+	\begin{listEX}[3]
+		\item  $\displaystyle\int\limits_{-1}^1 4x^7 \,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_{-2}^{-1} -\frac{3}{10x}\,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_0^2 \frac{5^{x-1}}{2}\,\mathrm{d} x$. 
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item  $\displaystyle\int\limits_{-1}^1 4x^7  \,\mathrm{d} x=4\displaystyle\int\limits_{-1}^1 x^7  \,\mathrm{d} x=\left.4\cdot\dfrac{x^8}{8}\right|_{-1}^1 =\dfrac{1}{2}\left[1^8-(-1)^8\right]=0$.
+			\item  $\displaystyle\int\limits_{-2}^{-1} -\frac{3}{10x}\,\mathrm{d} x=-\dfrac{3}{10}\displaystyle\int\limits_{-2}^{-1} \dfrac{1}{x} \,\mathrm{d} x=-\dfrac{3}{10}\cdot\ln \left|x\right|\Big|_{-2}^{-1}=-\dfrac{3}{10}(\ln 1-\ln 2)=\dfrac{3}{10}\ln 2$.
+			\item  $\displaystyle\int\limits_0^2 \frac{5^{x-1}}{2}\,\mathrm{d} x=\displaystyle\int\limits_0^2 5^x \cdot \dfrac{1}{10} \,\mathrm{d} x=\dfrac{1}{10}\displaystyle\int\limits_0^2 5^x \,\mathrm{d} x=\left.\dfrac{1}{10}\cdot \dfrac{5^x}{\ln 5}\right|_0 ^2=\dfrac{1}{10\ln 5}\cdot(25-1)=\dfrac{12}{5\ln 5}$.
+		\end{listEX}
+	}
+\end{vd}
+
+\begin{vd}%[2D4H2-3]
+	[SGK 12, CTST]
+	Tính các tích phân sau
+	\begin{listEX}[3]
+		\item  $\displaystyle\int\limits_1^2 \frac{x-1}{x^2} \,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_0^\pi\left(1+2 \sin ^2 \frac{x}{2}\right)\,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_{-2}^1(x-2)^2 \,\mathrm{d} x+\displaystyle\int\limits_{-2}^1\left(4 x-x^2\right) \,\mathrm{d} x$. 
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item  $\displaystyle\int\limits_1^2 \frac{x-1}{x^2} \,\mathrm{d} x=\displaystyle\int\limits_1^2\left(\frac{1}{x}-\frac{1}{x^2}\right) \,\mathrm{d} x=\displaystyle\int\limits_1^2 \frac{1}{x}\,\mathrm{d} x-\displaystyle\int\limits_1^2 \frac{1}{x^2} \,\mathrm{d} x=\ln x\bigg|_1^2+\left.\dfrac{1}{x}\right|_1^2=\ln 2-\dfrac{1}{2}$.
+			\item  $\displaystyle\int\limits_0^\pi\left(1+2 \sin ^2 \frac{x}{2}\right)\,\mathrm{d} x=\displaystyle\int\limits_0^\pi\left(1+1-\cos x\right)\,\mathrm{d} x=\displaystyle\int\limits_0^\pi 2\,\mathrm{d} x-\displaystyle\int\limits_0^\pi\cos x\,\mathrm{d} x=
+			2\pi-0=2\pi$.
+			\item  $\displaystyle\int\limits_{-2}^1(x-2)^2 \,\mathrm{d} x+\displaystyle\int\limits_{-2}^1\left(4 x-x^2\right) \,\mathrm{d} x=\displaystyle\int\limits_{-2}^1\left[(x-2)^2+\left(4 x-x^2\right) \right]\,\mathrm{d} x=\displaystyle\int\limits_{-2}^14 \,\mathrm{d} x=4x\bigg|_{-2}^1=12$.
+		\end{listEX}
+	}
+\end{vd}
+\begin{vd}%[2D4H2-3]
+	[SGK 12, CTST]
+	Tính
+	\begin{listEX}[3]
+		\item  $\displaystyle\int\limits_{-1}^{\frac{1}{2}}\left(4 x^3-5\right) \,\mathrm{d} x-\displaystyle\int\limits_1^{\frac{1}{2}}\left(4 x^3-5\right) \,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_0^3|x-1| \,\mathrm{d} x$;
+		\item  $\displaystyle\int\limits_0^\pi|\cos x| \,\mathrm{d} x$. 
+	\end{listEX}
+	\loigiai{
+		\begin{listEX}
+			\item $\displaystyle\int\limits_{-1}^{\frac{1}{2}}\left(4 x^3-5\right) \,\mathrm{d}x-\displaystyle\int\limits_1^{\frac{1}{2}}\left(4 x^3-5\right) \,\mathrm{d}x=\displaystyle\int\limits_{-1}^{\frac{1}{2}}\left(4 x^3-5\right) \,\mathrm{d}x+\displaystyle\int\limits_{\frac{1}{2}}^1\left(4 x^3-5\right) \,\mathrm{d}x=\displaystyle\int\limits_{-1}^{1}\left(4 x^3-5\right)\,\mathrm{d} x=-10$.
+			\item  $\displaystyle\int\limits_0^3|x-1| \,\mathrm{d} x=\displaystyle\int\limits_0^1\left(1-x\right) \,\mathrm{d}x+\displaystyle\int\limits_1^3\left(x-1\right) \,\mathrm{d}x=\left(x-\dfrac{x^2}{2}\right)\Bigg|_0 ^1+\left(\dfrac{x^2}{2}-x\right)\Bigg|_1^3=\dfrac{5}{2}$.
+			\item  $\displaystyle\int\limits_0^\pi|\cos x| \,\mathrm{d} x=\displaystyle\int\limits_0^{\tfrac{\pi}{2}}\cos x \,\mathrm{d}x+\displaystyle\int\limits_{\tfrac{\pi}{2}}^\pi-\cos x \,\mathrm{d}x=\sin x\Bigg|_0^{\tfrac{\pi}{2}}-\sin x\Bigg|_{\tfrac{\pi}{2}}^\pi=2$. 
+		\end{listEX}
+	}
+\end{vd}
+
+\begin{dang}{ Ứng dụng tích phân trong các bài toán kinh tế (chi phí, lợi nhuận)}
+	{\bf{Phương pháp giải}}
+	\begin{itemize}
+		\item Nếu $C '(x)$ là chi phí cận biên (tốc độ tăng tổng chi phí theo lượng sản phẩm $x$), thì sự thay đổi tổng chi phí khi sản xuất từ $a$ tấn đến $b$ tấn sản phẩm là $\Delta C=C(b)-C(a)=\displaystyle\int\limits_a^b C'(x) \,\mathrm{d}x$.\\
+		Từ đó suy ra $C(b)=C(a)+\displaystyle\int\limits_a^b C'(x) \,\mathrm{d}x$.
+		\item Tương tự cho lợi nhuận cận biên $P'(x)$.
+	\end{itemize}
+\end{dang}
+\begin{vd}%[2D4H2-6]
+	[SGK 12, CTST]
+	Tại một nhà máy, gọi $C(x)$ là tổng chi phí (tính theo triệu đồng) để sản xuất $x$ tấn sản phẩm $A$ trong một tháng. Khi đó, đạo hàm $C'(x)$, gọi là chi phí cận biên, cho biết tốc độ tăng tổng chi phí theo lượng sản phẩm được sản xuất. Giả sử chi phí cận biên (tính theo triệu đồng trên tấn) của nhà máy được ước lượng bởi công thức
+	$$
+	C'(x)=5-0{,}06 x+0{,}00072 x^2 \text{ với } 0 \leq x \leq 150.
+	$$
+	Biết rằng $C(0)=30$ triệu đồng, gọi là chi phí cố định. Tính tổng chi phí khi nhà máy sản xuất $100$ tấn sản phẩm $A$ trong tháng.
+	\loigiai{
+		Ta có
+		$$
+		\begin{aligned}
+			C(100)-C(0) &=\displaystyle\int\limits_0^{100} C^{\prime}(x) \,\mathrm{d} x=\displaystyle\int\limits_0^{100}\left(5-0{,}06 x+0{,}00072 x^2\right) \,\mathrm{d} x \\
+			&=5 \displaystyle\int\limits_0^{100} \,\mathrm{d} x-0{,}06 \displaystyle\int\limits_0^{100} x \,\mathrm{d} x+0{,}00072 \displaystyle\int\limits_0^{100} x^2 \,\mathrm{d} x \\
+			&=5 x\bigg|_0 ^{100}-0{,}03 x^2\bigg|_0 ^{100}+0{,}00024 x^3\bigg|_0 ^{100}=440.
+		\end{aligned}
+		$$
+		Suy ra $C(100)=C(0)+440=30+440=470$ (triệu đồng).\\
+		Vậy khi nhà máy sản xuất $100$ tấn sản phẩm $A$ trong tháng thì tổng chi phí là $470$ triệu đồng.
+	}
+\end{vd}
+\begin{vd}%[2D4H2-6]
+	[SGK 12, CTST]
+	Tại một nhà máy sản xuất một loại phân bón, gọi $P(x)$ là lợi nhuận (tính theo triệu đồng) thu được từ việc bán $x$ tấn sản phẩm trong một tuần. Khi đó, đạo hàm $P^{\prime}(x)$, gọi là lợi nhuận cận biên, cho biết tốc độ tăng lợi nhuận theo lượng sản phẩm bán được. Giả sử lợi nhuận cận biên (tính theo triệu đồng trên tấn) của nhà máy được ước lượng bởi công thức
+	$$
+	P'(x)=16-0{,}02 x \text { với } 0 \leq x \leq 100.
+	$$
+	Tính lợi nhuận nhà máy thu được khi bán $90$ tấn sản phẩm trong tuần. Biết rằng nhà máy lỗ $25$ triệu đồng nếu không bán được lượng sản phẩm nào trong tuần.
+	\loigiai{
+		Ta có $P(0)=-25$ (lỗ khi không bán được lượng sản phẩm nào trong tuần).\\
+		Khi đó $P(90)-P(0)=\displaystyle\int\limits_0^{90} P'(x) \,\mathrm{d}x=\displaystyle\int\limits_0^{90}(16-0{,}02 x) \,\mathrm{d} x
+			=16 \displaystyle\int\limits_0^{90} \,\mathrm{d} x-0{,}02 \displaystyle\int\limits_0^{90} x \,\mathrm{d} x 
+			=16 x \bigg|_0 ^{90}-0{,}01 x^2\bigg|_0 ^{90}=1\,359$.\\
+		Suy ra $P(90)=P(0)+1\,359=-25+1\,359=1\,334$ (triệu đồng).\\
+		Vậy lợi nhuận nhà máy thu được khi bán $90$ tấn sản phẩm trong tuần là $1\,334$ triệu đồng.
+	}
+\end{vd}
+
+%-----------------------------------------------------------------------------
+\subsection{Bài tập rèn luyện}
+\ind{PHẦN I.} \inden{Câu trắc nghiệm nhiều phương án lựa chọn. Mỗi câu hỏi học sinh chỉ chọn một phương án.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D4-Bai2-TN]%--Đặt tên 2D1-Bai1-Dang1-TN
+
+\begin{ex}%[2D4N2-1]
+	[Trích đề thi GHKII - lớp 12 - THPT Ngọc Lặc - Thanh Hóa - Năm học 2024-2025]
+	Cho $f(x)$ là hàm số liên tục trên đoạn $\left[a;b\right]$ và nguyên hàm $F(x)$. Khẳng định nào sau đây là {\bf sai}?
+	\choice
+	{$\displaystyle\int\limits_a^b{f(x)}\,\mathrm{d}x=F(x)\bigg|_a^b=F(b)-F(a)$}
+	{$\displaystyle\int\limits_a^a{f(x)}\,\mathrm{d}x=0$}
+	{\True $\displaystyle\int\limits_a^b{f(x)}\,\mathrm{d}x=f'(x)\bigg|_a^b=f'(b)-f'(a)$}
+	{$\displaystyle\int\limits_a^b{f(x)}\,\mathrm{d}x=-\displaystyle\int\limits_b^a{f(t)}\,\mathrm{d}t$}
+	\loigiai{
+		Theo định nghĩa tích phân ta có $\displaystyle\int\limits_a^b{f(x)}\,\mathrm{d}x=F(x)\bigg|_a^b=F(b)-F(a)$.\\
+		Từ định nghĩa tích phân suy ra $\displaystyle\int\limits_a^a{f(x)}\,\mathrm{d}x=F(a)-F(a)=0$. \\
+		Theo tính chất tích phân ta có $\displaystyle\int\limits_a^b{f(x)}\,\mathrm{d}x=-\displaystyle\int\limits_b^a{f(x)}\,\mathrm{d}x=-\displaystyle\int\limits_b^a{f(t)}\,\mathrm{d}t$.\\
+		Theo định nghĩa tích phân thì ta có $\displaystyle\int\limits_a^b{f'(x)}\,\mathrm{d}x=f(x)\bigg|_a^b=f(b)-f(a)$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4N2-1]
+	[Trích đề thi GHKII - THPT Chuyên Nguyễn Đình Chiểu - Đồng Tháp - Năm học 2023-2024]
+	Cho hàm số $f(x)$ liên tục trên đoạn $[a;b]$. Hãy chọn mệnh đề {\bf{sai}} dưới đây
+	\choice
+	{$\displaystyle\int\limits_a^b f(x) \,\mathrm{d}x=-\displaystyle\int\limits_b^a f(x) \,\mathrm{d}x$}
+	{$\displaystyle\int\limits_a^b k \,\mathrm{d}x=k(b-a)$, $\forall k \in \mathbb{R}$}
+	{$\displaystyle\int\limits_a^b f(x) \,\mathrm{d}x=\displaystyle\int\limits_a^c f(x) \,\mathrm{d}x+\displaystyle\int\limits_c^b f(x) \,\mathrm{d}x$ với $c \in [a;b]$}
+	{\True $\displaystyle\int\limits_a^b f(x) \,\mathrm{d}x=\displaystyle\int\limits_b^a f(x) \,\mathrm{d}x$}
+	\loigiai{
+		Ta có $\displaystyle\int\limits_a^b f(x) \,\mathrm{d}x=-\displaystyle\int\limits_b^a f(x) \,\mathrm{d}x$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4N2-1]
+	[Trích đề thi GHKII - THPT Ten Lơ Man - TP.HCM - Năm học 2024-2025]
+	Cho hàm số $y=f(x)$ có đạo hàm $f'(x)$ liên tục trên $R$ và $f(2)=-4$, $f(1)=-6$. Tính tích phân $I=\displaystyle\int\limits_{1}^{2} f'(x)\,\mathrm{d}x$
+	\choice
+	{$I=-2$}
+	{$I=-10$}
+	{$I=10$}
+	{\True $I=2$}
+	\loigiai{
+		Ta có  $I=\displaystyle\int\limits_{1}^{2} f'(x)\,\mathrm{d}x = f(x)\bigg|_1^2=f(2)-f(1)=2$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4N2-3]
+	[Trích đề thi GHKII - lớp 12 - THPT Lê Lợi - Kon Tum - Năm học 2024-2025]
+	Tích phân $\displaystyle \int \limits_{0}^{\tfrac{\pi}{2}} \left(2 \sin x + 3 \cos x\right) \,\mathrm{d}x$ bằng
+	\choice
+	{\True $5$}
+	{$0$}
+	{$1$}
+	{$-1$}
+	\loigiai
+	{Ta có  $\displaystyle \int \limits_{0}^{\tfrac{\pi}{2}} (2\sin x + 3\cos x) \,\mathrm{d}x=(-2\cos x+3 \sin x) \Bigg| _{0}^{\tfrac{\pi}{2}}=5$.}
+\end{ex}
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi GHKII - lớp 12 - THPT Chuyên Nguyễn Đình Chiểu - Đồng Tháp - Năm học 2024-2025]
+	Cho $\displaystyle\int\limits_0^1 f(x) \,\mathrm{d}x=3$, $\displaystyle\int\limits_0^1 g(x) \,\mathrm{d}x=-2$. Tính giá trị của biểu thức $I=\displaystyle\int\limits_0^1 \left[2f(x)-3g(x)\right]\,\mathrm{d}x$.
+	\choice
+	{$I=-6$}
+	{\True $I=12$}
+	{$I=6$}
+	{$I=9$}
+	\loigiai{
+		Ta có $I=\displaystyle\int\limits_0^1 \left[2f(x)-3g(x) \right]\mathrm{d}x=2\displaystyle\int\limits_0^1 f(x) \,\mathrm{d}x-3\displaystyle\int\limits_0^1 g(x) \,\mathrm{d}x=2\cdot 3-3 \cdot (-2)=12$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4N2-4]
+	[Trích đề thi GHKII - lớp 12 - THPT Thuận Thành 1-2-3 - Bắc Ninh - Năm học 2024-2025]
+	Cho $\displaystyle\int\limits_0^{\ln 2}\left[2 f(x)+\mathrm{e}^x\right]\mathrm{d} x=5$. Khi đó giá trị tích phân $\displaystyle\int\limits_0^{\ln 2} f(x) \,\mathrm{d}x$ bằng
+	\choice
+	{$3$}
+	{$\dfrac{5}{2}$}
+	{\True $2$}
+	{$1$}
+	\loigiai{
+		$\displaystyle\int\limits_0^{\ln 2}\left[2 f(x)+\mathrm{e}^x\right]\mathrm{d}x=5 \Leftrightarrow 2\displaystyle\int\limits_0^{\ln 2} f(x) \,\mathrm{d}x + 1=5 \Leftrightarrow \displaystyle\int\limits_0^{\ln 2} f(x) \,\mathrm{d}x =2$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi - lớp 12 - THPT chuyên Lê Qúy Đôn - Ninh Thuận - Năm học 2024-2025]
+	Cho hàm số $f(x)$ có đạo hàm liên tục trên đoạn $[-1;3]$, biết $f(3)=5$, $f(-1)=-2$. Giá trị của tích phân  $\displaystyle\int\limits_{-3}^1 f'(x)\,\mathrm{d}x$  là
+	\choice
+	{\True $7$}
+	{$3$}
+	{$4$}
+	{$-7$}
+	\loigiai 
+	{
+		Theo định lý cơ bản của tích phân, ta có
+		\[
+		\displaystyle\int\limits_{-1}^{3} f'(x) \,\mathrm{d}x = f(3) - f(-1) = 5 - (-2) = 7.
+		\]  
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi GHKII - lớp 12 - THPT DTNT - Phú Yên - Năm học 2024-2025]
+	Cho hàm số $f(x) = \heva{& x+2 &\text{khi }& -3 \le x \le -1 \\& x^2 & \text{khi } &x \ge -1}$. Tính $\displaystyle\int\limits_{-3}^{3} f(x)\,\mathrm{d}x$ bằng
+	\choice
+	{$\dfrac{22}{3}$}
+	{$\dfrac{31}{3}$}
+	{\True $\dfrac{28}{3}$}
+	{$\dfrac{26}{3}$}
+	\loigiai{
+		Ta có $\displaystyle\int\limits_{-3}^{3} f(x) \,\mathrm{d}x = \int\limits_{-3}^{-1} (x+2) \,\mathrm{d}x + \displaystyle\int\limits_{-1}^{3} x^2 \,\mathrm{d}x=0 + \dfrac{28}{3} = \dfrac{28}{3}$.		
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi GHKII - lớp 12 - THPT Chuyên Lê Quý Đôn - Ninh Thuận - Năm học 2024-2025]
+	Nếu $\displaystyle\int\limits_0^1f(x)\,\mathrm{d}x=37$ và $\displaystyle\int\limits_0^1g(x)\,\mathrm{d}x=16$ thì $\displaystyle\int\limits_0^1[2f(x)+3g(x)]\,\mathrm{d}x$ bằng
+	\choice
+	{\True $122$}
+	{$53$}
+	{$48$}
+	{$74$}
+	\loigiai{
+		Ta có
+		\[
+		\displaystyle\int\limits_0^1[2f(x)+3g(x)]\,\mathrm{d}x=2\displaystyle\int\limits_0^1f(x)\,\mathrm{d}x+3\displaystyle\int\limits_0^1g(x)\,\mathrm{d}x=2\cdot 37 + 3 \cdot 16=122.
+		\]
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-3]
+	Tính $I = \displaystyle \int\limits_0^{\tfrac{\pi}{2}}(\cos x - 3\sin x)\,\mathrm{d}x$.
+	\choice
+	{$I=4$}
+	{\True $I=-2$}
+	{$I=2$}
+	{$I=-4$}
+	\loigiai{
+		Ta có	
+			$I =\displaystyle \int\limits_0^{\tfrac{\pi}{2}}(\cos x - 3\sin x)\,\mathrm{d}x = \left(\sin x+ 3\cos x\right)\Bigg|^{\tfrac{\pi}{2}}_{0}=\left(\sin \dfrac{\pi}{2}+3\cos \dfrac{\pi}{2}\right)-(\sin 0 +3\cos 0)= 1-3=-2$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-3]
+	[Trích đề thi GHKII - lớp 12-THPT DTNT - Phú Yên - Năm học 2024-2025]
+	Biết $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{6}} |\sin x| \,\mathrm{d}x = a - \sqrt{b} \quad (a, b \in \mathbb{Q})$. Khi đó $a+4b$ bằng
+	\choice
+	{\True $5$}
+	{$10$}
+	{$8$} 
+	{$7$}
+	\loigiai{	
+		Ta có  $I = \displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{6}} |\sin x| dx = \displaystyle\int_{-\frac{\pi}{2}}^{0} (-\sin x) \,\mathrm{d}x + \int_{0}^{\frac{\pi}{6}} \sin x \,\mathrm{d}x =2 - \dfrac{\sqrt{3}}{2}=2-\sqrt{\dfrac{3}{4}}$.	\\
+		Vậy $a=2$ và $b=\dfrac{3}{4}$. \\
+		Do đó $a+4b = 2 + 4\cdot\dfrac{3}{4}= 5$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-3]
+	[Trích đề thi HKII - lớp 12 - THPT Thuận Thành 1 - Bắc Ninh - Năm học 2024-2025]
+	Cho biết $\displaystyle\int\limits_0^{\frac{\pi}{2}} (4-\sin x)\, \mathrm{d}x=a \pi+b$, với $a, b$ là các số nguyên. Giá trị của biểu thức $a+b$ bằng
+	\choice
+	{\True $1$}
+	{$-4$}
+	{$6$}
+	{$3$}
+	\loigiai{
+		Ta có
+		$\displaystyle\int\limits_0^{\frac{\pi}{2}} (4-\sin x)\, \mathrm{d}x=\displaystyle\int\limits_0^{\frac{\pi}{2}} 4\, \mathrm{d}x-\displaystyle\int\limits_0^{\frac{\pi}{2}} \sin x\, \mathrm{d}x=2 \pi-1$.\\
+		So sánh với $a\pi+b$, ta có $a=2$, $b=-1$.\\
+		Do đó $a+b=2+(-1)=1$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi GHKII - lớp 12 - THPT Phan Bội Châu - Bình Thuận - Năm học 2024-2025]
+	Nếu $\displaystyle\int\limits_0^1 f(x) \,\mathrm{d}x=-2$ và $\displaystyle\int\limits_1^2 f(x) \,\mathrm{d}x=3$ thì $\displaystyle\int\limits_0^2 f(x) \,\mathrm{d}x$ bằng
+	\choice
+	{$5$}
+	{$-5$}
+	{\True $1$}
+	{$-1$}
+	\loigiai{Ta có $\displaystyle\int\limits_0^2 f(x) \,\mathrm{d}x=\displaystyle\int\limits_0^1 f(x) \,\mathrm{d}x+\displaystyle\int\limits_1^2 f(x) \,\mathrm{d}x=-2+3=1$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi HKII - lớp 12 - THPT THuận Thanh 1 - Bắc Ninh - Năm học 2024-2025]
+	Cho hàm số $y=f(x)$ liên tục trên đoạn $[-6;11]$ và thỏa mãn $\displaystyle\int\limits_{-6}^{11} f(x)\, \mathrm{d}x=8$, $\displaystyle\int\limits_{2}^{6} f(x)\, \mathrm{d}x=3$. Giá trị của biểu thức $P=\displaystyle\int\limits_{-6}^{2} f(x)\, \mathrm{d}x+\displaystyle\int\limits_{6}^{11} f(x)\, \mathrm{d}x$ bằng
+	\choice
+	{$P=4$}
+	{$P=11$}
+	{\True $P=5$}
+	{$P=2$}
+	\loigiai{
+		Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\displaystyle\int\limits_{-6}^{11} f(x)\, \mathrm{d}x &=& \displaystyle\int\limits_{-6}^{2} f(x)\, \mathrm{d}x+\displaystyle\int\limits_{2}^{6} f(x)\, \mathrm{d}x+\displaystyle\int\limits_{6}^{11} f(x)\, \mathrm{d}x
+			\\
+		\Rightarrow 8 &=& \displaystyle\int\limits_{-6}^{2} f(x)\, \mathrm{d}x+3+\displaystyle\int\limits_{6}^{11} f(x)\, \mathrm{d}x
+		\\
+		\Rightarrow P &=& \displaystyle\int\limits_{-6}^{2} f(x)\, \mathrm{d}x+\displaystyle\int\limits_{6}^{11} f(x)\, \mathrm{d}x=8-3=5.
+	\end{eqnarray*}
+	}
+\end{ex}
+
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi GHKII - lớp 12 - THPT Trần Cao Vân - Khánh Hòa - Năm học 2024-2025]
+	Giả sử $\displaystyle\int\limits_0^9f(x)\,\mathrm{d}x=37$ và $\displaystyle\int\limits_{9}^{0}g(x)\,\mathrm{d}x=16$. Khi đó, $I=\displaystyle\int\limits_0^9\left[2f(x)+3 g(x)\right]\,\mathrm{d}x$ bằng
+	\choice
+	{$I=143$}
+	{$I=58$}
+	{$I=122$}
+	{\True $I=26$}
+	\loigiai{Do $\displaystyle\int\limits_{9}^{0}g(x)\,\mathrm{d}x=16$ nên $\displaystyle\int\limits_0^9g(x)\,\mathrm{d}x=-16$.\\
+		Ta có $I=\displaystyle\int\limits_0^9\left[2f(x)+3 g(x)\right]\,\mathrm{d}x=2\displaystyle\int\limits_0^9f(x)\,\mathrm{d}x+3\displaystyle\int\limits_0^9g(x)\,\mathrm{d}x=2\cdot37+3\cdot(-16)=26$.}
+\end{ex}
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi - THPT Chuyên Lê Quý Đôn -  Ninh Thuận - Năm học 2024-2025]
+	Cho hai hàm số $y = f(x)$ và $y = g(x)$ liên tục trên đoạn $[a;b]$, biết  
+	$\displaystyle\int\limits_a^b f(x)\, \mathrm{d}x = 2$,
+	$\displaystyle\int\limits_a^b g(x)\, \mathrm{d}x = -1$.  
+	Khi đó $\displaystyle\int\limits_a^b \left[f(x) - 2g(x)\right]\, \mathrm{d}x$ bằng
+	\choice
+	{$0$}
+	{$1$}
+	{$3$}
+	{\True $4$}
+	\loigiai{
+		Ta có
+		\[
+		\displaystyle\int\limits_a^b [f(x) - 2g(x)]\, \mathrm{d}x = \displaystyle\int\limits_a^b f(x)\, \mathrm{d}x - 2\displaystyle\int\limits_a^b g(x)\, \mathrm{d}x = 2 - 2\cdot(-1) = 4.
+		\]
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi GHKII - lớp 12 - THPT Chuyên Nguyễn Đình Chiểu - Đồng Tháp Năm học-2023-2024]
+	Biết $\displaystyle\int\limits_1^3 \dfrac{x+2}{x} \,\mathrm{d}x=a+b\ln c$, với $a$, $b$, $c \in \mathbb{Z}$, $c<9$. Tính tổng $S=a+b+c$.
+	\choice
+	{\True $S=7$}
+	{$S=5$}
+	{$S=8$}
+	{$S=6$}
+	\loigiai{
+		$\displaystyle\int\limits_1^3 \dfrac{x+2}{x} \,\mathrm{d}x=\displaystyle\int\limits_1^3 \left(1+\dfrac{2}{x}\right) \,\mathrm{d}x=\displaystyle\int\limits_1^3 1  \,\mathrm{d}x+\displaystyle\int\limits_1^3 \dfrac{2}{x} \,\mathrm{d}x=\left( x+2\ln |x|\right) \Bigg|_1^3=2+2\ln 3$.\\
+		Do đó $a=2$, $b=2$, $c=3$ nên $S=7$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-6]
+	[Trích đề thi HKI - Sở GD Nam Định - Năm học 2024-2025]
+	Một vật chuyển động chậm dần đều với vận tốc $v(t)=160-10t$ (m/s). Tính quãng đường $s$ mà vật di chuyển trong khoảng thời gian từ thời điểm $t=0$ (s) đến thời điểm vật dừng lại.
+	\choice
+	{$s=3\,840$ m}
+	{$s=2\,560$ m}
+	{$s=2\,840$ m}
+	{\True $s=1\,280$ m}
+	\loigiai{
+		Vật dừng khi $v(t)=160-10t=0\Rightarrow t=16$ (s).\\ 
+		Vậy quãng đường $s$ mà vật di chuyển trong khoảng thời gian từ thời điểm $t=0$ (s) đến thời điểm vật dừng lại là  \[\displaystyle\int\limits_0^{16} (160-10t) \,\mathrm{d}t=1\,280\,\, \mathrm{(m)}.\]
+	}
+\end{ex}
+\begin{ex}%[2D4H2-6]
+	[Trích đề thi GHKII - THPT DTNT - Phú Yên - Năm học 2024-2025]
+	Một ô tô đang chạy với tốc độ $20$ (m/s) thì gặp chướng ngại vật, người lái đạp phanh, từ thời điểm đó ô tô chuyển động chậm dần đều với vận tốc $v(t) = -5t + 20$ (m/s), trong đó $t$ là khoảng thời gian tính bằng giây, kể từ lúc bắt đầu đạp phanh. Hỏi từ lúc đạp phanh đến khi dừng hẳn, ô tô còn di chuyển bao nhiêu mét?
+	\choice
+	{$10$ m}
+	{$20$ m}
+	{\True $40$ m}
+	{$30$ m }
+	\loigiai{
+		Ô tô dừng hẳn khi vận tốc $v(t) = 0\Leftrightarrow -5t + 20 = 0 \Leftrightarrow t = 4$ (giây).\\
+		Quãng đường ô tô di chuyển được từ lúc bắt đầu đạp phanh đến khi dừng hẳn là \\
+		$$s = \displaystyle\int\limits_{0}^{4} v(t) \,\mathrm{d}t = \displaystyle\int\limits_{0}^{4} (-5t + 20) \,\mathrm{d}t=40\,\, \mathrm{(m)}.$$ 	
+		Vậy quãng đường di chuyển là $40$ m.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-6]
+	[Trích đề thi GHKII - THPT Thuận Thành 1-2-3 - Bắc Ninh - Năm học 2024-2025]
+	Một vật chuyển động với vận tốc được cho bởi công thức $v(t)=3 t^2+5$ (m/s), trong đó $t$ là thời gian tính từ lúc bắt đầu chuyển động. Quãng đường vật đó đi được từ giây thứ $4$ đến giây thứ $10$ là
+	\choice
+	{$696$ m}
+	{\True $966$ m}
+	{$669$ m}
+	{$699$ m}
+	\loigiai{
+		Quãng đường vật đó đi được từ giây thứ $4$ đến giây thứ $10$ là $s=\displaystyle \int \limits_4^{10} (3t^2+5) \,\mathrm{d} t=966$ (m).
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{10}{ans/2D4-Bai2-TN}
+
+\ind{PHẦN II.} \inden{Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, học sinh chọn đúng hoặc sai.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D4-Bai2-DS]%--Đặt tên 2D1-Bai1-DS
+
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi GHKII - THPT Ngọc Lặc - Thanh Hóa - Năm học 2024-2025]
+	Cho hàm số $f(x)=x^2+2x$ và $F(x)$ là một nguyên hàm của hàm số $f(x)$. Khi đó
+	\choiceTF
+	{\True $\displaystyle\int\limits_1^3{f(x)}\,\mathrm{d}x=F(3)-F(1)$}
+	{Nếu $F(0)=1$ thì $F(2)=\dfrac{25}{3}$}
+	{\True Nếu $\displaystyle\int\limits_0^2{kf(x)}\,\mathrm{d}x=2$ thì $k=\dfrac{3}{10}$}
+	{Biết $\displaystyle\int\limits_1^3{\dfrac{f(x)}{x^2}}\,\mathrm{d}x=a+a\ln b$, với $a,b \in \mathbb{Z}$. khi đó $3a-5b=-8$}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Theo định nghĩa ta có $\displaystyle\int\limits_1^3{f(x)}\,\mathrm{d}x=F(x)\bigg|_1^3=F(3)-F(1)$.			
+			\itemch \textbf{Sai}. Ta có $F(x)=\displaystyle\int{f(x)}\,\mathrm{d}x=\displaystyle\int{\left(x^2+2x\right)}\,\mathrm{d}x=\dfrac{x^3}{3}+x^2+C$.\\
+			 Vì $F(0)=1$ nên tìm được $C=1$. \\
+			 Khi đó $F(x)= \dfrac{x^3}{3}+x^2+1$ nên suy ra $F(2)=\dfrac{2^3}{3}+2^2+1=\dfrac{23}{3}$.
+			\itemch \textbf{Đúng}. Nếu $\displaystyle\int\limits_0^2{kf(x)}\,\mathrm{d}x=2\Leftrightarrow k\cdot\displaystyle\int\limits_0^2{f(x)}\,\mathrm{d}x=2\Leftrightarrow k\displaystyle\int\limits_0^2{\left(x^2+2x\right)}\,\mathrm{d}x=2\Leftrightarrow k\cdot \dfrac{20}{3}=2$ suy ra $k=\dfrac{3}{10}$.
+			\itemch \textbf{Sai}. Ta có $\displaystyle\int\limits_1^3{\dfrac{f(x)}{x^2}}\,\mathrm{d}x=\displaystyle\int\limits_1^3{\dfrac{x^2+2x}{x^2}}\,\mathrm{d}x=\displaystyle\int\limits_1^3{\left(1+\dfrac{2}{x}\right)}\,\mathrm{d}x=(x+2\ln |x|)\Bigg|_1^3=2+2\ln3$.\\
+			Suy ra $a=2$ và $b=3$.\\
+			Vậy $3a-5b=-9$.
+		\end{itemchoice}	
+	}
+\end{ex}
+\begin{ex}%[2D4H2-6]
+	[Trích đề thi HKII - THPT Phan Bội Châu - Bình Thuận - Năm học 2024-2025]
+	Một ô tô đang chạy với vận tốc $20\ \mathrm{m/s}$ thì thấy chướng ngại vật và đạp phanh. Từ thời điểm đó, ô tô chuyển động chậm dần đều với vận tốc $v(t) = -2t + 20$, với $t$ là thời gian (giây) kể từ lúc đạp phanh.
+	\choiceTF
+	{\True Ô tô dừng lại sau $10$ (giây)}
+	{\True Quãng đường $s(t)$ là một nguyên hàm của $v(t)$}
+	{Ô tô đi được $90$ (m) từ lúc phanh đến khi dừng lại}
+	{Quãng đường mà ô tô đi được trong $15$ (giây) cuối bằng $125$ (m)}
+	\loigiai
+	{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Lúc ô tô dừng lại thì $v(t) = 0 \Leftrightarrow-2t+20=0\Leftrightarrow t = 10$. \\
+			Vậy ô tô dừng lại sau $10$ giây.
+			\itemch \textbf{Đúng}. Quãng đường $s(t)$ là một nguyên hàm của $v(t)$.
+			\itemch \textbf{Sai}. Từ lúc đạp phanh đến khi dừng lại mất $10$ giây nên quãng đường xe đi được là
+			\[s_{10} = \displaystyle\int\limits_0^{10} v(t)\,\mathrm{d}t = \displaystyle\int\limits_0^{10} \left(-2t+20\right)\,\mathrm{d}t = 100 \text{ (m).}\]
+			\itemch \textbf{Sai}. Trong $15$ giây cuối, quãng đường xe đi được là
+			\[s_{15} = 5\cdot20 + s_{10} = 100 + 100 = 200 \text{ (m).}\]
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi HKII - THPT Ngô Gia Tự - Phú Yên - Năm học 2024-2025]
+	\immini{
+		Một vật chuyển động trong $4$ giờ với vận tốc $v$ (km/h) phụ
+		thuộc thời gian $t$ (giờ) có đồ thị của vận tốc đã cho (hình bên). Trong
+		khoảng thời gian $3$ giờ kể từ khi bắt đầu chuyển động, đồ thị là một
+		phần của parabol có đỉnh $I(2;9)$, khoảng thời gian còn lại đồ thị là
+		một đoạn thẳng.
+		\choiceTF
+		{\True Vận tốc lớn nhất của chuyển động là $9$ (km/h)}
+		{\True $v(t)=-\dfrac{9}{4}t^2+9t$ với $0\le t\le 3$}
+		{$v(t)=3t$ với $3\le t \le 4$}
+		{Quãng đường vật di chuyển được trong $4$ (giờ) là $\dfrac{81}{4}$ (km)}}
+	{\begin{tikzpicture}[line join = round, line cap = round,>=stealth,font=\footnotesize,scale=0.7]
+			\def\xmin{-1} \def\xmax{5}
+			\def\ymin{-1} \def\ymax{10} 
+			\foreach \x in {2,3,4} \draw (\x,2pt)--(\x,-2pt) node [below] {$\x$};
+			\draw[-stealth] (\xmin,0)--(\xmax,0)node[below]{$t$}; 
+			\foreach \y in {9} \draw (2pt,\y)--(-2pt,\y) node [left] {$\y$}; 
+			\draw[-stealth] (0,\ymin)--(0,\ymax)node[right]{$v$};
+			\foreach \x/\y in {0/9,2/9,3/6.75,4/6.75} \fill (\x,\y) circle (1pt);
+			\filldraw (0,0)node[below left]{$O$} circle (1pt); 
+			\clip (\xmin,\ymin) rectangle (\xmax,\ymax);  
+			\draw[samples=100,domain=0:3,smooth] plot (\x,{-2.25*(\x)^2+9*(\x)});
+			\draw (3,6.75)--(4,6.75);
+			\draw[dashed](2,0)--(2,9)node[above]{$I$}--(0,9) (3,0)--(3,6.75) (4,0)--(4,6.75);
+	\end{tikzpicture}}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}.
+			Dựa vào đồ thị ta có vận tốc lớn nhất của chuyển động là $9$ km/h.
+			\itemch \textbf{Đúng}.
+			Với $0\le t \le 3$ thì đồ thị là đường parabol có phương trình là $y=ax^2+bx+c$, $(a\neq 0)$.\\
+			Đường parabol đi qua điểm $O(0;0)$,  $I(2;9)$.\\
+			Parabol đi qua $O(0;0)\Rightarrow c=0$.\\
+			Đỉnh $I(2;9)$ $\Rightarrow \heva{&4a+2b+c=9 \\ &-\dfrac{b}{2a}=2}\Rightarrow\heva{& 4a+2b=9 \\ & 4a+b=0}\Rightarrow\heva{& a=-\dfrac{9}{4} \\ & b=9.}$\\
+			Phương trình đường parabol là $y=-\dfrac{9}{4}t^2+9t$.\\
+			Vậy $v(t)=-\dfrac{9}{4}t^2+9t$.
+			\itemch \textbf{Sai}.
+			Ta có $v(3)=-\dfrac{9}{4}\cdot 3^2+9\cdot 3=\dfrac{27}{4}$.\\
+			Với $3\le t\le 4$ thì $v(t)=\dfrac{27}{4}$.
+			\itemch \textbf{Sai}.
+			Quãng đường vật di chuyển trong $4$ (giờ) là
+			\[	\displaystyle\int\limits^4_0v(t)\,\mathrm{d}t=\displaystyle\int\limits^3_0v(t)\,\mathrm{d}t+\displaystyle\int\limits^4_3v(t)\,\mathrm{d}t=\displaystyle\int\limits^3_0\left(-\dfrac{9}{4}t^2+9t\right)\,\mathrm{d}t+\displaystyle\int\limits^4_3\dfrac{27}{4}\,\mathrm{d}t=27 \text{ (km).}\]
+		\end{itemchoice} 
+	}
+\end{ex}
+
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi HKII - THPT Thuận Thành 1 - Bắc Ninh - Năm học 2024-2025]
+	Một chất điểm chuyển động trên đường thẳng nằm ngang (chiều dương hướng sang phải) với gia tốc phụ thuộc vào thời gian $t$ (s) là $a(t)=2t-7$ (m/s$^2$). Biết vận tốc đầu bằng $6$ (m/s).
+	\choiceTF
+	{Vận tốc tức thời của chất điểm tại thời điểm $t$ (s) xác định bởi $v(t)=t^2-7t+10$}
+	{\True Tại thời điểm $t=7$ (s), vận tốc của chất điểm là $6$ (m/s)}
+	{Độ dịch chuyển của vật trong khoảng thời gian $1 \le t \le 7$ là $18$ (m)}
+	{Trong $8$ giây đầu tiên, thời điểm chất điểm xa nhất về phía bên phải là $t=7$ (s)}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Sai}.
+			$v(t)=\displaystyle\int\limits a(t) \,\mathrm{d}t=t^2-7t+C$.\\
+			Khi $t=0$ thì $v=6$ (m/s), suy ra $v(0)=6 \Rightarrow C=6$.\\
+			Vậy $v(t)=t^2-7t+6$ (m/s).
+			\itemch \textbf{Đúng}. Ta có $v(7)=7^2-7\cdot7+6=49-49+6=6$ (m/s).
+			\itemch \textbf{Sai}. Độ dịch chuyển $\Delta s=s(7)-s(1)=\displaystyle\int\limits_1^7 v(t)\,\mathrm{d}t=\displaystyle\int\limits_1^7 (t^2-7t+6) \,\mathrm{d}t=-18\ne 18$.
+			\itemch \textbf{Sai}. Độ dịch chuyển là\\
+			$d(t)=\displaystyle\int\limits v(t)\,\mathrm{d}t=\dfrac{t^3}{3}-\dfrac{7t^2}{2}+6t+C$. \\
+			$d(0)=0 \Rightarrow C=0$.\\
+			$\Rightarrow d(t)=\dfrac{t^3}{3}-\dfrac{7t^2}{2}+6t$.\\
+			Ta có
+			\allowdisplaybreaks
+			\begin{eqnarray*}
+				&& d'(t)=0
+				\\
+				&\Leftrightarrow& v(t)=0 \\
+				&\Leftrightarrow& t^2-7t+6=0 \\
+				&\Leftrightarrow&\hoac{&t=1\\&t=6.}
+			\end{eqnarray*}
+			Bảng biến thiên
+			\begin{center}
+				\begin{tikzpicture}
+					\tkzTabInit[lgt=1.2,espcl=3]{$t$/1, $d'(t)$ /1, $d(t)$/2}
+					{$0$, $1$, $6$, $8$}
+					\tkzTabLine{,+,0,-,0,+}
+					\tkzTabVar{-/ $d(0)$,+/ $d(1)$,-/ $d(6)$,+/ $d(8)$}
+				\end{tikzpicture}
+			\end{center}
+			$d(1)=\dfrac{1^3}{3}-\dfrac{7\cdot1^2}{2}+6\cdot1 = \dfrac{17}{6} \approx 2{,}83$.\\
+			$d(8)=\dfrac{8^3}{3}-\dfrac{7\cdot8^2}{2}+6\cdot8 = -\dfrac{16}{3} \approx -5{,}33$.\\
+			Vậy thời điểm chất điểm xa nhất về phía bên phải trong khoảng $0 \le t \le 8$ là $t=1$.
+		\end{itemchoice}
+	}
+\end{ex}
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi GHKII - THPT Việt Nam Ba Lan - Hà Nội - Năm học 2024-2025]
+	Một ca nô cao tốc di chuyển trên mặt nước với vận tốc $v(t)$ (đơn vị: km/phút) trong khoảng thời gian $20$ phút${}$, với $t$ là thời gian (đơn vị: phút) kể từ lúc ca nô bắt đầu chuyển động. Hàm số vận tốc của ca nô được cho bởi
+	\[v(t)=\heva{&0{,}5t, &\,& 0 \leq t < 2\\&1, &\,& 2 \leq t < 15\\&4-0{,}2t, &\,& 15 \leq t \leq 20.}\]
+	\choiceTF
+	{\True Vận tốc của ca nô tại thời điểm $t = 1$ là $0{,}5$ (km/phút)}
+	{\True Quãng đường ca nô di chuyển được trong $2$ (phút) đầu bằng $1$ (km)}
+	{Mười phút cuối ca nô di chuyển được $8$ (km)}
+	{Giá trị trung bình của hàm số liên tục $f(x)$ trên đoạn $[a;b]$ được định nghĩa là $\dfrac{1}{b-a} \displaystyle \int\limits_{a}^{b} f(x) \,\mathrm{d}x$. Vận tốc trung bình của ca nô trong $20$ (phút) là $0{,}775$ (km/phút)}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Vận tốc của ca nô tại thời điểm $t = 1$ là $0{,}5\cdot 1 = 0{,}5$ (km/phút).
+			\itemch \textbf{Đúng}. Quãng đường ca nô di chuyển được trong $2$ phút đầu là 
+			$$s_1=\displaystyle\int\limits_0^2 0{,}5t \,\mathrm{d}t = \left(0{,}25t^2\right)\Bigg|_0^2=1 \,(\mathrm{km}).$$
+			\itemch \textbf{Sai}. Quãng đường ca nô di chuyển được trong $10$ phút cuối là 
+			$$s=1 \cdot 5 + \displaystyle\int\limits_{15}^{20} \left(4-0{,}2t\right) \,\mathrm{d}t = 7{,}5 \,\,(\mathrm{km}).$$
+			\itemch \textbf{Sai}. Vận tốc trung bình của ca nô trong $20$ phút là
+			$$\dfrac{1}{20} \left[\displaystyle \int\limits_{0}^{2} 0{,}5t \,\mathrm{d}t + \displaystyle \int\limits_{2}^{15} \,\mathrm{d}t + \displaystyle \int\limits_{15}^{20}(4-0{,}2t) \,\mathrm{d}t\right]
+			=0{,}825 \,\,(\text{km/phút}).
+			$$
+		\end{itemchoice}
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{4}{ans/2D4-Bai2-DS}
+
+\ind{PHẦN III.} \inden{Câu trả lời ngắn.}\\
+\setcounter{ex}{0}
+\Opensolutionfile{ans}[ans/2D4-Bai2-TLN]%--Đặt tên 2D1-Bai1-DS
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi GHKII - THPT Trần Cao Vân - Khánh Hòa - Năm học 2024-2025]
+	Một xe ô tô đang chạy với vận tốc $18$ (m/s) thì người lái xe bất ngờ phát hiện chướng ngại vật trên đường. Người lái xe phản ứng một giây, sau đó đạp phanh khẩn cấp. Kể từ thời điểm này, ô tô chuyển động chậm dần đều với tốc độ $v(t)=-10 t+20$ (m/s), trong đó $t$ là thời gian tính bằng giây kể từ lúc đạp phanh. Hỏi kể từ lúc người lái xe phát hiện chướng ngại vật trên đường đến khi dừng hẳn, ô tô di chuyển được quãng đường bằng bao nhiêu mét?
+	\par\shortans[oly]{$38$}
+	\loigiai{
+		Ta có ô tô dừng khi $v(t)=0\Leftrightarrow -10 t+20 =0\Leftrightarrow t=2$ (s).\\
+		Vậy quãng đường xe di chuyển được từ lúc phát hiện chướng ngại vật đến khi xe dừng hẳn là 
+		$$ S=18+\displaystyle\int\limits_{0}^{2} \left(-10 t+20\right) \,\mathrm{d}t = 38 \text{ (m).}$$
+	}
+\end{ex}
+
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi GHKII - THPT Ngô Gia Tự - Phú Yên - Năm học 2024-2025]
+	\immini{
+		Một chiếc xe đua $F1$ đạt tới vận tốc lớn nhất là $360$ (km/h). Đồ thị bên biểu thị vận tốc $v$ của xe trong $5$ giây đầu tiên kể từ lúc xuất phát. Đồ thị trong $2$ giây đầu là một phần của một parabol đỉnh tại gốc tọa độ $O$, giây tiếp theo là đoạn thẳng và sau đúng $3$ giây thì xe đạt vận tốc lớn nhất. Biết rằng mỗi đơn vị trục hoành biểu thị $1$ giây, mỗi đơn vị trục tung biểu thị $10$ m/s và trong $5$ giây đầu xe chuyển động theo đường thẳng. Hỏi trong $5$ giây đó xe đã đi được quãng đường là bao nhiêu mét?
+	}{
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=0.5]
+			\draw[->] (-1,0)--(0,0) node[below left]{$O$} -- (6,0) node[above]{$t$};
+			\draw[->] (0.,-1) -- (0.,10) node[left]{$v$};
+			\foreach \x in {2,3,5}
+			\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\x$};
+			\foreach \y in {6}
+			\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\y$};
+			\clip (0,0) rectangle (6,10);
+			\draw plot[smooth,tension=1] coordinates{(2,6) (0,0) (-2,6)};
+			\draw (2,6)--(3,9)--(5,9);
+			\draw[dashed] (2,0)|-(0,6) (3,0)|-(0,9) (5,0)--(5,9);
+		\end{tikzpicture}
+	}
+	\par\shortans[oly]{$320$}
+	\loigiai{
+		Đổi $360$ (km/h) $=100$ (m/s). \\
+		Ta xây dựng hàm vận tốc như sau
+		\begin{itemize}
+			\item Trong $2$ giây đầu: $v(t)=15t^2$.
+			\item Từ giây thứ $2$ đến giây thứ $3$: $v(t)=40t-20$.
+			\item Từ giây thứ $3$ đến giây thứ $5$: $v(t)=100$.
+		\end{itemize}
+		Vậy $\displaystyle\int\limits_0^{2} 15t^2 \,\mathrm{d}t+\displaystyle\int\limits_2^{3} \left(40t-20 \right)  \,\mathrm{d}t+\displaystyle\int\limits_3^{5} 100 \,\mathrm{d}t=320$ (m).
+	}
+\end{ex}
+\begin{ex}%[2D4V2-1]
+	[Trích đề thi GHKII - THPT Ngô Gia Tự - Phú Yên - Năm học 2024-2025]
+	\immini{
+		Cho hàm số $f(x)$ liên tục trên đoạn $[-1;6]$ và có đồ thị là đường gấp khúc như hình bên. Biết $F(x)$ là một nguyên hàm của $f(x)$ trên đoạn $[-1;6]$ và thỏa mãn $F(-1)=-2$. Giá trị của $F(4)+F(6)$ bằng bao nhiêu? 
+	}{
+		\begin{tikzpicture}[line join = round, line cap = round, >=stealth, font=\footnotesize, scale=1]
+			\draw[->] (-2,0)--(0,0) node[below left]{$O$} -- (7,0) node[above]{$x$};
+			\draw[->] (0.,-2) -- (0.,2) node[left]{$y$};
+			\foreach \x in {-1,2,4,6}
+			\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below left] {$\x$};
+			\foreach \y in {-1,1}
+			\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[above left] {$\y$};
+			\coordinate[label={above}:{$A$}] (A) at (-1,1);
+			\coordinate[label={above}:{$B$}] (B) at (2,1);
+			\coordinate[label={below}:{$C$}] (C) at (6,-1);
+			\draw (A)--(B)--(C);
+			\draw[dashed] (-1,0)--(A) (2,0)--(B) (6,0)--(C)--(0,-1);
+		\end{tikzpicture}
+	}
+	\par\shortans[oly]{$3$}
+	\loigiai{
+		Ta có
+		\begin{itemize}
+			\item $S_1=\displaystyle\int\limits\limits_{-1}^{2} f(x) \,\mathrm{d}x=3 \Leftrightarrow F(2)-F(-1)=3 \Leftrightarrow F(2)=1$.
+			\item $S_2=\displaystyle\int\limits\limits_2^{4} f(x) \,\mathrm{d}x=1 \Leftrightarrow F(4)-F(2)=1 \Leftrightarrow F(4)=2$.
+			\item $S_3=-\displaystyle\int\limits\limits_4^{6} f(x) \,\mathrm{d}x=1 \Leftrightarrow F(4)-F(6)=1 \Leftrightarrow F(6)=1$.
+		\end{itemize}
+		Vậy $F(4)+F(6)=3$.
+	}
+\end{ex}
+
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi HKI - THPT An Lương Đông - Huế - Năm học 2024-2025]
+	Người ta truyền nhiệt (tính bằng $^{\circ}$C) cho một bình nuôi cấy vi sinh vật từ $1^{\circ}$C. Tốc độ tăng nhiệt độ của bình tại thời điểm $t$ phút $(0\leq t \leq 5)$ được cho bởi hàm số $f(t)=3t^2$ ($^{\circ} C$/phút). Biết rằng nhiệt độ của bình đó tại thời điểm $t$ là một nguyên hàm của hàm số $f(t)$, tìm nhiệt độ trung bình của bình đó trong thời gian kể từ khi truyền nhiệt đến $5$ phút đầu (\textit{đơn vị độ C và làm tròn số đến hàng đơn vị}).
+	\par\shortans[oly]{$32$}
+	\loigiai{
+		Tính nguyên hàm của $f(t)$ để tìm hàm nhiệt độ $T(t)$
+		\[T(t)=\displaystyle\int\limits f(t)\,\mathrm{d} t=\displaystyle\int\limits 3 t^2\,\mathrm{d} t=t^3+C.\]
+		Người ta truyền nhiệt cho một bình nuôi cấy vi sinh vật từ $1^{\circ} C$.\\ Suy ra $T(0)=1 \Rightarrow C=1 \Rightarrow T(t)=t^3+1$.\\
+		Vậy nhiệt độ trung bình của bình đó tại trong thời gian kể từ khi truyền nhiệt đến $5$ phút đầu là
+		\[T_{t b}=\dfrac{1}{5-0} \cdot \displaystyle\int\limits\limits_0^5 T(t)\,\mathrm{d} t=\dfrac{1}{5} \cdot \displaystyle\int\limits\limits_0^5\left(t^3+1\right) \,\mathrm{d} t \approx 32^{\circ} C.\]
+	}
+\end{ex}
+
+\begin{ex}%[2D4V2-6]
+	[Trích đề thi GHKII - THPT Ten Lơ Man - Năm học 2024-2025]
+	Một chất điểm chuyển động theo quy luật vận tốc $v(t)$ (m/s) có đồ thị như hình vẽ, theo cung đường từ $A$ đến $B$ với vận tốc bắt đầu bằng $9$ (m/s), đến $C$ và dừng lại tại $D$. Quãng đường chất điểm đi được từ khi bắt đầu đến khi dừng lại là bao nhiêu mét (\textit{kết quả làm tròn đến chữ số thập phân thứ nhất})?
+	\begin{center}
+		\begin{tikzpicture}[font=\footnotesize, line join=round, line cap=round, >=stealth, scale=0.6]
+			\def\xmin{0}\def\xmax{12}\def\ymin{0}\def\ymax{11}
+			\draw[->] (\xmin,0)--(\xmax,0)node[below]{$t$};
+			\draw[->] (0,\ymin)--(0,\ymax)node[left]{$v(t)$};
+			\begin{scope}
+				\clip (\xmin,\ymin) rectangle (\xmax,\ymax-0.2);
+				\draw[smooth]
+				plot [domain=0:2] (\x,9) coordinate (B)
+				plot [domain=2:7] (\x,{(\x)^2-10*(\x)+25}) coordinate (C)
+				plot [domain=7:10] (\x,{-4*(\x)/3+40/3}) coordinate (D);
+			\end{scope}
+			\coordinate (A) at (0,9); \coordinate (O) at (0,0);
+			\node[above] at ($(A)!2/3!(B)$) {$v_1(t)=9$};
+			\node[right=-1.3cm] at ($(B)!1/2!(C)$) {$v_2(t)=t^2-10t+25$};
+			\node[right] at ($(C)!1/2!(D)$) {$v_3(t)=-\dfrac{4}{3}t+\dfrac{40}{3}$};
+			\foreach \x/\g in {A/180, B/0, C/90, D/-90, O/-135}{\fill (\x) circle (5/3 pt)+(\g:0.5)node{$\x$};}
+		\end{tikzpicture}
+	\end{center}
+	\par\shortans[oly]{$35{,}7$}
+	\loigiai{
+		Ta có $D$ là giao điểm của $v_3(t)$ và trục $Ox$, suy ra
+		$$-\dfrac{4}{3}t+\dfrac{40}{3}=0\Leftrightarrow t=10.$$
+		Do đó toàn bộ thời gian chất điểm chuyển động là $10$ giây.\\
+		Giao điểm của $v_1(t)$ và $v_2(t)$ là
+		$$9=t^2-10t+25 \Leftrightarrow t^2-10t+16=0 \Leftrightarrow\hoac{&t=2\\&t=8.}$$
+		Giao điểm của $v_2(t)$ và $v_3(t)$ là
+		$$t^2-10t+25=-\dfrac{4}{3}t+\dfrac{40}{3} \Leftrightarrow t^2-\dfrac{26}{3}t+\dfrac{35}{3}=0 \Leftrightarrow \hoac{&t=\dfrac{5}{3}\\&t=7.}$$
+		Khi đó, theo thứ tự chuyển động của chất điểm ta được
+		\begin{itemize}
+			\item Chất điểm chuyển động với vận tốc $v_1(t)$ trong khoảng thời gian $t\in[0;2]$ (giây).
+			\item Chất điểm chuyển động với vận tốc $v_2(t)$ trong khoảng thời gian $t\in[2;7]$ (giây).
+			\item Chất điểm chuyển động với vận tốc $v_3(t)$ trong khoảng thời gian $t\in[7;10]$ (giây).
+		\end{itemize}
+		\begin{center}
+			\begin{tikzpicture}[font=\footnotesize, line join=round, line cap=round, >=stealth, scale=0.5]
+				\def\xmin{0}\def\xmax{12}\def\ymin{0}\def\ymax{11}
+				\draw[->] (\xmin,0)--(\xmax,0)node[below]{$t$};
+				\draw[->] (0,\ymin)--(0,\ymax)node[left]{$v(t)$};
+				\begin{scope}
+					\clip (\xmin,\ymin) rectangle (\xmax,\ymax-0.2);
+					\draw[smooth]
+					plot [domain=0:2] (\x,9) coordinate (B)
+					plot [domain=2:7] (\x,{(\x)^2-10*(\x)+25}) coordinate (C)
+					plot [domain=7:10] (\x,{-4*(\x)/3+40/3}) coordinate (D);
+				\end{scope}
+				\coordinate (A) at (0,9); \coordinate (O) at (0,0);
+				\node[above] at ($(A)!3/4!(B)$) {$v_1(t)=9$};
+				\node[right=-1cm] at ($(B)!1/2!(C)$) {$v_2(t)=t^2-10t+25$};
+				\node[right] at ($(C)!1/2!(D)$) {$v_3(t)=-\dfrac{4}{3}t+\dfrac{40}{3}$};
+				\draw[dashed, fill=black]
+				(B)--($(B|-0,0)$) circle (2 pt)node[below]{$2$}
+				(C)--($(C|-0,0)$) circle (2 pt)node[below]{$7$}
+				(D)+(-90:0.5) node{$10$};
+				\foreach \x/\g in {A/180, B/0, C/90, D/45, O/-135}{\fill (\x) circle (2 pt)+(\g:0.5)node{$\x$};}
+			\end{tikzpicture}
+		\end{center}
+		Vậy quãng đường chất điểm đi được từ khi bắt đầu đến khi dừng lại là\\
+		$$\displaystyle\int\limits\limits_0^2 v_1(t)\,\mathrm{d}t+\displaystyle\int\limits\limits_2^7 v_2(t)\,\mathrm{d}t + \displaystyle\int\limits\limits_7^{10} v_3(t)\,\mathrm{d}t 
+			=\displaystyle\int\limits\limits_0^2 9\,\mathrm{d}t + \displaystyle\int\limits\limits_2^7 \left(t^2-10t+25\right)\mathrm{d}t + \displaystyle\int\limits\limits_7^{10} \left(-\dfrac{4}{3}t+\dfrac{40}{3}\right)\mathrm{d}t 
+			= 18 + \dfrac{35}{3} + 6 
+			= \dfrac{107}{3}\approx 35{,}7 \text{ (m).}$$
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\indapan{6}{ans/2D4-Bai2-TLN}
+
+\ind{PHẦN IV.} \inden{Tự luận.}\\
+\setcounter{ex}{0}
+\begin{ex}%[2D4H2-1]
+	[Trích đề thi HKII - SDG\&ĐT Đồng Nai - Năm học 2024-2025]
+	Cho $\displaystyle\int\limits\limits_{0}^{3}f(x)\,\mathrm{d}x=6$ và $\displaystyle\int\limits\limits_{3}^{5}f(x)\,\mathrm{d}x=8$. Tính $\displaystyle\int\limits\limits_{0}^{5}2f(x)\,\mathrm{d}x$.
+	\loigiai{
+		Ta có 
+		\[\displaystyle\int\limits\limits_{0}^{5}2f(x)\,\mathrm{d}x=2\displaystyle\int\limits\limits_{0}^{5}f(x)\,\mathrm{d}x=2\displaystyle\int\limits\limits_{0}^{3}f(x)\,\mathrm{d}x+2\displaystyle\int\limits\limits_{3}^{5}f(x)\,\mathrm{d}x=2\cdot6+2\cdot8=28.\]
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi GHKII - THPT Marie Curie - TP.HCM - Năm học 2024-2025]
+	Cho $\displaystyle\int\limits\limits_0^1f(x)\,\mathrm{d}x=2$. Tính $\displaystyle\int\limits\limits_0^12\left[f(x)-x\right]\,\mathrm{d}x$.
+	\loigiai{
+		Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			\displaystyle\int\limits\limits_0^12\left[f(x)-x\right]\,\mathrm{d}x=2\displaystyle\int\limits\limits_0^1f(x)\,\mathrm{d}x-2\displaystyle\int\limits\limits_0^1 x\,\mathrm{d}x=2\cdot 2-2\cdot\left(\dfrac{x^2}{2}\right)\Bigg|_0^1=3.
+		\end{eqnarray*}
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi HKI - THPT An Lương Đông - Huế - Năm học 2024-2025]
+	Tìm giá trị của $b \neq 1$ để $\displaystyle\int\limits\limits_1^b(2x-6)\,\mathrm{d}x=0$.
+	\loigiai{
+		Ta có 	$\displaystyle\int\limits\limits_1^b(2x-6)\,\mathrm{d}x=0\Leftrightarrow (x^2-6x)\bigg|_1^b=0\Leftrightarrow b^2-6b+5=0\Leftrightarrow\hoac{&b=1~\text{(loại)}\\&b=5~\text{(nhận)}.}$\\
+		Vậy $b=5$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-3]
+	[Trích đề thi HKII -  THPT Hồ Nghinh - Quảng Nam - Năm học 2024-2025]
+	Kết quả của tích phân $\displaystyle\int\limits\limits_0^{\tfrac{\pi}{4}} \sin x\mathrm{\,d}x = \dfrac{a-\sqrt{b}}{2}$, $(a,b>0)$. Tính $a+b$.
+	\loigiai{
+		Ta có $\displaystyle\int\limits\limits_0^{\tfrac{\pi}{4}} \sin x\mathrm{\,d}x = -\cos x\Bigg|_0^{\tfrac{\pi}{4}} = \left(-\cos\dfrac{\pi}{4}\right)-(-\cos 0)=-\dfrac{\sqrt{2}}{2}-(-1)=\dfrac{2-\sqrt{2}}{2}$.\\
+		Suy ra $a=2$, $b=2$.\\
+		Vậy $a+b=2+2=4$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi GHKII - THPT Nguyễn Trung Thiện - Hà Tĩnh - Năm học 2024-2025]
+	Cho hàm số $f(x)$ liên tục trên $\mathbb{R}$ và $\displaystyle\int\limits\limits_{0}^{2} \big[f(x) + 3x^2\big] \, \mathrm{d}x = 10$. Tính giá trị của $\displaystyle\int\limits\limits_{0}^{2} f(x) \, \mathrm{d}x$.
+	\loigiai{
+		Ta có
+		\[
+		\displaystyle\int\limits\limits_{0}^{2} \big[f(x) + 3x^2\big] \, \mathrm{d}x = \displaystyle\int\limits\limits_{0}^{2} f(x) \, \mathrm{d}x + \displaystyle\int\limits\limits_{0}^{2} 3x^2 \, \mathrm{d}x.
+		\]
+		Tính tích phân $\displaystyle\int\limits\limits_{0}^{2} 3x^2 \, \mathrm{d}x = x^3 \Bigg|_0^2 = 2^3 - 0^3 = 8$.\\
+		Theo đề bài, ta có $10 = \displaystyle\int\limits\limits_{0}^{2} f(x) \, \mathrm{d}x + 8$.\\
+		Suy ra $\displaystyle\int\limits\limits_{0}^{2} f(x) \, \mathrm{d}x = 10 - 8 = 2$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi HKI - THPT An Lương Đông - Huế - Năm học 2024-2025]
+	Cho hàm số $f(x)=\dfrac{a}{x^2}+\dfrac{b}{x}+2$, với $a$, $b$ là các số hữu tỉ thỏa điều kiện $\displaystyle\int\limits\limits_{\tfrac{1}{2}}^1f(x)\,\mathrm{d}x=2-3\ln 2$. Tính $T=a+b$.
+	\loigiai{
+		Ta có	$$\displaystyle\int\limits\limits_{\tfrac{1}{2}}^1f(x)\,\mathrm{d}x=\displaystyle\int\limits\limits_{\tfrac{1}{2}}^1 \left(\dfrac{a}{x^2}+\dfrac{b}{x}+2\right)\,\mathrm{d}x
+			=\left(-\dfrac{a}{x}+b\ln |x|+2x\right)\Bigg|_{\tfrac{1}{2}}^1
+			=-a+2-(-2a-b\ln 2+1)=a+1+b\ln 2.$$
+		Suy ra $a+1=2\Leftrightarrow a=1$, $b=-3$.\\
+		Vậy $a+b=-2$.
+	}
+\end{ex}
+\begin{ex}%[2D4H2-2]
+	[Trích đề thi GHKII - THPT Nguyễn Thái Bình - Tp.HCM - Năm học 2024-2025]
+	Biết tích phân $I=\displaystyle\int\limits\limits_1^3\dfrac{2x^2-3x+1}{x}\,\mathrm{d}x=a+\ln b$, $a$, $b\in\mathbb{N}$. Tính $S=2a+b$.
+	\loigiai{Ta có $I=\displaystyle\int\limits\limits_1^3\dfrac{2x^2-3x+1}{x}\,\mathrm{d}x=\displaystyle\int\limits\limits_1^3\left(2x-3+\dfrac{1}{x}\right)\,\mathrm{d}x=\left(x^2-3x+\ln|x|\right)\Bigg|_1^3=2+\ln3$.\\
+		Vậy $a=2$, $b=3$ nên $S=2a+b=7$.}
+\end{ex}
+
+\begin{ex}%[2D4H2-6]
+	[Trích đề thi GHKII - THPT Phan Bội Châu - Bình Thuận - Năm học 2024-2025]
+	Tại một nhà máy, gọi $ C(x)$ là tổng chi phí (tính theo triệu đồng) để sản xuất $ x$ tấn sản phẩm A trong một tháng. Khi đó, đạo hàm $C'(x)$ (gọi là chi phí cận biên) cho biết tốc độ tăng tổng chi phí theo lượng sản phẩm được sản xuất. Giả sử chi phí cận biên (tính theo triệu đồng/tấn) của nhà máy được ước lượng bởi công thức $C'(x)=9-0{,}04x+0{,}00021x^2$ với $0\le x\le 104$. Biết rằng $ C(0)=20$ (triệu đồng) gọi là chi phí cố định. Tính tổng chi phí khi nhà máy sản xuất $98$ tấn sản phẩm A trong tháng theo đơn vị triệu đồng (\textit{làm tròn kết quả đến hàng đơn vị}).
+	\loigiai{
+		Ta có
+		$$C(98)-C(0)=\displaystyle\int\limits\limits_0^{98}{C'}(x)\,\mathrm{d}x=\displaystyle\int\limits\limits_0^{98}{(9-0{,}04x+0{,}00021x^2)}\,\mathrm{d}x\approx 756.$$
+		Suy ra $ C(98)\approx 20+756\approx 776$ (triệu đồng).}
+\end{ex}
+\begin{ex}%[2D4V2-6] 
+	[Trích đề thi GHKII - THPT Ngô Gia Tự - Phú Yên - Năm học 2024-2025]
+	Một máy bay di chuyển ra đến đường băng và bắt đầu chạy đà để cất cánh. Giả sử vận tốc của máy bay khi chạy đà được cho bởi $v(t) = 3t + 5$ (m/s), với $t$ là thời gian (tính bằng giây) kể từ khi máy bay bắt đầu chạy đà. Sau $30$ (giây) thì máy bay cất cánh rời đường băng. Quãng đường máy bay đã di chuyển từ khi bắt đầu chạy đà đến khi rời đường băng là bao nhiêu mét?
+	\loigiai{
+		Vận tốc của máy bay khi chạy đà là $v(t) = 3t + 5$ (m/s).\\
+		Thời gian máy bay chạy đà trên đường băng là từ $t=0$ đến $t=30$ giây.\\
+		Quãng đường $S$ máy bay đã di chuyển từ khi bắt đầu chạy đà đến khi rời đường băng là
+		\[ S = \displaystyle \int\limits\limits _{0}^{30} v(t) \mathrm{\,d}t = \displaystyle \int\limits\limits _{0}^{30} (3t + 5) \mathrm{\,d}t = \left. \left( \dfrac{3}{2}t^2 + 5t \right) \right|_{0}^{30} = 1\,500\,\,\text{(m).}\]
+		Vậy, quãng đường máy bay đã di chuyển là $1\,500$ mét.
+	}
+\end{ex}
+\begin{ex}%[2D4V2-2]
+	[Trích đề thi GHKII - THPT Thanh Miện - Hải Dương - Năm học 2024-2025] 
+	Cho hàm số $f(x) = \heva{&
+		2x^2 - 1 &&\text{ khi } x < 0 \\
+		&x - 1 &&\text{ khi } 0 \le x \le 2 \\
+		&5 - 2x &&\text{ khi } x > 2
+	}$ và $I = \displaystyle\int\limits\limits_{-5}^{9} f(x) \,\mathrm{d}x$. \\
+	Biết $I = \dfrac{a}{b}$, ($a, b \in \mathbb{N}^*$; $(a, b) = 1$). Tính $a - b$.
+	\loigiai{
+		Ta có
+		\allowdisplaybreaks
+		\begin{eqnarray*}
+			I &=& \displaystyle\int\limits_{-5}^{9} f(x) \,\mathrm{d}x \\
+			&=& \displaystyle\int\limits_{-5}^{0} (2x^2 - 1) \,\mathrm{d}x + \displaystyle\int\limits_{0}^{2} (x - 1) \,\mathrm{d}x + \displaystyle\int\limits_{2}^{9} (5 - 2x) \,\mathrm{d}x \\
+			&=& \left( \dfrac{2x^3}{3} - x \right) \Bigg|_{-5}^{0} + \left( \dfrac{x^2}{2} - x \right) \Bigg|_{0}^{2} + \left( 5x - x^2 \right) \Bigg|_{2}^{9} \\
+			&=& \left[ 0 - \left( \dfrac{2(-5)^3}{3} - (-5) \right) \right] + \left[ \left( \dfrac{2^2}{2} - 2 \right) - 0 \right] + \left[ (5 \cdot 9 - 9^2) - (5 \cdot 2 - 2^2) \right] \\
+			&=& \dfrac{109}{3}.
+		\end{eqnarray*}
+		Suy ra $a = 109$, $b = 3$.\\
+		Do đó $a - b = 109 - 3 = 106$.
+	}
+\end{ex}
+
+\indapan{10}{ans/2D4-Bai2-TN}
+\indapan{4}{ans/2D4-Bai2-DS}
+\indapan{6}{ans/2D4-Bai2-TLN}

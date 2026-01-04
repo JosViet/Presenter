@@ -1,0 +1,613 @@
+\section{Bảng tần số và biểu đồ tần số}
+\subsection{Tần số và bảng tần số}
+\subsubsection{Lý thuyết}
+\begin{dn}
+	\textit{Mẫu dữ liệu} là tập hợp các dữ liệu thu thập được theo tiêu chí cho trước. Số lần xuất hiện của một giá trị trong mẫu dữ liệu được gọi là tần số của giá trị đó.
+\end{dn}
+Khi trong mẫu dữ liệu có nhiều giá trị có tần số xuất hiện lớn hơn $1$, người ta thường biễu diễn dữ liệu bởi bảng tần số.
+\begin{dn}
+	\textit{Bảng tần số} biễu diễn tần số của mỗi giá trị trong mẫu dữ liệu.\\
+	Bảng gồm hai dòng, dòng trên ghi các giá trị khác nhau của mẫu dữ liệu, dòng dưới ghi các tần số tương ứng với mỗi giá trị đó.
+\end{dn}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Một đội bóng đã thi đấu $26$ trận trong một mùa giải. Số bàn thắng mà đội đó ghi được trong từng trận đấu được thống kê lại như sau
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline $2$ & $3$ & $2$ & $3$ & $3$ & $1$ & $0$ & $3$ & $1$ & $0$ & $1$ & $1$ & $2$ \\
+			\hline $2$ & $4$ & $0$ & $0$ & $2$ & $2$ & $0$ & $5$ & $4$ & $2$ & $0$ & $2$ & $0$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	Mẫu dữ liệu trên có bao nhiêu giá trị khác nhau? Xác định tần số của mỗi giá trị và lập bảng tần số của mẫu dữ liệu.
+	\loigiai{
+		Mẫu dữ liệu có các giá trị là $0$; $1$; $2$; $3$; $4$; $5$.\\
+		Tần số của các giá trị $0$; $1$; $2$; $3$; $4$; $5$ lần lượt là $7$; $4$; $8$; $4$; $2$; $1$.\\
+		Bảng tần số
+		\begin{center}
+			\begin{tabular}{|c|l|l|l|l|l|l|c|}
+				\hline Số bàn thắng & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & Cộng\\
+				\hline Tần số & $7$ & $4$ & $8$ & $4$ & $2$ & $1$  &$N=26$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{vd}
+\begin{note}
+	\begin{enumerate}
+		\item Khi dữ liệu là các số thì mẫu dữ liệu còn được gọi là mẫu số liệu.
+		\item Số các dữ liệu trong mẫu được gọi là cỡ mẫu, thường được kí hiệu là $\mathrm{N}$. Cỡ mẫu $\mathrm{N}$ cũng bằng tổng các tần số của từng giá trị khác nhau. Chẳng hạn, trong \textbf{Ví dụ $1$}, cỡ mẫu là $\mathrm{N}=26$.
+		\item Có thể chuyển bảng tần số dạng \lq\lq ngang\rq\rq\ như trên thành bảng tần số dạng \lq\lq dọc\rq\rq\ như sau
+	\end{enumerate}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline Số bàn thắng & Tần số \\
+			\hline $0$ & $7$ \\
+			\hline $1$ & $4$ \\
+			\hline $2$ & $8$ \\
+			\hline $3$ & $4$ \\
+			\hline $4$ & $2$ \\
+			\hline $5$ & $1$ \\
+			\hline Cộng & $N=26$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{note}
+\begin{nx}
+	Bảng tần số giúp chúng ta nhanh chóng quan sát các đặc điểm của mẫu dữ liệu như số lần xuất hiện của mỗi giá trị, giá trị xuất hiện nhiều lần nhất, giá trị xuất hiện ít lần nhất\ldots Bảng tần số cũng rất tiện lợi cho việc tính toán với mẫu dữ liệu.
+\end{nx}
+\subsubsection{Ví dụ}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Người ta đếm số lượng người ngồi trên mỗi chiếc xe ô tô $5$ chỗ đi qua một trạm thu phí trong khoảng thời gian từ $9$ giờ đến $10$ giờ sáng. Kết quả được ghi lại ở bảng sau
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline $5$ & $4$ & $5$ & $2$ & $3$ & $2$ & $5$ & $2$ & $1$ & $2$ & $1$ & $1$ & $2$ & $5$ & $1$ \\
+			\hline $1$ & $1$ & $3$ & $2$ & $1$ & $1$ & $4$ & $1$ & $1$ & $4$ & $1$ & $2$ & $1$ & $4$ & $1$ \\
+			\hline $2$ & $3$ & $2$ & $3$ & $2$ & $3$ & $2$ & $3$ & $3$ & $1$ & $2$ & $1$ & $3$ & $2$ & $2$ \\
+			\hline $1$ & $4$ & $3$ & $2$ & $3$ & $1$ & $3$ & $5$ & $1$ & $2$ & $3$ & $5$ & $1$ & $2$ & $1$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số cho mẫu số liệu trên.
+		\item Hãy cho biết số người ngồi trên xe phổ biến nhất là bao nhiêu?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bảng tần số
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Số người & $1$ & $2$ & $3$ & $4$ & $5$ &\\
+					\hline Tần số & $20$ & $17$ & $12$ & $5$ & $6$ &$N=60$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Theo bảng tần số trên, số người ngồi trên xe phổ biến nhất là $1$ người.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Để mua giày thể thao cho các bạn nam trong lớp luyện tập chuẩn bị cho giải bóng đá của trường, Huy đã thu thập cỡ giày của các bạn nam trong lớp và thu được kết quả như sau
+	\begin{center}
+		$40$, $36$, $37$, $36$, $40$, $38$, $39$, $38$, $37$, $36$, $40$, $39$, $36$, $38$, $37$, $38$, $38$, $37$, $38$, $38$, $38$, $36$.
+	\end{center}
+	\begin{enumerate}
+		\item Bạn Huy cần mua giày các cỡ nào? Mỗi loại bao nhiêu đôi?
+		\item Lập bảng tần số cho dãy dữ liệu trên. Từ bảng tẩn số, cho biết cỡ giày nào phù hợp với nhiều bạn nam trong lớp nhất.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Bạn Huy cần mua giày với các cỡ $36$, $37$, $38$, $39$, $40$. Giày cỡ $36$ cần $5$ đôi; cỡ $37$ cần $4$ đôi; cỡ $38$ cần $8$ đôi; cỡ $39$ cần $2$ đôi; cỡ $40$ cần $3$ đôi.
+			\item Bảng tẩn số
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline Cỡ glày& $36$& $37$& $38$& $39$& $40$ \\
+					\hline Tần số& $5$& $4$& $8$& $2$& $3$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			Giày cỡ $38$ phù hợp với nhiều bạn nam trong lớp nhất.
+		\end{enumerate}
+	}
+\end{vd}
+\begin{vd}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Sau khi điều tra $60$ hộ gia đình ờ một vùng dân cư về số nhân khẩu của mỗi hộ gia đình, người ta được dãy số liệu thống kê (hay còn gọi là mẫu số liệu thống kê) như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$6$ & $6$ & $6$ & $7$ & $5$ & $5$ & $4$ & $5$ & $6$ & $4$ & $4$ & $8$ & $6$ & $6$ & $6$ & $6$ & $5$ & $5$ & $5$ & $4$ \\
+			\hline
+			$6$ & $6$ & $7$ & $7$ & $5$ & $5$ & $5$ & $5$ & $6$ & $4$ & $4$ & $6$ & $6$ & $6$ & $6$ & $6$ & $5$ & $5$ & $5$ & $4$ \\
+			\hline
+			$8$ & $6$ & $6$ & $5$ & $5$ & $5$ & $5$ & $6$ & $6$ & $4$ & $5$ & $6$ & $7$ & $6$ & $8$ & $6$ & $5$ & $5$ & $6$ & $5$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	\begin{enumerate}
+		\item Trong $60$ số liệu thống kê ở trên, có bao nhiêu giá trị khác nhau?
+		\item Mỗi giá trị đó xuất hiện bao nhiêu lần?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Trong mẫu số liệu thống kê ờ trên, có $5$ giá trị khác nhau là $x_1=4$; $x_2=5$; $x_3=6$; $x_4=7$; $x_5=8$.
+			\item \begin{itemize}
+				\item Giá tri $x_1=4$ xuất hiện $8$ lần, ta gọi $n_1=8$ là tần số của giá trị $x_1$. Tương tự, $n_2=21$; $n_3=24$; $n_4=4$; $n_5=3$ lần lượt là tần số của giá trị $x_2$; $x_3$; $x_4$; $x_5$.
+				\item Ta có thể lập bảng tần số của mẫu số liệu thống kê trên như bảng sau
+			\end{itemize}
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Số nhân khẩu của mỗi hộ gia đình $(x)$& $4$& $5$& $6$& $7$& $8$& Cộng \\
+					\hline Tần số $(n)$& $8$& $21$& $24$& $4$& $3$& $N=60$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+	}
+\end{vd}
+\subsubsection{Bài tập vận dụng}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Thống kê điểm kiểm tra môn Toán của $40$ học sinh lớp $9C$ như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$5$ & $5$ & $5$ & $7$ & $7$ & $8$ & $8$ & $8$ & $5$ & $8$ & $8$ & $8$ & $6$ & $6$ & $6$ & $6$ & $8$ & $9$ & $5$ & $7$ \\
+			\hline
+			$6$ & $6$ & $7$ & $7$ & $6$ & $8$ & $9$ & $9$ & $7$ & $8$ & $8$ & $5$ & $7$ & $7$ & $7$ & $7$ & $6$ & $8$ & $8$ & $9$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	\begin{enumerate}
+		\item Trong $40$ số liệu thống kê ở trên, có bao nhiêu giá trị khác nhau?
+		\item Tìm tần số của mỗi giá trị đó.
+		\item Lập bảng tần số của mẫu số liệu thống kê trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Trong $40$ số liệu thống kê ở trên, có $5$ giá trị khác nhau là $x_1=5$; $x_2=6$; $x_3=7$; $x_4=8$; $x_5=9$.
+			\item Tần số của các giá trị $x_1$; $x_2$; $x_3$; $x_4$; $x_5$ lần lượt là $n_1=6$; $n_2=8$; $n_3=10$; $n_4=12$; $n_5=4$.
+			\item Bảng tần số của mẫu số liệu thống kê trên như sau
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|}
+					\hline Điểm $(x)$& $5$& $6$& $7$& $8$& $9$& Cộng \\
+					\hline Tần số $(n)$& $6$& $8$& $10$& $12$& $4$& $N=40$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Kết quả của $20$ học sinh trường $A$ tham gia vòng chung kết cuộc thi Tìm hiểu Lịch sử Việt Nam được cho ở bảng sau.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\rowcolor[RGB]{197,224,179}
+			\textbf{Số báo danh} & \textbf{Điểm thi} & \textbf{Xếp hạng} & \textbf{Số báo danh} & \textbf{Điểm thi} & \textbf{Xếp hạng} \\
+			\hline
+			$01$& $9$& Nhì& $11$& $7$& Ba \\
+			\hline
+			$02$& $10$& Nhất& $12$& $8$& Nhì \\
+			\hline
+			$03$& $7$& Ba& $13$& $7$& Ba \\
+			\hline
+			$04$& $6$& Ba& $14$& $4$& Không đạt giải \\
+			\hline
+			$05$& $5$& Không đạt giải& $15$& $10$& Nhất \\
+			\hline
+			$06$& $6$& Ba& $16$& $8$& Nhì \\
+			\hline
+			$07$& $8$& Nhì& $17$& $8$& Nhì \\
+			\hline
+			$08$& $6$& Ba& $18$& $7$& Ba \\
+			\hline
+			$09$& $5$& Không đạt giải& $19$& $5$& Không đạt giải \\
+			\hline
+			$10$& $7$& Ba& $20$& $10$& Nhất \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	Hãy lập bảng tần số theo xếp hạng của học sinh.
+	\loigiai{
+		Bảng tần số theo xếp hạng của học sinh
+		\begin{center}
+			\begin{tabular}{|>{\columncolor{lightgray}}c|c|c|c|c|}
+				\hline
+				Xếp hạng& Nhất& Nhì& Ba& Không đạt giải \\
+				\hline
+				Số học sinh& $3$& $5$& $8$& $4$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Thống kê số cuộc gọi hỗ trợ khách hàng của một cửa hàng Điện lạnh trong tháng $9$ năm $2024$ được ghi lại trong bảng sau.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\textbf{Số cuộc gọi mỗi ngày}& $2$& $3$& $4$& $5$& $6$ \\
+			\hline
+			\textbf{Tần số}& $3$& $10$& $6$& $7$& $4$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	Hãy cho biết trong tháng $9$ năm $2024$ tại cửa hàng điện lạnh nói trên có số lượng cuộc gọi hỗ trợ khách hàng trong một ngày nhiều nhất là bao nhiêu? Có bao nhiêu ngày như vậy?
+	\loigiai{
+		Tại cửa hàng điện lạnh nói trên có số lượng cuộc gọi hỗ trợ khách hàng trong một ngày nhiều nhất là $6$ cuộc gọi và có $4$ ngày như vậy.
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Điểm kiểm tra môn Toán của $200$ học sinh khối $9$ được thống kê như bảng sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Điểm& $5$& $6$& $7$& $8$& $9$& $10$ \\
+			\hline
+			Số học sinh& $30$& $40$& $50$& $35$& $25$& $20$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	\begin{enumerate}
+		\item Trong $200$ số liệu thống kê có bao nhiêu giá trị khác nhau.
+		\item Tìm tần số của mỗi giá trị đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Trong $200$ số liệu thống kê ở trên có $6$ giá trị khác nhau là
+			\begin{center}
+				$x_1 = 5$; $x_2 = 6$; $x_3 = 7$; $x_4 = 8$; $x_5 = 9$; $x_6 = 10$.
+			\end{center}
+			\item Tần số của mỗi giá trị $x_1$; $x_2$; $x_3$; $x_4$; $x_5$; $x_6$ lần lượt là
+			\begin{center}
+				$n_1 = 30$; $n_2 = 40$; $n_3 = 50$; $n_4 = 35$; $n_5 = 25$; $n_6 = 20$.
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Một nhóm học sinh được khảo sát về mức độ sử dụng mạng xã hội hằng ngày với các mức: Rất nhiều, Nhiều, Ít, Không dùng. Kết quả:\\
+	Nhiều, Rất nhiều, Ít, Nhiều, Không dùng, Nhiều, Rất nhiều, Nhiều, Ít, Không dùng, Nhiều, Ít, Nhiều.
+	\begin{enumerate}
+		\item Lập bảng tần số.
+		\item Mức sử dụng nào phổ biến nhất?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Lập bảng tần số
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					\textbf{Mức sử dụng} & \textbf{Tần số} \\
+					\hline
+					Rất nhiều & $2$ \\
+					\hline
+					Nhiều & $6$ \\
+					\hline
+					Ít & $3$ \\
+					\hline
+					Không dùng & $2$ \\
+					\hline
+					& $N=13$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item \textbf{Nhiều} là mức phổ biến nhất vì có tần số cao nhất.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Số cuộc gọi đến một tổng đài hỗ trợ khách hàng mỗi ngày trong tháng $4/2022$ được ghi lại như sau
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline $4$& $2$& $6$& $3$& $6$& $3$& $2$& $5$& $4$& $2$& $5$& $4$& $3$& $3$& $3$ \\
+			\hline $3$& $5$& $4$& $4$& $3$& $4$& $6$& $5$& $3$& $6$& $3$& $5$& $3$& $5$& $5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Xác định cỡ mẫu.
+		\item Lập bảng tần số cho mẫu số liệu trên.
+		\item Có bao nhiêu giá trị có tần số lớn hơn $4$?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có cỡ mẫu của mẫu số liệu đã cho là $N=15 \cdot 2=30$.
+			\item Lập bảng tần số cho mẫu số liệu trên.
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					Giá trị ($x$)& Tần số ($n$) \\
+					\hline
+					$2$& $3$ \\
+					\hline
+					$3$& $9$ \\
+					\hline
+					$4$& $7$ \\
+					\hline
+					$5$& $7$ \\
+					\hline
+					$6$& $4$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item
+			Xét bảng tần số ở trên, các giá trị có tần số lớn hơn $4$ là $3$, $4$, $5$.\\
+			Số lượng giá trị đó là $3$.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Cho biểu đồ tranh biểu diễn số lượng các loại trái cây yêu thích của học sinh lớp $6A$ như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Táo & Xoài & Dâu tây \\
+			\hline
+			\twemoji{1f34e}\twemoji{1f34e}\twemoji{1f34e}\twemoji{1f34e}\twemoji{1f34e}\twemoji{1f34e}\twemoji{1f34e}  & \twemoji{1f96d}\twemoji{1f96d}\twemoji{1f96d}\twemoji{1f96d}\twemoji{1f96d} & \twemoji{1f353}\twemoji{1f353}\twemoji{1f353}\twemoji{1f353}\twemoji{1f353}\twemoji{1f353}\twemoji{1f353}\twemoji{1f353} \\
+			\hline
+		\end{tabular}\\
+		(Mỗi biểu tượng biểu diễn cho $1$ học sinh)
+	\end{center}
+	Lập bảng tần số cho dữ liệu được biểu diễn trong biểu đồ tranh trên.
+	\loigiai{
+		Bảng tần số
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				Loại trái cây & Táo & Xoài & Dâu tây&Cộng\\
+				\hline
+				Tần số & $7$ & $5$ & $8$&$N=20$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}
+
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Thống kê lượng hàng tồn kho (đơn vị: sản phẩm) của $30$ mặt hàng ở một cửa hàng kinh doanh như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$4$ & $4$ & $3$ & $5$ & $3$ & $3$ & $3$ & $4$ & $4$ & $5$ & $3$ & $3$ & $5$ & $5$ & $5$ \\
+			\hline
+			$2$ & $2$ & $3$ & $4$ & $2$ & $2$ & $3$ & $3$ & $3$ & $5$ & $5$ & $5$ & $4$ & $3$ & $2$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	Lập bảng tần số của mẫu số liệu thống kê trên.
+	\loigiai{
+		Ta có bảng tần số của mẫu số liệu thống kê trên là
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				Giá trị ($x$)& Tần số ($n$) \\
+				\hline
+				$2$& $6$ \\
+				\hline
+				$3$& $11$ \\
+				\hline
+				$4$& $7$ \\
+				\hline
+				$5$& $6$ \\
+				\hline
+				Cộng & $N=30$\\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Công ty giống cây trồng đang nghiên cứu một giống lúa mới. Chỉ tiêu đặt ra là năng suắt phải đạt tối thiểu $60$ tạ/ha. Sau một vụ, thông qua báo cáo của từng địa phương tham gia trồng thử nghiệm giống lúa mới, công ty thu thập được bảng số liệu sau
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+			\hline $60$& $54$& $61$& $62$& $58$& $61$& $62$& $60$& $61$& $60$ \\
+			\hline $61$& $58$& $61$& $60$& $58$& $60$& $60$& $61$& $60$& $62$ \\
+			\hline $54$& $58$& $60$& $61$& $61$& $60$& $61$& $61$& $62$& $61$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Hãy lập bảng tần số năng suất lúa của các địa phương.
+		\item Công ty nên triển khai trồng đại trà giống lúa mới này ở bao nhiêu địa phương đã tham gia trong thử nghiệm?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Ta có bảng tần số của mẫu số liệu thống kê trên là
+			\begin{center}
+				\begin{tabular}{|l|l|l|l|l|l|l|}
+					\hline Năng suất (tạ/ha)& $54$& $58$& $60$& $61$& $62$& Cộng \\
+					\hline Tần số & $2$& $4$& $9$& $11$& $4$& $N=30$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item Bảng tấn số cho thấy năng suất tập trung ở mức $60$ và $61$ (tạ/ha).\\
+			Nếu tính năng suất tối thiểu là $60$ tạ/ha thì có $24$ (trên $30$) địa phương đạt được.\\
+			Như thế, công ty có thể triển khai trồng đại trà giống lúa mới ở $24$ địa phương này.
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Tuổi của nhân viên bộ phận hành chính của một công ty được ghi lại trong bảng sau
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline $30$& $43$& $32$& $30$& $43$& $44$& $32$& $44$& $32$& $43$& $31$ \\
+			\hline $32$& $43$& $44$& $25$& $32$& $44$& $30$& $31$& $32$& $25$& $44$ \\
+			\hline $31$& $32$& $25$& $44$& $25$& $25$& $32$& $32$& $44$& $44$& \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{enumerate}
+		\item Lập bảng tần số trình bày mẫu dữ liệu đã cho.
+		\item Tuổi của nhân viên bộ phận hành chính tập trung nhiều nhất ở những giá trị nào?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Lập bảng tần số trình bày mẫu dữ liệu đã cho.
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					Tuổi & Tần số ($n$) \\
+					\hline
+					$25$& $6$ \\
+					\hline
+					$30$& $3$ \\
+					\hline
+					$31$& $3$ \\
+					\hline
+					$32$& $9$ \\
+					\hline
+					$43$& $4$ \\
+					\hline
+					$44$& $8$ \\
+					\hline
+					Cộng & $N=33$\\
+					\hline
+				\end{tabular}
+			\end{center}
+			\item  Từ bảng tần số trên, các tuổi xuất hiện nhiều nhất là $32$ ($9$ lần).
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Cho kết quả kiểm tra môn Toán của lớp $9A$ như sau.
+	\begin{center}
+		\begin{tabular}{|*{11}{>{\centering\arraybackslash}p{0.8cm}|}}
+			\hline
+			$6$ & $6$ & $6$ & $6$ & $7$ & $7$ & $7$ & $7$ & $7$ & $7$ & $8$ \\
+			\hline
+			$8$ & $8$ & $8$ & $8$ & $8$ & $8$ & $8$ & $8$ & $8$ & $8$ & $8$ \\
+			\hline
+			$8$ & $8$ & $9$ & $9$ & $9$ & $9$ & $9$ & $9$ & $9$ & $9$ & $9$ \\
+			\hline
+			$9$ & $9$ & $9$ & $10$ & $10$ & $10$ & $10$ & $10$ & $10$ & $10$ & $10$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Hãy cho biết lớp 9A có bao nhiêu học sinh?
+		\item Lập bảng tần số cho dữ liệu trong biểu đồ.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Số học sinh lớp 9A là
+			\begin{center}
+				$4 + 6 + 14 + 12 + 8 = 44$ (học sinh).
+			\end{center}
+			\item Ta có bảng tần số sau
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					Điểm & Tần số \\
+					\hline
+					$6$& $4$ \\
+					\hline
+					$7$& $6$ \\
+					\hline
+					$8$& $14$ \\
+					\hline
+					$9$& $12$ \\
+					\hline
+					$10$& $8$ \\
+					\hline
+					Cộng & $N=44$\\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Lớp 9A góp tiền ủng hộ đồng bào bị thiên tai. Số tiền góp của mỗi bạn được thống kê trong bảng sau. (đơn vị là nghìn đồng).
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$10$ & $20$ & $10$ & $40$ & $20$ & $50$ & $20$ & $30$ & $40$ & $10$ & $50$ & $20$ \\
+			\hline
+			$30$ & $50$ & $20$ & $40$ & $40$ & $10$ & $30$ & $30$ & $40$ & $40$ & $20$ & $30$ \\
+			\hline
+			$40$ & $20$ & $30$ & $100$ & $50$ & $30$ & $20$ & $10$ & $50$ & $30$ & $20$ & $20$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	\begin{enumerate}
+		\item Mẫu dữ liệu thống kê ở đây là gì?
+		\item Có bao nhiêu giá trị khác nhau của mẫu số liệu thống kê trên?
+		\item Lập bảng \lq\lq tần số\rq\rq\ cho dãy số liệu trên.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Mẫu dữ liệu thống kê ở đây là số tiền góp của mỗi bạn lớp 9A ủng hộ đồng bào bị thiên tai (đơn vị là nghìn đồng).
+			\item Có $6$ giá trị khác nhau của mẫu số liệu thống kê trên.
+			\item Ta có bảng \lq\lq tần số\rq\rq\ cho dãy số liệu trên là
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					Giá trị $(x)$& $10$& $20$& $30$& $40$& $50$& $100$& \\
+					\hline
+					Tần số $(n)$& $5$& $10$& $8$& $7$& $5$& $1$& $N=36$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{enumerate}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Thống kê điểm kiểm tra môn Toán (hay còn gọi là mẫu số liệu thống kê) của $40$ học sinh lớp $9A$ như sau.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$5$ & $9$ & $5$ & $7$ & $7$ & $8$ & $10$ & $8$ & $10$ & $8$ & $8$ & $8$ & $6$ & $6$ & $6$ & $6$ & $8$ & $9$ & $5$ & $7$ \\
+			\hline
+			$6$ & $6$ & $7$ & $7$ & $9$ & $6$ & $10$ & $9$ & $7$ & $8$ & $8$ & $5$ & $7$ & $7$ & $7$ & $7$ & $6$ & $8$ & $8$ & $9$ \\
+			\hline
+		\end{tabular}
+		
+	\end{center}
+	Lập bảng tần số cho mẫu số liệu trên.
+	\loigiai{
+		Số học sinh được điểm $5$; $6$; $7$; $8$; $9$ tương ứng là $4$; $8$; $10$; $10$; $5$; $3$.\\
+		Ta có bảng tần số sau
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				Điểm môn Toán $(x)$& $5$& $6$& $7$& $8$& $9$& $10$& Cộng \\
+				\hline
+				Tần số $(n)$& $4$& $8$& $10$& $10$& $5$& $3$& $N=40$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	}
+\end{bt}
+\begin{bt}%[Dự án EX-9-Đề Cương Toán 9]%[Thái Bảo]%[9D5N1-1]
+	Kết quả điều tra cân nặng của một số học sinh lớp $9A$ được ghi lại như sau
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$48$& $47$& $50$& $48$& $52$& $50$& $48$& $49$& $50$& $52$ \\
+			\hline
+			$48$& $50$& $48$& $57$& $48$& $49$& $48$& $50$& $48$& $49$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Lập bảng tần số của mẫu số liệu thống kê trên.
+	\loigiai{
+		Ta có bảng tần số của mẫu số liệu thống kê đó.
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				Cân nặng (kg)& $47$& $48$& $49$& $50$& $52$& Cộng \\
+				\hline
+				Số học sinh& $2$& $8$& $3$& $5$& $2$& $N=20$ \\
+				\hline
+			\end{tabular}
+			
+		\end{center}
+	}
+\end{bt}
