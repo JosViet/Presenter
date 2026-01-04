@@ -491,9 +491,7 @@ function App() {
 
           </div>
           <div className="flex items-center gap-3">
-            <button onClick={toggleTheme} className={clsx("p-2 rounded-full transition-colors", theme === 'dark' ? "hover:bg-gray-700 text-amber-400" : "hover:bg-gray-100 text-gray-500")} title="Đổi giao diện">
-              <Palette size={20} />
-            </button>
+
 
             {/* Navigation Controls */}
             <div className={clsx("flex items-center gap-1 rounded-lg p-1 mx-2", theme === 'dark' ? 'bg-gray-700/50' : 'bg-gray-100')}>
@@ -576,6 +574,11 @@ function App() {
                 <button onClick={() => setShowRemoteModal(true)} className={clsx("w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3", showRemoteModal && "text-indigo-600 font-bold")}>
                   <div className={clsx("p-1.5 rounded-md", showRemoteModal ? "bg-indigo-100 text-indigo-600" : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300")}><Smartphone size={18} /></div>
                   <span className="text-sm font-medium dark:text-gray-200">Điều khiển từ xa</span>
+                </button>
+
+                <button onClick={toggleTheme} className="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3">
+                  <div className="p-1.5 bg-gray-100 dark:bg-slate-700 rounded-md text-gray-600 dark:text-gray-300"><Palette size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Giao diện: {theme === 'dark' ? 'Tối' : 'Sáng'}</span>
                 </button>
 
                 <div className="h-px bg-gray-100 dark:bg-gray-700 my-1" />
