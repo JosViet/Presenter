@@ -154,7 +154,7 @@ export const renderMath = (text: string, macros: Record<string, string> = {}): s
         .replace(/\\quad/g, '\\hspace{1em}')
         .replace(/\\quad/g, '\\hspace{1em}')
         .replace(/\\qquad/g, '\\hspace{2em}')
-        .replace(/\\par/g, ''); // Ignore \par
+        .replace(/\\par\b/g, ''); // Ignore \par (use \b to avoid breaking \parallel)
 
     // Improved eqnarray conversion
     const fixEqnArray = (match: string) => {
