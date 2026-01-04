@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QuestionNode } from '../shared/types';
 import { TikZEmbed } from './TikZEmbed';
 
@@ -46,16 +46,6 @@ export const TikZPreloader: React.FC<TikZPreloaderProps> = ({ questions, onProgr
         // Filter out already cached items
         const missing: string[] = [];
         uniqueBlocks.forEach(block => {
-            // Clean Vietnamese tones same as TikZEmbed if needed, 
-            // but TikZEmbed does it internally before hashing.
-            // Wait, TikZEmbed sanitizes BEFORE hashing. 
-            // We need to match that logic to check cache accurately or just let TikZEmbed handle the check?
-            // "TikZEmbed" component checks cache on mount.
-            // If we re-implement the check here we need the exact sanitize logic.
-            // BUT, simply passing it to a TikZEmbed instance that has logic "If in cache, do nothing" is easier?
-            // No, because we want to only mount ONE at a time. We need to know if it's done.
-            // So we MUST duplicate the cache check logic: Sanitize -> Hash -> Check Storage.
-
             const sanitized = removeVietnameseTones(block);
             const key = CACHE_PREFIX + hashCode(sanitized);
             if (!localStorage.getItem(key)) {
@@ -77,7 +67,7 @@ export const TikZPreloader: React.FC<TikZPreloaderProps> = ({ questions, onProgr
         }
     }, [queue, currentCode]);
 
-    const handleRenderComplete = (svg: string) => {
+    const handleRenderComplete = () => {
         console.log('[TikZPreloader] Pre-rendered 1 item.');
         // Remove current from queue
         setQueue(prev => {
