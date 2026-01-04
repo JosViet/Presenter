@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ReactSketchCanvas, ReactSketchCanvasRef } from 'react-sketch-canvas';
 import {
-    Eraser, Trash2, X, LayoutGrid, MousePointer2,
-    Square, Circle, Minus, ArrowRight, Highlighter, Type, Triangle, Undo2, Redo2
+    Eraser, Trash2, X, MousePointer2,
+    Square, Circle, Minus, ArrowRight, Highlighter, Type, Undo2
 } from 'lucide-react';
 import { ShapeGenerator, Point } from '../services/shape_recognizer';
 import { SnippetGallery } from './SnippetGallery';
@@ -308,119 +308,89 @@ export const AnnotationLayer: React.FC<Props> = ({ isActive, onClose, initialPat
                 onStroke={handleStroke}
             />
 
-            {/* PRO TOOLBAR (iPadOS Style) */}
+            {/* PRO TOOLBAR - VERTICAL RIGHT SIDE */}
             {isActive && (
-                <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[110] flex flex-col items-center gap-4 animate-in slide-in-from-bottom-12 duration-500 ease-out">
+                <div className="fixed right-4 top-1/2 -translate-y-1/2 z-[110] flex flex-row-reverse items-start gap-4 animate-in slide-in-from-right-12 duration-500 ease-out">
 
-                    {/* Floating Settings Island */}
-                    <div className="flex items-center gap-6 px-8 py-3 bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.12)] rounded-3xl">
+                    {/* Main Toolbar Strip */}
+                    <div className="flex flex-col items-center gap-2 p-2 bg-slate-900/90 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-[2rem] border border-white/10 transition-all">
 
-                        {/* Quick Colors */}
-                        <div className="flex items-center gap-3 pr-6 border-r border-slate-200">
-                            {['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#ffffff', '#000000'].map(c => (
-                                <button
-                                    key={c}
-                                    onClick={() => setColor(c)}
-                                    className={clsx(
-                                        "w-7 h-7 rounded-full transition-all duration-300 ring-2",
-                                        color === c ? "ring-indigo-500 scale-125 shadow-lg" : "ring-transparent hover:scale-110"
-                                    )}
-                                    style={{ backgroundColor: c, border: c === '#ffffff' ? '1px solid #e2e8f0' : 'none' }}
-                                />
-                            ))}
-                        </div>
-
-                        {/* Stroke Width Selector */}
-                        <div className="relative">
-                            <button
-                                onClick={() => setIsWidthMenuOpen(!isWidthMenuOpen)}
-                                className="flex flex-col items-center justify-center gap-1 hover:bg-slate-100 p-2 rounded-xl transition-colors min-w-[48px]"
-                            >
-                                <div className="bg-slate-800 rounded-full" style={{ width: strokeWidth * 2, height: strokeWidth * 2 }} />
-                                <span className="text-[10px] font-bold text-slate-500 uppercase">{strokeWidth}px</span>
-                            </button>
-
-                            {isWidthMenuOpen && (
-                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 p-2 bg-white rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1 animate-in zoom-in-90 origin-bottom">
-                                    {[2, 4, 8, 12].map(w => (
-                                        <button
-                                            key={w}
-                                            onClick={() => { setStrokeWidth(w); setIsWidthMenuOpen(false); }}
-                                            className={clsx(
-                                                "w-12 h-12 flex items-center justify-center rounded-xl transition-all",
-                                                strokeWidth === w ? "bg-indigo-50 text-indigo-600" : "hover:bg-slate-50 text-slate-400"
-                                            )}
-                                        >
-                                            <div className="bg-current rounded-full" style={{ width: w, height: w }} />
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Main Toolbar Island */}
-                    <div className="flex items-center gap-2 p-2 bg-slate-900/90 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-[2.5rem] border border-white/10">
-
+                        {/* Toggle Collapse Button (Optional if list is long) */}
                         {/* Drawing Tools */}
-                        <div className="flex items-center gap-1.5 px-2 border-r border-white/10">
-                            <ToolButton active={tool === 'pen'} icon={<MousePointer2 size={22} />} onClick={() => { setTool('pen'); canvasRef.current?.eraseMode(false); }} title="Bút kỹ thuật" />
-                            <ToolButton active={tool === 'highlighter'} icon={<Highlighter size={22} />} onClick={() => { setTool('highlighter'); canvasRef.current?.eraseMode(false); }} title="Bút dạ quang" />
-                            <ToolButton active={tool === 'eraser'} icon={<Eraser size={22} />} onClick={() => { setTool('eraser'); canvasRef.current?.eraseMode(true); }} title="Tẩy" />
+                        <div className="flex flex-col items-center gap-1.5 py-1 border-b border-white/10 w-full">
+                            <ToolButton active={tool === 'pen'} icon={<MousePointer2 size={20} />} onClick={() => { setTool('pen'); canvasRef.current?.eraseMode(false); }} title="Bút kỹ thuật" />
+                            <ToolButton active={tool === 'highlighter'} icon={<Highlighter size={20} />} onClick={() => { setTool('highlighter'); canvasRef.current?.eraseMode(false); }} title="Bút dạ quang" />
+                            <ToolButton active={tool === 'eraser'} icon={<Eraser size={20} />} onClick={() => { setTool('eraser'); canvasRef.current?.eraseMode(true); }} title="Tẩy" />
                         </div>
 
                         {/* Geometric Tools */}
-                        <div className="flex items-center gap-1.5 px-2 border-r border-white/10">
-                            <ToolButton active={tool === 'line'} icon={<Minus size={22} className="-rotate-45" />} onClick={() => setTool('line')} title="Đường thẳng" />
-                            <ToolButton active={tool === 'circle'} icon={<Circle size={22} />} onClick={() => setTool('circle')} title="Hình tròn/Ellipse (Giữ Shift để vẽ hình tròn hoàn hảo)" />
-                            <ToolButton active={tool === 'rectangle'} icon={<Square size={22} />} onClick={() => setTool('rectangle')} title="Hình chữ nhật (Giữ Shift để vẽ hình vuông)" />
-                            <ToolButton active={tool === 'triangle'} icon={<Triangle size={22} />} onClick={() => setTool('triangle')} title="Hình tam giác (Giữ Shift để vẽ tam giác đều)" />
-                            <ToolButton active={tool === 'arrow'} icon={<ArrowRight size={22} />} onClick={() => setTool('arrow')} title="Mũi tên" />
+                        <div className="flex flex-col items-center gap-1.5 py-1 border-b border-white/10 w-full">
+                            <ToolButton active={tool === 'line'} icon={<Minus size={20} className="-rotate-45" />} onClick={() => setTool('line')} title="Đường thẳng" />
+                            <ToolButton active={tool === 'circle'} icon={<Circle size={20} />} onClick={() => setTool('circle')} title="Hình tròn" />
+                            <ToolButton active={tool === 'rectangle'} icon={<Square size={20} />} onClick={() => setTool('rectangle')} title="Hình chữ nhật" />
+                            {/* Hidden less used shapes to save space or put in 'More' */}
+                            <ToolButton active={tool === 'arrow'} icon={<ArrowRight size={20} />} onClick={() => setTool('arrow')} title="Mũi tên" />
                         </div>
 
-                        {/* Management Tools */}
-                        <div className="flex items-center gap-1.5 px-2">
-                            <ToolButton
-                                icon={<Undo2 size={22} />}
-                                onClick={undo}
-                                disabled={historyStack.length === 0}
-                                title="Hoàn tác (Ctrl+Z)"
-                            />
-                            <ToolButton
-                                icon={<Redo2 size={22} />}
-                                onClick={redo}
-                                disabled={futureStack.length === 0}
-                                title="Làm lại (Ctrl+Y)"
-                            />
-                            <div className="w-px h-6 bg-white/10 mx-1" />
+                        {/* Colors & Width Trigger */}
+                        <div className="flex flex-col items-center gap-1.5 py-1 w-full">
                             <button
-                                onClick={() => {
-                                    if (confirm("Xóa toàn bộ bản vẽ?")) {
-                                        canvasRef.current?.clearCanvas();
-                                        setTimeout(() => notifyParent([]), 50);
-                                    }
-                                }}
-                                className="p-3.5 text-red-400 hover:bg-red-500/20 rounded-full transition-all active:scale-90"
-                                title="Làm sạch bảng"
+                                onClick={() => setIsWidthMenuOpen(!isWidthMenuOpen)}
+                                className="flex items-center justify-center p-2 rounded-xl transition-colors hover:bg-white/10 relative group"
+                                title="Độ dày & Màu sắc"
                             >
-                                <Trash2 size={22} />
+                                <div className="w-5 h-5 rounded-full ring-2 ring-white/30" style={{ backgroundColor: color }}>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="bg-white rounded-full shadow-sm" style={{ width: Math.max(4, strokeWidth / 1.5), height: Math.max(4, strokeWidth / 1.5) }} />
+                                    </div>
+                                </div>
                             </button>
-                            <button
-                                onClick={() => setIsGalleryOpen(true)}
-                                className="p-3.5 text-emerald-400 hover:bg-emerald-500/20 rounded-full transition-all active:scale-90"
-                                title="Thư viện hình"
-                            >
-                                <LayoutGrid size={22} />
-                            </button>
-                            <div className="w-px h-6 bg-white/10 mx-1" />
-                            <button
-                                onClick={onClose}
-                                className="p-3.5 text-white/40 hover:text-white hover:bg-white/10 rounded-full transition-all active:scale-90"
-                            >
-                                <X size={22} />
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex flex-col items-center gap-1.5 py-1 w-full border-t border-white/10 pt-2">
+                            <ToolButton icon={<Undo2 size={20} />} onClick={undo} disabled={historyStack.length === 0} title="Hoàn tác" />
+                            <ToolButton icon={<Trash2 size={20} />} onClick={() => { if (confirm("Xóa bảng?")) { canvasRef.current?.clearCanvas(); setTimeout(() => notifyParent([]), 50); } }} title="Xóa hết" className="text-red-400 hover:bg-red-500/20" />
+                            <button onClick={onClose} className="p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-full transition-all mt-1">
+                                <X size={20} />
                             </button>
                         </div>
                     </div>
+
+                    {/* Popover Settings (Colors & Width) - Shows when clicking the color dot */}
+                    {isWidthMenuOpen && (
+                        <div className="flex flex-col gap-4 p-4 bg-white/90 backdrop-blur-xl border border-white/40 shadow-2xl rounded-3xl animate-in fade-in slide-in-from-right-8 mr-2">
+                            <div className="grid grid-cols-2 gap-2">
+                                {['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#ffffff', '#000000'].map(c => (
+                                    <button
+                                        key={c}
+                                        onClick={() => setColor(c)}
+                                        className={clsx(
+                                            "w-8 h-8 rounded-full ring-2 transition-all",
+                                            color === c ? "ring-indigo-500 scale-110 shadow-lg" : "ring-transparent group-hover:scale-105"
+                                        )}
+                                        style={{ backgroundColor: c, border: c === '#ffffff' ? '1px solid #e2e8f0' : 'none' }}
+                                    />
+                                ))}
+                            </div>
+                            <div className="h-px bg-slate-200" />
+                            <div className="flex flex-col gap-2">
+                                {[2, 4, 8, 12, 16].map(w => (
+                                    <button
+                                        key={w}
+                                        onClick={() => setStrokeWidth(w)}
+                                        className={clsx(
+                                            "flex items-center gap-3 p-1.5 rounded-lg transition-all",
+                                            strokeWidth === w ? "bg-indigo-50 text-indigo-600" : "hover:bg-slate-50 text-slate-500"
+                                        )}
+                                    >
+                                        <div className="bg-current rounded-full" style={{ width: w, height: w }} />
+                                        <span className="text-xs font-bold">{w}px</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
 

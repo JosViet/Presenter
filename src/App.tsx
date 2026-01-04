@@ -550,9 +550,50 @@ function App() {
               <span>Mở File</span>
             </button>
 
-            <button onClick={() => setShowSettings(true)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100")} title="Cài đặt">
-              <Settings size={20} />
-            </button>
+            {/* Tools Menu */}
+            <div className="relative group">
+              <button className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100")} title="Menu Công cụ">
+                <LayoutGrid size={20} />
+              </button>
+
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all z-50 origin-top-right scale-95 group-hover:scale-100">
+                <button onClick={() => setShowSettings(true)} className="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3">
+                  <div className="p-1.5 bg-gray-100 dark:bg-slate-700 rounded-md text-gray-600 dark:text-gray-300"><Settings size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Cài đặt</span>
+                </button>
+                <div className="h-px bg-gray-100 dark:bg-gray-700 my-1" />
+
+                <button onClick={() => setIsLaserEnabled(prev => !prev)} className={clsx("w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3", isLaserEnabled && "text-red-500 font-bold")}>
+                  <div className={clsx("p-1.5 rounded-md", isLaserEnabled ? "bg-red-100 text-red-500" : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300")}><MousePointer2 size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Laser Pointer</span>
+                </button>
+
+                <button onClick={() => setShowTimer(prev => !prev)} className={clsx("w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3", showTimer && "text-amber-600 font-bold")}>
+                  <div className={clsx("p-1.5 rounded-md", showTimer ? "bg-amber-100 text-amber-600" : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300")}><Timer size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Đồng hồ</span>
+                </button>
+
+                <button onClick={() => setShowRemoteModal(true)} className={clsx("w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3", showRemoteModal && "text-indigo-600 font-bold")}>
+                  <div className={clsx("p-1.5 rounded-md", showRemoteModal ? "bg-indigo-100 text-indigo-600" : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300")}><Smartphone size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Điều khiển từ xa</span>
+                </button>
+
+                <div className="h-px bg-gray-100 dark:bg-gray-700 my-1" />
+
+                <button onClick={() => setShowClassManager(true)} className="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3">
+                  <div className="p-1.5 bg-gray-100 dark:bg-slate-700 rounded-md text-gray-600 dark:text-gray-300"><Users size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Quản lý Lớp</span>
+                </button>
+
+                <button onClick={() => setShowPicker(true)} className="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center gap-3">
+                  <div className="p-1.5 bg-gray-100 dark:bg-slate-700 rounded-md text-gray-600 dark:text-gray-300"><Dices size={18} /></div>
+                  <span className="text-sm font-medium dark:text-gray-200">Gọi bất kỳ</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="h-6 w-px bg-gray-300 mx-1 opacity-50"></div>
+
             <button onClick={() => setIsDrawing(prev => !prev)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", isDrawing && !isWhiteboard ? "bg-indigo-100 text-indigo-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Chế độ Vẽ (Annotation)">
               <PenTool size={20} />
             </button>
@@ -561,29 +602,12 @@ function App() {
               onClick={() => {
                 const newState = !isWhiteboard;
                 setIsWhiteboard(newState);
-                setIsDrawing(newState); // Always enable drawing when opening whiteboard
+                setIsDrawing(newState);
               }}
               className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", isWhiteboard ? "bg-emerald-100 text-emerald-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))}
               title="Bảng phụ (Whiteboard)"
             >
               <Presentation size={20} />
-            </button>
-
-            <button onClick={() => setIsLaserEnabled(prev => !prev)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", isLaserEnabled ? "bg-red-100 text-red-600 shadow-inner" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Con trỏ Laser (L)">
-              <MousePointer2 size={20} />
-            </button>
-
-            <button onClick={() => setShowTimer(prev => !prev)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", showTimer ? "bg-amber-100 text-amber-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Đồng hồ đếm ngược">
-              <Timer size={20} />
-            </button>
-            <button onClick={() => setShowRemoteModal(true)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", showRemoteModal ? "bg-indigo-100 text-indigo-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Điều khiển từ xa">
-              <Smartphone size={20} />
-            </button>
-            <button onClick={() => setShowClassManager(true)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", showClassManager ? "bg-purple-100 text-purple-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Quản lý danh sách lớp">
-              <Users size={20} />
-            </button>
-            <button onClick={() => setShowPicker(true)} className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", showPicker ? "bg-orange-100 text-orange-600" : (theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"))} title="Chọn học sinh ngẫu nhiên">
-              <Dices size={20} />
             </button>
           </div>
         </div>
