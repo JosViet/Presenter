@@ -219,19 +219,21 @@ export const TikZEmbed: React.FC<TikZEmbedProps> = ({ code, className, onRender 
 
     return (
         <div ref={containerRef} className={`my-4 flex justify-center min-h-[100px] w-full overflow-visible ${className || ''}`}>
-            {!isVisible ? (
-                <div className="flex items-center justify-center text-gray-400 bg-gray-50 border border-dashed rounded w-full h-32 animate-pulse">Loading Diagram...</div>
-            ) : error ? (
-                <div className="flex flex-col items-center justify-center text-red-500 bg-red-50 border border-red-200 rounded w-full h-auto p-4 gap-2">
-                    <span className="text-sm font-medium">⚠️ {error}</span>
-                    <button onClick={handleRetry} className="px-3 py-1 bg-white border border-red-300 rounded text-xs font-bold text-red-600 hover:bg-red-50">Thử lại</button>
-                    <details className="w-full mt-2"><summary className="text-xs text-gray-400 cursor-pointer">Xem mã nguồn</summary><pre className="text-[10px] bg-gray-100 p-2 rounded mt-1 overflow-x-auto">{code}</pre></details>
-                </div>
-            ) : renderedSvg ? (
-                <div className="w-full h-full flex justify-center items-center" dangerouslySetInnerHTML={{ __html: renderedSvg }} style={{ transition: 'all 0.3s', maxWidth: '100%', overflow: 'visible' }} />
-            ) : (
-                <iframe title="TikZ Generator" srcDoc={htmlContent} style={{ border: 'none', width: '100%', height: `${height}px`, transition: 'height 0.3s ease' }} sandbox="allow-scripts" />
-            )}
+            <div ref={containerRef} className={`my-4 flex justify-center min-h-[100px] w-full overflow-visible ${className || ''}`}>
+                {error ? (
+                    <div className="flex flex-col items-center justify-center text-red-500 bg-red-50 border border-red-200 rounded w-full h-auto p-4 gap-2">
+                        <span className="text-sm font-medium">⚠️ {error}</span>
+                        <button onClick={handleRetry} className="px-3 py-1 bg-white border border-red-300 rounded text-xs font-bold text-red-600 hover:bg-red-50">Thử lại</button>
+                        <details className="w-full mt-2"><summary className="text-xs text-gray-400 cursor-pointer">Xem mã nguồn</summary><pre className="text-[10px] bg-gray-100 p-2 rounded mt-1 overflow-x-auto">{code}</pre></details>
+                    </div>
+                ) : renderedSvg ? (
+                    <div className="w-full h-full flex justify-center items-center" dangerouslySetInnerHTML={{ __html: renderedSvg }} style={{ transition: 'all 0.3s', maxWidth: '100%', overflow: 'visible' }} />
+                ) : !isVisible ? (
+                    <div className="flex items-center justify-center text-gray-400 bg-gray-50 border border-dashed rounded w-full h-32 animate-pulse">Loading Diagram...</div>
+                ) : (
+                    <iframe title="TikZ Generator" srcDoc={htmlContent} style={{ border: 'none', width: '100%', height: `${height}px`, transition: 'height 0.3s ease' }} sandbox="allow-scripts" />
+                )}
+            </div>
         </div>
     );
 };
