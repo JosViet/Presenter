@@ -4,6 +4,7 @@ import { useTheme, useAnnotations, useSlides, useKeyboard, useAnswerTracking } f
 import { LatexRenderer } from './components/LatexRenderer';
 import { AnnotationLayer } from './components/AnnotationLayer';
 import { RemoteControlModal } from './components/RemoteControlModal';
+import { TikZPreloader } from './components/TikZPreloader';
 import { LaserPointer } from './components/LaserPointer';
 import { ClassroomTimer } from './components/ClassroomTimer';
 import { ZoomOverlay } from './components/ZoomOverlay';
@@ -603,20 +604,27 @@ function App() {
                     )
                   }
 
+                  {/* Background Preloader */ }
+                  {
+                    questions.length > 0 && (
+                      <TikZPreloader questions={questions} />
+                    )
+                  }
+
                   return (
                     <>
-                      {/* Source Tags */
-                        (q as any).tags && (q as any).tags.length > 0 && (
-                          <div className="mb-4 flex flex-wrap gap-2">
-                            {(q as any).tags.map((tag: string, idx: number) => (
-                              <span key={idx} className={clsx("inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider shadow-sm",
-                                theme === 'dark' ? "bg-amber-900/30 text-amber-500 border border-amber-800" : "bg-amber-50 text-amber-700 border border-amber-200"
-                              )}>
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                      {/* Source Tags */}
+                      {(q as any).tags && (q as any).tags.length > 0 && (
+                        <div className="mb-4 flex flex-wrap gap-2">
+                          {(q as any).tags.map((tag: string, idx: number) => (
+                            <span key={idx} className={clsx("inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider shadow-sm",
+                              theme === 'dark' ? "bg-amber-900/30 text-amber-500 border border-amber-800" : "bg-amber-50 text-amber-700 border border-amber-200"
+                            )}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                       {(() => {
                         if (qType === 'dang_toan') {
                           // const isDark = theme === 'dark'; // Already defined above

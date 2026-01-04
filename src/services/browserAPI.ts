@@ -197,7 +197,7 @@ export const browserAPI: ElectronAPI = {
     // Remote Control - not available in browser
     startRemoteServer: async () => {
         console.warn('[Browser] Remote control not available in browser mode');
-        return { ip: 'N/A', port: 0, url: '', pin: '' };
+        throw new Error("Tính năng này cần gọi Server nội bộ nên chỉ hoạt động trên bản Desktop (Windows/Mac). Vui lòng tải ứng dụng về máy.");
     },
 
     stopRemoteServer: async () => {
