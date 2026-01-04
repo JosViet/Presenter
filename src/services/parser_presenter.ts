@@ -346,6 +346,19 @@ export const processKhung4 = (text: string): string => {
     });
 };
 
+export const processKhung = (text: string): string => {
+    // Transform \begin{khung}{Title} ... \end{khung} -> Styled HTML Box
+    // Also support \begin{khung}[Title] if that's a variant, but user said {TITLE}
+    const regex = /\\begin\{khung\}\{(.*?)\}([\s\S]*?)\\end\{khung\}/g;
+    return text.replace(regex, (_, title, content) => {
+        const titleHtml = title ? `<div class="font-bold text-indigo-700 mb-2 pb-1 border-b border-indigo-200 text-lg">${title}</div>` : '';
+        return `<div class="my-4 p-5 bg-white border-2 border-indigo-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            ${titleHtml}
+            <div class="text-gray-800 leading-relaxed">${content}</div>
+        </div>`;
+    });
+};
+
 export const processDnDl = (text: string): string => {
     // Transform \begin{dn} ... \end{dn} -> Definition Box
     let clean = text;
@@ -356,11 +369,17 @@ export const processDnDl = (text: string): string => {
         </div>`;
     });
 
-    // Transform \begin{dl} ... \end{dl} -> Theorem Box
-    clean = clean.replace(/\\begin\{dl\}([\s\S]*?)\\end\{dl\}/g, (_, content) => {
-        return `<div class="my-3 p-4 bg-purple-50 border-l-4 border-purple-500 rounded-r-lg shadow-sm">
-            <div class="font-bold text-purple-700 mb-1">Định Lý</div>
-            <div class="text-gray-800 italic">${content}</div>
+    // Transform \begin{dl}[Title] ... \end{dl} -> Theorem Box
+    // Supports optional [Title]
+    clean = clean.replace(/\\begin\{dl\}(\[.*?\])?([\s\S]*?)\\end\{dl\}/g, (_, optTitle, content) => {
+        const titleText = optTitle ? optTitle.slice(1, -1) : ''; // Remove [ ]
+        const displayTitle = titleText ? `Định Lý: ${titleText}` : 'Định Lý';
+
+        return `<div class="my-4 p-5 bg-purple-50 border-l-4 border-purple-500 rounded-r-xl shadow-sm">
+            <div class="font-bold text-purple-700 mb-2 text-lg flex items-center gap-2">
+                <span>📜</span> <span>${displayTitle}</span>
+            </div>
+            <div class="text-gray-800 italic leading-relaxed pl-1">${content}</div>
         </div>`;
     });
 
@@ -466,6 +485,7 @@ export const cleanTexTokens = (text: string) => {
     clean = processListEX(clean); // NEW: Transform listEX to multicols+enumerate
     clean = processLuuy(clean); // NEW: Styled Note Box
     clean = processKhung4(clean); // NEW: Styled Khung4
+    clean = processKhung(clean); // NEW: Styled Generic Khung frame
     clean = processDnDl(clean); // NEW: Definition / Theorem
     clean = processTcolorbox(clean); // NEW: Generic box
     clean = processMinipage(clean); // NEW: Columns
