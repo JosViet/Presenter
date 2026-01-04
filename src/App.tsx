@@ -15,7 +15,7 @@ import { StudentPickerModal } from './components/StudentPickerModal';
 import { SelectedStudentsPopup } from './components/SelectedStudentsPopup';
 import { StudentAnswerOverlay } from './components/StudentAnswerOverlay';
 import { Student, useStudentList } from './hooks/useStudentList';
-import { ChevronLeft, ChevronRight, Palette, FileText, Bookmark, AlertCircle, Eye, EyeOff, Lightbulb, CheckCircle2, LayoutGrid, X, Settings, PenTool, MousePointer2, Timer, Presentation, Save, Smartphone, Users, Dices, FolderOpen } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Palette, FileText, Bookmark, AlertCircle, Eye, EyeOff, Lightbulb, CheckCircle2, LayoutGrid, X, Settings, PenTool, MousePointer2, Timer, Presentation, Save, Smartphone, Users, Dices, FolderOpen, Grip } from 'lucide-react';
 import clsx from 'clsx';
 import { sounds } from './utils/sound';
 import { LatexSettingsModal } from './components/LatexSettingsModalNew';
@@ -553,7 +553,7 @@ function App() {
             {/* Tools Menu */}
             <div className="relative group">
               <button className={clsx("p-2 ml-2 rounded-lg flex items-center justify-center transition-colors", theme === 'dark' ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100")} title="Menu Công cụ">
-                <LayoutGrid size={20} />
+                <Grip size={20} />
               </button>
 
               <div className="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all z-50 origin-top-right scale-95 group-hover:scale-100">
