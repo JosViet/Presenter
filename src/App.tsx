@@ -848,7 +848,7 @@ function App() {
 
               {/* Options / Input Area */}
               {q.question_type === 'tra_loi_ngan' ? (
-                <div className="flex-1 min-h-0 flex flex-col items-center justify-center mt-8 pb-8">
+                <div className={clsx("flex-1 min-h-0 flex flex-col items-center mt-8 pb-8", !showSolution && "justify-center")}>
                   <div className="w-full max-w-2xl">
                     <label className="block text-xl font-medium text-gray-700 mb-4">Nhập câu trả lời của bạn:</label>
                     <div className="relative">
