@@ -894,7 +894,7 @@ function App() {
                       })()}
 
                       {showResult && (
-                        <div className="absolute top-full left-0 w-full mt-4 text-center animate-in fade-in slide-in-from-top-2">
+                        <div className="w-full mt-4 text-center animate-in fade-in slide-in-from-top-2">
                           <div className="inline-block px-6 py-3 bg-green-100 text-green-800 rounded-xl border border-green-200 shadow-sm">
                             <span className="font-bold text-lg">Đáp án đúng: </span>
                             <span className="font-mono text-2xl font-bold ml-2">
